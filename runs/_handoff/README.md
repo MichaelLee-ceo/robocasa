@@ -41,7 +41,8 @@ cd ~/Desktop/robocasa
 conda create -p envs/groot python=3.10.22 -y && conda activate ./envs/groot
 pip install torch==2.7.1 torchvision --index-url https://download.pytorch.org/whl/cu128
 pip install -e third_party/robosuite
-pip install -e .                              # robocasa
+pip install -e . --no-deps                    # robocasa; --no-deps: its setup.py pins lerobot==0.3.3, which the
+                                              # original env did not have (deps come from the lock file below)
 pip install -e third_party/Isaac-GR00T        # gr00t
 # flash-attn 2.8.3 was installed from a prebuilt wheel (not in git; copied to ~/robocasa_handoff/wheels/ on the
 # original machine; most likely the Dao-AILab/flash-attention v2.8.3 GitHub release asset, exact URL not recorded):
