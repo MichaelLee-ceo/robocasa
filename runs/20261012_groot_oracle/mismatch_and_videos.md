@@ -1,0 +1,59 @@
+## tracker_mismatch cases (every subtask predicate fired, env._check_success() never true)
+- baseline_demoinit ArrangeTea d300: completions (step,k) [[320, 0], [368, 1], [512, 2], [624, 3], [1248, 4]]; ran 1500/1500; video ArrangeTea/ArrangeTea_d300_baseline_demoinit.mp4
+- baseline_demoinit ArrangeTea d400: completions (step,k) [[160, 0], [208, 1], [416, 2], [512, 3], [1500, 4]]; ran 1500/1500; video ArrangeTea/ArrangeTea_d400_baseline_demoinit.mp4
+- baseline_demoinit CuttingToolSelection d100: completions (step,k) [[160, 0], [272, 1]]; ran 800/800; video CuttingToolSelection/CuttingToolSelection_d100_baseline_demoinit.mp4
+- baseline_demoinit CuttingToolSelection d450: completions (step,k) [[160, 0], [288, 1]]; ran 800/800; video CuttingToolSelection/CuttingToolSelection_d450_baseline_demoinit.mp4
+- baseline_demoinit RecycleBottlesByType d156: completions (step,k) [[176, 0], [304, 1], [480, 2], [608, 3], [768, 4], [816, 5]]; ran 1900/1900; video RecycleBottlesByType/RecycleBottlesByType_d156_baseline_demoinit.mp4
+- baseline_demoinit SeparateFreezerRack d0: completions (step,k) [[144, 0], [320, 1], [464, 2], [704, 3], [848, 4], [1136, 5], [1440, 6]]; ran 1600/1600; video SeparateFreezerRack/SeparateFreezerRack_d0_baseline_demoinit.mp4
+- baseline_demoinit WeighIngredients d100: completions (step,k) [[176, 0], [512, 1], [1104, 2]]; ran 2000/2000; video WeighIngredients/WeighIngredients_d100_baseline_demoinit.mp4
+- baseline_demoinit WeighIngredients d302: completions (step,k) [[144, 0], [208, 1], [1136, 2]]; ran 2000/2000; video WeighIngredients/WeighIngredients_d302_baseline_demoinit.mp4
+- planner ArrangeTea d150: completions (step,k) [[192, 0], [320, 1], [512, 2], [800, 3], [1328, 4]]; ran 1500/1500; video ArrangeTea/ArrangeTea_d150_planner.mp4
+- planner ArrangeTea d200: completions (step,k) [[96, 0], [240, 1], [448, 2], [592, 3], [992, 4]]; ran 1500/1500; video ArrangeTea/ArrangeTea_d200_planner.mp4
+- planner ArrangeTea d350: completions (step,k) [[160, 0], [528, 1], [720, 2], [944, 3], [1312, 4]]; ran 1500/1500; video ArrangeTea/ArrangeTea_d350_planner.mp4
+- planner CuttingToolSelection d450: completions (step,k) [[224, 0], [320, 1]]; ran 800/800; video CuttingToolSelection/CuttingToolSelection_d450_planner.mp4
+- planner WeighIngredients d50: completions (step,k) [[512, 0], [672, 1], [848, 2]]; ran 2000/2000; video WeighIngredients/WeighIngredients_d50_planner.mp4
+- planner WeighIngredients d151: completions (step,k) [[1024, 0], [1168, 1], [1984, 2]]; ran 2000/2000; video WeighIngredients/WeighIngredients_d151_planner.mp4
+- planner WeighIngredients d201: completions (step,k) [[160, 0], [288, 1], [528, 2]]; ran 2000/2000; video WeighIngredients/WeighIngredients_d201_planner.mp4
+- planner WeighIngredients d352: completions (step,k) [[144, 0], [352, 1], [1088, 2]]; ran 2000/2000; video WeighIngredients/WeighIngredients_d352_planner.mp4
+- planner WeighIngredients d403: completions (step,k) [[144, 0], [304, 1], [1328, 2]]; ran 2000/2000; video WeighIngredients/WeighIngredients_d403_planner.mp4
+
+## video observations -> episodes
+- CuttingToolSelection wrong tool ('decision'):
+  - CuttingToolSelection_d50_reset_sub_k0: k0:pick grasped wrong object ['knife'] instead of peeler -> CuttingToolSelection/CuttingToolSelection_d50_reset_sub_k0.mp4
+  - CuttingToolSelection_d50_baseline_demoinit: k0:pick grasped wrong object ['knife'] instead of peeler -> CuttingToolSelection/CuttingToolSelection_d50_baseline_demoinit.mp4
+  - CuttingToolSelection_d200_reset_sub_k0: k0:pick grasped wrong object ['peeler'] instead of knife -> CuttingToolSelection/CuttingToolSelection_d200_reset_sub_k0.mp4
+  - CuttingToolSelection_d0_reset_sub_k0: k0:pick grasped wrong object ['knife'] instead of peeler -> CuttingToolSelection/CuttingToolSelection_d0_reset_sub_k0.mp4
+  - CuttingToolSelection_d300_reset_sub_k0: k0:pick grasped wrong object ['peeler'] instead of knife -> CuttingToolSelection/CuttingToolSelection_d300_reset_sub_k0.mp4
+  - CuttingToolSelection_d50_planner: k0:pick grasped wrong object ['knife'] instead of peeler -> CuttingToolSelection/CuttingToolSelection_d50_planner.mp4
+  - CuttingToolSelection_d200_reset_task_k0: k0:pick grasped wrong object ['peeler'] instead of knife -> CuttingToolSelection/CuttingToolSelection_d200_reset_task_k0.mp4
+  - CuttingToolSelection_d0_baseline_demoinit: k0:pick grasped wrong object ['food', 'knife'] instead of peeler -> CuttingToolSelection/CuttingToolSelection_d0_baseline_demoinit.mp4
+  - CuttingToolSelection_d300_baseline_demoinit: k0:pick grasped wrong object ['peeler'] instead of knife -> CuttingToolSelection/CuttingToolSelection_d300_baseline_demoinit.mp4
+  - CuttingToolSelection_d200_baseline_demoinit: k0:pick grasped wrong object ['food_container', 'peeler'] instead of knife -> CuttingToolSelection/CuttingToolSelection_d200_baseline_demoinit.mp4
+  - CuttingToolSelection_d50_reset_task_k0: k0:pick grasped wrong object ['knife'] instead of peeler -> CuttingToolSelection/CuttingToolSelection_d50_reset_task_k0.mp4
+  - CuttingToolSelection_d0_reset_task_k0: k0:pick grasped wrong object ['knife'] instead of peeler -> CuttingToolSelection/CuttingToolSelection_d0_reset_task_k0.mp4
+- WeighIngredients upper-cabinet grasp failures (seeded repro): ../20261012_groot_repro_h1x/WeighIngredients/WeighIngredients_s0.mp4 (frames reviewed); s3,s4,s5,s6,s7 also failed at 2000/2000 (not reviewed)
+- WashFruitColander faucet hover: WashFruitColander/WashFruitColander_d0_reset_sub_k7.mp4 (reviewed). All faucet-subtask reset failures:
+  - WashFruitColander_d152_reset_sub_k4 (648/648 steps)
+  - WashFruitColander_d304_reset_sub_k6 (780/780 steps)
+  - WashFruitColander_d354_reset_sub_k4 (666/666 steps)
+  - WashFruitColander_d202_reset_sub_k8 (450/450 steps)
+  - WashFruitColander_d405_reset_sub_k8 (654/654 steps)
+  - WashFruitColander_d202_reset_task_k8 (450/450 steps)
+  - WashFruitColander_d0_reset_sub_k7 (390/390 steps)
+  - WashFruitColander_d253_reset_sub_k8 (561/561 steps)
+  - WashFruitColander_d152_reset_task_k4 (648/648 steps)
+  - WashFruitColander_d304_reset_task_k6 (780/780 steps)
+  - WashFruitColander_d50_reset_task_k5 (462/462 steps)
+  - WashFruitColander_d456_reset_task_k7 (495/495 steps)
+- WaffleReheat planner stuck at 'open the microwave' (subtask language):
+  - WaffleReheat_d350_planner (2700/2700) -> WaffleReheat/WaffleReheat_d350_planner.mp4
+  - WaffleReheat_d400_planner (2700/2700) -> WaffleReheat/WaffleReheat_d400_planner.mp4
+  - WaffleReheat_d200_planner (2700/2700) -> WaffleReheat/WaffleReheat_d200_planner.mp4
+  - WaffleReheat_d450_planner (2700/2700) -> WaffleReheat/WaffleReheat_d450_planner.mp4
+  - WaffleReheat_d300_planner (2700/2700) -> WaffleReheat/WaffleReheat_d300_planner.mp4
+- SeparateFreezerRack planner stuck at navigate:
+  - SeparateFreezerRack_d100_planner: k3:navigate navigation not completed -> SeparateFreezerRack/SeparateFreezerRack_d100_planner.mp4
+  - SeparateFreezerRack_d350_planner: k1:navigate navigation not completed -> SeparateFreezerRack/SeparateFreezerRack_d350_planner.mp4
+  - SeparateFreezerRack_d400_planner: k1:navigate navigation not completed -> SeparateFreezerRack/SeparateFreezerRack_d400_planner.mp4
+  - SeparateFreezerRack_d450_planner: k1:navigate navigation not completed -> SeparateFreezerRack/SeparateFreezerRack_d450_planner.mp4
+  - SeparateFreezerRack_d300_planner: k1:navigate navigation not completed -> SeparateFreezerRack/SeparateFreezerRack_d300_planner.mp4

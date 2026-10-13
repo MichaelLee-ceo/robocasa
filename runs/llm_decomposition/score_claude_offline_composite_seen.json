@@ -1,0 +1,313 @@
+[
+ {
+  "task": "DeliverStraw",
+  "contaminated": true,
+  "pred": [
+   "OpenDrawer",
+   "PickPlaceDrawerToCounter",
+   "NavigateKitchen"
+  ],
+  "gt_most_common": [
+   "OpenDrawer",
+   "PickPlaceDrawerToCounter",
+   "NavigateKitchen"
+  ],
+  "n_gt_variants": 1,
+  "exact": true,
+  "edit": 0,
+  "norm_edit": 0.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "GetToastedBread",
+  "contaminated": true,
+  "pred": [
+   "TurnOnToaster",
+   "PickPlaceToasterToCounter",
+   "NavigateKitchen"
+  ],
+  "gt_most_common": [
+   "TurnOnToaster",
+   "PickPlaceToasterToCounter",
+   "NavigateKitchen"
+  ],
+  "n_gt_variants": 1,
+  "exact": true,
+  "edit": 0,
+  "norm_edit": 0.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "KettleBoiling",
+  "contaminated": true,
+  "pred": [
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "gt_most_common": [
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "n_gt_variants": 1,
+  "exact": true,
+  "edit": 0,
+  "norm_edit": 0.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "LoadDishwasher",
+  "contaminated": false,
+  "pred": [
+   "OpenDishwasher",
+   "PickPlaceCounterToDishwasher",
+   "PickPlaceCounterToDishwasher",
+   "CloseDishwasher"
+  ],
+  "gt_most_common": [
+   "PickPlaceCounterToDishwasher",
+   "PickPlaceCounterToDishwasher",
+   "CloseDishwasher"
+  ],
+  "n_gt_variants": 1,
+  "exact": false,
+  "edit": 1,
+  "norm_edit": 0.25,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "PackIdenticalLunches",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToCounter"
+  ],
+  "gt_most_common": [
+   "PickPlaceFridgeToCounter",
+   "NavigateKitchen",
+   "NavigateKitchen",
+   "PickPlaceFridgeToCounter",
+   "NavigateKitchen",
+   "NavigateKitchen",
+   "PickPlaceFridgeToCounter",
+   "NavigateKitchen",
+   "NavigateKitchen",
+   "PickPlaceFridgeToCounter",
+   "NavigateKitchen"
+  ],
+  "n_gt_variants": 2,
+  "exact": false,
+  "edit": 7,
+  "norm_edit": 1.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "PreSoakPan",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCounterToSink",
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "gt_most_common": [
+   "PickPlaceCounterToSink",
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "n_gt_variants": 1,
+  "exact": true,
+  "edit": 0,
+  "norm_edit": 0.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "PrepareCoffee",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCabinetToCounter",
+   "CoffeeSetupMug",
+   "StartCoffeeMachine"
+  ],
+  "gt_most_common": [
+   "CoffeeSetupMug",
+   "StartCoffeeMachine"
+  ],
+  "n_gt_variants": 1,
+  "exact": false,
+  "edit": 1,
+  "norm_edit": 0.33,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "RinseSinkBasin",
+  "contaminated": false,
+  "pred": [
+   "TurnOnSinkFaucet",
+   "TurnSinkSpout",
+   "TurnSinkSpout"
+  ],
+  "gt_most_common": [
+   "TurnOnSinkFaucet",
+   "TurnSinkSpout"
+  ],
+  "n_gt_variants": 1,
+  "exact": false,
+  "edit": 1,
+  "norm_edit": 0.33,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "ScrubCuttingBoard",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCounterToCounter",
+   "Scrub"
+  ],
+  "gt_most_common": [
+   "PickUpSponge",
+   "ScrubCuttingBoard"
+  ],
+  "n_gt_variants": 2,
+  "exact": false,
+  "edit": 2,
+  "norm_edit": 1.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "SearingMeat",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCabinetToCounter",
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "gt_most_common": [
+   "PickPlaceCabinetToStove",
+   "NavigateKitchen",
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "n_gt_variants": 1,
+  "exact": false,
+  "edit": 2,
+  "norm_edit": 0.5,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "SetUpCuttingStation",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceDrawerToCounter",
+   "PickPlaceCounterToCounter"
+  ],
+  "gt_most_common": [
+   "PickPlaceDrawerToCounter",
+   "NavigateKitchen",
+   "PickPlaceCounterToCounter"
+  ],
+  "n_gt_variants": 6,
+  "exact": true,
+  "edit": 0,
+  "norm_edit": 0.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "StackBowlsCabinet",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCounterToCabinet",
+   "PickPlaceCounterToCabinet"
+  ],
+  "gt_most_common": [
+   "PickPlaceCounterToCabinet",
+   "PickPlaceCounterToCabinet"
+  ],
+  "n_gt_variants": 1,
+  "exact": true,
+  "edit": 0,
+  "norm_edit": 0.0,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "SteamInMicrowave",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceSinkToCounter",
+   "PickPlaceCounterToMicrowave",
+   "CloseMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "gt_most_common": [
+   "PickPlaceSinkToCounter",
+   "PickPlaceCounterToMicrowave",
+   "NavigateKitchen",
+   "CloseMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "n_gt_variants": 1,
+  "exact": false,
+  "edit": 1,
+  "norm_edit": 0.2,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "StirVegetables",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCounterToStove",
+   "PickPlaceCounterToStove",
+   "PickPlaceCounterToStove",
+   "Stir"
+  ],
+  "gt_most_common": [
+   "PickPlaceCounterToStove",
+   "PickPlaceCounterToStove",
+   "PickUpSpatula",
+   "StirVegetables"
+  ],
+  "n_gt_variants": 6,
+  "exact": false,
+  "edit": 2,
+  "norm_edit": 0.5,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "StoreLeftoversInBowl",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToCounter",
+   "OpenFridge",
+   "PickPlaceCounterToFridge"
+  ],
+  "gt_most_common": [
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToFridge",
+   "NavigateKitchen"
+  ],
+  "n_gt_variants": 1,
+  "exact": false,
+  "edit": 2,
+  "norm_edit": 0.5,
+  "pred_uses_nonatomic": false
+ },
+ {
+  "task": "WashLettuce",
+  "contaminated": false,
+  "pred": [
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "gt_most_common": [
+   "TurnOnSinkFaucet",
+   "PickPlaceCounterToSink"
+  ],
+  "n_gt_variants": 1,
+  "exact": false,
+  "edit": 2,
+  "norm_edit": 1.0,
+  "pred_uses_nonatomic": false
+ }
+]

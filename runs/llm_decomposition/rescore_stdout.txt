@@ -1,0 +1,32 @@
+full sequence clean exact 3/13  mean ned 0.43
+    [('LoadDishwasher', False, 0.25), ('PackIdenticalLunches', False, 1.0), ('PreSoakPan', True, 0.0), ('PrepareCoffee', False, 0.33), ('RinseSinkBasin', False, 0.33), ('ScrubCuttingBoard', False, 1.0), ('SearingMeat', False, 0.5), ('SetUpCuttingStation', True, 0.0), ('StackBowlsCabinet', True, 0.0), ('SteamInMicrowave', False, 0.2), ('StirVegetables', False, 0.5), ('StoreLeftoversInBowl', False, 0.5), ('WashLettuce', False, 1.0)]
+ignore navigate clean exact 4/13  mean ned 0.38
+    [('LoadDishwasher', False, 0.25), ('PackIdenticalLunches', False, 1.0), ('PreSoakPan', True, 0.0), ('PrepareCoffee', False, 0.33), ('RinseSinkBasin', False, 0.33), ('ScrubCuttingBoard', False, 1.0), ('SearingMeat', False, 0.33), ('SetUpCuttingStation', True, 0.0), ('StackBowlsCabinet', True, 0.0), ('SteamInMicrowave', True, 0.0), ('StirVegetables', False, 0.5), ('StoreLeftoversInBowl', False, 0.25), ('WashLettuce', False, 1.0)]
+GT skill vocabulary in composite_seen annotations (skill: #tasks):
+  NavigateKitchen: 18  in_65_atomic=True
+  PickPlaceCounterToStove: 8  in_65_atomic=True
+  PickPlaceDrawerToCounter: 7  in_65_atomic=True
+  PickPlaceCounterToCounter: 7  in_65_atomic=False
+  StirVegetables: 6  in_65_atomic=False
+  PickUpSpatula: 6  in_65_atomic=False
+  TurnOnSinkFaucet: 3  in_65_atomic=True
+  TurnOnStove: 2  in_65_atomic=True
+  PickPlaceFridgeToCounter: 2  in_65_atomic=False
+  PickPlaceCounterToSink: 2  in_65_atomic=True
+  PickUpSponge: 2  in_65_atomic=False
+  ScrubCuttingBoard: 2  in_65_atomic=False
+  OpenDrawer: 1  in_65_atomic=True
+  TurnOnToaster: 1  in_65_atomic=True
+  PickPlaceToasterToCounter: 1  in_65_atomic=True
+  CloseDishwasher: 1  in_65_atomic=True
+  PickPlaceCounterToDishwasher: 1  in_65_atomic=False
+  CoffeeSetupMug: 1  in_65_atomic=True
+  StartCoffeeMachine: 1  in_65_atomic=True
+  TurnSinkSpout: 1  in_65_atomic=True
+  PickPlaceCabinetToStove: 1  in_65_atomic=False
+  PickPlaceCounterToCabinet: 1  in_65_atomic=True
+  CloseMicrowave: 1  in_65_atomic=True
+  PickPlaceCounterToMicrowave: 1  in_65_atomic=True
+  TurnOnMicrowave: 1  in_65_atomic=True
+  PickPlaceSinkToCounter: 1  in_65_atomic=True
+  PickPlaceCounterToFridge: 1  in_65_atomic=False

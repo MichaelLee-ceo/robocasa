@@ -1,0 +1,23 @@
+KettleBoiling      baseline 9/10  chain 5/10  prod(atomic) 0.8  prod(task) 0.72
+    step1 PickPlaceCounterToStove      reset_atomic 10/10  reset_task 9/10  base_cond 10/10  chain_cond 7/10
+    step2 TurnOnStove                  reset_atomic 8/10  reset_task 8/10  base_cond 9/10  chain_cond 5/7
+    failure point baseline: {'TurnOnStove (step 2)': 1}  chain: {'PickPlaceCounterToStove (step 1)': 3, 'TurnOnStove (step 2)': 2}
+PreSoakPan         baseline 10/10  chain 9/10  prod(atomic) 0.63  prod(task) 0.9
+    step1 PickPlaceCounterToSink       reset_atomic 9/10  reset_task 9/10  base_cond 10/10  chain_cond 10/10
+    step2 PickPlaceCounterToSink       reset_atomic 10/10  reset_task 10/10  base_cond 10/10  chain_cond 10/10
+    step3 TurnOnSinkFaucet             reset_atomic 7/10  reset_task 10/10  base_cond 10/10  chain_cond 9/10
+    failure point baseline: {}  chain: {'TurnOnSinkFaucet (step 3)': 1}
+StackBowlsCabinet  baseline 10/10  chain 5/10  prod(atomic) 0.36  prod(task) 0.48
+    step1 PickPlaceCounterToCabinet    reset_atomic 4/10  reset_task 6/10  base_cond 10/10  chain_cond 8/10
+    step2 PickPlaceCounterToCabinet    reset_atomic 9/10  reset_task 8/10  base_cond 10/10  chain_cond 5/8
+    failure point baseline: {}  chain: {'PickPlaceCounterToCabinet (step 2)': 3, 'PickPlaceCounterToCabinet (step 1)': 2}
+SteamInMicrowave   baseline 4/10  chain 3/10  prod(atomic) 0.454  prod(task) 0.51
+    step1 PickPlaceSinkToCounter       reset_atomic 9/10  reset_task 9/10  base_cond 9/10  chain_cond 10/10
+    step2 PickPlaceCounterToMicrowave  reset_atomic 7/10  reset_task 7/10  base_cond 7/9  chain_cond 6/10
+    step3 CloseMicrowave               reset_atomic 9/10  reset_task 9/10  base_cond 6/7  chain_cond 4/6
+    step4 TurnOnMicrowave              reset_atomic 8/10  reset_task 9/10  base_cond 4/6  chain_cond 3/4
+    failure point baseline: {'CloseMicrowave (step 3)': 1, 'TurnOnMicrowave (step 4)': 2, 'PickPlaceCounterToMicrowave (step 2)': 2, 'PickPlaceSinkToCounter (step 1)': 1}  chain: {'PickPlaceCounterToMicrowave (step 2)': 4, 'CloseMicrowave (step 3)': 2, 'TurnOnMicrowave (step 4)': 1}
+PrepareCoffee      baseline 1/10  chain 2/10  prod(atomic) 0.1  prod(task) 0.1
+    step1 CoffeeSetupMug               reset_atomic 2/10  reset_task 2/10  base_cond 2/10  chain_cond 3/10
+    step2 StartCoffeeMachine           reset_atomic 5/10  reset_task 5/10  base_cond 1/2  chain_cond 2/3
+    failure point baseline: {'CoffeeSetupMug (step 1)': 8, 'StartCoffeeMachine (step 2)': 1}  chain: {'CoffeeSetupMug (step 1)': 7, 'StartCoffeeMachine (step 2)': 1}

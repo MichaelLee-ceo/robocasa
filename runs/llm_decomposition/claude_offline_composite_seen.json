@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "producer": "Claude (this session), offline, from the task instruction + the list of 65 RoboCasa atomic task names/descriptions only",
+    "written_at": "2026-10-12, before reading the subtask annotations of 13 of the 16 tasks",
+    "contaminated": ["KettleBoiling", "DeliverStraw", "GetToastedBread"],
+    "contamination_note": "the annotations of these 3 tasks were printed in this session before the decompositions were written; their scores are not a fair LLM measurement",
+    "format": "ordered list of atomic task names (pick+place = one atomic skill); NavigateKitchen inserted where the instruction implies a different work area"
+  },
+  "DeliverStraw": ["OpenDrawer", "PickPlaceDrawerToCounter", "NavigateKitchen"],
+  "GetToastedBread": ["TurnOnToaster", "PickPlaceToasterToCounter", "NavigateKitchen"],
+  "KettleBoiling": ["PickPlaceCounterToStove", "TurnOnStove"],
+  "LoadDishwasher": ["OpenDishwasher", "PickPlaceCounterToDishwasher*", "PickPlaceCounterToDishwasher*", "CloseDishwasher"],
+  "PackIdenticalLunches": ["PickPlaceCounterToCounter*", "PickPlaceCounterToCounter*", "PickPlaceCounterToCounter*", "PickPlaceCounterToCounter*"],
+  "PreSoakPan": ["PickPlaceCounterToSink", "PickPlaceCounterToSink", "TurnOnSinkFaucet"],
+  "PrepareCoffee": ["PickPlaceCabinetToCounter", "CoffeeSetupMug", "StartCoffeeMachine"],
+  "RinseSinkBasin": ["TurnOnSinkFaucet", "TurnSinkSpout", "TurnSinkSpout"],
+  "ScrubCuttingBoard": ["PickPlaceCounterToCounter*", "Scrub*"],
+  "SearingMeat": ["PickPlaceCabinetToCounter", "PickPlaceCounterToStove", "TurnOnStove"],
+  "SetUpCuttingStation": ["PickPlaceDrawerToCounter", "PickPlaceCounterToCounter*"],
+  "StackBowlsCabinet": ["PickPlaceCounterToCabinet", "PickPlaceCounterToCabinet"],
+  "SteamInMicrowave": ["PickPlaceSinkToCounter", "PickPlaceCounterToMicrowave", "CloseMicrowave", "TurnOnMicrowave"],
+  "StirVegetables": ["PickPlaceCounterToStove", "PickPlaceCounterToStove", "PickPlaceCounterToStove", "Stir*"],
+  "StoreLeftoversInBowl": ["PickPlaceCounterToCounter*", "PickPlaceCounterToCounter*", "OpenFridge", "PickPlaceCounterToFridge*"],
+  "WashLettuce": ["PickPlaceCounterToSink", "TurnOnSinkFaucet"],
+  "_legend": "* = no exact atomic task among the 65 (closest/new skill name used)"
+}

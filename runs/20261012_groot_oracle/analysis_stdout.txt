@@ -1,0 +1,25 @@
+baseline_demoinit  48/80 = 60.0% [49.0%,70.0%] labels: {'decision': 7, 'motor': 4, 'motor_or_decision': 5, 'progress/stuck': 5, 'timeout': 3, 'tracker_mismatch': 8}
+planner            35/80 = 43.8% [33.4%,54.7%] labels: {'decision': 5, 'motor': 8, 'motor_or_decision': 13, 'progress/stuck': 6, 'progress/memory': 2, 'timeout': 2, 'tracker_mismatch': 9}
+reset_sub          317/389 = 81.5% [77.3%,85.0%] labels: {'decision': 10, 'motor': 18, 'motor_or_decision': 14, 'progress/stuck': 30}
+reset_task         346/389 = 88.9% [85.4%,91.7%] labels: {'decision': 9, 'motor': 13, 'motor_or_decision': 14, 'progress/stuck': 7}
+
+per-demo chain analysis
+ArrangeTea             n=10 e2e=0.40 planner=0.20 | chain(reset_task)=0.30 sub=0.80 | chain(reset_sub)=0.60 sub=0.90
+BreadSelection         n=10 e2e=0.80 planner=0.90 | chain(reset_task)=0.70 sub=0.90 | chain(reset_sub)=0.80 sub=0.95
+CuttingToolSelection   n=10 e2e=0.30 planner=0.50 | chain(reset_task)=0.60 sub=0.75 | chain(reset_sub)=0.50 sub=0.70
+RecycleBottlesByType   n=9 e2e=0.89 planner=0.67 | chain(reset_task)=0.89 sub=0.98 | chain(reset_sub)=0.89 sub=0.98
+SeparateFreezerRack    n=10 e2e=0.20 planner=0.00 | chain(reset_task)=0.40 sub=0.86 | chain(reset_sub)=0.00 sub=0.40
+WaffleReheat           n=10 e2e=1.00 planner=0.50 | chain(reset_task)=0.80 sub=0.96 | chain(reset_sub)=0.50 sub=0.90
+WashFruitColander      n=10 e2e=0.50 planner=0.40 | chain(reset_task)=0.30 sub=0.88 | chain(reset_sub)=0.20 sub=0.86
+WeighIngredients       n=10 e2e=0.70 planner=0.30 | chain(reset_task)=0.80 sub=0.93 | chain(reset_sub)=0.90 sub=0.97
+
+conditional per-subtask success: baseline rollout (reached k) vs oracle reset_task
+ArrangeTea             n(subtask instances reached in baseline)= 41  baseline-conditional=0.90  oracle-reset=0.80
+BreadSelection         n(subtask instances reached in baseline)= 34  baseline-conditional=0.94  oracle-reset=0.91
+CuttingToolSelection   n(subtask instances reached in baseline)= 16  baseline-conditional=0.69  oracle-reset=0.75
+RecycleBottlesByType   n(subtask instances reached in baseline)= 51  baseline-conditional=1.00  oracle-reset=0.98
+SeparateFreezerRack    n(subtask instances reached in baseline)= 42  baseline-conditional=0.83  oracle-reset=0.83
+WaffleReheat           n(subtask instances reached in baseline)= 50  baseline-conditional=1.00  oracle-reset=0.96
+WashFruitColander      n(subtask instances reached in baseline)= 59  baseline-conditional=0.92  oracle-reset=0.88
+WeighIngredients       n(subtask instances reached in baseline)= 28  baseline-conditional=0.96  oracle-reset=0.93
+ALL n=321 baseline-conditional=0.925 oracle-reset=0.894  2x2 (baseline_ok, reset_ok): {(True, True): 272, (False, True): 15, (True, False): 25, (False, False): 9}

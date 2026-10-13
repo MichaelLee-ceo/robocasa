@@ -1,0 +1,8 @@
+[
+ "<b>在新場景（標準評估的隨機 seed）上，atomic 串接確實比整句指令差。</b> 5 個任務各 20 次：整句指令 51/100，atomic 串接 33/100；同一個 seed 配對比較，只有整句成功 31 次、只有串接成功 13 次，p=0.01。所以這不是訓練 demo 起點造成的偏差。",
+ "<b>換手本身不是原因（實驗 A、B，新場景各 20 次）。</b> A：第 1 步用 atomic 句、完成後換回整句，換手還在，但成功率回到整句的水準。StackBowlsCabinet 13/20（整句 15/20、串接 5/20），SteamInMicrowave 9/20（整句 8/20、串接 3/20）。B：只把缺資訊的那一步改寫。SteamInMicrowave 第 2 步從 9/20 回到 14/18，接近整句的 15/18；StackBowlsCabinet 第 2 步就算明講要疊上去，也只有 7/17（整句 15/17）。",
+ "<b>沒有找到程式接錯的證據。</b> 檢查了三件事：(1) 條件完全相同的設定重跑，結果就會時好時壞（KettleBoiling 第 1 步，串接 10/12、單步 8/12）；(2) 同一套串接程式、每一步都給整句指令，成功率跟 baseline 沒有顯著差異（29/50 vs 34/50，p=0.27）。而且這兩組其實跑的是同一段程式碼（<code>rollout()</code> 的整句模式，不換句），等於同一個設定重跑兩次，所以少的 5 次只能是取樣的隨機變異；(3) 新場景的整句指令 51/100，跟另一套程式跑的重現實驗 47/100 一致。新場景那 100 次「整句指令」也走同一段串接程式（不換句），所以「串接程式」和「atomic 句子」在新場景已經分開：唯一的差別就是換成 atomic 句子。",
+ "<b>串接變差，集中在 atomic 句子遺失任務資訊的步驟。</b> StackBowlsCabinet 第 2 步：串接 5/16，整句 15/17。兩步的 atomic 指令都是「Pick the bowl from the counter and place it in the cabinet.」，沒有「疊在另一個碗上」，也分不出是哪一個碗。SteamInMicrowave 第 2 步：串接 9/20，整句 15/18。微波爐不在手邊、要先移動過去，但 atomic 的 PickPlaceCounterToMicrowave 句子沒有提到要移動。",
+ "<b>兩種方式都卡住的瓶頸技能。</b> PrepareCoffee 的 CoffeeSetupMug（杯子放到出水口下）在兩種條件下都只有 5/20，是這個任務分數低的主因；串接在第 2 步（按啟動）反而比較好（4/5 vs 2/5）。KettleBoiling 的開爐火（整句 12/18）和 PreSoakPan 的開水（整句 14/20），則是這兩個任務最主要的失敗點。",
+ "<b>逐任務表格中「從正確起點・atomic 指令」「從正確起點・整句」兩欄是從訓練 demo 的狀態開始，分數偏樂觀</b>（同一批 demo 起點的整句完整跑，PreSoakPan 10/10，新場景是 14/20）。在這兩欄裡，有些步驟完整跑時反而比單獨 reset 更容易成功。最明顯的是 StackBowlsCabinet 第 1 步：完整跑時 10/10，同樣給整句指令、單獨 reset 只有 6/10（給 atomic 指令是 4/10）。可能的原因是單步的步數上限較短，以及模型先放了另一個碗（跟 demo 順序不同）。所以整句指令下「各步相乘」會低估 StackBowlsCabinet（0.48 vs 實際 1.0）和 KettleBoiling（0.72 vs 0.9）；SteamInMicrowave（0.51 vs 0.40）、PreSoakPan（0.90 vs 1.0）和 PrepareCoffee（0.10 vs 0.10）則接近。"
+]

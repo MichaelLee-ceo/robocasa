@@ -1,0 +1,14 @@
+# large or regenerable outputs (copy with rsync if needed; see runs/_handoff/README.md)
+*.mp4
+*.jpg
+*.png
+*.log
+!scripts/sched/*.log
+*.npz
+!scenes_seen5_v2/*.npz
+!20261013_scenes_v2/*/*_single_states.npz
+!20261013_pretrain3/*/*_single_states.npz
+report/
+report_v2/
+scenes_seen5/
+__pycache__/

@@ -1,0 +1,7314 @@
+{
+ "tasks": {
+  "KettleBoiling": {
+   "instruction_example": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+   "atomic_instructions_example": [
+    "Pick the kettle from the counter and place it on the stove.",
+    "Turn on the front left burner of the stove."
+   ],
+   "skills": [
+    "PickPlaceCounterToStove",
+    "TurnOnStove"
+   ],
+   "baseline": {
+    "k": 9,
+    "n": 10,
+    "rate": 0.9,
+    "ci95": [
+     0.596,
+     0.982
+    ]
+   },
+   "chain_atomic": {
+    "k": 5,
+    "n": 10,
+    "rate": 0.5,
+    "ci95": [
+     0.237,
+     0.763
+    ]
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceCounterToStove",
+     "note": "atomic template: \"Pick the {obj} from the plate and place it in the pan.\" -> source/target words adapted",
+     "reset_atomic": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0,
+      "ci95": [
+       0.722,
+       1
+      ]
+     },
+     "reset_task": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "baseline_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     },
+     "chain_atomic_conditional": {
+      "k": 7,
+      "n": 10,
+      "rate": 0.7
+     }
+    },
+    {
+     "k": 1,
+     "skill": "TurnOnStove",
+     "note": null,
+     "reset_atomic": {
+      "k": 8,
+      "n": 10,
+      "rate": 0.8,
+      "ci95": [
+       0.49,
+       0.943
+      ]
+     },
+     "reset_task": {
+      "k": 8,
+      "n": 10,
+      "rate": 0.8,
+      "ci95": [
+       0.49,
+       0.943
+      ]
+     },
+     "baseline_conditional": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9
+     },
+     "chain_atomic_conditional": {
+      "k": 5,
+      "n": 7,
+      "rate": 0.714
+     }
+    }
+   ],
+   "product_reset_atomic": 0.8,
+   "product_reset_task": 0.72,
+   "baseline_failure_point": {
+    "TurnOnStove (step 2)": 1
+   },
+   "chain_atomic_failure_point": {
+    "PickPlaceCounterToStove (step 1)": 3,
+    "TurnOnStove (step 2)": 2
+   },
+   "episodes": [
+    {
+     "tag": "KettleBoiling_d0_baseline",
+     "demo": 0,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 352,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d0_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d0_chain_atomic",
+     "demo": 0,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1000,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d0_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d0_reset_atomic_k0",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 750,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d0_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d0_reset_atomic_k1",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 128,
+     "budget": 384,
+     "instr_log": [
+      [
+       0,
+       "Turn on the left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d0_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d0_reset_task_k0",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 256,
+     "budget": 750,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d0_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d0_reset_task_k1",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 160,
+     "budget": 384,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d0_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d50_baseline",
+     "demo": 50,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 448,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d50_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d50_chain_atomic",
+     "demo": 50,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1000,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ],
+      [
+       560,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d50_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d50_reset_atomic_k0",
+     "demo": 50,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 224,
+     "budget": 570,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d50_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d50_reset_atomic_k1",
+     "demo": 50,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 333,
+     "budget": 333,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d50_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d50_reset_task_k0",
+     "demo": 50,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 224,
+     "budget": 570,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d50_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d50_reset_task_k1",
+     "demo": 50,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 144,
+     "budget": 333,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d50_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d100_baseline",
+     "demo": 100,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 496,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d100_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d100_chain_atomic",
+     "demo": 100,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 432,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ],
+      [
+       352,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d100_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d100_reset_atomic_k0",
+     "demo": 100,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 352,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d100_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d100_reset_atomic_k1",
+     "demo": 100,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 144,
+     "budget": 657,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d100_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d100_reset_task_k0",
+     "demo": 100,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 336,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d100_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d100_reset_task_k1",
+     "demo": 100,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 208,
+     "budget": 657,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d100_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d150_baseline",
+     "demo": 150,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 400,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d150_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d150_chain_atomic",
+     "demo": 150,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 1,
+     "steps": 528,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ],
+      [
+       272,
+       "Turn on the front right burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d150_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d150_reset_atomic_k0",
+     "demo": 150,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 448,
+     "budget": 915,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d150_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d150_reset_atomic_k1",
+     "demo": 150,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 272,
+     "budget": 762,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front right burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d150_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d150_reset_task_k0",
+     "demo": 150,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 240,
+     "budget": 915,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d150_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d150_reset_task_k1",
+     "demo": 150,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 240,
+     "budget": 762,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d150_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d200_baseline",
+     "demo": 200,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 480,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d200_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d200_chain_atomic",
+     "demo": 200,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1000,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d200_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d200_reset_atomic_k0",
+     "demo": 200,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 240,
+     "budget": 711,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d200_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d200_reset_atomic_k1",
+     "demo": 200,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 144,
+     "budget": 444,
+     "instr_log": [
+      [
+       0,
+       "Turn on the left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d200_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d200_reset_task_k0",
+     "demo": 200,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 240,
+     "budget": 711,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d200_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d200_reset_task_k1",
+     "demo": 200,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 80,
+     "budget": 444,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d200_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d250_baseline",
+     "demo": 250,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 400,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d250_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d250_chain_atomic",
+     "demo": 250,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 672,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ],
+      [
+       320,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d250_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d250_reset_atomic_k0",
+     "demo": 250,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 320,
+     "budget": 684,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d250_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d250_reset_atomic_k1",
+     "demo": 250,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 435,
+     "budget": 435,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d250_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d250_reset_task_k0",
+     "demo": 250,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 304,
+     "budget": 684,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d250_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d250_reset_task_k1",
+     "demo": 250,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 176,
+     "budget": 435,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d250_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d300_baseline",
+     "demo": 300,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 400,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d300_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d300_chain_atomic",
+     "demo": 300,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1000,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d300_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d300_reset_atomic_k0",
+     "demo": 300,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 879,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d300_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d300_reset_atomic_k1",
+     "demo": 300,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 224,
+     "budget": 597,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d300_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d300_reset_task_k0",
+     "demo": 300,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 720,
+     "budget": 879,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d300_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d300_reset_task_k1",
+     "demo": 300,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 224,
+     "budget": 597,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d300_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d350_baseline",
+     "demo": 350,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1000,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d350_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d350_chain_atomic",
+     "demo": 350,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1000,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ],
+      [
+       224,
+       "Turn on the front right burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d350_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d350_reset_atomic_k0",
+     "demo": 350,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 801,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d350_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d350_reset_atomic_k1",
+     "demo": 350,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 368,
+     "budget": 729,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front right burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d350_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d350_reset_task_k0",
+     "demo": 350,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 801,
+     "budget": 801,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d350_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d350_reset_task_k1",
+     "demo": 350,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 224,
+     "budget": 729,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d350_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d400_baseline",
+     "demo": 400,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 448,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d400_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d400_chain_atomic",
+     "demo": 400,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 448,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ],
+      [
+       240,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d400_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d400_reset_atomic_k0",
+     "demo": 400,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 240,
+     "budget": 564,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d400_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d400_reset_atomic_k1",
+     "demo": 400,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 336,
+     "budget": 354,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front left burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d400_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d400_reset_task_k0",
+     "demo": 400,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 256,
+     "budget": 564,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d400_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d400_reset_task_k1",
+     "demo": 400,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 354,
+     "budget": 354,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d400_reset_task_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d450_baseline",
+     "demo": 450,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 400,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d450_baseline.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d450_chain_atomic",
+     "demo": 450,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 480,
+     "budget": 1000,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d450_chain_atomic.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d450_reset_atomic_k0",
+     "demo": 450,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 336,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d450_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d450_reset_atomic_k1",
+     "demo": 450,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 224,
+     "budget": 399,
+     "instr_log": [
+      [
+       0,
+       "Turn on the front right burner of the stove."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d450_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d450_reset_task_k0",
+     "demo": 450,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 224,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d450_reset_task_k0.mp4"
+    },
+    {
+     "tag": "KettleBoiling_d450_reset_task_k1",
+     "demo": 450,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 399,
+     "budget": 399,
+     "instr_log": [
+      [
+       0,
+       "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+      ]
+     ],
+     "video": "KettleBoiling/KettleBoiling_d450_reset_task_k1.mp4"
+    }
+   ]
+  },
+  "PreSoakPan": {
+   "instruction_example": "Pick the pan and sponge and place them into the sink. Then turn on the water.",
+   "atomic_instructions_example": [
+    "Pick the pan from the counter and place it in the sink.",
+    "Pick the sponge from the counter and place it in the sink.",
+    "Turn on the sink faucet."
+   ],
+   "skills": [
+    "PickPlaceCounterToSink",
+    "PickPlaceCounterToSink",
+    "TurnOnSinkFaucet"
+   ],
+   "baseline": {
+    "k": 10,
+    "n": 10,
+    "rate": 1.0,
+    "ci95": [
+     0.722,
+     1
+    ]
+   },
+   "chain_atomic": {
+    "k": 9,
+    "n": 10,
+    "rate": 0.9,
+    "ci95": [
+     0.596,
+     0.982
+    ]
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceCounterToSink",
+     "note": null,
+     "reset_atomic": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "reset_task": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "baseline_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     },
+     "chain_atomic_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     }
+    },
+    {
+     "k": 1,
+     "skill": "PickPlaceCounterToSink",
+     "note": null,
+     "reset_atomic": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0,
+      "ci95": [
+       0.722,
+       1
+      ]
+     },
+     "reset_task": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0,
+      "ci95": [
+       0.722,
+       1
+      ]
+     },
+     "baseline_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     },
+     "chain_atomic_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     }
+    },
+    {
+     "k": 2,
+     "skill": "TurnOnSinkFaucet",
+     "note": null,
+     "reset_atomic": {
+      "k": 7,
+      "n": 10,
+      "rate": 0.7,
+      "ci95": [
+       0.397,
+       0.892
+      ]
+     },
+     "reset_task": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0,
+      "ci95": [
+       0.722,
+       1
+      ]
+     },
+     "baseline_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     },
+     "chain_atomic_conditional": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9
+     }
+    }
+   ],
+   "product_reset_atomic": 0.63,
+   "product_reset_task": 0.9,
+   "baseline_failure_point": {},
+   "chain_atomic_failure_point": {
+    "TurnOnSinkFaucet (step 3)": 1
+   },
+   "episodes": [
+    {
+     "tag": "PreSoakPan_d0_baseline",
+     "demo": 0,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 720,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d0_chain_atomic",
+     "demo": 0,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 736,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       368,
+       "Pick the sponge from the counter and place it in the sink."
+      ],
+      [
+       496,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d0_reset_atomic_k0",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 320,
+     "budget": 573,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d0_reset_atomic_k1",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 192,
+     "budget": 453,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d0_reset_atomic_k2",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 192,
+     "budget": 573,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d0_reset_task_k0",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 288,
+     "budget": 573,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d0_reset_task_k1",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 176,
+     "budget": 453,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d0_reset_task_k2",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 208,
+     "budget": 573,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d0_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_baseline",
+     "demo": 50,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 800,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_chain_atomic",
+     "demo": 50,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 768,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       336,
+       "Pick the sponge from the counter and place it in the sink."
+      ],
+      [
+       640,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_reset_atomic_k0",
+     "demo": 50,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 996,
+     "budget": 996,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_reset_atomic_k1",
+     "demo": 50,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 304,
+     "budget": 1077,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_reset_atomic_k2",
+     "demo": 50,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 160,
+     "budget": 465,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_reset_task_k0",
+     "demo": 50,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 512,
+     "budget": 996,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_reset_task_k1",
+     "demo": 50,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 368,
+     "budget": 1077,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d50_reset_task_k2",
+     "demo": 50,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 240,
+     "budget": 465,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d50_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_baseline",
+     "demo": 100,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 912,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_chain_atomic",
+     "demo": 100,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 560,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       336,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_reset_atomic_k0",
+     "demo": 100,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 304,
+     "budget": 867,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_reset_atomic_k1",
+     "demo": 100,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 16,
+     "budget": 1260,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_reset_atomic_k2",
+     "demo": 100,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 320,
+     "budget": 711,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_reset_task_k0",
+     "demo": 100,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 867,
+     "budget": 867,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_reset_task_k1",
+     "demo": 100,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 16,
+     "budget": 1260,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d100_reset_task_k2",
+     "demo": 100,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 208,
+     "budget": 711,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d100_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_baseline",
+     "demo": 150,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 1408,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_chain_atomic",
+     "demo": 150,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 688,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       224,
+       "Pick the sponge from the counter and place it in the sink."
+      ],
+      [
+       528,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_reset_atomic_k0",
+     "demo": 150,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 304,
+     "budget": 675,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_reset_atomic_k1",
+     "demo": 150,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 16,
+     "budget": 849,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_reset_atomic_k2",
+     "demo": 150,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 224,
+     "budget": 603,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_reset_task_k0",
+     "demo": 150,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 675,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_reset_task_k1",
+     "demo": 150,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 16,
+     "budget": 849,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d150_reset_task_k2",
+     "demo": 150,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 240,
+     "budget": 603,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d150_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_baseline",
+     "demo": 200,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 688,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_chain_atomic",
+     "demo": 200,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 688,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       272,
+       "Pick the sponge from the counter and place it in the sink."
+      ],
+      [
+       528,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_reset_atomic_k0",
+     "demo": 200,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 288,
+     "budget": 612,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_reset_atomic_k1",
+     "demo": 200,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 32,
+     "budget": 696,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_reset_atomic_k2",
+     "demo": 200,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 176,
+     "budget": 768,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_reset_task_k0",
+     "demo": 200,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 612,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_reset_task_k1",
+     "demo": 200,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 16,
+     "budget": 696,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d200_reset_task_k2",
+     "demo": 200,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 256,
+     "budget": 768,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d200_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_baseline",
+     "demo": 250,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 672,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_chain_atomic",
+     "demo": 250,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 816,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       256,
+       "Pick the sponge from the counter and place it in the sink."
+      ],
+      [
+       528,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_reset_atomic_k0",
+     "demo": 250,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 288,
+     "budget": 753,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_reset_atomic_k1",
+     "demo": 250,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 304,
+     "budget": 663,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_reset_atomic_k2",
+     "demo": 250,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": false,
+     "reached": 2,
+     "steps": 780,
+     "budget": 780,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_reset_task_k0",
+     "demo": 250,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 256,
+     "budget": 753,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_reset_task_k1",
+     "demo": 250,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 320,
+     "budget": 663,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d250_reset_task_k2",
+     "demo": 250,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 224,
+     "budget": 780,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d250_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_baseline",
+     "demo": 300,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 784,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_chain_atomic",
+     "demo": 300,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 784,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       256,
+       "Pick the sponge from the counter and place it in the sink."
+      ],
+      [
+       512,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_reset_atomic_k0",
+     "demo": 300,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 954,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_reset_atomic_k1",
+     "demo": 300,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 320,
+     "budget": 813,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_reset_atomic_k2",
+     "demo": 300,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": false,
+     "reached": 2,
+     "steps": 759,
+     "budget": 759,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_reset_task_k0",
+     "demo": 300,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 304,
+     "budget": 954,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_reset_task_k1",
+     "demo": 300,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 304,
+     "budget": 813,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d300_reset_task_k2",
+     "demo": 300,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 368,
+     "budget": 759,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d300_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_baseline",
+     "demo": 350,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 880,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_chain_atomic",
+     "demo": 350,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 2,
+     "steps": 1600,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       560,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_reset_atomic_k0",
+     "demo": 350,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 786,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_reset_atomic_k1",
+     "demo": 350,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 256,
+     "budget": 816,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_reset_atomic_k2",
+     "demo": 350,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 240,
+     "budget": 1194,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_reset_task_k0",
+     "demo": 350,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 786,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_reset_task_k1",
+     "demo": 350,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 272,
+     "budget": 816,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d350_reset_task_k2",
+     "demo": 350,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 544,
+     "budget": 1194,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d350_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_baseline",
+     "demo": 400,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 1120,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_chain_atomic",
+     "demo": 400,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 768,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       336,
+       "Pick the sponge from the counter and place it in the sink."
+      ],
+      [
+       608,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_reset_atomic_k0",
+     "demo": 400,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 352,
+     "budget": 975,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_reset_atomic_k1",
+     "demo": 400,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 320,
+     "budget": 921,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_reset_atomic_k2",
+     "demo": 400,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 208,
+     "budget": 750,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_reset_task_k0",
+     "demo": 400,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 384,
+     "budget": 975,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_reset_task_k1",
+     "demo": 400,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 320,
+     "budget": 921,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d400_reset_task_k2",
+     "demo": 400,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 192,
+     "budget": 750,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d400_reset_task_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_baseline",
+     "demo": 450,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 800,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_baseline.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_chain_atomic",
+     "demo": 450,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 3,
+     "steps": 656,
+     "budget": 1600,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ],
+      [
+       336,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_chain_atomic.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_reset_atomic_k0",
+     "demo": 450,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 272,
+     "budget": 732,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_reset_atomic_k1",
+     "demo": 450,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 16,
+     "budget": 1176,
+     "instr_log": [
+      [
+       0,
+       "Pick the sponge from the counter and place it in the sink."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_reset_atomic_k2",
+     "demo": 450,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": false,
+     "reached": 2,
+     "steps": 729,
+     "budget": 729,
+     "instr_log": [
+      [
+       0,
+       "Turn on the sink faucet."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_reset_task_k0",
+     "demo": 450,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 320,
+     "budget": 732,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_reset_task_k1",
+     "demo": 450,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 16,
+     "budget": 1176,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PreSoakPan_d450_reset_task_k2",
+     "demo": 450,
+     "condition": "reset_task",
+     "step": 2,
+     "success": true,
+     "step_success": true,
+     "reached": 3,
+     "steps": 304,
+     "budget": 729,
+     "instr_log": [
+      [
+       0,
+       "Pick the pan and sponge and place them into the sink. Then turn on the water."
+      ]
+     ],
+     "video": "PreSoakPan/PreSoakPan_d450_reset_task_k2.mp4"
+    }
+   ]
+  },
+  "StackBowlsCabinet": {
+   "instruction_example": "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl.",
+   "atomic_instructions_example": [
+    "Pick the bowl from the counter and place it in the cabinet.",
+    "Pick the bowl from the counter and place it in the cabinet."
+   ],
+   "skills": [
+    "PickPlaceCounterToCabinet",
+    "PickPlaceCounterToCabinet"
+   ],
+   "baseline": {
+    "k": 10,
+    "n": 10,
+    "rate": 1.0,
+    "ci95": [
+     0.722,
+     1
+    ]
+   },
+   "chain_atomic": {
+    "k": 5,
+    "n": 10,
+    "rate": 0.5,
+    "ci95": [
+     0.237,
+     0.763
+    ]
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceCounterToCabinet",
+     "note": "atomic template has no notion of stacking; the second step relies on the policy to stack",
+     "reset_atomic": {
+      "k": 4,
+      "n": 10,
+      "rate": 0.4,
+      "ci95": [
+       0.168,
+       0.687
+      ]
+     },
+     "reset_task": {
+      "k": 6,
+      "n": 10,
+      "rate": 0.6,
+      "ci95": [
+       0.313,
+       0.832
+      ]
+     },
+     "baseline_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     },
+     "chain_atomic_conditional": {
+      "k": 8,
+      "n": 10,
+      "rate": 0.8
+     }
+    },
+    {
+     "k": 1,
+     "skill": "PickPlaceCounterToCabinet",
+     "note": "atomic template has no notion of stacking; the second step relies on the policy to stack",
+     "reset_atomic": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "reset_task": {
+      "k": 8,
+      "n": 10,
+      "rate": 0.8,
+      "ci95": [
+       0.49,
+       0.943
+      ]
+     },
+     "baseline_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     },
+     "chain_atomic_conditional": {
+      "k": 5,
+      "n": 8,
+      "rate": 0.625
+     }
+    }
+   ],
+   "product_reset_atomic": 0.36,
+   "product_reset_task": 0.48,
+   "baseline_failure_point": {},
+   "chain_atomic_failure_point": {
+    "PickPlaceCounterToCabinet (step 2)": 3,
+    "PickPlaceCounterToCabinet (step 1)": 2
+   },
+   "episodes": [
+    {
+     "tag": "StackBowlsCabinet_d0_baseline",
+     "demo": 0,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 368,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d0_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d0_chain_atomic",
+     "demo": 0,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 432,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d0_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d0_reset_atomic_k0",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 368,
+     "budget": 396,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d0_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d0_reset_atomic_k1",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 176,
+     "budget": 384,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d0_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d0_reset_task_k0",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 384,
+     "budget": 396,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d0_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d0_reset_task_k1",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 176,
+     "budget": 384,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d0_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d51_baseline",
+     "demo": 51,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 1360,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d51_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d51_chain_atomic",
+     "demo": 51,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d51_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d51_reset_atomic_k0",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 483,
+     "budget": 483,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d51_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d51_reset_atomic_k1",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 555,
+     "budget": 555,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d51_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d51_reset_task_k0",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 336,
+     "budget": 483,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d51_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d51_reset_task_k1",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 272,
+     "budget": 555,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d51_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d103_baseline",
+     "demo": 103,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 288,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d103_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d103_chain_atomic",
+     "demo": 103,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d103_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d103_reset_atomic_k0",
+     "demo": 103,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 465,
+     "budget": 465,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d103_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d103_reset_atomic_k1",
+     "demo": 103,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 144,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d103_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d103_reset_task_k0",
+     "demo": 103,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 240,
+     "budget": 465,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d103_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d103_reset_task_k1",
+     "demo": 103,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 128,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d103_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d154_baseline",
+     "demo": 154,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 336,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d154_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d154_chain_atomic",
+     "demo": 154,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 416,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d154_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d154_reset_atomic_k0",
+     "demo": 154,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 240,
+     "budget": 627,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d154_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d154_reset_atomic_k1",
+     "demo": 154,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 192,
+     "budget": 534,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d154_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d154_reset_task_k0",
+     "demo": 154,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 627,
+     "budget": 627,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d154_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d154_reset_task_k1",
+     "demo": 154,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 176,
+     "budget": 534,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d154_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d206_baseline",
+     "demo": 206,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 832,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d206_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d206_chain_atomic",
+     "demo": 206,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d206_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d206_reset_atomic_k0",
+     "demo": 206,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 438,
+     "budget": 438,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d206_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d206_reset_atomic_k1",
+     "demo": 206,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 176,
+     "budget": 327,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d206_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d206_reset_task_k0",
+     "demo": 206,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 438,
+     "budget": 438,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d206_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d206_reset_task_k1",
+     "demo": 206,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 128,
+     "budget": 327,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d206_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d257_baseline",
+     "demo": 257,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 256,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d257_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d257_chain_atomic",
+     "demo": 257,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d257_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d257_reset_atomic_k0",
+     "demo": 257,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 285,
+     "budget": 285,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d257_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d257_reset_atomic_k1",
+     "demo": 257,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 144,
+     "budget": 300,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d257_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d257_reset_task_k0",
+     "demo": 257,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 285,
+     "budget": 285,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d257_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d257_reset_task_k1",
+     "demo": 257,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 300,
+     "budget": 300,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d257_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d309_baseline",
+     "demo": 309,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 368,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d309_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d309_chain_atomic",
+     "demo": 309,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d309_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d309_reset_atomic_k0",
+     "demo": 309,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 627,
+     "budget": 627,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d309_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d309_reset_atomic_k1",
+     "demo": 309,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 192,
+     "budget": 486,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d309_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d309_reset_task_k0",
+     "demo": 309,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 288,
+     "budget": 627,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d309_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d309_reset_task_k1",
+     "demo": 309,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 192,
+     "budget": 486,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d309_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d360_baseline",
+     "demo": 360,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 352,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d360_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d360_chain_atomic",
+     "demo": 360,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 736,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d360_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d360_reset_atomic_k0",
+     "demo": 360,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 345,
+     "budget": 345,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d360_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d360_reset_atomic_k1",
+     "demo": 360,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 176,
+     "budget": 291,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d360_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d360_reset_task_k0",
+     "demo": 360,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 320,
+     "budget": 345,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d360_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d360_reset_task_k1",
+     "demo": 360,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 160,
+     "budget": 291,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d360_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d412_baseline",
+     "demo": 412,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 448,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d412_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d412_chain_atomic",
+     "demo": 412,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d412_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d412_reset_atomic_k0",
+     "demo": 412,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 285,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d412_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d412_reset_atomic_k1",
+     "demo": 412,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 240,
+     "budget": 366,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d412_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d412_reset_task_k0",
+     "demo": 412,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 285,
+     "budget": 285,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d412_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d412_reset_task_k1",
+     "demo": 412,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 366,
+     "budget": 366,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d412_reset_task_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d463_baseline",
+     "demo": 463,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 368,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d463_baseline.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d463_chain_atomic",
+     "demo": 463,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 352,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d463_chain_atomic.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d463_reset_atomic_k0",
+     "demo": 463,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 432,
+     "budget": 585,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d463_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d463_reset_atomic_k1",
+     "demo": 463,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 208,
+     "budget": 486,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the cabinet."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d463_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d463_reset_task_k0",
+     "demo": 463,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 336,
+     "budget": 585,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d463_reset_task_k0.mp4"
+    },
+    {
+     "tag": "StackBowlsCabinet_d463_reset_task_k1",
+     "demo": 463,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 160,
+     "budget": 486,
+     "instr_log": [
+      [
+       0,
+       "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl."
+      ]
+     ],
+     "video": "StackBowlsCabinet/StackBowlsCabinet_d463_reset_task_k1.mp4"
+    }
+   ]
+  },
+  "SteamInMicrowave": {
+   "instruction_example": "Pick the onion from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button.",
+   "atomic_instructions_example": [
+    "Pick the onion from the sink and place it on the bowl located on the counter.",
+    "Pick the bowl from the counter and place it in the microwave.",
+    "Close the microwave door.",
+    "Press the start button on the microwave."
+   ],
+   "skills": [
+    "PickPlaceSinkToCounter",
+    "PickPlaceCounterToMicrowave",
+    "CloseMicrowave",
+    "TurnOnMicrowave"
+   ],
+   "baseline": {
+    "k": 4,
+    "n": 10,
+    "rate": 0.4,
+    "ci95": [
+     0.168,
+     0.687
+    ]
+   },
+   "chain_atomic": {
+    "k": 3,
+    "n": 10,
+    "rate": 0.3,
+    "ci95": [
+     0.108,
+     0.603
+    ]
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceSinkToCounter",
+     "note": null,
+     "reset_atomic": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "reset_task": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "baseline_conditional": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9
+     },
+     "chain_atomic_conditional": {
+      "k": 10,
+      "n": 10,
+      "rate": 1.0
+     }
+    },
+    {
+     "k": 1,
+     "skill": "PickPlaceCounterToMicrowave",
+     "note": null,
+     "reset_atomic": {
+      "k": 7,
+      "n": 10,
+      "rate": 0.7,
+      "ci95": [
+       0.397,
+       0.892
+      ]
+     },
+     "reset_task": {
+      "k": 7,
+      "n": 10,
+      "rate": 0.7,
+      "ci95": [
+       0.397,
+       0.892
+      ]
+     },
+     "baseline_conditional": {
+      "k": 7,
+      "n": 9,
+      "rate": 0.778
+     },
+     "chain_atomic_conditional": {
+      "k": 6,
+      "n": 10,
+      "rate": 0.6
+     }
+    },
+    {
+     "k": 2,
+     "skill": "CloseMicrowave",
+     "note": null,
+     "reset_atomic": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "reset_task": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "baseline_conditional": {
+      "k": 6,
+      "n": 7,
+      "rate": 0.857
+     },
+     "chain_atomic_conditional": {
+      "k": 4,
+      "n": 6,
+      "rate": 0.667
+     }
+    },
+    {
+     "k": 3,
+     "skill": "TurnOnMicrowave",
+     "note": null,
+     "reset_atomic": {
+      "k": 8,
+      "n": 10,
+      "rate": 0.8,
+      "ci95": [
+       0.49,
+       0.943
+      ]
+     },
+     "reset_task": {
+      "k": 9,
+      "n": 10,
+      "rate": 0.9,
+      "ci95": [
+       0.596,
+       0.982
+      ]
+     },
+     "baseline_conditional": {
+      "k": 4,
+      "n": 6,
+      "rate": 0.667
+     },
+     "chain_atomic_conditional": {
+      "k": 3,
+      "n": 4,
+      "rate": 0.75
+     }
+    }
+   ],
+   "product_reset_atomic": 0.454,
+   "product_reset_task": 0.51,
+   "baseline_failure_point": {
+    "CloseMicrowave (step 3)": 1,
+    "TurnOnMicrowave (step 4)": 2,
+    "PickPlaceCounterToMicrowave (step 2)": 2,
+    "PickPlaceSinkToCounter (step 1)": 1
+   },
+   "chain_atomic_failure_point": {
+    "PickPlaceCounterToMicrowave (step 2)": 4,
+    "CloseMicrowave (step 3)": 2,
+    "TurnOnMicrowave (step 4)": 1
+   },
+   "episodes": [
+    {
+     "tag": "SteamInMicrowave_d0_baseline",
+     "demo": 0,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the onion from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_chain_atomic",
+     "demo": 0,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the onion from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       320,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_atomic_k0",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 320,
+     "budget": 957,
+     "instr_log": [
+      [
+       0,
+       "Pick the onion from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_atomic_k1",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 496,
+     "budget": 1311,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_atomic_k2",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 432,
+     "budget": 570,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_atomic_k3",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 160,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_task_k0",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 336,
+     "budget": 957,
+     "instr_log": [
+      [
+       0,
+       "Pick the onion from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_task_k1",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 592,
+     "budget": 1311,
+     "instr_log": [
+      [
+       0,
+       "Pick the onion from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_task_k2",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": false,
+     "reached": 2,
+     "steps": 570,
+     "budget": 570,
+     "instr_log": [
+      [
+       0,
+       "Pick the onion from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d0_reset_task_k3",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 224,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Pick the onion from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d0_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_baseline",
+     "demo": 51,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 2,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_chain_atomic",
+     "demo": 51,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 4,
+     "steps": 976,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       208,
+       "Pick the bowl from the counter and place it in the microwave."
+      ],
+      [
+       656,
+       "Close the microwave door."
+      ],
+      [
+       864,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_atomic_k0",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 224,
+     "budget": 426,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_atomic_k1",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 400,
+     "budget": 900,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_atomic_k2",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 144,
+     "budget": 375,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_atomic_k3",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 96,
+     "budget": 240,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_task_k0",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 224,
+     "budget": 426,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_task_k1",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 288,
+     "budget": 900,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_task_k2",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 256,
+     "budget": 375,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d51_reset_task_k3",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 3,
+     "success": false,
+     "step_success": false,
+     "reached": 3,
+     "steps": 240,
+     "budget": 240,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d51_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_baseline",
+     "demo": 102,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 3,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_chain_atomic",
+     "demo": 102,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       320,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_atomic_k0",
+     "demo": 102,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 320,
+     "budget": 903,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_atomic_k1",
+     "demo": 102,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 496,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_atomic_k2",
+     "demo": 102,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 288,
+     "budget": 603,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_atomic_k3",
+     "demo": 102,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 192,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_task_k0",
+     "demo": 102,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 480,
+     "budget": 903,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_task_k1",
+     "demo": 102,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 576,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_task_k2",
+     "demo": 102,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 240,
+     "budget": 603,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d102_reset_task_k3",
+     "demo": 102,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 176,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d102_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_baseline",
+     "demo": 153,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 4,
+     "steps": 1056,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_chain_atomic",
+     "demo": 153,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       208,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_atomic_k0",
+     "demo": 153,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 224,
+     "budget": 744,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_atomic_k1",
+     "demo": 153,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 1296,
+     "budget": 1296,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_atomic_k2",
+     "demo": 153,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 192,
+     "budget": 543,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_atomic_k3",
+     "demo": 153,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 176,
+     "budget": 453,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_task_k0",
+     "demo": 153,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 240,
+     "budget": 744,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_task_k1",
+     "demo": 153,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 1296,
+     "budget": 1296,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_task_k2",
+     "demo": 153,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 208,
+     "budget": 543,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d153_reset_task_k3",
+     "demo": 153,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 176,
+     "budget": 453,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon wedge from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d153_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_baseline",
+     "demo": 204,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 4,
+     "steps": 1344,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_chain_atomic",
+     "demo": 204,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 3,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       304,
+       "Pick the bowl from the counter and place it in the microwave."
+      ],
+      [
+       1136,
+       "Close the microwave door."
+      ],
+      [
+       1344,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_atomic_k0",
+     "demo": 204,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 534,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_atomic_k1",
+     "demo": 204,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 256,
+     "budget": 612,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_atomic_k2",
+     "demo": 204,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 160,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_atomic_k3",
+     "demo": 204,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": false,
+     "step_success": false,
+     "reached": 3,
+     "steps": 273,
+     "budget": 273,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_task_k0",
+     "demo": 204,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 304,
+     "budget": 534,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_task_k1",
+     "demo": 204,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 256,
+     "budget": 612,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_task_k2",
+     "demo": 204,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 160,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d204_reset_task_k3",
+     "demo": 204,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 240,
+     "budget": 273,
+     "instr_log": [
+      [
+       0,
+       "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d204_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_baseline",
+     "demo": 255,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 3,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the sweet potato from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_chain_atomic",
+     "demo": 255,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 2,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the sweet potato from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       480,
+       "Pick the bowl from the counter and place it in the microwave."
+      ],
+      [
+       1280,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_atomic_k0",
+     "demo": 255,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 831,
+     "instr_log": [
+      [
+       0,
+       "Pick the sweet potato from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_atomic_k1",
+     "demo": 255,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 320,
+     "budget": 1038,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_atomic_k2",
+     "demo": 255,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": false,
+     "reached": 2,
+     "steps": 582,
+     "budget": 582,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_atomic_k3",
+     "demo": 255,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 320,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_task_k0",
+     "demo": 255,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 288,
+     "budget": 831,
+     "instr_log": [
+      [
+       0,
+       "Pick the sweet potato from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_task_k1",
+     "demo": 255,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 416,
+     "budget": 1038,
+     "instr_log": [
+      [
+       0,
+       "Pick the sweet potato from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_task_k2",
+     "demo": 255,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 272,
+     "budget": 582,
+     "instr_log": [
+      [
+       0,
+       "Pick the sweet potato from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d255_reset_task_k3",
+     "demo": 255,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 192,
+     "budget": 420,
+     "instr_log": [
+      [
+       0,
+       "Pick the sweet potato from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d255_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_baseline",
+     "demo": 306,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_chain_atomic",
+     "demo": 306,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 4,
+     "steps": 1328,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       288,
+       "Pick the bowl from the counter and place it in the microwave."
+      ],
+      [
+       752,
+       "Close the microwave door."
+      ],
+      [
+       1056,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_atomic_k0",
+     "demo": 306,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 996,
+     "budget": 996,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_atomic_k1",
+     "demo": 306,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 400,
+     "budget": 1287,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_atomic_k2",
+     "demo": 306,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 256,
+     "budget": 561,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_atomic_k3",
+     "demo": 306,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 160,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_task_k0",
+     "demo": 306,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 996,
+     "budget": 996,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_task_k1",
+     "demo": 306,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 432,
+     "budget": 1287,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_task_k2",
+     "demo": 306,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 336,
+     "budget": 561,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d306_reset_task_k3",
+     "demo": 306,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 128,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d306_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_baseline",
+     "demo": 357,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_chain_atomic",
+     "demo": 357,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       304,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_atomic_k0",
+     "demo": 357,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 288,
+     "budget": 1302,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_atomic_k1",
+     "demo": 357,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_atomic_k2",
+     "demo": 357,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 448,
+     "budget": 795,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_atomic_k3",
+     "demo": 357,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": false,
+     "step_success": false,
+     "reached": 3,
+     "steps": 684,
+     "budget": 684,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_task_k0",
+     "demo": 357,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 400,
+     "budget": 1302,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_task_k1",
+     "demo": 357,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_task_k2",
+     "demo": 357,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 272,
+     "budget": 795,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d357_reset_task_k3",
+     "demo": 357,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 256,
+     "budget": 684,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d357_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_baseline",
+     "demo": 408,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 4,
+     "steps": 1312,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_chain_atomic",
+     "demo": 408,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 4,
+     "steps": 1312,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       256,
+       "Pick the bowl from the counter and place it in the microwave."
+      ],
+      [
+       832,
+       "Close the microwave door."
+      ],
+      [
+       1248,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_atomic_k0",
+     "demo": 408,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 288,
+     "budget": 759,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_atomic_k1",
+     "demo": 408,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 496,
+     "budget": 1269,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_atomic_k2",
+     "demo": 408,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 192,
+     "budget": 588,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_atomic_k3",
+     "demo": 408,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 112,
+     "budget": 384,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_task_k0",
+     "demo": 408,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 272,
+     "budget": 759,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_task_k1",
+     "demo": 408,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 1269,
+     "budget": 1269,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_task_k2",
+     "demo": 408,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 208,
+     "budget": 588,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d408_reset_task_k3",
+     "demo": 408,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 112,
+     "budget": 384,
+     "instr_log": [
+      [
+       0,
+       "Pick the cucumber from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d408_reset_task_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_baseline",
+     "demo": 459,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 4,
+     "steps": 1216,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the mushroom from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_baseline.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_chain_atomic",
+     "demo": 459,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 2,
+     "steps": 1400,
+     "budget": 1400,
+     "instr_log": [
+      [
+       0,
+       "Pick the mushroom from the sink and place it on the bowl located on the counter."
+      ],
+      [
+       288,
+       "Pick the bowl from the counter and place it in the microwave."
+      ],
+      [
+       880,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_chain_atomic.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_atomic_k0",
+     "demo": 459,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 368,
+     "budget": 642,
+     "instr_log": [
+      [
+       0,
+       "Pick the mushroom from the sink and place it on the bowl located on the counter."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_atomic_k1",
+     "demo": 459,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 1326,
+     "budget": 1326,
+     "instr_log": [
+      [
+       0,
+       "Pick the bowl from the counter and place it in the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_atomic_k2",
+     "demo": 459,
+     "condition": "reset_atomic",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 144,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Close the microwave door."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_atomic_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_atomic_k3",
+     "demo": 459,
+     "condition": "reset_atomic",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 112,
+     "budget": 240,
+     "instr_log": [
+      [
+       0,
+       "Press the start button on the microwave."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_atomic_k3.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_task_k0",
+     "demo": 459,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 336,
+     "budget": 642,
+     "instr_log": [
+      [
+       0,
+       "Pick the mushroom from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_task_k0.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_task_k1",
+     "demo": 459,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": true,
+     "reached": 2,
+     "steps": 656,
+     "budget": 1326,
+     "instr_log": [
+      [
+       0,
+       "Pick the mushroom from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_task_k1.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_task_k2",
+     "demo": 459,
+     "condition": "reset_task",
+     "step": 2,
+     "success": false,
+     "step_success": true,
+     "reached": 3,
+     "steps": 160,
+     "budget": 528,
+     "instr_log": [
+      [
+       0,
+       "Pick the mushroom from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_task_k2.mp4"
+    },
+    {
+     "tag": "SteamInMicrowave_d459_reset_task_k3",
+     "demo": 459,
+     "condition": "reset_task",
+     "step": 3,
+     "success": true,
+     "step_success": true,
+     "reached": 4,
+     "steps": 96,
+     "budget": 240,
+     "instr_log": [
+      [
+       0,
+       "Pick the mushroom from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+      ]
+     ],
+     "video": "SteamInMicrowave/SteamInMicrowave_d459_reset_task_k3.mp4"
+    }
+   ]
+  },
+  "PrepareCoffee": {
+   "instruction_example": "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button.",
+   "atomic_instructions_example": [
+    "Pick the mug from the cabinet and place it under the coffee machine dispenser.",
+    "Press the button on the coffee machine to serve coffee."
+   ],
+   "skills": [
+    "CoffeeSetupMug",
+    "StartCoffeeMachine"
+   ],
+   "baseline": {
+    "k": 1,
+    "n": 10,
+    "rate": 0.1,
+    "ci95": [
+     0.018,
+     0.404
+    ]
+   },
+   "chain_atomic": {
+    "k": 2,
+    "n": 10,
+    "rate": 0.2,
+    "ci95": [
+     0.057,
+     0.51
+    ]
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "CoffeeSetupMug",
+     "note": "atomic template: \"Pick the {obj} from the counter and place it under the coffee machine dispenser.\" -> \"counter\" changed to \"cabinet\"",
+     "reset_atomic": {
+      "k": 2,
+      "n": 10,
+      "rate": 0.2,
+      "ci95": [
+       0.057,
+       0.51
+      ]
+     },
+     "reset_task": {
+      "k": 2,
+      "n": 10,
+      "rate": 0.2,
+      "ci95": [
+       0.057,
+       0.51
+      ]
+     },
+     "baseline_conditional": {
+      "k": 2,
+      "n": 10,
+      "rate": 0.2
+     },
+     "chain_atomic_conditional": {
+      "k": 3,
+      "n": 10,
+      "rate": 0.3
+     }
+    },
+    {
+     "k": 1,
+     "skill": "StartCoffeeMachine",
+     "note": null,
+     "reset_atomic": {
+      "k": 5,
+      "n": 10,
+      "rate": 0.5,
+      "ci95": [
+       0.237,
+       0.763
+      ]
+     },
+     "reset_task": {
+      "k": 5,
+      "n": 10,
+      "rate": 0.5,
+      "ci95": [
+       0.237,
+       0.763
+      ]
+     },
+     "baseline_conditional": {
+      "k": 1,
+      "n": 2,
+      "rate": 0.5
+     },
+     "chain_atomic_conditional": {
+      "k": 2,
+      "n": 3,
+      "rate": 0.667
+     }
+    }
+   ],
+   "product_reset_atomic": 0.1,
+   "product_reset_task": 0.1,
+   "baseline_failure_point": {
+    "CoffeeSetupMug (step 1)": 8,
+    "StartCoffeeMachine (step 2)": 1
+   },
+   "chain_atomic_failure_point": {
+    "CoffeeSetupMug (step 1)": 7,
+    "StartCoffeeMachine (step 2)": 1
+   },
+   "episodes": [
+    {
+     "tag": "PrepareCoffee_d0_baseline",
+     "demo": 0,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d0_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d0_chain_atomic",
+     "demo": 0,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d0_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d0_reset_atomic_k0",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d0_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d0_reset_atomic_k1",
+     "demo": 0,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 711,
+     "budget": 711,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d0_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d0_reset_task_k0",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d0_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d0_reset_task_k1",
+     "demo": 0,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 711,
+     "budget": 711,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d0_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d51_baseline",
+     "demo": 51,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d51_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d51_chain_atomic",
+     "demo": 51,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 544,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ],
+      [
+       496,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d51_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d51_reset_atomic_k0",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 608,
+     "budget": 780,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d51_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d51_reset_atomic_k1",
+     "demo": 51,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 366,
+     "budget": 366,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d51_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d51_reset_task_k0",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 780,
+     "budget": 780,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d51_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d51_reset_task_k1",
+     "demo": 51,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 366,
+     "budget": 366,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d51_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d102_baseline",
+     "demo": 102,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d102_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d102_chain_atomic",
+     "demo": 102,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d102_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d102_reset_atomic_k0",
+     "demo": 102,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1047,
+     "budget": 1047,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d102_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d102_reset_atomic_k1",
+     "demo": 102,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 288,
+     "budget": 288,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d102_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d102_reset_task_k0",
+     "demo": 102,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1047,
+     "budget": 1047,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d102_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d102_reset_task_k1",
+     "demo": 102,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 288,
+     "budget": 288,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d102_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d154_baseline",
+     "demo": 154,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d154_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d154_chain_atomic",
+     "demo": 154,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d154_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d154_reset_atomic_k0",
+     "demo": 154,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 921,
+     "budget": 921,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d154_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d154_reset_atomic_k1",
+     "demo": 154,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 330,
+     "budget": 330,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d154_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d154_reset_task_k0",
+     "demo": 154,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 921,
+     "budget": 921,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d154_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d154_reset_task_k1",
+     "demo": 154,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 240,
+     "budget": 330,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d154_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d205_baseline",
+     "demo": 205,
+     "condition": "baseline",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 560,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d205_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d205_chain_atomic",
+     "demo": 205,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ],
+      [
+       528,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d205_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d205_reset_atomic_k0",
+     "demo": 205,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d205_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d205_reset_atomic_k1",
+     "demo": 205,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 384,
+     "budget": 723,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d205_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d205_reset_task_k0",
+     "demo": 205,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d205_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d205_reset_task_k1",
+     "demo": 205,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 192,
+     "budget": 723,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d205_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d257_baseline",
+     "demo": 257,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d257_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d257_chain_atomic",
+     "demo": 257,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": true,
+     "step_success": null,
+     "reached": 2,
+     "steps": 928,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ],
+      [
+       592,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d257_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d257_reset_atomic_k0",
+     "demo": 257,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 672,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d257_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d257_reset_atomic_k1",
+     "demo": 257,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 416,
+     "budget": 729,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d257_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d257_reset_task_k0",
+     "demo": 257,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d257_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d257_reset_task_k1",
+     "demo": 257,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 336,
+     "budget": 729,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d257_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d308_baseline",
+     "demo": 308,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 1,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d308_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d308_chain_atomic",
+     "demo": 308,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d308_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d308_reset_atomic_k0",
+     "demo": 308,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 807,
+     "budget": 807,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d308_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d308_reset_atomic_k1",
+     "demo": 308,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 387,
+     "budget": 387,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d308_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d308_reset_task_k0",
+     "demo": 308,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 807,
+     "budget": 807,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d308_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d308_reset_task_k1",
+     "demo": 308,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 387,
+     "budget": 387,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d308_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d359_baseline",
+     "demo": 359,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d359_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d359_chain_atomic",
+     "demo": 359,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d359_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d359_reset_atomic_k0",
+     "demo": 359,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 1197,
+     "budget": 1197,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d359_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d359_reset_atomic_k1",
+     "demo": 359,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 512,
+     "budget": 567,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d359_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d359_reset_task_k0",
+     "demo": 359,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 896,
+     "budget": 1197,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d359_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d359_reset_task_k1",
+     "demo": 359,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 368,
+     "budget": 567,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d359_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d411_baseline",
+     "demo": 411,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d411_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d411_chain_atomic",
+     "demo": 411,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d411_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d411_reset_atomic_k0",
+     "demo": 411,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 735,
+     "budget": 735,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d411_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d411_reset_atomic_k1",
+     "demo": 411,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 112,
+     "budget": 264,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d411_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d411_reset_task_k0",
+     "demo": 411,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 735,
+     "budget": 735,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d411_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d411_reset_task_k1",
+     "demo": 411,
+     "condition": "reset_task",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 128,
+     "budget": 264,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d411_reset_task_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d462_baseline",
+     "demo": 462,
+     "condition": "baseline",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d462_baseline.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d462_chain_atomic",
+     "demo": 462,
+     "condition": "chain_atomic",
+     "step": null,
+     "success": false,
+     "step_success": null,
+     "reached": 0,
+     "steps": 1200,
+     "budget": 1200,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d462_chain_atomic.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d462_reset_atomic_k0",
+     "demo": 462,
+     "condition": "reset_atomic",
+     "step": 0,
+     "success": false,
+     "step_success": false,
+     "reached": 0,
+     "steps": 909,
+     "budget": 909,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet and place it under the coffee machine dispenser."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d462_reset_atomic_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d462_reset_atomic_k1",
+     "demo": 462,
+     "condition": "reset_atomic",
+     "step": 1,
+     "success": true,
+     "step_success": true,
+     "reached": 2,
+     "steps": 192,
+     "budget": 336,
+     "instr_log": [
+      [
+       0,
+       "Press the button on the coffee machine to serve coffee."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d462_reset_atomic_k1.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d462_reset_task_k0",
+     "demo": 462,
+     "condition": "reset_task",
+     "step": 0,
+     "success": false,
+     "step_success": true,
+     "reached": 1,
+     "steps": 400,
+     "budget": 909,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d462_reset_task_k0.mp4"
+    },
+    {
+     "tag": "PrepareCoffee_d462_reset_task_k1",
+     "demo": 462,
+     "condition": "reset_task",
+     "step": 1,
+     "success": false,
+     "step_success": false,
+     "reached": 1,
+     "steps": 336,
+     "budget": 336,
+     "instr_log": [
+      [
+       0,
+       "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button."
+      ]
+     ],
+     "video": "PrepareCoffee/PrepareCoffee_d462_reset_task_k1.mp4"
+    }
+   ]
+  }
+ },
+ "n_rollouts": 360
+}

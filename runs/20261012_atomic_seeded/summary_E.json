@@ -1,0 +1,775 @@
+{
+ "KettleBoiling": {
+  "skills": [
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "in_atomic_seen": [
+   true,
+   false
+  ],
+  "fresh": {
+   "baseline_seed": {
+    "k": 12,
+    "n": 20,
+    "steps": [
+     [
+      18,
+      20
+     ],
+     [
+      12,
+      18
+     ]
+    ]
+   },
+   "chain_seed": {
+    "k": 9,
+    "n": 20,
+    "steps": [
+     [
+      15,
+      20
+     ],
+     [
+      9,
+      15
+     ]
+    ]
+   },
+   "chain_seed_ackpt": {
+    "k": 0,
+    "n": 3,
+    "steps": [
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   },
+   "baseline_seed_ackpt": {
+    "k": 0,
+    "n": 0,
+    "steps": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "fresh_tests": {
+   "chain_ackpt vs chain": {
+    "n": 3,
+    "a": 0,
+    "b": 1,
+    "a_only": 0,
+    "b_only": 1,
+    "p": 1.0
+   },
+   "chain_ackpt vs full": {
+    "n": 3,
+    "a": 0,
+    "b": 2,
+    "a_only": 0,
+    "b_only": 2,
+    "p": 0.5
+   },
+   "full_ackpt vs full": {
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   }
+  },
+  "fresh_restore": {},
+  "demo_restore": {
+   "0": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "1": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   }
+  }
+ },
+ "PreSoakPan": {
+  "skills": [
+   "PickPlaceCounterToSink",
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "in_atomic_seen": [
+   false,
+   false,
+   true
+  ],
+  "fresh": {
+   "baseline_seed": {
+    "k": 14,
+    "n": 20,
+    "steps": [
+     [
+      20,
+      20
+     ],
+     [
+      20,
+      20
+     ],
+     [
+      14,
+      20
+     ]
+    ]
+   },
+   "chain_seed": {
+    "k": 12,
+    "n": 20,
+    "steps": [
+     [
+      20,
+      20
+     ],
+     [
+      19,
+      20
+     ],
+     [
+      12,
+      19
+     ]
+    ]
+   },
+   "chain_seed_ackpt": {
+    "k": 0,
+    "n": 3,
+    "steps": [
+     [
+      1,
+      3
+     ],
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   },
+   "baseline_seed_ackpt": {
+    "k": 0,
+    "n": 0,
+    "steps": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "fresh_tests": {
+   "chain_ackpt vs chain": {
+    "n": 3,
+    "a": 0,
+    "b": 3,
+    "a_only": 0,
+    "b_only": 3,
+    "p": 0.25
+   },
+   "chain_ackpt vs full": {
+    "n": 3,
+    "a": 0,
+    "b": 3,
+    "a_only": 0,
+    "b_only": 3,
+    "p": 0.25
+   },
+   "full_ackpt vs full": {
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   }
+  },
+  "fresh_restore": {},
+  "demo_restore": {
+   "0": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "1": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "2": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   }
+  }
+ },
+ "StackBowlsCabinet": {
+  "skills": [
+   "PickPlaceCounterToCabinet",
+   "PickPlaceCounterToCabinet"
+  ],
+  "in_atomic_seen": [
+   true,
+   true
+  ],
+  "fresh": {
+   "baseline_seed": {
+    "k": 15,
+    "n": 20,
+    "steps": [
+     [
+      17,
+      20
+     ],
+     [
+      15,
+      17
+     ]
+    ]
+   },
+   "chain_seed": {
+    "k": 5,
+    "n": 20,
+    "steps": [
+     [
+      16,
+      20
+     ],
+     [
+      5,
+      16
+     ]
+    ]
+   },
+   "chain_seed_ackpt": {
+    "k": 0,
+    "n": 0,
+    "steps": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   },
+   "baseline_seed_ackpt": {
+    "k": 0,
+    "n": 0,
+    "steps": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "fresh_tests": {
+   "chain_ackpt vs chain": {
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   },
+   "chain_ackpt vs full": {
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   },
+   "full_ackpt vs full": {
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   }
+  },
+  "fresh_restore": {},
+  "demo_restore": {
+   "0": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "1": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   }
+  }
+ },
+ "SteamInMicrowave": {
+  "skills": [
+   "PickPlaceSinkToCounter",
+   "PickPlaceCounterToMicrowave",
+   "CloseMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "in_atomic_seen": [
+   true,
+   false,
+   false,
+   true
+  ],
+  "fresh": {
+   "baseline_seed": {
+    "k": 8,
+    "n": 20,
+    "steps": [
+     [
+      18,
+      20
+     ],
+     [
+      15,
+      18
+     ],
+     [
+      13,
+      15
+     ],
+     [
+      8,
+      13
+     ]
+    ]
+   },
+   "chain_seed": {
+    "k": 3,
+    "n": 20,
+    "steps": [
+     [
+      20,
+      20
+     ],
+     [
+      9,
+      20
+     ],
+     [
+      6,
+      9
+     ],
+     [
+      3,
+      6
+     ]
+    ]
+   },
+   "chain_seed_ackpt": {
+    "k": 0,
+    "n": 1,
+    "steps": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   },
+   "baseline_seed_ackpt": {
+    "k": 0,
+    "n": 0,
+    "steps": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "fresh_tests": {
+   "chain_ackpt vs chain": {
+    "n": 1,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   },
+   "chain_ackpt vs full": {
+    "n": 1,
+    "a": 0,
+    "b": 1,
+    "a_only": 0,
+    "b_only": 1,
+    "p": 1.0
+   },
+   "full_ackpt vs full": {
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   }
+  },
+  "fresh_restore": {},
+  "demo_restore": {
+   "0": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "1": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "2": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "3": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   }
+  }
+ },
+ "PrepareCoffee": {
+  "skills": [
+   "CoffeeSetupMug",
+   "StartCoffeeMachine"
+  ],
+  "in_atomic_seen": [
+   true,
+   false
+  ],
+  "fresh": {
+   "baseline_seed": {
+    "k": 2,
+    "n": 20,
+    "steps": [
+     [
+      5,
+      20
+     ],
+     [
+      2,
+      5
+     ]
+    ]
+   },
+   "chain_seed": {
+    "k": 4,
+    "n": 20,
+    "steps": [
+     [
+      5,
+      20
+     ],
+     [
+      4,
+      5
+     ]
+    ]
+   },
+   "chain_seed_ackpt": {
+    "k": 0,
+    "n": 2,
+    "steps": [
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   },
+   "baseline_seed_ackpt": {
+    "k": 0,
+    "n": 0,
+    "steps": [
+     [
+      0,
+      0
+     ],
+     [
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "fresh_tests": {
+   "chain_ackpt vs chain": {
+    "n": 2,
+    "a": 0,
+    "b": 1,
+    "a_only": 0,
+    "b_only": 1,
+    "p": 1.0
+   },
+   "chain_ackpt vs full": {
+    "n": 2,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   },
+   "full_ackpt vs full": {
+    "n": 0,
+    "a": 0,
+    "b": 0,
+    "a_only": 0,
+    "b_only": 0,
+    "p": null
+   }
+  },
+  "fresh_restore": {},
+  "demo_restore": {
+   "0": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   },
+   "1": {
+    "ackpt_vs_cs_atomic": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    },
+    "ackpt_vs_cs_full": {
+     "n": 0,
+     "a": 0,
+     "b": 0,
+     "a_only": 0,
+     "b_only": 0,
+     "p": null
+    }
+   }
+  }
+ }
+}

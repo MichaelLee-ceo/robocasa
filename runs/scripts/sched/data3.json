@@ -1,0 +1,260 @@
+[
+ {
+  "id": "ArrangeVegetables",
+  "zh": "排蔬菜",
+  "skills": "PickPlaceSinkToCounter ×2",
+  "official": "官方 atomic 16/20（論文 70%）",
+  "full": "Pick the vegetables from the sink and place them on the cutting board.",
+  "atomic": [
+   "Pick the corn from the sink and place it on the cutting board located on the counter.",
+   "Pick the tomato from the sink and place it on the cutting board located on the counter."
+  ],
+  "rows": {
+   "single": [
+    13,
+    20,
+    [
+     20,
+     13
+    ]
+   ],
+   "chain": [
+    6,
+    20,
+    [
+     14,
+     6
+    ]
+   ],
+   "full": [
+    8,
+    20,
+    [
+     17,
+     8
+    ]
+   ]
+  },
+  "solo": [
+   8,
+   20
+  ],
+  "p_single_chain": [
+   7,
+   0,
+   0.016
+  ],
+  "p_full_chain": [
+   4,
+   2,
+   0.688
+  ],
+  "videos": [
+   {
+    "cond": "single",
+    "label": "單一長指令",
+    "scene": 3,
+    "success": true,
+    "stuck": null,
+    "file": "videos/ArrangeVegetables_s3_single.mp4",
+    "poster": "videos/ArrangeVegetables_s3_single.jpg"
+   },
+   {
+    "cond": "aseen_chain",
+    "label": "Atomic 串接",
+    "scene": 3,
+    "success": true,
+    "stuck": null,
+    "file": "videos/ArrangeVegetables_s3_aseen_chain.mp4",
+    "poster": "videos/ArrangeVegetables_s3_aseen_chain.jpg"
+   },
+   {
+    "cond": "aseen_full",
+    "label": "Atomic-Seen 整句",
+    "scene": 3,
+    "success": true,
+    "stuck": null,
+    "file": "videos/ArrangeVegetables_s3_aseen_full.mp4",
+    "poster": "videos/ArrangeVegetables_s3_aseen_full.jpg"
+   },
+   {
+    "cond": "aseen_solo",
+    "label": "第 2 步單做",
+    "scene": 3,
+    "success": false,
+    "stuck": 2,
+    "file": "videos/ArrangeVegetables_s3_aseen_solo_k1.mp4",
+    "poster": "videos/ArrangeVegetables_s3_aseen_solo_k1.jpg"
+   }
+  ]
+ },
+ {
+  "id": "GatherVegetables",
+  "zh": "拿蔬菜",
+  "skills": "PickPlaceSinkToCounter ×2",
+  "official": "官方 atomic 16/20（論文 70%）",
+  "full": "Pick up the garlic and bell pepper from the sink and place them on the cutting board on the counter.",
+  "atomic": [
+   "Pick the garlic from the sink and place it on the cutting board located on the counter.",
+   "Pick the bell pepper from the sink and place it on the cutting board located on the counter."
+  ],
+  "rows": {
+   "single": [
+    8,
+    20,
+    [
+     17,
+     8
+    ]
+   ],
+   "chain": [
+    6,
+    20,
+    [
+     13,
+     6
+    ]
+   ],
+   "full": [
+    3,
+    20,
+    [
+     10,
+     3
+    ]
+   ]
+  },
+  "solo": [
+   7,
+   17
+  ],
+  "p_single_chain": [
+   4,
+   2,
+   0.688
+  ],
+  "p_full_chain": [
+   2,
+   5,
+   0.453
+  ],
+  "videos": [
+   {
+    "cond": "single",
+    "label": "單一長指令",
+    "scene": 1,
+    "success": false,
+    "stuck": 2,
+    "file": "videos/GatherVegetables_s1_single.mp4",
+    "poster": "videos/GatherVegetables_s1_single.jpg"
+   },
+   {
+    "cond": "aseen_chain",
+    "label": "Atomic 串接",
+    "scene": 1,
+    "success": true,
+    "stuck": null,
+    "file": "videos/GatherVegetables_s1_aseen_chain.mp4",
+    "poster": "videos/GatherVegetables_s1_aseen_chain.jpg"
+   },
+   {
+    "cond": "aseen_full",
+    "label": "Atomic-Seen 整句",
+    "scene": 1,
+    "success": false,
+    "stuck": 2,
+    "file": "videos/GatherVegetables_s1_aseen_full.mp4",
+    "poster": "videos/GatherVegetables_s1_aseen_full.jpg"
+   },
+   {
+    "cond": "aseen_solo",
+    "label": "第 2 步單做",
+    "scene": 1,
+    "success": false,
+    "stuck": 2,
+    "file": "videos/GatherVegetables_s1_aseen_solo_k1.mp4",
+    "poster": "videos/GatherVegetables_s1_aseen_solo_k1.jpg"
+   }
+  ]
+ },
+ {
+  "id": "CondimentCollection",
+  "zh": "收調味料",
+  "skills": "PickPlaceCounterToCabinet ×2",
+  "official": "官方 atomic 14/20（論文 63%）",
+  "full": "Pick the mayonnaise and mustard from the counter and place them in the cabinet.",
+  "atomic": [
+   "Pick the mayonnaise from the counter and place it in the cabinet.",
+   "Pick the mustard from the counter and place it in the cabinet."
+  ],
+  "rows": {
+   "single": [
+    0,
+    20,
+    [
+     1,
+     0
+    ]
+   ],
+   "chain": [
+    4,
+    20,
+    [
+     10,
+     4
+    ]
+   ],
+   "full": [
+    4,
+    20,
+    [
+     9,
+     4
+    ]
+   ]
+  },
+  "solo": [
+   0,
+   1
+  ],
+  "p_single_chain": [
+   0,
+   4,
+   0.125
+  ],
+  "p_full_chain": [
+   2,
+   2,
+   1
+  ],
+  "videos": [
+   {
+    "cond": "single",
+    "label": "單一長指令",
+    "scene": 1,
+    "success": false,
+    "stuck": 1,
+    "file": "videos/CondimentCollection_s1_single.mp4",
+    "poster": "videos/CondimentCollection_s1_single.jpg"
+   },
+   {
+    "cond": "aseen_chain",
+    "label": "Atomic 串接",
+    "scene": 1,
+    "success": true,
+    "stuck": null,
+    "file": "videos/CondimentCollection_s1_aseen_chain.mp4",
+    "poster": "videos/CondimentCollection_s1_aseen_chain.jpg"
+   },
+   {
+    "cond": "aseen_full",
+    "label": "Atomic-Seen 整句",
+    "scene": 1,
+    "success": false,
+    "stuck": 1,
+    "file": "videos/CondimentCollection_s1_aseen_full.mp4",
+    "poster": "videos/CondimentCollection_s1_aseen_full.jpg"
+   }
+  ]
+ }
+]

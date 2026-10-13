@@ -1,0 +1,212 @@
+{
+ "StackBowlsCabinet": {
+  "baseline_seed": {
+   "name": "整句",
+   "success": 15,
+   "n": 20,
+   "steps": [
+    [
+     17,
+     20
+    ],
+    [
+     15,
+     17
+    ]
+   ]
+  },
+  "chain_seed": {
+   "name": "atomic 串接",
+   "success": 5,
+   "n": 20,
+   "steps": [
+    [
+     16,
+     20
+    ],
+    [
+     5,
+     16
+    ]
+   ]
+  },
+  "chain_then_task_seed": {
+   "name": "A: 第1步 atomic → 整句",
+   "success": 13,
+   "n": 20,
+   "steps": [
+    [
+     18,
+     20
+    ],
+    [
+     13,
+     18
+    ]
+   ]
+  },
+  "chain_aug_seed": {
+   "name": "B: atomic 補資訊",
+   "success": 7,
+   "n": 20,
+   "steps": [
+    [
+     17,
+     20
+    ],
+    [
+     7,
+     17
+    ]
+   ]
+  },
+  "tests": {
+   "chain_then_task_seed vs baseline_seed": {
+    "a_only": 3,
+    "b_only": 5,
+    "p": 0.7266
+   },
+   "chain_then_task_seed vs chain_seed": {
+    "a_only": 10,
+    "b_only": 2,
+    "p": 0.0386
+   },
+   "chain_aug_seed vs baseline_seed": {
+    "a_only": 1,
+    "b_only": 9,
+    "p": 0.0215
+   },
+   "chain_aug_seed vs chain_seed": {
+    "a_only": 5,
+    "b_only": 3,
+    "p": 0.7266
+   }
+  },
+  "skills": [
+   "PickPlaceCounterToCabinet",
+   "PickPlaceCounterToCabinet"
+  ]
+ },
+ "SteamInMicrowave": {
+  "baseline_seed": {
+   "name": "整句",
+   "success": 8,
+   "n": 20,
+   "steps": [
+    [
+     18,
+     20
+    ],
+    [
+     15,
+     18
+    ],
+    [
+     13,
+     15
+    ],
+    [
+     8,
+     13
+    ]
+   ]
+  },
+  "chain_seed": {
+   "name": "atomic 串接",
+   "success": 3,
+   "n": 20,
+   "steps": [
+    [
+     20,
+     20
+    ],
+    [
+     9,
+     20
+    ],
+    [
+     6,
+     9
+    ],
+    [
+     3,
+     6
+    ]
+   ]
+  },
+  "chain_then_task_seed": {
+   "name": "A: 第1步 atomic → 整句",
+   "success": 9,
+   "n": 20,
+   "steps": [
+    [
+     19,
+     20
+    ],
+    [
+     17,
+     19
+    ],
+    [
+     14,
+     17
+    ],
+    [
+     9,
+     14
+    ]
+   ]
+  },
+  "chain_aug_seed": {
+   "name": "B: atomic 補資訊",
+   "success": 6,
+   "n": 20,
+   "steps": [
+    [
+     18,
+     20
+    ],
+    [
+     14,
+     18
+    ],
+    [
+     10,
+     14
+    ],
+    [
+     6,
+     10
+    ]
+   ]
+  },
+  "tests": {
+   "chain_then_task_seed vs baseline_seed": {
+    "a_only": 7,
+    "b_only": 6,
+    "p": 1.0
+   },
+   "chain_then_task_seed vs chain_seed": {
+    "a_only": 7,
+    "b_only": 1,
+    "p": 0.0703
+   },
+   "chain_aug_seed vs baseline_seed": {
+    "a_only": 4,
+    "b_only": 6,
+    "p": 0.7539
+   },
+   "chain_aug_seed vs chain_seed": {
+    "a_only": 5,
+    "b_only": 2,
+    "p": 0.4531
+   }
+  },
+  "skills": [
+   "PickPlaceSinkToCounter",
+   "PickPlaceCounterToMicrowave",
+   "CloseMicrowave",
+   "TurnOnMicrowave"
+  ]
+ }
+}

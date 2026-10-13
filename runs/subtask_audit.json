@@ -1,0 +1,398 @@
+{
+ "KettleBoiling": {
+  "n": 501,
+  "ours": [
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "match": 0,
+  "sequences": [
+   [
+    [
+     "PickPlaceCounterToStove",
+     "TurnOnStove",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "TurnOnStove:execute",
+     "done:done"
+    ],
+    501
+   ]
+  ],
+  "sentences": {
+   "PickPlaceCounterToStove | pick": [
+    [
+     "pick up the kettle from the counter",
+     501
+    ]
+   ],
+   "PickPlaceCounterToStove | place": [
+    [
+     "place the kettle on the stove burner",
+     501
+    ]
+   ],
+   "TurnOnStove | execute": [
+    [
+     "turn on the front-left burner where the kettle is placed",
+     268
+    ],
+    [
+     "turn on the front-right burner where the kettle is placed",
+     161
+    ],
+    [
+     "turn on the left burner where the kettle is placed",
+     40
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  }
+ },
+ "PreSoakPan": {
+  "n": 501,
+  "ours": [
+   "PickPlaceCounterToSink",
+   "PickPlaceCounterToSink",
+   "TurnOnSinkFaucet"
+  ],
+  "match": 0,
+  "sequences": [
+   [
+    [
+     "PickPlaceCounterToSink",
+     "TurnOnSinkFaucet",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToSink:pick",
+     "PickPlaceCounterToSink:place",
+     "PickPlaceCounterToSink:pick",
+     "PickPlaceCounterToSink:place",
+     "TurnOnSinkFaucet:execute",
+     "done:done"
+    ],
+    501
+   ]
+  ],
+  "sentences": {
+   "PickPlaceCounterToSink | pick": [
+    [
+     "pick up the pan from the counter",
+     501
+    ],
+    [
+     "pick up the sponge from the counter",
+     501
+    ]
+   ],
+   "PickPlaceCounterToSink | place": [
+    [
+     "place the pan in the sink",
+     501
+    ],
+    [
+     "place the sponge in the sink",
+     501
+    ]
+   ],
+   "TurnOnSinkFaucet | execute": [
+    [
+     "turn on the sink faucet",
+     501
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  }
+ },
+ "StackBowlsCabinet": {
+  "n": 515,
+  "ours": [
+   "PickPlaceCounterToCabinet",
+   "PickPlaceCounterToCabinet"
+  ],
+  "match": 0,
+  "sequences": [
+   [
+    [
+     "PickPlaceCounterToCabinet",
+     "done"
+    ],
+    488
+   ],
+   [
+    [
+     "PickPlaceCounterToCabinet",
+     "PickPlaceCounterToCabinet",
+     "done"
+    ],
+    27
+   ]
+  ],
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToCabinet:pick",
+     "PickPlaceCounterToCabinet:place",
+     "PickPlaceCounterToCabinet:pick",
+     "PickPlaceCounterToCabinet:place",
+     "done:done"
+    ],
+    488
+   ],
+   [
+    [
+     "PickPlaceCounterToCabinet:pick",
+     "PickPlaceCounterToCabinet:place",
+     "PickPlaceCounterToCabinet:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToCabinet:place",
+     "done:done"
+    ],
+    27
+   ]
+  ],
+  "sentences": {
+   "PickPlaceCounterToCabinet | pick": [
+    [
+     "pick up the smaller bowl from the counter",
+     515
+    ],
+    [
+     "pick up the larger bowl from the counter",
+     515
+    ]
+   ],
+   "PickPlaceCounterToCabinet | place": [
+    [
+     "place the smaller bowl in the cabinet",
+     504
+    ],
+    [
+     "stack the larger bowl on top of the smaller bowl in the cabinet",
+     504
+    ],
+    [
+     "place the larger bowl in the cabinet",
+     11
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     515
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the cabinet",
+     27
+    ]
+   ]
+  }
+ },
+ "SteamInMicrowave": {
+  "n": 511,
+  "ours": [
+   "PickPlaceSinkToCounter",
+   "PickPlaceCounterToMicrowave",
+   "CloseMicrowave",
+   "TurnOnMicrowave"
+  ],
+  "match": 0,
+  "sequences": [
+   [
+    [
+     "PickPlaceSinkToCounter",
+     "PickPlaceCounterToMicrowave",
+     "PickPlaceCounterToMicrowave",
+     "CloseMicrowave",
+     "TurnOnMicrowave",
+     "done"
+    ],
+    500
+   ],
+   [
+    [
+     "PickPlaceSinkToCounter",
+     "PickPlaceCounterToMicrowave",
+     "CloseMicrowave",
+     "TurnOnMicrowave",
+     "done"
+    ],
+    11
+   ]
+  ],
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceSinkToCounter:pick",
+     "PickPlaceSinkToCounter:place",
+     "PickPlaceCounterToMicrowave:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToMicrowave:place",
+     "CloseMicrowave:execute",
+     "TurnOnMicrowave:execute",
+     "done:done"
+    ],
+    500
+   ],
+   [
+    [
+     "PickPlaceSinkToCounter:pick",
+     "PickPlaceSinkToCounter:place",
+     "PickPlaceCounterToMicrowave:pick",
+     "PickPlaceCounterToMicrowave:place",
+     "CloseMicrowave:execute",
+     "TurnOnMicrowave:execute",
+     "done:done"
+    ],
+    11
+   ]
+  ],
+  "sentences": {
+   "PickPlaceSinkToCounter | pick": [
+    [
+     "pick up the lime from the sink",
+     42
+    ],
+    [
+     "pick up the broccoli from the sink",
+     37
+    ],
+    [
+     "pick up the bell pepper from the sink",
+     36
+    ]
+   ],
+   "PickPlaceSinkToCounter | place": [
+    [
+     "place the lime in the bowl",
+     42
+    ],
+    [
+     "place the broccoli in the bowl",
+     37
+    ],
+    [
+     "place the bell pepper in the bowl",
+     36
+    ]
+   ],
+   "PickPlaceCounterToMicrowave | pick": [
+    [
+     "pick up the bowl",
+     511
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the microwave",
+     500
+    ]
+   ],
+   "PickPlaceCounterToMicrowave | place": [
+    [
+     "place the bowl in the microwave",
+     511
+    ]
+   ],
+   "CloseMicrowave | execute": [
+    [
+     "close the microwave door",
+     511
+    ]
+   ],
+   "TurnOnMicrowave | execute": [
+    [
+     "turn on the microwave",
+     511
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     511
+    ]
+   ]
+  }
+ },
+ "PrepareCoffee": {
+  "n": 514,
+  "ours": [
+   "CoffeeSetupMug",
+   "StartCoffeeMachine"
+  ],
+  "match": 0,
+  "sequences": [
+   [
+    [
+     "CoffeeSetupMug",
+     "StartCoffeeMachine",
+     "done"
+    ],
+    514
+   ]
+  ],
+  "stage_sequences": [
+   [
+    [
+     "CoffeeSetupMug:pick",
+     "CoffeeSetupMug:place",
+     "StartCoffeeMachine:execute",
+     "done:done"
+    ],
+    514
+   ]
+  ],
+  "sentences": {
+   "CoffeeSetupMug | pick": [
+    [
+     "pick up the mug from the cabinet",
+     514
+    ]
+   ],
+   "CoffeeSetupMug | place": [
+    [
+     "place the mug under the coffee machine dispenser",
+     514
+    ]
+   ],
+   "StartCoffeeMachine | execute": [
+    [
+     "press the start button on the coffee machine",
+     514
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     514
+    ]
+   ]
+  }
+ }
+}

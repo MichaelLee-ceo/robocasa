@@ -1,0 +1,2148 @@
+{
+ "ArrangeTea": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "50": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "100": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "150": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "200": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "250": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "300": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "350": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "400": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      0,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "450": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      0,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   }
+  },
+  "baseline_demoinit": 0.4,
+  "planner": 0.2,
+  "reset_task_chain": 0.3,
+  "reset_task_mean_sub": 0.8,
+  "reset_sub_chain": 0.6,
+  "reset_sub_mean_sub": 0.9,
+  "n_paired_demos": 10
+ },
+ "BreadSelection": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "50": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "100": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "150": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "201": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "251": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "301": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "352": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "402": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "452": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   }
+  },
+  "baseline_demoinit": 0.8,
+  "planner": 0.9,
+  "reset_task_chain": 0.7,
+  "reset_task_mean_sub": 0.9,
+  "reset_sub_chain": 0.8,
+  "reset_sub_mean_sub": 0.95,
+  "n_paired_demos": 10
+ },
+ "CuttingToolSelection": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "50": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "100": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "150": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "200": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      0,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "250": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "300": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "350": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "400": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "450": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   }
+  },
+  "baseline_demoinit": 0.3,
+  "planner": 0.5,
+  "reset_task_chain": 0.6,
+  "reset_task_mean_sub": 0.75,
+  "reset_sub_chain": 0.5,
+  "reset_sub_mean_sub": 0.7,
+  "n_paired_demos": 10
+ },
+ "RecycleBottlesByType": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "52": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "104": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "156": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "208": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "260": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1
+     ],
+     "complete": false,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1
+     ],
+     "complete": false,
+     "chain_ok": false
+    }
+   },
+   "312": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "364": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "416": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "468": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   }
+  },
+  "baseline_demoinit": 0.889,
+  "planner": 0.667,
+  "reset_task_chain": 0.889,
+  "reset_task_mean_sub": 0.981,
+  "reset_sub_chain": 0.889,
+  "reset_sub_mean_sub": 0.981,
+  "n_paired_demos": 9
+ },
+ "SeparateFreezerRack": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "50": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "100": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "150": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "200": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "250": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "300": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "350": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "400": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "450": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   }
+  },
+  "baseline_demoinit": 0.2,
+  "planner": 0.0,
+  "reset_task_chain": 0.4,
+  "reset_task_mean_sub": 0.857,
+  "reset_sub_chain": 0.0,
+  "reset_sub_mean_sub": 0.4,
+  "n_paired_demos": 10
+ },
+ "WaffleReheat": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "50": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "100": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "150": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "200": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "250": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "300": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "350": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "400": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "450": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      0,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      0,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   }
+  },
+  "baseline_demoinit": 1.0,
+  "planner": 0.5,
+  "reset_task_chain": 0.8,
+  "reset_task_mean_sub": 0.96,
+  "reset_sub_chain": 0.5,
+  "reset_sub_mean_sub": 0.9,
+  "n_paired_demos": 10
+ },
+ "WashFruitColander": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "50": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "101": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "152": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "202": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "253": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "304": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "354": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "405": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "456": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   }
+  },
+  "baseline_demoinit": 0.5,
+  "planner": 0.4,
+  "reset_task_chain": 0.3,
+  "reset_task_mean_sub": 0.878,
+  "reset_sub_chain": 0.2,
+  "reset_sub_mean_sub": 0.865,
+  "n_paired_demos": 10
+ },
+ "WeighIngredients": {
+  "demos": {
+   "0": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "50": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    }
+   },
+   "100": {
+    "baseline_demoinit": false,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "151": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      0
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "201": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "252": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "302": {
+    "baseline_demoinit": false,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "352": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      0,
+      1
+     ],
+     "complete": true,
+     "chain_ok": false
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "403": {
+    "baseline_demoinit": true,
+    "planner": false,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   },
+   "453": {
+    "baseline_demoinit": true,
+    "planner": true,
+    "reset_task": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    },
+    "reset_sub": {
+     "sub": [
+      1,
+      1,
+      1
+     ],
+     "complete": true,
+     "chain_ok": true
+    }
+   }
+  },
+  "baseline_demoinit": 0.7,
+  "planner": 0.3,
+  "reset_task_chain": 0.8,
+  "reset_task_mean_sub": 0.933,
+  "reset_sub_chain": 0.9,
+  "reset_sub_mean_sub": 0.967,
+  "n_paired_demos": 10
+ }
+}

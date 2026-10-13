@@ -1,0 +1,16 @@
+KettleBoiling      seeded n=20  full-instr 12  chain  9  (repro same seeds 15)  | demo: baseline [9, 10]  chain_task-control [9, 10]
+     steps: [('PickPlaceCounterToStove', 'base 18/20', 'chain 15/20'), ('TurnOnStove', 'base 12/18', 'chain 9/15')]
+     failure point: {'baseline': {'step 2 TurnOnStove': 6, 'step 1 PickPlaceCounterToStove': 2}, 'chain': {'step 1 PickPlaceCounterToStove': 5, 'step 2 TurnOnStove': 6}}
+PreSoakPan         seeded n=20  full-instr 14  chain 12  (repro same seeds 9)  | demo: baseline [10, 10]  chain_task-control [8, 10]
+     steps: [('PickPlaceCounterToSink', 'base 20/20', 'chain 20/20'), ('PickPlaceCounterToSink', 'base 20/20', 'chain 19/20'), ('TurnOnSinkFaucet', 'base 14/20', 'chain 12/19')]
+     failure point: {'baseline': {'step 3 TurnOnSinkFaucet': 6}, 'chain': {'step 3 TurnOnSinkFaucet': 7, 'step 2 PickPlaceCounterToSink': 1}}
+StackBowlsCabinet  seeded n=20  full-instr 15  chain  5  (repro same seeds 14)  | demo: baseline [10, 10]  chain_task-control [9, 10]
+     steps: [('PickPlaceCounterToCabinet', 'base 17/20', 'chain 16/20'), ('PickPlaceCounterToCabinet', 'base 15/17', 'chain 5/16')]
+     failure point: {'baseline': {'step 1 PickPlaceCounterToCabinet': 3, 'step 2 PickPlaceCounterToCabinet': 2}, 'chain': {'step 2 PickPlaceCounterToCabinet': 11, 'step 1 PickPlaceCounterToCabinet': 4}}
+SteamInMicrowave   seeded n=20  full-instr  8  chain  3  (repro same seeds 6)  | demo: baseline [4, 10]  chain_task-control [1, 10]
+     steps: [('PickPlaceSinkToCounter', 'base 18/20', 'chain 20/20'), ('PickPlaceCounterToMicrowave', 'base 15/18', 'chain 9/20'), ('CloseMicrowave', 'base 13/15', 'chain 6/9'), ('TurnOnMicrowave', 'base 8/13', 'chain 3/6')]
+     failure point: {'baseline': {'step 4 TurnOnMicrowave': 5, 'step 1 PickPlaceSinkToCounter': 2, 'step 2 PickPlaceCounterToMicrowave': 3, 'step 3 CloseMicrowave': 2}, 'chain': {'step 2 PickPlaceCounterToMicrowave': 11, 'step 3 CloseMicrowave': 3, 'step 4 TurnOnMicrowave': 3}}
+PrepareCoffee      seeded n=20  full-instr  2  chain  4  (repro same seeds 3)  | demo: baseline [1, 10]  chain_task-control [2, 10]
+     steps: [('CoffeeSetupMug', 'base 5/20', 'chain 5/20'), ('StartCoffeeMachine', 'base 2/5', 'chain 4/5')]
+     failure point: {'baseline': {'step 2 StartCoffeeMachine': 3, 'step 1 CoffeeSetupMug': 15}, 'chain': {'step 2 StartCoffeeMachine': 1, 'step 1 CoffeeSetupMug': 15}}
+TOTAL {'n': 100, 'baseline': 51, 'chain': 33, 'baseline_only': 31, 'chain_only': 13, 'repro_same_seeds': 47, 'ct_k': 29, 'ct_n': 50, 'bl_k': 34, 'bl_n': 50, 'mcnemar_p': np.float64(0.0096)}

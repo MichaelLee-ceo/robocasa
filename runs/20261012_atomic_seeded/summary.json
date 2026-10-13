@@ -1,0 +1,315 @@
+{
+ "tasks": {
+  "KettleBoiling": {
+   "n": 20,
+   "baseline": 12,
+   "chain": 9,
+   "baseline_only": 7,
+   "chain_only": 4,
+   "repro_same_seeds": 15,
+   "failure_point": {
+    "baseline": {
+     "step 2 TurnOnStove": 6,
+     "step 1 PickPlaceCounterToStove": 2
+    },
+    "chain": {
+     "step 1 PickPlaceCounterToStove": 5,
+     "step 2 TurnOnStove": 6
+    }
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceCounterToStove",
+     "baseline": [
+      18,
+      20
+     ],
+     "chain": [
+      15,
+      20
+     ]
+    },
+    {
+     "k": 1,
+     "skill": "TurnOnStove",
+     "baseline": [
+      12,
+      18
+     ],
+     "chain": [
+      9,
+      15
+     ]
+    }
+   ],
+   "demo_chain_task": [
+    9,
+    10
+   ],
+   "demo_baseline": [
+    9,
+    10
+   ]
+  },
+  "PreSoakPan": {
+   "n": 20,
+   "baseline": 14,
+   "chain": 12,
+   "baseline_only": 3,
+   "chain_only": 1,
+   "repro_same_seeds": 9,
+   "failure_point": {
+    "baseline": {
+     "step 3 TurnOnSinkFaucet": 6
+    },
+    "chain": {
+     "step 3 TurnOnSinkFaucet": 7,
+     "step 2 PickPlaceCounterToSink": 1
+    }
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceCounterToSink",
+     "baseline": [
+      20,
+      20
+     ],
+     "chain": [
+      20,
+      20
+     ]
+    },
+    {
+     "k": 1,
+     "skill": "PickPlaceCounterToSink",
+     "baseline": [
+      20,
+      20
+     ],
+     "chain": [
+      19,
+      20
+     ]
+    },
+    {
+     "k": 2,
+     "skill": "TurnOnSinkFaucet",
+     "baseline": [
+      14,
+      20
+     ],
+     "chain": [
+      12,
+      19
+     ]
+    }
+   ],
+   "demo_chain_task": [
+    8,
+    10
+   ],
+   "demo_baseline": [
+    10,
+    10
+   ]
+  },
+  "StackBowlsCabinet": {
+   "n": 20,
+   "baseline": 15,
+   "chain": 5,
+   "baseline_only": 12,
+   "chain_only": 2,
+   "repro_same_seeds": 14,
+   "failure_point": {
+    "baseline": {
+     "step 1 PickPlaceCounterToCabinet": 3,
+     "step 2 PickPlaceCounterToCabinet": 2
+    },
+    "chain": {
+     "step 2 PickPlaceCounterToCabinet": 11,
+     "step 1 PickPlaceCounterToCabinet": 4
+    }
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceCounterToCabinet",
+     "baseline": [
+      17,
+      20
+     ],
+     "chain": [
+      16,
+      20
+     ]
+    },
+    {
+     "k": 1,
+     "skill": "PickPlaceCounterToCabinet",
+     "baseline": [
+      15,
+      17
+     ],
+     "chain": [
+      5,
+      16
+     ]
+    }
+   ],
+   "demo_chain_task": [
+    9,
+    10
+   ],
+   "demo_baseline": [
+    10,
+    10
+   ]
+  },
+  "SteamInMicrowave": {
+   "n": 20,
+   "baseline": 8,
+   "chain": 3,
+   "baseline_only": 7,
+   "chain_only": 2,
+   "repro_same_seeds": 6,
+   "failure_point": {
+    "baseline": {
+     "step 4 TurnOnMicrowave": 5,
+     "step 1 PickPlaceSinkToCounter": 2,
+     "step 2 PickPlaceCounterToMicrowave": 3,
+     "step 3 CloseMicrowave": 2
+    },
+    "chain": {
+     "step 2 PickPlaceCounterToMicrowave": 11,
+     "step 3 CloseMicrowave": 3,
+     "step 4 TurnOnMicrowave": 3
+    }
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "PickPlaceSinkToCounter",
+     "baseline": [
+      18,
+      20
+     ],
+     "chain": [
+      20,
+      20
+     ]
+    },
+    {
+     "k": 1,
+     "skill": "PickPlaceCounterToMicrowave",
+     "baseline": [
+      15,
+      18
+     ],
+     "chain": [
+      9,
+      20
+     ]
+    },
+    {
+     "k": 2,
+     "skill": "CloseMicrowave",
+     "baseline": [
+      13,
+      15
+     ],
+     "chain": [
+      6,
+      9
+     ]
+    },
+    {
+     "k": 3,
+     "skill": "TurnOnMicrowave",
+     "baseline": [
+      8,
+      13
+     ],
+     "chain": [
+      3,
+      6
+     ]
+    }
+   ],
+   "demo_chain_task": [
+    1,
+    10
+   ],
+   "demo_baseline": [
+    4,
+    10
+   ]
+  },
+  "PrepareCoffee": {
+   "n": 20,
+   "baseline": 2,
+   "chain": 4,
+   "baseline_only": 2,
+   "chain_only": 4,
+   "repro_same_seeds": 3,
+   "failure_point": {
+    "baseline": {
+     "step 2 StartCoffeeMachine": 3,
+     "step 1 CoffeeSetupMug": 15
+    },
+    "chain": {
+     "step 2 StartCoffeeMachine": 1,
+     "step 1 CoffeeSetupMug": 15
+    }
+   },
+   "steps": [
+    {
+     "k": 0,
+     "skill": "CoffeeSetupMug",
+     "baseline": [
+      5,
+      20
+     ],
+     "chain": [
+      5,
+      20
+     ]
+    },
+    {
+     "k": 1,
+     "skill": "StartCoffeeMachine",
+     "baseline": [
+      2,
+      5
+     ],
+     "chain": [
+      4,
+      5
+     ]
+    }
+   ],
+   "demo_chain_task": [
+    2,
+    10
+   ],
+   "demo_baseline": [
+    1,
+    10
+   ]
+  }
+ },
+ "total": {
+  "n": 100,
+  "baseline": 51,
+  "chain": 33,
+  "baseline_only": 31,
+  "chain_only": 13,
+  "repro_same_seeds": 47,
+  "ct_k": 29,
+  "ct_n": 50,
+  "bl_k": 34,
+  "bl_n": 50,
+  "mcnemar_p": 0.0096
+ }
+}
