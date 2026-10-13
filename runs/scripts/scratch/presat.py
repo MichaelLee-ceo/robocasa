@@ -1,11 +1,11 @@
 import sys, os, json, glob, collections
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts"); sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts"); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa, groot_eval
 from atomic_eval import load_scene
 from oracle import set_state, reset_to
 from atomic_steps import TASKS, prepare
 from demo_utils import load_demo
-V2 = "/home/michaellee/Desktop/robocasa/runs/20261013_scenes_v2"; DEC = "/home/michaellee/Desktop/robocasa/runs/20261012_atomic_decomp_seen"
+V2 = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/20261013_scenes_v2"; DEC = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/20261012_atomic_decomp_seen"
 def load(d):
     R = {}
     for p in glob.glob(f"{d}/results_w*.jsonl"):
@@ -23,7 +23,7 @@ for t, n in NST.items():
         recs = {int(x["k"]): x for x in np.load(f, allow_pickle=True)["recs"]}
         for k in range(1, n):
             if k not in recs: continue
-            load_scene(e, f"/home/michaellee/Desktop/robocasa/runs/scenes_seen5_v2/{t}_s{s}.npz"); set_state(e, recs[k]["state"])
+            load_scene(e, f"{os.path.expanduser(os.environ.get('ROBOCASA_ROOT', '~/Desktop/robocasa'))}/runs/scenes_seen5_v2/{t}_s{s}.npz"); set_state(e, recs[k]["state"])
             pre_fresh[(t, s, k)] = bool(steps[k]["check"](e, dict(recs[k]["S"])))
     demos = sorted({r["demo"] for r in RD.values() if r["task"] == t and r["condition"] == "reset_atomic"})
     for dm in demos:

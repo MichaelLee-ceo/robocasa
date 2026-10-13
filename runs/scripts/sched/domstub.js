@@ -1,5 +1,5 @@
 const fs=require('fs');
-const code=fs.readFileSync('/tmp/claude-1001/rc/page.js','utf8');
+const code=fs.readFileSync((process.env.RC_DIR || '/tmp/claude-1001/rc') + '/page.js','utf8');
 const els={};
 function mk(id){return els[id]||(els[id]={id,innerHTML:'',_l:{},setAttribute(){},addEventListener(e,f){this._l[e]=f},querySelectorAll(){return []},insertAdjacentHTML(){}, get textContent(){return ''}});}
 global.window={}; global.localStorage={getItem(){return null},setItem(){}};

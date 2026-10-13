@@ -1,10 +1,11 @@
+import os
 import sys
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts"); sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts"); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa, groot_eval
 from atomic_eval import load_scene
 def mk(): b = gym.make("robocasa/StackBowlsCabinet", split="target", enable_render=False).unwrapped; return b, b.env
 b1, k1 = mk(); b1.reset(seed=0)
-b2, k2 = mk(); load_scene(k2, "/home/michaellee/Desktop/robocasa/runs/scenes_seen5/StackBowlsCabinet_s0.npz")
+b2, k2 = mk(); load_scene(k2, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scenes_seen5/StackBowlsCabinet_s0.npz")
 m1, m2 = k1.sim.model._model, k2.sim.model._model
 o1, o2 = m1.opt, m2.opt
 for f in ("timestep", "integrator", "cone", "impratio", "noslip_iterations", "iterations", "tolerance", "jacobian", "solver", "o_margin"):

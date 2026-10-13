@@ -6,7 +6,7 @@ from scipy.stats import binomtest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atomic_steps import TASKS
 
-SD = os.path.expanduser("~/Desktop/robocasa/runs/20261012_atomic_seeded")
+SD = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/20261012_atomic_seeded")
 R = {}
 for p in glob.glob(f"{SD}/results_w*.jsonl"):
     for l in open(p):

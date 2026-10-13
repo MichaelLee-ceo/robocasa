@@ -1,5 +1,5 @@
 import sys, os, json
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts"); sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts"); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa, groot_eval
 from atomic_eval import load_scene
 from oracle import set_state
@@ -13,7 +13,7 @@ def roll(n=48):
         o, *_ = base.step(a); out.append(np.concatenate([np.ravel(o[k]) for k in sorted(o) if k.startswith("state.")]))
     return np.array(out)
 base.reset(seed=0); A = snap(); sA = kenv.sim.get_state().flatten(); RA = roll()
-x = load_scene(kenv, "/home/michaellee/Desktop/robocasa/runs/scenes_seen5/StackBowlsCabinet_s0.npz"); B = snap(); sB = kenv.sim.get_state().flatten(); RB = roll()
+x = load_scene(kenv, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scenes_seen5/StackBowlsCabinet_s0.npz"); B = snap(); sB = kenv.sim.get_state().flatten(); RB = roll()
 print("state vec equal shape", sA.shape == sB.shape, "max diff", float(np.abs(sA - sB).max()) if sA.shape == sB.shape else None)
 for k in A:
     if A[k].shape == B[k].shape:

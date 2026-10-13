@@ -5,7 +5,7 @@ from scipy.stats import binomtest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atomic_steps import TASKS
 
-RUNS = os.path.expanduser("~/Desktop/robocasa/runs")
+RUNS = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs")
 SD = f"{RUNS}/20261012_atomic_seeded"; AD = f"{RUNS}/20261012_atomic_decomp_seen"
 ATOMIC_SEEN = {"CloseBlenderLid", "CloseFridge", "CloseToasterOvenDoor", "CoffeeSetupMug", "NavigateKitchen", "OpenCabinet",
                "OpenDrawer", "OpenStandMixerHead", "PickPlaceCounterToCabinet", "PickPlaceCounterToStove", "PickPlaceDrawerToCounter",

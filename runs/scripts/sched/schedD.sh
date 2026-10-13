@@ -1,15 +1,17 @@
 #!/bin/bash
-source ~/miniconda3/etc/profile.d/conda.sh && conda activate ~/Desktop/robocasa/envs/groot
+ROBOCASA_ROOT="${ROBOCASA_ROOT:-$HOME/Desktop/robocasa}"; RC_DIR="${RC_DIR:-/tmp/claude-1001/rc}"; export ROBOCASA_ROOT RC_DIR
+mkdir -p "$RC_DIR"
+source ~/miniconda3/etc/profile.d/conda.sh && conda activate $ROBOCASA_ROOT/envs/groot
 export NO_ALBUMENTATIONS_UPDATE=1
-SD=~/Desktop/robocasa/runs/20261012_atomic_seeded; S=~/Desktop/robocasa/runs/scripts/atomic_eval.py
+SD=$ROBOCASA_ROOT/runs/20261012_atomic_seeded; S=$ROBOCASA_ROOT/runs/scripts/atomic_eval.py
 while [ $(ps -eo args | grep -c "^python -I .*jobs_AB.json") -gt 0 ]; do sleep 20; done
 echo "$(date +%H:%M) A/B done, starting D1"
 cd $SD; for w in $(seq 0 5); do python -I $S --jobs jobs_D1.json --worker $w --n_workers 6 --out $SD --port 5555 > worker_D1_$w.log 2>&1 & done; wait
 echo "$(date +%H:%M) D1 done"
 python3 - <<'PY'
-import json, glob, numpy as np
-SD='/home/michaellee/Desktop/robocasa/runs/20261012_atomic_seeded'
-H=json.load(open('/home/michaellee/Desktop/robocasa/runs/20261012_groot_repro_seen_h1x/horizons_original.json'))
+import json, os, glob, numpy as np
+SD=os.environ['ROBOCASA_ROOT']+'/runs/20261012_atomic_seeded'
+H=json.load(open(os.environ['ROBOCASA_ROOT']+'/runs/20261012_groot_repro_seen_h1x/horizons_original.json'))
 want={"StackBowlsCabinet":[1],"SteamInMicrowave":[1,2,3]}
 jobs=[]
 for t,ks in want.items():

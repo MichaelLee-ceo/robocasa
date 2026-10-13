@@ -37,4 +37,4 @@ for t, ours in OURS.items():
     print(f"== {t}: {len(files)} demos, matching our order (NavigateKitchen dropped): {match}")
     for k, v in seqs.most_common(6):
         print("   ", v, list(k))
-json.dump(out, open(os.path.expanduser("~/Desktop/robocasa/runs/subtask_audit.json"), "w"), ensure_ascii=False, indent=1)
+json.dump(out, open(os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/subtask_audit.json"), "w"), ensure_ascii=False, indent=1)

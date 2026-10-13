@@ -2,7 +2,7 @@
 import json, os, sys, shutil, glob, html, collections
 import numpy as np
 
-RUNS = os.path.expanduser("~/Desktop/robocasa/runs")
+RUNS = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs")
 A = f"{RUNS}/20261012_atomic_decomp_seen"
 RS = f"{RUNS}/20261012_groot_repro_seen_h1x"
 RU = f"{RUNS}/20261012_groot_repro_h1x"

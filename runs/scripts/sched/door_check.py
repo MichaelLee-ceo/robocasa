@@ -1,5 +1,5 @@
 import sys, os, json, numpy as np, gymnasium as gym
-sys.path.insert(0, os.path.expanduser('~/Desktop/robocasa/runs/scripts')); sys.path.insert(0, os.path.expanduser('~/Desktop/robocasa/third_party/Isaac-GR00T'))
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + '/runs/scripts')); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + '/third_party/Isaac-GR00T'))
 import robocasa
 from collections import defaultdict, deque
 from gr00t.eval.wrappers.multistep_wrapper import MultiStepWrapper

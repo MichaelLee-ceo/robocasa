@@ -1,3 +1,4 @@
+import os
 import time, numpy as np, imageio
 from robocasa.wrappers.gym_wrapper import RoboCasaGymEnv
 t=time.time()
@@ -12,4 +13,4 @@ for i in range(20):
 print("20 steps s", round(time.time()-t,2), "reward", r, term, trunc)
 imgs=[v for k,v in obs.items() if k.startswith("video.")]
 print("image means", [round(float(x.mean()),1) for x in imgs])
-imageio.imwrite("/tmp/claude-1001/rc/frame.png", np.concatenate(imgs,1))
+imageio.imwrite(os.environ.get("RC_DIR", "/tmp/claude-1001/rc") + "/frame.png", np.concatenate(imgs,1))

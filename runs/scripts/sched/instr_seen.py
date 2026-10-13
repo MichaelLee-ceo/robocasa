@@ -1,3 +1,4 @@
+import os
 import robosuite, robocasa, json, sys
 from robosuite.controllers import load_composite_controller_config
 from robocasa.utils.dataset_registry import TARGET_TASKS
@@ -11,4 +12,4 @@ for t in TARGET_TASKS["composite_seen"]:
         k.reset(); L.append(k.get_ep_meta().get("lang"))
     out[t]=L; k.close()
     print(t, "|", " || ".join(L), flush=True)
-json.dump(out, open("/home/michaellee/Desktop/robocasa/runs/composite_seen_instructions.json","w"), indent=1)
+json.dump(out, open(os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/composite_seen_instructions.json","w"), indent=1)

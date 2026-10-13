@@ -4,7 +4,7 @@ from scipy.stats import binomtest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from atomic_steps import TASKS
 
-RUNS = os.path.expanduser("~/Desktop/robocasa/runs")
+RUNS = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs")
 SD, A, RS = f"{RUNS}/20261012_atomic_seeded", f"{RUNS}/20261012_atomic_decomp_seen", f"{RUNS}/20261012_groot_repro_seen_h1x"
 
 

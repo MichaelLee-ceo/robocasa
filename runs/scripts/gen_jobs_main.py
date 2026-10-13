@@ -2,9 +2,9 @@
 import json, sys, os
 import numpy as np
 sfx, name, with_full = sys.argv[1], sys.argv[2], sys.argv[3] == "1"
-OUT = os.path.expanduser("~/Desktop/robocasa/runs/20261013_scenes_v2")
-H = json.load(open(os.path.expanduser("~/Desktop/robocasa/runs/20261012_groot_repro_seen_h1x/horizons_original.json")))
-SC = os.path.expanduser("~/Desktop/robocasa/runs/scenes_seen5_v2")
+OUT = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/20261013_scenes_v2")
+H = json.load(open(os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/20261012_groot_repro_seen_h1x/horizons_original.json")))
+SC = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/scenes_seen5_v2")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 NST = dict(KettleBoiling=2, PreSoakPan=3, StackBowlsCabinet=2, SteamInMicrowave=4, PrepareCoffee=2)
 T = list(NST)
@@ -22,7 +22,7 @@ for s in range(20):
             if k in have:
                 jobs.append(dict(task=t, seed=s, step=k, scene=f"{SC}/{t}_s{s}.npz", condition="reset_seed_atomic" + sfx, approach=name,
                                  horizon=H[t], src_tag=src, tag=f"{t}_s{s}_{name}_solo_k{k}"))
-for j in json.load(open(os.path.expanduser("~/Desktop/robocasa/runs/20261012_atomic_decomp_seen/jobs.json"))):
+for j in json.load(open(os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/20261012_atomic_decomp_seen/jobs.json"))):
     if j["condition"] == "reset_atomic":
         jobs.append(dict(j, condition="reset_atomic" + sfx, approach=name, tag=j["tag"].replace("reset_atomic", f"{name}_solodemo")))
 if with_full:

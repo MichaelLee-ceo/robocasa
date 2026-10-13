@@ -3,7 +3,7 @@
 (2) every restore (reset_seed_*): its first frame vs the source run's frame at the saved time t."""
 import json, glob, os, sys, collections
 import numpy as np, av
-SD = os.path.expanduser("~/Desktop/robocasa/runs/20261012_atomic_seeded")
+SD = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/20261012_atomic_seeded")
 R = {}
 for p in glob.glob(f"{SD}/results_w*.jsonl"):
     for l in open(p):

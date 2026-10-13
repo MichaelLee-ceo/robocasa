@@ -1,5 +1,6 @@
+import os
 import sys, json
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts"); sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts"); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa, groot_eval, imageio.v3 as iio
 from oracle import set_state
 base = gym.make("robocasa/StackBowlsCabinet", split="target", enable_render=True).unwrapped; kenv = base.env

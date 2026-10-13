@@ -97,14 +97,20 @@ python robocasa/scripts/download_datasets.py --split target --source human   # a
 
 Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
 
-## 4. Things that are path-dependent
+## 4. Paths: two environment variables
 
-* 19 scripts in `runs/scripts/` use `~/Desktop/robocasa` as the project root (via `os.path.expanduser`). Easiest: use
-  the same path on the new server. (Planned: a second commit that reads `ROBOCASA_ROOT`, default = the old path.)
-* `runs/scripts/sched/*.sh` (copied from `/tmp/claude-1001/rc/`) write logs and go-flags under `/tmp/claude-1001/rc/`.
+* `ROBOCASA_ROOT` — project root used by every script in `runs/scripts/` (and `runs/scripts/sched/*.sh`).
+  Default `~/Desktop/robocasa` (the original location), so nothing needs to be set if the new server uses the same path:
+  `export ROBOCASA_ROOT=/path/to/robocasa` otherwise.
+* `RC_DIR` — where the batch schedulers in `runs/scripts/sched/*.sh` write their logs, server logs and go-flags
+  (`go_aseen`, `go_pre`). Default `/tmp/claude-1001/rc` (the original location); set it to any writable directory.
+* The scheduler scripts still `source ~/miniconda3/etc/profile.d/conda.sh` and activate `$ROBOCASA_ROOT/envs/groot`.
 * Frozen scene files (`runs/scenes_seen5_v2/*.npz`) store robosuite's pre-compile MJCF with absolute asset paths of the
-  old machine; `reset_to()` → `edit_model_xml()` rewrites them to the local assets (the dataset demo xmls are loaded
-  the same way). Verify with step 5.
+  original machine; `reset_to()` → `edit_model_xml()` rewrites them to the local robocasa assets (the dataset demo xmls
+  are loaded the same way). Verified on the original machine with and without `ROBOCASA_ROOT` set; check again with
+  step 5.1 on the new server.
+* Scripts in `runs/scripts/scratch/` are one-off checks; some still write images to the original session's scratch
+  directory under `/tmp/claude-1001/...`.
 
 ## 5. Verification after the move
 

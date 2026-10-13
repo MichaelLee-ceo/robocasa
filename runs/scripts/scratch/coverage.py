@@ -1,5 +1,5 @@
 import sys, os, glob, collections, json
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts")
 import pandas as pd
 from demo_utils import ds_dir, load_tasks, DS_ROOT
 OFF = dict(PickPlaceSinkToCounter=16, TurnOnMicrowave=16, PickPlaceCounterToCabinet=14, PickPlaceCounterToStove=13, CoffeeSetupMug=11,

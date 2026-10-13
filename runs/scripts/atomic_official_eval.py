@@ -1,10 +1,10 @@
 """Official atomic-task eval (run_eval client protocol, split=target, official _check_success) for a list of tasks,
 saving per-episode successes. Horizon: original (pre-1.5x) value from git 29f7ce8^, as in the composite repro."""
 import sys, os, json
-sys.path.insert(0, os.path.expanduser("~/Desktop/robocasa/third_party/Isaac-GR00T"))
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/third_party/Isaac-GR00T"))
 from gr00t.eval.simulation import SimulationConfig, VideoConfig, MultiStepConfig, SimulationInferenceClient
 tasks, n, port, out = sys.argv[1].split(","), int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
-H = json.load(open(os.path.expanduser("~/Desktop/robocasa/runs/atomic_horizons_original.json")))
+H = json.load(open(os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/atomic_horizons_original.json")))
 client = SimulationInferenceClient(host="localhost", port=port)
 for t in tasks:
     d = os.path.join(out, t); os.makedirs(d, exist_ok=True)

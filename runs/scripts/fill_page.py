@@ -1,8 +1,8 @@
 """Fill only the DATA object of the published page (layout/text untouched) from the frozen-scene runs."""
 import json, glob, os, re, shutil, sys, datetime
-OUT = os.path.expanduser("~/Desktop/robocasa/runs/20261013_scenes_v2")
+OUT = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/20261013_scenes_v2")
 SRC = sys.argv[1]  # live index.html read from the artifact
-DST = os.path.expanduser("~/Desktop/robocasa/runs/report_v2")
+DST = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/report_v2")
 status = json.loads(sys.argv[2]) if len(sys.argv) > 2 else None
 os.makedirs(f"{DST}/videos", exist_ok=True)
 

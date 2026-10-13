@@ -4,7 +4,7 @@ at handoff (single-horizon saved step states) vs at the end of the atomic chains
 import os, sys, json, glob, collections
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.expanduser("~/Desktop/robocasa/third_party/Isaac-GR00T"))
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/third_party/Isaac-GR00T"))
 import gymnasium as gym
 import robocasa  # noqa
 import groot_eval  # noqa
@@ -12,7 +12,7 @@ import robocasa.utils.object_utils as OU
 from atomic_eval import load_scene
 from oracle import set_state
 
-OUT = os.path.expanduser("~/Desktop/robocasa/runs/20261013_scenes_v2")
+OUT = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/20261013_scenes_v2")
 NST = dict(KettleBoiling=2, PreSoakPan=3, StackBowlsCabinet=2, SteamInMicrowave=4, PrepareCoffee=2)
 R = {}
 for p in glob.glob(f"{OUT}/results_w*.jsonl"):

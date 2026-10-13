@@ -1,9 +1,10 @@
+import os
 import sys, json
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts"); sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts"); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa, groot_eval
 import robocasa.utils.object_utils as OU
 from atomic_eval import load_scene
-SC = "/home/michaellee/Desktop/robocasa/runs/scenes_seen5_v2"
+SC = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scenes_seen5_v2"
 for task, objs in (("ArrangeVegetables", ["vegetable1", "vegetable2"]), ("GatherVegetables", ["veg1", "veg2"]), ("CondimentCollection", ["condiment1", "condiment2"])):
     b = gym.make(f"robocasa/{task}", split="target", enable_render=False).unwrapped; e = b.env
     rows = []

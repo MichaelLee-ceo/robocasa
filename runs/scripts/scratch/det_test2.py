@@ -1,5 +1,5 @@
-import sys; sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts")
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+import sys; sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import groot_eval
 import gymnasium as gym, robocasa, numpy as np, json, sys
 import gymnasium as gym, robocasa, numpy as np

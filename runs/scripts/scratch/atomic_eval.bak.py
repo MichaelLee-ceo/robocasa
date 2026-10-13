@@ -15,7 +15,7 @@ import numpy as np
 import gymnasium as gym
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.expanduser("~/Desktop/robocasa/third_party/Isaac-GR00T"))
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/third_party/Isaac-GR00T"))
 import robocasa  # noqa
 from gr00t.eval.wrappers.multistep_wrapper import MultiStepWrapper
 from groot_eval import Client, batch, write_video

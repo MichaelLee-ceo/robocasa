@@ -1,13 +1,14 @@
+import os
 import sys, json, glob
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts"); sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts"); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa, groot_eval
 import robocasa.utils.object_utils as OU
 from atomic_eval import load_scene
 from oracle import set_state
 from atomic_steps import TASKS
 from robot_home import robot_to_scene_start
-OUT = "/home/michaellee/Desktop/robocasa/runs/20261013_pretrain3"; SC = "/home/michaellee/Desktop/robocasa/runs/scenes_seen5_v2"
-H = json.load(open("/home/michaellee/Desktop/robocasa/runs/horizons_original_plus.json"))
+OUT = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/20261013_pretrain3"; SC = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scenes_seen5_v2"
+H = json.load(open(os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/horizons_original_plus.json"))
 R = {}
 for p in glob.glob(f"{OUT}/results_w*.jsonl"):
     for l in open(p):

@@ -1,7 +1,8 @@
+import os
 import sys
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts")
 import groot_eval  # noqa
 for task, ref in (("TurnOnMicrowave", "microwave"), ("TurnOnSinkFaucet", "sink")):
     b = gym.make(f"robocasa/{task}", split="target", enable_render=False).unwrapped; e = b.env

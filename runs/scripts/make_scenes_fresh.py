@@ -3,7 +3,7 @@ masses/inertias). Each (task, seed) is generated in its own new process; only th
 import os, sys, json, hashlib
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.expanduser("~/Desktop/robocasa/third_party/Isaac-GR00T"))
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/third_party/Isaac-GR00T"))
 import gymnasium as gym
 import robocasa  # noqa
 import groot_eval  # noqa

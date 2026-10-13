@@ -1,12 +1,13 @@
+import os
 import sys
-sys.path.insert(0, "/home/michaellee/Desktop/robocasa/runs/scripts"); sys.path.insert(0, "/home/michaellee/Desktop/robocasa/third_party/Isaac-GR00T")
+sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scripts"); sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/third_party/Isaac-GR00T")
 import numpy as np, gymnasium as gym, robocasa, groot_eval
 import robocasa.utils.env_utils as EnvUtils
 from atomic_eval import load_scene
 from oracle import set_state
-OUT = "/home/michaellee/Desktop/robocasa/runs/20261013_scenes_v2"
+OUT = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/20261013_scenes_v2"
 b = gym.make("robocasa/SteamInMicrowave", split="target", enable_render=False).unwrapped; e = b.env
-load_scene(e, "/home/michaellee/Desktop/robocasa/runs/scenes_seen5_v2/SteamInMicrowave_s1.npz")
+load_scene(e, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa")) + "/runs/scenes_seen5_v2/SteamInMicrowave_s1.npz")
 rec = [x for x in np.load(f"{OUT}/SteamInMicrowave/SteamInMicrowave_s1_single_states.npz", allow_pickle=True)["recs"] if x["k"] == 3][0]
 set_state(e, rec["state"]); e.robot_geom_ids = None
 e.robots[0].reset(deterministic=True)
