@@ -1,4 +1,4 @@
-# ECE 780 — RoboCasa365 atomic-vs-composite study: moving to a new server (draft)
+# ECE 780 — RoboCasa365 atomic-vs-composite study: moving to a new server
 
 Inventoried on the original machine (RTX 5090, driver 570.169, Ubuntu, user `michaellee`, project root
 `~/Desktop/robocasa`). Our scripts, frozen scenes and results are committed on branch `ece780` of
@@ -64,6 +64,11 @@ New server needs an NVIDIA driver that supports CUDA 12.8 (>= 570). GPU memory u
 | kitchen assets | 23 GB | `robocasa/models/assets/` (gitignored) | `python robocasa/scripts/download_kitchen_assets.py --type all` |
 | HF cache | 5 MB | `.hf_cache/` | regenerated |
 
+File counts and sizes on the original machine (all files, including the `.cache/` download metadata):
+`checkpoints/` 61 files, 30,344,912,633 bytes; `datasets/` 84,983 files, 36,868,873,061 bytes;
+`robocasa/models/assets/` 123,434 files, 24,115,841,717 bytes. Per-file sha256 and size: `bigfiles_sha256.txt.gz`
+(see §5).
+
 ### Option A: copy directly (fastest if the new server can reach this one)
 
 ```bash
@@ -119,7 +124,16 @@ Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
    (hash of body_mass, body_inertia, body_ipos, geom_friction rounded to 1e-6) with the values stored in the file.
    If only `phys_sha1` differs, do not conclude the scene is wrong yet: dump those arrays on both machines and compare
    the numbers (a different CPU / library build can change the last digits). Layout, style and objects must match exactly.
-2. Policy runs are stochastic, so compare statistically (one policy server at a time):
+2. Large files arrived intact (run from the project root; takes a while, reads ~91 GB):
+   ```bash
+   # format of each line: "<sha256>  <size>  <path>" (two spaces; 145 asset paths contain spaces)
+   zcat runs/_handoff/bigfiles_sha256.txt.gz | grep -v '^#' | sed -E 's/^([0-9a-f]{64})  [0-9]+  /\1  /' > /tmp/bigfiles.sha256
+   nice -n 19 sha256sum --quiet -c /tmp/bigfiles.sha256 && echo "all large files OK"
+   # sizes only (fast):
+   python3 -c "import gzip,os; bad=[p for h,s,p in (l.rstrip('\n').split('  ',2) for l in gzip.open('runs/_handoff/bigfiles_sha256.txt.gz','rt') if not l.startswith('#')) if not os.path.exists(p) or os.path.getsize(p)!=int(s)]; print(len(bad),'mismatches', bad[:10])"
+   ```
+   A re-download (Option B) may legitimately differ in `checkpoints/.cache/` metadata; the weights must match.
+3. Policy runs are stochastic, so compare statistically (one policy server at a time):
    * composite_seen, full instruction, the 20 frozen v2 scenes of StackBowlsCabinet and SteamInMicrowave. The same
      scenes and checkpoint gave, on the original machine, StackBowls 17/20 and 15/20, Steam 7/20 and 10/20 (two runs:
      `runs/20261013_accept`, `runs/20261013_scenes_v2`). A new run should be in that range (Fisher exact p > 0.05 against

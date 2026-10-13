@@ -46,3 +46,4 @@ Committed on `ece780` in addition to the table above:
 Left for rsync: per-episode metadata under runs/2026101*_groot_repro*/<Task>/ (*.json, *.gz, ~33 MB), test dirs
 (runs/test*, runs/smoke_20261012), the _superseded*/_failed* attempt dirs, and the flash-attn wheel
 (~/robocasa_handoff/wheels/, 256 MB, sha256 ce91e246...b529).
+* runs/_handoff/bigfiles_sha256.txt.gz (9.9 MB): sha256 and size of every file under checkpoints/, datasets/ and robocasa/models/assets/ (208,478 files, 91,329,627,411 bytes).
