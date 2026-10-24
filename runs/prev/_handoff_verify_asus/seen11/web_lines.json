@@ -1,0 +1,184 @@
+[
+ {
+  "id": "ScrubCuttingBoard",
+  "horizon": 800,
+  "steps": [
+   [
+    "PickUpSponge",
+    "sponge"
+   ],
+   [
+    "ScrubCuttingBoard",
+    "cutting board"
+   ]
+  ]
+ },
+ {
+  "id": "WashLettuce",
+  "horizon": 1100,
+  "steps": [
+   [
+    "TurnOnSinkFaucet",
+    ""
+   ],
+   [
+    "PickPlaceCounterToSink",
+    "lettuce"
+   ]
+  ]
+ },
+ {
+  "id": "RinseSinkBasin",
+  "horizon": 900,
+  "steps": [
+   [
+    "TurnOnSinkFaucet",
+    ""
+   ],
+   [
+    "TurnSinkSpout",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "LoadDishwasher",
+  "horizon": 1200,
+  "steps": [
+   [
+    "PickPlaceCounterToDishwasher",
+    "first dish"
+   ],
+   [
+    "PickPlaceCounterToDishwasher",
+    "second dish"
+   ],
+   [
+    "CloseDishwasher",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "StoreLeftoversInBowl",
+  "horizon": 1700,
+  "steps": [
+   [
+    "PickPlaceCounterToCounter",
+    "first food \u2192 bowl"
+   ],
+   [
+    "PickPlaceCounterToCounter",
+    "second food \u2192 bowl"
+   ],
+   [
+    "PickPlaceCounterToFridge",
+    "bowl"
+   ]
+  ]
+ },
+ {
+  "id": "SetUpCuttingStation",
+  "horizon": 1600,
+  "steps": [
+   [
+    "PickPlaceDrawerToCounter",
+    "knife \u2192 cutting board"
+   ],
+   [
+    "PickPlaceCounterToCounter",
+    "meat \u2192 cutting board"
+   ]
+  ]
+ },
+ {
+  "id": "StirVegetables",
+  "horizon": 1600,
+  "steps": [
+   [
+    "PickPlaceCounterToStove",
+    "first vegetable \u2192 pot"
+   ],
+   [
+    "PickPlaceCounterToStove",
+    "second vegetable \u2192 pot"
+   ],
+   [
+    "PickUpSpatula",
+    "spatula"
+   ],
+   [
+    "StirVegetables",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "SearingMeat",
+  "horizon": 2900,
+  "steps": [
+   [
+    "PickPlaceCabinetToStove",
+    "pan \u2192 burner"
+   ],
+   [
+    "PickPlaceCounterToStove",
+    "meat \u2192 pan"
+   ],
+   [
+    "TurnOnStove",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "PackIdenticalLunches",
+  "horizon": 2600,
+  "steps": [
+   [
+    "PickPlaceFridgeToCounter",
+    "1st food \u2192 tupperware"
+   ],
+   [
+    "PickPlaceFridgeToCounter",
+    "2nd food \u2192 tupperware"
+   ],
+   [
+    "PickPlaceFridgeToCounter",
+    "3rd food \u2192 tupperware"
+   ],
+   [
+    "PickPlaceFridgeToCounter",
+    "4th food \u2192 tupperware"
+   ]
+  ]
+ },
+ {
+  "id": "DeliverStraw",
+  "horizon": 1700,
+  "steps": [
+   [
+    "OpenDrawer",
+    ""
+   ],
+   [
+    "PickPlaceDrawerToCounter",
+    "straw \u2192 glass cup"
+   ]
+  ]
+ },
+ {
+  "id": "GetToastedBread",
+  "horizon": 2000,
+  "steps": [
+   [
+    "TurnOnToaster",
+    ""
+   ],
+   [
+    "PickPlaceToasterToCounter",
+    "bread \u2192 plate"
+   ]
+  ]
+ }
+]

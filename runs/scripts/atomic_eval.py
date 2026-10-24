@@ -9,7 +9,7 @@ conditions (all start from demo states of the target dataset, so they are paired
                  clip(3 x demo step length, 240, horizon); success = step check (or full task success)
   reset_task   : same as reset_atomic with the original task instruction
 """
-import argparse, json, os, sys, time, traceback
+import argparse, hashlib, json, os, sys, time, traceback
 from collections import defaultdict, deque
 import numpy as np
 import gymnasium as gym
@@ -60,7 +60,26 @@ def load_scene(kenv, path):
     return z["state"].copy()
 
 
-def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr, k0=0, k_stop=None, save=None):
+def policy_seed_fn(tag, policy_seed):
+    """seed of the policy's action noise for chunk ci: a stable hash of (episode tag, policy_seed, ci). Served by
+    serve_seeded.py, which seeds torch right before sampling that chunk."""
+    return lambda ci: int.from_bytes(hashlib.sha256(f"{tag}|{policy_seed}|{ci}".encode()).digest()[:8], "little")
+
+
+def fingerprint(d):
+    """short sha1 of an array, or of a dict of arrays / strings (sorted keys); per-chunk determinism fingerprints."""
+    m = hashlib.sha1()
+    for k in (sorted(d) if isinstance(d, dict) else [None]):
+        v = d if k is None else d[k]
+        m.update(str(k).encode()); m.update(np.ascontiguousarray(np.asarray(v)).tobytes())
+    return m.hexdigest()[:12]
+
+
+def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr, k0=0, k_stop=None, save=None,
+            seed_fn=None, digest=None):
+    """seed_fn(ci) -> seed sent with the request of chunk ci (needs serve_seeded.py). digest: list to append
+    [observation sent, action received, sim state after the chunk, {observation key: fingerprint}] to, one entry
+    per chunk."""
     fg = FrameGrab(base)
     menv = MultiStepWrapper(fg, video_delta_indices=np.array([0]), state_delta_indices=np.array([0]),
                             n_action_steps=16, max_episode_steps=horizon)
@@ -69,7 +88,7 @@ def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr
     menv.obs = deque([o] * 2, maxlen=2); menv.reward, menv.done = [], []
     menv.info = defaultdict(lambda: deque(maxlen=2))
     obs = menv._get_obs(menv.video_delta_indices, menv.state_delta_indices)
-    k = k0; hist = []; instr_log = []; t = 0; success = False; done = False; debug = []
+    k = k0; hist = []; instr_log = []; t = 0; success = False; done = False; debug = []; ci = 0
     def instr_for(kk):
         if mode == "task" or (mode == "atomic_then_task" and kk >= 1):
             return task_instr
@@ -82,8 +101,19 @@ def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr
         obs["annotation.human.task_description"] = cur_instr
         if not instr_log or instr_log[-1][1] != obs["annotation.human.task_description"]:
             instr_log.append((t, obs["annotation.human.task_description"]))
-        act = {kk: np.asarray(v)[0] for kk, v in client.get_action(batch(obs)).items()}
+        req = batch(obs)
+        if seed_fn is not None:
+            req["_seed"] = seed_fn(ci)
+        resp = client.get_action(req)
+        if seed_fn is not None and resp.pop("_seed_echo", None) != req["_seed"]:
+            raise RuntimeError("policy server did not apply the seed (is it serve_seeded.py?)")
+        act = {kk: np.asarray(v)[0] for kk, v in resp.items()}
         obs, r, done, trunc, info = menv.step(act)
+        if digest is not None:
+            sent = {kk: v for kk, v in req.items() if kk != "_seed"}
+            digest.append([fingerprint(sent), fingerprint(act), fingerprint(kenv.sim.get_state().flatten()),
+                           {kk: fingerprint(v) for kk, v in sent.items()}])
+        ci += 1
         t += len(info["rewards"])
         if np.any(info["rewards"] > 0):
             success = True
@@ -192,9 +222,14 @@ def main():
                     base.reset(seed=j["seed"]); start = kenv.sim.get_state().flatten().copy()
                 steps = TASKS[task]; S = {}; instr0 = kenv.get_ep_meta()["lang"]
                 saved = [] if jc == "baseline_seed_save" else None
+                pseed = j.get("policy_seed")  # set -> reproducible action noise (serve_seeded.py) + per-chunk fingerprints
+                dig = [] if pseed is not None else None
                 r, frames = rollout(client, base, kenv, S, steps, start, j["horizon"],
                                     {"baseline_seed": "task", "baseline_seed_save": "task", "chain_seed": "atomic",
-                                     "chain_then_task_seed": "atomic_then_task", "chain_aug_seed": "atomic_aug"}[jc], instr0, save=saved)
+                                     "chain_then_task_seed": "atomic_then_task", "chain_aug_seed": "atomic_aug"}[jc], instr0, save=saved,
+                                    seed_fn=policy_seed_fn(j["tag"], pseed) if pseed is not None else None, digest=dig)
+                if dig is not None:
+                    r["digest"] = dig
                 if saved is not None:
                     os.makedirs(os.path.join(a.out, task), exist_ok=True)
                     np.savez_compressed(os.path.join(a.out, task, f"{j['tag']}_states.npz"), recs=np.array(saved, dtype=object))

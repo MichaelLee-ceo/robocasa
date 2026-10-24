@@ -1,0 +1,223 @@
+<title>Composite-Seen 卡關地圖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* layout: per task, a stage line (subtasks as stations on a track) above one row per episode aligned to the same
+   stations; the episode video sits beside the rows on wide screens and below them on phones */
+:root {
+  --bg: #f6f7f9; --surface: #ffffff; --fg: #1d232b; --muted: #5d6875; --line: #d5dae1;
+  --accent: #2d6f8f; --ok: #2f8a4c; --ok-soft: #e3f3e8; --bad: #c2412d; --bad-soft: #fbe7e3; --idle: #b9c1cb;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #13171c; --surface: #1b2128; --fg: #e4e8ed; --muted: #97a2ae; --line: #2f3741;
+  --accent: #6fb3d2; --ok: #5cc27e; --ok-soft: #1c3325; --bad: #ef7a64; --bad-soft: #3a211c; --idle: #4a5562; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #13171c; --surface: #1b2128; --fg: #e4e8ed; --muted: #97a2ae; --line: #2f3741;
+  --accent: #6fb3d2; --ok: #5cc27e; --ok-soft: #1c3325; --bad: #ef7a64; --bad-soft: #3a211c; --idle: #4a5562; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 64px; display: grid; gap: 40px; }
+h1 { font-size: 26px; margin: 0; text-wrap: balance; font-weight: 700; }
+h2 { font-size: 20px; margin: 0; font-family: var(--font-mono); font-weight: 600; letter-spacing: -0.01em; }
+.lede { color: var(--muted); max-width: 70ch; margin: 6px 0 0; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.summary { overflow-x: auto; }
+.summary table { border-collapse: collapse; min-width: 560px; width: 100%; background: var(--surface); }
+.summary th, .summary td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+.summary th { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+.summary td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.summary a { color: var(--accent); text-decoration: none; }
+.legend { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-size: 13px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+section.task { display: grid; gap: 14px; }
+.task-head { display: grid; gap: 4px; }
+.instr { color: var(--muted); font-size: 14px; max-width: 80ch; }
+.instr q { color: var(--fg); }
+.stats { font-size: 13px; color: var(--muted); }
+.stats b { color: var(--fg); font-family: var(--font-mono); }
+.body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 420px); gap: 24px; align-items: start; }
+@media (max-width: 900px) { .body { grid-template-columns: minmax(0, 1fr); } }
+.board { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.grid { display: grid; min-width: 520px; }
+.row { display: contents; }
+.cell { padding: 6px 4px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); min-height: 38px; }
+.cell.seed { justify-content: flex-start; padding-left: 14px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.cell.res { justify-content: flex-end; padding-right: 14px; font-family: var(--font-mono); font-size: 13px; }
+.row.ep { cursor: pointer; }
+.row.ep:hover .cell { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+.row.ep.sel .cell { background: color-mix(in srgb, var(--accent) 13%, transparent); }
+.row.ep:focus-visible .cell { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* the track: a line through the station centres */
+.track { position: relative; }
+.track .cell { border-bottom: 1px solid var(--line); flex-direction: column; gap: 4px; padding-block: 14px 10px; position: relative; }
+.track .cell.st::before { content: ""; position: absolute; top: 25px; left: 0; right: 0; height: 3px; background: var(--line); }
+.track .cell.st.first::before { left: 50%; }
+.track .cell.st.last::before { right: 50%; }
+.station { width: 16px; height: 16px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); position: relative; z-index: 1; }
+.stname { font-size: 13px; font-weight: 500; text-align: center; line-height: 1.3; padding-inline: 4px; }
+.stcount { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.stcount b { color: var(--fg); }
+.dot { width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--font-mono); border: none; padding: 0; cursor: pointer; background: transparent; color: inherit; }
+.dot.ok { background: var(--ok-soft); color: var(--ok); border: 2px solid var(--ok); width: auto; min-width: 26px; padding-inline: 6px; border-radius: 13px; }
+.dot.stuck { background: var(--bad-soft); color: var(--bad); border: 2px solid var(--bad); width: auto; padding-inline: 8px; border-radius: 13px; font-family: var(--font-body); font-weight: 500; }
+.dot.idle { border: 2px dashed var(--idle); width: 14px; height: 14px; cursor: default; }
+.dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.res.ok { color: var(--ok); } .res.bad { color: var(--bad); }
+.player { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px; display: grid; gap: 10px; }
+.player video { width: 100%; aspect-ratio: 2 / 1; background: #000; border-radius: 4px; display: block; }
+.ptitle { font-family: var(--font-mono); font-size: 14px; font-weight: 600; }
+.pnote { font-size: 13px; color: var(--muted); }
+.jumps { display: flex; flex-wrap: wrap; gap: 6px; }
+.jumps button { font: inherit; font-size: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); padding: 4px 8px; border-radius: 4px; cursor: pointer; }
+.jumps button.ok { border-color: var(--ok); color: var(--ok); }
+.jumps button.bad { border-color: var(--bad); color: var(--bad); }
+.jumps button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.clock { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.filter { display: flex; gap: 8px; align-items: center; font-size: 13px; color: var(--muted); }
+.filter input { accent-color: var(--accent); }
+.foot { color: var(--muted); font-size: 13px; max-width: 80ch; display: grid; gap: 6px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Composite-Seen 卡關地圖</h1>
+    <p class="lede">每個任務畫成一條數線，上面的站是它的 subtask，照順序排。下面每一列是一個 episode：模型只拿到整句 composite instruction，綠色是那一步在第幾個 env step 完成，紅色是卡住的那一步。點一列看影片，點綠色或紅色會跳到那個時間點。</p>
+  </header>
+
+  <div class="summary" id="summary"></div>
+  <div class="legend">
+    <span><span class="dot ok" style="cursor:default">352</span> 這一步完成時的 env step</span>
+    <span><span class="dot stuck" style="cursor:default">卡住</span> 沒完成的第一步（影片跳到這一步開始的時間）</span>
+    <span><span class="dot idle"></span> 沒走到</span>
+  </div>
+
+  <div id="tasks"></div>
+
+  <div class="foot">
+    <div>設定：GR00T N1.5 composite_seen checkpoint-60000，固定場景 runs/scenes_seen5_v2（seed 0–19），原始 horizon，condition baseline_seed（整句 composite instruction，不切換指令）。在 ASUS-GPU 的 GPU0 上跑，和另一個 vLLM 工作共用這張卡，3 個 rollout worker。</div>
+    <div>每一步是否完成，用 runs/scripts/atomic_steps.py 的檢查依序判斷：第 k 步只有在第 k−1 步完成後才會開始檢查，所以如果模型跳著做，後面的步驟不會被記到。最後一步的檢查就是環境本身的成功判定。</div>
+    <div>影片左半邊是 agentview（左），右半邊是手腕相機；每 4 個 env step 存一張，10 fps，所以影片 1 秒 = 40 個 env step。</div>
+  </div>
+</div>
+
+<script>
+const DATA = /*__DATA__*/[];
+const FPS_STEPS = 40; // env steps per second of video (1 frame per 4 steps at 10 fps)
+const t2s = (t) => Math.max(0, (t / 4 - 1) / 10);
+
+function el(tag, attrs = {}, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") e.className = v; else if (k === "text") e.textContent = v;
+    else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v);
+  }
+  for (const k of kids) if (k != null) e.append(k);
+  return e;
+}
+
+function summary() {
+  const tb = el("tbody");
+  for (const T of DATA) {
+    const n = T.eps.length, ok = T.eps.filter((e) => e.success).length;
+    const steps = T.eps.filter((e) => e.success).map((e) => e.steps).sort((a, b) => a - b);
+    const med = steps.length ? steps[Math.floor((steps.length - 1) / 2)] : "–";
+    const stuck = T.stages.map((_, k) => T.eps.filter((e) => !e.success && e.reached === k).length);
+    const worst = stuck.indexOf(Math.max(...stuck));
+    tb.append(el("tr", {},
+      el("td", {}, el("a", { href: "#" + T.task, text: T.task })),
+      el("td", { class: "num", text: `${ok}/${n}` }),
+      el("td", { class: "num", text: T.old || "–" }),
+      el("td", { class: "num", text: T.fisher || "–" }),
+      el("td", { class: "num", text: String(med) }),
+      el("td", { text: ok === n ? "–" : `${T.stages[worst]}（${stuck[worst]} 次）` })));
+  }
+  const head = el("tr", {}, ...["任務", "這次成功", "5090-1 舊結果", "Fisher p（對各次舊結果）", "成功時中位 step", "最常卡在"].map((h) => el("th", { text: h })));
+  document.getElementById("summary").append(el("table", {}, el("thead", {}, head), tb));
+}
+
+function taskSection(T) {
+  const N = T.stages.length, n = T.eps.length;
+  const sec = el("section", { class: "task", id: T.task });
+  const ok = T.eps.filter((e) => e.success).length;
+  sec.append(el("div", { class: "task-head" },
+    el("h2", { text: T.task }),
+    el("div", { class: "instr" }, "composite instruction（seed 0）：", el("q", { text: T.instr })),
+    el("div", { class: "stats" }, "成功 ", el("b", { text: `${ok}/${n}` }), `　horizon ${T.horizon}　舊結果 ${T.old || "–"}`)));
+
+  const filt = el("input", { type: "checkbox", id: `f-${T.task}` });
+  sec.append(el("label", { class: "filter", for: `f-${T.task}` }, filt, "只看失敗的 episode"));
+
+  const grid = el("div", { class: "grid" });
+  grid.style.gridTemplateColumns = `56px repeat(${N}, minmax(96px, 1fr)) 92px`;
+  // track row
+  const track = el("div", { class: "row track" });
+  track.append(el("div", { class: "cell seed", text: "seed" }));
+  T.stages.forEach((s, k) => {
+    const done = T.eps.filter((e) => e.done[k] != null).length;
+    const reach = T.eps.filter((e) => e.reached >= k).length;
+    track.append(el("div", { class: `cell st${k === 0 ? " first" : ""}${k === N - 1 ? " last" : ""}` },
+      el("div", { class: "station" }),
+      el("div", { class: "stname", text: `${k + 1}. ${s}` }),
+      el("div", { class: "stcount" }, el("b", { text: String(done) }), ` / ${reach} 完成`)));
+  });
+  track.append(el("div", { class: "cell res", text: "結果" }));
+  grid.append(track);
+
+  const player = el("div", { class: "player" });
+  const video = el("video", { controls: "", muted: "", playsinline: "", preload: "metadata" });
+  const ptitle = el("div", { class: "ptitle" }), pnote = el("div", { class: "pnote" });
+  const jumps = el("div", { class: "jumps" }), clock = el("div", { class: "clock" });
+  player.append(ptitle, video, clock, jumps, pnote);
+  video.addEventListener("timeupdate", () => { clock.textContent = `影片 ${video.currentTime.toFixed(1)} s ≈ env step ${Math.round((video.currentTime * 10 + 1) * 4)}`; });
+
+  const rows = [];
+  let current = null;
+  function show(E, seekStep) {
+    rows.forEach((r) => r.row.classList.toggle("sel", r.E === E));
+    const fresh = current !== E; current = E;
+    ptitle.textContent = `${T.task} · seed ${E.seed} · ${E.success ? "成功" : "失敗"} · ${E.steps} steps`;
+    jumps.replaceChildren();
+    jumps.append(el("button", { type: "button", text: "開頭", onclick: () => seek(0) }));
+    T.stages.forEach((s, k) => {
+      if (E.done[k] != null) jumps.append(el("button", { type: "button", class: "ok", text: `${k + 1} 完成 @${E.done[k]}`, onclick: () => seek(E.done[k]) }));
+      else if (!E.success && k === E.reached) jumps.append(el("button", { type: "button", class: "bad", text: `${k + 1} 開始卡 @${k ? E.done[k - 1] : 0}`, onclick: () => seek(k ? E.done[k - 1] : 0) }));
+    });
+    pnote.textContent = E.success ? "全部步驟完成。" : `卡在第 ${E.reached + 1} 步「${T.stages[E.reached]}」，直到 horizon 用完（${E.steps} steps）。`;
+    if (!E.video) { pnote.textContent += " 這個 episode 沒有影片。"; video.removeAttribute("src"); video.load(); return; }
+    function seek(t) { video.currentTime = t2s(t); }
+    if (fresh) {
+      video.src = E.video;
+      video.addEventListener("loadedmetadata", () => { if (seekStep != null) seek(seekStep); }, { once: true });
+    } else if (seekStep != null) seek(seekStep);
+  }
+
+  for (const E of T.eps) {
+    const row = el("div", { class: "row ep", tabindex: "0", role: "button", "aria-label": `seed ${E.seed}` });
+    row.append(el("div", { class: "cell seed", text: `s${E.seed}` }));
+    T.stages.forEach((s, k) => {
+      let d;
+      if (E.done[k] != null) d = el("button", { type: "button", class: "dot ok", text: String(E.done[k]), title: `${s}：在 env step ${E.done[k]} 完成`, onclick: (ev) => { ev.stopPropagation(); show(E, E.done[k]); } });
+      else if (!E.success && k === E.reached) { const t0 = k ? E.done[k - 1] : 0; d = el("button", { type: "button", class: "dot stuck", text: "卡住", title: `${s}：從 env step ${t0} 開始，到 ${E.steps} 都沒完成`, onclick: (ev) => { ev.stopPropagation(); show(E, t0); } }); }
+      else d = el("span", { class: "dot idle", title: "沒走到" });
+      row.append(el("div", { class: "cell" }, d));
+    });
+    row.append(el("div", { class: `cell res ${E.success ? "ok" : "bad"}`, text: E.success ? `✓ ${E.steps}` : `✗ ${E.steps}` }));
+    row.addEventListener("click", () => show(E, null));
+    row.addEventListener("keydown", (ev) => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); show(E, null); } });
+    rows.push({ row, E });
+    grid.append(row);
+  }
+  filt.addEventListener("change", () => rows.forEach((r) => { r.row.hidden = filt.checked && r.E.success; r.row.style.display = r.row.hidden ? "none" : "contents"; }));
+
+  sec.append(el("div", { class: "body" }, el("div", { class: "board" }, grid), player));
+  const first = T.eps.find((e) => !e.success) || T.eps[0];
+  if (first) show(first, first.success ? null : (first.reached ? first.done[first.reached - 1] : 0));
+  return sec;
+}
+
+summary();
+const host = document.getElementById("tasks");
+host.style.display = "grid"; host.style.gap = "48px";
+DATA.forEach((T) => host.append(taskSection(T)));
+</script>

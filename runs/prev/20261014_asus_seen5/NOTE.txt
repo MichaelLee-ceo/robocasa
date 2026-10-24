@@ -1,0 +1,32 @@
+Composite-seen per-step runs on ASUS-GPU. composite_seen checkpoint-60000, baseline_seed (full composite instruction), per-step tracker (runs/scripts/atomic_steps.py, sequential), videos saved; original horizons (runs/20261012_groot_repro_seen_h1x/horizons_original.json); scenes s0-s19 from runs/scenes_seen5_v2, s20-s29 from runs/scenes_seen5_v2_s30.
+GPU0 (CUDA_DEVICE_ORDER=PCI_BUS_ID) shared with a vLLM job (heatmap qwen_judge shard 0, ~82.8 GB). Launcher: runs/_handoff/verify_asus/run_seen.sh.
+Batches (workers chosen so server 6.5 + workers x 2.8 + scene generation 1.4 + 2 GB margin fits in GPU0 free memory):
+2026-10-14 13:25:42 PreSoakPan s0-19: 1 worker (15.0 GB free; scene generation running)
+2026-10-14 14:22:56 PreSoakPan s20-29: 1 worker(s) (GPU0 free 14184 MiB; scene generation running: 1)
+2026-10-14 14:59:46 KettleBoiling s0-19: 1 worker(s) (GPU0 free 14179 MiB; scene generation running: 1)
+
+## Unattended runs (updated 2026-10-14 16:35 +0800)
+- Policy queue: runs/_handoff/verify_asus/run_queue4.sh (PID/PGID 1981227, log runs/20261014_asus_seen5/queue4.log).
+  Order: KettleBoiling 0-19 (done) > PrepareCoffee 0-19 > WashLettuce 0-29 > RinseSinkBasin 0-29 > KettleBoiling,
+  PrepareCoffee, StackBowlsCabinet, SteamInMicrowave 20-29 > GetToastedBread, SearingMeat, DeliverStraw,
+  PackIdenticalLunches, StirVegetables, SetUpCuttingStation, StoreLeftoversInBowl, LoadDishwasher, ScrubCuttingBoard 0-29
+  (the 11 tasks write to runs/20261014_asus_seen11). Each batch runs run_seen2.sh. Environment set inside the scripts:
+  conda env groot, CUDA_DEVICE_ORDER=PCI_BUS_ID, CUDA_VISIBLE_DEVICES=0, MUJOCO_EGL_DEVICE_ID=0, PIP_CONFIG_FILE=/dev/null,
+  nice 10 / ionice best-effort 7. One policy server at a time on port 5571; an existing server is reused only if it is
+  ours and serves composite_seen checkpoint-60000; its PID is in /home/michaellee/mclee/robocasa_rc/server_5571.pid.
+- Scene generation: since 17:01 runs/_handoff/verify_asus/scenegen_rest2.sh (PID/PGID 2122540; STOP watcher PID 2122636). Before that,
+  GetToastedBread, scenegen_switch.sh (PID 1981643) replaces it with scenegen_rest2.sh (new PID/PGID and watcher PID are
+  written to runs/_handoff/verify_asus/scenegen/rest.log). Log: runs/_handoff/verify_asus/scenegen/rest.log.
+- To stop everything cleanly:   touch /home/michaellee/mclee/robocasa_rc/STOP
+  Policy workers stop after their current episode (at most 40 min), no new batch starts, our server is stopped;
+  scene generation stops at once and the partly generated task is deleted (it must be regenerated from s0).
+  Remove the STOP file before starting anything again. Completed episodes are kept; a rerun resumes by tag.
+- Hard stop (loses the episodes in progress), from any shell:
+    kill -- -1981227 ; kill -- -2122540 ; kill 2122636 ; kill $(cat /home/michaellee/mclee/robocasa_rc/server_5571.pid)
+  (if the scene generation has switched, use the scenegen_rest2.sh PGID and watcher PID from scenegen/rest.log instead of
+  1957343 / 1967904). Check afterwards: nvidia-smi shows no python on GPU0 except vLLM.
+2026-10-14 16:26:14 PrepareCoffee s0-19: 1 worker(s) (GPU0 free 13129 MiB; server already up: 0; scene generation running: 1)
+2026-10-14 18:34:49 KettleBoiling s20-29: 1 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 1)
+2026-10-14 18:54:56 PrepareCoffee s20-29: 1 worker(s) (GPU0 free 14655 MiB; server already up: 0; scene generation running: 1)
+2026-10-14 19:21:13 StackBowlsCabinet s20-29: 1 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 1)
+2026-10-14 19:35:38 SteamInMicrowave s20-29: 1 worker(s) (GPU0 free 13546 MiB; server already up: 0; scene generation running: 1)

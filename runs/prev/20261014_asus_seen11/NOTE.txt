@@ -1,0 +1,13 @@
+Composite-seen per-step runs on ASUS-GPU, the other 11 seen tasks. composite_seen checkpoint-60000, baseline_seed (full composite instruction), per-step tracker (runs/scripts/atomic_steps.py -> atomic_steps_seen11.py, sequential; last step = official env._check_success(), so the last-step count is the official success count), videos saved; original horizons; scenes runs/scenes_seen11_v2 (s0-s29). GPU0 shared with a vLLM job. Queue/stop instructions: runs/20261014_asus_seen5/NOTE.txt. Known official-check problems (not changed): ScrubCuttingBoard scrub counter only counts while check_obj_grasped(sponge) is True (2/10 demos never reach success in replay); GetToastedBread "toaster on" latches only if the bread touches a slot floor while the toaster is on (3/10 demos). See runs/_handoff/verify_asus/seen11/README.md.
+Batches:
+2026-10-14 16:42:05 WashLettuce s0-29: 1 worker(s) (GPU0 free 13950 MiB; server already up: 0; scene generation running: 1)
+2026-10-14 17:44:33 RinseSinkBasin s0-29: 1 worker(s) (GPU0 free 13825 MiB; server already up: 0; scene generation running: 1)
+2026-10-14 20:08:15 GetToastedBread s0-29: 2 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 0)
+2026-10-14 21:07:16 SearingMeat s0-29: 2 worker(s) (GPU0 free 15010 MiB; server already up: 0; scene generation running: 0)
+2026-10-14 22:20:23 DeliverStraw s0-29: 2 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 0)
+2026-10-14 23:12:20 PackIdenticalLunches s0-29: 2 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 0)
+2026-10-15 00:39:33 StirVegetables s0-29: 2 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 0)
+2026-10-15 01:33:30 SetUpCuttingStation s0-29: 2 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 0)
+2026-10-15 02:19:37 StoreLeftoversInBowl s0-29: 2 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 0)
+2026-10-15 03:21:34 LoadDishwasher s0-29: 2 worker(s) (GPU0 free 15027 MiB; server already up: 0; scene generation running: 0)
+2026-10-15 04:00:41 ScrubCuttingBoard s0-29: 1 worker(s) (GPU0 free 14156 MiB; server already up: 0; scene generation running: 0)

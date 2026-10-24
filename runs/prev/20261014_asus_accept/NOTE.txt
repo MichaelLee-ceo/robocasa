@@ -1,0 +1,4 @@
+README §5.3 policy check on ASUS-GPU, 2026-10-14 12:42:49 CST.
+Settings as runs/20261013_accept (composite_seen checkpoint-60000, baseline_seed, horizon 1400, scenes_seen5_v2 s0-19),
+except: 3 rollout workers (not 6), GPU0 (RTX PRO 6000 Blackwell Max-Q, CUDA_DEVICE_ORDER=PCI_BUS_ID) SHARED with a vLLM job (heatmap qwen_judge shard 0, ~82.8 GB, ~100% util).
+Launcher: runs/_handoff/verify_asus/run_accept.sh. gpu0_mem.log = nvidia-smi GPU0 samples every 2 s.
