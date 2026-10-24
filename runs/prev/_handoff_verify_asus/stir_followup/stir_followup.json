@@ -1,0 +1,2603 @@
+[
+ {
+  "seed": 0,
+  "success": true,
+  "steps": 1168,
+  "done": [
+   192,
+   368,
+   512,
+   1168
+  ],
+  "layout": 9,
+  "style": 9,
+  "knob": "front_center",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot069",
+   "veg1": "objaverse/potato/potato_9",
+   "veg2": "objaverse/tomato/tomato_5",
+   "spatula": "objaverse/spatula/spatula_7"
+  },
+  "cats": {
+   "veg1": "potato",
+   "veg2": "tomato"
+  },
+  "base_xy_cm": {
+   "pot": 44.7,
+   "veg1": 79.4,
+   "veg2": 74.3,
+   "spatula": 103.0
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 85.7,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   5.4,
+   24.4,
+   5.1
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 71.7,
+   "spatula_dz_cm": 19.7,
+   "spatula_dyaw_deg_quat": -132.8,
+   "spatula_dheading_longaxis_deg": 45.4,
+   "spatula_rot_angle_total_deg": 156.1,
+   "gripper_qpos": [
+    0.0149,
+    -0.0128
+   ],
+   "gripper_opening_cm": 2.8,
+   "pad_center_sep_cm": 3.5,
+   "min_pad_to_spatula_cm": -0.1,
+   "min_finger_or_pad_to_spatula_cm": -0.1,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 5.7,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 47.3,
+   "pot_inner_bottom_local_z_cm": 1.2,
+   "pot_rim_local_z_cm": 15.4,
+   "pot_depth_cm": 14.2,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.2,
+    14.6
+   ],
+   "pot_R_int_cm": 8.8,
+   "spatula_low_above_bottom_cm": 4.1,
+   "spatula_low_below_rim_cm": 10.1,
+   "spatula_low_radial_cm": 5.8,
+   "spatula_frac_verts_inside_Rint": 0.955,
+   "spatula_low_inside_Rint_above_bottom_cm": 4.1,
+   "world_spatula_low_z": 1.0257,
+   "world_pot_bottom_z": 1.0304,
+   "world_pot_rim_z": 1.21,
+   "world_spatula_low_above_bottom_cm": -0.5,
+   "world_spatula_low_below_rim_cm": 18.4,
+   "min_spatula_veg1_cm": 0.08,
+   "min_spatula_veg2_cm": 2.06,
+   "min_spatula_pot_cm": 0.28,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 20.2,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 1,
+  "success": true,
+  "steps": 720,
+  "done": [
+   240,
+   480,
+   608,
+   720
+  ],
+  "layout": 5,
+  "style": 5,
+  "knob": "front_left",
+  "counter_ref": "counter_right_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "objaverse/tomato/tomato_6",
+   "veg2": "objaverse/potato/potato_7",
+   "spatula": "objaverse/spatula/spatula_9"
+  },
+  "cats": {
+   "veg1": "tomato",
+   "veg2": "potato"
+  },
+  "base_xy_cm": {
+   "pot": 45.8,
+   "veg1": 70.2,
+   "veg2": 67.4,
+   "spatula": 61.1
+  },
+  "spatula_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_right_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 69.6,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   12.2,
+   28.6,
+   4.2
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 64.2,
+   "spatula_dz_cm": 20.1,
+   "spatula_dyaw_deg_quat": 153.7,
+   "spatula_dheading_longaxis_deg": -93.8,
+   "spatula_rot_angle_total_deg": 172.3,
+   "gripper_qpos": [
+    0.0115,
+    -0.0063
+   ],
+   "gripper_opening_cm": 1.8,
+   "pad_center_sep_cm": 2.5,
+   "min_pad_to_spatula_cm": -0.09,
+   "min_finger_or_pad_to_spatula_cm": -0.59,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 10.7,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base",
+    "veg1_main",
+    "veg2_main"
+   ],
+   "pot_tilt_deg": 47.3,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 12.6,
+   "pot_depth_cm": 11.8,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.8,
+    12.0
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 2.7,
+   "spatula_low_below_rim_cm": 9.2,
+   "spatula_low_radial_cm": 8.3,
+   "spatula_frac_verts_inside_Rint": 0.769,
+   "spatula_low_inside_Rint_above_bottom_cm": 2.7,
+   "world_spatula_low_z": 0.9899,
+   "world_pot_bottom_z": 1.0157,
+   "world_pot_rim_z": 1.1815,
+   "world_spatula_low_above_bottom_cm": -2.6,
+   "world_spatula_low_below_rim_cm": 19.2,
+   "min_spatula_veg1_cm": -0.01,
+   "min_spatula_veg2_cm": -0.0,
+   "min_spatula_pot_cm": -0.0,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [
+    "veg1",
+    "veg2"
+   ],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 14.4,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 2,
+  "success": true,
+  "steps": 864,
+  "done": [
+   288,
+   528,
+   624,
+   864
+  ],
+  "layout": 9,
+  "style": 9,
+  "knob": "front_center",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/lime/lime_3",
+   "veg2": "objaverse/cucumber/cucumber_3",
+   "spatula": "objaverse/spatula/spatula_9"
+  },
+  "cats": {
+   "veg1": "lime",
+   "veg2": "cucumber"
+  },
+  "base_xy_cm": {
+   "pot": 40.6,
+   "veg1": 79.1,
+   "veg2": 86.3,
+   "spatula": 78.0
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 62.8,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   12.2,
+   28.6,
+   4.2
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 51.4,
+   "spatula_dz_cm": 22.1,
+   "spatula_dyaw_deg_quat": -163.0,
+   "spatula_dheading_longaxis_deg": -45.1,
+   "spatula_rot_angle_total_deg": 155.9,
+   "gripper_qpos": [
+    0.0056,
+    -0.006
+   ],
+   "gripper_opening_cm": 1.2,
+   "pad_center_sep_cm": 1.9,
+   "min_pad_to_spatula_cm": -0.12,
+   "min_finger_or_pad_to_spatula_cm": -0.39,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 11.8,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base",
+    "veg1_main",
+    "veg2_main"
+   ],
+   "pot_tilt_deg": 58.5,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 13.3,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.6,
+    11.8
+   ],
+   "pot_R_int_cm": 8.0,
+   "spatula_low_above_bottom_cm": 2.4,
+   "spatula_low_below_rim_cm": 10.9,
+   "spatula_low_radial_cm": 5.2,
+   "spatula_frac_verts_inside_Rint": 0.462,
+   "spatula_low_inside_Rint_above_bottom_cm": 2.4,
+   "world_spatula_low_z": 1.0113,
+   "world_pot_bottom_z": 1.0298,
+   "world_pot_rim_z": 1.1852,
+   "world_spatula_low_above_bottom_cm": -1.9,
+   "world_spatula_low_below_rim_cm": 17.4,
+   "min_spatula_veg1_cm": -0.01,
+   "min_spatula_veg2_cm": -0.0,
+   "min_spatula_pot_cm": -0.0,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [
+    "veg1",
+    "veg2"
+   ],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 19.6,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 3,
+  "success": true,
+  "steps": 1408,
+  "done": [
+   320,
+   624,
+   816,
+   1408
+  ],
+  "layout": 9,
+  "style": 9,
+  "knob": "left",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot074",
+   "veg1": "objaverse/lime/lime_3",
+   "veg2": "objaverse/lime/lime_3",
+   "spatula": "objaverse/spatula/spatula_6"
+  },
+  "cats": {
+   "veg1": "lime",
+   "veg2": "lime"
+  },
+  "base_xy_cm": {
+   "pot": 64.3,
+   "veg1": 55.7,
+   "veg2": 69.8,
+   "spatula": 81.7
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 113.2,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   4.9,
+   26.6,
+   1.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 95.4,
+   "spatula_dz_cm": 19.4,
+   "spatula_dyaw_deg_quat": 133.6,
+   "spatula_dheading_longaxis_deg": 28.1,
+   "spatula_rot_angle_total_deg": 137.1,
+   "gripper_qpos": [
+    0.0101,
+    -0.0102
+   ],
+   "gripper_opening_cm": 2.0,
+   "pad_center_sep_cm": 2.7,
+   "min_pad_to_spatula_cm": -0.11,
+   "min_finger_or_pad_to_spatula_cm": -0.11,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 7.8,
+   "spatula_on_end": [
+    "robot0_base",
+    "veg1_main",
+    "veg2_main"
+   ],
+   "pot_tilt_deg": 0.0,
+   "pot_inner_bottom_local_z_cm": 1.2,
+   "pot_rim_local_z_cm": 19.6,
+   "pot_depth_cm": 18.5,
+   "pot_reg_int_local_bottom_top_cm": [
+    1.3,
+    18.9
+   ],
+   "pot_R_int_cm": 10.8,
+   "spatula_low_above_bottom_cm": 3.1,
+   "spatula_low_below_rim_cm": 15.4,
+   "spatula_low_radial_cm": 2.3,
+   "spatula_frac_verts_inside_Rint": 1.0,
+   "spatula_low_inside_Rint_above_bottom_cm": 3.1,
+   "world_spatula_low_z": 0.9938,
+   "world_pot_bottom_z": 0.9626,
+   "world_pot_rim_z": 1.1474,
+   "world_spatula_low_above_bottom_cm": 3.1,
+   "world_spatula_low_below_rim_cm": 15.4,
+   "min_spatula_veg1_cm": -0.01,
+   "min_spatula_veg2_cm": -0.0,
+   "min_spatula_pot_cm": 3.12,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [
+    "veg1",
+    "veg2"
+   ],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 18.0,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 4,
+  "success": true,
+  "steps": 752,
+  "done": [
+   208,
+   432,
+   592,
+   752
+  ],
+  "layout": 8,
+  "style": 8,
+  "knob": "front_left",
+  "counter_ref": "counter_2_left_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "objaverse/bell_pepper/bell_pepper_3",
+   "veg2": "objaverse/bell_pepper/bell_pepper_3",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "bell_pepper",
+   "veg2": "bell_pepper"
+  },
+  "base_xy_cm": {
+   "pot": 48.0,
+   "veg1": 71.1,
+   "veg2": 73.2,
+   "spatula": 105.0
+  },
+  "spatula_on": [
+   "counter_2_left_group_main"
+  ],
+  "veg1_on": [
+   "counter_2_left_group_main"
+  ],
+  "veg2_on": [
+   "counter_2_left_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 64.2,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 75.4,
+   "spatula_dz_cm": 22.4,
+   "spatula_dyaw_deg_quat": -179.2,
+   "spatula_dheading_longaxis_deg": -64.3,
+   "spatula_rot_angle_total_deg": 163.6,
+   "gripper_qpos": [
+    0.0109,
+    -0.0121
+   ],
+   "gripper_opening_cm": 2.3,
+   "pad_center_sep_cm": 3.0,
+   "min_pad_to_spatula_cm": -0.07,
+   "min_finger_or_pad_to_spatula_cm": -0.07,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 10.3,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 36.3,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 12.6,
+   "pot_depth_cm": 11.8,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.8,
+    12.0
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 5.8,
+   "spatula_low_below_rim_cm": 6.1,
+   "spatula_low_radial_cm": 6.9,
+   "spatula_frac_verts_inside_Rint": 0.594,
+   "spatula_low_inside_Rint_above_bottom_cm": 5.8,
+   "world_spatula_low_z": 1.0232,
+   "world_pot_bottom_z": 1.014,
+   "world_pot_rim_z": 1.1764,
+   "world_spatula_low_above_bottom_cm": 0.9,
+   "world_spatula_low_below_rim_cm": 15.3,
+   "min_spatula_veg1_cm": 0.0,
+   "min_spatula_veg2_cm": 1.56,
+   "min_spatula_pot_cm": 0.0,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 23.4,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 5,
+  "success": true,
+  "steps": 736,
+  "done": [
+   160,
+   352,
+   592,
+   736
+  ],
+  "layout": 7,
+  "style": 7,
+  "knob": "center",
+  "counter_ref": "counter_main_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/potato/potato_9",
+   "veg2": "lightwheel/lemon_wedge/LemonWedge010",
+   "spatula": "objaverse/spatula/spatula_5"
+  },
+  "cats": {
+   "veg1": "potato",
+   "veg2": "lemon_wedge"
+  },
+  "base_xy_cm": {
+   "pot": 54.2,
+   "veg1": 53.3,
+   "veg2": 54.8,
+   "spatula": 104.8
+  },
+  "spatula_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_main_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 77.1,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   6.0,
+   26.5,
+   2.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 81.0,
+   "spatula_dz_cm": 18.1,
+   "spatula_dyaw_deg_quat": -118.0,
+   "spatula_dheading_longaxis_deg": 174.7,
+   "spatula_rot_angle_total_deg": 137.9,
+   "gripper_qpos": [
+    0.0138,
+    -0.0147
+   ],
+   "gripper_opening_cm": 2.9,
+   "pad_center_sep_cm": 3.6,
+   "min_pad_to_spatula_cm": -0.07,
+   "min_finger_or_pad_to_spatula_cm": -0.07,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 9.2,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base",
+    "veg1_main",
+    "veg2_main"
+   ],
+   "pot_tilt_deg": 0.2,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 13.3,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.6,
+    11.8
+   ],
+   "pot_R_int_cm": 8.0,
+   "spatula_low_above_bottom_cm": 2.5,
+   "spatula_low_below_rim_cm": 10.8,
+   "spatula_low_radial_cm": 7.6,
+   "spatula_frac_verts_inside_Rint": 0.64,
+   "spatula_low_inside_Rint_above_bottom_cm": 2.5,
+   "world_spatula_low_z": 0.9793,
+   "world_pot_bottom_z": 0.9542,
+   "world_pot_rim_z": 1.0875,
+   "world_spatula_low_above_bottom_cm": 2.5,
+   "world_spatula_low_below_rim_cm": 10.8,
+   "min_spatula_veg1_cm": -0.0,
+   "min_spatula_veg2_cm": -0.04,
+   "min_spatula_pot_cm": -0.01,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [
+    "veg1",
+    "veg2"
+   ],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 2.5,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 6,
+  "success": true,
+  "steps": 1360,
+  "done": [
+   256,
+   576,
+   816,
+   1360
+  ],
+  "layout": 5,
+  "style": 5,
+  "knob": "rear_left",
+  "counter_ref": "counter_right_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "objaverse/onion/onion_7",
+   "veg2": "objaverse/lemon/lemon_5",
+   "spatula": "objaverse/spatula/spatula_5"
+  },
+  "cats": {
+   "veg1": "onion",
+   "veg2": "lemon"
+  },
+  "base_xy_cm": {
+   "pot": 67.9,
+   "veg1": 78.7,
+   "veg2": 74.0,
+   "spatula": 66.6
+  },
+  "spatula_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_right_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 77.7,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   6.0,
+   26.5,
+   2.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 71.7,
+   "spatula_dz_cm": 13.8,
+   "spatula_dyaw_deg_quat": -18.3,
+   "spatula_dheading_longaxis_deg": -29.7,
+   "spatula_rot_angle_total_deg": 43.8,
+   "gripper_qpos": [
+    0.0381,
+    -0.0347
+   ],
+   "gripper_opening_cm": 7.3,
+   "pad_center_sep_cm": 8.0,
+   "min_pad_to_spatula_cm": 1.29,
+   "min_finger_or_pad_to_spatula_cm": 1.19,
+   "spatula_grasped_official": false,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 4.1,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base",
+    "veg1_main"
+   ],
+   "pot_tilt_deg": 23.9,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 12.6,
+   "pot_depth_cm": 11.8,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.8,
+    12.0
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 3.5,
+   "spatula_low_below_rim_cm": 8.3,
+   "spatula_low_radial_cm": 0.4,
+   "spatula_frac_verts_inside_Rint": 0.543,
+   "spatula_low_inside_Rint_above_bottom_cm": 3.5,
+   "world_spatula_low_z": 1.0179,
+   "world_pot_bottom_z": 0.9885,
+   "world_pot_rim_z": 1.1424,
+   "world_spatula_low_above_bottom_cm": 2.9,
+   "world_spatula_low_below_rim_cm": 12.4,
+   "min_spatula_veg1_cm": -0.0,
+   "min_spatula_veg2_cm": 1.91,
+   "min_spatula_pot_cm": -0.0,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [
+    "veg1"
+   ],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 72.7,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 7,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   192,
+   384,
+   544,
+   null
+  ],
+  "layout": 10,
+  "style": 10,
+  "knob": "front_right",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/sweet_potato/sweet_potato_3",
+   "veg2": "objaverse/potato/potato_7",
+   "spatula": "objaverse/spatula/spatula_7"
+  },
+  "cats": {
+   "veg1": "sweet_potato",
+   "veg2": "potato"
+  },
+  "base_xy_cm": {
+   "pot": 42.2,
+   "veg1": 67.5,
+   "veg2": 59.7,
+   "spatula": 83.4
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 52.7,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   5.4,
+   24.4,
+   5.1
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 8,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   1072,
+   1392,
+   null,
+   null
+  ],
+  "layout": 8,
+  "style": 8,
+  "knob": "rear_left",
+  "counter_ref": "counter_1_left_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/eggplant/eggplant_4",
+   "veg2": "objaverse/garlic/garlic_4",
+   "spatula": "objaverse/spatula/spatula_6"
+  },
+  "cats": {
+   "veg1": "eggplant",
+   "veg2": "garlic"
+  },
+  "base_xy_cm": {
+   "pot": 60.0,
+   "veg1": 77.1,
+   "veg2": 64.0,
+   "spatula": 88.5
+  },
+  "spatula_on": [
+   "counter_1_left_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_left_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_left_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 104.2,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   4.9,
+   26.6,
+   1.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 2.3,
+   "spatula_dz_cm": 0.0,
+   "spatula_dyaw_deg_quat": -7.2,
+   "spatula_dheading_longaxis_deg": -7.2,
+   "spatula_rot_angle_total_deg": 7.2,
+   "gripper_qpos": [
+    0.0108,
+    -0.006
+   ],
+   "gripper_opening_cm": 1.7,
+   "pad_center_sep_cm": 2.4,
+   "min_pad_to_spatula_cm": -0.11,
+   "min_finger_or_pad_to_spatula_cm": -0.11,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 3.9,
+   "spatula_on_end": [
+    "counter_1_left_group_main",
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 8.8,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 13.3,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.6,
+    11.8
+   ],
+   "pot_R_int_cm": 8.0,
+   "spatula_low_above_bottom_cm": 4.6,
+   "spatula_low_below_rim_cm": 8.8,
+   "spatula_low_radial_cm": 106.4,
+   "spatula_frac_verts_inside_Rint": 0.0,
+   "spatula_low_inside_Rint_above_bottom_cm": null,
+   "world_spatula_low_z": 0.9191,
+   "world_pot_bottom_z": 0.9702,
+   "world_pot_rim_z": 1.1164,
+   "world_spatula_low_above_bottom_cm": -5.1,
+   "world_spatula_low_below_rim_cm": 19.7,
+   "min_spatula_veg1_cm": 99.15,
+   "min_spatula_veg2_cm": 100000000000.0,
+   "min_spatula_pot_cm": 89.54,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 89.1,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 9,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   288,
+   null,
+   null,
+   null
+  ],
+  "layout": 5,
+  "style": 5,
+  "knob": "rear_left",
+  "counter_ref": "counter_right_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot074",
+   "veg1": "objaverse/eggplant/eggplant_4",
+   "veg2": "objaverse/eggplant/eggplant_4",
+   "spatula": "objaverse/spatula/spatula_5"
+  },
+  "cats": {
+   "veg1": "eggplant",
+   "veg2": "eggplant"
+  },
+  "base_xy_cm": {
+   "pot": 64.3,
+   "veg1": 86.5,
+   "veg2": 80.0,
+   "spatula": 73.3
+  },
+  "spatula_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_right_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 78.0,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   6.0,
+   26.5,
+   2.7
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 10,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   336,
+   720,
+   896,
+   null
+  ],
+  "layout": 8,
+  "style": 8,
+  "knob": "rear_right",
+  "counter_ref": "counter_2_left_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot069",
+   "veg1": "objaverse/cucumber/cucumber_4",
+   "veg2": "objaverse/broccoli/broccoli_3",
+   "spatula": "objaverse/spatula/spatula_7"
+  },
+  "cats": {
+   "veg1": "cucumber",
+   "veg2": "broccoli"
+  },
+  "base_xy_cm": {
+   "pot": 60.5,
+   "veg1": 70.5,
+   "veg2": 88.0,
+   "spatula": 80.6
+  },
+  "spatula_on": [
+   "counter_2_left_group_main"
+  ],
+  "veg1_on": [
+   "counter_2_left_group_main"
+  ],
+  "veg2_on": [
+   "counter_2_left_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 86.9,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   5.4,
+   24.4,
+   5.1
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 91.6,
+   "spatula_dz_cm": 25.7,
+   "spatula_dyaw_deg_quat": -165.7,
+   "spatula_dheading_longaxis_deg": 81.4,
+   "spatula_rot_angle_total_deg": 163.1,
+   "gripper_qpos": [
+    0.0128,
+    -0.014
+   ],
+   "gripper_opening_cm": 2.7,
+   "pad_center_sep_cm": 3.4,
+   "min_pad_to_spatula_cm": -0.1,
+   "min_finger_or_pad_to_spatula_cm": -0.1,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 3.7,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 8.2,
+   "pot_inner_bottom_local_z_cm": 1.2,
+   "pot_rim_local_z_cm": 15.4,
+   "pot_depth_cm": 14.2,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.2,
+    14.6
+   ],
+   "pot_R_int_cm": 8.8,
+   "spatula_low_above_bottom_cm": 12.2,
+   "spatula_low_below_rim_cm": 2.0,
+   "spatula_low_radial_cm": 9.7,
+   "spatula_frac_verts_inside_Rint": 0.0,
+   "spatula_low_inside_Rint_above_bottom_cm": null,
+   "world_spatula_low_z": 1.0819,
+   "world_pot_bottom_z": 0.9748,
+   "world_pot_rim_z": 1.1312,
+   "world_spatula_low_above_bottom_cm": 10.7,
+   "world_spatula_low_below_rim_cm": 4.9,
+   "min_spatula_veg1_cm": 10.13,
+   "min_spatula_veg2_cm": 4.86,
+   "min_spatula_pot_cm": 0.0,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 32.6,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 11,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   288,
+   544,
+   640,
+   null
+  ],
+  "layout": 2,
+  "style": 2,
+  "knob": "rear_center",
+  "counter_ref": "counter_main_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "objaverse/avocado/avocado_8",
+   "veg2": "objaverse/garlic/garlic_4",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "avocado",
+   "veg2": "garlic"
+  },
+  "base_xy_cm": {
+   "pot": 64.2,
+   "veg1": 66.7,
+   "veg2": 84.3,
+   "spatula": 81.4
+  },
+  "spatula_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_main_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 69.9,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 72.1,
+   "spatula_dz_cm": 20.6,
+   "spatula_dyaw_deg_quat": 136.4,
+   "spatula_dheading_longaxis_deg": 103.0,
+   "spatula_rot_angle_total_deg": 131.0,
+   "gripper_qpos": [
+    0.008,
+    -0.0088
+   ],
+   "gripper_opening_cm": 1.7,
+   "pad_center_sep_cm": 2.4,
+   "min_pad_to_spatula_cm": -0.06,
+   "min_finger_or_pad_to_spatula_cm": -0.06,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 12.5,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 0.1,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 12.6,
+   "pot_depth_cm": 11.8,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.8,
+    12.0
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 9.0,
+   "spatula_low_below_rim_cm": 2.9,
+   "spatula_low_radial_cm": 17.1,
+   "spatula_frac_verts_inside_Rint": 0.024,
+   "spatula_low_inside_Rint_above_bottom_cm": 22.8,
+   "world_spatula_low_z": 1.0218,
+   "world_pot_bottom_z": 0.9326,
+   "world_pot_rim_z": 1.0513,
+   "world_spatula_low_above_bottom_cm": 8.9,
+   "world_spatula_low_below_rim_cm": 2.9,
+   "min_spatula_veg1_cm": 14.43,
+   "min_spatula_veg2_cm": 10.63,
+   "min_spatula_pot_cm": 3.07,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 40.5,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 12,
+  "success": true,
+  "steps": 784,
+  "done": [
+   192,
+   432,
+   576,
+   784
+  ],
+  "layout": 7,
+  "style": 7,
+  "knob": "rear_right",
+  "counter_ref": "counter_main_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot071",
+   "veg1": "objaverse/tomato/tomato_5",
+   "veg2": "objaverse/squash/squash_16",
+   "spatula": "objaverse/spatula/spatula_7"
+  },
+  "cats": {
+   "veg1": "tomato",
+   "veg2": "squash"
+  },
+  "base_xy_cm": {
+   "pot": 66.4,
+   "veg1": 72.3,
+   "veg2": 47.6,
+   "spatula": 82.0
+  },
+  "spatula_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_main_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 86.0,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   5.4,
+   24.4,
+   5.1
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 73.3,
+   "spatula_dz_cm": 16.1,
+   "spatula_dyaw_deg_quat": -113.9,
+   "spatula_dheading_longaxis_deg": -153.6,
+   "spatula_rot_angle_total_deg": 140.6,
+   "gripper_qpos": [
+    0.02,
+    -0.0095
+   ],
+   "gripper_opening_cm": 2.9,
+   "pad_center_sep_cm": 3.6,
+   "min_pad_to_spatula_cm": -0.16,
+   "min_finger_or_pad_to_spatula_cm": -0.16,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 8.3,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base",
+    "veg1_main"
+   ],
+   "pot_tilt_deg": 0.1,
+   "pot_inner_bottom_local_z_cm": 1.5,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 12.5,
+   "pot_reg_int_local_bottom_top_cm": [
+    1.3,
+    12.5
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 0.9,
+   "spatula_low_below_rim_cm": 11.6,
+   "spatula_low_radial_cm": 6.0,
+   "spatula_frac_verts_inside_Rint": 0.883,
+   "spatula_low_inside_Rint_above_bottom_cm": 0.9,
+   "world_spatula_low_z": 0.9715,
+   "world_pot_bottom_z": 0.9624,
+   "world_pot_rim_z": 1.0876,
+   "world_spatula_low_above_bottom_cm": 0.9,
+   "world_spatula_low_below_rim_cm": 11.6,
+   "min_spatula_veg1_cm": -0.05,
+   "min_spatula_veg2_cm": 3.85,
+   "min_spatula_pot_cm": -0.03,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [
+    "veg1"
+   ],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 25.3,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 13,
+  "success": true,
+  "steps": 816,
+  "done": [
+   240,
+   480,
+   624,
+   816
+  ],
+  "layout": 9,
+  "style": 9,
+  "knob": "left",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot071",
+   "veg1": "objaverse/sweet_potato/sweet_potato_3",
+   "veg2": "objaverse/squash/squash_7",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "sweet_potato",
+   "veg2": "squash"
+  },
+  "base_xy_cm": {
+   "pot": 67.6,
+   "veg1": 62.4,
+   "veg2": 57.2,
+   "spatula": 77.2
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 105.4,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 99.4,
+   "spatula_dz_cm": 22.0,
+   "spatula_dyaw_deg_quat": -159.1,
+   "spatula_dheading_longaxis_deg": -41.1,
+   "spatula_rot_angle_total_deg": 151.8,
+   "gripper_qpos": [
+    0.0155,
+    -0.0141
+   ],
+   "gripper_opening_cm": 3.0,
+   "pad_center_sep_cm": 3.7,
+   "min_pad_to_spatula_cm": -0.09,
+   "min_finger_or_pad_to_spatula_cm": -0.09,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 11.9,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 12.8,
+   "pot_inner_bottom_local_z_cm": 1.5,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 12.5,
+   "pot_reg_int_local_bottom_top_cm": [
+    1.3,
+    12.5
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 4.4,
+   "spatula_low_below_rim_cm": 8.1,
+   "spatula_low_radial_cm": 5.1,
+   "spatula_frac_verts_inside_Rint": 0.907,
+   "spatula_low_inside_Rint_above_bottom_cm": 4.4,
+   "world_spatula_low_z": 1.019,
+   "world_pot_bottom_z": 0.9857,
+   "world_pot_rim_z": 1.1339,
+   "world_spatula_low_above_bottom_cm": 3.3,
+   "world_spatula_low_below_rim_cm": 11.5,
+   "min_spatula_veg1_cm": 0.02,
+   "min_spatula_veg2_cm": 0.01,
+   "min_spatula_pot_cm": -0.0,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 21.8,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 14,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   272,
+   784,
+   944,
+   null
+  ],
+  "layout": 2,
+  "style": 2,
+  "knob": "front_right",
+  "counter_ref": "counter_main_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "objaverse/garlic/garlic_4",
+   "veg2": "objaverse/avocado/avocado_5",
+   "spatula": "objaverse/spatula/spatula_7"
+  },
+  "cats": {
+   "veg1": "garlic",
+   "veg2": "avocado"
+  },
+  "base_xy_cm": {
+   "pot": 47.7,
+   "veg1": 75.4,
+   "veg2": 80.2,
+   "spatula": 86.7
+  },
+  "spatula_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_main_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 96.5,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   5.4,
+   24.4,
+   5.1
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 108.7,
+   "spatula_dz_cm": 15.9,
+   "spatula_dyaw_deg_quat": -176.7,
+   "spatula_dheading_longaxis_deg": -122.2,
+   "spatula_rot_angle_total_deg": 170.2,
+   "gripper_qpos": [
+    0.0144,
+    -0.0138
+   ],
+   "gripper_opening_cm": 2.8,
+   "pad_center_sep_cm": 3.5,
+   "min_pad_to_spatula_cm": -0.11,
+   "min_finger_or_pad_to_spatula_cm": -0.11,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 8.8,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 0.4,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 12.6,
+   "pot_depth_cm": 11.8,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.8,
+    12.0
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 3.7,
+   "spatula_low_below_rim_cm": 8.2,
+   "spatula_low_radial_cm": 2.0,
+   "spatula_frac_verts_inside_Rint": 1.0,
+   "spatula_low_inside_Rint_above_bottom_cm": 3.7,
+   "world_spatula_low_z": 0.9696,
+   "world_pot_bottom_z": 0.9329,
+   "world_pot_rim_z": 1.052,
+   "world_spatula_low_above_bottom_cm": 3.7,
+   "world_spatula_low_below_rim_cm": 8.2,
+   "min_spatula_veg1_cm": 2.39,
+   "min_spatula_veg2_cm": 2.68,
+   "min_spatula_pot_cm": 3.56,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 12.8,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 15,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   224,
+   480,
+   624,
+   null
+  ],
+  "layout": 10,
+  "style": 10,
+  "knob": "rear_left",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot071",
+   "veg1": "objaverse/sweet_potato/sweet_potato_3",
+   "veg2": "objaverse/mushroom/mushroom_8",
+   "spatula": "objaverse/spatula/spatula_6"
+  },
+  "cats": {
+   "veg1": "sweet_potato",
+   "veg2": "mushroom"
+  },
+  "base_xy_cm": {
+   "pot": 69.0,
+   "veg1": 66.7,
+   "veg2": 85.8,
+   "spatula": 82.9
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 72.9,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   4.9,
+   26.6,
+   1.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 73.1,
+   "spatula_dz_cm": 21.7,
+   "spatula_dyaw_deg_quat": -178.8,
+   "spatula_dheading_longaxis_deg": 87.3,
+   "spatula_rot_angle_total_deg": 174.1,
+   "gripper_qpos": [
+    0.0084,
+    -0.0087
+   ],
+   "gripper_opening_cm": 1.7,
+   "pad_center_sep_cm": 2.4,
+   "min_pad_to_spatula_cm": -0.06,
+   "min_finger_or_pad_to_spatula_cm": -0.06,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 8.7,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 0.0,
+   "pot_inner_bottom_local_z_cm": 1.5,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 12.5,
+   "pot_reg_int_local_bottom_top_cm": [
+    1.3,
+    12.5
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 8.0,
+   "spatula_low_below_rim_cm": 4.5,
+   "spatula_low_radial_cm": 3.1,
+   "spatula_frac_verts_inside_Rint": 1.0,
+   "spatula_low_inside_Rint_above_bottom_cm": 8.0,
+   "world_spatula_low_z": 1.0136,
+   "world_pot_bottom_z": 0.9335,
+   "world_pot_rim_z": 1.0585,
+   "world_spatula_low_above_bottom_cm": 8.0,
+   "world_spatula_low_below_rim_cm": 4.5,
+   "min_spatula_veg1_cm": 4.78,
+   "min_spatula_veg2_cm": 7.05,
+   "min_spatula_pot_cm": 5.3,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 9.6,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 16,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   256,
+   496,
+   672,
+   null
+  ],
+  "layout": 6,
+  "style": 6,
+  "knob": "rear_left",
+  "counter_ref": "counter_2_right_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot069",
+   "veg1": "objaverse/garlic/garlic_4",
+   "veg2": "objaverse/corn/corn_3",
+   "spatula": "objaverse/spatula/spatula_5"
+  },
+  "cats": {
+   "veg1": "garlic",
+   "veg2": "corn"
+  },
+  "base_xy_cm": {
+   "pot": 68.0,
+   "veg1": 74.0,
+   "veg2": 68.0,
+   "spatula": 95.8
+  },
+  "spatula_on": [
+   "counter_2_right_group_main"
+  ],
+  "veg1_on": [
+   "counter_2_right_group_main"
+  ],
+  "veg2_on": [
+   "counter_2_right_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 95.5,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   6.0,
+   26.5,
+   2.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 84.4,
+   "spatula_dz_cm": 17.3,
+   "spatula_dyaw_deg_quat": -159.2,
+   "spatula_dheading_longaxis_deg": 142.9,
+   "spatula_rot_angle_total_deg": 179.7,
+   "gripper_qpos": [
+    0.0128,
+    -0.0136
+   ],
+   "gripper_opening_cm": 2.6,
+   "pad_center_sep_cm": 3.3,
+   "min_pad_to_spatula_cm": -0.12,
+   "min_finger_or_pad_to_spatula_cm": -0.12,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 7.2,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 0.0,
+   "pot_inner_bottom_local_z_cm": 1.2,
+   "pot_rim_local_z_cm": 15.4,
+   "pot_depth_cm": 14.2,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.2,
+    14.6
+   ],
+   "pot_R_int_cm": 8.8,
+   "spatula_low_above_bottom_cm": 5.3,
+   "spatula_low_below_rim_cm": 8.9,
+   "spatula_low_radial_cm": 4.6,
+   "spatula_frac_verts_inside_Rint": 0.622,
+   "spatula_low_inside_Rint_above_bottom_cm": 5.3,
+   "world_spatula_low_z": 0.9855,
+   "world_pot_bottom_z": 0.9328,
+   "world_pot_rim_z": 1.0749,
+   "world_spatula_low_above_bottom_cm": 5.3,
+   "world_spatula_low_below_rim_cm": 8.9,
+   "min_spatula_veg1_cm": 2.7,
+   "min_spatula_veg2_cm": 7.28,
+   "min_spatula_pot_cm": 4.27,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 31.9,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 17,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   160,
+   320,
+   null,
+   null
+  ],
+  "layout": 8,
+  "style": 8,
+  "knob": "front_left",
+  "counter_ref": "counter_2_left_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/lime/lime_2",
+   "veg2": "objaverse/carrot/carrot_4",
+   "spatula": "objaverse/spatula/spatula_6"
+  },
+  "cats": {
+   "veg1": "lime",
+   "veg2": "carrot"
+  },
+  "base_xy_cm": {
+   "pot": 45.1,
+   "veg1": 74.8,
+   "veg2": 75.5,
+   "spatula": 97.8
+  },
+  "spatula_on": [
+   "counter_2_left_group_main"
+  ],
+  "veg1_on": [
+   "counter_2_left_group_main"
+  ],
+  "veg2_on": [
+   "counter_2_left_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 62.1,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   4.9,
+   26.6,
+   1.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 3.3,
+   "spatula_dz_cm": 1.5,
+   "spatula_dyaw_deg_quat": 79.5,
+   "spatula_dheading_longaxis_deg": -9.0,
+   "spatula_rot_angle_total_deg": 90.1,
+   "gripper_qpos": [
+    0.0392,
+    -0.04
+   ],
+   "gripper_opening_cm": 7.9,
+   "pad_center_sep_cm": 8.6,
+   "min_pad_to_spatula_cm": 54.51,
+   "min_finger_or_pad_to_spatula_cm": 54.3,
+   "spatula_grasped_official": false,
+   "gripper_contacts_spatula": false,
+   "eef_to_spatula_body_cm": 58.0,
+   "spatula_on_end": [
+    "counter_2_left_group_main"
+   ],
+   "pot_tilt_deg": 0.0,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 13.3,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.6,
+    11.8
+   ],
+   "pot_R_int_cm": 8.0,
+   "spatula_low_above_bottom_cm": -3.8,
+   "spatula_low_below_rim_cm": 17.1,
+   "spatula_low_radial_cm": 57.6,
+   "spatula_frac_verts_inside_Rint": 0.0,
+   "spatula_low_inside_Rint_above_bottom_cm": null,
+   "world_spatula_low_z": 0.9199,
+   "world_pot_bottom_z": 0.9577,
+   "world_pot_rim_z": 1.0908,
+   "world_spatula_low_above_bottom_cm": -3.8,
+   "world_spatula_low_below_rim_cm": 17.1,
+   "min_spatula_veg1_cm": 50.95,
+   "min_spatula_veg2_cm": 57.73,
+   "min_spatula_pot_cm": 44.54,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 87.6,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 18,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   384,
+   624,
+   624,
+   null
+  ],
+  "layout": 9,
+  "style": 9,
+  "knob": "front_center",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/broccoli/broccoli_3",
+   "veg2": "objaverse/lemon/lemon_8",
+   "spatula": "objaverse/spatula/spatula_7"
+  },
+  "cats": {
+   "veg1": "broccoli",
+   "veg2": "lemon"
+  },
+  "base_xy_cm": {
+   "pot": 45.1,
+   "veg1": 78.7,
+   "veg2": 85.4,
+   "spatula": 89.9
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 66.8,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   5.4,
+   24.4,
+   5.1
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 19,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   240,
+   464,
+   576,
+   null
+  ],
+  "layout": 6,
+  "style": 6,
+  "knob": "front_left",
+  "counter_ref": "counter_1_right_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot071",
+   "veg1": "objaverse/cucumber/cucumber_5",
+   "veg2": "objaverse/lemon/lemon_6",
+   "spatula": "objaverse/spatula/spatula_5"
+  },
+  "cats": {
+   "veg1": "cucumber",
+   "veg2": "lemon"
+  },
+  "base_xy_cm": {
+   "pot": 44.7,
+   "veg1": 80.3,
+   "veg2": 67.1,
+   "spatula": 69.3
+  },
+  "spatula_on": [
+   "counter_1_right_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_right_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_right_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 34.5,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   6.0,
+   26.5,
+   2.7
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 20,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   192,
+   320,
+   416,
+   null
+  ],
+  "layout": 9,
+  "style": 9,
+  "knob": "front_right",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot071",
+   "veg1": "objaverse/corn/corn_4",
+   "veg2": "objaverse/potato/potato_9",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "corn",
+   "veg2": "potato"
+  },
+  "base_xy_cm": {
+   "pot": 58.4,
+   "veg1": 79.8,
+   "veg2": 84.0,
+   "spatula": 99.5
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 51.8,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 21,
+  "success": true,
+  "steps": 944,
+  "done": [
+   224,
+   464,
+   688,
+   944
+  ],
+  "layout": 4,
+  "style": 4,
+  "knob": "front_left",
+  "counter_ref": "counter_1_right_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot074",
+   "veg1": "objaverse/corn/corn_4",
+   "veg2": "objaverse/sweet_potato/sweet_potato_3",
+   "spatula": "objaverse/spatula/spatula_9"
+  },
+  "cats": {
+   "veg1": "corn",
+   "veg2": "sweet_potato"
+  },
+  "base_xy_cm": {
+   "pot": 64.9,
+   "veg1": 57.8,
+   "veg2": 58.8,
+   "spatula": 68.2
+  },
+  "spatula_on": [
+   "counter_1_right_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_right_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_right_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 104.1,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   12.2,
+   28.6,
+   4.2
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 104.2,
+   "spatula_dz_cm": 21.2,
+   "spatula_dyaw_deg_quat": -132.6,
+   "spatula_dheading_longaxis_deg": -31.3,
+   "spatula_rot_angle_total_deg": 123.6,
+   "gripper_qpos": [
+    0.0105,
+    -0.0089
+   ],
+   "gripper_opening_cm": 1.9,
+   "pad_center_sep_cm": 2.6,
+   "min_pad_to_spatula_cm": -0.15,
+   "min_finger_or_pad_to_spatula_cm": -0.15,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 11.1,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 31.9,
+   "pot_inner_bottom_local_z_cm": 1.2,
+   "pot_rim_local_z_cm": 19.6,
+   "pot_depth_cm": 18.5,
+   "pot_reg_int_local_bottom_top_cm": [
+    1.3,
+    18.9
+   ],
+   "pot_R_int_cm": 10.8,
+   "spatula_low_above_bottom_cm": 7.2,
+   "spatula_low_below_rim_cm": 11.3,
+   "spatula_low_radial_cm": 8.6,
+   "spatula_frac_verts_inside_Rint": 0.808,
+   "spatula_low_inside_Rint_above_bottom_cm": 7.2,
+   "world_spatula_low_z": 1.0044,
+   "world_pot_bottom_z": 0.9858,
+   "world_pot_rim_z": 1.2061,
+   "world_spatula_low_above_bottom_cm": 1.9,
+   "world_spatula_low_below_rim_cm": 20.2,
+   "min_spatula_veg1_cm": 0.0,
+   "min_spatula_veg2_cm": 3.12,
+   "min_spatula_pot_cm": -0.02,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 38.0,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 22,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   512,
+   752,
+   null,
+   null
+  ],
+  "layout": 8,
+  "style": 8,
+  "knob": "front_right",
+  "counter_ref": "counter_1_left_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot071",
+   "veg1": "lightwheel/lemon_wedge/LemonWedge009",
+   "veg2": "objaverse/eggplant/eggplant_3",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "lemon_wedge",
+   "veg2": "eggplant"
+  },
+  "base_xy_cm": {
+   "pot": 43.3,
+   "veg1": 65.0,
+   "veg2": 60.6,
+   "spatula": 79.5
+  },
+  "spatula_on": [
+   "counter_1_left_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_left_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_left_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 39.6,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 2.5,
+   "spatula_dz_cm": -0.1,
+   "spatula_dyaw_deg_quat": 12.0,
+   "spatula_dheading_longaxis_deg": 12.0,
+   "spatula_rot_angle_total_deg": 12.0,
+   "gripper_qpos": [
+    0.0008,
+    -0.0002
+   ],
+   "gripper_opening_cm": 0.1,
+   "pad_center_sep_cm": 0.8,
+   "min_pad_to_spatula_cm": 10.54,
+   "min_finger_or_pad_to_spatula_cm": 10.01,
+   "spatula_grasped_official": false,
+   "gripper_contacts_spatula": false,
+   "eef_to_spatula_body_cm": 15.8,
+   "spatula_on_end": [
+    "counter_1_left_group_main"
+   ],
+   "pot_tilt_deg": 12.7,
+   "pot_inner_bottom_local_z_cm": 1.5,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 12.5,
+   "pot_reg_int_local_bottom_top_cm": [
+    1.3,
+    12.5
+   ],
+   "pot_R_int_cm": 9.2,
+   "spatula_low_above_bottom_cm": 1.4,
+   "spatula_low_below_rim_cm": 11.1,
+   "spatula_low_radial_cm": 34.3,
+   "spatula_frac_verts_inside_Rint": 0.0,
+   "spatula_low_inside_Rint_above_bottom_cm": null,
+   "world_spatula_low_z": 0.9177,
+   "world_pot_bottom_z": 0.9849,
+   "world_pot_rim_z": 1.1327,
+   "world_spatula_low_above_bottom_cm": -6.7,
+   "world_spatula_low_below_rim_cm": 21.5,
+   "min_spatula_veg1_cm": 33.85,
+   "min_spatula_veg2_cm": 27.58,
+   "min_spatula_pot_cm": 18.42,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 86.6,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 23,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   192,
+   448,
+   640,
+   null
+  ],
+  "layout": 1,
+  "style": 1,
+  "knob": "front_right",
+  "counter_ref": "counter_right_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/lemon/lemon_9",
+   "veg2": "objaverse/avocado/avocado_6",
+   "spatula": "objaverse/spatula/spatula_6"
+  },
+  "cats": {
+   "veg1": "lemon",
+   "veg2": "avocado"
+  },
+  "base_xy_cm": {
+   "pot": 37.9,
+   "veg1": 62.0,
+   "veg2": 73.4,
+   "spatula": 91.8
+  },
+  "spatula_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_right_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 60.1,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   4.9,
+   26.6,
+   1.7
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 62.1,
+   "spatula_dz_cm": 28.1,
+   "spatula_dyaw_deg_quat": -153.0,
+   "spatula_dheading_longaxis_deg": 101.0,
+   "spatula_rot_angle_total_deg": 171.7,
+   "gripper_qpos": [
+    0.0079,
+    -0.0092
+   ],
+   "gripper_opening_cm": 1.7,
+   "pad_center_sep_cm": 2.4,
+   "min_pad_to_spatula_cm": -0.06,
+   "min_finger_or_pad_to_spatula_cm": -0.06,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 10.1,
+   "spatula_on_end": [
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 0.0,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 13.3,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.6,
+    11.8
+   ],
+   "pot_R_int_cm": 8.0,
+   "spatula_low_above_bottom_cm": 16.9,
+   "spatula_low_below_rim_cm": -3.6,
+   "spatula_low_radial_cm": 5.7,
+   "spatula_frac_verts_inside_Rint": 0.774,
+   "spatula_low_inside_Rint_above_bottom_cm": 16.9,
+   "world_spatula_low_z": 1.097,
+   "world_pot_bottom_z": 0.9278,
+   "world_pot_rim_z": 1.0609,
+   "world_spatula_low_above_bottom_cm": 16.9,
+   "world_spatula_low_below_rim_cm": -3.6,
+   "min_spatula_veg1_cm": 12.08,
+   "min_spatula_veg2_cm": 13.71,
+   "min_spatula_pot_cm": 4.9,
+   "spatula_contacts_pot": false,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 35.0,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 24,
+  "success": true,
+  "steps": 1232,
+  "done": [
+   240,
+   496,
+   640,
+   1232
+  ],
+  "layout": 4,
+  "style": 4,
+  "knob": "front_center",
+  "counter_ref": "counter_1_right_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot074",
+   "veg1": "objaverse/squash/squash_5",
+   "veg2": "objaverse/potato/potato_8",
+   "spatula": "objaverse/spatula/spatula_9"
+  },
+  "cats": {
+   "veg1": "squash",
+   "veg2": "potato"
+  },
+  "base_xy_cm": {
+   "pot": 37.8,
+   "veg1": 70.0,
+   "veg2": 71.9,
+   "spatula": 94.2
+  },
+  "spatula_on": [
+   "counter_1_right_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_right_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_right_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 85.3,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   12.2,
+   28.6,
+   4.2
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 99.4,
+   "spatula_dz_cm": 19.9,
+   "spatula_dyaw_deg_quat": -74.5,
+   "spatula_dheading_longaxis_deg": -124.3,
+   "spatula_rot_angle_total_deg": 111.3,
+   "gripper_qpos": [
+    0.0085,
+    -0.0098
+   ],
+   "gripper_opening_cm": 1.8,
+   "pad_center_sep_cm": 2.5,
+   "min_pad_to_spatula_cm": 0.26,
+   "min_finger_or_pad_to_spatula_cm": -0.32,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 2.7,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base",
+    "veg1_main"
+   ],
+   "pot_tilt_deg": 6.5,
+   "pot_inner_bottom_local_z_cm": 1.2,
+   "pot_rim_local_z_cm": 19.6,
+   "pot_depth_cm": 18.5,
+   "pot_reg_int_local_bottom_top_cm": [
+    1.3,
+    18.9
+   ],
+   "pot_R_int_cm": 10.8,
+   "spatula_low_above_bottom_cm": 5.1,
+   "spatula_low_below_rim_cm": 13.3,
+   "spatula_low_radial_cm": 9.1,
+   "spatula_frac_verts_inside_Rint": 1.0,
+   "spatula_low_inside_Rint_above_bottom_cm": 5.1,
+   "world_spatula_low_z": 0.9839,
+   "world_pot_bottom_z": 0.943,
+   "world_pot_rim_z": 1.1399,
+   "world_spatula_low_above_bottom_cm": 4.1,
+   "world_spatula_low_below_rim_cm": 15.6,
+   "min_spatula_veg1_cm": -0.03,
+   "min_spatula_veg2_cm": 1.85,
+   "min_spatula_pot_cm": -0.01,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [
+    "veg1"
+   ],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 18.8,
+   "mesh_aabb_maxerr": 0.0
+  }
+ },
+ {
+  "seed": 25,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   288,
+   608,
+   752,
+   null
+  ],
+  "layout": 6,
+  "style": 6,
+  "knob": "front_right",
+  "counter_ref": "counter_1_right_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "objaverse/cucumber/cucumber_5",
+   "veg2": "objaverse/tomato/tomato_5",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "cucumber",
+   "veg2": "tomato"
+  },
+  "base_xy_cm": {
+   "pot": 42.4,
+   "veg1": 68.6,
+   "veg2": 77.6,
+   "spatula": 85.0
+  },
+  "spatula_on": [
+   "counter_1_right_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_right_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_right_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 93.4,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 26,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   null,
+   null,
+   null,
+   null
+  ],
+  "layout": 9,
+  "style": 9,
+  "knob": "rear_center",
+  "counter_ref": "counter_1_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot071",
+   "veg1": "objaverse/broccoli/broccoli_3",
+   "veg2": "objaverse/bell_pepper/bell_pepper_3",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "broccoli",
+   "veg2": "bell_pepper"
+  },
+  "base_xy_cm": {
+   "pot": 67.9,
+   "veg1": 62.2,
+   "veg2": 67.5,
+   "spatula": 65.1
+  },
+  "spatula_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_1_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_1_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 61.6,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 27,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   272,
+   624,
+   848,
+   null
+  ],
+  "layout": 1,
+  "style": 1,
+  "knob": "rear_left",
+  "counter_ref": "counter_right_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "lightwheel/lemon_wedge/LemonWedge009",
+   "veg2": "objaverse/eggplant/eggplant_3",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "lemon_wedge",
+   "veg2": "eggplant"
+  },
+  "base_xy_cm": {
+   "pot": 66.9,
+   "veg1": 71.7,
+   "veg2": 87.8,
+   "spatula": 105.8
+  },
+  "spatula_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_right_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_right_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 99.9,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 28,
+  "success": false,
+  "steps": 1600,
+  "done": [
+   160,
+   336,
+   480,
+   null
+  ],
+  "layout": 7,
+  "style": 7,
+  "knob": "center",
+  "counter_ref": "counter_main_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot065",
+   "veg1": "objaverse/bell_pepper/bell_pepper_3",
+   "veg2": "objaverse/onion/onion_6",
+   "spatula": "objaverse/spatula/spatula_9"
+  },
+  "cats": {
+   "veg1": "bell_pepper",
+   "veg2": "onion"
+  },
+  "base_xy_cm": {
+   "pot": 52.4,
+   "veg1": 79.0,
+   "veg2": 77.5,
+   "spatula": 98.6
+  },
+  "spatula_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_main_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 71.3,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   12.2,
+   28.6,
+   4.2
+  ],
+  "veg_same_counter_as_spatula": true
+ },
+ {
+  "seed": 29,
+  "success": true,
+  "steps": 1104,
+  "done": [
+   240,
+   464,
+   576,
+   1104
+  ],
+  "layout": 10,
+  "style": 10,
+  "knob": "rear_left",
+  "counter_ref": "counter_main_main_group",
+  "models": {
+   "pot": "lightwheel/pot/Pot075",
+   "veg1": "objaverse/carrot/carrot_6",
+   "veg2": "objaverse/lime/lime_2",
+   "spatula": "objaverse/spatula/spatula_8"
+  },
+  "cats": {
+   "veg1": "carrot",
+   "veg2": "lime"
+  },
+  "base_xy_cm": {
+   "pot": 65.0,
+   "veg1": 68.5,
+   "veg2": 66.9,
+   "spatula": 59.7
+  },
+  "spatula_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg1_on": [
+   "counter_main_main_group_main"
+  ],
+  "veg2_on": [
+   "counter_main_main_group_main"
+  ],
+  "spatula_to_pot_xy_cm": 41.6,
+  "spatula_long_axis_local": "y",
+  "pot_tilt_start_deg": 0.0,
+  "spatula_extent_cm": [
+   8.3,
+   26.7,
+   3.4
+  ],
+  "veg_same_counter_as_spatula": true,
+  "end": {
+   "spatula_dxy_cm": 50.6,
+   "spatula_dz_cm": 14.3,
+   "spatula_dyaw_deg_quat": -179.4,
+   "spatula_dheading_longaxis_deg": 12.9,
+   "spatula_rot_angle_total_deg": 177.6,
+   "gripper_qpos": [
+    0.01,
+    -0.0087
+   ],
+   "gripper_opening_cm": 1.9,
+   "pad_center_sep_cm": 2.6,
+   "min_pad_to_spatula_cm": -0.06,
+   "min_finger_or_pad_to_spatula_cm": -0.06,
+   "spatula_grasped_official": true,
+   "gripper_contacts_spatula": true,
+   "eef_to_spatula_body_cm": 9.9,
+   "spatula_on_end": [
+    "pot_main",
+    "robot0_base"
+   ],
+   "pot_tilt_deg": 2.5,
+   "pot_inner_bottom_local_z_cm": 0.7,
+   "pot_rim_local_z_cm": 14.0,
+   "pot_depth_cm": 13.3,
+   "pot_reg_int_local_bottom_top_cm": [
+    0.6,
+    11.8
+   ],
+   "pot_R_int_cm": 8.0,
+   "spatula_low_above_bottom_cm": 1.4,
+   "spatula_low_below_rim_cm": 11.9,
+   "spatula_low_radial_cm": 7.7,
+   "spatula_frac_verts_inside_Rint": 0.861,
+   "spatula_low_inside_Rint_above_bottom_cm": 1.4,
+   "world_spatula_low_z": 0.9459,
+   "world_pot_bottom_z": 0.9286,
+   "world_pot_rim_z": 1.0641,
+   "world_spatula_low_above_bottom_cm": 1.7,
+   "world_spatula_low_below_rim_cm": 11.8,
+   "min_spatula_veg1_cm": 1.5,
+   "min_spatula_veg2_cm": 5.24,
+   "min_spatula_pot_cm": -0.02,
+   "spatula_contacts_pot": true,
+   "spatula_contacts_veg": [],
+   "veg_in_pot": [
+    "veg1",
+    "veg2"
+   ],
+   "spatula_long_axis_local_end": "y",
+   "spatula_tilt_from_vertical_deg": 16.0,
+   "mesh_aabb_maxerr": 0.0
+  }
+ }
+]

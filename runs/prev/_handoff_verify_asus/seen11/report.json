@@ -1,0 +1,6527 @@
+{
+ "ScrubCuttingBoard": {
+  "n_demos": 504,
+  "name_merged_sequences": [
+   [
+    [
+     "PickUpSponge",
+     "ScrubCuttingBoard",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "PickUpSponge",
+     "ScrubCuttingBoard",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 2,
+  "top_stage_sequences": [
+   [
+    [
+     "PickUpSponge:pick",
+     "ScrubCuttingBoard:execute",
+     "done:done"
+    ],
+    476
+   ],
+   [
+    [
+     "PickUpSponge:pick",
+     "NavigateKitchen:navigate",
+     "ScrubCuttingBoard:execute",
+     "done:done"
+    ],
+    28
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "PickUpSponge | pick": [
+    [
+     "pick up the sponge from the counter",
+     504
+    ]
+   ],
+   "ScrubCuttingBoard | execute": [
+    [
+     "scrub the cutting board",
+     504
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     504
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the cutting board",
+     28
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "PickUpSponge",
+   "ScrubCuttingBoard"
+  ],
+  "validation": {
+   "demos_passed": 8,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "PickUpSponge",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -4,
+      "max": 9,
+      "median": 0
+     }
+    },
+    {
+     "step": 1,
+     "skill": "ScrubCuttingBoard",
+     "passed": 8,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 6,
+      "max": 16,
+      "median": 10
+     }
+    }
+   ],
+   "failures": [
+    {
+     "ep": 50,
+     "reason": "step 1 (ScrubCuttingBoard) never passed",
+     "env_success_ever": false
+    },
+    {
+     "ep": 151,
+     "reason": "step 1 (ScrubCuttingBoard) never passed",
+     "env_success_ever": false
+    }
+   ],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     62,
+     407
+    ],
+    "annotated_step_start": [
+     0,
+     62
+    ],
+    "annotated_step_end": [
+     62,
+     396
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     11
+    ],
+    "env_success_first_frame": 407,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 423
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": false,
+    "first_pass_frame": [
+     69
+    ],
+    "annotated_step_start": [
+     0,
+     73
+    ],
+    "annotated_step_end": [
+     73,
+     514
+    ],
+    "first_pass_minus_annotated_end": [
+     -4
+    ],
+    "env_success_first_frame": null,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": "step 1 (ScrubCuttingBoard) never passed",
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 543
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     99,
+     481
+    ],
+    "annotated_step_start": [
+     0,
+     210
+    ],
+    "annotated_step_end": [
+     90,
+     473
+    ],
+    "first_pass_minus_annotated_end": [
+     9,
+     8
+    ],
+    "env_success_first_frame": 481,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 497
+   },
+   {
+    "ep": 151,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": false,
+    "first_pass_frame": [
+     79
+    ],
+    "annotated_step_start": [
+     0,
+     79
+    ],
+    "annotated_step_end": [
+     79,
+     322
+    ],
+    "first_pass_minus_annotated_end": [
+     0
+    ],
+    "env_success_first_frame": null,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": "step 1 (ScrubCuttingBoard) never passed",
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 347
+   },
+   {
+    "ep": 201,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     83,
+     386
+    ],
+    "annotated_step_start": [
+     0,
+     78
+    ],
+    "annotated_step_end": [
+     78,
+     380
+    ],
+    "first_pass_minus_annotated_end": [
+     5,
+     6
+    ],
+    "env_success_first_frame": 386,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 402
+   },
+   {
+    "ep": 252,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     95,
+     300
+    ],
+    "annotated_step_start": [
+     0,
+     90
+    ],
+    "annotated_step_end": [
+     90,
+     290
+    ],
+    "first_pass_minus_annotated_end": [
+     5,
+     10
+    ],
+    "env_success_first_frame": 300,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 317
+   },
+   {
+    "ep": 302,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     76,
+     549
+    ],
+    "annotated_step_start": [
+     0,
+     78
+    ],
+    "annotated_step_end": [
+     78,
+     539
+    ],
+    "first_pass_minus_annotated_end": [
+     -2,
+     10
+    ],
+    "env_success_first_frame": 549,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 565
+   },
+   {
+    "ep": 352,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     86,
+     531
+    ],
+    "annotated_step_start": [
+     0,
+     86
+    ],
+    "annotated_step_end": [
+     86,
+     515
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     16
+    ],
+    "env_success_first_frame": 531,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 547
+   },
+   {
+    "ep": 403,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     105,
+     592
+    ],
+    "annotated_step_start": [
+     0,
+     100
+    ],
+    "annotated_step_end": [
+     100,
+     582
+    ],
+    "first_pass_minus_annotated_end": [
+     5,
+     10
+    ],
+    "env_success_first_frame": 592,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 608
+   },
+   {
+    "ep": 453,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickUpSponge",
+     "ScrubCuttingBoard"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     70,
+     523
+    ],
+    "annotated_step_start": [
+     0,
+     154
+    ],
+    "annotated_step_end": [
+     73,
+     513
+    ],
+    "first_pass_minus_annotated_end": [
+     -3,
+     10
+    ],
+    "env_success_first_frame": 523,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick up the sponge from the counter.",
+     "Scrub the cutting board with the sponge, then release the sponge."
+    ],
+    "length": 539
+   }
+  ]
+ },
+ "WashLettuce": {
+  "n_demos": 501,
+  "name_merged_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink",
+     "done"
+    ],
+    494
+   ],
+   [
+    [
+     "PickPlaceCounterToSink",
+     "TurnOnSinkFaucet",
+     "done"
+    ],
+    7
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink",
+     "done"
+    ],
+    494
+   ],
+   [
+    [
+     "PickPlaceCounterToSink",
+     "TurnOnSinkFaucet",
+     "done"
+    ],
+    7
+   ]
+  ],
+  "n_distinct_step_sequences": 2,
+  "majority_share": 0.986,
+  "n_distinct_stage_sequences": 2,
+  "top_stage_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet:execute",
+     "PickPlaceCounterToSink:pick",
+     "PickPlaceCounterToSink:place",
+     "done:done"
+    ],
+    494
+   ],
+   [
+    [
+     "PickPlaceCounterToSink:pick",
+     "PickPlaceCounterToSink:place",
+     "TurnOnSinkFaucet:execute",
+     "done:done"
+    ],
+    7
+   ]
+  ],
+  "nonmajority_demos": [
+   51,
+   135,
+   142,
+   170,
+   236,
+   286,
+   458
+  ],
+  "sentences": {
+   "TurnOnSinkFaucet | execute": [
+    [
+     "turn on the water in the sink",
+     494
+    ],
+    [
+     "turn on the water in the sink and run it over the lettuce",
+     7
+    ]
+   ],
+   "PickPlaceCounterToSink | pick": [
+    [
+     "pick up the lettuce from the counter",
+     501
+    ]
+   ],
+   "PickPlaceCounterToSink | place": [
+    [
+     "place the lettuce in the sink",
+     501
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "TurnOnSinkFaucet",
+   "PickPlaceCounterToSink"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "TurnOnSinkFaucet",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 0,
+      "max": 0,
+      "median": 0
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceCounterToSink",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 23,
+      "max": 88,
+      "median": 30
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": [
+    {
+     "ep": 51,
+     "all_passed": true
+    },
+    {
+     "ep": 135,
+     "all_passed": true
+    }
+   ]
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     144,
+     454
+    ],
+    "annotated_step_start": [
+     0,
+     144
+    ],
+    "annotated_step_end": [
+     144,
+     431
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     23
+    ],
+    "env_success_first_frame": 454,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 470
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     202,
+     539
+    ],
+    "annotated_step_start": [
+     0,
+     202
+    ],
+    "annotated_step_end": [
+     202,
+     451
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     88
+    ],
+    "env_success_first_frame": 539,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 555
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     238,
+     619
+    ],
+    "annotated_step_start": [
+     0,
+     238
+    ],
+    "annotated_step_end": [
+     238,
+     590
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     29
+    ],
+    "env_success_first_frame": 619,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 635
+   },
+   {
+    "ep": 150,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     139,
+     415
+    ],
+    "annotated_step_start": [
+     0,
+     139
+    ],
+    "annotated_step_end": [
+     139,
+     388
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     27
+    ],
+    "env_success_first_frame": 415,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 431
+   },
+   {
+    "ep": 200,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     131,
+     337
+    ],
+    "annotated_step_start": [
+     0,
+     131
+    ],
+    "annotated_step_end": [
+     131,
+     307
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     30
+    ],
+    "env_success_first_frame": 337,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 353
+   },
+   {
+    "ep": 250,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     209,
+     527
+    ],
+    "annotated_step_start": [
+     0,
+     209
+    ],
+    "annotated_step_end": [
+     209,
+     497
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     30
+    ],
+    "env_success_first_frame": 527,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 543
+   },
+   {
+    "ep": 300,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     118,
+     341
+    ],
+    "annotated_step_start": [
+     0,
+     118
+    ],
+    "annotated_step_end": [
+     118,
+     306
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     35
+    ],
+    "env_success_first_frame": 341,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 357
+   },
+   {
+    "ep": 350,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     218,
+     515
+    ],
+    "annotated_step_start": [
+     0,
+     218
+    ],
+    "annotated_step_end": [
+     218,
+     489
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     26
+    ],
+    "env_success_first_frame": 515,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 531
+   },
+   {
+    "ep": 400,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     135,
+     370
+    ],
+    "annotated_step_start": [
+     0,
+     135
+    ],
+    "annotated_step_end": [
+     135,
+     343
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     27
+    ],
+    "env_success_first_frame": 370,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 386
+   },
+   {
+    "ep": 450,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     170,
+     430
+    ],
+    "annotated_step_start": [
+     0,
+     170
+    ],
+    "annotated_step_end": [
+     170,
+     395
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     35
+    ],
+    "env_success_first_frame": 430,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 446
+   },
+   {
+    "ep": 51,
+    "extra_nonmajority_demo": true,
+    "annotated_steps": [
+     "PickPlaceCounterToSink",
+     "TurnOnSinkFaucet"
+    ],
+    "annotation_matches_steps": false,
+    "all_passed": true,
+    "first_pass_frame": [
+     372,
+     396
+    ],
+    "annotated_step_start": [
+     0,
+     133
+    ],
+    "annotated_step_end": [
+     133,
+     372
+    ],
+    "first_pass_minus_annotated_end": [
+     239,
+     24
+    ],
+    "env_success_first_frame": 396,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 412
+   },
+   {
+    "ep": 135,
+    "extra_nonmajority_demo": true,
+    "annotated_steps": [
+     "PickPlaceCounterToSink",
+     "TurnOnSinkFaucet"
+    ],
+    "annotation_matches_steps": false,
+    "all_passed": true,
+    "first_pass_frame": [
+     1174,
+     1198
+    ],
+    "annotated_step_start": [
+     0,
+     448
+    ],
+    "annotated_step_end": [
+     448,
+     1174
+    ],
+    "first_pass_minus_annotated_end": [
+     726,
+     24
+    ],
+    "env_success_first_frame": 1198,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Pick the lettuce from the counter and place it in the sink."
+    ],
+    "length": 1214
+   }
+  ]
+ },
+ "RinseSinkBasin": {
+  "n_demos": 509,
+  "name_merged_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout",
+     "done"
+    ],
+    509
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout",
+     "done"
+    ],
+    509
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 1,
+  "top_stage_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet:execute",
+     "TurnSinkSpout:execute",
+     "done:done"
+    ],
+    509
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "TurnOnSinkFaucet | execute": [
+    [
+     "turn on the sink",
+     509
+    ]
+   ],
+   "TurnSinkSpout | execute": [
+    [
+     "move the spout to wash all locations of the sink basin",
+     509
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     509
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "TurnOnSinkFaucet",
+   "TurnSinkSpout"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "TurnOnSinkFaucet",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 0,
+      "max": 0,
+      "median": 0
+     }
+    },
+    {
+     "step": 1,
+     "skill": "TurnSinkSpout",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -15,
+      "max": 76,
+      "median": -15
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     221,
+     590
+    ],
+    "annotated_step_start": [
+     0,
+     221
+    ],
+    "annotated_step_end": [
+     221,
+     605
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -15
+    ],
+    "env_success_first_frame": 590,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 606
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     177,
+     353
+    ],
+    "annotated_step_start": [
+     0,
+     177
+    ],
+    "annotated_step_end": [
+     177,
+     368
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -15
+    ],
+    "env_success_first_frame": 353,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 369
+   },
+   {
+    "ep": 101,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     263,
+     473
+    ],
+    "annotated_step_start": [
+     0,
+     263
+    ],
+    "annotated_step_end": [
+     263,
+     488
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -15
+    ],
+    "env_success_first_frame": 473,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 489
+   },
+   {
+    "ep": 152,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     146,
+     357
+    ],
+    "annotated_step_start": [
+     0,
+     146
+    ],
+    "annotated_step_end": [
+     146,
+     372
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -15
+    ],
+    "env_success_first_frame": 357,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 373
+   },
+   {
+    "ep": 203,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     158,
+     622
+    ],
+    "annotated_step_start": [
+     0,
+     158
+    ],
+    "annotated_step_end": [
+     158,
+     637
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -15
+    ],
+    "env_success_first_frame": 622,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 638
+   },
+   {
+    "ep": 254,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     163,
+     477
+    ],
+    "annotated_step_start": [
+     0,
+     163
+    ],
+    "annotated_step_end": [
+     163,
+     490
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -13
+    ],
+    "env_success_first_frame": 477,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 493
+   },
+   {
+    "ep": 305,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     122,
+     387
+    ],
+    "annotated_step_start": [
+     0,
+     122
+    ],
+    "annotated_step_end": [
+     122,
+     396
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -9
+    ],
+    "env_success_first_frame": 387,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 403
+   },
+   {
+    "ep": 356,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     225,
+     574
+    ],
+    "annotated_step_start": [
+     0,
+     225
+    ],
+    "annotated_step_end": [
+     225,
+     498
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     76
+    ],
+    "env_success_first_frame": 574,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 590
+   },
+   {
+    "ep": 407,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     138,
+     333
+    ],
+    "annotated_step_start": [
+     0,
+     138
+    ],
+    "annotated_step_end": [
+     138,
+     347
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -14
+    ],
+    "env_success_first_frame": 333,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 349
+   },
+   {
+    "ep": 458,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     132,
+     280
+    ],
+    "annotated_step_start": [
+     0,
+     132
+    ],
+    "annotated_step_end": [
+     132,
+     295
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     -15
+    ],
+    "env_success_first_frame": 280,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Turn on the sink faucet.",
+     "Turn the sink spout to the left, center and right to wash all locations of the sink basin."
+    ],
+    "length": 296
+   }
+  ]
+ },
+ "LoadDishwasher": {
+  "n_demos": 501,
+  "name_merged_sequences": [
+   [
+    [
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 1,
+  "top_stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToDishwasher:pick",
+     "PickPlaceCounterToDishwasher:place",
+     "PickPlaceCounterToDishwasher:pick",
+     "PickPlaceCounterToDishwasher:place",
+     "CloseDishwasher:execute",
+     "done:done"
+    ],
+    501
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "PickPlaceCounterToDishwasher | pick": [
+    [
+     "pick up the cup from the counter",
+     501
+    ],
+    [
+     "pick up the bowl from the counter",
+     501
+    ]
+   ],
+   "PickPlaceCounterToDishwasher | place": [
+    [
+     "place the cup in the dishwasher",
+     501
+    ],
+    [
+     "place the bowl in the dishwasher",
+     501
+    ]
+   ],
+   "CloseDishwasher | execute": [
+    [
+     "close the dishwasher",
+     501
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "PickPlaceCounterToDishwasher",
+   "PickPlaceCounterToDishwasher",
+   "CloseDishwasher"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "PickPlaceCounterToDishwasher",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -5,
+      "max": 13,
+      "median": -2
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceCounterToDishwasher",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -12,
+      "max": 3,
+      "median": -3
+     }
+    },
+    {
+     "step": 2,
+     "skill": "CloseDishwasher",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 0,
+      "max": 35,
+      "median": 1
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     457,
+     781,
+     1061
+    ],
+    "annotated_step_start": [
+     0,
+     451,
+     784
+    ],
+    "annotated_step_end": [
+     451,
+     784,
+     1060
+    ],
+    "first_pass_minus_annotated_end": [
+     6,
+     -3,
+     1
+    ],
+    "env_success_first_frame": 1061,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 1077
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     295,
+     513,
+     725
+    ],
+    "annotated_step_start": [
+     0,
+     293,
+     518
+    ],
+    "annotated_step_end": [
+     293,
+     518,
+     724
+    ],
+    "first_pass_minus_annotated_end": [
+     2,
+     -5,
+     1
+    ],
+    "env_success_first_frame": 725,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 741
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     291,
+     504,
+     738
+    ],
+    "annotated_step_start": [
+     0,
+     295,
+     508
+    ],
+    "annotated_step_end": [
+     295,
+     508,
+     703
+    ],
+    "first_pass_minus_annotated_end": [
+     -4,
+     -4,
+     35
+    ],
+    "env_success_first_frame": 738,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 754
+   },
+   {
+    "ep": 150,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     246,
+     376,
+     522
+    ],
+    "annotated_step_start": [
+     0,
+     249,
+     375
+    ],
+    "annotated_step_end": [
+     249,
+     375,
+     521
+    ],
+    "first_pass_minus_annotated_end": [
+     -3,
+     1,
+     1
+    ],
+    "env_success_first_frame": 522,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 538
+   },
+   {
+    "ep": 200,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     335,
+     561,
+     824
+    ],
+    "annotated_step_start": [
+     0,
+     322,
+     568
+    ],
+    "annotated_step_end": [
+     322,
+     568,
+     820
+    ],
+    "first_pass_minus_annotated_end": [
+     13,
+     -7,
+     4
+    ],
+    "env_success_first_frame": 824,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 840
+   },
+   {
+    "ep": 250,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     362,
+     748,
+     1057
+    ],
+    "annotated_step_start": [
+     0,
+     365,
+     760
+    ],
+    "annotated_step_end": [
+     365,
+     760,
+     1057
+    ],
+    "first_pass_minus_annotated_end": [
+     -3,
+     -12,
+     0
+    ],
+    "env_success_first_frame": 1057,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 1073
+   },
+   {
+    "ep": 300,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     171,
+     343,
+     485
+    ],
+    "annotated_step_start": [
+     0,
+     175,
+     344
+    ],
+    "annotated_step_end": [
+     175,
+     344,
+     484
+    ],
+    "first_pass_minus_annotated_end": [
+     -4,
+     -1,
+     1
+    ],
+    "env_success_first_frame": 485,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 501
+   },
+   {
+    "ep": 350,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     194,
+     358,
+     548
+    ],
+    "annotated_step_start": [
+     0,
+     199,
+     362
+    ],
+    "annotated_step_end": [
+     199,
+     362,
+     547
+    ],
+    "first_pass_minus_annotated_end": [
+     -5,
+     -4,
+     1
+    ],
+    "env_success_first_frame": 548,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 564
+   },
+   {
+    "ep": 400,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     297,
+     573,
+     733
+    ],
+    "annotated_step_start": [
+     0,
+     286,
+     570
+    ],
+    "annotated_step_end": [
+     286,
+     570,
+     732
+    ],
+    "first_pass_minus_annotated_end": [
+     11,
+     3,
+     1
+    ],
+    "env_success_first_frame": 733,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 749
+   },
+   {
+    "ep": 450,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     382,
+     694,
+     1012
+    ],
+    "annotated_step_start": [
+     0,
+     384,
+     693
+    ],
+    "annotated_step_end": [
+     384,
+     693,
+     1010
+    ],
+    "first_pass_minus_annotated_end": [
+     -2,
+     1,
+     2
+    ],
+    "env_success_first_frame": 1012,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cup from the counter and place it in the dishwasher.",
+     "Pick the bowl from the counter and place it in the dishwasher.",
+     "Close the dishwasher door."
+    ],
+    "length": 1028
+   }
+  ]
+ },
+ "StoreLeftoversInBowl": {
+  "n_demos": 503,
+  "name_merged_sequences": [
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge",
+     "done"
+    ],
+    503
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge",
+     "done"
+    ],
+    503
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 1,
+  "top_stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "PickPlaceCounterToFridge:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToFridge:place",
+     "done:done"
+    ],
+    503
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "PickPlaceCounterToCounter | pick": [
+    [
+     "pick up the chicken drumstick from the other plate",
+     427
+    ],
+    [
+     "pick up the chicken drumstick from the plate",
+     76
+    ],
+    [
+     "pick up the corn from the plate",
+     31
+    ],
+    [
+     "pick up the lemon from the plate",
+     31
+    ]
+   ],
+   "PickPlaceCounterToCounter | place": [
+    [
+     "place the chicken drumstick in the bowl",
+     503
+    ],
+    [
+     "place the lemon in the bowl",
+     37
+    ],
+    [
+     "place the eggplant in the bowl",
+     35
+    ],
+    [
+     "place the corn in the bowl",
+     34
+    ]
+   ],
+   "PickPlaceCounterToFridge | pick": [
+    [
+     "pick up the bowl",
+     503
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the fridge",
+     503
+    ]
+   ],
+   "PickPlaceCounterToFridge | place": [
+    [
+     "place the bowl in the fridge",
+     503
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     503
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToFridge"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "PickPlaceCounterToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -7,
+      "max": -3,
+      "median": -5
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceCounterToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -5,
+      "max": 0,
+      "median": -3
+     }
+    },
+    {
+     "step": 2,
+     "skill": "PickPlaceCounterToFridge",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 9,
+      "max": 20,
+      "median": 13
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     113,
+     401,
+     822
+    ],
+    "annotated_step_start": [
+     0,
+     120,
+     401
+    ],
+    "annotated_step_end": [
+     120,
+     401,
+     812
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     0,
+     10
+    ],
+    "env_success_first_frame": 822,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the eggplant from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 838
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     151,
+     281,
+     718
+    ],
+    "annotated_step_start": [
+     0,
+     155,
+     286
+    ],
+    "annotated_step_end": [
+     155,
+     286,
+     707
+    ],
+    "first_pass_minus_annotated_end": [
+     -4,
+     -5,
+     11
+    ],
+    "env_success_first_frame": 718,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the eggplant from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 734
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     125,
+     382,
+     624
+    ],
+    "annotated_step_start": [
+     0,
+     130,
+     387
+    ],
+    "annotated_step_end": [
+     130,
+     387,
+     612
+    ],
+    "first_pass_minus_annotated_end": [
+     -5,
+     -5,
+     12
+    ],
+    "env_success_first_frame": 624,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the eggplant from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 640
+   },
+   {
+    "ep": 150,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     83,
+     274,
+     549
+    ],
+    "annotated_step_start": [
+     0,
+     87,
+     275
+    ],
+    "annotated_step_end": [
+     87,
+     275,
+     540
+    ],
+    "first_pass_minus_annotated_end": [
+     -4,
+     -1,
+     9
+    ],
+    "env_success_first_frame": 549,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the potato from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 565
+   },
+   {
+    "ep": 201,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     153,
+     463,
+     771
+    ],
+    "annotated_step_start": [
+     0,
+     160,
+     468
+    ],
+    "annotated_step_end": [
+     160,
+     468,
+     751
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     -5,
+     20
+    ],
+    "env_success_first_frame": 771,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the carrot from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 787
+   },
+   {
+    "ep": 251,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     136,
+     357,
+     803
+    ],
+    "annotated_step_start": [
+     0,
+     139,
+     362
+    ],
+    "annotated_step_end": [
+     139,
+     362,
+     790
+    ],
+    "first_pass_minus_annotated_end": [
+     -3,
+     -5,
+     13
+    ],
+    "env_success_first_frame": 803,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the avocado from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 819
+   },
+   {
+    "ep": 301,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     176,
+     480,
+     944
+    ],
+    "annotated_step_start": [
+     0,
+     181,
+     483
+    ],
+    "annotated_step_end": [
+     181,
+     483,
+     929
+    ],
+    "first_pass_minus_annotated_end": [
+     -5,
+     -3,
+     15
+    ],
+    "env_success_first_frame": 944,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the corn from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 960
+   },
+   {
+    "ep": 352,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     232,
+     389,
+     687
+    ],
+    "annotated_step_start": [
+     0,
+     238,
+     392
+    ],
+    "annotated_step_end": [
+     238,
+     392,
+     674
+    ],
+    "first_pass_minus_annotated_end": [
+     -6,
+     -3,
+     13
+    ],
+    "env_success_first_frame": 687,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the corn from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 703
+   },
+   {
+    "ep": 402,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     189,
+     365,
+     653
+    ],
+    "annotated_step_start": [
+     0,
+     196,
+     369
+    ],
+    "annotated_step_end": [
+     196,
+     369,
+     643
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     -4,
+     10
+    ],
+    "env_success_first_frame": 653,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bell pepper from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 669
+   },
+   {
+    "ep": 452,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     158,
+     314,
+     693
+    ],
+    "annotated_step_start": [
+     0,
+     164,
+     315
+    ],
+    "annotated_step_end": [
+     164,
+     315,
+     679
+    ],
+    "first_pass_minus_annotated_end": [
+     -6,
+     -1,
+     14
+    ],
+    "env_success_first_frame": 693,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the cucumber from the plate and place it in the bowl.",
+     "Pick the chicken drumstick from the plate and place it in the bowl.",
+     "Pick the bowl from the counter and place it in the fridge."
+    ],
+    "length": 709
+   }
+  ]
+ },
+ "SetUpCuttingStation": {
+  "n_demos": 504,
+  "name_merged_sequences": [
+   [
+    [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter",
+     "done"
+    ],
+    503
+   ],
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    1
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter",
+     "done"
+    ],
+    503
+   ],
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    1
+   ]
+  ],
+  "n_distinct_step_sequences": 2,
+  "majority_share": 0.998,
+  "n_distinct_stage_sequences": 11,
+  "top_stage_sequences": [
+   [
+    [
+     "PickPlaceDrawerToCounter:pick",
+     "PickPlaceDrawerToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    166
+   ],
+   [
+    [
+     "PickPlaceDrawerToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    154
+   ],
+   [
+    [
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:pick",
+     "PickPlaceDrawerToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    64
+   ],
+   [
+    [
+     "PickPlaceDrawerToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    55
+   ]
+  ],
+  "nonmajority_demos": [
+   413
+  ],
+  "sentences": {
+   "PickPlaceDrawerToCounter | pick": [
+    [
+     "pick up the knife from the right drawer",
+     266
+    ],
+    [
+     "pick up the knife from the left drawer",
+     238
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the cutting board",
+     324
+    ],
+    [
+     "navigate to the plate",
+     109
+    ],
+    [
+     "navigate to the right drawer",
+     68
+    ],
+    [
+     "navigate to the left drawer",
+     14
+    ]
+   ],
+   "PickPlaceDrawerToCounter | place": [
+    [
+     "place the knife on the cutting board",
+     504
+    ]
+   ],
+   "PickPlaceCounterToCounter | pick": [
+    [
+     "pick up the steak from the plate",
+     132
+    ],
+    [
+     "pick up the fish from the plate",
+     125
+    ],
+    [
+     "pick up the shrimp from the plate",
+     124
+    ],
+    [
+     "pick up the chicken drumstick from the plate",
+     123
+    ]
+   ],
+   "PickPlaceCounterToCounter | place": [
+    [
+     "place the steak on the cutting board",
+     132
+    ],
+    [
+     "place the fish on the cutting board",
+     125
+    ],
+    [
+     "place the shrimp on the cutting board",
+     124
+    ],
+    [
+     "place the chicken drumstick on the cutting board",
+     123
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     504
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "PickPlaceDrawerToCounter",
+   "PickPlaceCounterToCounter"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "PickPlaceDrawerToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -15,
+      "max": -5,
+      "median": -7
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceCounterToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 7,
+      "max": 26,
+      "median": 16
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": [
+    {
+     "ep": 413,
+     "all_passed": true
+    }
+   ]
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     462,
+     872
+    ],
+    "annotated_step_start": [
+     0,
+     619
+    ],
+    "annotated_step_end": [
+     469,
+     864
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     8
+    ],
+    "env_success_first_frame": 872,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the chicken drumstick from the plate and place it on the cutting board."
+    ],
+    "length": 888
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     584,
+     813
+    ],
+    "annotated_step_start": [
+     0,
+     590
+    ],
+    "annotated_step_end": [
+     590,
+     797
+    ],
+    "first_pass_minus_annotated_end": [
+     -6,
+     16
+    ],
+    "env_success_first_frame": 813,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the shrimp from the plate and place it on the cutting board."
+    ],
+    "length": 829
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     499,
+     694
+    ],
+    "annotated_step_start": [
+     0,
+     506
+    ],
+    "annotated_step_end": [
+     506,
+     682
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     12
+    ],
+    "env_success_first_frame": 694,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the shrimp from the plate and place it on the cutting board."
+    ],
+    "length": 710
+   },
+   {
+    "ep": 151,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     565,
+     794
+    ],
+    "annotated_step_start": [
+     0,
+     580
+    ],
+    "annotated_step_end": [
+     580,
+     775
+    ],
+    "first_pass_minus_annotated_end": [
+     -15,
+     19
+    ],
+    "env_success_first_frame": 794,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the shrimp from the plate and place it on the cutting board."
+    ],
+    "length": 810
+   },
+   {
+    "ep": 201,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     531,
+     676
+    ],
+    "annotated_step_start": [
+     69,
+     538
+    ],
+    "annotated_step_end": [
+     538,
+     669
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     7
+    ],
+    "env_success_first_frame": 676,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the steak from the plate and place it on the cutting board."
+    ],
+    "length": 692
+   },
+   {
+    "ep": 252,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     387,
+     636
+    ],
+    "annotated_step_start": [
+     0,
+     394
+    ],
+    "annotated_step_end": [
+     394,
+     620
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     16
+    ],
+    "env_success_first_frame": 636,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the fish from the plate and place it on the cutting board."
+    ],
+    "length": 652
+   },
+   {
+    "ep": 302,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     260,
+     428
+    ],
+    "annotated_step_start": [
+     54,
+     265
+    ],
+    "annotated_step_end": [
+     265,
+     411
+    ],
+    "first_pass_minus_annotated_end": [
+     -5,
+     17
+    ],
+    "env_success_first_frame": 428,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the shrimp from the plate and place it on the cutting board."
+    ],
+    "length": 444
+   },
+   {
+    "ep": 352,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     381,
+     634
+    ],
+    "annotated_step_start": [
+     0,
+     387
+    ],
+    "annotated_step_end": [
+     387,
+     618
+    ],
+    "first_pass_minus_annotated_end": [
+     -6,
+     16
+    ],
+    "env_success_first_frame": 634,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the steak from the plate and place it on the cutting board."
+    ],
+    "length": 657
+   },
+   {
+    "ep": 403,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     358,
+     559
+    ],
+    "annotated_step_start": [
+     0,
+     365
+    ],
+    "annotated_step_end": [
+     365,
+     533
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     26
+    ],
+    "env_success_first_frame": 559,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the chicken drumstick from the plate and place it on the cutting board."
+    ],
+    "length": 574
+   },
+   {
+    "ep": 453,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     508,
+     857
+    ],
+    "annotated_step_start": [
+     0,
+     515
+    ],
+    "annotated_step_end": [
+     515,
+     843
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     14
+    ],
+    "env_success_first_frame": 857,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the steak from the plate and place it on the cutting board."
+    ],
+    "length": 873
+   },
+   {
+    "ep": 413,
+    "extra_nonmajority_demo": true,
+    "annotated_steps": [
+     "PickPlaceCounterToCounter",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": false,
+    "all_passed": true,
+    "first_pass_frame": [
+     522,
+     538
+    ],
+    "annotated_step_start": [
+     0,
+     239
+    ],
+    "annotated_step_end": [
+     239,
+     529
+    ],
+    "first_pass_minus_annotated_end": [
+     283,
+     9
+    ],
+    "env_success_first_frame": 538,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the knife from the drawer and place it on the cutting board.",
+     "Pick the steak from the plate and place it on the cutting board."
+    ],
+    "length": 554
+   }
+  ]
+ },
+ "StirVegetables": {
+  "n_demos": 501,
+  "name_merged_sequences": [
+   [
+    [
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 20,
+  "top_stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickUpSpatula:pick",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    412
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "NavigateKitchen:navigate",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    22
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    22
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToStove:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToStove:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToStove:place",
+     "NavigateKitchen:navigate",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    8
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "PickPlaceCounterToStove | pick": [
+    [
+     "pick up the onion from the counter",
+     75
+    ],
+    [
+     "pick up the lime from the counter",
+     71
+    ],
+    [
+     "pick up the bell pepper from the counter",
+     66
+    ],
+    [
+     "pick up the broccoli from the counter",
+     66
+    ]
+   ],
+   "PickPlaceCounterToStove | place": [
+    [
+     "place the onion in the pot",
+     75
+    ],
+    [
+     "place the lime in the pot",
+     71
+    ],
+    [
+     "place the bell pepper in the pot",
+     66
+    ],
+    [
+     "place the broccoli in the pot",
+     66
+    ]
+   ],
+   "PickUpSpatula | pick": [
+    [
+     "pick up the spatula from the counter",
+     501
+    ]
+   ],
+   "StirVegetables | execute": [
+    [
+     "stir the vegetables in the pot",
+     501
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the stove",
+     121
+    ],
+    [
+     "navigate to the counter",
+     84
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "PickPlaceCounterToStove",
+   "PickPlaceCounterToStove",
+   "PickUpSpatula",
+   "StirVegetables"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "PickPlaceCounterToStove",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -7,
+      "max": 9,
+      "median": -4
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceCounterToStove",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -6,
+      "max": 3,
+      "median": -3
+     }
+    },
+    {
+     "step": 2,
+     "skill": "PickUpSpatula",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -16,
+      "max": 10,
+      "median": 1
+     }
+    },
+    {
+     "step": 3,
+     "skill": "StirVegetables",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -39,
+      "max": -10,
+      "median": -15
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     215,
+     461,
+     642,
+     887
+    ],
+    "annotated_step_start": [
+     0,
+     222,
+     460,
+     632
+    ],
+    "annotated_step_end": [
+     222,
+     460,
+     632,
+     902
+    ],
+    "first_pass_minus_annotated_end": [
+     -7,
+     1,
+     10,
+     -15
+    ],
+    "env_success_first_frame": 887,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the corn from the counter and place it in the pot.",
+     "Pick the tomato from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 903
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     179,
+     343,
+     512,
+     656
+    ],
+    "annotated_step_start": [
+     0,
+     183,
+     347,
+     511
+    ],
+    "annotated_step_end": [
+     183,
+     347,
+     511,
+     671
+    ],
+    "first_pass_minus_annotated_end": [
+     -4,
+     -4,
+     1,
+     -15
+    ],
+    "env_success_first_frame": 656,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the squash from the counter and place it in the pot.",
+     "Pick the squash from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 672
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     205,
+     469,
+     641,
+     899
+    ],
+    "annotated_step_start": [
+     0,
+     210,
+     474,
+     641
+    ],
+    "annotated_step_end": [
+     210,
+     474,
+     641,
+     915
+    ],
+    "first_pass_minus_annotated_end": [
+     -5,
+     -5,
+     0,
+     -16
+    ],
+    "env_success_first_frame": 899,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the mushroom from the counter and place it in the pot.",
+     "Pick the bell pepper from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 916
+   },
+   {
+    "ep": 150,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     192,
+     368,
+     487,
+     793
+    ],
+    "annotated_step_start": [
+     0,
+     196,
+     371,
+     503
+    ],
+    "annotated_step_end": [
+     196,
+     371,
+     503,
+     803
+    ],
+    "first_pass_minus_annotated_end": [
+     -4,
+     -3,
+     -16,
+     -10
+    ],
+    "env_success_first_frame": 793,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the squash from the counter and place it in the pot.",
+     "Pick the potato from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 809
+   },
+   {
+    "ep": 200,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     240,
+     541,
+     731,
+     890
+    ],
+    "annotated_step_start": [
+     0,
+     231,
+     547,
+     733
+    ],
+    "annotated_step_end": [
+     231,
+     547,
+     733,
+     929
+    ],
+    "first_pass_minus_annotated_end": [
+     9,
+     -6,
+     -2,
+     -39
+    ],
+    "env_success_first_frame": 890,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the mushroom from the counter and place it in the pot.",
+     "Pick the eggplant from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 938
+   },
+   {
+    "ep": 250,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     154,
+     315,
+     498,
+     669
+    ],
+    "annotated_step_start": [
+     0,
+     158,
+     371,
+     497
+    ],
+    "annotated_step_end": [
+     158,
+     317,
+     497,
+     684
+    ],
+    "first_pass_minus_annotated_end": [
+     -4,
+     -2,
+     1,
+     -15
+    ],
+    "env_success_first_frame": 669,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the bell pepper from the counter and place it in the pot.",
+     "Pick the broccoli from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 685
+   },
+   {
+    "ep": 300,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     251,
+     594,
+     765,
+     1111
+    ],
+    "annotated_step_start": [
+     0,
+     256,
+     591,
+     850
+    ],
+    "annotated_step_end": [
+     256,
+     591,
+     760,
+     1126
+    ],
+    "first_pass_minus_annotated_end": [
+     -5,
+     3,
+     5,
+     -15
+    ],
+    "env_success_first_frame": 1111,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the bell pepper from the counter and place it in the pot.",
+     "Pick the broccoli from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 1127
+   },
+   {
+    "ep": 350,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     250,
+     573,
+     776,
+     1093
+    ],
+    "annotated_step_start": [
+     0,
+     253,
+     577,
+     863
+    ],
+    "annotated_step_end": [
+     253,
+     577,
+     776,
+     1107
+    ],
+    "first_pass_minus_annotated_end": [
+     -3,
+     -4,
+     0,
+     -14
+    ],
+    "env_success_first_frame": 1093,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the lemon wedge from the counter and place it in the pot.",
+     "Pick the eggplant from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 1108
+   },
+   {
+    "ep": 400,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     323,
+     612,
+     747,
+     990
+    ],
+    "annotated_step_start": [
+     0,
+     329,
+     612,
+     750
+    ],
+    "annotated_step_end": [
+     329,
+     612,
+     750,
+     1000
+    ],
+    "first_pass_minus_annotated_end": [
+     -6,
+     0,
+     -3,
+     -10
+    ],
+    "env_success_first_frame": 990,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the carrot from the counter and place it in the pot.",
+     "Pick the cucumber from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 1007
+   },
+   {
+    "ep": 450,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     159,
+     328,
+     448,
+     713
+    ],
+    "annotated_step_start": [
+     0,
+     162,
+     333,
+     505
+    ],
+    "annotated_step_end": [
+     162,
+     333,
+     442,
+     723
+    ],
+    "first_pass_minus_annotated_end": [
+     -3,
+     -5,
+     6,
+     -10
+    ],
+    "env_success_first_frame": 713,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the lime from the counter and place it in the pot.",
+     "Pick the carrot from the counter and place it in the pot.",
+     "Pick up the spatula from the counter.",
+     "Stir the vegetables in the pot with the spatula."
+    ],
+    "length": 724
+   }
+  ]
+ },
+ "SearingMeat": {
+  "n_demos": 501,
+  "name_merged_sequences": [
+   [
+    [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 2,
+  "top_stage_sequences": [
+   [
+    [
+     "PickPlaceCabinetToStove:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCabinetToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "TurnOnStove:execute",
+     "done:done"
+    ],
+    500
+   ],
+   [
+    [
+     "PickPlaceCabinetToStove:pick",
+     "PickPlaceCabinetToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "TurnOnStove:execute",
+     "done:done"
+    ],
+    1
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "PickPlaceCabinetToStove | pick": [
+    [
+     "pick up the pan from the cabinet",
+     501
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the stove",
+     500
+    ]
+   ],
+   "PickPlaceCabinetToStove | place": [
+    [
+     "place the pan on the rear-right burner",
+     133
+    ],
+    [
+     "place the pan on the front-right burner",
+     116
+    ],
+    [
+     "place the pan on the front-left burner",
+     86
+    ],
+    [
+     "place the pan on the rear-left burner",
+     77
+    ]
+   ],
+   "PickPlaceCounterToStove | pick": [
+    [
+     "pick up the fish from the counter",
+     141
+    ],
+    [
+     "pick up the chicken drumstick from the counter",
+     132
+    ],
+    [
+     "pick up the steak from the counter",
+     124
+    ],
+    [
+     "pick up the shrimp from the counter",
+     104
+    ]
+   ],
+   "PickPlaceCounterToStove | place": [
+    [
+     "place the fish on the pan",
+     141
+    ],
+    [
+     "place the chicken drumstick on the pan",
+     132
+    ],
+    [
+     "place the steak on the pan",
+     124
+    ],
+    [
+     "place the shrimp on the pan",
+     104
+    ]
+   ],
+   "TurnOnStove | execute": [
+    [
+     "turn on the rear-right burner",
+     133
+    ],
+    [
+     "turn on the front-right burner",
+     116
+    ],
+    [
+     "turn on the front-left burner",
+     86
+    ],
+    [
+     "turn on the rear-left burner",
+     77
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "PickPlaceCabinetToStove",
+   "PickPlaceCounterToStove",
+   "TurnOnStove"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "PickPlaceCabinetToStove",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 5,
+      "max": 72,
+      "median": 17
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceCounterToStove",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 0,
+      "max": 3,
+      "median": 1
+     }
+    },
+    {
+     "step": 2,
+     "skill": "TurnOnStove",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -11,
+      "max": 53,
+      "median": -9
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     420,
+     643,
+     771
+    ],
+    "annotated_step_start": [
+     0,
+     348,
+     641
+    ],
+    "annotated_step_end": [
+     348,
+     641,
+     782
+    ],
+    "first_pass_minus_annotated_end": [
+     72,
+     2,
+     -11
+    ],
+    "env_success_first_frame": 771,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the rear right burner of the stove.",
+     "Pick the chicken drumstick from the container and place it in the pan.",
+     "Turn on the rear right burner of the stove."
+    ],
+    "length": 787
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     542,
+     739,
+     1019
+    ],
+    "annotated_step_start": [
+     0,
+     537,
+     738
+    ],
+    "annotated_step_end": [
+     537,
+     738,
+     1028
+    ],
+    "first_pass_minus_annotated_end": [
+     5,
+     1,
+     -9
+    ],
+    "env_success_first_frame": 1019,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the front right burner of the stove.",
+     "Pick the chicken drumstick from the container and place it in the pan.",
+     "Turn on the front right burner of the stove."
+    ],
+    "length": 1035
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     350,
+     524,
+     676
+    ],
+    "annotated_step_start": [
+     0,
+     337,
+     524
+    ],
+    "annotated_step_end": [
+     337,
+     524,
+     623
+    ],
+    "first_pass_minus_annotated_end": [
+     13,
+     0,
+     53
+    ],
+    "env_success_first_frame": 676,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the front center burner of the stove.",
+     "Pick the chicken drumstick from the container and place it in the pan.",
+     "Turn on the front center burner of the stove."
+    ],
+    "length": 693
+   },
+   {
+    "ep": 150,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     504,
+     699,
+     914
+    ],
+    "annotated_step_start": [
+     0,
+     487,
+     698
+    ],
+    "annotated_step_end": [
+     487,
+     698,
+     925
+    ],
+    "first_pass_minus_annotated_end": [
+     17,
+     1,
+     -11
+    ],
+    "env_success_first_frame": 914,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the rear right burner of the stove.",
+     "Pick the chicken drumstick from the container and place it in the pan.",
+     "Turn on the rear right burner of the stove."
+    ],
+    "length": 930
+   },
+   {
+    "ep": 200,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     451,
+     705,
+     901
+    ],
+    "annotated_step_start": [
+     0,
+     428,
+     705
+    ],
+    "annotated_step_end": [
+     428,
+     705,
+     912
+    ],
+    "first_pass_minus_annotated_end": [
+     23,
+     0,
+     -11
+    ],
+    "env_success_first_frame": 901,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the rear center burner of the stove.",
+     "Pick the shrimp from the container and place it in the pan.",
+     "Turn on the rear center burner of the stove."
+    ],
+    "length": 917
+   },
+   {
+    "ep": 250,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     336,
+     572,
+     662
+    ],
+    "annotated_step_start": [
+     0,
+     323,
+     569
+    ],
+    "annotated_step_end": [
+     323,
+     569,
+     673
+    ],
+    "first_pass_minus_annotated_end": [
+     13,
+     3,
+     -11
+    ],
+    "env_success_first_frame": 662,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the front left burner of the stove.",
+     "Pick the steak from the container and place it in the pan.",
+     "Turn on the front left burner of the stove."
+    ],
+    "length": 678
+   },
+   {
+    "ep": 300,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     299,
+     481,
+     687
+    ],
+    "annotated_step_start": [
+     0,
+     273,
+     480
+    ],
+    "annotated_step_end": [
+     273,
+     480,
+     661
+    ],
+    "first_pass_minus_annotated_end": [
+     26,
+     1,
+     26
+    ],
+    "env_success_first_frame": 687,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the front left burner of the stove.",
+     "Pick the shrimp from the container and place it in the pan.",
+     "Turn on the front left burner of the stove."
+    ],
+    "length": 703
+   },
+   {
+    "ep": 350,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     338,
+     547,
+     665
+    ],
+    "annotated_step_start": [
+     0,
+     274,
+     547
+    ],
+    "annotated_step_end": [
+     274,
+     547,
+     675
+    ],
+    "first_pass_minus_annotated_end": [
+     64,
+     0,
+     -10
+    ],
+    "env_success_first_frame": 665,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the rear center burner of the stove.",
+     "Pick the chicken drumstick from the container and place it in the pan.",
+     "Turn on the rear center burner of the stove."
+    ],
+    "length": 681
+   },
+   {
+    "ep": 400,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     452,
+     612,
+     809
+    ],
+    "annotated_step_start": [
+     0,
+     439,
+     610
+    ],
+    "annotated_step_end": [
+     439,
+     610,
+     815
+    ],
+    "first_pass_minus_annotated_end": [
+     13,
+     2,
+     -6
+    ],
+    "env_success_first_frame": 809,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the rear right burner of the stove.",
+     "Pick the fish from the container and place it in the pan.",
+     "Turn on the rear right burner of the stove."
+    ],
+    "length": 825
+   },
+   {
+    "ep": 450,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     348,
+     504,
+     906
+    ],
+    "annotated_step_start": [
+     0,
+     333,
+     502
+    ],
+    "annotated_step_end": [
+     333,
+     502,
+     885
+    ],
+    "first_pass_minus_annotated_end": [
+     15,
+     2,
+     21
+    ],
+    "env_success_first_frame": 906,
+    "false_at_seg_start": [
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the pan from the cabinet and place it on the rear right burner of the stove.",
+     "Pick the shrimp from the container and place it in the pan.",
+     "Turn on the rear right burner of the stove."
+    ],
+    "length": 922
+   }
+  ]
+ },
+ "PackIdenticalLunches": {
+  "n_demos": 501,
+  "name_merged_sequences": [
+   [
+    [
+     "PickPlaceFridgeToCounter",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "done"
+    ],
+    499
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "done"
+    ],
+    2
+   ]
+  ],
+  "n_distinct_step_sequences": 2,
+  "majority_share": 0.996,
+  "n_distinct_stage_sequences": 23,
+  "top_stage_sequences": [
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    454
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    8
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "PickPlaceFridgeToCounter:place",
+     "PickPlaceFridgeToCounter:pick",
+     "PickPlaceFridgeToCounter:place",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    5
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    5
+   ]
+  ],
+  "nonmajority_demos": [
+   426,
+   444
+  ],
+  "sentences": {
+   "PickPlaceFridgeToCounter | pick": [
+    [
+     "pick up a chicken drumstick from the fridge",
+     458
+    ],
+    [
+     "pick up a steak from the fridge",
+     296
+    ],
+    [
+     "pick up a fish from the fridge",
+     246
+    ],
+    [
+     "pick up a tomato from the fridge",
+     80
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate back to the fridge",
+     1451
+    ],
+    [
+     "navigate to a tupperware on the counter",
+     493
+    ],
+    [
+     "navigate to the empty tupperware on the counter",
+     489
+    ],
+    [
+     "navigate to the tupperware with only the chicken drumstick in it",
+     130
+    ]
+   ],
+   "PickPlaceFridgeToCounter | place": [
+    [
+     "place the chicken drumstick in a tupperware",
+     136
+    ],
+    [
+     "place the chicken drumstick in the empty tupperware",
+     131
+    ],
+    [
+     "place the steak in a tupperware",
+     95
+    ],
+    [
+     "place the steak in the empty tupperware",
+     88
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "PickPlaceFridgeToCounter",
+   "PickPlaceFridgeToCounter",
+   "PickPlaceFridgeToCounter",
+   "PickPlaceFridgeToCounter"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "PickPlaceFridgeToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 10,
+      "max": 20,
+      "median": 16
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceFridgeToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 12,
+      "max": 22,
+      "median": 14
+     }
+    },
+    {
+     "step": 2,
+     "skill": "PickPlaceFridgeToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 11,
+      "max": 17,
+      "median": 13
+     }
+    },
+    {
+     "step": 3,
+     "skill": "PickPlaceFridgeToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 10,
+      "max": 30,
+      "median": 19
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": [
+    {
+     "ep": 426,
+     "all_passed": true
+    },
+    {
+     "ep": 444,
+     "all_passed": true
+    }
+   ]
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     280,
+     537,
+     817,
+     1155
+    ],
+    "annotated_step_start": [
+     0,
+     369,
+     603,
+     914
+    ],
+    "annotated_step_end": [
+     266,
+     523,
+     806,
+     1142
+    ],
+    "first_pass_minus_annotated_end": [
+     14,
+     14,
+     11,
+     13
+    ],
+    "env_success_first_frame": 1155,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the chicken drumstick from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the chicken drumstick from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the eggplant from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the eggplant from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1180
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     208,
+     603,
+     957,
+     1341
+    ],
+    "annotated_step_start": [
+     0,
+     370,
+     720,
+     1058
+    ],
+    "annotated_step_end": [
+     197,
+     591,
+     946,
+     1331
+    ],
+    "first_pass_minus_annotated_end": [
+     11,
+     12,
+     11,
+     10
+    ],
+    "env_success_first_frame": 1341,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the tomato from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the chicken drumstick from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the tomato from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the chicken drumstick from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1357
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     412,
+     926,
+     1400,
+     1919
+    ],
+    "annotated_step_start": [
+     0,
+     550,
+     1049,
+     1551
+    ],
+    "annotated_step_end": [
+     399,
+     906,
+     1386,
+     1898
+    ],
+    "first_pass_minus_annotated_end": [
+     13,
+     20,
+     14,
+     21
+    ],
+    "env_success_first_frame": 1919,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the steak from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the lemon wedge from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the steak from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the lemon wedge from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1935
+   },
+   {
+    "ep": 150,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     223,
+     644,
+     1074,
+     1531
+    ],
+    "annotated_step_start": [
+     0,
+     380,
+     820,
+     1248
+    ],
+    "annotated_step_end": [
+     203,
+     626,
+     1063,
+     1510
+    ],
+    "first_pass_minus_annotated_end": [
+     20,
+     18,
+     11,
+     21
+    ],
+    "env_success_first_frame": 1531,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the mushroom from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the steak from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the mushroom from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the steak from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1547
+   },
+   {
+    "ep": 200,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     316,
+     671,
+     1034,
+     1468
+    ],
+    "annotated_step_start": [
+     0,
+     393,
+     753,
+     1141
+    ],
+    "annotated_step_end": [
+     300,
+     653,
+     1019,
+     1456
+    ],
+    "first_pass_minus_annotated_end": [
+     16,
+     18,
+     15,
+     12
+    ],
+    "env_success_first_frame": 1468,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the fish from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the lemon from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the fish from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the lemon from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1484
+   },
+   {
+    "ep": 250,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     341,
+     781,
+     1169,
+     1577
+    ],
+    "annotated_step_start": [
+     0,
+     482,
+     908,
+     1290
+    ],
+    "annotated_step_end": [
+     329,
+     767,
+     1158,
+     1563
+    ],
+    "first_pass_minus_annotated_end": [
+     12,
+     14,
+     11,
+     14
+    ],
+    "env_success_first_frame": 1577,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the steak from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the lemon wedge from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the steak from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the lemon wedge from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1596
+   },
+   {
+    "ep": 300,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     238,
+     622,
+     967,
+     1341
+    ],
+    "annotated_step_start": [
+     0,
+     341,
+     714,
+     1061
+    ],
+    "annotated_step_end": [
+     222,
+     600,
+     950,
+     1311
+    ],
+    "first_pass_minus_annotated_end": [
+     16,
+     22,
+     17,
+     30
+    ],
+    "env_success_first_frame": 1341,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the sweet potato from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the chicken drumstick from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the sweet potato from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the chicken drumstick from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1357
+   },
+   {
+    "ep": 350,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     313,
+     714,
+     1190,
+     1654
+    ],
+    "annotated_step_start": [
+     0,
+     419,
+     843,
+     1261
+    ],
+    "annotated_step_end": [
+     296,
+     701,
+     1176,
+     1635
+    ],
+    "first_pass_minus_annotated_end": [
+     17,
+     13,
+     14,
+     19
+    ],
+    "env_success_first_frame": 1654,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the steak from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the bell pepper from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the steak from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the bell pepper from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1670
+   },
+   {
+    "ep": 400,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     284,
+     724,
+     1189,
+     1608
+    ],
+    "annotated_step_start": [
+     0,
+     373,
+     834,
+     1294
+    ],
+    "annotated_step_end": [
+     274,
+     710,
+     1178,
+     1589
+    ],
+    "first_pass_minus_annotated_end": [
+     10,
+     14,
+     11,
+     19
+    ],
+    "env_success_first_frame": 1608,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the corn from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the chicken drumstick from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the corn from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the chicken drumstick from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1624
+   },
+   {
+    "ep": 450,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     241,
+     514,
+     884,
+     1295
+    ],
+    "annotated_step_start": [
+     0,
+     309,
+     615,
+     978
+    ],
+    "annotated_step_end": [
+     223,
+     500,
+     871,
+     1277
+    ],
+    "first_pass_minus_annotated_end": [
+     18,
+     14,
+     13,
+     18
+    ],
+    "env_success_first_frame": 1295,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the lemon wedge from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the lemon wedge from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the fish from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the fish from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 1312
+   },
+   {
+    "ep": 426,
+    "extra_nonmajority_demo": true,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": false,
+    "all_passed": true,
+    "first_pass_frame": [
+     170,
+     430,
+     652,
+     655
+    ],
+    "annotated_step_start": [
+     0,
+     225,
+     479
+    ],
+    "annotated_step_end": [
+     160,
+     391,
+     639
+    ],
+    "first_pass_minus_annotated_end": [
+     10,
+     39,
+     13
+    ],
+    "env_success_first_frame": 655,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     null
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the garlic from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the fish from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the fish from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the garlic from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 671
+   },
+   {
+    "ep": 444,
+    "extra_nonmajority_demo": true,
+    "annotated_steps": [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter"
+    ],
+    "annotation_matches_steps": false,
+    "all_passed": true,
+    "first_pass_frame": [
+     226,
+     572,
+     868,
+     868
+    ],
+    "annotated_step_start": [
+     0,
+     306,
+     644
+    ],
+    "annotated_step_end": [
+     215,
+     556,
+     852
+    ],
+    "first_pass_minus_annotated_end": [
+     11,
+     16,
+     16
+    ],
+    "env_success_first_frame": 868,
+    "false_at_seg_start": [
+     true,
+     true,
+     true,
+     null
+    ],
+    "failure": null,
+    "instr": [
+     "Pick the corn from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the fish from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the corn from the fridge and place it in an empty spot of a tupperware on the counter.",
+     "Pick the fish from the fridge and place it in the tupperware that is still missing it."
+    ],
+    "length": 884
+   }
+  ]
+ },
+ "DeliverStraw": {
+  "n_demos": 504,
+  "name_merged_sequences": [
+   [
+    [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 1,
+  "top_stage_sequences": [
+   [
+    [
+     "OpenDrawer:execute",
+     "PickPlaceDrawerToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:place",
+     "done:done"
+    ],
+    504
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "OpenDrawer | execute": [
+    [
+     "open the drawer in front of the robot",
+     504
+    ]
+   ],
+   "PickPlaceDrawerToCounter | pick": [
+    [
+     "pick up the straw from the drawer",
+     504
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the cup on the dining counter",
+     504
+    ]
+   ],
+   "PickPlaceDrawerToCounter | place": [
+    [
+     "place the straw in the glass cup",
+     504
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     504
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "OpenDrawer",
+   "PickPlaceDrawerToCounter"
+  ],
+  "validation": {
+   "demos_passed": 10,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "OpenDrawer",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -93,
+      "max": -6,
+      "median": -16
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceDrawerToCounter",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 15,
+      "max": 129,
+      "median": 28
+     }
+    }
+   ],
+   "failures": [],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     225,
+     801
+    ],
+    "annotated_step_start": [
+     0,
+     237
+    ],
+    "annotated_step_end": [
+     237,
+     777
+    ],
+    "first_pass_minus_annotated_end": [
+     -12,
+     24
+    ],
+    "env_success_first_frame": 801,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 817
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     204,
+     644
+    ],
+    "annotated_step_start": [
+     0,
+     262
+    ],
+    "annotated_step_end": [
+     262,
+     607
+    ],
+    "first_pass_minus_annotated_end": [
+     -58,
+     37
+    ],
+    "env_success_first_frame": 644,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 660
+   },
+   {
+    "ep": 100,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     233,
+     966
+    ],
+    "annotated_step_start": [
+     0,
+     239
+    ],
+    "annotated_step_end": [
+     239,
+     951
+    ],
+    "first_pass_minus_annotated_end": [
+     -6,
+     15
+    ],
+    "env_success_first_frame": 966,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 982
+   },
+   {
+    "ep": 151,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     286,
+     1021
+    ],
+    "annotated_step_start": [
+     0,
+     300
+    ],
+    "annotated_step_end": [
+     300,
+     892
+    ],
+    "first_pass_minus_annotated_end": [
+     -14,
+     129
+    ],
+    "env_success_first_frame": 1021,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 1037
+   },
+   {
+    "ep": 201,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     178,
+     730
+    ],
+    "annotated_step_start": [
+     0,
+     255
+    ],
+    "annotated_step_end": [
+     255,
+     702
+    ],
+    "first_pass_minus_annotated_end": [
+     -77,
+     28
+    ],
+    "env_success_first_frame": 730,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 746
+   },
+   {
+    "ep": 252,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     176,
+     845
+    ],
+    "annotated_step_start": [
+     0,
+     269
+    ],
+    "annotated_step_end": [
+     269,
+     824
+    ],
+    "first_pass_minus_annotated_end": [
+     -93,
+     21
+    ],
+    "env_success_first_frame": 845,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 861
+   },
+   {
+    "ep": 302,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     261,
+     1031
+    ],
+    "annotated_step_start": [
+     0,
+     269
+    ],
+    "annotated_step_end": [
+     269,
+     1016
+    ],
+    "first_pass_minus_annotated_end": [
+     -8,
+     15
+    ],
+    "env_success_first_frame": 1031,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 1047
+   },
+   {
+    "ep": 352,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     194,
+     819
+    ],
+    "annotated_step_start": [
+     0,
+     260
+    ],
+    "annotated_step_end": [
+     260,
+     802
+    ],
+    "first_pass_minus_annotated_end": [
+     -66,
+     17
+    ],
+    "env_success_first_frame": 819,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 835
+   },
+   {
+    "ep": 403,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     307,
+     1093
+    ],
+    "annotated_step_start": [
+     0,
+     323
+    ],
+    "annotated_step_end": [
+     323,
+     1017
+    ],
+    "first_pass_minus_annotated_end": [
+     -16,
+     76
+    ],
+    "env_success_first_frame": 1093,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 1109
+   },
+   {
+    "ep": 453,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     196,
+     705
+    ],
+    "annotated_step_start": [
+     0,
+     241
+    ],
+    "annotated_step_end": [
+     241,
+     655
+    ],
+    "first_pass_minus_annotated_end": [
+     -45,
+     50
+    ],
+    "env_success_first_frame": 705,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Open the drawer.",
+     "Pick the straw from the drawer and place it in the glass cup on the dining counter."
+    ],
+    "length": 721
+   }
+  ]
+ },
+ "GetToastedBread": {
+  "n_demos": 506,
+  "name_merged_sequences": [
+   [
+    [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter",
+     "done"
+    ],
+    506
+   ]
+  ],
+  "step_sequences": [
+   [
+    [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter",
+     "done"
+    ],
+    506
+   ]
+  ],
+  "n_distinct_step_sequences": 1,
+  "majority_share": 1.0,
+  "n_distinct_stage_sequences": 1,
+  "top_stage_sequences": [
+   [
+    [
+     "TurnOnToaster:press",
+     "TurnOnToaster:wait",
+     "PickPlaceToasterToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceToasterToCounter:place",
+     "done:done"
+    ],
+    506
+   ]
+  ],
+  "nonmajority_demos": [],
+  "sentences": {
+   "TurnOnToaster | press": [
+    [
+     "push down the lever of the toaster",
+     506
+    ]
+   ],
+   "TurnOnToaster | wait": [
+    [
+     "wait for the toaster to finish and the lever to pop up",
+     506
+    ]
+   ],
+   "PickPlaceToasterToCounter | pick": [
+    [
+     "pick up the bread from the toaster",
+     506
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the plate on the dining counter",
+     506
+    ]
+   ],
+   "PickPlaceToasterToCounter | place": [
+    [
+     "place the bread on the plate",
+     506
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     506
+    ]
+   ]
+  },
+  "chosen_steps": [
+   "TurnOnToaster",
+   "PickPlaceToasterToCounter"
+  ],
+  "validation": {
+   "demos_passed": 7,
+   "demos_total": 10,
+   "per_step": [
+    {
+     "step": 0,
+     "skill": "TurnOnToaster",
+     "passed": 10,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": -6,
+      "max": 0,
+      "median": -2
+     }
+    },
+    {
+     "step": 1,
+     "skill": "PickPlaceToasterToCounter",
+     "passed": 7,
+     "of": 10,
+     "false_at_seg_start": 10,
+     "first_pass_minus_annotated_end": {
+      "min": 10,
+      "max": 23,
+      "median": 15
+     }
+    }
+   ],
+   "failures": [
+    {
+     "ep": 50,
+     "reason": "step 1 (PickPlaceToasterToCounter) never passed",
+     "env_success_ever": false
+    },
+    {
+     "ep": 354,
+     "reason": "step 1 (PickPlaceToasterToCounter) never passed",
+     "env_success_ever": false
+    },
+    {
+     "ep": 455,
+     "reason": "step 1 (PickPlaceToasterToCounter) never passed",
+     "env_success_ever": false
+    }
+   ],
+   "extra_nonmajority": []
+  },
+  "demos": [
+   {
+    "ep": 0,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     724,
+     1428
+    ],
+    "annotated_step_start": [
+     0,
+     724
+    ],
+    "annotated_step_end": [
+     724,
+     1410
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     18
+    ],
+    "env_success_first_frame": 1428,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1444
+   },
+   {
+    "ep": 50,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": false,
+    "first_pass_frame": [
+     714
+    ],
+    "annotated_step_start": [
+     0,
+     718
+    ],
+    "annotated_step_end": [
+     718,
+     1180
+    ],
+    "first_pass_minus_annotated_end": [
+     -4
+    ],
+    "env_success_first_frame": null,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": "step 1 (PickPlaceToasterToCounter) never passed",
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1207
+   },
+   {
+    "ep": 101,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     749,
+     1229
+    ],
+    "annotated_step_start": [
+     0,
+     751
+    ],
+    "annotated_step_end": [
+     751,
+     1217
+    ],
+    "first_pass_minus_annotated_end": [
+     -2,
+     12
+    ],
+    "env_success_first_frame": 1229,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1245
+   },
+   {
+    "ep": 151,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     767,
+     1403
+    ],
+    "annotated_step_start": [
+     0,
+     767
+    ],
+    "annotated_step_end": [
+     767,
+     1380
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     23
+    ],
+    "env_success_first_frame": 1403,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1419
+   },
+   {
+    "ep": 202,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     735,
+     1354
+    ],
+    "annotated_step_start": [
+     0,
+     737
+    ],
+    "annotated_step_end": [
+     737,
+     1334
+    ],
+    "first_pass_minus_annotated_end": [
+     -2,
+     20
+    ],
+    "env_success_first_frame": 1354,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1370
+   },
+   {
+    "ep": 253,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     777,
+     1442
+    ],
+    "annotated_step_start": [
+     0,
+     777
+    ],
+    "annotated_step_end": [
+     777,
+     1427
+    ],
+    "first_pass_minus_annotated_end": [
+     0,
+     15
+    ],
+    "env_success_first_frame": 1442,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1458
+   },
+   {
+    "ep": 303,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     758,
+     1187
+    ],
+    "annotated_step_start": [
+     0,
+     760
+    ],
+    "annotated_step_end": [
+     760,
+     1176
+    ],
+    "first_pass_minus_annotated_end": [
+     -2,
+     11
+    ],
+    "env_success_first_frame": 1187,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1203
+   },
+   {
+    "ep": 354,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": false,
+    "first_pass_frame": [
+     753
+    ],
+    "annotated_step_start": [
+     0,
+     755
+    ],
+    "annotated_step_end": [
+     755,
+     1237
+    ],
+    "first_pass_minus_annotated_end": [
+     -2
+    ],
+    "env_success_first_frame": null,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": "step 1 (PickPlaceToasterToCounter) never passed",
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1262
+   },
+   {
+    "ep": 404,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": true,
+    "first_pass_frame": [
+     739,
+     1241
+    ],
+    "annotated_step_start": [
+     0,
+     745
+    ],
+    "annotated_step_end": [
+     745,
+     1231
+    ],
+    "first_pass_minus_annotated_end": [
+     -6,
+     10
+    ],
+    "env_success_first_frame": 1241,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": null,
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1257
+   },
+   {
+    "ep": 455,
+    "extra_nonmajority_demo": false,
+    "annotated_steps": [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter"
+    ],
+    "annotation_matches_steps": true,
+    "all_passed": false,
+    "first_pass_frame": [
+     778
+    ],
+    "annotated_step_start": [
+     0,
+     782
+    ],
+    "annotated_step_end": [
+     782,
+     1285
+    ],
+    "first_pass_minus_annotated_end": [
+     -4
+    ],
+    "env_success_first_frame": null,
+    "false_at_seg_start": [
+     true,
+     true
+    ],
+    "failure": "step 1 (PickPlaceToasterToCounter) never passed",
+    "instr": [
+     "Push down the lever of the toaster to turn it on.",
+     "Place the toasted item on a plate."
+    ],
+    "length": 1316
+   }
+  ]
+ }
+}

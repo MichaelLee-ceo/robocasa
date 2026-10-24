@@ -1,0 +1,1672 @@
+{
+ "detail": {
+  "23": {
+   "obj_pos": [
+    1.4334,
+    -0.2389,
+    0.8133
+   ],
+   "obj_quat_xyzw": [
+    0.0354,
+    -0.1391,
+    0.3225,
+    0.9356
+   ],
+   "tilt_deg": 16.5,
+   "corners_objlocal": [
+    [
+     -0.1008,
+     -0.287,
+     -0.0162
+    ],
+    [
+     0.0996,
+     -0.287,
+     -0.0162
+    ],
+    [
+     -0.1008,
+     0.0989,
+     -0.0162
+    ],
+    [
+     -0.1008,
+     -0.287,
+     0.0162
+    ],
+    [
+     0.0996,
+     0.0989,
+     0.0162
+    ],
+    [
+     -0.1008,
+     0.0989,
+     0.0162
+    ],
+    [
+     0.0996,
+     -0.287,
+     0.0162
+    ],
+    [
+     0.0996,
+     0.0989,
+     -0.0162
+    ]
+   ],
+   "corners_world": [
+    [
+     1.5373,
+     -0.5228,
+     0.776
+    ],
+    [
+     1.6883,
+     -0.4038,
+     0.8328
+    ],
+    [
+     1.3007,
+     -0.2181,
+     0.767
+    ],
+    [
+     1.5296,
+     -0.5278,
+     0.807
+    ],
+    [
+     1.444,
+     -0.1042,
+     0.8547
+    ],
+    [
+     1.293,
+     -0.2232,
+     0.7979
+    ],
+    [
+     1.6806,
+     -0.4089,
+     0.8638
+    ],
+    [
+     1.4517,
+     -0.0992,
+     0.8237
+    ]
+   ],
+   "lib": true,
+   "center": true,
+   "regions": {
+    "basin_right": {
+     "len": [
+      0.3578,
+      0.3798,
+      0.136
+     ],
+     "failing": [],
+     "inside": true
+    },
+    "basin_left": {
+     "len": [
+      0.4396,
+      0.4533,
+      0.1942
+     ],
+     "failing": [
+      {
+       "corner": 0,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.1601,
+       "side": "hi"
+      },
+      {
+       "corner": 1,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.311,
+       "side": "hi"
+      },
+      {
+       "corner": 3,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.1524,
+       "side": "hi"
+      },
+      {
+       "corner": 4,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.0667,
+       "side": "hi"
+      },
+      {
+       "corner": 6,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.3034,
+       "side": "hi"
+      },
+      {
+       "corner": 7,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.0744,
+       "side": "hi"
+      }
+     ],
+     "inside": false
+    }
+   },
+   "mesh_profile": {
+    "long_axis": "y",
+    "vert_min": [
+     -0.103,
+     -0.289,
+     -0.0162
+    ],
+    "vert_max": [
+     0.103,
+     0.102,
+     0.0162
+    ],
+    "profile": [
+     {
+      "bin": [
+       -0.289,
+       -0.25
+      ],
+      "width": 0.036,
+      "center": -0.0
+     },
+     {
+      "bin": [
+       -0.25,
+       -0.211
+      ],
+      "width": 0.037,
+      "center": -0.001
+     },
+     {
+      "bin": [
+       -0.211,
+       -0.172
+      ],
+      "width": 0.0,
+      "center": 0.0
+     },
+     {
+      "bin": [
+       -0.172,
+       -0.133
+      ],
+      "width": 0.046,
+      "center": 0.0
+     },
+     {
+      "bin": [
+       -0.133,
+       -0.093
+      ],
+      "width": 0.092,
+      "center": 0.0
+     },
+     {
+      "bin": [
+       -0.093,
+       -0.054
+      ],
+      "width": 0.167,
+      "center": -0.009
+     },
+     {
+      "bin": [
+       -0.054,
+       -0.015
+      ],
+      "width": 0.198,
+      "center": 0.01
+     },
+     {
+      "bin": [
+       -0.015,
+       0.024
+      ],
+      "width": 0.206,
+      "center": 0.006
+     },
+     {
+      "bin": [
+       0.024,
+       0.063
+      ],
+      "width": 0.196,
+      "center": 0.005
+     },
+     {
+      "bin": [
+       0.063,
+       0.102
+      ],
+      "width": 0.154,
+      "center": -0.007
+     }
+    ]
+   },
+   "basin_loc_full": "right",
+   "basin_loc_center": "right",
+   "sponge": {
+    "obj_pos": [
+     1.506,
+     -0.3634,
+     0.785
+    ],
+    "obj_quat_xyzw": [
+     -0.0006,
+     -0.0027,
+     -0.0054,
+     1.0
+    ],
+    "tilt_deg": 0.3,
+    "corners_objlocal": [
+     [
+      -0.0328,
+      -0.0492,
+      -0.0125
+     ],
+     [
+      0.0327,
+      -0.0492,
+      -0.0125
+     ],
+     [
+      -0.0328,
+      0.0493,
+      -0.0125
+     ],
+     [
+      -0.0328,
+      -0.0492,
+      0.0124
+     ],
+     [
+      0.0327,
+      0.0493,
+      0.0124
+     ],
+     [
+      -0.0328,
+      0.0493,
+      0.0124
+     ],
+     [
+      0.0327,
+      -0.0492,
+      0.0124
+     ],
+     [
+      0.0327,
+      0.0493,
+      -0.0125
+     ]
+    ],
+    "corners_world": [
+     [
+      1.4728,
+      -0.4123,
+      0.7723
+     ],
+     [
+      1.5383,
+      -0.413,
+      0.7727
+     ],
+     [
+      1.4738,
+      -0.3138,
+      0.7722
+     ],
+     [
+      1.4726,
+      -0.4122,
+      0.7973
+     ],
+     [
+      1.5392,
+      -0.3145,
+      0.7975
+     ],
+     [
+      1.4737,
+      -0.3138,
+      0.7972
+     ],
+     [
+      1.5381,
+      -0.4129,
+      0.7976
+     ],
+     [
+      1.5393,
+      -0.3145,
+      0.7726
+     ]
+    ],
+    "lib": true,
+    "center": true,
+    "regions": {
+     "basin_right": {
+      "len": [
+       0.3578,
+       0.3798,
+       0.136
+      ],
+      "failing": [],
+      "inside": true
+     },
+     "basin_left": {
+      "len": [
+       0.4396,
+       0.4533,
+       0.1942
+      ],
+      "failing": [
+       {
+        "corner": 0,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0955,
+        "side": "hi"
+       },
+       {
+        "corner": 1,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.161,
+        "side": "hi"
+       },
+       {
+        "corner": 2,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0966,
+        "side": "hi"
+       },
+       {
+        "corner": 3,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0954,
+        "side": "hi"
+       },
+       {
+        "corner": 4,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.1619,
+        "side": "hi"
+       },
+       {
+        "corner": 5,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0964,
+        "side": "hi"
+       },
+       {
+        "corner": 6,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.1609,
+        "side": "hi"
+       },
+       {
+        "corner": 7,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.1621,
+        "side": "hi"
+       }
+      ],
+      "inside": false
+     }
+    }
+   }
+  },
+  "27": {
+   "obj_pos": [
+    1.4047,
+    -0.2401,
+    0.8103
+   ],
+   "obj_quat_xyzw": [
+    0.0629,
+    0.0294,
+    0.5671,
+    0.8207
+   ],
+   "tilt_deg": 8.0,
+   "corners_objlocal": [
+    [
+     -0.1008,
+     -0.287,
+     -0.0162
+    ],
+    [
+     0.0996,
+     -0.287,
+     -0.0162
+    ],
+    [
+     -0.1008,
+     0.0989,
+     -0.0162
+    ],
+    [
+     -0.1008,
+     -0.287,
+     0.0162
+    ],
+    [
+     0.0996,
+     0.0989,
+     0.0162
+    ],
+    [
+     -0.1008,
+     0.0989,
+     0.0162
+    ],
+    [
+     0.0996,
+     -0.287,
+     0.0162
+    ],
+    [
+     0.0996,
+     0.0989,
+     -0.0162
+    ]
+   ],
+   "corners_world": [
+    [
+     1.633,
+     -0.4333,
+     0.7528
+    ],
+    [
+     1.7042,
+     -0.246,
+     0.7574
+    ],
+    [
+     1.2753,
+     -0.2987,
+     0.8055
+    ],
+    [
+     1.6369,
+     -0.4356,
+     0.7848
+    ],
+    [
+     1.3503,
+     -0.1136,
+     0.8421
+    ],
+    [
+     1.2791,
+     -0.3009,
+     0.8375
+    ],
+    [
+     1.7081,
+     -0.2483,
+     0.7894
+    ],
+    [
+     1.3465,
+     -0.1114,
+     0.8101
+    ]
+   ],
+   "lib": true,
+   "center": true,
+   "regions": {
+    "basin_right": {
+     "len": [
+      0.3578,
+      0.3798,
+      0.136
+     ],
+     "failing": [],
+     "inside": true
+    },
+    "basin_left": {
+     "len": [
+      0.4396,
+      0.4533,
+      0.1942
+     ],
+     "failing": [
+      {
+       "corner": 0,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.2558,
+       "side": "hi"
+      },
+      {
+       "corner": 1,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.327,
+       "side": "hi"
+      },
+      {
+       "corner": 3,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.2596,
+       "side": "hi"
+      },
+      {
+       "corner": 6,
+       "axis": "u",
+       "region_len": 0.4396,
+       "tol_m": 0.1137,
+       "outside_by_m": 0.3308,
+       "side": "hi"
+      }
+     ],
+     "inside": false
+    }
+   },
+   "mesh_profile": {
+    "long_axis": "y",
+    "vert_min": [
+     -0.103,
+     -0.289,
+     -0.0162
+    ],
+    "vert_max": [
+     0.103,
+     0.102,
+     0.0162
+    ],
+    "profile": [
+     {
+      "bin": [
+       -0.289,
+       -0.25
+      ],
+      "width": 0.036,
+      "center": -0.0
+     },
+     {
+      "bin": [
+       -0.25,
+       -0.211
+      ],
+      "width": 0.037,
+      "center": -0.001
+     },
+     {
+      "bin": [
+       -0.211,
+       -0.172
+      ],
+      "width": 0.0,
+      "center": 0.0
+     },
+     {
+      "bin": [
+       -0.172,
+       -0.133
+      ],
+      "width": 0.046,
+      "center": 0.0
+     },
+     {
+      "bin": [
+       -0.133,
+       -0.093
+      ],
+      "width": 0.092,
+      "center": 0.0
+     },
+     {
+      "bin": [
+       -0.093,
+       -0.054
+      ],
+      "width": 0.167,
+      "center": -0.009
+     },
+     {
+      "bin": [
+       -0.054,
+       -0.015
+      ],
+      "width": 0.198,
+      "center": 0.01
+     },
+     {
+      "bin": [
+       -0.015,
+       0.024
+      ],
+      "width": 0.206,
+      "center": 0.006
+     },
+     {
+      "bin": [
+       0.024,
+       0.063
+      ],
+      "width": 0.196,
+      "center": 0.005
+     },
+     {
+      "bin": [
+       0.063,
+       0.102
+      ],
+      "width": 0.154,
+      "center": -0.007
+     }
+    ]
+   },
+   "basin_loc_full": "right",
+   "basin_loc_center": "right",
+   "sponge": {
+    "obj_pos": [
+     1.4203,
+     -0.2872,
+     0.8208
+    ],
+    "obj_quat_xyzw": [
+     -0.087,
+     0.0406,
+     0.0912,
+     0.9912
+    ],
+    "tilt_deg": 11.0,
+    "corners_objlocal": [
+     [
+      -0.0321,
+      -0.0495,
+      -0.0124
+     ],
+     [
+      0.0322,
+      -0.0495,
+      -0.0124
+     ],
+     [
+      -0.0321,
+      0.0495,
+      -0.0124
+     ],
+     [
+      -0.0321,
+      -0.0495,
+      0.0124
+     ],
+     [
+      0.0322,
+      0.0495,
+      0.0124
+     ],
+     [
+      -0.0321,
+      0.0495,
+      0.0124
+     ],
+     [
+      0.0322,
+      -0.0495,
+      0.0124
+     ],
+     [
+      0.0322,
+      0.0495,
+      -0.0124
+     ]
+    ],
+    "corners_world": [
+     [
+      1.3973,
+      -0.3429,
+      0.8199
+     ],
+     [
+      1.4603,
+      -0.3318,
+      0.8137
+     ],
+     [
+      1.3787,
+      -0.2471,
+      0.8036
+     ],
+     [
+      1.3989,
+      -0.3385,
+      0.8442
+     ],
+     [
+      1.4433,
+      -0.2315,
+      0.8217
+     ],
+     [
+      1.3803,
+      -0.2426,
+      0.8279
+     ],
+     [
+      1.4619,
+      -0.3273,
+      0.838
+     ],
+     [
+      1.4417,
+      -0.2359,
+      0.7974
+     ]
+    ],
+    "lib": true,
+    "center": true,
+    "regions": {
+     "basin_right": {
+      "len": [
+       0.3578,
+       0.3798,
+       0.136
+      ],
+      "failing": [],
+      "inside": true
+     },
+     "basin_left": {
+      "len": [
+       0.4396,
+       0.4533,
+       0.1942
+      ],
+      "failing": [
+       {
+        "corner": 0,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0201,
+        "side": "hi"
+       },
+       {
+        "corner": 1,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0831,
+        "side": "hi"
+       },
+       {
+        "corner": 2,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0015,
+        "side": "hi"
+       },
+       {
+        "corner": 3,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0217,
+        "side": "hi"
+       },
+       {
+        "corner": 4,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0661,
+        "side": "hi"
+       },
+       {
+        "corner": 5,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0031,
+        "side": "hi"
+       },
+       {
+        "corner": 6,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0847,
+        "side": "hi"
+       },
+       {
+        "corner": 7,
+        "axis": "u",
+        "region_len": 0.4396,
+        "tol_m": 0.1137,
+        "outside_by_m": 0.0645,
+        "side": "hi"
+       }
+      ],
+      "inside": false
+     }
+    }
+   }
+  }
+ },
+ "table": [
+  {
+   "seed": 0,
+   "layout": 9,
+   "style": 9,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink012",
+   "double_basin": true,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_5",
+   "sponge": "sponge_8",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 672,
+   "asus_history": "0@256 1@528 2@672",
+   "asus_end_handle_qpos": 0.4968,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 752,
+   "hscc_history": "0@576 1@576 2@752"
+  },
+  {
+   "seed": 1,
+   "layout": 5,
+   "style": 5,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink007",
+   "double_basin": false,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 1040,
+   "asus_history": "0@368 1@816 2@1040",
+   "asus_end_handle_qpos": 0.5,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 768,
+   "hscc_history": "0@336 1@576 2@768"
+  },
+  {
+   "seed": 2,
+   "layout": 10,
+   "style": 10,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink014",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_5",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 688,
+   "asus_history": "0@288 1@496 2@688",
+   "asus_end_handle_qpos": 0.5001,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 864,
+   "hscc_history": "0@272 1@656 2@864"
+  },
+  {
+   "seed": 3,
+   "layout": 5,
+   "style": 5,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink007",
+   "double_basin": false,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 880,
+   "asus_history": "0@304 1@640 2@880",
+   "asus_end_handle_qpos": 0.4129,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 1040,
+   "hscc_history": "0@320 1@768 2@1040"
+  },
+  {
+   "seed": 4,
+   "layout": 8,
+   "style": 8,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink039",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_8",
+   "sponge": "sponge_6",
+   "asus_ok": false,
+   "asus_reached": 0,
+   "asus_end": 1600,
+   "asus_history": "",
+   "asus_end_handle_qpos": 0.0,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": false,
+   "asus_end_sponge_in_sink": false,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 688,
+   "hscc_history": "0@224 1@448 2@688"
+  },
+  {
+   "seed": 5,
+   "layout": 10,
+   "style": 10,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink014",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 928,
+   "asus_history": "0@352 1@720 2@928",
+   "asus_end_handle_qpos": 0.5001,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 752,
+   "hscc_history": "0@288 1@576 2@752"
+  },
+  {
+   "seed": 6,
+   "layout": 5,
+   "style": 5,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink007",
+   "double_basin": false,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 1104,
+   "asus_history": "0@256 1@544 2@1104",
+   "asus_end_handle_qpos": 0.5001,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": false,
+   "hscc_reached": 2,
+   "hscc_end": 1600,
+   "hscc_history": "0@304 1@640"
+  },
+  {
+   "seed": 7,
+   "layout": 10,
+   "style": 10,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink014",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_6",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 1184,
+   "asus_history": "0@288 1@624 2@1184",
+   "asus_end_handle_qpos": 0.47,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 720,
+   "hscc_history": "0@256 1@480 2@720"
+  },
+  {
+   "seed": 8,
+   "layout": 8,
+   "style": 8,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink039",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_5",
+   "sponge": "sponge_5",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@304 1@560",
+   "asus_end_handle_qpos": 0.0,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": false,
+   "hscc_reached": 2,
+   "hscc_end": 1600,
+   "hscc_history": "0@976 1@976"
+  },
+  {
+   "seed": 9,
+   "layout": 5,
+   "style": 5,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink007",
+   "double_basin": false,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 848,
+   "asus_history": "0@304 1@608 2@848",
+   "asus_end_handle_qpos": 0.5,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 832,
+   "hscc_history": "0@304 1@592 2@832"
+  },
+  {
+   "seed": 10,
+   "layout": 8,
+   "style": 8,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink039",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_8",
+   "sponge": "sponge_6",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@288 1@560",
+   "asus_end_handle_qpos": 0.0866,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": false,
+   "hscc_reached": 2,
+   "hscc_end": 1600,
+   "hscc_history": "0@304 1@528"
+  },
+  {
+   "seed": 11,
+   "layout": 2,
+   "style": 2,
+   "sink_fixture": "sink_island_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink009",
+   "double_basin": false,
+   "handle_joint": "sink_island_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_4",
+   "sponge": "sponge_5",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@336 1@624",
+   "asus_end_handle_qpos": 0.0001,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": false,
+   "hscc_reached": 2,
+   "hscc_end": 1600,
+   "hscc_history": "0@320 1@608"
+  },
+  {
+   "seed": 12,
+   "layout": 1,
+   "style": 1,
+   "sink_fixture": "sink_main_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink025",
+   "double_basin": true,
+   "handle_joint": "sink_main_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_5",
+   "asus_ok": false,
+   "asus_reached": 1,
+   "asus_end": 1600,
+   "asus_history": "0@640",
+   "asus_end_handle_qpos": 0.4936,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": false,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 992,
+   "hscc_history": "0@512 1@880 2@992"
+  },
+  {
+   "seed": 13,
+   "layout": 9,
+   "style": 9,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink012",
+   "double_basin": true,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_4",
+   "sponge": "sponge_5",
+   "asus_ok": false,
+   "asus_reached": 0,
+   "asus_end": 1600,
+   "asus_history": "",
+   "asus_end_handle_qpos": 0.5,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": false,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 704,
+   "hscc_history": "0@496 1@496 2@704"
+  },
+  {
+   "seed": 14,
+   "layout": 2,
+   "style": 2,
+   "sink_fixture": "sink_island_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink009",
+   "double_basin": false,
+   "handle_joint": "sink_island_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_8",
+   "sponge": "sponge_6",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 848,
+   "asus_history": "0@304 1@608 2@848",
+   "asus_end_handle_qpos": 0.4435,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": false,
+   "hscc_reached": 2,
+   "hscc_end": 1600,
+   "hscc_history": "0@384 1@672"
+  },
+  {
+   "seed": 15,
+   "layout": 10,
+   "style": 10,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink014",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_5",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 656,
+   "asus_history": "0@256 1@480 2@656",
+   "asus_end_handle_qpos": 0.4026,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 800,
+   "hscc_history": "0@272 1@480 2@800"
+  },
+  {
+   "seed": 16,
+   "layout": 6,
+   "style": 6,
+   "sink_fixture": "sink_main_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink020",
+   "double_basin": true,
+   "handle_joint": "sink_main_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_8",
+   "asus_ok": false,
+   "asus_reached": 0,
+   "asus_end": 1600,
+   "asus_history": "",
+   "asus_end_handle_qpos": 0.0003,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": false,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 976,
+   "hscc_history": "0@352 1@352 2@976"
+  },
+  {
+   "seed": 17,
+   "layout": 8,
+   "style": 8,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink039",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_8",
+   "sponge": "sponge_6",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@512 1@512",
+   "asus_end_handle_qpos": 0.0,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 1312,
+   "hscc_history": "0@368 1@608 2@1312"
+  },
+  {
+   "seed": 18,
+   "layout": 9,
+   "style": 9,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink012",
+   "double_basin": true,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_5",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 752,
+   "asus_history": "0@224 1@560 2@752",
+   "asus_end_handle_qpos": 0.5001,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 720,
+   "hscc_history": "0@208 1@608 2@720"
+  },
+  {
+   "seed": 19,
+   "layout": 6,
+   "style": 6,
+   "sink_fixture": "sink_main_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink020",
+   "double_basin": true,
+   "handle_joint": "sink_main_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 1024,
+   "asus_history": "0@352 1@352 2@1024",
+   "asus_end_handle_qpos": 0.4615,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": true,
+   "hscc_reached": 3,
+   "hscc_end": 992,
+   "hscc_history": "0@304 1@304 2@992"
+  },
+  {
+   "seed": 20,
+   "layout": 9,
+   "style": 9,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink012",
+   "double_basin": true,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_6",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 1200,
+   "asus_history": "0@560 1@1056 2@1200",
+   "asus_end_handle_qpos": 0.4864,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 21,
+   "layout": 4,
+   "style": 4,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink006",
+   "double_basin": true,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 912,
+   "asus_history": "0@672 1@672 2@912",
+   "asus_end_handle_qpos": 0.5002,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 22,
+   "layout": 8,
+   "style": 8,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink039",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_5",
+   "sponge": "sponge_4",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@304 1@576",
+   "asus_end_handle_qpos": 0.0,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 23,
+   "layout": 1,
+   "style": 1,
+   "sink_fixture": "sink_main_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink025",
+   "double_basin": true,
+   "handle_joint": "sink_main_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_5",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@1136 1@1152",
+   "asus_end_handle_qpos": 0.0007,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 24,
+   "layout": 2,
+   "style": 2,
+   "sink_fixture": "sink_island_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink009",
+   "double_basin": false,
+   "handle_joint": "sink_island_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_5",
+   "asus_ok": false,
+   "asus_reached": 1,
+   "asus_end": 1600,
+   "asus_history": "0@400",
+   "asus_end_handle_qpos": 0.0002,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": false,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 25,
+   "layout": 6,
+   "style": 6,
+   "sink_fixture": "sink_main_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink020",
+   "double_basin": true,
+   "handle_joint": "sink_main_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_4",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 928,
+   "asus_history": "0@368 1@640 2@928",
+   "asus_end_handle_qpos": 0.4383,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 26,
+   "layout": 9,
+   "style": 9,
+   "sink_fixture": "sink_left_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink012",
+   "double_basin": true,
+   "handle_joint": "sink_left_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_6",
+   "sponge": "sponge_8",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 736,
+   "asus_history": "0@256 1@608 2@736",
+   "asus_end_handle_qpos": 0.5029,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 27,
+   "layout": 1,
+   "style": 1,
+   "sink_fixture": "sink_main_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink025",
+   "double_basin": true,
+   "handle_joint": "sink_main_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_7",
+   "sponge": "sponge_6",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@384 1@768",
+   "asus_end_handle_qpos": 0.0002,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 28,
+   "layout": 8,
+   "style": 8,
+   "sink_fixture": "sink_right_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink039",
+   "double_basin": false,
+   "handle_joint": "sink_right_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_5",
+   "sponge": "sponge_4",
+   "asus_ok": false,
+   "asus_reached": 2,
+   "asus_end": 1600,
+   "asus_history": "0@400 1@656",
+   "asus_end_handle_qpos": 0.0,
+   "asus_end_water_on": false,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  },
+  {
+   "seed": 29,
+   "layout": 7,
+   "style": 7,
+   "sink_fixture": "sink_island_group",
+   "sink_class": "Sink",
+   "sink_model": "Sink004",
+   "double_basin": false,
+   "handle_joint": "sink_island_group_handle_joint",
+   "handle_range": "0 0.5",
+   "handle_axis": "0.0 1.0 0.0",
+   "pan": "pan_4",
+   "sponge": "sponge_4",
+   "asus_ok": true,
+   "asus_reached": 3,
+   "asus_end": 944,
+   "asus_history": "0@256 1@480 2@944",
+   "asus_end_handle_qpos": 0.5001,
+   "asus_end_water_on": true,
+   "asus_end_pan_in_sink": true,
+   "asus_end_sponge_in_sink": true,
+   "hscc_ok": "",
+   "hscc_reached": "",
+   "hscc_end": "",
+   "hscc_history": ""
+  }
+ ]
+}

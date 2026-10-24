@@ -1,0 +1,6311 @@
+{
+ "summary": {
+  "dataset": "/home/michaellee/mclee/robocasa/datasets/v1.0/target/composite/StirVegetables/20250814/lerobot",
+  "n_demos": 501,
+  "n_without_PickUpSpatula": 0,
+  "overall": {
+   "n": 501,
+   "min": 20,
+   "median": 236.0,
+   "max": 755,
+   "mean": 254.5
+  },
+  "overall_total_len": {
+   "n": 501,
+   "min": 409,
+   "median": 779.0,
+   "max": 1728,
+   "mean": 816.8
+  },
+  "per_layout": {
+   "1": {
+    "n": 56,
+    "min": 98,
+    "median": 279.5,
+    "max": 755,
+    "mean": 298.5
+   },
+   "2": {
+    "n": 51,
+    "min": 134,
+    "median": 263.0,
+    "max": 671,
+    "mean": 281.3
+   },
+   "3": {
+    "n": 57,
+    "min": 126,
+    "median": 255.0,
+    "max": 521,
+    "mean": 258.5
+   },
+   "4": {
+    "n": 59,
+    "min": 90,
+    "median": 224.0,
+    "max": 521,
+    "mean": 245.3
+   },
+   "5": {
+    "n": 43,
+    "min": 20,
+    "median": 241.0,
+    "max": 653,
+    "mean": 257.4
+   },
+   "6": {
+    "n": 51,
+    "min": 95,
+    "median": 203.0,
+    "max": 474,
+    "mean": 232.8
+   },
+   "7": {
+    "n": 46,
+    "min": 105,
+    "median": 234.0,
+    "max": 440,
+    "mean": 250.4
+   },
+   "8": {
+    "n": 39,
+    "min": 133,
+    "median": 232.0,
+    "max": 468,
+    "mean": 244.3
+   },
+   "9": {
+    "n": 47,
+    "min": 108,
+    "median": 223.0,
+    "max": 514,
+    "mean": 240.4
+   },
+   "10": {
+    "n": 52,
+    "min": 96,
+    "median": 208.0,
+    "max": 450,
+    "mean": 229.4
+   }
+  },
+  "exec_only_overall": {
+   "n": 501,
+   "min": 12,
+   "median": 220.0,
+   "max": 754,
+   "mean": 236.3
+  },
+  "exec_only_per_layout": {
+   "1": {
+    "n": 56,
+    "min": 97,
+    "median": 263.5,
+    "max": 754,
+    "mean": 275.8
+   },
+   "2": {
+    "n": 51,
+    "min": 88,
+    "median": 217.0,
+    "max": 670,
+    "mean": 238.7
+   },
+   "3": {
+    "n": 57,
+    "min": 120,
+    "median": 244.0,
+    "max": 513,
+    "mean": 250.0
+   },
+   "4": {
+    "n": 59,
+    "min": 82,
+    "median": 205.0,
+    "max": 520,
+    "mean": 224.5
+   },
+   "5": {
+    "n": 43,
+    "min": 12,
+    "median": 198.0,
+    "max": 652,
+    "mean": 230.7
+   },
+   "6": {
+    "n": 51,
+    "min": 94,
+    "median": 199.0,
+    "max": 470,
+    "mean": 227.3
+   },
+   "7": {
+    "n": 46,
+    "min": 97,
+    "median": 223.5,
+    "max": 438,
+    "mean": 238.0
+   },
+   "8": {
+    "n": 39,
+    "min": 111,
+    "median": 220.0,
+    "max": 467,
+    "mean": 227.2
+   },
+   "9": {
+    "n": 47,
+    "min": 107,
+    "median": 213.0,
+    "max": 513,
+    "mean": 228.4
+   },
+   "10": {
+    "n": 52,
+    "min": 83,
+    "median": 204.5,
+    "max": 448,
+    "mean": 215.7
+   }
+  },
+  "after_seg_names": [
+   [
+    "StirVegetables:execute,done:done",
+    427
+   ],
+   [
+    "NavigateKitchen:navigate,StirVegetables:execute,done:done",
+    74
+   ]
+  ],
+  "top_stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickUpSpatula:pick",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    412
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "NavigateKitchen:navigate",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    22
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    22
+   ]
+  ]
+ },
+ "demos": [
+  {
+   "ep": 0,
+   "layout": 8,
+   "style": 8,
+   "n": 903,
+   "pick_spatula_end": 632,
+   "after": 271,
+   "after_segs": [
+    "StirVegetables:execute:270",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 1,
+   "layout": 3,
+   "style": 3,
+   "n": 501,
+   "pick_spatula_end": 374,
+   "after": 127,
+   "after_segs": [
+    "StirVegetables:execute:120",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 2,
+   "layout": 10,
+   "style": 10,
+   "n": 491,
+   "pick_spatula_end": 365,
+   "after": 126,
+   "after_segs": [
+    "StirVegetables:execute:125",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 3,
+   "layout": 8,
+   "style": 8,
+   "n": 1014,
+   "pick_spatula_end": 653,
+   "after": 361,
+   "after_segs": [
+    "StirVegetables:execute:360",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 4,
+   "layout": 2,
+   "style": 2,
+   "n": 878,
+   "pick_spatula_end": 598,
+   "after": 280,
+   "after_segs": [
+    "StirVegetables:execute:278",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 5,
+   "layout": 3,
+   "style": 3,
+   "n": 714,
+   "pick_spatula_end": 355,
+   "after": 359,
+   "after_segs": [
+    "StirVegetables:execute:353",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 6,
+   "layout": 9,
+   "style": 9,
+   "n": 638,
+   "pick_spatula_end": 497,
+   "after": 141,
+   "after_segs": [
+    "StirVegetables:execute:140",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 7,
+   "layout": 7,
+   "style": 7,
+   "n": 813,
+   "pick_spatula_end": 467,
+   "after": 346,
+   "after_segs": [
+    "StirVegetables:execute:344",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 8,
+   "layout": 1,
+   "style": 1,
+   "n": 793,
+   "pick_spatula_end": 643,
+   "after": 150,
+   "after_segs": [
+    "StirVegetables:execute:149",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 9,
+   "layout": 5,
+   "style": 5,
+   "n": 683,
+   "pick_spatula_end": 484,
+   "after": 199,
+   "after_segs": [
+    "StirVegetables:execute:198",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 10,
+   "layout": 3,
+   "style": 3,
+   "n": 1223,
+   "pick_spatula_end": 702,
+   "after": 521,
+   "after_segs": [
+    "StirVegetables:execute:513",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 11,
+   "layout": 1,
+   "style": 1,
+   "n": 984,
+   "pick_spatula_end": 748,
+   "after": 236,
+   "after_segs": [
+    "StirVegetables:execute:235",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 12,
+   "layout": 6,
+   "style": 6,
+   "n": 517,
+   "pick_spatula_end": 351,
+   "after": 166,
+   "after_segs": [
+    "StirVegetables:execute:159",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 13,
+   "layout": 5,
+   "style": 5,
+   "n": 1150,
+   "pick_spatula_end": 497,
+   "after": 653,
+   "after_segs": [
+    "StirVegetables:execute:652",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 14,
+   "layout": 8,
+   "style": 8,
+   "n": 629,
+   "pick_spatula_end": 430,
+   "after": 199,
+   "after_segs": [
+    "StirVegetables:execute:191",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 15,
+   "layout": 3,
+   "style": 3,
+   "n": 774,
+   "pick_spatula_end": 523,
+   "after": 251,
+   "after_segs": [
+    "StirVegetables:execute:250",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 16,
+   "layout": 8,
+   "style": 8,
+   "n": 922,
+   "pick_spatula_end": 594,
+   "after": 328,
+   "after_segs": [
+    "NavigateKitchen:navigate:120",
+    "StirVegetables:execute:207",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 17,
+   "layout": 2,
+   "style": 2,
+   "n": 804,
+   "pick_spatula_end": 584,
+   "after": 220,
+   "after_segs": [
+    "NavigateKitchen:navigate:91",
+    "StirVegetables:execute:128",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 18,
+   "layout": 3,
+   "style": 3,
+   "n": 1061,
+   "pick_spatula_end": 744,
+   "after": 317,
+   "after_segs": [
+    "StirVegetables:execute:316",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 19,
+   "layout": 5,
+   "style": 5,
+   "n": 950,
+   "pick_spatula_end": 468,
+   "after": 482,
+   "after_segs": [
+    "StirVegetables:execute:478",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 20,
+   "layout": 6,
+   "style": 6,
+   "n": 556,
+   "pick_spatula_end": 387,
+   "after": 169,
+   "after_segs": [
+    "StirVegetables:execute:168",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 21,
+   "layout": 2,
+   "style": 2,
+   "n": 606,
+   "pick_spatula_end": 472,
+   "after": 134,
+   "after_segs": [
+    "StirVegetables:execute:133",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 22,
+   "layout": 2,
+   "style": 2,
+   "n": 720,
+   "pick_spatula_end": 406,
+   "after": 314,
+   "after_segs": [
+    "StirVegetables:execute:305",
+    "done:done:9"
+   ]
+  },
+  {
+   "ep": 23,
+   "layout": 2,
+   "style": 2,
+   "n": 838,
+   "pick_spatula_end": 616,
+   "after": 222,
+   "after_segs": [
+    "NavigateKitchen:navigate:98",
+    "StirVegetables:execute:116",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 24,
+   "layout": 1,
+   "style": 1,
+   "n": 543,
+   "pick_spatula_end": 437,
+   "after": 106,
+   "after_segs": [
+    "StirVegetables:execute:105",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 25,
+   "layout": 6,
+   "style": 6,
+   "n": 637,
+   "pick_spatula_end": 482,
+   "after": 155,
+   "after_segs": [
+    "StirVegetables:execute:148",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 26,
+   "layout": 3,
+   "style": 3,
+   "n": 936,
+   "pick_spatula_end": 627,
+   "after": 309,
+   "after_segs": [
+    "NavigateKitchen:navigate:88",
+    "StirVegetables:execute:220",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 27,
+   "layout": 9,
+   "style": 9,
+   "n": 890,
+   "pick_spatula_end": 676,
+   "after": 214,
+   "after_segs": [
+    "StirVegetables:execute:213",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 28,
+   "layout": 8,
+   "style": 8,
+   "n": 1040,
+   "pick_spatula_end": 782,
+   "after": 258,
+   "after_segs": [
+    "StirVegetables:execute:250",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 29,
+   "layout": 5,
+   "style": 5,
+   "n": 667,
+   "pick_spatula_end": 473,
+   "after": 194,
+   "after_segs": [
+    "StirVegetables:execute:187",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 30,
+   "layout": 7,
+   "style": 7,
+   "n": 638,
+   "pick_spatula_end": 406,
+   "after": 232,
+   "after_segs": [
+    "StirVegetables:execute:231",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 31,
+   "layout": 3,
+   "style": 3,
+   "n": 684,
+   "pick_spatula_end": 534,
+   "after": 150,
+   "after_segs": [
+    "StirVegetables:execute:149",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 32,
+   "layout": 3,
+   "style": 3,
+   "n": 512,
+   "pick_spatula_end": 367,
+   "after": 145,
+   "after_segs": [
+    "StirVegetables:execute:138",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 33,
+   "layout": 7,
+   "style": 7,
+   "n": 856,
+   "pick_spatula_end": 666,
+   "after": 190,
+   "after_segs": [
+    "StirVegetables:execute:184",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 34,
+   "layout": 10,
+   "style": 10,
+   "n": 766,
+   "pick_spatula_end": 561,
+   "after": 205,
+   "after_segs": [
+    "StirVegetables:execute:204",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 35,
+   "layout": 1,
+   "style": 1,
+   "n": 892,
+   "pick_spatula_end": 613,
+   "after": 279,
+   "after_segs": [
+    "StirVegetables:execute:278",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 36,
+   "layout": 10,
+   "style": 10,
+   "n": 913,
+   "pick_spatula_end": 740,
+   "after": 173,
+   "after_segs": [
+    "StirVegetables:execute:172",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 37,
+   "layout": 8,
+   "style": 8,
+   "n": 595,
+   "pick_spatula_end": 462,
+   "after": 133,
+   "after_segs": [
+    "StirVegetables:execute:126",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 38,
+   "layout": 8,
+   "style": 8,
+   "n": 607,
+   "pick_spatula_end": 333,
+   "after": 274,
+   "after_segs": [
+    "StirVegetables:execute:273",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 39,
+   "layout": 4,
+   "style": 4,
+   "n": 733,
+   "pick_spatula_end": 515,
+   "after": 218,
+   "after_segs": [
+    "StirVegetables:execute:215",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 40,
+   "layout": 3,
+   "style": 3,
+   "n": 770,
+   "pick_spatula_end": 560,
+   "after": 210,
+   "after_segs": [
+    "StirVegetables:execute:209",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 41,
+   "layout": 2,
+   "style": 2,
+   "n": 853,
+   "pick_spatula_end": 604,
+   "after": 249,
+   "after_segs": [
+    "StirVegetables:execute:242",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 42,
+   "layout": 1,
+   "style": 1,
+   "n": 1558,
+   "pick_spatula_end": 1125,
+   "after": 433,
+   "after_segs": [
+    "NavigateKitchen:navigate:169",
+    "StirVegetables:execute:263",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 43,
+   "layout": 2,
+   "style": 2,
+   "n": 894,
+   "pick_spatula_end": 729,
+   "after": 165,
+   "after_segs": [
+    "StirVegetables:execute:164",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 44,
+   "layout": 1,
+   "style": 1,
+   "n": 605,
+   "pick_spatula_end": 507,
+   "after": 98,
+   "after_segs": [
+    "StirVegetables:execute:97",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 45,
+   "layout": 8,
+   "style": 8,
+   "n": 583,
+   "pick_spatula_end": 438,
+   "after": 145,
+   "after_segs": [
+    "StirVegetables:execute:144",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 46,
+   "layout": 6,
+   "style": 6,
+   "n": 555,
+   "pick_spatula_end": 398,
+   "after": 157,
+   "after_segs": [
+    "StirVegetables:execute:156",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 47,
+   "layout": 9,
+   "style": 9,
+   "n": 783,
+   "pick_spatula_end": 510,
+   "after": 273,
+   "after_segs": [
+    "StirVegetables:execute:272",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 48,
+   "layout": 9,
+   "style": 9,
+   "n": 1097,
+   "pick_spatula_end": 788,
+   "after": 309,
+   "after_segs": [
+    "StirVegetables:execute:308",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 49,
+   "layout": 6,
+   "style": 6,
+   "n": 732,
+   "pick_spatula_end": 491,
+   "after": 241,
+   "after_segs": [
+    "StirVegetables:execute:240",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 50,
+   "layout": 10,
+   "style": 10,
+   "n": 672,
+   "pick_spatula_end": 511,
+   "after": 161,
+   "after_segs": [
+    "StirVegetables:execute:160",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 51,
+   "layout": 10,
+   "style": 10,
+   "n": 956,
+   "pick_spatula_end": 507,
+   "after": 449,
+   "after_segs": [
+    "StirVegetables:execute:448",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 52,
+   "layout": 4,
+   "style": 4,
+   "n": 999,
+   "pick_spatula_end": 696,
+   "after": 303,
+   "after_segs": [
+    "NavigateKitchen:navigate:75",
+    "StirVegetables:execute:220",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 53,
+   "layout": 4,
+   "style": 4,
+   "n": 1138,
+   "pick_spatula_end": 773,
+   "after": 365,
+   "after_segs": [
+    "NavigateKitchen:navigate:118",
+    "StirVegetables:execute:246",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 54,
+   "layout": 10,
+   "style": 10,
+   "n": 954,
+   "pick_spatula_end": 750,
+   "after": 204,
+   "after_segs": [
+    "StirVegetables:execute:200",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 55,
+   "layout": 1,
+   "style": 1,
+   "n": 937,
+   "pick_spatula_end": 621,
+   "after": 316,
+   "after_segs": [
+    "StirVegetables:execute:315",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 56,
+   "layout": 6,
+   "style": 6,
+   "n": 481,
+   "pick_spatula_end": 386,
+   "after": 95,
+   "after_segs": [
+    "StirVegetables:execute:94",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 57,
+   "layout": 3,
+   "style": 3,
+   "n": 1168,
+   "pick_spatula_end": 704,
+   "after": 464,
+   "after_segs": [
+    "StirVegetables:execute:463",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 58,
+   "layout": 4,
+   "style": 4,
+   "n": 1139,
+   "pick_spatula_end": 771,
+   "after": 368,
+   "after_segs": [
+    "StirVegetables:execute:367",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 59,
+   "layout": 9,
+   "style": 9,
+   "n": 561,
+   "pick_spatula_end": 414,
+   "after": 147,
+   "after_segs": [
+    "StirVegetables:execute:146",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 60,
+   "layout": 2,
+   "style": 2,
+   "n": 716,
+   "pick_spatula_end": 531,
+   "after": 185,
+   "after_segs": [
+    "StirVegetables:execute:184",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 61,
+   "layout": 2,
+   "style": 2,
+   "n": 978,
+   "pick_spatula_end": 515,
+   "after": 463,
+   "after_segs": [
+    "StirVegetables:execute:462",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 62,
+   "layout": 2,
+   "style": 2,
+   "n": 617,
+   "pick_spatula_end": 432,
+   "after": 185,
+   "after_segs": [
+    "StirVegetables:execute:184",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 63,
+   "layout": 7,
+   "style": 7,
+   "n": 848,
+   "pick_spatula_end": 576,
+   "after": 272,
+   "after_segs": [
+    "StirVegetables:execute:266",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 64,
+   "layout": 3,
+   "style": 3,
+   "n": 1086,
+   "pick_spatula_end": 675,
+   "after": 411,
+   "after_segs": [
+    "NavigateKitchen:navigate:129",
+    "StirVegetables:execute:281",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 65,
+   "layout": 6,
+   "style": 6,
+   "n": 804,
+   "pick_spatula_end": 621,
+   "after": 183,
+   "after_segs": [
+    "StirVegetables:execute:182",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 66,
+   "layout": 6,
+   "style": 6,
+   "n": 921,
+   "pick_spatula_end": 685,
+   "after": 236,
+   "after_segs": [
+    "StirVegetables:execute:235",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 67,
+   "layout": 10,
+   "style": 10,
+   "n": 719,
+   "pick_spatula_end": 477,
+   "after": 242,
+   "after_segs": [
+    "StirVegetables:execute:241",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 68,
+   "layout": 5,
+   "style": 5,
+   "n": 1036,
+   "pick_spatula_end": 727,
+   "after": 309,
+   "after_segs": [
+    "NavigateKitchen:navigate:74",
+    "StirVegetables:execute:229",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 69,
+   "layout": 4,
+   "style": 4,
+   "n": 822,
+   "pick_spatula_end": 566,
+   "after": 256,
+   "after_segs": [
+    "NavigateKitchen:navigate:78",
+    "StirVegetables:execute:177",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 70,
+   "layout": 6,
+   "style": 6,
+   "n": 643,
+   "pick_spatula_end": 419,
+   "after": 224,
+   "after_segs": [
+    "StirVegetables:execute:223",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 71,
+   "layout": 9,
+   "style": 9,
+   "n": 891,
+   "pick_spatula_end": 427,
+   "after": 464,
+   "after_segs": [
+    "StirVegetables:execute:463",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 72,
+   "layout": 6,
+   "style": 6,
+   "n": 1202,
+   "pick_spatula_end": 882,
+   "after": 320,
+   "after_segs": [
+    "StirVegetables:execute:319",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 73,
+   "layout": 6,
+   "style": 6,
+   "n": 723,
+   "pick_spatula_end": 408,
+   "after": 315,
+   "after_segs": [
+    "StirVegetables:execute:314",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 74,
+   "layout": 10,
+   "style": 10,
+   "n": 694,
+   "pick_spatula_end": 503,
+   "after": 191,
+   "after_segs": [
+    "StirVegetables:execute:189",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 75,
+   "layout": 4,
+   "style": 4,
+   "n": 1088,
+   "pick_spatula_end": 755,
+   "after": 333,
+   "after_segs": [
+    "NavigateKitchen:navigate:97",
+    "StirVegetables:execute:235",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 76,
+   "layout": 3,
+   "style": 3,
+   "n": 696,
+   "pick_spatula_end": 522,
+   "after": 174,
+   "after_segs": [
+    "StirVegetables:execute:173",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 77,
+   "layout": 9,
+   "style": 9,
+   "n": 838,
+   "pick_spatula_end": 530,
+   "after": 308,
+   "after_segs": [
+    "NavigateKitchen:navigate:62",
+    "StirVegetables:execute:245",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 78,
+   "layout": 10,
+   "style": 10,
+   "n": 1090,
+   "pick_spatula_end": 644,
+   "after": 446,
+   "after_segs": [
+    "NavigateKitchen:navigate:79",
+    "StirVegetables:execute:366",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 79,
+   "layout": 4,
+   "style": 4,
+   "n": 996,
+   "pick_spatula_end": 668,
+   "after": 328,
+   "after_segs": [
+    "StirVegetables:execute:320",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 80,
+   "layout": 4,
+   "style": 4,
+   "n": 639,
+   "pick_spatula_end": 496,
+   "after": 143,
+   "after_segs": [
+    "StirVegetables:execute:135",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 81,
+   "layout": 6,
+   "style": 6,
+   "n": 1313,
+   "pick_spatula_end": 839,
+   "after": 474,
+   "after_segs": [
+    "StirVegetables:execute:470",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 82,
+   "layout": 9,
+   "style": 9,
+   "n": 663,
+   "pick_spatula_end": 464,
+   "after": 199,
+   "after_segs": [
+    "StirVegetables:execute:198",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 83,
+   "layout": 5,
+   "style": 5,
+   "n": 1290,
+   "pick_spatula_end": 912,
+   "after": 378,
+   "after_segs": [
+    "StirVegetables:execute:377",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 84,
+   "layout": 2,
+   "style": 2,
+   "n": 764,
+   "pick_spatula_end": 529,
+   "after": 235,
+   "after_segs": [
+    "StirVegetables:execute:234",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 85,
+   "layout": 3,
+   "style": 3,
+   "n": 685,
+   "pick_spatula_end": 406,
+   "after": 279,
+   "after_segs": [
+    "StirVegetables:execute:278",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 86,
+   "layout": 7,
+   "style": 7,
+   "n": 807,
+   "pick_spatula_end": 444,
+   "after": 363,
+   "after_segs": [
+    "StirVegetables:execute:360",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 87,
+   "layout": 6,
+   "style": 6,
+   "n": 773,
+   "pick_spatula_end": 581,
+   "after": 192,
+   "after_segs": [
+    "NavigateKitchen:navigate:68",
+    "StirVegetables:execute:122",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 88,
+   "layout": 6,
+   "style": 6,
+   "n": 682,
+   "pick_spatula_end": 551,
+   "after": 131,
+   "after_segs": [
+    "StirVegetables:execute:123",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 89,
+   "layout": 1,
+   "style": 1,
+   "n": 686,
+   "pick_spatula_end": 421,
+   "after": 265,
+   "after_segs": [
+    "StirVegetables:execute:264",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 90,
+   "layout": 10,
+   "style": 10,
+   "n": 766,
+   "pick_spatula_end": 527,
+   "after": 239,
+   "after_segs": [
+    "StirVegetables:execute:238",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 91,
+   "layout": 10,
+   "style": 10,
+   "n": 740,
+   "pick_spatula_end": 491,
+   "after": 249,
+   "after_segs": [
+    "StirVegetables:execute:246",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 92,
+   "layout": 4,
+   "style": 4,
+   "n": 807,
+   "pick_spatula_end": 581,
+   "after": 226,
+   "after_segs": [
+    "NavigateKitchen:navigate:109",
+    "StirVegetables:execute:116",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 93,
+   "layout": 5,
+   "style": 5,
+   "n": 761,
+   "pick_spatula_end": 613,
+   "after": 148,
+   "after_segs": [
+    "StirVegetables:execute:143",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 94,
+   "layout": 1,
+   "style": 1,
+   "n": 1053,
+   "pick_spatula_end": 780,
+   "after": 273,
+   "after_segs": [
+    "StirVegetables:execute:272",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 95,
+   "layout": 5,
+   "style": 5,
+   "n": 668,
+   "pick_spatula_end": 442,
+   "after": 226,
+   "after_segs": [
+    "StirVegetables:execute:225",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 96,
+   "layout": 9,
+   "style": 9,
+   "n": 881,
+   "pick_spatula_end": 579,
+   "after": 302,
+   "after_segs": [
+    "NavigateKitchen:navigate:90",
+    "StirVegetables:execute:210",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 97,
+   "layout": 7,
+   "style": 7,
+   "n": 656,
+   "pick_spatula_end": 456,
+   "after": 200,
+   "after_segs": [
+    "StirVegetables:execute:194",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 98,
+   "layout": 1,
+   "style": 1,
+   "n": 808,
+   "pick_spatula_end": 563,
+   "after": 245,
+   "after_segs": [
+    "StirVegetables:execute:244",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 99,
+   "layout": 9,
+   "style": 9,
+   "n": 496,
+   "pick_spatula_end": 334,
+   "after": 162,
+   "after_segs": [
+    "StirVegetables:execute:161",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 100,
+   "layout": 3,
+   "style": 3,
+   "n": 916,
+   "pick_spatula_end": 641,
+   "after": 275,
+   "after_segs": [
+    "StirVegetables:execute:274",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 101,
+   "layout": 9,
+   "style": 9,
+   "n": 520,
+   "pick_spatula_end": 412,
+   "after": 108,
+   "after_segs": [
+    "StirVegetables:execute:107",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 102,
+   "layout": 9,
+   "style": 9,
+   "n": 522,
+   "pick_spatula_end": 313,
+   "after": 209,
+   "after_segs": [
+    "StirVegetables:execute:207",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 103,
+   "layout": 1,
+   "style": 1,
+   "n": 838,
+   "pick_spatula_end": 681,
+   "after": 157,
+   "after_segs": [
+    "StirVegetables:execute:153",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 104,
+   "layout": 10,
+   "style": 10,
+   "n": 809,
+   "pick_spatula_end": 516,
+   "after": 293,
+   "after_segs": [
+    "NavigateKitchen:navigate:65",
+    "StirVegetables:execute:227",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 105,
+   "layout": 3,
+   "style": 3,
+   "n": 867,
+   "pick_spatula_end": 599,
+   "after": 268,
+   "after_segs": [
+    "StirVegetables:execute:263",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 106,
+   "layout": 5,
+   "style": 5,
+   "n": 1284,
+   "pick_spatula_end": 853,
+   "after": 431,
+   "after_segs": [
+    "NavigateKitchen:navigate:133",
+    "StirVegetables:execute:297",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 107,
+   "layout": 1,
+   "style": 1,
+   "n": 937,
+   "pick_spatula_end": 748,
+   "after": 189,
+   "after_segs": [
+    "StirVegetables:execute:188",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 108,
+   "layout": 4,
+   "style": 4,
+   "n": 770,
+   "pick_spatula_end": 611,
+   "after": 159,
+   "after_segs": [
+    "StirVegetables:execute:158",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 109,
+   "layout": 3,
+   "style": 3,
+   "n": 765,
+   "pick_spatula_end": 573,
+   "after": 192,
+   "after_segs": [
+    "StirVegetables:execute:191",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 110,
+   "layout": 1,
+   "style": 1,
+   "n": 730,
+   "pick_spatula_end": 511,
+   "after": 219,
+   "after_segs": [
+    "StirVegetables:execute:216",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 111,
+   "layout": 5,
+   "style": 5,
+   "n": 785,
+   "pick_spatula_end": 585,
+   "after": 200,
+   "after_segs": [
+    "StirVegetables:execute:199",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 112,
+   "layout": 7,
+   "style": 7,
+   "n": 844,
+   "pick_spatula_end": 404,
+   "after": 440,
+   "after_segs": [
+    "StirVegetables:execute:438",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 113,
+   "layout": 5,
+   "style": 5,
+   "n": 726,
+   "pick_spatula_end": 532,
+   "after": 194,
+   "after_segs": [
+    "StirVegetables:execute:190",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 114,
+   "layout": 3,
+   "style": 3,
+   "n": 712,
+   "pick_spatula_end": 432,
+   "after": 280,
+   "after_segs": [
+    "NavigateKitchen:navigate:73",
+    "StirVegetables:execute:202",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 115,
+   "layout": 8,
+   "style": 8,
+   "n": 758,
+   "pick_spatula_end": 580,
+   "after": 178,
+   "after_segs": [
+    "StirVegetables:execute:171",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 116,
+   "layout": 7,
+   "style": 7,
+   "n": 744,
+   "pick_spatula_end": 533,
+   "after": 211,
+   "after_segs": [
+    "StirVegetables:execute:210",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 117,
+   "layout": 3,
+   "style": 3,
+   "n": 1058,
+   "pick_spatula_end": 649,
+   "after": 409,
+   "after_segs": [
+    "StirVegetables:execute:408",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 118,
+   "layout": 10,
+   "style": 10,
+   "n": 803,
+   "pick_spatula_end": 572,
+   "after": 231,
+   "after_segs": [
+    "StirVegetables:execute:230",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 119,
+   "layout": 6,
+   "style": 6,
+   "n": 557,
+   "pick_spatula_end": 412,
+   "after": 145,
+   "after_segs": [
+    "StirVegetables:execute:144",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 120,
+   "layout": 9,
+   "style": 9,
+   "n": 837,
+   "pick_spatula_end": 464,
+   "after": 373,
+   "after_segs": [
+    "StirVegetables:execute:372",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 121,
+   "layout": 3,
+   "style": 3,
+   "n": 954,
+   "pick_spatula_end": 743,
+   "after": 211,
+   "after_segs": [
+    "StirVegetables:execute:207",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 122,
+   "layout": 4,
+   "style": 4,
+   "n": 758,
+   "pick_spatula_end": 589,
+   "after": 169,
+   "after_segs": [
+    "StirVegetables:execute:168",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 123,
+   "layout": 7,
+   "style": 7,
+   "n": 651,
+   "pick_spatula_end": 446,
+   "after": 205,
+   "after_segs": [
+    "StirVegetables:execute:198",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 124,
+   "layout": 9,
+   "style": 9,
+   "n": 666,
+   "pick_spatula_end": 408,
+   "after": 258,
+   "after_segs": [
+    "StirVegetables:execute:257",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 125,
+   "layout": 8,
+   "style": 8,
+   "n": 867,
+   "pick_spatula_end": 599,
+   "after": 268,
+   "after_segs": [
+    "StirVegetables:execute:266",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 126,
+   "layout": 7,
+   "style": 7,
+   "n": 1030,
+   "pick_spatula_end": 638,
+   "after": 392,
+   "after_segs": [
+    "StirVegetables:execute:387",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 127,
+   "layout": 10,
+   "style": 10,
+   "n": 651,
+   "pick_spatula_end": 479,
+   "after": 172,
+   "after_segs": [
+    "StirVegetables:execute:171",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 128,
+   "layout": 7,
+   "style": 7,
+   "n": 1068,
+   "pick_spatula_end": 669,
+   "after": 399,
+   "after_segs": [
+    "StirVegetables:execute:398",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 129,
+   "layout": 3,
+   "style": 3,
+   "n": 638,
+   "pick_spatula_end": 508,
+   "after": 130,
+   "after_segs": [
+    "StirVegetables:execute:128",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 130,
+   "layout": 3,
+   "style": 3,
+   "n": 694,
+   "pick_spatula_end": 420,
+   "after": 274,
+   "after_segs": [
+    "StirVegetables:execute:273",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 131,
+   "layout": 1,
+   "style": 1,
+   "n": 893,
+   "pick_spatula_end": 512,
+   "after": 381,
+   "after_segs": [
+    "StirVegetables:execute:380",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 132,
+   "layout": 4,
+   "style": 4,
+   "n": 757,
+   "pick_spatula_end": 531,
+   "after": 226,
+   "after_segs": [
+    "StirVegetables:execute:225",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 133,
+   "layout": 10,
+   "style": 10,
+   "n": 636,
+   "pick_spatula_end": 407,
+   "after": 229,
+   "after_segs": [
+    "StirVegetables:execute:228",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 134,
+   "layout": 8,
+   "style": 8,
+   "n": 958,
+   "pick_spatula_end": 644,
+   "after": 314,
+   "after_segs": [
+    "NavigateKitchen:navigate:109",
+    "StirVegetables:execute:204",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 135,
+   "layout": 9,
+   "style": 9,
+   "n": 1343,
+   "pick_spatula_end": 829,
+   "after": 514,
+   "after_segs": [
+    "StirVegetables:execute:513",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 136,
+   "layout": 10,
+   "style": 10,
+   "n": 795,
+   "pick_spatula_end": 507,
+   "after": 288,
+   "after_segs": [
+    "StirVegetables:execute:280",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 137,
+   "layout": 8,
+   "style": 8,
+   "n": 706,
+   "pick_spatula_end": 537,
+   "after": 169,
+   "after_segs": [
+    "StirVegetables:execute:168",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 138,
+   "layout": 3,
+   "style": 3,
+   "n": 749,
+   "pick_spatula_end": 539,
+   "after": 210,
+   "after_segs": [
+    "StirVegetables:execute:202",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 139,
+   "layout": 3,
+   "style": 3,
+   "n": 808,
+   "pick_spatula_end": 587,
+   "after": 221,
+   "after_segs": [
+    "StirVegetables:execute:217",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 140,
+   "layout": 2,
+   "style": 2,
+   "n": 879,
+   "pick_spatula_end": 705,
+   "after": 174,
+   "after_segs": [
+    "StirVegetables:execute:173",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 141,
+   "layout": 4,
+   "style": 4,
+   "n": 1186,
+   "pick_spatula_end": 665,
+   "after": 521,
+   "after_segs": [
+    "StirVegetables:execute:520",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 142,
+   "layout": 4,
+   "style": 4,
+   "n": 787,
+   "pick_spatula_end": 585,
+   "after": 202,
+   "after_segs": [
+    "StirVegetables:execute:201",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 143,
+   "layout": 1,
+   "style": 1,
+   "n": 932,
+   "pick_spatula_end": 721,
+   "after": 211,
+   "after_segs": [
+    "StirVegetables:execute:209",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 144,
+   "layout": 9,
+   "style": 9,
+   "n": 533,
+   "pick_spatula_end": 419,
+   "after": 114,
+   "after_segs": [
+    "StirVegetables:execute:113",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 145,
+   "layout": 3,
+   "style": 3,
+   "n": 913,
+   "pick_spatula_end": 591,
+   "after": 322,
+   "after_segs": [
+    "StirVegetables:execute:321",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 146,
+   "layout": 8,
+   "style": 8,
+   "n": 1134,
+   "pick_spatula_end": 738,
+   "after": 396,
+   "after_segs": [
+    "StirVegetables:execute:395",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 147,
+   "layout": 2,
+   "style": 2,
+   "n": 738,
+   "pick_spatula_end": 562,
+   "after": 176,
+   "after_segs": [
+    "StirVegetables:execute:175",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 148,
+   "layout": 3,
+   "style": 3,
+   "n": 805,
+   "pick_spatula_end": 560,
+   "after": 245,
+   "after_segs": [
+    "StirVegetables:execute:244",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 149,
+   "layout": 2,
+   "style": 2,
+   "n": 970,
+   "pick_spatula_end": 670,
+   "after": 300,
+   "after_segs": [
+    "NavigateKitchen:navigate:110",
+    "StirVegetables:execute:189",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 150,
+   "layout": 3,
+   "style": 3,
+   "n": 809,
+   "pick_spatula_end": 503,
+   "after": 306,
+   "after_segs": [
+    "StirVegetables:execute:300",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 151,
+   "layout": 2,
+   "style": 2,
+   "n": 773,
+   "pick_spatula_end": 629,
+   "after": 144,
+   "after_segs": [
+    "StirVegetables:execute:143",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 152,
+   "layout": 6,
+   "style": 6,
+   "n": 489,
+   "pick_spatula_end": 340,
+   "after": 149,
+   "after_segs": [
+    "StirVegetables:execute:147",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 153,
+   "layout": 9,
+   "style": 9,
+   "n": 712,
+   "pick_spatula_end": 507,
+   "after": 205,
+   "after_segs": [
+    "StirVegetables:execute:202",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 154,
+   "layout": 3,
+   "style": 3,
+   "n": 822,
+   "pick_spatula_end": 567,
+   "after": 255,
+   "after_segs": [
+    "StirVegetables:execute:249",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 155,
+   "layout": 8,
+   "style": 8,
+   "n": 795,
+   "pick_spatula_end": 577,
+   "after": 218,
+   "after_segs": [
+    "StirVegetables:execute:217",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 156,
+   "layout": 9,
+   "style": 9,
+   "n": 686,
+   "pick_spatula_end": 394,
+   "after": 292,
+   "after_segs": [
+    "StirVegetables:execute:291",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 157,
+   "layout": 10,
+   "style": 10,
+   "n": 639,
+   "pick_spatula_end": 519,
+   "after": 120,
+   "after_segs": [
+    "StirVegetables:execute:119",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 158,
+   "layout": 3,
+   "style": 3,
+   "n": 697,
+   "pick_spatula_end": 488,
+   "after": 209,
+   "after_segs": [
+    "StirVegetables:execute:208",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 159,
+   "layout": 7,
+   "style": 7,
+   "n": 698,
+   "pick_spatula_end": 516,
+   "after": 182,
+   "after_segs": [
+    "StirVegetables:execute:181",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 160,
+   "layout": 8,
+   "style": 8,
+   "n": 575,
+   "pick_spatula_end": 401,
+   "after": 174,
+   "after_segs": [
+    "StirVegetables:execute:173",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 161,
+   "layout": 4,
+   "style": 4,
+   "n": 639,
+   "pick_spatula_end": 477,
+   "after": 162,
+   "after_segs": [
+    "StirVegetables:execute:160",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 162,
+   "layout": 5,
+   "style": 5,
+   "n": 880,
+   "pick_spatula_end": 639,
+   "after": 241,
+   "after_segs": [
+    "StirVegetables:execute:240",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 163,
+   "layout": 4,
+   "style": 4,
+   "n": 944,
+   "pick_spatula_end": 613,
+   "after": 331,
+   "after_segs": [
+    "StirVegetables:execute:328",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 164,
+   "layout": 7,
+   "style": 7,
+   "n": 601,
+   "pick_spatula_end": 488,
+   "after": 113,
+   "after_segs": [
+    "StirVegetables:execute:112",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 165,
+   "layout": 9,
+   "style": 9,
+   "n": 866,
+   "pick_spatula_end": 700,
+   "after": 166,
+   "after_segs": [
+    "StirVegetables:execute:165",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 166,
+   "layout": 9,
+   "style": 9,
+   "n": 762,
+   "pick_spatula_end": 539,
+   "after": 223,
+   "after_segs": [
+    "StirVegetables:execute:222",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 167,
+   "layout": 5,
+   "style": 5,
+   "n": 843,
+   "pick_spatula_end": 521,
+   "after": 322,
+   "after_segs": [
+    "StirVegetables:execute:321",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 168,
+   "layout": 5,
+   "style": 5,
+   "n": 1326,
+   "pick_spatula_end": 1052,
+   "after": 274,
+   "after_segs": [
+    "StirVegetables:execute:273",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 169,
+   "layout": 1,
+   "style": 1,
+   "n": 900,
+   "pick_spatula_end": 714,
+   "after": 186,
+   "after_segs": [
+    "StirVegetables:execute:185",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 170,
+   "layout": 7,
+   "style": 7,
+   "n": 673,
+   "pick_spatula_end": 501,
+   "after": 172,
+   "after_segs": [
+    "StirVegetables:execute:170",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 171,
+   "layout": 10,
+   "style": 10,
+   "n": 632,
+   "pick_spatula_end": 399,
+   "after": 233,
+   "after_segs": [
+    "StirVegetables:execute:232",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 172,
+   "layout": 10,
+   "style": 10,
+   "n": 656,
+   "pick_spatula_end": 503,
+   "after": 153,
+   "after_segs": [
+    "StirVegetables:execute:151",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 173,
+   "layout": 6,
+   "style": 6,
+   "n": 850,
+   "pick_spatula_end": 647,
+   "after": 203,
+   "after_segs": [
+    "StirVegetables:execute:202",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 174,
+   "layout": 6,
+   "style": 6,
+   "n": 642,
+   "pick_spatula_end": 467,
+   "after": 175,
+   "after_segs": [
+    "StirVegetables:execute:174",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 175,
+   "layout": 4,
+   "style": 4,
+   "n": 660,
+   "pick_spatula_end": 478,
+   "after": 182,
+   "after_segs": [
+    "StirVegetables:execute:181",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 176,
+   "layout": 9,
+   "style": 9,
+   "n": 908,
+   "pick_spatula_end": 578,
+   "after": 330,
+   "after_segs": [
+    "NavigateKitchen:navigate:77",
+    "StirVegetables:execute:247",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 177,
+   "layout": 2,
+   "style": 2,
+   "n": 986,
+   "pick_spatula_end": 552,
+   "after": 434,
+   "after_segs": [
+    "StirVegetables:execute:433",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 178,
+   "layout": 4,
+   "style": 4,
+   "n": 679,
+   "pick_spatula_end": 457,
+   "after": 222,
+   "after_segs": [
+    "StirVegetables:execute:221",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 179,
+   "layout": 2,
+   "style": 2,
+   "n": 969,
+   "pick_spatula_end": 631,
+   "after": 338,
+   "after_segs": [
+    "NavigateKitchen:navigate:166",
+    "StirVegetables:execute:171",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 180,
+   "layout": 1,
+   "style": 1,
+   "n": 771,
+   "pick_spatula_end": 584,
+   "after": 187,
+   "after_segs": [
+    "StirVegetables:execute:186",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 181,
+   "layout": 5,
+   "style": 5,
+   "n": 511,
+   "pick_spatula_end": 386,
+   "after": 125,
+   "after_segs": [
+    "StirVegetables:execute:124",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 182,
+   "layout": 9,
+   "style": 9,
+   "n": 648,
+   "pick_spatula_end": 431,
+   "after": 217,
+   "after_segs": [
+    "StirVegetables:execute:216",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 183,
+   "layout": 6,
+   "style": 6,
+   "n": 593,
+   "pick_spatula_end": 416,
+   "after": 177,
+   "after_segs": [
+    "StirVegetables:execute:170",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 184,
+   "layout": 4,
+   "style": 4,
+   "n": 940,
+   "pick_spatula_end": 663,
+   "after": 277,
+   "after_segs": [
+    "NavigateKitchen:navigate:99",
+    "StirVegetables:execute:177",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 185,
+   "layout": 4,
+   "style": 4,
+   "n": 786,
+   "pick_spatula_end": 544,
+   "after": 242,
+   "after_segs": [
+    "StirVegetables:execute:235",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 186,
+   "layout": 5,
+   "style": 5,
+   "n": 513,
+   "pick_spatula_end": 451,
+   "after": 62,
+   "after_segs": [
+    "StirVegetables:execute:61",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 187,
+   "layout": 2,
+   "style": 2,
+   "n": 1135,
+   "pick_spatula_end": 872,
+   "after": 263,
+   "after_segs": [
+    "StirVegetables:execute:262",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 188,
+   "layout": 1,
+   "style": 1,
+   "n": 866,
+   "pick_spatula_end": 552,
+   "after": 314,
+   "after_segs": [
+    "StirVegetables:execute:313",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 189,
+   "layout": 10,
+   "style": 10,
+   "n": 492,
+   "pick_spatula_end": 326,
+   "after": 166,
+   "after_segs": [
+    "StirVegetables:execute:165",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 190,
+   "layout": 7,
+   "style": 7,
+   "n": 1034,
+   "pick_spatula_end": 643,
+   "after": 391,
+   "after_segs": [
+    "NavigateKitchen:navigate:116",
+    "StirVegetables:execute:274",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 191,
+   "layout": 7,
+   "style": 7,
+   "n": 766,
+   "pick_spatula_end": 479,
+   "after": 287,
+   "after_segs": [
+    "StirVegetables:execute:279",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 192,
+   "layout": 5,
+   "style": 5,
+   "n": 871,
+   "pick_spatula_end": 565,
+   "after": 306,
+   "after_segs": [
+    "StirVegetables:execute:305",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 193,
+   "layout": 5,
+   "style": 5,
+   "n": 894,
+   "pick_spatula_end": 577,
+   "after": 317,
+   "after_segs": [
+    "StirVegetables:execute:314",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 194,
+   "layout": 7,
+   "style": 7,
+   "n": 651,
+   "pick_spatula_end": 415,
+   "after": 236,
+   "after_segs": [
+    "StirVegetables:execute:233",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 195,
+   "layout": 7,
+   "style": 7,
+   "n": 791,
+   "pick_spatula_end": 596,
+   "after": 195,
+   "after_segs": [
+    "StirVegetables:execute:187",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 196,
+   "layout": 4,
+   "style": 4,
+   "n": 542,
+   "pick_spatula_end": 404,
+   "after": 138,
+   "after_segs": [
+    "StirVegetables:execute:137",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 197,
+   "layout": 7,
+   "style": 7,
+   "n": 583,
+   "pick_spatula_end": 459,
+   "after": 124,
+   "after_segs": [
+    "StirVegetables:execute:123",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 198,
+   "layout": 1,
+   "style": 1,
+   "n": 867,
+   "pick_spatula_end": 592,
+   "after": 275,
+   "after_segs": [
+    "StirVegetables:execute:274",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 199,
+   "layout": 6,
+   "style": 6,
+   "n": 708,
+   "pick_spatula_end": 509,
+   "after": 199,
+   "after_segs": [
+    "StirVegetables:execute:198",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 200,
+   "layout": 2,
+   "style": 2,
+   "n": 938,
+   "pick_spatula_end": 733,
+   "after": 205,
+   "after_segs": [
+    "StirVegetables:execute:196",
+    "done:done:9"
+   ]
+  },
+  {
+   "ep": 201,
+   "layout": 2,
+   "style": 2,
+   "n": 827,
+   "pick_spatula_end": 509,
+   "after": 318,
+   "after_segs": [
+    "NavigateKitchen:navigate:101",
+    "StirVegetables:execute:210",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 202,
+   "layout": 9,
+   "style": 9,
+   "n": 695,
+   "pick_spatula_end": 523,
+   "after": 172,
+   "after_segs": [
+    "StirVegetables:execute:171",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 203,
+   "layout": 7,
+   "style": 7,
+   "n": 703,
+   "pick_spatula_end": 496,
+   "after": 207,
+   "after_segs": [
+    "StirVegetables:execute:206",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 204,
+   "layout": 5,
+   "style": 5,
+   "n": 952,
+   "pick_spatula_end": 693,
+   "after": 259,
+   "after_segs": [
+    "NavigateKitchen:navigate:110",
+    "StirVegetables:execute:148",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 205,
+   "layout": 1,
+   "style": 1,
+   "n": 961,
+   "pick_spatula_end": 646,
+   "after": 315,
+   "after_segs": [
+    "StirVegetables:execute:314",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 206,
+   "layout": 9,
+   "style": 9,
+   "n": 543,
+   "pick_spatula_end": 303,
+   "after": 240,
+   "after_segs": [
+    "StirVegetables:execute:237",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 207,
+   "layout": 9,
+   "style": 9,
+   "n": 697,
+   "pick_spatula_end": 426,
+   "after": 271,
+   "after_segs": [
+    "StirVegetables:execute:270",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 208,
+   "layout": 8,
+   "style": 8,
+   "n": 661,
+   "pick_spatula_end": 499,
+   "after": 162,
+   "after_segs": [
+    "StirVegetables:execute:157",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 209,
+   "layout": 10,
+   "style": 10,
+   "n": 941,
+   "pick_spatula_end": 645,
+   "after": 296,
+   "after_segs": [
+    "NavigateKitchen:navigate:101",
+    "StirVegetables:execute:191",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 210,
+   "layout": 7,
+   "style": 7,
+   "n": 678,
+   "pick_spatula_end": 378,
+   "after": 300,
+   "after_segs": [
+    "StirVegetables:execute:294",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 211,
+   "layout": 8,
+   "style": 8,
+   "n": 904,
+   "pick_spatula_end": 614,
+   "after": 290,
+   "after_segs": [
+    "StirVegetables:execute:289",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 212,
+   "layout": 7,
+   "style": 7,
+   "n": 878,
+   "pick_spatula_end": 521,
+   "after": 357,
+   "after_segs": [
+    "StirVegetables:execute:351",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 213,
+   "layout": 9,
+   "style": 9,
+   "n": 569,
+   "pick_spatula_end": 330,
+   "after": 239,
+   "after_segs": [
+    "StirVegetables:execute:238",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 214,
+   "layout": 6,
+   "style": 6,
+   "n": 667,
+   "pick_spatula_end": 522,
+   "after": 145,
+   "after_segs": [
+    "StirVegetables:execute:144",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 215,
+   "layout": 10,
+   "style": 10,
+   "n": 548,
+   "pick_spatula_end": 387,
+   "after": 161,
+   "after_segs": [
+    "StirVegetables:execute:160",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 216,
+   "layout": 6,
+   "style": 6,
+   "n": 901,
+   "pick_spatula_end": 662,
+   "after": 239,
+   "after_segs": [
+    "StirVegetables:execute:238",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 217,
+   "layout": 6,
+   "style": 6,
+   "n": 862,
+   "pick_spatula_end": 585,
+   "after": 277,
+   "after_segs": [
+    "StirVegetables:execute:276",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 218,
+   "layout": 8,
+   "style": 8,
+   "n": 683,
+   "pick_spatula_end": 542,
+   "after": 141,
+   "after_segs": [
+    "StirVegetables:execute:140",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 219,
+   "layout": 3,
+   "style": 3,
+   "n": 707,
+   "pick_spatula_end": 567,
+   "after": 140,
+   "after_segs": [
+    "StirVegetables:execute:139",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 220,
+   "layout": 9,
+   "style": 9,
+   "n": 702,
+   "pick_spatula_end": 426,
+   "after": 276,
+   "after_segs": [
+    "StirVegetables:execute:268",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 221,
+   "layout": 6,
+   "style": 6,
+   "n": 741,
+   "pick_spatula_end": 547,
+   "after": 194,
+   "after_segs": [
+    "StirVegetables:execute:193",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 222,
+   "layout": 6,
+   "style": 6,
+   "n": 651,
+   "pick_spatula_end": 463,
+   "after": 188,
+   "after_segs": [
+    "StirVegetables:execute:187",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 223,
+   "layout": 4,
+   "style": 4,
+   "n": 938,
+   "pick_spatula_end": 623,
+   "after": 315,
+   "after_segs": [
+    "StirVegetables:execute:311",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 224,
+   "layout": 9,
+   "style": 9,
+   "n": 501,
+   "pick_spatula_end": 393,
+   "after": 108,
+   "after_segs": [
+    "StirVegetables:execute:107",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 225,
+   "layout": 2,
+   "style": 2,
+   "n": 886,
+   "pick_spatula_end": 601,
+   "after": 285,
+   "after_segs": [
+    "NavigateKitchen:navigate:105",
+    "StirVegetables:execute:179",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 226,
+   "layout": 2,
+   "style": 2,
+   "n": 1143,
+   "pick_spatula_end": 804,
+   "after": 339,
+   "after_segs": [
+    "NavigateKitchen:navigate:147",
+    "StirVegetables:execute:191",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 227,
+   "layout": 6,
+   "style": 6,
+   "n": 628,
+   "pick_spatula_end": 353,
+   "after": 275,
+   "after_segs": [
+    "StirVegetables:execute:274",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 228,
+   "layout": 10,
+   "style": 10,
+   "n": 811,
+   "pick_spatula_end": 644,
+   "after": 167,
+   "after_segs": [
+    "NavigateKitchen:navigate:77",
+    "StirVegetables:execute:83",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 229,
+   "layout": 4,
+   "style": 4,
+   "n": 607,
+   "pick_spatula_end": 374,
+   "after": 233,
+   "after_segs": [
+    "StirVegetables:execute:230",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 230,
+   "layout": 3,
+   "style": 3,
+   "n": 813,
+   "pick_spatula_end": 353,
+   "after": 460,
+   "after_segs": [
+    "StirVegetables:execute:459",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 231,
+   "layout": 7,
+   "style": 7,
+   "n": 779,
+   "pick_spatula_end": 470,
+   "after": 309,
+   "after_segs": [
+    "StirVegetables:execute:308",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 232,
+   "layout": 5,
+   "style": 5,
+   "n": 1146,
+   "pick_spatula_end": 769,
+   "after": 377,
+   "after_segs": [
+    "NavigateKitchen:navigate:182",
+    "StirVegetables:execute:194",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 233,
+   "layout": 4,
+   "style": 4,
+   "n": 625,
+   "pick_spatula_end": 416,
+   "after": 209,
+   "after_segs": [
+    "StirVegetables:execute:208",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 234,
+   "layout": 6,
+   "style": 6,
+   "n": 689,
+   "pick_spatula_end": 449,
+   "after": 240,
+   "after_segs": [
+    "StirVegetables:execute:239",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 235,
+   "layout": 9,
+   "style": 9,
+   "n": 452,
+   "pick_spatula_end": 303,
+   "after": 149,
+   "after_segs": [
+    "StirVegetables:execute:141",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 236,
+   "layout": 8,
+   "style": 8,
+   "n": 714,
+   "pick_spatula_end": 482,
+   "after": 232,
+   "after_segs": [
+    "StirVegetables:execute:228",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 237,
+   "layout": 3,
+   "style": 3,
+   "n": 734,
+   "pick_spatula_end": 503,
+   "after": 231,
+   "after_segs": [
+    "StirVegetables:execute:229",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 238,
+   "layout": 7,
+   "style": 7,
+   "n": 953,
+   "pick_spatula_end": 678,
+   "after": 275,
+   "after_segs": [
+    "StirVegetables:execute:274",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 239,
+   "layout": 7,
+   "style": 7,
+   "n": 660,
+   "pick_spatula_end": 531,
+   "after": 129,
+   "after_segs": [
+    "StirVegetables:execute:128",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 240,
+   "layout": 8,
+   "style": 8,
+   "n": 710,
+   "pick_spatula_end": 475,
+   "after": 235,
+   "after_segs": [
+    "StirVegetables:execute:234",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 241,
+   "layout": 4,
+   "style": 4,
+   "n": 560,
+   "pick_spatula_end": 419,
+   "after": 141,
+   "after_segs": [
+    "StirVegetables:execute:139",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 242,
+   "layout": 3,
+   "style": 3,
+   "n": 585,
+   "pick_spatula_end": 459,
+   "after": 126,
+   "after_segs": [
+    "StirVegetables:execute:125",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 243,
+   "layout": 5,
+   "style": 5,
+   "n": 720,
+   "pick_spatula_end": 553,
+   "after": 167,
+   "after_segs": [
+    "StirVegetables:execute:166",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 244,
+   "layout": 4,
+   "style": 4,
+   "n": 742,
+   "pick_spatula_end": 598,
+   "after": 144,
+   "after_segs": [
+    "StirVegetables:execute:143",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 245,
+   "layout": 10,
+   "style": 10,
+   "n": 746,
+   "pick_spatula_end": 502,
+   "after": 244,
+   "after_segs": [
+    "StirVegetables:execute:243",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 246,
+   "layout": 6,
+   "style": 6,
+   "n": 859,
+   "pick_spatula_end": 492,
+   "after": 367,
+   "after_segs": [
+    "StirVegetables:execute:363",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 247,
+   "layout": 6,
+   "style": 6,
+   "n": 772,
+   "pick_spatula_end": 495,
+   "after": 277,
+   "after_segs": [
+    "StirVegetables:execute:276",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 248,
+   "layout": 4,
+   "style": 4,
+   "n": 902,
+   "pick_spatula_end": 710,
+   "after": 192,
+   "after_segs": [
+    "StirVegetables:execute:191",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 249,
+   "layout": 4,
+   "style": 4,
+   "n": 811,
+   "pick_spatula_end": 511,
+   "after": 300,
+   "after_segs": [
+    "StirVegetables:execute:299",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 250,
+   "layout": 7,
+   "style": 7,
+   "n": 685,
+   "pick_spatula_end": 497,
+   "after": 188,
+   "after_segs": [
+    "StirVegetables:execute:187",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 251,
+   "layout": 1,
+   "style": 1,
+   "n": 752,
+   "pick_spatula_end": 586,
+   "after": 166,
+   "after_segs": [
+    "StirVegetables:execute:165",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 252,
+   "layout": 4,
+   "style": 4,
+   "n": 893,
+   "pick_spatula_end": 523,
+   "after": 370,
+   "after_segs": [
+    "StirVegetables:execute:369",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 253,
+   "layout": 10,
+   "style": 10,
+   "n": 759,
+   "pick_spatula_end": 459,
+   "after": 300,
+   "after_segs": [
+    "StirVegetables:execute:292",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 254,
+   "layout": 9,
+   "style": 9,
+   "n": 503,
+   "pick_spatula_end": 338,
+   "after": 165,
+   "after_segs": [
+    "StirVegetables:execute:164",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 255,
+   "layout": 1,
+   "style": 1,
+   "n": 1457,
+   "pick_spatula_end": 854,
+   "after": 603,
+   "after_segs": [
+    "NavigateKitchen:navigate:213",
+    "StirVegetables:execute:389",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 256,
+   "layout": 10,
+   "style": 10,
+   "n": 647,
+   "pick_spatula_end": 453,
+   "after": 194,
+   "after_segs": [
+    "StirVegetables:execute:193",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 257,
+   "layout": 1,
+   "style": 1,
+   "n": 1110,
+   "pick_spatula_end": 710,
+   "after": 400,
+   "after_segs": [
+    "StirVegetables:execute:399",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 258,
+   "layout": 3,
+   "style": 3,
+   "n": 656,
+   "pick_spatula_end": 488,
+   "after": 168,
+   "after_segs": [
+    "StirVegetables:execute:167",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 259,
+   "layout": 2,
+   "style": 2,
+   "n": 592,
+   "pick_spatula_end": 436,
+   "after": 156,
+   "after_segs": [
+    "StirVegetables:execute:148",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 260,
+   "layout": 7,
+   "style": 7,
+   "n": 666,
+   "pick_spatula_end": 507,
+   "after": 159,
+   "after_segs": [
+    "StirVegetables:execute:155",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 261,
+   "layout": 8,
+   "style": 8,
+   "n": 704,
+   "pick_spatula_end": 428,
+   "after": 276,
+   "after_segs": [
+    "StirVegetables:execute:275",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 262,
+   "layout": 8,
+   "style": 8,
+   "n": 627,
+   "pick_spatula_end": 494,
+   "after": 133,
+   "after_segs": [
+    "StirVegetables:execute:125",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 263,
+   "layout": 1,
+   "style": 1,
+   "n": 777,
+   "pick_spatula_end": 555,
+   "after": 222,
+   "after_segs": [
+    "StirVegetables:execute:221",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 264,
+   "layout": 8,
+   "style": 8,
+   "n": 884,
+   "pick_spatula_end": 580,
+   "after": 304,
+   "after_segs": [
+    "StirVegetables:execute:303",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 265,
+   "layout": 4,
+   "style": 4,
+   "n": 1068,
+   "pick_spatula_end": 822,
+   "after": 246,
+   "after_segs": [
+    "StirVegetables:execute:245",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 266,
+   "layout": 4,
+   "style": 4,
+   "n": 620,
+   "pick_spatula_end": 495,
+   "after": 125,
+   "after_segs": [
+    "StirVegetables:execute:124",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 267,
+   "layout": 1,
+   "style": 1,
+   "n": 991,
+   "pick_spatula_end": 537,
+   "after": 454,
+   "after_segs": [
+    "StirVegetables:execute:453",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 268,
+   "layout": 4,
+   "style": 4,
+   "n": 841,
+   "pick_spatula_end": 549,
+   "after": 292,
+   "after_segs": [
+    "StirVegetables:execute:291",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 269,
+   "layout": 1,
+   "style": 1,
+   "n": 1040,
+   "pick_spatula_end": 734,
+   "after": 306,
+   "after_segs": [
+    "StirVegetables:execute:301",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 270,
+   "layout": 8,
+   "style": 8,
+   "n": 1181,
+   "pick_spatula_end": 783,
+   "after": 398,
+   "after_segs": [
+    "NavigateKitchen:navigate:140",
+    "StirVegetables:execute:257",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 271,
+   "layout": 4,
+   "style": 4,
+   "n": 716,
+   "pick_spatula_end": 538,
+   "after": 178,
+   "after_segs": [
+    "StirVegetables:execute:174",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 272,
+   "layout": 1,
+   "style": 1,
+   "n": 1089,
+   "pick_spatula_end": 744,
+   "after": 345,
+   "after_segs": [
+    "StirVegetables:execute:339",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 273,
+   "layout": 1,
+   "style": 1,
+   "n": 922,
+   "pick_spatula_end": 642,
+   "after": 280,
+   "after_segs": [
+    "StirVegetables:execute:273",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 274,
+   "layout": 4,
+   "style": 4,
+   "n": 504,
+   "pick_spatula_end": 344,
+   "after": 160,
+   "after_segs": [
+    "StirVegetables:execute:159",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 275,
+   "layout": 10,
+   "style": 10,
+   "n": 531,
+   "pick_spatula_end": 420,
+   "after": 111,
+   "after_segs": [
+    "StirVegetables:execute:110",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 276,
+   "layout": 5,
+   "style": 5,
+   "n": 557,
+   "pick_spatula_end": 329,
+   "after": 228,
+   "after_segs": [
+    "StirVegetables:execute:227",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 277,
+   "layout": 9,
+   "style": 9,
+   "n": 674,
+   "pick_spatula_end": 498,
+   "after": 176,
+   "after_segs": [
+    "StirVegetables:execute:169",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 278,
+   "layout": 2,
+   "style": 2,
+   "n": 810,
+   "pick_spatula_end": 610,
+   "after": 200,
+   "after_segs": [
+    "NavigateKitchen:navigate:100",
+    "StirVegetables:execute:99",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 279,
+   "layout": 4,
+   "style": 4,
+   "n": 679,
+   "pick_spatula_end": 473,
+   "after": 206,
+   "after_segs": [
+    "StirVegetables:execute:205",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 280,
+   "layout": 8,
+   "style": 8,
+   "n": 569,
+   "pick_spatula_end": 426,
+   "after": 143,
+   "after_segs": [
+    "StirVegetables:execute:137",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 281,
+   "layout": 9,
+   "style": 9,
+   "n": 1293,
+   "pick_spatula_end": 983,
+   "after": 310,
+   "after_segs": [
+    "StirVegetables:execute:309",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 282,
+   "layout": 9,
+   "style": 9,
+   "n": 654,
+   "pick_spatula_end": 477,
+   "after": 177,
+   "after_segs": [
+    "StirVegetables:execute:173",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 283,
+   "layout": 6,
+   "style": 6,
+   "n": 709,
+   "pick_spatula_end": 457,
+   "after": 252,
+   "after_segs": [
+    "StirVegetables:execute:251",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 284,
+   "layout": 7,
+   "style": 7,
+   "n": 955,
+   "pick_spatula_end": 563,
+   "after": 392,
+   "after_segs": [
+    "StirVegetables:execute:390",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 285,
+   "layout": 1,
+   "style": 1,
+   "n": 1096,
+   "pick_spatula_end": 661,
+   "after": 435,
+   "after_segs": [
+    "StirVegetables:execute:434",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 286,
+   "layout": 3,
+   "style": 3,
+   "n": 679,
+   "pick_spatula_end": 453,
+   "after": 226,
+   "after_segs": [
+    "StirVegetables:execute:225",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 287,
+   "layout": 10,
+   "style": 10,
+   "n": 623,
+   "pick_spatula_end": 461,
+   "after": 162,
+   "after_segs": [
+    "StirVegetables:execute:161",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 288,
+   "layout": 8,
+   "style": 8,
+   "n": 745,
+   "pick_spatula_end": 519,
+   "after": 226,
+   "after_segs": [
+    "StirVegetables:execute:220",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 289,
+   "layout": 5,
+   "style": 5,
+   "n": 915,
+   "pick_spatula_end": 640,
+   "after": 275,
+   "after_segs": [
+    "StirVegetables:execute:274",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 290,
+   "layout": 8,
+   "style": 8,
+   "n": 843,
+   "pick_spatula_end": 710,
+   "after": 133,
+   "after_segs": [
+    "StirVegetables:execute:132",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 291,
+   "layout": 5,
+   "style": 5,
+   "n": 493,
+   "pick_spatula_end": 473,
+   "after": 20,
+   "after_segs": [
+    "StirVegetables:execute:12",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 292,
+   "layout": 7,
+   "style": 7,
+   "n": 624,
+   "pick_spatula_end": 473,
+   "after": 151,
+   "after_segs": [
+    "StirVegetables:execute:150",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 293,
+   "layout": 3,
+   "style": 3,
+   "n": 1044,
+   "pick_spatula_end": 653,
+   "after": 391,
+   "after_segs": [
+    "StirVegetables:execute:390",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 294,
+   "layout": 4,
+   "style": 4,
+   "n": 588,
+   "pick_spatula_end": 468,
+   "after": 120,
+   "after_segs": [
+    "StirVegetables:execute:119",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 295,
+   "layout": 1,
+   "style": 1,
+   "n": 1561,
+   "pick_spatula_end": 806,
+   "after": 755,
+   "after_segs": [
+    "StirVegetables:execute:754",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 296,
+   "layout": 4,
+   "style": 4,
+   "n": 991,
+   "pick_spatula_end": 638,
+   "after": 353,
+   "after_segs": [
+    "NavigateKitchen:navigate:97",
+    "StirVegetables:execute:255",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 297,
+   "layout": 3,
+   "style": 3,
+   "n": 757,
+   "pick_spatula_end": 602,
+   "after": 155,
+   "after_segs": [
+    "StirVegetables:execute:154",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 298,
+   "layout": 1,
+   "style": 1,
+   "n": 1016,
+   "pick_spatula_end": 555,
+   "after": 461,
+   "after_segs": [
+    "StirVegetables:execute:460",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 299,
+   "layout": 9,
+   "style": 9,
+   "n": 776,
+   "pick_spatula_end": 553,
+   "after": 223,
+   "after_segs": [
+    "NavigateKitchen:navigate:83",
+    "StirVegetables:execute:139",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 300,
+   "layout": 1,
+   "style": 1,
+   "n": 1127,
+   "pick_spatula_end": 760,
+   "after": 367,
+   "after_segs": [
+    "NavigateKitchen:navigate:90",
+    "StirVegetables:execute:276",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 301,
+   "layout": 2,
+   "style": 2,
+   "n": 1106,
+   "pick_spatula_end": 632,
+   "after": 474,
+   "after_segs": [
+    "NavigateKitchen:navigate:99",
+    "StirVegetables:execute:374",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 302,
+   "layout": 6,
+   "style": 6,
+   "n": 565,
+   "pick_spatula_end": 431,
+   "after": 134,
+   "after_segs": [
+    "StirVegetables:execute:133",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 303,
+   "layout": 2,
+   "style": 2,
+   "n": 651,
+   "pick_spatula_end": 433,
+   "after": 218,
+   "after_segs": [
+    "StirVegetables:execute:217",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 304,
+   "layout": 2,
+   "style": 2,
+   "n": 865,
+   "pick_spatula_end": 605,
+   "after": 260,
+   "after_segs": [
+    "StirVegetables:execute:253",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 305,
+   "layout": 10,
+   "style": 10,
+   "n": 554,
+   "pick_spatula_end": 389,
+   "after": 165,
+   "after_segs": [
+    "StirVegetables:execute:163",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 306,
+   "layout": 4,
+   "style": 4,
+   "n": 692,
+   "pick_spatula_end": 501,
+   "after": 191,
+   "after_segs": [
+    "StirVegetables:execute:190",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 307,
+   "layout": 5,
+   "style": 5,
+   "n": 951,
+   "pick_spatula_end": 619,
+   "after": 332,
+   "after_segs": [
+    "NavigateKitchen:navigate:147",
+    "StirVegetables:execute:184",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 308,
+   "layout": 10,
+   "style": 10,
+   "n": 840,
+   "pick_spatula_end": 634,
+   "after": 206,
+   "after_segs": [
+    "StirVegetables:execute:205",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 309,
+   "layout": 8,
+   "style": 8,
+   "n": 799,
+   "pick_spatula_end": 612,
+   "after": 187,
+   "after_segs": [
+    "NavigateKitchen:navigate:75",
+    "StirVegetables:execute:111",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 310,
+   "layout": 5,
+   "style": 5,
+   "n": 652,
+   "pick_spatula_end": 502,
+   "after": 150,
+   "after_segs": [
+    "StirVegetables:execute:148",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 311,
+   "layout": 7,
+   "style": 7,
+   "n": 1180,
+   "pick_spatula_end": 748,
+   "after": 432,
+   "after_segs": [
+    "NavigateKitchen:navigate:141",
+    "StirVegetables:execute:290",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 312,
+   "layout": 9,
+   "style": 9,
+   "n": 691,
+   "pick_spatula_end": 466,
+   "after": 225,
+   "after_segs": [
+    "StirVegetables:execute:224",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 313,
+   "layout": 2,
+   "style": 2,
+   "n": 862,
+   "pick_spatula_end": 631,
+   "after": 231,
+   "after_segs": [
+    "StirVegetables:execute:228",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 314,
+   "layout": 4,
+   "style": 4,
+   "n": 1434,
+   "pick_spatula_end": 1186,
+   "after": 248,
+   "after_segs": [
+    "StirVegetables:execute:247",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 315,
+   "layout": 10,
+   "style": 10,
+   "n": 652,
+   "pick_spatula_end": 450,
+   "after": 202,
+   "after_segs": [
+    "StirVegetables:execute:201",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 316,
+   "layout": 2,
+   "style": 2,
+   "n": 1728,
+   "pick_spatula_end": 1057,
+   "after": 671,
+   "after_segs": [
+    "StirVegetables:execute:670",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 317,
+   "layout": 2,
+   "style": 2,
+   "n": 723,
+   "pick_spatula_end": 526,
+   "after": 197,
+   "after_segs": [
+    "StirVegetables:execute:196",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 318,
+   "layout": 2,
+   "style": 2,
+   "n": 737,
+   "pick_spatula_end": 518,
+   "after": 219,
+   "after_segs": [
+    "NavigateKitchen:navigate:77",
+    "StirVegetables:execute:139",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 319,
+   "layout": 8,
+   "style": 8,
+   "n": 981,
+   "pick_spatula_end": 595,
+   "after": 386,
+   "after_segs": [
+    "StirVegetables:execute:380",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 320,
+   "layout": 9,
+   "style": 9,
+   "n": 884,
+   "pick_spatula_end": 544,
+   "after": 340,
+   "after_segs": [
+    "NavigateKitchen:navigate:75",
+    "StirVegetables:execute:263",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 321,
+   "layout": 9,
+   "style": 9,
+   "n": 1183,
+   "pick_spatula_end": 798,
+   "after": 385,
+   "after_segs": [
+    "StirVegetables:execute:384",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 322,
+   "layout": 9,
+   "style": 9,
+   "n": 787,
+   "pick_spatula_end": 572,
+   "after": 215,
+   "after_segs": [
+    "StirVegetables:execute:212",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 323,
+   "layout": 6,
+   "style": 6,
+   "n": 899,
+   "pick_spatula_end": 548,
+   "after": 351,
+   "after_segs": [
+    "StirVegetables:execute:350",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 324,
+   "layout": 6,
+   "style": 6,
+   "n": 854,
+   "pick_spatula_end": 514,
+   "after": 340,
+   "after_segs": [
+    "StirVegetables:execute:339",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 325,
+   "layout": 2,
+   "style": 2,
+   "n": 1306,
+   "pick_spatula_end": 843,
+   "after": 463,
+   "after_segs": [
+    "NavigateKitchen:navigate:96",
+    "StirVegetables:execute:366",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 326,
+   "layout": 4,
+   "style": 4,
+   "n": 1092,
+   "pick_spatula_end": 705,
+   "after": 387,
+   "after_segs": [
+    "NavigateKitchen:navigate:81",
+    "StirVegetables:execute:305",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 327,
+   "layout": 4,
+   "style": 4,
+   "n": 978,
+   "pick_spatula_end": 669,
+   "after": 309,
+   "after_segs": [
+    "StirVegetables:execute:308",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 328,
+   "layout": 5,
+   "style": 5,
+   "n": 756,
+   "pick_spatula_end": 578,
+   "after": 178,
+   "after_segs": [
+    "StirVegetables:execute:175",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 329,
+   "layout": 6,
+   "style": 6,
+   "n": 731,
+   "pick_spatula_end": 556,
+   "after": 175,
+   "after_segs": [
+    "StirVegetables:execute:168",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 330,
+   "layout": 2,
+   "style": 2,
+   "n": 801,
+   "pick_spatula_end": 611,
+   "after": 190,
+   "after_segs": [
+    "NavigateKitchen:navigate:100",
+    "StirVegetables:execute:88",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 331,
+   "layout": 6,
+   "style": 6,
+   "n": 617,
+   "pick_spatula_end": 438,
+   "after": 179,
+   "after_segs": [
+    "StirVegetables:execute:178",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 332,
+   "layout": 3,
+   "style": 3,
+   "n": 967,
+   "pick_spatula_end": 676,
+   "after": 291,
+   "after_segs": [
+    "StirVegetables:execute:284",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 333,
+   "layout": 7,
+   "style": 7,
+   "n": 678,
+   "pick_spatula_end": 441,
+   "after": 237,
+   "after_segs": [
+    "StirVegetables:execute:235",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 334,
+   "layout": 1,
+   "style": 1,
+   "n": 1154,
+   "pick_spatula_end": 723,
+   "after": 431,
+   "after_segs": [
+    "StirVegetables:execute:430",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 335,
+   "layout": 2,
+   "style": 2,
+   "n": 847,
+   "pick_spatula_end": 577,
+   "after": 270,
+   "after_segs": [
+    "StirVegetables:execute:269",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 336,
+   "layout": 4,
+   "style": 4,
+   "n": 695,
+   "pick_spatula_end": 556,
+   "after": 139,
+   "after_segs": [
+    "StirVegetables:execute:132",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 337,
+   "layout": 7,
+   "style": 7,
+   "n": 629,
+   "pick_spatula_end": 361,
+   "after": 268,
+   "after_segs": [
+    "StirVegetables:execute:267",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 338,
+   "layout": 5,
+   "style": 5,
+   "n": 683,
+   "pick_spatula_end": 517,
+   "after": 166,
+   "after_segs": [
+    "StirVegetables:execute:165",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 339,
+   "layout": 9,
+   "style": 9,
+   "n": 607,
+   "pick_spatula_end": 448,
+   "after": 159,
+   "after_segs": [
+    "StirVegetables:execute:158",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 340,
+   "layout": 6,
+   "style": 6,
+   "n": 1053,
+   "pick_spatula_end": 649,
+   "after": 404,
+   "after_segs": [
+    "StirVegetables:execute:403",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 341,
+   "layout": 4,
+   "style": 4,
+   "n": 757,
+   "pick_spatula_end": 462,
+   "after": 295,
+   "after_segs": [
+    "StirVegetables:execute:294",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 342,
+   "layout": 1,
+   "style": 1,
+   "n": 854,
+   "pick_spatula_end": 658,
+   "after": 196,
+   "after_segs": [
+    "StirVegetables:execute:194",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 343,
+   "layout": 10,
+   "style": 10,
+   "n": 778,
+   "pick_spatula_end": 539,
+   "after": 239,
+   "after_segs": [
+    "StirVegetables:execute:234",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 344,
+   "layout": 3,
+   "style": 3,
+   "n": 779,
+   "pick_spatula_end": 606,
+   "after": 173,
+   "after_segs": [
+    "StirVegetables:execute:168",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 345,
+   "layout": 6,
+   "style": 6,
+   "n": 951,
+   "pick_spatula_end": 597,
+   "after": 354,
+   "after_segs": [
+    "StirVegetables:execute:353",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 346,
+   "layout": 2,
+   "style": 2,
+   "n": 770,
+   "pick_spatula_end": 590,
+   "after": 180,
+   "after_segs": [
+    "StirVegetables:execute:179",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 347,
+   "layout": 7,
+   "style": 7,
+   "n": 703,
+   "pick_spatula_end": 446,
+   "after": 257,
+   "after_segs": [
+    "StirVegetables:execute:251",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 348,
+   "layout": 2,
+   "style": 2,
+   "n": 1185,
+   "pick_spatula_end": 663,
+   "after": 522,
+   "after_segs": [
+    "NavigateKitchen:navigate:123",
+    "StirVegetables:execute:398",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 349,
+   "layout": 10,
+   "style": 10,
+   "n": 817,
+   "pick_spatula_end": 571,
+   "after": 246,
+   "after_segs": [
+    "StirVegetables:execute:245",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 350,
+   "layout": 1,
+   "style": 1,
+   "n": 1108,
+   "pick_spatula_end": 776,
+   "after": 332,
+   "after_segs": [
+    "NavigateKitchen:navigate:87",
+    "StirVegetables:execute:244",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 351,
+   "layout": 6,
+   "style": 6,
+   "n": 777,
+   "pick_spatula_end": 458,
+   "after": 319,
+   "after_segs": [
+    "StirVegetables:execute:318",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 352,
+   "layout": 3,
+   "style": 3,
+   "n": 792,
+   "pick_spatula_end": 618,
+   "after": 174,
+   "after_segs": [
+    "StirVegetables:execute:173",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 353,
+   "layout": 10,
+   "style": 10,
+   "n": 785,
+   "pick_spatula_end": 523,
+   "after": 262,
+   "after_segs": [
+    "StirVegetables:execute:261",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 354,
+   "layout": 1,
+   "style": 1,
+   "n": 819,
+   "pick_spatula_end": 602,
+   "after": 217,
+   "after_segs": [
+    "StirVegetables:execute:216",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 355,
+   "layout": 8,
+   "style": 8,
+   "n": 1004,
+   "pick_spatula_end": 628,
+   "after": 376,
+   "after_segs": [
+    "NavigateKitchen:navigate:111",
+    "StirVegetables:execute:261",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 356,
+   "layout": 1,
+   "style": 1,
+   "n": 931,
+   "pick_spatula_end": 640,
+   "after": 291,
+   "after_segs": [
+    "NavigateKitchen:navigate:79",
+    "StirVegetables:execute:211",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 357,
+   "layout": 7,
+   "style": 7,
+   "n": 564,
+   "pick_spatula_end": 369,
+   "after": 195,
+   "after_segs": [
+    "StirVegetables:execute:189",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 358,
+   "layout": 2,
+   "style": 2,
+   "n": 1370,
+   "pick_spatula_end": 1034,
+   "after": 336,
+   "after_segs": [
+    "StirVegetables:execute:335",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 359,
+   "layout": 2,
+   "style": 2,
+   "n": 714,
+   "pick_spatula_end": 506,
+   "after": 208,
+   "after_segs": [
+    "StirVegetables:execute:207",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 360,
+   "layout": 7,
+   "style": 7,
+   "n": 907,
+   "pick_spatula_end": 531,
+   "after": 376,
+   "after_segs": [
+    "NavigateKitchen:navigate:84",
+    "StirVegetables:execute:291",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 361,
+   "layout": 1,
+   "style": 1,
+   "n": 821,
+   "pick_spatula_end": 542,
+   "after": 279,
+   "after_segs": [
+    "StirVegetables:execute:278",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 362,
+   "layout": 2,
+   "style": 2,
+   "n": 862,
+   "pick_spatula_end": 631,
+   "after": 231,
+   "after_segs": [
+    "StirVegetables:execute:230",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 363,
+   "layout": 7,
+   "style": 7,
+   "n": 557,
+   "pick_spatula_end": 365,
+   "after": 192,
+   "after_segs": [
+    "StirVegetables:execute:191",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 364,
+   "layout": 3,
+   "style": 3,
+   "n": 671,
+   "pick_spatula_end": 424,
+   "after": 247,
+   "after_segs": [
+    "StirVegetables:execute:246",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 365,
+   "layout": 2,
+   "style": 2,
+   "n": 967,
+   "pick_spatula_end": 662,
+   "after": 305,
+   "after_segs": [
+    "StirVegetables:execute:304",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 366,
+   "layout": 9,
+   "style": 9,
+   "n": 659,
+   "pick_spatula_end": 465,
+   "after": 194,
+   "after_segs": [
+    "StirVegetables:execute:193",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 367,
+   "layout": 7,
+   "style": 7,
+   "n": 945,
+   "pick_spatula_end": 607,
+   "after": 338,
+   "after_segs": [
+    "StirVegetables:execute:337",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 368,
+   "layout": 9,
+   "style": 9,
+   "n": 769,
+   "pick_spatula_end": 611,
+   "after": 158,
+   "after_segs": [
+    "StirVegetables:execute:157",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 369,
+   "layout": 7,
+   "style": 7,
+   "n": 721,
+   "pick_spatula_end": 502,
+   "after": 219,
+   "after_segs": [
+    "StirVegetables:execute:216",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 370,
+   "layout": 6,
+   "style": 6,
+   "n": 953,
+   "pick_spatula_end": 590,
+   "after": 363,
+   "after_segs": [
+    "StirVegetables:execute:362",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 371,
+   "layout": 7,
+   "style": 7,
+   "n": 808,
+   "pick_spatula_end": 475,
+   "after": 333,
+   "after_segs": [
+    "StirVegetables:execute:332",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 372,
+   "layout": 8,
+   "style": 8,
+   "n": 591,
+   "pick_spatula_end": 441,
+   "after": 150,
+   "after_segs": [
+    "StirVegetables:execute:145",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 373,
+   "layout": 3,
+   "style": 3,
+   "n": 858,
+   "pick_spatula_end": 597,
+   "after": 261,
+   "after_segs": [
+    "StirVegetables:execute:260",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 374,
+   "layout": 3,
+   "style": 3,
+   "n": 621,
+   "pick_spatula_end": 390,
+   "after": 231,
+   "after_segs": [
+    "StirVegetables:execute:230",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 375,
+   "layout": 3,
+   "style": 3,
+   "n": 996,
+   "pick_spatula_end": 600,
+   "after": 396,
+   "after_segs": [
+    "StirVegetables:execute:395",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 376,
+   "layout": 9,
+   "style": 9,
+   "n": 629,
+   "pick_spatula_end": 432,
+   "after": 197,
+   "after_segs": [
+    "StirVegetables:execute:196",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 377,
+   "layout": 4,
+   "style": 4,
+   "n": 875,
+   "pick_spatula_end": 651,
+   "after": 224,
+   "after_segs": [
+    "StirVegetables:execute:223",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 378,
+   "layout": 8,
+   "style": 8,
+   "n": 778,
+   "pick_spatula_end": 569,
+   "after": 209,
+   "after_segs": [
+    "StirVegetables:execute:206",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 379,
+   "layout": 3,
+   "style": 3,
+   "n": 1311,
+   "pick_spatula_end": 1033,
+   "after": 278,
+   "after_segs": [
+    "StirVegetables:execute:277",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 380,
+   "layout": 4,
+   "style": 4,
+   "n": 529,
+   "pick_spatula_end": 394,
+   "after": 135,
+   "after_segs": [
+    "StirVegetables:execute:134",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 381,
+   "layout": 10,
+   "style": 10,
+   "n": 657,
+   "pick_spatula_end": 529,
+   "after": 128,
+   "after_segs": [
+    "StirVegetables:execute:127",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 382,
+   "layout": 3,
+   "style": 3,
+   "n": 954,
+   "pick_spatula_end": 499,
+   "after": 455,
+   "after_segs": [
+    "StirVegetables:execute:454",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 383,
+   "layout": 2,
+   "style": 2,
+   "n": 1082,
+   "pick_spatula_end": 762,
+   "after": 320,
+   "after_segs": [
+    "NavigateKitchen:navigate:121",
+    "StirVegetables:execute:198",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 384,
+   "layout": 1,
+   "style": 1,
+   "n": 858,
+   "pick_spatula_end": 664,
+   "after": 194,
+   "after_segs": [
+    "StirVegetables:execute:193",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 385,
+   "layout": 10,
+   "style": 10,
+   "n": 591,
+   "pick_spatula_end": 381,
+   "after": 210,
+   "after_segs": [
+    "StirVegetables:execute:209",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 386,
+   "layout": 5,
+   "style": 5,
+   "n": 1106,
+   "pick_spatula_end": 917,
+   "after": 189,
+   "after_segs": [
+    "StirVegetables:execute:188",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 387,
+   "layout": 1,
+   "style": 1,
+   "n": 945,
+   "pick_spatula_end": 703,
+   "after": 242,
+   "after_segs": [
+    "StirVegetables:execute:241",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 388,
+   "layout": 9,
+   "style": 9,
+   "n": 691,
+   "pick_spatula_end": 505,
+   "after": 186,
+   "after_segs": [
+    "StirVegetables:execute:185",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 389,
+   "layout": 3,
+   "style": 3,
+   "n": 803,
+   "pick_spatula_end": 542,
+   "after": 261,
+   "after_segs": [
+    "StirVegetables:execute:260",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 390,
+   "layout": 5,
+   "style": 5,
+   "n": 1116,
+   "pick_spatula_end": 711,
+   "after": 405,
+   "after_segs": [
+    "StirVegetables:execute:399",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 391,
+   "layout": 9,
+   "style": 9,
+   "n": 928,
+   "pick_spatula_end": 580,
+   "after": 348,
+   "after_segs": [
+    "NavigateKitchen:navigate:80",
+    "StirVegetables:execute:267",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 392,
+   "layout": 2,
+   "style": 2,
+   "n": 890,
+   "pick_spatula_end": 567,
+   "after": 323,
+   "after_segs": [
+    "StirVegetables:execute:322",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 393,
+   "layout": 10,
+   "style": 10,
+   "n": 777,
+   "pick_spatula_end": 499,
+   "after": 278,
+   "after_segs": [
+    "StirVegetables:execute:275",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 394,
+   "layout": 7,
+   "style": 7,
+   "n": 735,
+   "pick_spatula_end": 473,
+   "after": 262,
+   "after_segs": [
+    "NavigateKitchen:navigate:86",
+    "StirVegetables:execute:173",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 395,
+   "layout": 1,
+   "style": 1,
+   "n": 713,
+   "pick_spatula_end": 570,
+   "after": 143,
+   "after_segs": [
+    "StirVegetables:execute:142",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 396,
+   "layout": 10,
+   "style": 10,
+   "n": 699,
+   "pick_spatula_end": 535,
+   "after": 164,
+   "after_segs": [
+    "StirVegetables:execute:163",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 397,
+   "layout": 7,
+   "style": 7,
+   "n": 602,
+   "pick_spatula_end": 497,
+   "after": 105,
+   "after_segs": [
+    "StirVegetables:execute:97",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 398,
+   "layout": 10,
+   "style": 10,
+   "n": 1132,
+   "pick_spatula_end": 734,
+   "after": 398,
+   "after_segs": [
+    "NavigateKitchen:navigate:143",
+    "StirVegetables:execute:254",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 399,
+   "layout": 2,
+   "style": 2,
+   "n": 881,
+   "pick_spatula_end": 591,
+   "after": 290,
+   "after_segs": [
+    "StirVegetables:execute:284",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 400,
+   "layout": 9,
+   "style": 9,
+   "n": 1007,
+   "pick_spatula_end": 750,
+   "after": 257,
+   "after_segs": [
+    "StirVegetables:execute:250",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 401,
+   "layout": 3,
+   "style": 3,
+   "n": 712,
+   "pick_spatula_end": 525,
+   "after": 187,
+   "after_segs": [
+    "StirVegetables:execute:183",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 402,
+   "layout": 6,
+   "style": 6,
+   "n": 664,
+   "pick_spatula_end": 412,
+   "after": 252,
+   "after_segs": [
+    "StirVegetables:execute:251",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 403,
+   "layout": 10,
+   "style": 10,
+   "n": 787,
+   "pick_spatula_end": 514,
+   "after": 273,
+   "after_segs": [
+    "StirVegetables:execute:272",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 404,
+   "layout": 1,
+   "style": 1,
+   "n": 1149,
+   "pick_spatula_end": 736,
+   "after": 413,
+   "after_segs": [
+    "NavigateKitchen:navigate:159",
+    "StirVegetables:execute:253",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 405,
+   "layout": 2,
+   "style": 2,
+   "n": 1049,
+   "pick_spatula_end": 705,
+   "after": 344,
+   "after_segs": [
+    "NavigateKitchen:navigate:112",
+    "StirVegetables:execute:226",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 406,
+   "layout": 4,
+   "style": 4,
+   "n": 605,
+   "pick_spatula_end": 466,
+   "after": 139,
+   "after_segs": [
+    "StirVegetables:execute:137",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 407,
+   "layout": 4,
+   "style": 4,
+   "n": 633,
+   "pick_spatula_end": 467,
+   "after": 166,
+   "after_segs": [
+    "StirVegetables:execute:165",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 408,
+   "layout": 3,
+   "style": 3,
+   "n": 902,
+   "pick_spatula_end": 626,
+   "after": 276,
+   "after_segs": [
+    "StirVegetables:execute:273",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 409,
+   "layout": 2,
+   "style": 2,
+   "n": 798,
+   "pick_spatula_end": 577,
+   "after": 221,
+   "after_segs": [
+    "StirVegetables:execute:220",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 410,
+   "layout": 10,
+   "style": 10,
+   "n": 835,
+   "pick_spatula_end": 557,
+   "after": 278,
+   "after_segs": [
+    "StirVegetables:execute:274",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 411,
+   "layout": 7,
+   "style": 7,
+   "n": 800,
+   "pick_spatula_end": 609,
+   "after": 191,
+   "after_segs": [
+    "StirVegetables:execute:190",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 412,
+   "layout": 2,
+   "style": 2,
+   "n": 869,
+   "pick_spatula_end": 578,
+   "after": 291,
+   "after_segs": [
+    "StirVegetables:execute:288",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 413,
+   "layout": 5,
+   "style": 5,
+   "n": 954,
+   "pick_spatula_end": 628,
+   "after": 326,
+   "after_segs": [
+    "StirVegetables:execute:325",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 414,
+   "layout": 10,
+   "style": 10,
+   "n": 887,
+   "pick_spatula_end": 437,
+   "after": 450,
+   "after_segs": [
+    "StirVegetables:execute:444",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 415,
+   "layout": 1,
+   "style": 1,
+   "n": 523,
+   "pick_spatula_end": 366,
+   "after": 157,
+   "after_segs": [
+    "StirVegetables:execute:152",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 416,
+   "layout": 10,
+   "style": 10,
+   "n": 581,
+   "pick_spatula_end": 485,
+   "after": 96,
+   "after_segs": [
+    "StirVegetables:execute:94",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 417,
+   "layout": 1,
+   "style": 1,
+   "n": 1163,
+   "pick_spatula_end": 842,
+   "after": 321,
+   "after_segs": [
+    "StirVegetables:execute:318",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 418,
+   "layout": 10,
+   "style": 10,
+   "n": 712,
+   "pick_spatula_end": 527,
+   "after": 185,
+   "after_segs": [
+    "StirVegetables:execute:181",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 419,
+   "layout": 1,
+   "style": 1,
+   "n": 746,
+   "pick_spatula_end": 573,
+   "after": 173,
+   "after_segs": [
+    "StirVegetables:execute:172",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 420,
+   "layout": 6,
+   "style": 6,
+   "n": 681,
+   "pick_spatula_end": 533,
+   "after": 148,
+   "after_segs": [
+    "StirVegetables:execute:147",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 421,
+   "layout": 3,
+   "style": 3,
+   "n": 817,
+   "pick_spatula_end": 525,
+   "after": 292,
+   "after_segs": [
+    "StirVegetables:execute:290",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 422,
+   "layout": 5,
+   "style": 5,
+   "n": 811,
+   "pick_spatula_end": 521,
+   "after": 290,
+   "after_segs": [
+    "NavigateKitchen:navigate:107",
+    "StirVegetables:execute:182",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 423,
+   "layout": 5,
+   "style": 5,
+   "n": 711,
+   "pick_spatula_end": 537,
+   "after": 174,
+   "after_segs": [
+    "StirVegetables:execute:173",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 424,
+   "layout": 1,
+   "style": 1,
+   "n": 1041,
+   "pick_spatula_end": 581,
+   "after": 460,
+   "after_segs": [
+    "StirVegetables:execute:459",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 425,
+   "layout": 5,
+   "style": 5,
+   "n": 614,
+   "pick_spatula_end": 446,
+   "after": 168,
+   "after_segs": [
+    "StirVegetables:execute:160",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 426,
+   "layout": 8,
+   "style": 8,
+   "n": 1252,
+   "pick_spatula_end": 1015,
+   "after": 237,
+   "after_segs": [
+    "StirVegetables:execute:236",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 427,
+   "layout": 6,
+   "style": 6,
+   "n": 729,
+   "pick_spatula_end": 524,
+   "after": 205,
+   "after_segs": [
+    "StirVegetables:execute:199",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 428,
+   "layout": 7,
+   "style": 7,
+   "n": 570,
+   "pick_spatula_end": 447,
+   "after": 123,
+   "after_segs": [
+    "StirVegetables:execute:116",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 429,
+   "layout": 9,
+   "style": 9,
+   "n": 1029,
+   "pick_spatula_end": 750,
+   "after": 279,
+   "after_segs": [
+    "StirVegetables:execute:271",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 430,
+   "layout": 5,
+   "style": 5,
+   "n": 665,
+   "pick_spatula_end": 527,
+   "after": 138,
+   "after_segs": [
+    "StirVegetables:execute:137",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 431,
+   "layout": 3,
+   "style": 3,
+   "n": 666,
+   "pick_spatula_end": 530,
+   "after": 136,
+   "after_segs": [
+    "StirVegetables:execute:135",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 432,
+   "layout": 4,
+   "style": 4,
+   "n": 600,
+   "pick_spatula_end": 404,
+   "after": 196,
+   "after_segs": [
+    "StirVegetables:execute:195",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 433,
+   "layout": 2,
+   "style": 2,
+   "n": 1037,
+   "pick_spatula_end": 619,
+   "after": 418,
+   "after_segs": [
+    "NavigateKitchen:navigate:149",
+    "StirVegetables:execute:262",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 434,
+   "layout": 5,
+   "style": 5,
+   "n": 409,
+   "pick_spatula_end": 312,
+   "after": 97,
+   "after_segs": [
+    "StirVegetables:execute:96",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 435,
+   "layout": 9,
+   "style": 9,
+   "n": 717,
+   "pick_spatula_end": 395,
+   "after": 322,
+   "after_segs": [
+    "StirVegetables:execute:321",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 436,
+   "layout": 6,
+   "style": 6,
+   "n": 725,
+   "pick_spatula_end": 556,
+   "after": 169,
+   "after_segs": [
+    "StirVegetables:execute:164",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 437,
+   "layout": 4,
+   "style": 4,
+   "n": 668,
+   "pick_spatula_end": 461,
+   "after": 207,
+   "after_segs": [
+    "StirVegetables:execute:200",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 438,
+   "layout": 4,
+   "style": 4,
+   "n": 725,
+   "pick_spatula_end": 582,
+   "after": 143,
+   "after_segs": [
+    "StirVegetables:execute:137",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 439,
+   "layout": 1,
+   "style": 1,
+   "n": 838,
+   "pick_spatula_end": 649,
+   "after": 189,
+   "after_segs": [
+    "StirVegetables:execute:181",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 440,
+   "layout": 4,
+   "style": 4,
+   "n": 684,
+   "pick_spatula_end": 594,
+   "after": 90,
+   "after_segs": [
+    "StirVegetables:execute:82",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 441,
+   "layout": 5,
+   "style": 5,
+   "n": 698,
+   "pick_spatula_end": 576,
+   "after": 122,
+   "after_segs": [
+    "StirVegetables:execute:117",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 442,
+   "layout": 6,
+   "style": 6,
+   "n": 641,
+   "pick_spatula_end": 399,
+   "after": 242,
+   "after_segs": [
+    "StirVegetables:execute:241",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 443,
+   "layout": 3,
+   "style": 3,
+   "n": 949,
+   "pick_spatula_end": 689,
+   "after": 260,
+   "after_segs": [
+    "StirVegetables:execute:259",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 444,
+   "layout": 2,
+   "style": 2,
+   "n": 737,
+   "pick_spatula_end": 482,
+   "after": 255,
+   "after_segs": [
+    "NavigateKitchen:navigate:70",
+    "StirVegetables:execute:181",
+    "done:done:4"
+   ]
+  },
+  {
+   "ep": 445,
+   "layout": 4,
+   "style": 4,
+   "n": 597,
+   "pick_spatula_end": 441,
+   "after": 156,
+   "after_segs": [
+    "StirVegetables:execute:148",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 446,
+   "layout": 5,
+   "style": 5,
+   "n": 700,
+   "pick_spatula_end": 405,
+   "after": 295,
+   "after_segs": [
+    "StirVegetables:execute:290",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 447,
+   "layout": 1,
+   "style": 1,
+   "n": 857,
+   "pick_spatula_end": 499,
+   "after": 358,
+   "after_segs": [
+    "StirVegetables:execute:357",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 448,
+   "layout": 6,
+   "style": 6,
+   "n": 1270,
+   "pick_spatula_end": 820,
+   "after": 450,
+   "after_segs": [
+    "StirVegetables:execute:444",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 449,
+   "layout": 5,
+   "style": 5,
+   "n": 1114,
+   "pick_spatula_end": 647,
+   "after": 467,
+   "after_segs": [
+    "StirVegetables:execute:459",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 450,
+   "layout": 3,
+   "style": 3,
+   "n": 724,
+   "pick_spatula_end": 442,
+   "after": 282,
+   "after_segs": [
+    "NavigateKitchen:navigate:63",
+    "StirVegetables:execute:218",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 451,
+   "layout": 2,
+   "style": 2,
+   "n": 809,
+   "pick_spatula_end": 512,
+   "after": 297,
+   "after_segs": [
+    "StirVegetables:execute:292",
+    "done:done:5"
+   ]
+  },
+  {
+   "ep": 452,
+   "layout": 8,
+   "style": 8,
+   "n": 774,
+   "pick_spatula_end": 549,
+   "after": 225,
+   "after_segs": [
+    "StirVegetables:execute:224",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 453,
+   "layout": 3,
+   "style": 3,
+   "n": 1129,
+   "pick_spatula_end": 836,
+   "after": 293,
+   "after_segs": [
+    "StirVegetables:execute:290",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 454,
+   "layout": 3,
+   "style": 3,
+   "n": 752,
+   "pick_spatula_end": 548,
+   "after": 204,
+   "after_segs": [
+    "StirVegetables:execute:202",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 455,
+   "layout": 6,
+   "style": 6,
+   "n": 622,
+   "pick_spatula_end": 433,
+   "after": 189,
+   "after_segs": [
+    "StirVegetables:execute:181",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 456,
+   "layout": 6,
+   "style": 6,
+   "n": 646,
+   "pick_spatula_end": 482,
+   "after": 164,
+   "after_segs": [
+    "StirVegetables:execute:161",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 457,
+   "layout": 10,
+   "style": 10,
+   "n": 1055,
+   "pick_spatula_end": 667,
+   "after": 388,
+   "after_segs": [
+    "NavigateKitchen:navigate:150",
+    "StirVegetables:execute:237",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 458,
+   "layout": 5,
+   "style": 5,
+   "n": 910,
+   "pick_spatula_end": 590,
+   "after": 320,
+   "after_segs": [
+    "NavigateKitchen:navigate:118",
+    "StirVegetables:execute:201",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 459,
+   "layout": 4,
+   "style": 4,
+   "n": 1217,
+   "pick_spatula_end": 873,
+   "after": 344,
+   "after_segs": [
+    "StirVegetables:execute:343",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 460,
+   "layout": 7,
+   "style": 7,
+   "n": 590,
+   "pick_spatula_end": 463,
+   "after": 127,
+   "after_segs": [
+    "StirVegetables:execute:125",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 461,
+   "layout": 10,
+   "style": 10,
+   "n": 571,
+   "pick_spatula_end": 461,
+   "after": 110,
+   "after_segs": [
+    "StirVegetables:execute:108",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 462,
+   "layout": 4,
+   "style": 4,
+   "n": 1069,
+   "pick_spatula_end": 613,
+   "after": 456,
+   "after_segs": [
+    "NavigateKitchen:navigate:105",
+    "StirVegetables:execute:340",
+    "done:done:11"
+   ]
+  },
+  {
+   "ep": 463,
+   "layout": 10,
+   "style": 10,
+   "n": 1256,
+   "pick_spatula_end": 982,
+   "after": 274,
+   "after_segs": [
+    "StirVegetables:execute:273",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 464,
+   "layout": 8,
+   "style": 8,
+   "n": 846,
+   "pick_spatula_end": 519,
+   "after": 327,
+   "after_segs": [
+    "StirVegetables:execute:320",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 465,
+   "layout": 1,
+   "style": 1,
+   "n": 924,
+   "pick_spatula_end": 757,
+   "after": 167,
+   "after_segs": [
+    "StirVegetables:execute:166",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 466,
+   "layout": 2,
+   "style": 2,
+   "n": 783,
+   "pick_spatula_end": 453,
+   "after": 330,
+   "after_segs": [
+    "NavigateKitchen:navigate:73",
+    "StirVegetables:execute:250",
+    "done:done:7"
+   ]
+  },
+  {
+   "ep": 467,
+   "layout": 8,
+   "style": 8,
+   "n": 645,
+   "pick_spatula_end": 493,
+   "after": 152,
+   "after_segs": [
+    "StirVegetables:execute:151",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 468,
+   "layout": 1,
+   "style": 1,
+   "n": 1097,
+   "pick_spatula_end": 767,
+   "after": 330,
+   "after_segs": [
+    "StirVegetables:execute:327",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 469,
+   "layout": 10,
+   "style": 10,
+   "n": 729,
+   "pick_spatula_end": 561,
+   "after": 168,
+   "after_segs": [
+    "StirVegetables:execute:167",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 470,
+   "layout": 4,
+   "style": 4,
+   "n": 1161,
+   "pick_spatula_end": 681,
+   "after": 480,
+   "after_segs": [
+    "NavigateKitchen:navigate:108",
+    "StirVegetables:execute:371",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 471,
+   "layout": 5,
+   "style": 5,
+   "n": 1083,
+   "pick_spatula_end": 673,
+   "after": 410,
+   "after_segs": [
+    "NavigateKitchen:navigate:176",
+    "StirVegetables:execute:233",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 472,
+   "layout": 4,
+   "style": 4,
+   "n": 563,
+   "pick_spatula_end": 437,
+   "after": 126,
+   "after_segs": [
+    "StirVegetables:execute:120",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 473,
+   "layout": 8,
+   "style": 8,
+   "n": 997,
+   "pick_spatula_end": 689,
+   "after": 308,
+   "after_segs": [
+    "StirVegetables:execute:307",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 474,
+   "layout": 10,
+   "style": 10,
+   "n": 659,
+   "pick_spatula_end": 508,
+   "after": 151,
+   "after_segs": [
+    "StirVegetables:execute:150",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 475,
+   "layout": 6,
+   "style": 6,
+   "n": 682,
+   "pick_spatula_end": 431,
+   "after": 251,
+   "after_segs": [
+    "StirVegetables:execute:250",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 476,
+   "layout": 4,
+   "style": 4,
+   "n": 933,
+   "pick_spatula_end": 653,
+   "after": 280,
+   "after_segs": [
+    "NavigateKitchen:navigate:102",
+    "StirVegetables:execute:175",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 477,
+   "layout": 4,
+   "style": 4,
+   "n": 813,
+   "pick_spatula_end": 522,
+   "after": 291,
+   "after_segs": [
+    "StirVegetables:execute:290",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 478,
+   "layout": 1,
+   "style": 1,
+   "n": 838,
+   "pick_spatula_end": 606,
+   "after": 232,
+   "after_segs": [
+    "NavigateKitchen:navigate:96",
+    "StirVegetables:execute:135",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 479,
+   "layout": 1,
+   "style": 1,
+   "n": 905,
+   "pick_spatula_end": 598,
+   "after": 307,
+   "after_segs": [
+    "StirVegetables:execute:301",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 480,
+   "layout": 7,
+   "style": 7,
+   "n": 729,
+   "pick_spatula_end": 479,
+   "after": 250,
+   "after_segs": [
+    "StirVegetables:execute:249",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 481,
+   "layout": 7,
+   "style": 7,
+   "n": 700,
+   "pick_spatula_end": 503,
+   "after": 197,
+   "after_segs": [
+    "StirVegetables:execute:189",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 482,
+   "layout": 6,
+   "style": 6,
+   "n": 987,
+   "pick_spatula_end": 674,
+   "after": 313,
+   "after_segs": [
+    "NavigateKitchen:navigate:90",
+    "StirVegetables:execute:222",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 483,
+   "layout": 1,
+   "style": 1,
+   "n": 1464,
+   "pick_spatula_end": 998,
+   "after": 466,
+   "after_segs": [
+    "StirVegetables:execute:465",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 484,
+   "layout": 6,
+   "style": 6,
+   "n": 545,
+   "pick_spatula_end": 420,
+   "after": 125,
+   "after_segs": [
+    "StirVegetables:execute:124",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 485,
+   "layout": 5,
+   "style": 5,
+   "n": 652,
+   "pick_spatula_end": 480,
+   "after": 172,
+   "after_segs": [
+    "StirVegetables:execute:171",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 486,
+   "layout": 10,
+   "style": 10,
+   "n": 1097,
+   "pick_spatula_end": 672,
+   "after": 425,
+   "after_segs": [
+    "StirVegetables:execute:424",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 487,
+   "layout": 3,
+   "style": 3,
+   "n": 682,
+   "pick_spatula_end": 507,
+   "after": 175,
+   "after_segs": [
+    "StirVegetables:execute:174",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 488,
+   "layout": 1,
+   "style": 1,
+   "n": 1254,
+   "pick_spatula_end": 747,
+   "after": 507,
+   "after_segs": [
+    "NavigateKitchen:navigate:137",
+    "StirVegetables:execute:369",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 489,
+   "layout": 3,
+   "style": 3,
+   "n": 720,
+   "pick_spatula_end": 434,
+   "after": 286,
+   "after_segs": [
+    "StirVegetables:execute:285",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 490,
+   "layout": 3,
+   "style": 3,
+   "n": 645,
+   "pick_spatula_end": 488,
+   "after": 157,
+   "after_segs": [
+    "StirVegetables:execute:156",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 491,
+   "layout": 10,
+   "style": 10,
+   "n": 837,
+   "pick_spatula_end": 593,
+   "after": 244,
+   "after_segs": [
+    "StirVegetables:execute:243",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 492,
+   "layout": 1,
+   "style": 1,
+   "n": 1025,
+   "pick_spatula_end": 683,
+   "after": 342,
+   "after_segs": [
+    "NavigateKitchen:navigate:144",
+    "StirVegetables:execute:197",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 493,
+   "layout": 8,
+   "style": 8,
+   "n": 583,
+   "pick_spatula_end": 440,
+   "after": 143,
+   "after_segs": [
+    "StirVegetables:execute:140",
+    "done:done:3"
+   ]
+  },
+  {
+   "ep": 494,
+   "layout": 5,
+   "style": 5,
+   "n": 837,
+   "pick_spatula_end": 553,
+   "after": 284,
+   "after_segs": [
+    "StirVegetables:execute:282",
+    "done:done:2"
+   ]
+  },
+  {
+   "ep": 495,
+   "layout": 4,
+   "style": 4,
+   "n": 1193,
+   "pick_spatula_end": 680,
+   "after": 513,
+   "after_segs": [
+    "StirVegetables:execute:507",
+    "done:done:6"
+   ]
+  },
+  {
+   "ep": 496,
+   "layout": 10,
+   "style": 10,
+   "n": 709,
+   "pick_spatula_end": 523,
+   "after": 186,
+   "after_segs": [
+    "StirVegetables:execute:185",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 497,
+   "layout": 6,
+   "style": 6,
+   "n": 690,
+   "pick_spatula_end": 506,
+   "after": 184,
+   "after_segs": [
+    "StirVegetables:execute:176",
+    "done:done:8"
+   ]
+  },
+  {
+   "ep": 498,
+   "layout": 8,
+   "style": 8,
+   "n": 1044,
+   "pick_spatula_end": 576,
+   "after": 468,
+   "after_segs": [
+    "StirVegetables:execute:467",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 499,
+   "layout": 1,
+   "style": 1,
+   "n": 827,
+   "pick_spatula_end": 485,
+   "after": 342,
+   "after_segs": [
+    "StirVegetables:execute:341",
+    "done:done:1"
+   ]
+  },
+  {
+   "ep": 500,
+   "layout": 2,
+   "style": 2,
+   "n": 868,
+   "pick_spatula_end": 571,
+   "after": 297,
+   "after_segs": [
+    "NavigateKitchen:navigate:97",
+    "StirVegetables:execute:197",
+    "done:done:3"
+   ]
+  }
+ ]
+}

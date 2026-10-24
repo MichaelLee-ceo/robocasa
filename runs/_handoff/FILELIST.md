@@ -11,7 +11,6 @@
 | runs/composite_seen_instructions.json | 8.0K | |
 | runs/horizons_original_plus.json | 4.0K | |
 | runs/subtask_audit.json | 8.0K | |
-| runs/llm_decomposition | 20K | |
 | runs/20261012_atomic_decomp_seen/{results_w*.jsonl, *.json, */stats.json} | 788K | 11 files |
 | runs/20261012_atomic_repeat_test/{results_w*.jsonl, *.json, */stats.json} | 28K | 3 files |
 | runs/20261012_atomic_seeded/{results_w*.jsonl, *.json, */stats.json} | 676K | 18 files |

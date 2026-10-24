@@ -30,6 +30,37 @@ def reset_to(kenv, xml, ep_meta, state=None):
     restore_task_attrs(kenv, ep_meta)
     if state is not None:
         set_state(kenv, state)
+    else:
+        kenv.sim.forward()
+    sync_fixture_poses(kenv)
+
+
+def sync_fixture_poses(kenv, tol_pos=1e-3, tol_yaw=1e-2):
+    """reset_from_xml_string is a soft reset: the python fixtures keep the placements the preceding env.reset() sampled
+    (robocasa issue #209 / PR #225); on our frozen scenes this hits the counter appliances and accessories (coffee
+    machine, toaster, toaster oven, knife block, ...), 0.2-1.2 m off. Anything computed from fixture.pos / fixture.rot
+    (e.g. OU.obj_inside_of via get_int_sites) would then use the wrong place. Write the simulator's pose back into every
+    fixture that disagrees, directly on its MJCF element as PR #225 does (some set_pos overrides re-place interior
+    objects). The simulator itself is not touched. Returns the names of the synced fixtures."""
+    from robocasa.models.fixtures import Fixture
+    from robosuite.utils.mjcf_utils import array_to_string
+    synced = []
+    for name, fx in kenv.fixtures.items():
+        if not isinstance(fx, Fixture):
+            continue
+        try:
+            bid = kenv.sim.model.body_name2id(fx.root_body)
+        except Exception:
+            continue
+        pos = np.array(kenv.sim.data.body_xpos[bid])
+        mat = np.array(kenv.sim.data.body_xmat[bid]).reshape(3, 3)
+        yaw = float(np.arctan2(mat[1, 0], mat[0, 0]))
+        dyaw = abs((yaw - float(fx.rot) + np.pi) % (2 * np.pi) - np.pi)
+        if np.linalg.norm(pos - np.asarray(fx.pos, dtype=float)) > tol_pos or dyaw > tol_yaw:
+            fx._obj.set("pos", array_to_string(pos))
+            fx._obj.set("euler", array_to_string(np.array([0.0, 0.0, yaw])))
+            synced.append(name)
+    return synced
 
 
 def restore_task_attrs(kenv, ep_meta):

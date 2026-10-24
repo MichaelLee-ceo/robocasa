@@ -1,4 +1,9 @@
-"""Hand-specified decomposition of 5 composite_seen tasks into atomic steps.
+"""Atomic steps of 5 composite_seen tasks (the other 11 are in atomic_steps_seen11.py, merged into TASKS at the end).
+
+The step sequence is the official RoboCasa365 per-frame subtask annotation (annotation.human.subtask_name of the
+composite target datasets, NavigateKitchen dropped); checked on 2026-10-25 to equal the annotated sequence of every
+demo (>= 99% of demos in all 16 tasks). The per-step checks are ours: the official composite _check_success() split
+into the conjuncts each step is responsible for, using the same official OU.* / fixture predicates.
 
 For every step:
   * skill        : the RoboCasa atomic task it corresponds to (same name as the subtask annotation)
@@ -155,3 +160,9 @@ TASKS["GatherVegetables"] = _pair_steps("PickPlaceSinkToCounter", ["veg1", "veg2
 TASKS["CondimentCollection"] = _pair_steps("PickPlaceCounterToCabinet", ["condiment1", "condiment2"],
                                            lambda e, o: OU.obj_inside_of(e, o, e.cab), _counter_to_cab)
 
+
+
+# The other 11 composite-seen tasks (ASUS-GPU, 2026-10-14): steps from the dataset subtask annotations, checks validated
+# by demo replay (runs/prev/_handoff_verify_asus/seen11/README.md). Every task's last step is env._check_success().
+from atomic_steps_seen11 import TASKS as _TASKS_SEEN11  # noqa: E402
+TASKS.update(_TASKS_SEEN11)

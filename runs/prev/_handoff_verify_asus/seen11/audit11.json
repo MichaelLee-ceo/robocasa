@@ -1,0 +1,1264 @@
+{
+ "ScrubCuttingBoard": {
+  "n": 504,
+  "sequences": [
+   [
+    [
+     "PickUpSponge",
+     "ScrubCuttingBoard",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "PickUpSponge",
+     "ScrubCuttingBoard",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "majority_unit_sequence": [
+   "PickUpSponge",
+   "ScrubCuttingBoard",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "PickUpSponge:pick",
+     "ScrubCuttingBoard:execute",
+     "done:done"
+    ],
+    476
+   ],
+   [
+    [
+     "PickUpSponge:pick",
+     "NavigateKitchen:navigate",
+     "ScrubCuttingBoard:execute",
+     "done:done"
+    ],
+    28
+   ]
+  ],
+  "n_stage_sequences": 2,
+  "sentences": {
+   "PickUpSponge | pick": [
+    [
+     "pick up the sponge from the counter",
+     504
+    ]
+   ],
+   "ScrubCuttingBoard | execute": [
+    [
+     "scrub the cutting board",
+     504
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     504
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the cutting board",
+     28
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ },
+ "WashLettuce": {
+  "n": 501,
+  "sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink",
+     "done"
+    ],
+    494
+   ],
+   [
+    [
+     "PickPlaceCounterToSink",
+     "TurnOnSinkFaucet",
+     "done"
+    ],
+    7
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "PickPlaceCounterToSink",
+     "done"
+    ],
+    494
+   ],
+   [
+    [
+     "PickPlaceCounterToSink",
+     "TurnOnSinkFaucet",
+     "done"
+    ],
+    7
+   ]
+  ],
+  "majority_unit_sequence": [
+   "TurnOnSinkFaucet",
+   "PickPlaceCounterToSink",
+   "done"
+  ],
+  "majority_share": 0.986,
+  "stage_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet:execute",
+     "PickPlaceCounterToSink:pick",
+     "PickPlaceCounterToSink:place",
+     "done:done"
+    ],
+    494
+   ],
+   [
+    [
+     "PickPlaceCounterToSink:pick",
+     "PickPlaceCounterToSink:place",
+     "TurnOnSinkFaucet:execute",
+     "done:done"
+    ],
+    7
+   ]
+  ],
+  "n_stage_sequences": 2,
+  "sentences": {
+   "TurnOnSinkFaucet | execute": [
+    [
+     "turn on the water in the sink",
+     494
+    ],
+    [
+     "turn on the water in the sink and run it over the lettuce",
+     7
+    ]
+   ],
+   "PickPlaceCounterToSink | pick": [
+    [
+     "pick up the lettuce from the counter",
+     501
+    ]
+   ],
+   "PickPlaceCounterToSink | place": [
+    [
+     "place the lettuce in the sink",
+     501
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "nonmajority_demos": [
+   51,
+   135,
+   142,
+   170,
+   236,
+   286,
+   458
+  ]
+ },
+ "RinseSinkBasin": {
+  "n": 509,
+  "sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout",
+     "done"
+    ],
+    509
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet",
+     "TurnSinkSpout",
+     "done"
+    ],
+    509
+   ]
+  ],
+  "majority_unit_sequence": [
+   "TurnOnSinkFaucet",
+   "TurnSinkSpout",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "TurnOnSinkFaucet:execute",
+     "TurnSinkSpout:execute",
+     "done:done"
+    ],
+    509
+   ]
+  ],
+  "n_stage_sequences": 1,
+  "sentences": {
+   "TurnOnSinkFaucet | execute": [
+    [
+     "turn on the sink",
+     509
+    ]
+   ],
+   "TurnSinkSpout | execute": [
+    [
+     "move the spout to wash all locations of the sink basin",
+     509
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     509
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ },
+ "LoadDishwasher": {
+  "n": 501,
+  "sequences": [
+   [
+    [
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "PickPlaceCounterToDishwasher",
+     "PickPlaceCounterToDishwasher",
+     "CloseDishwasher",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "majority_unit_sequence": [
+   "PickPlaceCounterToDishwasher",
+   "PickPlaceCounterToDishwasher",
+   "CloseDishwasher",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToDishwasher:pick",
+     "PickPlaceCounterToDishwasher:place",
+     "PickPlaceCounterToDishwasher:pick",
+     "PickPlaceCounterToDishwasher:place",
+     "CloseDishwasher:execute",
+     "done:done"
+    ],
+    501
+   ]
+  ],
+  "n_stage_sequences": 1,
+  "sentences": {
+   "PickPlaceCounterToDishwasher | pick": [
+    [
+     "pick up the cup from the counter",
+     501
+    ],
+    [
+     "pick up the bowl from the counter",
+     501
+    ]
+   ],
+   "PickPlaceCounterToDishwasher | place": [
+    [
+     "place the cup in the dishwasher",
+     501
+    ],
+    [
+     "place the bowl in the dishwasher",
+     501
+    ]
+   ],
+   "CloseDishwasher | execute": [
+    [
+     "close the dishwasher",
+     501
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ },
+ "StoreLeftoversInBowl": {
+  "n": 503,
+  "sequences": [
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge",
+     "done"
+    ],
+    503
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToCounter",
+     "PickPlaceCounterToFridge",
+     "done"
+    ],
+    503
+   ]
+  ],
+  "majority_unit_sequence": [
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToCounter",
+   "PickPlaceCounterToFridge",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "PickPlaceCounterToFridge:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToFridge:place",
+     "done:done"
+    ],
+    503
+   ]
+  ],
+  "n_stage_sequences": 1,
+  "sentences": {
+   "PickPlaceCounterToCounter | pick": [
+    [
+     "pick up the chicken drumstick from the other plate",
+     427
+    ],
+    [
+     "pick up the chicken drumstick from the plate",
+     76
+    ],
+    [
+     "pick up the corn from the plate",
+     31
+    ],
+    [
+     "pick up the lemon from the plate",
+     31
+    ]
+   ],
+   "PickPlaceCounterToCounter | place": [
+    [
+     "place the chicken drumstick in the bowl",
+     503
+    ],
+    [
+     "place the lemon in the bowl",
+     37
+    ],
+    [
+     "place the eggplant in the bowl",
+     35
+    ],
+    [
+     "place the corn in the bowl",
+     34
+    ]
+   ],
+   "PickPlaceCounterToFridge | pick": [
+    [
+     "pick up the bowl",
+     503
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the fridge",
+     503
+    ]
+   ],
+   "PickPlaceCounterToFridge | place": [
+    [
+     "place the bowl in the fridge",
+     503
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     503
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ },
+ "SetUpCuttingStation": {
+  "n": 504,
+  "sequences": [
+   [
+    [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter",
+     "done"
+    ],
+    503
+   ],
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    1
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "PickPlaceDrawerToCounter",
+     "PickPlaceCounterToCounter",
+     "done"
+    ],
+    503
+   ],
+   [
+    [
+     "PickPlaceCounterToCounter",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    1
+   ]
+  ],
+  "majority_unit_sequence": [
+   "PickPlaceDrawerToCounter",
+   "PickPlaceCounterToCounter",
+   "done"
+  ],
+  "majority_share": 0.998,
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceDrawerToCounter:pick",
+     "PickPlaceDrawerToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    166
+   ],
+   [
+    [
+     "PickPlaceDrawerToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    154
+   ],
+   [
+    [
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:pick",
+     "PickPlaceDrawerToCounter:place",
+     "PickPlaceCounterToCounter:pick",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    64
+   ],
+   [
+    [
+     "PickPlaceDrawerToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToCounter:place",
+     "done:done"
+    ],
+    55
+   ]
+  ],
+  "n_stage_sequences": 11,
+  "sentences": {
+   "PickPlaceDrawerToCounter | pick": [
+    [
+     "pick up the knife from the right drawer",
+     266
+    ],
+    [
+     "pick up the knife from the left drawer",
+     238
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the cutting board",
+     324
+    ],
+    [
+     "navigate to the plate",
+     109
+    ],
+    [
+     "navigate to the right drawer",
+     68
+    ],
+    [
+     "navigate to the left drawer",
+     14
+    ]
+   ],
+   "PickPlaceDrawerToCounter | place": [
+    [
+     "place the knife on the cutting board",
+     504
+    ]
+   ],
+   "PickPlaceCounterToCounter | pick": [
+    [
+     "pick up the steak from the plate",
+     132
+    ],
+    [
+     "pick up the fish from the plate",
+     125
+    ],
+    [
+     "pick up the shrimp from the plate",
+     124
+    ],
+    [
+     "pick up the chicken drumstick from the plate",
+     123
+    ]
+   ],
+   "PickPlaceCounterToCounter | place": [
+    [
+     "place the steak on the cutting board",
+     132
+    ],
+    [
+     "place the fish on the cutting board",
+     125
+    ],
+    [
+     "place the shrimp on the cutting board",
+     124
+    ],
+    [
+     "place the chicken drumstick on the cutting board",
+     123
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     504
+    ]
+   ]
+  },
+  "nonmajority_demos": [
+   413
+  ]
+ },
+ "StirVegetables": {
+  "n": 501,
+  "sequences": [
+   [
+    [
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "PickPlaceCounterToStove",
+     "PickPlaceCounterToStove",
+     "PickUpSpatula",
+     "StirVegetables",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "majority_unit_sequence": [
+   "PickPlaceCounterToStove",
+   "PickPlaceCounterToStove",
+   "PickUpSpatula",
+   "StirVegetables",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickUpSpatula:pick",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    412
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "NavigateKitchen:navigate",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    22
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    22
+   ],
+   [
+    [
+     "PickPlaceCounterToStove:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToStove:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToStove:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCounterToStove:place",
+     "NavigateKitchen:navigate",
+     "PickUpSpatula:pick",
+     "NavigateKitchen:navigate",
+     "StirVegetables:execute",
+     "done:done"
+    ],
+    8
+   ]
+  ],
+  "n_stage_sequences": 20,
+  "sentences": {
+   "PickPlaceCounterToStove | pick": [
+    [
+     "pick up the onion from the counter",
+     75
+    ],
+    [
+     "pick up the lime from the counter",
+     71
+    ],
+    [
+     "pick up the bell pepper from the counter",
+     66
+    ],
+    [
+     "pick up the broccoli from the counter",
+     66
+    ]
+   ],
+   "PickPlaceCounterToStove | place": [
+    [
+     "place the onion in the pot",
+     75
+    ],
+    [
+     "place the lime in the pot",
+     71
+    ],
+    [
+     "place the bell pepper in the pot",
+     66
+    ],
+    [
+     "place the broccoli in the pot",
+     66
+    ]
+   ],
+   "PickUpSpatula | pick": [
+    [
+     "pick up the spatula from the counter",
+     501
+    ]
+   ],
+   "StirVegetables | execute": [
+    [
+     "stir the vegetables in the pot",
+     501
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the stove",
+     121
+    ],
+    [
+     "navigate to the counter",
+     84
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ },
+ "SearingMeat": {
+  "n": 501,
+  "sequences": [
+   [
+    [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "PickPlaceCabinetToStove",
+     "PickPlaceCounterToStove",
+     "TurnOnStove",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "majority_unit_sequence": [
+   "PickPlaceCabinetToStove",
+   "PickPlaceCounterToStove",
+   "TurnOnStove",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceCabinetToStove:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceCabinetToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "TurnOnStove:execute",
+     "done:done"
+    ],
+    500
+   ],
+   [
+    [
+     "PickPlaceCabinetToStove:pick",
+     "PickPlaceCabinetToStove:place",
+     "PickPlaceCounterToStove:pick",
+     "PickPlaceCounterToStove:place",
+     "TurnOnStove:execute",
+     "done:done"
+    ],
+    1
+   ]
+  ],
+  "n_stage_sequences": 2,
+  "sentences": {
+   "PickPlaceCabinetToStove | pick": [
+    [
+     "pick up the pan from the cabinet",
+     501
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the stove",
+     500
+    ]
+   ],
+   "PickPlaceCabinetToStove | place": [
+    [
+     "place the pan on the rear-right burner",
+     133
+    ],
+    [
+     "place the pan on the front-right burner",
+     116
+    ],
+    [
+     "place the pan on the front-left burner",
+     86
+    ],
+    [
+     "place the pan on the rear-left burner",
+     77
+    ]
+   ],
+   "PickPlaceCounterToStove | pick": [
+    [
+     "pick up the fish from the counter",
+     141
+    ],
+    [
+     "pick up the chicken drumstick from the counter",
+     132
+    ],
+    [
+     "pick up the steak from the counter",
+     124
+    ],
+    [
+     "pick up the shrimp from the counter",
+     104
+    ]
+   ],
+   "PickPlaceCounterToStove | place": [
+    [
+     "place the fish on the pan",
+     141
+    ],
+    [
+     "place the chicken drumstick on the pan",
+     132
+    ],
+    [
+     "place the steak on the pan",
+     124
+    ],
+    [
+     "place the shrimp on the pan",
+     104
+    ]
+   ],
+   "TurnOnStove | execute": [
+    [
+     "turn on the rear-right burner",
+     133
+    ],
+    [
+     "turn on the front-right burner",
+     116
+    ],
+    [
+     "turn on the front-left burner",
+     86
+    ],
+    [
+     "turn on the rear-left burner",
+     77
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ },
+ "PackIdenticalLunches": {
+  "n": 501,
+  "sequences": [
+   [
+    [
+     "PickPlaceFridgeToCounter",
+     "done"
+    ],
+    501
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "done"
+    ],
+    499
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "PickPlaceFridgeToCounter",
+     "done"
+    ],
+    2
+   ]
+  ],
+  "majority_unit_sequence": [
+   "PickPlaceFridgeToCounter",
+   "PickPlaceFridgeToCounter",
+   "PickPlaceFridgeToCounter",
+   "PickPlaceFridgeToCounter",
+   "done"
+  ],
+  "majority_share": 0.996,
+  "stage_sequences": [
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    454
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    8
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "PickPlaceFridgeToCounter:place",
+     "PickPlaceFridgeToCounter:pick",
+     "PickPlaceFridgeToCounter:place",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    5
+   ],
+   [
+    [
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:place",
+     "NavigateKitchen:navigate",
+     "PickPlaceFridgeToCounter:pick",
+     "PickPlaceFridgeToCounter:place",
+     "done:done"
+    ],
+    5
+   ]
+  ],
+  "n_stage_sequences": 23,
+  "sentences": {
+   "PickPlaceFridgeToCounter | pick": [
+    [
+     "pick up a chicken drumstick from the fridge",
+     458
+    ],
+    [
+     "pick up a steak from the fridge",
+     296
+    ],
+    [
+     "pick up a fish from the fridge",
+     246
+    ],
+    [
+     "pick up a tomato from the fridge",
+     80
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate back to the fridge",
+     1451
+    ],
+    [
+     "navigate to a tupperware on the counter",
+     493
+    ],
+    [
+     "navigate to the empty tupperware on the counter",
+     489
+    ],
+    [
+     "navigate to the tupperware with only the chicken drumstick in it",
+     130
+    ]
+   ],
+   "PickPlaceFridgeToCounter | place": [
+    [
+     "place the chicken drumstick in a tupperware",
+     136
+    ],
+    [
+     "place the chicken drumstick in the empty tupperware",
+     131
+    ],
+    [
+     "place the steak in a tupperware",
+     95
+    ],
+    [
+     "place the steak in the empty tupperware",
+     88
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     501
+    ]
+   ]
+  },
+  "nonmajority_demos": [
+   426,
+   444
+  ]
+ },
+ "DeliverStraw": {
+  "n": 504,
+  "sequences": [
+   [
+    [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "OpenDrawer",
+     "PickPlaceDrawerToCounter",
+     "done"
+    ],
+    504
+   ]
+  ],
+  "majority_unit_sequence": [
+   "OpenDrawer",
+   "PickPlaceDrawerToCounter",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "OpenDrawer:execute",
+     "PickPlaceDrawerToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceDrawerToCounter:place",
+     "done:done"
+    ],
+    504
+   ]
+  ],
+  "n_stage_sequences": 1,
+  "sentences": {
+   "OpenDrawer | execute": [
+    [
+     "open the drawer in front of the robot",
+     504
+    ]
+   ],
+   "PickPlaceDrawerToCounter | pick": [
+    [
+     "pick up the straw from the drawer",
+     504
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the cup on the dining counter",
+     504
+    ]
+   ],
+   "PickPlaceDrawerToCounter | place": [
+    [
+     "place the straw in the glass cup",
+     504
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     504
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ },
+ "GetToastedBread": {
+  "n": 506,
+  "sequences": [
+   [
+    [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter",
+     "done"
+    ],
+    506
+   ]
+  ],
+  "unit_sequences": [
+   [
+    [
+     "TurnOnToaster",
+     "PickPlaceToasterToCounter",
+     "done"
+    ],
+    506
+   ]
+  ],
+  "majority_unit_sequence": [
+   "TurnOnToaster",
+   "PickPlaceToasterToCounter",
+   "done"
+  ],
+  "majority_share": 1.0,
+  "stage_sequences": [
+   [
+    [
+     "TurnOnToaster:press",
+     "TurnOnToaster:wait",
+     "PickPlaceToasterToCounter:pick",
+     "NavigateKitchen:navigate",
+     "PickPlaceToasterToCounter:place",
+     "done:done"
+    ],
+    506
+   ]
+  ],
+  "n_stage_sequences": 1,
+  "sentences": {
+   "TurnOnToaster | press": [
+    [
+     "push down the lever of the toaster",
+     506
+    ]
+   ],
+   "TurnOnToaster | wait": [
+    [
+     "wait for the toaster to finish and the lever to pop up",
+     506
+    ]
+   ],
+   "PickPlaceToasterToCounter | pick": [
+    [
+     "pick up the bread from the toaster",
+     506
+    ]
+   ],
+   "NavigateKitchen | navigate": [
+    [
+     "navigate to the plate on the dining counter",
+     506
+    ]
+   ],
+   "PickPlaceToasterToCounter | place": [
+    [
+     "place the bread on the plate",
+     506
+    ]
+   ],
+   "done | done": [
+    [
+     "task complete",
+     506
+    ]
+   ]
+  },
+  "nonmajority_demos": []
+ }
+}
