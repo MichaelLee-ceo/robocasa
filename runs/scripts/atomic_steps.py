@@ -16,6 +16,7 @@ S is a per-episode dict filled by `prepare(env, demo)` (e.g. which bowl is picke
 """
 import numpy as np
 import robocasa.utils.object_utils as OU
+from atomic_steps_seen11 import _order_step, _next_obj  # any-order steps on several objects (shared with the 11 tasks)
 
 
 def _lang(env, name):
@@ -69,13 +70,13 @@ TASKS = {
              instr=lambda e, S: f"Turn on the {(_burner_under(e)[0] or 'front').replace('_', ' ')} burner of the stove.",
              check=lambda e, S: e._check_success()),
     ],
-    "PreSoakPan": [
+    "PreSoakPan": [  # pan (obj1) and sponge (obj2) in either order: the official annotations put the sponge first in 54/501 demos
         dict(skill="PickPlaceCounterToSink", seg=0,
-             instr=lambda e, S: f"Pick the {_lang(e, 'obj1')} from the counter and place it in the sink.",
-             check=lambda e, S: OU.obj_inside_of(e, "obj1", e.sink, partial_check=False) and OU.gripper_obj_far(e, "obj1")),
+             instr=lambda e, S: f"Pick the {_lang(e, _next_obj(['obj1', 'obj2'], 0)(e, S))} from the counter and place it in the sink.",
+             check=_order_step(["obj1", "obj2"], lambda e, o: OU.obj_inside_of(e, o, e.sink, partial_check=False), OU.gripper_obj_far, 0)),
         dict(skill="PickPlaceCounterToSink", seg=2,
-             instr=lambda e, S: f"Pick the {_lang(e, 'obj2')} from the counter and place it in the sink.",
-             check=lambda e, S: OU.obj_inside_of(e, "obj2", e.sink, partial_check=False) and OU.gripper_obj_far(e, "obj2")),
+             instr=lambda e, S: f"Pick the {_lang(e, _next_obj(['obj1', 'obj2'], 1)(e, S))} from the counter and place it in the sink.",
+             check=_order_step(["obj1", "obj2"], lambda e, o: OU.obj_inside_of(e, o, e.sink, partial_check=False), OU.gripper_obj_far, 1)),
         dict(skill="TurnOnSinkFaucet", seg=4,
              instr=lambda e, S: "Turn on the sink faucet.",
              check=lambda e, S: e._check_success()),
