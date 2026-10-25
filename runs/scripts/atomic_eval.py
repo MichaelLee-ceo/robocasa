@@ -26,14 +26,18 @@ from atomic_steps import TASKS, prepare
 
 
 class FrameGrab(gym.Wrapper):
-    def __init__(self, env, every=4):
-        super().__init__(env); self.every, self.t, self.frames = every, 0, []
+    """keeps every `every`-th frame for the video; with `states` (a list), also appends the flattened sim state after
+    every control step."""
+    def __init__(self, env, every=4, states=None):
+        super().__init__(env); self.every, self.t, self.frames, self.states = every, 0, [], states
 
     def step(self, a):
         o, r, d, tr, info = self.env.step(a)
         self.t += 1
         if self.t % self.every == 0:
             self.frames.append(np.concatenate([o["video.robot0_agentview_left"], o["video.robot0_eye_in_hand"]], 1))
+        if self.states is not None:
+            self.states.append(self.env.env.sim.get_state().flatten())
         return o, r, d, tr, info
 
 
@@ -76,14 +80,16 @@ def fingerprint(d):
 
 
 def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr, k0=0, k_stop=None, save=None,
-            seed_fn=None, digest=None):
+            seed_fn=None, digest=None, step_states=None):
     """seed_fn(ci) -> seed sent with the request of chunk ci (needs serve_seeded.py). digest: list to append
     [observation sent, action received, sim state after the chunk, {observation key: fingerprint}] to, one entry
-    per chunk."""
-    fg = FrameGrab(base)
+    per chunk. step_states: list to fill with the flattened sim state at the start and after every control step."""
+    fg = FrameGrab(base, states=step_states)
     menv = MultiStepWrapper(fg, video_delta_indices=np.array([0]), state_delta_indices=np.array([0]),
                             n_action_steps=16, max_episode_steps=horizon)
     set_state(kenv, start_state)
+    if step_states is not None:
+        step_states.append(kenv.sim.get_state().flatten())
     o = base.get_observation(kenv._get_observations(force_update=True))
     menv.obs = deque([o] * 2, maxlen=2); menv.reward, menv.done = [], []
     menv.info = defaultdict(lambda: deque(maxlen=2))
@@ -224,12 +230,18 @@ def main():
                 saved = [] if jc == "baseline_seed_save" else None
                 pseed = j.get("policy_seed")  # set -> reproducible action noise (serve_seeded.py) + per-chunk fingerprints
                 dig = [] if pseed is not None else None
+                step_states = [] if j.get("save_steps") else None  # every control step, for offline replay / labeling
                 r, frames = rollout(client, base, kenv, S, steps, start, j["horizon"],
                                     {"baseline_seed": "task", "baseline_seed_save": "task", "chain_seed": "atomic",
                                      "chain_then_task_seed": "atomic_then_task", "chain_aug_seed": "atomic_aug"}[jc], instr0, save=saved,
-                                    seed_fn=policy_seed_fn(j["tag"], pseed) if pseed is not None else None, digest=dig)
+                                    seed_fn=policy_seed_fn(j["tag"], pseed) if pseed is not None else None, digest=dig,
+                                    step_states=step_states)
                 if dig is not None:
                     r["digest"] = dig
+                if step_states is not None:
+                    os.makedirs(os.path.join(a.out, task), exist_ok=True)
+                    np.savez_compressed(os.path.join(a.out, task, f"{j['tag']}_steps.npz"), states=np.stack(step_states))
+                    r["n_step_states"] = len(step_states)
                 if saved is not None:
                     os.makedirs(os.path.join(a.out, task), exist_ok=True)
                     np.savez_compressed(os.path.join(a.out, task, f"{j['tag']}_states.npz"), recs=np.array(saved, dtype=object))
