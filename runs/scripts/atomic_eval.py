@@ -22,6 +22,7 @@ from gr00t.eval.wrappers.multistep_wrapper import MultiStepWrapper
 from groot_eval import Client, batch, write_video
 from demo_utils import load_demo
 from oracle import reset_to, set_state
+import hidden_state
 from atomic_steps import TASKS, prepare
 
 
@@ -80,14 +81,18 @@ def fingerprint(d):
 
 
 def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr, k0=0, k_stop=None, save=None,
-            seed_fn=None, digest=None, step_states=None):
+            seed_fn=None, digest=None, step_states=None, hidden=None):
     """seed_fn(ci) -> seed sent with the request of chunk ci (needs serve_seeded.py). digest: list to append
     [observation sent, action received, sim state after the chunk, {observation key: fingerprint}] to, one entry
-    per chunk. step_states: list to fill with the flattened sim state at the start and after every control step."""
+    per chunk. step_states: list to fill with the flattened sim state at the start and after every control step.
+    hidden: controller / warm-start state to start from (hidden_state.capture()); without it the rollout inherits
+    whatever the env's previous rollout left in the controllers (see hidden_state.py)."""
     fg = FrameGrab(base, states=step_states)
     menv = MultiStepWrapper(fg, video_delta_indices=np.array([0]), state_delta_indices=np.array([0]),
                             n_action_steps=16, max_episode_steps=horizon)
     set_state(kenv, start_state)
+    if hidden is not None:
+        hidden_state.restore(kenv, hidden)
     if step_states is not None:
         step_states.append(kenv.sim.get_state().flatten())
     o = base.get_observation(kenv._get_observations(force_update=True))

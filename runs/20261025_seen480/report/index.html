@@ -1,0 +1,1798 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seen-480 Stage Diagnosis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Schibsted+Grotesk:wght@600;700&display=swap">
+<style>
+/* Layout: an overview of summary cards (pipeline, failure modes, task x mode), then one task at a time;
+   each rollout is a card that reads left to right in time: timeline -> per-stage clips -> diagnosis. */
+:root {
+  --page: #f2f2ee; --surface: #fcfcfb; --surface-2: #f5f5f1; --ink: #0b0b0b; --ink-2: #52514e; --muted: #77756f;
+  --hair: rgba(11,11,11,.10); --grid: #e1e0d9; --axis: #c3c2b7;
+  --accent: #0b0b0b; --accent-ink: #fcfcfb;
+  --good: #0ca30c; --good-ink: #006300; --bad: #d03b3b; --bad-ink: #b02f2f; --bad-wash: rgba(208,59,59,.14);
+  --m-fixture_actuation: #2a78d6; --m-grasp_acquisition: #eb6834; --m-placement: #1baf7a; --m-grasp_retention: #eda100;
+  --m-task_level: #e87ba4; --m-stage_not_terminated: #008300; --m-process_skill: #6250d6; --m-disturbance: #e34948;
+  --m-criterion_or_sim: #898781; --heat: 42,120,214;
+  --st0: #d9d8d0; --st1: #b9b8b0; --st2: #8f8e87; --st3: #63625d;
+  --st0-ink: #0b0b0b; --st1-ink: #0b0b0b; --st2-ink: #ffffff; --st3-ink: #ffffff;
+  --shadow: 0 1px 2px rgba(11,11,11,.04), 0 6px 20px rgba(11,11,11,.05);
+  --f-display: "Schibsted Grotesk", "Instrument Sans", "Noto Sans TC", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body: "Instrument Sans", "Noto Sans TC", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, "Noto Sans TC", monospace;
+  --r: 14px; --r-s: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0d0d0d; --surface: #1a1a19; --surface-2: #222220; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #918f88;
+    --hair: rgba(255,255,255,.10); --grid: #2c2c2a; --axis: #383835; --accent: #f0efec; --accent-ink: #1a1a19;
+    --good-ink: #2fc22f; --bad-ink: #ef7a7a; --bad-wash: rgba(230,103,103,.16);
+    --m-fixture_actuation: #3987e5; --m-grasp_acquisition: #d95926; --m-placement: #199e70; --m-grasp_retention: #c98500;
+    --m-task_level: #d55181; --m-stage_not_terminated: #008300; --m-process_skill: #9085e9; --m-disturbance: #e66767;
+    --heat: 57,135,229;
+    --st0: #3a3a37; --st1: #55554f; --st2: #7c7b74; --st3: #a9a89f;
+    --st0-ink: #f0efec; --st1-ink: #f0efec; --st2-ink: #0b0b0b; --st3-ink: #0b0b0b;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0d0d0d; --surface: #1a1a19; --surface-2: #222220; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #918f88;
+  --hair: rgba(255,255,255,.10); --grid: #2c2c2a; --axis: #383835; --accent: #f0efec; --accent-ink: #1a1a19;
+  --good-ink: #2fc22f; --bad-ink: #ef7a7a; --bad-wash: rgba(230,103,103,.16);
+  --m-fixture_actuation: #3987e5; --m-grasp_acquisition: #d95926; --m-placement: #199e70; --m-grasp_retention: #c98500;
+  --m-task_level: #d55181; --m-stage_not_terminated: #008300; --m-process_skill: #9085e9; --m-disturbance: #e66767;
+  --heat: 57,135,229;
+  --st0: #3a3a37; --st1: #55554f; --st2: #7c7b74; --st3: #a9a89f;
+  --st0-ink: #f0efec; --st1-ink: #f0efec; --st2-ink: #0b0b0b; --st3-ink: #0b0b0b;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 15px/1.55 var(--f-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+a { color: inherit; text-decoration-color: var(--axis); text-underline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; letter-spacing: -.01em; }
+.mono, .num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--surface) 88%, transparent); backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid var(--hair); }
+.bar .wrap { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding-block: 10px; }
+.brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; margin-right: auto; min-width: 0; }
+.brand b { font: 700 17px var(--f-display); letter-spacing: -.01em; }
+.brand span { color: var(--muted); font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ctl { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-2); }
+.seg { display: inline-flex; background: var(--surface-2); border: 1px solid var(--hair); border-radius: 999px; padding: 2px; }
+.seg button { border: 0; background: transparent; padding: 4px 10px; border-radius: 999px; cursor: pointer; font-size: 13px; color: var(--ink-2); white-space: nowrap; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+select { font: inherit; font-size: 13px; color: var(--ink); background: var(--surface-2); border: 1px solid var(--hair); border-radius: 999px; padding: 5px 10px; max-width: 100%; }
+.navlink { font-size: 13px; text-decoration: none; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--hair); background: var(--surface-2); }
+.navlink[aria-current="page"] { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+
+/* generic cards */
+main { padding-block: 22px 60px; display: grid; gap: 18px; }
+.card { background: var(--surface); border: 1px solid var(--hair); border-radius: var(--r); box-shadow: var(--shadow); padding: 20px; min-width: 0; }
+.card > h2 { font-size: 19px; margin-bottom: 4px; }
+.sub { color: var(--ink-2); font-size: 14px; margin: 0 0 14px; max-width: 75ch; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 18px; }
+
+/* hero */
+.hero { display: grid; gap: 18px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: end; }
+.hero h1 { font-size: clamp(26px, 3.4vw, 38px); line-height: 1.12; margin: 6px 0 10px; }
+.hero p { margin: 0; color: var(--ink-2); max-width: 66ch; }
+.kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.kpi { background: var(--surface); border: 1px solid var(--hair); border-radius: var(--r-s); padding: 12px 14px; }
+.kpi .v { font: 700 26px/1.1 var(--f-display); }
+.kpi .v small { font: 500 14px var(--f-body); color: var(--muted); margin-left: 4px; }
+.kpi .l { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; } }
+
+/* pipeline */
+.pipe { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.pstep { position: relative; background: var(--surface-2); border: 1px solid var(--hair); border-radius: var(--r-s); padding: 12px 12px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.pstep:not(:last-child)::after { content: ""; position: absolute; right: -10px; top: 28px; width: 8px; height: 8px; border-top: 1.5px solid var(--muted); border-right: 1.5px solid var(--muted); transform: rotate(45deg); }
+.pstep .n { font: 500 12px var(--f-mono); color: var(--muted); }
+.pstep h3 { font-size: 15px; }
+.pstep p { margin: 0; font-size: 13px; color: var(--ink-2); line-height: 1.45; }
+.pstep .out { margin-top: auto; font-size: 12.5px; padding-top: 6px; border-top: 1px dashed var(--hair); }
+.tag { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; letter-spacing: .02em; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--hair); background: var(--surface); width: fit-content; }
+.tag.prog { border-color: var(--ink-2); }
+.tag.vid { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.pipe-q { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; margin-top: 10px; font-size: 13px; }
+.pipe-q div { border-top: 2px solid var(--ink); padding-top: 6px; color: var(--ink-2); }
+.pipe-q b { color: var(--ink); }
+@media (max-width: 1000px) {
+  .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pstep::after { display: none; }
+  .pipe-q { display: none; }
+}
+@media (max-width: 520px) { .pipe { grid-template-columns: 1fr; } }
+
+/* failure-mode bars */
+.mbars { display: grid; gap: 12px; }
+.mbar { display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); gap: 4px 14px; align-items: center; }
+.mbar .name { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+.sw { width: 10px; height: 10px; border-radius: 3px; flex: none; display: inline-block; }
+.mbar .track { position: relative; height: 18px; }
+.mbar .fill { height: 18px; border-radius: 0 4px 4px 0; min-width: 3px; }
+.mbar .val { position: absolute; top: 0; font: 500 12.5px/18px var(--f-mono); color: var(--ink-2); padding-left: 8px; white-space: nowrap; }
+.mbar .desc { grid-column: 2; font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+@media (max-width: 560px) { .mbar { grid-template-columns: 1fr; } .mbar .desc { grid-column: 1; } }
+
+/* heatmap table */
+.tablewrap { overflow-x: auto; margin: 0 -4px; padding: 0 4px; }
+table.heat { border-collapse: separate; border-spacing: 2px; width: 100%; font-size: 13px; }
+.heat th { font-weight: 600; color: var(--ink-2); text-align: center; padding: 4px; vertical-align: bottom; font-size: 12px; line-height: 1.2; }
+.heat th.tl { text-align: left; }
+.heat td { text-align: center; height: 30px; min-width: 44px; border-radius: 4px; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.heat td.task { text-align: left; font-family: var(--f-body); font-weight: 600; white-space: nowrap; padding-right: 10px; min-width: 0; }
+.heat td.task a { text-decoration: none; }
+.heat td.task a:hover { text-decoration: underline; }
+.heat td.succ { min-width: 120px; text-align: left; }
+.minibar { display: flex; align-items: center; gap: 8px; }
+.minibar i { display: block; height: 8px; border-radius: 0 3px 3px 0; background: var(--good); }
+.minibar span { font-size: 12.5px; color: var(--ink-2); }
+.heat tr.row:hover td.task { text-decoration: underline; }
+.heat td.cnt { cursor: pointer; }
+
+/* mechanisms */
+.mechs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 12px; }
+.mech { background: var(--surface-2); border: 1px solid var(--hair); border-radius: var(--r-s); padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+.mech h3 { font-size: 15px; line-height: 1.3; }
+.mech .stat { font: 500 12.5px var(--f-mono); color: var(--muted); }
+.mech p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+.eps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+.eplink { font: 500 12px var(--f-mono); text-decoration: none; padding: 2px 8px; border: 1px solid var(--hair); border-radius: 999px; background: var(--surface); }
+.eplink:hover { border-color: var(--ink-2); }
+
+/* lists */
+.flags { display: grid; gap: 10px; }
+.flag { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 10px 12px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); }
+.flag .what { font-size: 13.5px; }
+.flag .eps { padding-top: 0; }
+.facts { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); display: grid; gap: 6px; }
+.facts code { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink); }
+.recov { display: flex; height: 22px; gap: 2px; margin: 8px 0 10px; }
+.recov div { border-radius: 4px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* task cards */
+.tasks { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 12px; }
+.tcard { display: flex; flex-direction: column; gap: 10px; text-decoration: none; background: var(--surface); border: 1px solid var(--hair); border-radius: var(--r); padding: 16px; box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease; }
+.tcard:hover { transform: translateY(-2px); border-color: var(--axis); }
+.tcard .top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.tcard h3 { font-size: 16px; }
+.tcard .rate { font: 700 22px var(--f-display); white-space: nowrap; }
+.tcard .rate small { font: 500 13px var(--f-body); color: var(--muted); }
+.stchips { display: flex; flex-wrap: wrap; gap: 4px; }
+.stchip { font-size: 11.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--hair); color: var(--ink-2); background: var(--surface-2); }
+.stack { display: flex; height: 10px; gap: 2px; }
+.stack div { border-radius: 2px; min-width: 2px; }
+.tcard .rc { font-size: 12.5px; color: var(--muted); }
+
+/* task view */
+.thead { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 20px; }
+@media (max-width: 900px) { .thead { grid-template-columns: 1fr; } }
+.thead h1 { font-size: clamp(24px, 3vw, 32px); margin: 4px 0 6px; }
+.instr { font-size: 15.5px; margin: 0 0 14px; max-width: 70ch; }
+.instr small { display: block; font-size: 12px; color: var(--muted); letter-spacing: .04em; margin-bottom: 2px; }
+.stagelist { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.stagelist li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 10px; font-size: 13.5px; }
+.stbadge { font: 600 12px var(--f-mono); padding: 1px 7px; border-radius: 6px; height: fit-content; }
+.stagelist .def { grid-column: 2; color: var(--ink-2); font-size: 13px; }
+.stagelist .typ { grid-column: 2; color: var(--muted); font-size: 12.5px; font-family: var(--f-mono); }
+.tstats { display: grid; gap: 14px; align-content: start; }
+.bigrate { font: 700 44px/1 var(--f-display); }
+.bigrate small { font: 500 16px var(--f-body); color: var(--muted); margin-left: 6px; }
+details.summary { border-top: 1px solid var(--hair); margin-top: 16px; padding-top: 12px; }
+details.summary > summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+details.summary > summary::before { content: "+"; font: 600 15px var(--f-mono); width: 20px; height: 20px; display: inline-grid; place-items: center; border: 1px solid var(--hair); border-radius: 6px; }
+details.summary[open] > summary::before { content: "−"; }
+.prose { font-size: 14px; color: var(--ink-2); max-width: 92ch; }
+.prose h1, .prose h2, .prose h3 { color: var(--ink); font-size: 16px; margin: 18px 0 6px; }
+.prose p, .prose li { line-height: 1.55; }
+.prose code { font-family: var(--f-mono); font-size: 12.5px; color: var(--ink); }
+.prose table { border-collapse: collapse; font-size: 13px; display: block; overflow-x: auto; max-width: 100%; }
+.prose th, .prose td { border-bottom: 1px solid var(--hair); padding: 4px 10px 4px 0; text-align: left; vertical-align: top; }
+.orig { font: 500 10.5px var(--f-body); letter-spacing: .02em; text-transform: none; color: var(--muted); border: 1px solid var(--hair); border-radius: 999px; padding: 0 6px; margin-left: 6px; vertical-align: 1px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 54px); z-index: 10; background: color-mix(in srgb, var(--page) 92%, transparent); backdrop-filter: blur(8px); padding: 10px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--hair); background: var(--surface); cursor: pointer; }
+.chip[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.count { color: var(--muted); font-family: var(--f-mono); font-size: 12px; }
+
+/* episode card */
+.eplist { display: grid; gap: 14px; }
+.ep { padding: 16px 18px 18px; display: grid; gap: 14px; scroll-margin-top: 130px; }
+.ep.hl { border-color: var(--ink); }
+.ephead { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.epid { font: 600 20px var(--f-mono); letter-spacing: -.02em; }
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
+.pill.ok { color: var(--good-ink); background: color-mix(in srgb, var(--good) 13%, transparent); }
+.pill.no { color: var(--bad-ink); background: var(--bad-wash); }
+.meta { font-size: 12.5px; color: var(--muted); }
+.modechip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--hair); background: var(--surface-2); }
+.modechip em { font-style: normal; font-weight: 400; color: var(--ink-2); }
+.ephead .acts { margin-left: auto; display: flex; gap: 6px; }
+.btn { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--hair); background: var(--surface-2); cursor: pointer; text-decoration: none; white-space: nowrap; }
+.btn:hover { border-color: var(--ink-2); }
+.btn.dark { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+
+/* timeline */
+.tl { position: relative; padding-top: 2px; }
+.tl-track { position: relative; height: 26px; border-radius: 6px; background: repeating-linear-gradient(90deg, transparent 0 7px, var(--grid) 7px 8px); background-color: var(--surface-2); border: 1px solid var(--hair); overflow: hidden; }
+.tl-seg { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; font: 600 11px var(--f-mono); overflow: hidden; white-space: nowrap; border-right: 2px solid var(--surface); }
+.tl-seg.fail { background: repeating-linear-gradient(135deg, var(--bad-wash) 0 6px, transparent 6px 12px); color: var(--bad-ink); border-right: 0; }
+.tl-rc { position: absolute; top: -1px; bottom: -1px; border: 2px solid var(--bad); border-radius: 5px; background: var(--bad-wash); }
+.tl-rest { position: absolute; top: 0; bottom: 0; background: var(--surface-2); opacity: .85; }
+.tl-marks { position: relative; height: 40px; margin-top: 3px; }
+.tl-mark { position: absolute; top: calc(var(--row) * 19px); transform: translateX(-50%); display: flex; align-items: center; gap: 4px; font: 500 11.5px var(--f-mono); white-space: nowrap; color: var(--ink-2); }
+.tl-mark.edge-l { transform: none; }
+.tl-mark.edge-r { transform: translateX(-100%); }
+.tl-mark i { width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 0 2px var(--surface); flex: none; }
+.tl-mark.ok { color: var(--good-ink); font-weight: 600; }
+.tl-mark.to { color: var(--bad-ink); font-weight: 600; }
+.tl-axis { position: relative; height: 16px; font: 400 10.5px var(--f-mono); color: var(--muted); }
+.tl-axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.tl-axis span.first { transform: none; }
+.tl-axis span.last { transform: translateX(-100%); }
+.tl-axis i { font-style: normal; }
+
+/* clips */
+.clips { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 10px; }
+.clip { border: 1px solid var(--hair); border-radius: 10px; overflow: hidden; background: var(--surface-2); display: flex; flex-direction: column; min-width: 0; }
+.clip.rc { border-color: var(--bad); box-shadow: 0 0 0 1px var(--bad); }
+.clip-head { display: flex; align-items: center; gap: 6px; padding: 7px 9px; font-size: 12.5px; min-width: 0; }
+.clip-head .nm { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; flex: 1; }
+.clip-head .st { font: 500 11.5px var(--f-mono); white-space: nowrap; color: var(--ink-2); }
+.clip-head .st.ok { color: var(--good-ink); }
+.clip-head .st.no { color: var(--bad-ink); font-weight: 600; }
+.clip-media { position: relative; display: block; width: 100%; aspect-ratio: 2 / 1; max-width: 100%; padding: 0; border: 0; background: #000; cursor: pointer; overflow: hidden; }
+.clip-media img, .clip-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.clip-media video { opacity: 0; }
+.clip-media .spr { position: absolute; inset: 0; background-repeat: no-repeat; }
+.clip-media.live video { opacity: 1; }
+.playic { position: absolute; left: 50%; top: 50%; width: 42px; height: 42px; transform: translate(-50%, -50%); border-radius: 50%; background: rgba(0,0,0,.55); display: grid; place-items: center; transition: opacity .15s; }
+.playic::after { content: ""; margin-left: 3px; border-left: 13px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.clip-media.playing .playic { opacity: 0; }
+.clip-media:hover .playic { background: rgba(0,0,0,.75); }
+.stepread { position: absolute; left: 6px; bottom: 7px; font: 500 11px var(--f-mono); color: #fff; background: rgba(0,0,0,.6); padding: 1px 6px; border-radius: 4px; }
+.vlab { position: absolute; top: 5px; font: 500 10px var(--f-mono); color: #fff; background: rgba(0,0,0,.45); padding: 0 5px; border-radius: 3px; }
+.vlab.l { left: 5px; } .vlab.r { left: calc(50% + 5px); }
+.segprog { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255,255,255,.25); }
+.segprog i { display: block; height: 100%; width: 0; background: #fff; }
+.clip-foot { padding: 6px 9px 8px; font: 400 11.5px var(--f-mono); color: var(--muted); display: flex; justify-content: space-between; gap: 6px; flex-wrap: wrap; }
+.clip.na .clip-media { cursor: default; background: var(--surface-2); display: grid; place-items: center; color: var(--muted); font-size: 12.5px; }
+
+/* diagnosis */
+.diag { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 14px 22px; border-top: 1px solid var(--hair); padding-top: 14px; }
+@media (max-width: 860px) { .diag { grid-template-columns: 1fr; } }
+.diag h4 { margin: 0 0 4px; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.diag p { margin: 0; font-size: 14px; }
+.chain { font-size: 14.5px; font-weight: 500; }
+.clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.more { border: 0; background: none; padding: 2px 0 0; color: var(--ink-2); font-size: 12.5px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.dfacts { display: grid; gap: 10px; align-content: start; }
+.dfacts p { font-size: 13.5px; color: var(--ink-2); }
+.rcline { font-size: 13.5px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.conf { font: 500 11.5px var(--f-mono); padding: 1px 7px; border-radius: 6px; border: 1px solid var(--hair); color: var(--ink-2); }
+.sec { display: flex; flex-wrap: wrap; gap: 4px; }
+.sec span { font-size: 11.5px; padding: 1px 7px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--hair); color: var(--ink-2); }
+.empty { padding: 40px; text-align: center; color: var(--muted); }
+
+/* dialogs */
+dialog { border: 1px solid var(--hair); border-radius: var(--r); background: var(--surface); color: var(--ink); padding: 0; width: min(1100px, calc(100vw - 24px)); max-height: calc(100vh - 24px); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+dialog::backdrop { background: rgba(0,0,0,.55); }
+.dlg-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--hair); flex-wrap: wrap; }
+.dlg-head h3 { font-size: 16px; margin-right: auto; }
+.dlg-body { padding: 14px 16px 18px; display: grid; gap: 12px; overflow: auto; max-height: calc(100vh - 90px); }
+.player { position: relative; background: #000; border-radius: 10px; overflow: hidden; aspect-ratio: 2 / 1; max-width: 100%; }
+.player video { width: 100%; height: 100%; display: block; }
+.ptl .tl-track { cursor: pointer; height: 30px; }
+.playhead { position: absolute; top: -4px; bottom: -4px; width: 2px; background: var(--ink); pointer-events: none; }
+.prow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; font-size: 13px; }
+.sheetimg { max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 6px; }
+.tip { position: fixed; z-index: 50; pointer-events: none; background: var(--ink); color: var(--surface); font-size: 12.5px; padding: 6px 9px; border-radius: 6px; max-width: 300px; line-height: 1.4; opacity: 0; transition: opacity .1s; }
+.tip.on { opacity: 1; }
+/* upper-bound tab (#ceiling) */
+.pipe.p5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+@media (max-width: 1000px) { .pipe.p5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .pipe.p5 { grid-template-columns: 1fr; } }
+.ubset { display: grid; gap: 4px; margin-top: 14px; font: 400 12.5px/1.5 var(--f-mono); color: var(--ink-2); }
+.ubset b { font-family: var(--f-body); color: var(--ink); font-weight: 600; margin-right: 6px; }
+.ubgroups { display: grid; gap: 18px; }
+.ubgroup h3 { font-size: 15px; margin-bottom: 6px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.ubgroup h3 span { font: 400 12.5px var(--f-body); color: var(--muted); }
+.ubbar { display: grid; grid-template-columns: minmax(130px, 210px) minmax(0, 1fr); gap: 10px; align-items: center; font-size: 13px; color: var(--ink-2); }
+.ubbar + .ubbar { margin-top: 5px; }
+.ubbar .track { position: relative; height: 16px; border-left: 1px solid var(--axis); }
+.ubbar .fill { height: 16px; border-radius: 0 4px 4px 0; }
+.ubbar .val { position: absolute; top: 0; font: 500 12px/16px var(--f-mono); color: var(--ink); padding-left: 6px; white-space: nowrap; }
+.ubbar.hi { color: var(--ink); font-weight: 600; }
+@media (max-width: 560px) { .ubbar { grid-template-columns: 1fr; gap: 2px; } }
+.ubtab { border-collapse: collapse; width: 100%; font-size: 13px; }
+.ubtab th, .ubtab td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--hair); white-space: nowrap; }
+.ubtab th:first-child, .ubtab td:first-child { text-align: left; padding-left: 0; }
+.ubtab th { font-weight: 600; color: var(--ink-2); font-size: 12px; vertical-align: bottom; }
+.ubtab td { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.ubtab td:first-child { font-family: var(--f-body); font-weight: 600; }
+.ubfails { display: grid; gap: 8px; margin-top: 8px; }
+.ubfail { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; font-size: 13px; }
+.ubfail b { min-width: 170px; }
+.shows { display: grid; gap: 18px; }
+.show { display: grid; gap: 10px; border-top: 1px solid var(--hair); padding-top: 16px; }
+.show:first-child { border-top: 0; padding-top: 0; }
+.show-head { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+.show-head h3 { font-size: 16px; margin-right: 4px; }
+.vids { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 12px; }
+.vid { display: grid; gap: 6px; min-width: 0; align-content: start; }
+.vid video { width: 100%; max-width: 100%; aspect-ratio: 2 / 1; background: #000; border-radius: 10px; display: block; }
+.vid .cap { font-size: 12.5px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ubseg { margin: 2px 0 12px; flex-wrap: wrap; }
+.tlg { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 12px; }
+.tlg span { display: inline-flex; gap: 6px; align-items: center; }
+.scns { display: grid; gap: 6px; }
+details.scn { border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); min-width: 0; }
+details.scn[open] { background: var(--surface); }
+details.scn > summary { list-style: none; cursor: pointer; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 8px 12px; }
+details.scn > summary::-webkit-details-marker { display: none; }
+details.scn > summary::before { content: "+"; font: 600 13px var(--f-mono); width: 18px; height: 18px; display: inline-grid; place-items: center; border: 1px solid var(--hair); border-radius: 5px; flex: none; }
+details.scn[open] > summary::before { content: "−"; }
+.scn .sid { font: 600 14px var(--f-mono); min-width: 36px; }
+.scn .meta2 { font: 400 12px var(--f-mono); color: var(--muted); margin-left: auto; }
+.dots { display: inline-flex; gap: 4px; align-items: center; }
+.dots i { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--axis); }
+.dots i.y { background: var(--good); border-color: var(--good); }
+.dots i.na { border-style: dashed; }
+.trace { padding: 2px 12px 12px; display: grid; gap: 6px; overflow-x: auto; }
+.trow { display: flex; align-items: center; gap: 6px 10px; margin-left: calc(var(--ind) * 18px); flex-wrap: wrap; }
+.trow .tl2 { font: 500 12px var(--f-mono); color: var(--ink-2); min-width: 220px; }
+.trow.off { opacity: .45; }
+.trow .ab { font-size: 11px; color: var(--muted); border: 1px dashed var(--axis); border-radius: 999px; padding: 0 7px; }
+.cells { display: inline-flex; gap: 3px; }
+.cell { position: relative; display: inline-block; width: 22px; height: 22px; border-radius: 5px; background: var(--grid); overflow: hidden; flex: none; }
+.cell i { position: absolute; left: 0; bottom: 0; height: 4px; background: var(--st3); }
+.cell.done { background: color-mix(in srgb, var(--good) 72%, var(--surface)); }
+.cell.kept { box-shadow: inset 0 0 0 2px var(--good-ink); }
+.cell.chosen { outline: 2px solid var(--ink); outline-offset: 1px; }
+.tlg .cell { width: 14px; height: 14px; border-radius: 3px; }
+.tlg .cell i { height: 3px; }
+.probes { display: grid; gap: 7px; }
+.prb { display: grid; grid-template-columns: minmax(150px, 200px) auto minmax(44px, auto); gap: 4px 14px; align-items: center; font-size: 13px; }
+.prb .lbl { display: grid; } .prb .lbl small { color: var(--muted); font-size: 12px; }
+.sq { display: inline-flex; gap: 2px; flex-wrap: wrap; }
+.sq i { width: 11px; height: 11px; border-radius: 2px; background: var(--grid); }
+.sq i.y { background: var(--good); }
+.prb .n { font: 500 12.5px var(--f-mono); color: var(--ink-2); }
+@media (max-width: 560px) { .prb { grid-template-columns: minmax(0, 1fr) auto; } .prb .sq { grid-column: 1 / -1; grid-row: 2; } }
+
+/* data tab (#data) */
+.units { display: grid; gap: 8px; }
+.unit { display: grid; grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1.1fr); gap: 4px 16px; align-items: baseline; padding: 10px 12px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); }
+.unit b { font: 700 15px var(--f-display); }
+.unit .what { font-size: 13.5px; color: var(--ink-2); }
+.unit .here { font: 400 12.5px/1.5 var(--f-mono); color: var(--ink); }
+.unit:nth-child(2) { margin-left: 18px; } .unit:nth-child(3) { margin-left: 36px; } .unit:nth-child(4) { margin-left: 54px; }
+@media (max-width: 700px) { .unit { grid-template-columns: 1fr; } .unit:nth-child(n) { margin-left: 0; } }
+.etl { position: relative; margin-top: 18px; }
+.etl-row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; align-items: center; }
+.etl-row + .etl-row { margin-top: 6px; }
+.etl-lbl { font: 600 12px var(--f-mono); color: var(--muted); text-align: right; }
+.etl-track { position: relative; height: 24px; border-radius: 5px; background: var(--surface-2); border: 1px solid var(--hair); overflow: hidden; }
+.etl-seg { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; font: 600 11.5px var(--f-mono); white-space: nowrap; overflow: hidden; border-right: 2px solid var(--surface); }
+.etl-ticks { position: absolute; inset: 0; }
+.etl-dp { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; box-shadow: 0 0 0 2px var(--surface); }
+.etl-axis { position: relative; height: 16px; font: 400 10.5px var(--f-mono); color: var(--muted); }
+.etl-axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+.film { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin-top: 14px; }
+.film figure, .snaps figure { margin: 0; display: grid; gap: 4px; min-width: 0; }
+.film .im { aspect-ratio: 2 / 1; max-width: 100%; border-radius: 6px; background-repeat: no-repeat; background-color: var(--surface-2); }
+.film figcaption, .snaps figcaption { font: 400 11.5px/1.35 var(--f-mono); color: var(--ink-2); }
+@media (max-width: 900px) { .film { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .film { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+.term { padding: 12px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); display: grid; gap: 4px; align-content: start; }
+.term b { font: 700 14.5px var(--f-display); }
+.term p { margin: 0; font-size: 13px; color: var(--ink-2); }
+.term .n { font: 500 12px var(--f-mono); color: var(--muted); }
+.snaps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.snaps .im { aspect-ratio: 1 / 1; max-width: 100%; border-radius: 6px; background-repeat: no-repeat; background-color: var(--surface-2); }
+@media (max-width: 760px) { .snaps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.og { display: grid; gap: 4px; }
+.og-row { display: flex; align-items: center; gap: 6px; font: 500 12px var(--f-mono); color: var(--ink-2); flex-wrap: wrap; }
+.og-row > span:first-child { min-width: 92px; }
+.oc { display: inline-flex; align-items: center; justify-content: center; min-width: 76px; height: 24px; padding: 0 6px; border-radius: 5px; font: 500 11.5px var(--f-mono); position: relative; overflow: hidden; background: var(--grid); color: var(--ink-2); }
+.oc.y { background: color-mix(in srgb, var(--good) 72%, var(--surface)); color: var(--ink); }
+.oc i { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--st3); }
+.oc.ex { outline: 2px solid var(--ink); outline-offset: 1px; }
+pre.json { margin: 0; font: 400 12px/1.5 var(--f-mono); background: var(--surface-2); border: 1px solid var(--hair); border-radius: var(--r-s); padding: 10px 12px; overflow-x: auto; max-height: 360px; color: var(--ink); }
+.estrips { display: grid; gap: 3px; margin-top: 10px; }
+.estrip { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 10px; align-items: center; }
+.estrip .el { font: 500 12px var(--f-mono); color: var(--ink-2); white-space: nowrap; }
+.estrip .el.ok { color: var(--good-ink); }
+.estrip .track { position: relative; height: 18px; border-radius: 4px; background: var(--surface-2); }
+.estrip .sg { position: absolute; top: 0; bottom: 0; }
+.estrip .end { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink-2); }
+.estrip .dp { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; box-shadow: 0 0 0 1.5px var(--surface); }
+.estrip .dp[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 1px; }
+.dtgrad { display: inline-block; width: 90px; height: 10px; border-radius: 3px; background: linear-gradient(90deg, var(--bad), var(--good)); vertical-align: middle; }
+.dtwrap { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 960px) { .dtwrap { grid-template-columns: 1fr; } }
+.dtdet { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 70px); display: grid; gap: 10px; padding: 14px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); }
+.dtdet h3 { font-size: 15px; }
+
+@media (max-width: 700px) {
+  .tl-axis i.s, .tl-axis span.odd { display: none; }
+  .clip.na .clip-media { aspect-ratio: auto; height: 40px; }
+  .bar, .filters { position: static; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#overview"><b>Seen-480 Stage Diagnosis</b><span id="brandSub"></span></a>
+    <a class="navlink" id="navOverview" href="#overview"></a>
+    <a class="navlink" id="navCeiling" href="#ceiling"></a>
+    <a class="navlink" id="navData" href="#data"></a>
+    <label class="ctl" for="taskSelect"><span>Task</span><select id="taskSelect"></select></label>
+    <div class="ctl"><span id="speedLbl"></span>
+      <div class="seg" id="speedSeg" role="group">
+        <button type="button" data-rate="0.5" aria-pressed="false"></button>
+        <button type="button" data-rate="1" aria-pressed="true"></button>
+        <button type="button" data-rate="2" aria-pressed="false"></button>
+      </div>
+    </div>
+    <div class="seg" id="langSeg" role="group" aria-label="Language / 語言">
+      <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      <button type="button" data-lang="zh" aria-pressed="false" lang="zh-Hant">中文</button>
+    </div>
+  </div>
+</header>
+<main class="wrap" id="app"></main>
+
+<dialog id="playerDlg">
+  <div class="dlg-head"><h3 id="plTitle"></h3><button class="btn" id="plClose" type="button"></button></div>
+  <div class="dlg-body">
+    <div class="player"><video id="plVideo" playsinline muted preload="auto"></video></div>
+    <div class="prow"><button class="btn dark" id="plPlay" type="button"></button><span class="mono" id="plRead"></span><span class="meta" id="plStage"></span></div>
+    <div class="ptl" id="plTl"></div>
+    <div class="prow" id="plJumps"></div>
+  </div>
+</dialog>
+<dialog id="sheetDlg">
+  <div class="dlg-head"><h3 id="shTitle"></h3><button class="btn" id="shPrev" type="button"></button><button class="btn" id="shNext" type="button"></button><button class="btn" id="shClose" type="button"></button></div>
+  <div class="dlg-body"><img class="sheetimg" id="shImg" alt=""></div>
+</dialog>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script src="data.js"></script>
+<script src="ceiling.js"></script>
+<script src="datatab.js"></script>
+<script>
+(() => {
+"use strict";
+const R = window.REPORT;
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const MODES = ["fixture_actuation", "grasp_acquisition", "placement", "grasp_retention", "task_level",
+  "stage_not_terminated", "process_skill", "disturbance", "criterion_or_sim"];
+
+/* ---------- language ---------- */
+let LANG = "en";
+try {
+  const s = localStorage.getItem("s480.lang");
+  LANG = s === "zh" || s === "en" ? s : ((navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en");
+} catch (e) {}
+{ const q = new URLSearchParams(location.search).get("lang"); if (q === "zh" || q === "en") LANG = q; }
+const I = {
+  en: {
+    brandSub: "GR00T N1.5 · RoboCasa365 composite-seen", overview: "Overview", allTasks: "All tasks…", speed: "Speed",
+    speedTip: "Clip playback speed relative to real time (video = 1 frame per 4 control steps)",
+    rates: ["1× real", "2× real", "4× real"], close: "Close", prev: "Prev", next: "Next", play: "Play", pause: "Pause",
+    success: "Success", failed: "Failed", succShort: "success", failShort: "failed",
+    fullRollout: "▶ Full rollout", evidence: "Evidence", step: "step", steps: "steps", stepsRange: (a, b) => `steps ${a}–${b}`,
+    stepRead: (s, t) => `step ${s} · ${t} s`, sec: "s", unfinished: "unfinished", timeout: "timeout", stopped: "stopped",
+    succMark: n => `✓ success ${n}`, rcTip: (a, b, ta, tb) => `Root cause window: steps ${a}–${b} (${ta}–${tb} s)`,
+    rootCause: "root cause", notReached: "not reached", stageNotReached: "Stage not reached", undone: "undone",
+    undoneTip: "the official condition no longer holds at the end", scene: "scene", wrist: "wrist",
+    playAria: (k, a, b) => `Play stage ${k} clip, steps ${a} to ${b}`,
+    whatHappened: "What happened", recovered: "Recovered errors / slow stages", causal: "Causal chain", category: "Category",
+    selfRec: "Self-recovery", critNotes: "Official-criterion notes", uncertain: "Uncertain about",
+    rcLine: s => `Root cause: ${s}`, rcSteps: (a, b, ta, tb) => `steps ${a}–${b} (${ta}–${tb} s)`,
+    firstUnfinished: k => `· first unfinished stage S${k}`, confidence: c => `confidence: ${c}`,
+    conf: {high: "high", medium: "medium", low: "low"}, showAll: "Show all", showLess: "Show less", orig: "",
+    layout: (l, s) => `layout ${l} · style ${s}`,
+    inStage: (k, n) => `in S${k} · ${n}`, jumpStage: (k, a) => `S${k} from ${a}`, jumpRc: a => `Root cause from ${a}`,
+    plTitle: (t, s, ok) => `${t} · s${s} · ${ok ? "success" : "failed"}`, sheetTitle: (t, s) => `${t} s${s}`,
+    empty: "No rollouts match this filter.",
+    all: "All", fail: "Failed", ok: "Success",
+    taskOf: (i, h, s) => `Task ${i} of 16 · horizon ${h} steps (${s} s)`, instrLbl: "Official instruction",
+    doneWhen: "Done when ", typical: (m, ms, p) => `typical in successes: ${m} steps (${ms} s), p90 ${p}`,
+    succOf30: "/ 30 successes", failByMode: n => `${n} failures by mode`, lgDone: "stages done", lgRc: "root-cause window",
+    lgUnf: "unfinished", summaryLbl: "Agent's task summary (counts, mechanisms, what successes do differently)",
+    tcardRc: (n, rc) => `${n} failures · root cause ${rc}`,
+    heroEyebrow: "ECE 780T · stage-level failure analysis · 2026-10-25",
+    heroH: "Why GR00T N1.5 fails long-horizon kitchen tasks, one stage at a time",
+    heroP: "480 rollouts of the official RoboCasa365 composite-seen checkpoint on 16 tasks × 30 frozen scenes. A program measures which stage failed and when, from the official stage conditions evaluated at every control step. Video-watching agents explain why, with step-level evidence. Each rollout below has its stage timeline, a clip per stage and the diagnosis.",
+    kSucc: p => `successes (${p}%)`, kFail: "failures diagnosed from video", kNoRec: "no recovery attempt after the fatal error",
+    kTime: n => `failures caused by time alone (time is a secondary factor in ${n})`,
+    pipeH: "Diagnosis pipeline", pipeSub: "The program answers which stage and when; the video agents answer why. Units: 1 step = 1 control step = 0.05 s; a policy chunk is 16 steps.",
+    pipeQ: ["<b>Setup and policy</b> · fixed scenes, seeded action noise", "<b>Program</b> · which stage failed, and when", "<b>Video reasoning</b> · why", "<b>Analysis</b>"],
+    modesH: "Failure modes", modesSub: n => `Primary category of each of the ${n} failures, grouped by what a fix would have to address.`,
+    recH: "What the policy does after the fatal error", recSub: "From each failure's self-recovery notes: did the policy notice and try to fix the error that ended the episode?",
+    recH3: n => `Recovery attempts in ${n} failures`, recNone: "No attempt", recTried: "Tried and failed", recPartial: "Fixed an earlier error, failed later",
+    whereH: "Where the root cause sits",
+    whereP: (a, n) => `The root-cause stage is the first unfinished stage in ${a} of ${n} failures. In the other ${n - a}, an earlier stage used up the time or was only nearly met, or a later stage undid an earlier one (for example a dropped bowl spilling the food it carried).`,
+    timeP: n => `Time is never the primary cause. It is a secondary factor in ${n} failures, almost always behind a stall.`,
+    heatH: "Failure modes by task", heatSub: "Failures per task and mode; darker = more. Select a row or cell to open the task.",
+    thTask: "Task", thSucc: "Success", thFail: "Failures", heatTip: (t, m, n, f) => `${t} · ${m}: ${n} of ${f} failures`,
+    mechH: "Mechanisms that recur across tasks", mechSub: "What the 16 task diagnoses have in common. Each links to representative rollouts.",
+    flagsH: "Official-criterion flags", flagsSub: "Outcomes are kept exactly as the official checks decide them. These rollouts are where the check and the video disagree.",
+    flagsOkH: "Counted as success, looks wrong", flagsNoH: "Counted as failure, looks done or nearly done",
+    factsH: "Official checks, as written", factsSub: "Confirmed in the RoboCasa source. They explain several flags and near misses.",
+    tasksH: "Tasks",
+  },
+  zh: {
+    brandSub: "GR00T N1.5 · RoboCasa365 composite-seen", overview: "總覽", allTasks: "所有 task…", speed: "速度",
+    speedTip: "片段播放速度，以真實時間為基準（影片每 4 個控制步存一格）",
+    rates: ["1× 實速", "2× 實速", "4× 實速"], close: "關閉", prev: "上一張", next: "下一張", play: "播放", pause: "暫停",
+    success: "成功", failed: "失敗", succShort: "成功", failShort: "失敗",
+    fullRollout: "▶ 完整 rollout", evidence: "證據", step: "步", steps: "步", stepsRange: (a, b) => `第 ${a}–${b} 步`,
+    stepRead: (s, t) => `第 ${s} 步 · ${t} 秒`, sec: "秒", unfinished: "未完成", timeout: "逾時", stopped: "停止",
+    succMark: n => `✓ 成功 ${n}`, rcTip: (a, b, ta, tb) => `根因區間：第 ${a}–${b} 步（${ta}–${tb} 秒）`,
+    rootCause: "根因", notReached: "未到達", stageNotReached: "沒有進行到這個 stage", undone: "被弄回",
+    undoneTip: "結束時官方條件已不成立", scene: "場景", wrist: "手腕",
+    playAria: (k, a, b) => `播放 stage ${k} 片段，第 ${a} 到 ${b} 步`,
+    whatHappened: "發生了什麼", recovered: "修正過的錯誤與偏慢的 stage", causal: "因果鏈", category: "類別",
+    selfRec: "自我修正", critNotes: "官方判定備註", uncertain: "不確定之處",
+    rcLine: s => `根因：${s}`, rcSteps: (a, b, ta, tb) => `第 ${a}–${b} 步（${ta}–${tb} 秒）`,
+    firstUnfinished: k => `· 第一個未完成的 stage 是 S${k}`, confidence: c => `信心：${c}`,
+    conf: {high: "高", medium: "中", low: "低"}, showAll: "展開全文", showLess: "收起", orig: "英文原文",
+    layout: (l, s) => `layout ${l} · style ${s}`,
+    inStage: (k, n) => `正在 S${k} · ${n}`, jumpStage: (k, a) => `S${k}，從第 ${a} 步`, jumpRc: a => `根因，從第 ${a} 步`,
+    plTitle: (t, s, ok) => `${t} · s${s} · ${ok ? "成功" : "失敗"}`, sheetTitle: (t, s) => `${t} s${s}`,
+    empty: "沒有符合這個篩選條件的 rollout。",
+    all: "全部", fail: "失敗", ok: "成功",
+    taskOf: (i, h, s) => `第 ${i}/16 個 task · horizon ${h} 步（${s} 秒）`, instrLbl: "官方指令",
+    doneWhen: "完成條件：", typical: (m, ms, p) => `成功集典型耗時：${m} 步（${ms} 秒），p90 ${p}`,
+    succOf30: "/ 30 次成功", failByMode: n => `${n} 集失敗，依模式`, lgDone: "已完成的 stage", lgRc: "根因區間",
+    lgUnf: "未完成", summaryLbl: "Agent 的 task 總結（統計、機制、成功集的不同做法）",
+    tcardRc: (n, rc) => `${n} 集失敗 · 根因 ${rc}`,
+    heroEyebrow: "ECE 780T · stage 層級失敗分析 · 2026-10-25",
+    heroH: "GR00T N1.5 為什麼做不完長流程廚房任務：逐個 stage 拆解",
+    heroP: "官方 RoboCasa365 composite-seen checkpoint 在 16 個 task × 30 個固定場景上的 480 次 rollout。程式根據每個控制步計算的官方 stage 條件，判定哪個 stage 失敗、何時失敗；看影片的 agent 再用精確到步的證據解釋原因。下面每次 rollout 都附上 stage 時間軸、每個 stage 的片段和診斷。",
+    kSucc: p => `次成功（${p}%）`, kFail: "集失敗，都用影片做了診斷", kNoRec: "致命錯誤之後沒有任何修正嘗試",
+    kTime: n => `集失敗單純因為時間不夠（時間是次要因素的有 ${n} 集）`,
+    pipeH: "診斷流程", pipeSub: "程式回答「哪個 stage、何時」，看影片的 agent 回答「為什麼」。單位：1 step = 1 個控制步 = 0.05 秒；一個 policy chunk 是 16 步。",
+    pipeQ: ["<b>設定與 policy</b> · 固定場景、固定種子的動作雜訊", "<b>程式</b> · 哪個 stage 失敗、何時", "<b>影片推理</b> · 為什麼", "<b>分析</b>"],
+    modesH: "失敗模式", modesSub: n => `${n} 集失敗各自的主要類別，依修正時要處理的問題分組。`,
+    recH: "致命錯誤之後 policy 做了什麼", recSub: "根據每集失敗的自我修正紀錄：policy 有沒有發現並試著修正讓這集失敗的錯誤？",
+    recH3: n => `${n} 集失敗的修正嘗試`, recNone: "沒有嘗試", recTried: "試了但失敗", recPartial: "修好先前的錯誤，之後仍失敗",
+    whereH: "根因落在哪裡",
+    whereP: (a, n) => `在 ${n} 集失敗中，有 ${a} 集的根因 stage 就是第一個沒完成的 stage。其餘 ${n - a} 集裡，是前面的 stage 耗光了時間或只差一點沒達標，或是後面的 stage 弄回了前面的成果（例如碗掉下去，連帶倒出碗裡的食物）。`,
+    timeP: n => `時間從來不是主因。它是 ${n} 集失敗的次要因素，而且幾乎都發生在停滯之後。`,
+    heatH: "各 task 的失敗模式", heatSub: "每個 task、每種模式的失敗數，顏色越深代表越多。點選列或格子可開啟該 task。",
+    thTask: "Task", thSucc: "成功", thFail: "失敗", heatTip: (t, m, n, f) => `${t} · ${m}：${n} / ${f} 集失敗`,
+    mechH: "跨 task 反覆出現的機制", mechSub: "16 個 task 的診斷有哪些共通點。每項都附代表性的 rollout 連結。",
+    flagsH: "官方判定的標記", flagsSub: "結果完全照官方判定保留。這些是判定結果和影片不一致的 rollout。",
+    flagsOkH: "判成成功，但看起來不對", flagsNoH: "判成失敗，但看起來已完成或幾乎完成",
+    factsH: "官方判定的實際寫法", factsSub: "已對照 RoboCasa 原始碼確認，可以解釋好幾個標記和差一點的案例。",
+    tasksH: "各 task",
+  },
+};
+const L = () => I[LANG];
+
+const MODE_LABEL = {
+  en: R.mode_label,
+  zh: {fixture_actuation: "器具操作", grasp_acquisition: "抓取失敗", placement: "放置", grasp_retention: "抓了又掉",
+       task_level: "任務層級", stage_not_terminated: "動作沒收尾", process_skill: "過程技能", disturbance: "干擾已完成部分",
+       criterion_or_sim: "判定或模擬器"},
+};
+const MODE_SHORT = {
+  en: {fixture_actuation: "Fixture", grasp_acquisition: "Grasp acq.", placement: "Placement", grasp_retention: "Grasp ret.",
+       task_level: "Task level", stage_not_terminated: "Not ended", process_skill: "Process", disturbance: "Disturb.", criterion_or_sim: "Criterion"},
+  zh: {fixture_actuation: "器具", grasp_acquisition: "抓取", placement: "放置", grasp_retention: "掉落", task_level: "任務",
+       stage_not_terminated: "沒收尾", process_skill: "過程", disturbance: "干擾", criterion_or_sim: "判定"},
+};
+const MODE_DESC = {
+  en: {
+    fixture_actuation: "A handle, lever, knob, door or button moved too little, the wrong element was moved, or the robot stalled at it.",
+    grasp_acquisition: "The fingers closed on air or slipped off at the grasp, or the robot hovered without grasping.",
+    placement: "Released off the target, or on its edge and the object then fell, slid or tipped.",
+    grasp_retention: "Grasped and lifted, then lost in transit, or it slipped or rotated in the fingers.",
+    task_level: "Worked on the wrong stage, wandered off, or went to the wrong place.",
+    stage_not_terminated: "Reached the target but kept holding, or never withdrew the gripper.",
+    process_skill: "Stirring, scrubbing or rinsing done in the wrong place or too little.",
+    disturbance: "Knocked over or dragged an object that an earlier stage had placed.",
+    criterion_or_sim: "The official check or the simulator decided the outcome.",
+  },
+  zh: {
+    fixture_actuation: "把手、拉桿、旋鈕、門或按鈕動得不夠、動錯部件，或停在器具前不動。",
+    grasp_acquisition: "手指在空中合起或一抓就滑掉，或在物體上方懸停不抓。",
+    placement: "放在目標外，或放在邊緣之後物體掉落、滑走或翻倒。",
+    grasp_retention: "抓起來了，但搬運途中掉落，或在指間滑動、轉動。",
+    task_level: "做錯 stage、走開閒晃，或走錯地方。",
+    stage_not_terminated: "到了目標卻一直拿著，或始終不把夾爪移開。",
+    process_skill: "攪拌、刷洗、沖洗的位置不對或做得不夠。",
+    disturbance: "撞翻或拖動前面 stage 已放好的物體。",
+    criterion_or_sim: "結果由官方判定或模擬器本身決定。",
+  },
+};
+const CAT_ZH = {
+  stall_pre_grasp: "抓取前停滯", stall_holding_at_target: "在目標處拿著不放", stall_at_fixture: "在器具前停滯",
+  stall_approach_retreat: "反覆靠近又退開", wander_away: "離開閒晃", missed_grasp: "抓空",
+  missed_grasp_continued_empty: "抓空後照樣空手做完", dropped_in_transit: "搬運途中掉落", placed_off_target: "放錯位置",
+  release_timing: "放手時機不對", placed_then_fell_or_slid: "放下後掉落或滑走", actuation_insufficient: "操作不到位",
+  wrong_fixture_element: "操作錯部件", wrong_object: "拿錯物體", skipped_or_wrong_stage: "跳過或做錯 stage",
+  undid_previous_stage: "弄回已完成的 stage", disturbed_placed_object: "碰動已放好的物體", ran_out_of_time: "時間用完",
+  official_criterion_issue: "官方判定問題", slipped_in_hand: "在手中滑動或掉出", missed_actuation: "沒按到操作點",
+  no_release_or_withdraw: "沒有鬆手或退開", navigation_error: "走錯地方", freeze: "僵住不動",
+  disturbed_scene_object: "碰翻或推動場景物體", tool_or_process_misaimed: "工具或動作沒對準", sim_artifact: "模擬器異常",
+};
+const human = s => String(s || "").replace(/^other:\s*/, "").replace(/_/g, " ");
+const catName = (id, raw) => LANG === "zh" && CAT_ZH[id] ? CAT_ZH[id] : human(id || raw);
+const secName = x => { const id = String(x).split(":")[0].trim(); return LANG === "zh" && CAT_ZH[id] ? CAT_ZH[id] : human(id); };
+const mLabel = m => MODE_LABEL[LANG][m] || MODE_LABEL.en[m] || "Other";
+
+/* stage definitions: English from the packets, with two corrections; Chinese translations */
+const DEF_FIX_EN = {
+  "DeliverStraw|0": "the drawer reads ≥ 0.95 on the official opening scale (about 52 % of its physical travel; fully open reads 1.82).",
+  "PreSoakPan|0": "the pan or the sponge (whichever goes in first) lies completely inside the sink basin and the gripper has moved away from it (about 25 cm or more).",
+  "PreSoakPan|1": "both the pan and the sponge lie completely inside the sink basin and the gripper has moved away from them (about 25 cm or more).",
+};
+const DEF_ZH = {
+  "DeliverStraw|0": "抽屜在官方開度值上 ≥ 0.95（約實際行程的 52%；全開讀數為 1.82）。",
+  "DeliverStraw|1": "吸管立在餐桌上的玻璃杯裡，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "GetToastedBread|0": "壓下拉桿（啟動烤麵包機）時吐司在烤槽裡，而且已經烤完：拉桿已彈回。",
+  "GetToastedBread|1": "烤好的吐司放在盤子上，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "KettleBoiling|0": "水壺放在爐面上，中心離某個爐口約 15 cm 以內，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "KettleBoiling|1": "水壺在某個爐口上（約 15 cm 以內），而且正是那個爐口被打開，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "LoadDishwasher|0": "兩個碗盤中至少一個放在洗碗機籃架上，夾爪已不再碰到它。",
+  "LoadDishwasher|1": "兩個碗盤都放在洗碗機籃架上，夾爪沒有碰到任何一個。",
+  "LoadDishwasher|2": "兩個碗盤都在籃架上，而且洗碗機門完全關上。",
+  "PackIdenticalLunches|0": "四樣食物中至少一樣放進檯面上的保鮮盒，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "PackIdenticalLunches|1": "四樣食物中至少兩樣放進保鮮盒，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "PackIdenticalLunches|2": "四樣食物中至少三樣放進保鮮盒，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "PackIdenticalLunches|3": "兩個保鮮盒各剛好裝一樣蔬菜和一樣肉，夾爪離開所有食物約 25 cm 以上。",
+  "PreSoakPan|0": "鍋子或海綿（先放進去的那個）完全在水槽裡，夾爪離開約 25 cm 以上。",
+  "PreSoakPan|1": "鍋子和海綿都完全在水槽裡，夾爪離開兩者約 25 cm 以上。",
+  "PreSoakPan|2": "水龍頭有出水，鍋子和海綿都完全在水槽裡，夾爪也離開兩者。",
+  "PrepareCoffee|0": "杯子立在咖啡機出水口下方、托盤上的接咖啡位置，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "PrepareCoffee|1": "杯子在出水口下方，咖啡機已用按鈕啟動，夾爪離開杯子和按鈕。",
+  "RinseSinkBasin|0": "水龍頭有出水。",
+  "RinseSinkBasin|1": "出水期間，花灑轉到過左、中、右三個位置（順序不限，整段影片累計）。",
+  "ScrubCuttingBoard|0": "夾爪拿著海綿，而且海綿離開檯面。",
+  "ScrubCuttingBoard|1": "拿著海綿在砧板上刷過幾個不同位置（至少 5 處，分布範圍至少 10 cm），然後放開海綿，夾爪離開至少 15 cm。",
+  "SearingMeat|0": "鍋子放在爐面上、離指定爐口約 15 cm 以內，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "SearingMeat|1": "肉放在鍋子裡，夾爪已不再碰到它。",
+  "SearingMeat|2": "指定爐口已打開，鍋子在上面、肉在鍋裡，夾爪離開肉約 25 cm 以上。",
+  "SetUpCuttingStation|0": "刀放在砧板上，夾爪已不再碰到它。",
+  "SetUpCuttingStation|1": "刀和肉都放在砧板上，夾爪離開刀和砧板約 25 cm 以上。",
+  "StackBowlsCabinet|0": "兩個碗中有一個放進打開的櫃子，夾爪已不再碰到它。",
+  "StackBowlsCabinet|1": "兩個碗都在櫃子裡而且疊在一起，夾爪離開兩者約 25 cm 以上。",
+  "SteamInMicrowave|0": "蔬菜放在檯面上的碗裡，夾爪已不再碰到它。",
+  "SteamInMicrowave|1": "碗放進微波爐，機器人已鬆手，夾爪離開約 25 cm 以上。",
+  "SteamInMicrowave|2": "微波爐門已關上。",
+  "SteamInMicrowave|3": "蔬菜在碗裡、碗在微波爐裡、門已關上，而且微波爐已啟動（按下開始鍵）。",
+  "StirVegetables|0": "兩樣蔬菜中至少一樣放進鍋子，夾爪已不再碰到它。",
+  "StirVegetables|1": "兩樣蔬菜都在鍋子裡，夾爪沒有碰到它們。",
+  "StirVegetables|2": "夾爪拿著鍋鏟，而且鍋鏟離開檯面。",
+  "StirVegetables|3": "拿著鍋鏟在鍋裡推動兩樣蔬菜（蔬菜明顯移動），鍋子在任務指定的爐口上。",
+  "StoreLeftoversInBowl|0": "兩樣食物中至少一樣放進碗裡，夾爪已不再碰到它。",
+  "StoreLeftoversInBowl|1": "兩樣食物都在碗裡，夾爪沒有碰到它們。",
+  "StoreLeftoversInBowl|2": "兩樣食物都在碗裡，碗放在冰箱的層板上，夾爪離開碗約 25 cm 以上。",
+  "WashLettuce|0": "水龍頭有出水。",
+  "WashLettuce|1": "生菜在水流下累計待了一段時間（總共約 1 秒以上）。",
+};
+const stageDef = (task, k, en) => LANG === "zh" ? (DEF_ZH[`${task}|${k}`] || en) : (DEF_FIX_EN[`${task}|${k}`] || en);
+/* agent-written text: a Chinese version is used when the data carries one (d.zh), otherwise the English original */
+const txt = (d, k) => (LANG === "zh" && d.zh && d.zh[k]) ? {s: d.zh[k], orig: false} : {s: d[k] || "", orig: LANG === "zh"};
+
+const mcol = m => `var(--m-${m || "criterion_or_sim"})`;
+const sec = st => (st * 0.05).toFixed(1);
+const STEP_S = 0.05;
+const tOf = step => Math.max(0, step / 40 - 0.1);      // video time of the frame showing the state after `step`
+const stepOf = t => Math.round((t + 0.1) * 40);
+let RATE = 1;
+try { const r = parseFloat(localStorage.getItem("s480.rate")); if ([0.5, 1, 2].includes(r)) RATE = r; } catch (e) {}
+
+const TASKS = R.tasks;
+const BYTASK = Object.fromEntries(TASKS.map(t => [t.task, t]));
+const ALL = TASKS.flatMap(t => t.episodes.map(e => ({task: t.task, e})));
+const FAILS = ALL.filter(x => !x.e.success);
+
+/* ---------- small builders ---------- */
+const stVar = k => `background:var(--st${Math.min(k, 3)});color:var(--st${Math.min(k, 3)}-ink)`;
+const short = t => t.replace(/([a-z])([A-Z])/g, "$1 $2");
+const epLink = (task, seed) => `<a class="eplink" href="#${task}-s${seed}">${esc(`${short(task)} s${seed}`)}</a>`;
+const modeChip = (m, cat, raw) => `<span class="modechip"><span class="sw" style="background:${mcol(m)}"></span>${esc(mLabel(m))}${cat || raw ? ` <em>· ${esc(catName(cat, raw))}</em>` : ""}</span>`;
+const origTag = o => o && L().orig ? `<span class="orig">${L().orig}</span>` : "";
+
+function niceTick(h) {
+  const target = h / 6;
+  for (const n of [100, 200, 250, 500, 1000]) if (n >= target) return n;
+  return 1000;
+}
+
+/* timeline: x = step / horizon */
+function timeline(e, opts = {}) {
+  const H = e.horizon, pct = s => (100 * Math.min(Math.max(s, 0), H) / H).toFixed(3);
+  const d = e.diag;
+  let segs = "";
+  for (const s of e.stages) {
+    if (!s.clip) continue;
+    const [a, b] = s.clip, w = Math.max(0.4, 100 * (b - a) / H);
+    if (s.status === "failed") segs += `<div class="tl-seg fail" style="left:${pct(a)}%;width:${w}%">${w > 8 ? `S${s.k} ${L().unfinished}` : ""}</div>`;
+    else segs += `<div class="tl-seg" style="left:${pct(a)}%;width:${w}%;${stVar(s.k)}">${w > 3.5 ? `S${s.k}` : ""}</div>`;
+  }
+  const end = e.success ? (e.success_step ?? e.steps) : e.steps;
+  if (end < H) segs += `<div class="tl-rest" style="left:${pct(end)}%;right:0"></div>`;
+  if (!e.success && d.root_cause_steps && d.root_cause_steps.length === 2) {
+    const [a, b] = d.root_cause_steps;
+    segs += `<div class="tl-rc" style="left:${pct(a)}%;width:${Math.max(0.6, 100 * (Math.min(b, H) - a) / H)}%" data-tip="${esc(L().rcTip(a, b, sec(a), sec(b)))}"></div>`;
+  }
+  const marks = [];
+  for (const s of e.stages) if (s.status === "done" && s.logged != null) marks.push({x: s.logged, cls: "", dot: `var(--st${Math.min(s.k, 3)})`, txt: `S${s.k} ✓ ${s.logged}`});
+  marks.push(e.success ? {x: end, cls: "ok", dot: "var(--good)", txt: L().succMark(end)} : {x: e.steps, cls: "to", dot: "var(--bad)", txt: `✗ ${e.steps >= H ? L().timeout : L().stopped} ${e.steps}`});
+  marks.sort((p, q) => p.x - q.x);
+  const lastX = [-1e9, -1e9];
+  const mk = marks.map(m => {
+    const px = 100 * m.x / H;
+    const row = (px - lastX[0] > 13) ? 0 : (px - lastX[1] > 13 ? 1 : 0);
+    lastX[row] = px;
+    const edge = px < 6 ? "edge-l" : px > 94 ? "edge-r" : "";
+    return `<div class="tl-mark ${m.cls} ${edge}" style="left:${px.toFixed(3)}%;--row:${row}"><i style="background:${m.dot}"></i>${esc(m.txt)}</div>`;
+  }).join("");
+  const tick = niceTick(H);
+  let ax = "";
+  for (let s = 0; s <= H; s += tick) {
+    const cls = s === 0 ? "first" : (H - s < tick * 0.35 ? "last" : "");
+    if (cls === "last" && s !== H) continue;
+    ax += `<span class="${cls} ${(s / tick) % 2 ? "odd" : ""}" style="left:${pct(s)}%">${s}${s === 0 ? " " + L().step : ""}<i class="s"> · ${Math.round(s * STEP_S)}${L().sec}</i></span>`;
+  }
+  if (H % tick) ax += `<span class="last" style="left:100%">${H}<i class="s"> · ${Math.round(H * STEP_S)}${L().sec}</i></span>`;
+  return `<div class="tl"><div class="tl-track">${segs}${opts.playhead ? '<div class="playhead" style="left:0"></div>' : ""}</div><div class="tl-marks">${mk}</div><div class="tl-axis">${ax}</div></div>`;
+}
+
+function posterHtml(s) {
+  const p = s.sprite;  // published build: all posters of a task in one image, `cols` x `rows` tiles
+  if (!p) return `<img src="${s.poster_img}" alt="" loading="lazy" decoding="async">`;
+  const c = p.i % p.cols, r = Math.floor(p.i / p.cols);
+  const x = p.cols > 1 ? 100 * c / (p.cols - 1) : 0, y = p.rows > 1 ? 100 * r / (p.rows - 1) : 0;
+  return `<span class="spr" style="background-image:url(${p.src});background-size:${p.cols * 100}% ${p.rows * 100}%;background-position:${x.toFixed(4)}% ${y.toFixed(4)}%"></span>`;
+}
+
+function clipTile(task, e, s) {
+  const d = e.diag, isRc = !e.success && d.root_cause_stage === s.k, T = L();
+  const name = `S${s.k} · ${esc(short(s.skill))}`;
+  if (!s.clip) {
+    return `<div class="clip na"><div class="clip-head"><span class="sw" style="background:var(--st${Math.min(s.k, 3)})"></span><span class="nm">${name}</span>${isRc ? `<span class="st no">${T.rootCause}</span>` : `<span class="st">${T.notReached}</span>`}</div><div class="clip-media">${T.stageNotReached}</div><div class="clip-foot"><span>—</span></div></div>`;
+  }
+  // two stages logged in the same policy chunk leave an empty clip: show the 6 s before the completion instead
+  const b = s.clip[1], a = b - s.clip[0] < 40 ? Math.max(0, b - 120) : s.clip[0];
+  let st;
+  if (s.status === "failed") st = `<span class="st no">✗ ${isRc ? T.rootCause : T.unfinished}</span>`;
+  else st = `<span class="st ok">✓ ${s.logged ?? e.success_step ?? e.steps}</span>${isRc ? ` <span class="st no">${T.rootCause}</span>` : ""}${!e.success && s.undone_real ? ` <span class="st no" title="${esc(T.undoneTip)}">${T.undone}</span>` : ""}`;
+  return `<div class="clip ${isRc ? "rc" : ""}">
+    <div class="clip-head"><span class="sw" style="background:var(--st${Math.min(s.k, 3)})"></span><span class="nm" title="${esc(s.skill)}">${name}</span>${st}</div>
+    <button type="button" class="clip-media" data-task="${task}" data-seed="${e.seed}" data-a="${a}" data-b="${b}" aria-label="${esc(T.playAria(s.k, a, b))}">
+      ${posterHtml(s)}<video muted playsinline preload="none"></video>
+      <span class="vlab l">${T.scene}</span><span class="vlab r">${T.wrist}</span><span class="playic"></span>
+      <span class="stepread">${esc(T.stepRead(s.poster, sec(s.poster)))}</span><span class="segprog"><i></i></span>
+    </button>
+    <div class="clip-foot"><span>${esc(T.stepsRange(a, b))}</span><span>${sec(b - a)} ${T.sec}</span></div>
+  </div>`;
+}
+
+function clampBlock(label, t, cls = "") {
+  if (!t.s) return "";
+  return `<div><h4>${label}${origTag(t.orig)}</h4><p class="${cls} clamp">${esc(t.s)}</p><button type="button" class="more" hidden>${L().showAll}</button></div>`;
+}
+
+function epCard(task, e) {
+  const d = e.diag, T = L(), TK = BYTASK[task];
+  const head = `<div class="ephead">
+    <span class="epid">s${e.seed}</span>
+    ${e.success ? `<span class="pill ok">✓ ${T.success}</span>` : `<span class="pill no">✗ ${T.failed}</span>`}
+    ${!e.success ? modeChip(d.mode, d.category, d.category_raw) : ""}
+    <span class="meta">${esc(T.layout(e.layout, e.style))}${Object.keys(e.objects).length ? " · " + esc(Object.values(e.objects).join(", ")) : ""}</span>
+    <span class="acts">${d.sheets.length ? `<button type="button" class="btn" data-sheets="${task}|${e.seed}">${T.evidence} · ${d.sheets.length}</button>` : ""}<button type="button" class="btn dark" data-full="${task}|${e.seed}">${T.fullRollout}</button></span>
+  </div>`;
+  const clips = `<div class="clips">${e.stages.map(s => clipTile(task, e, s)).join("")}</div>`;
+  let diag;
+  if (e.success) {
+    diag = `<div class="diag"><div>${clampBlock(T.whatHappened, txt(d, "what_happened"))}</div><div class="dfacts">${clampBlock(T.recovered, txt(d, "self_recovery"))}</div></div>`;
+  } else {
+    const rcStage = d.root_cause_stage != null ? `S${d.root_cause_stage} · ${short(TK.stages[d.root_cause_stage] || "")}` : "—";
+    const rs = d.root_cause_steps && d.root_cause_steps.length === 2 ? T.rcSteps(d.root_cause_steps[0], d.root_cause_steps[1], sec(d.root_cause_steps[0]), sec(d.root_cause_steps[1])) : "";
+    const chain = txt(d, "causal_chain");
+    const catRaw = String(d.category_raw || "");
+    const catDetail = catRaw.startsWith("other") ? human(catRaw) : "";
+    diag = `<div class="diag">
+      <div style="display:grid;gap:12px;align-content:start">
+        <div class="rcline"><b>${esc(T.rcLine(rcStage))}</b><span class="meta">${esc(rs)}</span>${d.failed_stage != null && d.failed_stage !== d.root_cause_stage ? `<span class="meta">${esc(T.firstUnfinished(d.failed_stage))}</span>` : ""}<span class="conf">${esc(T.confidence(T.conf[d.confidence] || d.confidence || "?"))}</span></div>
+        <div><h4>${T.causal}${origTag(chain.orig)}</h4><p class="chain">${esc(chain.s)}</p></div>
+        ${clampBlock(T.whatHappened, txt(d, "what_happened"))}
+      </div>
+      <div class="dfacts">
+        <div><h4>${T.category}</h4><p>${esc(catName(d.category, d.category_raw))}${catDetail && LANG === "zh" ? `<br><span class="meta">${esc(catDetail)}</span>` : (catDetail ? "" : "")}</p>${d.secondary.length ? `<div class="sec" style="margin-top:6px">${d.secondary.map(x => `<span>${esc(secName(x))}</span>`).join("")}</div>` : ""}</div>
+        ${clampBlock(T.selfRec, txt(d, "self_recovery"))}
+        ${clampBlock(T.critNotes, txt(d, "criterion"))}
+        ${clampBlock(T.uncertain, txt(d, "uncertain"))}
+      </div>
+    </div>`;
+  }
+  return `<article class="card ep" id="ep-${task}-s${e.seed}">${head}${timeline(e)}${clips}${diag}</article>`;
+}
+
+/* ---------- overview content ---------- */
+function overviewContent(nS, nF, modeCount, recov) {
+  const pct = n => Math.round(100 * n / nF);
+  const nWrong = FAILS.filter(x => x.e.diag.category === "wrong_fixture_element").length;
+  const ga = modeCount.grasp_acquisition + modeCount.grasp_retention;
+  if (LANG === "zh") return {
+    pipeline: [
+      {h: "固定場景", tag: "設定", p: "16 個 composite-seen task × 30 個場景。每個場景存成模型 XML 加初始狀態，每次執行都從同一個廚房開始。", out: "480 集"},
+      {h: "固定種子的 rollout", tag: "policy", p: "GR00T N1.5（官方 composite-seen checkpoint-60000），透過固定種子的 policy server 執行。控制頻率 20 Hz，每個動作 chunk 16 步。每一步都存下模擬狀態，每 4 步存一格影片。", out: `${nS}/480 成功`},
+      {h: "Stage 追蹤", tag: "程式", cls: "prog", p: "不渲染畫面，重播存下的狀態，每一步都計算每個官方 stage 條件，以及抓取、放手、夾爪合起和器具數值。", out: "哪個 stage、何時"},
+      {h: "證據資料包", tag: "程式", cls: "prog", p: "每集一個檔案：stage 完成區間和被弄回未完成的事件、抓取與放手（含離目標距離）、器具數值，以及和成功集典型耗時的比較。", out: "該看哪些時間點"},
+      {h: "影片診斷", tag: "影片推理", cls: "vid", p: "16 個 agent，每個負責一個 task，在每個事件點看影片（截圖拼圖、放大、與成功集並排比較），判定根因 stage、步數區間、類別和因果鏈。", out: "為什麼失敗"},
+      {h: "彙總與稽核", tag: "分析", p: "把類別歸成跨 task 的失敗模式。抽查關鍵結論的畫面與數據；官方判定問題都對照 RoboCasa 原始碼確認。", out: "失敗模式"},
+    ],
+    mech: [
+      {h: "抓不穩細、扁或小的物體", stat: `${ga} 集失敗 · ${pct(ga)}%`, p: "刀柄末端、吸管、鍋鏟末端、扁平牛排、檸檬角、杯緣、鍋柄尖端（抓鍋柄尖端的 12 次全都沒抓穩）。物體要嘛沒被抬起，要嘛抬起後 20–45 步就滑出，或在目標處於指間轉動。"},
+      {h: "不會察覺錯誤，幾乎不重試", stat: `${recov.none}/${nF} 集失敗沒有任何修正嘗試`, p: "抓空後照樣空手往下做：空手「放下」、在沒有水壺或鍋子的情況下轉旋鈕。東西掉了從不撿回來；食物灑出來也沒發現。"},
+      {h: "器具操作到一半就放棄", stat: "每種都差一點才到官方門檻", p: "水龍頭 0.16–0.35 rad（需要 0.40）、烤麵包機拉桿 0.19–0.64（需要 0.9）、抽屜 0.38–0.85 正規化值（需要 0.95）、微波爐門關閉度停在 0.51–0.94。成功集通常在第一次接觸後 20–100 步內完成。"},
+      {h: "操作錯部件", stat: `${nWrong} 集失敗`, p: "開了櫃門而不是抽屜、四槽烤麵包機壓了空的那對槽、前後爐口旋鈕搞混、按到開始鍵旁邊的鍵、按水龍頭出水頭而不是把手。"},
+      {h: "動作沒有收尾", stat: `${modeCount.stage_not_terminated} 集失敗`, p: "拿到目標處卻不鬆手、計數早已達標還一直刷、張開的手指一直停在碗盤上、按完按鈕不退開。官方「夾爪離開 ≥ 25 cm」的條件讓這些都變成失敗。"},
+      {h: "在器具邊緣附近放手、放得不夠深", stat: `${modeCount.placement} 集放置失敗`, p: "冰箱層板（比成功集淺 5–25 cm）、洗碗機籃架邊緣、櫃子邊緣、咖啡機托盤（0.043–0.072 m，成功集 ≤ 0.036 m）。"},
+      {h: "強烈依賴場景與物體模型", stat: "layout、style 和器具型號是一起變的", p: "PreSoakPan：layout 1 為 0/3、layout 9 為 3/5、其他 layout 13/13。RinseSinkBasin：13 集失敗中 12 集在 layout 8–10。PackIdenticalLunches：layout 5 為 3/5，其他 1/25。mug_8 為 0/8。"},
+      {h: "任務層級錯誤", stat: `${modeCount.task_level} 集失敗`, p: "還沒烤就把吐司拿出來；拉桿彈起後，沒有任何一集去拿吐司（8/8）。放棄刀改去拿肉。同一個保鮮盒放了兩個同類。走錯檯面。"},
+    ],
+    flagsOk: ["鍋子倒扣放置（結束時傾斜 179°），雞腿放在鍋底上，仍被算成煎好。",
+              "鍋子被弄斜或抬起時仍累計攪拌：只要 5 步蔬菜移動超過 0.5 mm 就算，而且只需要一樣蔬菜碰到鍋鏟。"],
+    flagsNo: ["碗直立放在冰箱層板上、兩樣食物都在，但位置在官方層板區域之外。",
+              "差一點：杯子離出水位置 4.29 cm（上限 4 cm）；花灑離「左」還差 0.004 rad；鍋子超出 0.15 m 1.2 mm。",
+              "刷洗接觸沒被計入：「有沒有抓著」的判斷實際上只看一根手指，所以牢牢抓著的海綿也被判成沒抓著。",
+              "烤完後拉桿卡住沒彈起（模擬器問題），烤吐司的 stage 永遠無法完成。"],
+    facts: ["<code>obj_inside_of</code> 拿沒有正規化的邊長向量來比，5 cm 容差變成 5 cm ÷ 邊長：橫跨水槽約 10 cm，垂直方向 25–50 cm。",
+            "抽屜數值用 0.55 × 深度來正規化：全開讀數是 1.82，所以 0.95 的門檻只等於實際行程的 52%。",
+            "<code>check_obj_grasped</code> 要求兩個手指關節都 &lt; 0.035，但其中一個關節永遠 ≤ 0，所以實際上只檢查一根手指。",
+            "DeliverStraw 的成功判定不看抽屜；只要夾爪離開，吸管在杯子中心 0.5 m 內就算（約杯子半徑的 10 倍）。",
+            "<code>check_obj_in_receptacle</code> = 有接觸 + 水平距離：掉在地上、碰到翻倒的碗的食物也算在碗裡。",
+            "這裡的 composite task 都沒有檢查物體是否直立（杯子側躺也算放好）。",
+            "攪拌計數只需要拿著鍋鏟時，蔬菜有 5 步（0.25 秒）移動超過 0.5 mm。"],
+  };
+  return {
+    pipeline: [
+      {h: "Frozen scenes", tag: "setup", p: "16 composite-seen tasks × 30 scenes. Each scene is stored as model XML plus initial state, so every run starts from the same kitchen.", out: "480 episodes"},
+      {h: "Seeded rollout", tag: "policy", p: "GR00T N1.5 (official composite-seen checkpoint-60000) behind a seeded policy server. 20 Hz control, 16-step action chunks. Saves the sim state after every step and a video frame every 4 steps.", out: `${nS}/480 success`},
+      {h: "Stage trace", tag: "program", cls: "prog", p: "Replays the saved states without rendering and evaluates each official stage condition at every step, plus grasps, releases, gripper closes and fixture values.", out: "which stage, and when"},
+      {h: "Evidence packet", tag: "program", cls: "prog", p: "One file per episode: stage intervals and undo events, holds and releases with distance to target, fixture values, timing against typical successes.", out: "events to look at"},
+      {h: "Video diagnosis", tag: "video reasoning", cls: "vid", p: "16 agents, one per task, watch the video at every event (contact sheets, zoom, side by side with successes) and decide the root-cause stage, its step window, a category and the causal chain.", out: "why it failed"},
+      {h: "Aggregate & audit", tag: "analysis", p: "Categories grouped into failure modes across tasks. Key claims spot-checked against frames and data; official-criterion issues confirmed in the RoboCasa source.", out: "failure modes"},
+    ],
+    mech: [
+      {h: "Unstable grasps on thin, flat or small objects", stat: `${ga} failures · ${pct(ga)}%`, p: "Knife handle end, straw, spatula end, flat steak, lemon wedge, mug rim, pan handle tip (0 of 12 tip grasps held). The object is never lifted, slides out 20–45 steps after lifting, or rotates in the fingers at the target."},
+      {h: "No error awareness, almost no retry", stat: `${recov.none} of ${nF} failures with no recovery attempt`, p: "After a missed grasp it carries on empty-handed: empty “places”, knobs turned with no kettle or pan. Dropped objects are never picked up again; spilled food goes unnoticed."},
+      {h: "Fixtures moved part of the way, then abandoned", stat: "each short of its official threshold", p: "Faucet 0.16–0.35 rad (needs 0.40), toaster lever 0.19–0.64 (needs 0.9), drawer 0.38–0.85 normalized (needs 0.95), microwave door left 0.51–0.94 closed. Successes finish within 20–100 steps of first contact."},
+      {h: "Wrong element", stat: `${nWrong} failures`, p: "Cabinet door instead of the drawer, the empty slot pair of a 4-slot toaster, front/rear knob swaps, the key next to START, the spout head instead of the lever."},
+      {h: "The stage is not ended", stat: `${modeCount.stage_not_terminated} failures`, p: "Holds the object at the target without releasing, keeps scrubbing long after the counter is met, leaves open fingers on the dish, stays at the button. The official “gripper ≥ 25 cm away” clause turns these into failures."},
+      {h: "Released short of the target near fixture edges", stat: `${modeCount.placement} placement failures`, p: "Fridge shelf (5–25 cm less deep than successes), dishwasher rack edge, cabinet lip, coffee tray (0.043–0.072 m vs ≤ 0.036 m in successes)."},
+      {h: "Strong scene and model dependence", stat: "layout, style and fixture model change together", p: "PreSoakPan: layout 1 0/3, layout 9 3/5, other layouts 13/13. RinseSinkBasin: 12 of 13 failures on layouts 8–10. PackIdenticalLunches: layout 5 3/5, others 1/25. mug_8 0/8."},
+      {h: "Task-level errors", stat: `${modeCount.task_level} failures`, p: "Bread taken out before toasting; after the pop-up no episode ever picked the bread (8/8). Knife abandoned for the meat. Two of a kind in one tupperware. The wrong counter."},
+    ],
+    flagsOk: ["Pan placed upside down (tilt 179° at the end), drumstick on its bottom; counted as seared.",
+              "Stir counted while the pot was tipped or lifted: 5 steps of > 0.5 mm vegetable motion suffice, and only one vegetable has to touch the spatula."],
+    flagsNo: ["Bowl standing upright on a fridge shelf with both foods, outside the official shelf regions.",
+              "Near misses: mug 4.29 cm from the pour site (limit 4 cm); spout 0.004 rad short of “left”; pan 1.2 mm past 0.15 m.",
+              "Scrub contacts not counted: the grasp test effectively checks one finger, so a firmly held sponge reads as not grasped.",
+              "Toaster lever stayed jammed down after the cycle (simulator), so the toast stage could never complete."],
+    facts: ["<code>obj_inside_of</code> compares against an un-normalized edge vector, so the 5 cm tolerance becomes 5 cm ÷ edge length: about 10 cm across a sink, 25–50 cm vertically.",
+            "The drawer value is normalized by 0.55 × depth: fully open reads 1.82, so the 0.95 threshold is 52 % of the physical travel.",
+            "<code>check_obj_grasped</code> requires both finger joints &lt; 0.035, but one joint is always ≤ 0, so only one finger is tested.",
+            "DeliverStraw success ignores the drawer and accepts the straw within 0.5 m of the cup centre (about 10× the cup radius) once the gripper is away.",
+            "<code>check_obj_in_receptacle</code> = contact + horizontal distance: food on the floor touching a fallen bowl counts as in the bowl.",
+            "No composite task here checks that an object is upright (a mug on its side counts as placed).",
+            "The stir counter needs only 5 steps (0.25 s) of > 0.5 mm vegetable motion while the spatula is held."],
+  };
+}
+const MECH_EPS = [
+  [["SetUpCuttingStation", 7], ["SearingMeat", 2], ["PrepareCoffee", 9], ["StirVegetables", 12]],
+  [["SteamInMicrowave", 28], ["SearingMeat", 4], ["PackIdenticalLunches", 27], ["KettleBoiling", 3]],
+  [["PreSoakPan", 22], ["GetToastedBread", 2], ["DeliverStraw", 0], ["SteamInMicrowave", 14]],
+  [["DeliverStraw", 6], ["GetToastedBread", 6], ["SteamInMicrowave", 11], ["KettleBoiling", 9]],
+  [["LoadDishwasher", 17], ["ScrubCuttingBoard", 7], ["PrepareCoffee", 17], ["DeliverStraw", 2]],
+  [["StoreLeftoversInBowl", 18], ["LoadDishwasher", 15], ["StackBowlsCabinet", 23], ["PrepareCoffee", 4]],
+  [["PreSoakPan", 4], ["RinseSinkBasin", 7], ["PackIdenticalLunches", 7], ["PrepareCoffee", 15]],
+  [["GetToastedBread", 13], ["GetToastedBread", 4], ["SetUpCuttingStation", 16], ["PackIdenticalLunches", 2]],
+];
+const FLAG_OK_EPS = [[["SearingMeat", 5]], [["StirVegetables", 27], ["StirVegetables", 29]]];
+const FLAG_NO_EPS = [[["StoreLeftoversInBowl", 21], ["StoreLeftoversInBowl", 25], ["StoreLeftoversInBowl", 26], ["StoreLeftoversInBowl", 29]],
+  [["PrepareCoffee", 29], ["RinseSinkBasin", 29], ["SearingMeat", 3]], [["ScrubCuttingBoard", 12]], [["GetToastedBread", 27]]];
+
+function overview() {
+  const T = L();
+  const nS = ALL.filter(x => x.e.success).length, nF = FAILS.length;
+  const modeCount = Object.fromEntries(MODES.map(m => [m, FAILS.filter(x => x.e.diag.mode === m).length]));
+  const maxM = Math.max(...Object.values(modeCount));
+  const catsOf = m => {
+    const c = {};
+    FAILS.filter(x => x.e.diag.mode === m).forEach(x => c[x.e.diag.category] = (c[x.e.diag.category] || 0) + 1);
+    return Object.entries(c).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${catName(k)} ${v}`).join(" · ");
+  };
+  const rcFirst = FAILS.filter(x => x.e.diag.root_cause_stage === x.e.diag.failed_stage).length;
+  const recov = {none: 0, tried: 0, partial: 0};
+  FAILS.forEach(x => {
+    const s = (x.e.diag.self_recovery || "").trim().toLowerCase();
+    if (!s || s.startsWith("none")) recov.none++;
+    else if (/\b(succeed|worked|recovered|fixed)/.test(s) && !/(n't|not|never|failed|no) (work|succeed|recover)/.test(s)) recov.partial++;
+    else recov.tried++;
+  });
+  const timeSec = FAILS.filter(x => (x.e.diag.secondary || []).some(s => String(s).startsWith("ran_out_of_time"))).length;
+  const C = overviewContent(nS, nF, modeCount, recov);
+
+  const heatRows = TASKS.map(t => {
+    const f = t.episodes.filter(e => !e.success);
+    const cells = MODES.map(m => {
+      const n = f.filter(e => e.diag.mode === m).length;
+      const a = n ? (0.14 + 0.86 * Math.min(n, 15) / 15) : 0;
+      const ink = a > 0.55 ? "#fff" : "var(--ink)";
+      return `<td class="cnt" data-go="${t.task}" data-tip="${esc(T.heatTip(short(t.task), mLabel(m), n, f.length))}" style="${n ? `background:rgba(var(--heat),${a.toFixed(2)});color:${ink}` : "color:var(--axis)"}">${n || "·"}</td>`;
+    }).join("");
+    return `<tr class="row"><td class="task"><a href="#${t.task}">${esc(short(t.task))}</a></td>
+      <td class="succ"><div class="minibar"><i style="width:${Math.max(2, 70 * t.successes / 30)}px"></i><span class="num">${t.successes}/30</span></div></td>
+      ${cells}<td class="num" style="color:var(--ink-2)">${f.length}</td></tr>`;
+  }).join("");
+
+  const recTot = recov.none + recov.tried + recov.partial;
+  const pqCols = ["1/3", "3/5", "5/6", "6/7"];
+  return `
+  <section class="hero">
+    <div>
+      <div class="eyebrow">${T.heroEyebrow}</div>
+      <h1>${T.heroH}</h1>
+      <p>${T.heroP}</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">${nS}<small>/ 480</small></div><div class="l">${T.kSucc((100 * nS / 480).toFixed(1))}</div></div>
+      <div class="kpi"><div class="v">${nF}</div><div class="l">${T.kFail}</div></div>
+      <div class="kpi"><div class="v">${Math.round(100 * recov.none / nF)}%<small>${recov.none}/${nF}</small></div><div class="l">${T.kNoRec}</div></div>
+      <div class="kpi"><div class="v">0</div><div class="l">${T.kTime(timeSec)}</div></div>
+    </div>
+  </section>
+
+  <section class="card" id="pipeline">
+    <h2>${T.pipeH}</h2>
+    <p class="sub">${T.pipeSub}</p>
+    <div class="pipe">${C.pipeline.map((s, i) => `<div class="pstep"><span class="n">${i + 1}</span><h3>${s.h}</h3><span class="tag ${s.cls || ""}">${s.tag}</span><p>${s.p}</p><div class="out">→ <b>${s.out}</b></div></div>`).join("")}</div>
+    <div class="pipe-q">${T.pipeQ.map((q, i) => `<div style="grid-column:${pqCols[i]}">${q}</div>`).join("")}</div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>${T.modesH}</h2>
+      <p class="sub">${T.modesSub(nF)}</p>
+      <div class="mbars">${MODES.map(m => `<div class="mbar" data-tip="${esc(catsOf(m))}">
+        <div class="name"><span class="sw" style="background:${mcol(m)}"></span>${esc(mLabel(m))}</div>
+        <div class="track"><div class="fill" style="width:${(78 * modeCount[m] / maxM).toFixed(1)}%;background:${mcol(m)}"></div><span class="val" style="left:${(78 * modeCount[m] / maxM).toFixed(1)}%">${modeCount[m]} · ${Math.round(100 * modeCount[m] / nF)}%</span></div>
+        <div class="desc">${esc(MODE_DESC[LANG][m])}</div></div>`).join("")}</div>
+    </section>
+    <section class="card">
+      <h2>${T.recH}</h2>
+      <p class="sub">${T.recSub}</p>
+      <div>
+        <h3 style="font-size:15px">${T.recH3(nF)}</h3>
+        <div class="recov" role="img" aria-label="${esc(T.recH3(nF))}">
+          <div style="flex:${recov.none};background:var(--st3)" data-tip="${esc(T.recNone)}: ${recov.none}"></div>
+          <div style="flex:${recov.tried};background:var(--st2)" data-tip="${esc(T.recTried)}: ${recov.tried}"></div>
+          <div style="flex:${recov.partial};background:var(--st0)" data-tip="${esc(T.recPartial)}: ${recov.partial}"></div>
+        </div>
+        <div class="legend"><span><span class="sw" style="background:var(--st3)"></span>${T.recNone} ${recov.none} (${Math.round(100 * recov.none / recTot)}%)</span><span><span class="sw" style="background:var(--st2)"></span>${T.recTried} ${recov.tried}</span><span><span class="sw" style="background:var(--st0)"></span>${T.recPartial} ${recov.partial}</span></div>
+      </div>
+      <div style="margin-top:20px;display:grid;gap:8px">
+        <h3 style="font-size:15px">${T.whereH}</h3>
+        <p class="sub" style="margin:0">${T.whereP(rcFirst, nF)}</p>
+        <p class="sub" style="margin:0">${T.timeP(timeSec)}</p>
+      </div>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>${T.heatH}</h2>
+    <p class="sub">${T.heatSub}</p>
+    <div class="tablewrap"><table class="heat">
+      <thead><tr><th class="tl">${T.thTask}</th><th class="tl">${T.thSucc}</th>${MODES.map(m => `<th data-tip="${esc(mLabel(m))}"><span class="sw" style="background:${mcol(m)}"></span><br>${esc(MODE_SHORT[LANG][m])}</th>`).join("")}<th>${T.thFail}</th></tr></thead>
+      <tbody>${heatRows}</tbody>
+    </table></div>
+  </section>
+
+  <section class="card">
+    <h2>${T.mechH}</h2>
+    <p class="sub">${T.mechSub}</p>
+    <div class="mechs">${C.mech.map((m, i) => `<div class="mech"><h3>${esc(m.h)}</h3><div class="stat">${esc(m.stat)}</div><p>${esc(m.p)}</p><div class="eps">${MECH_EPS[i].map(([t, s]) => epLink(t, s)).join("")}</div></div>`).join("")}</div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>${T.flagsH}</h2>
+      <p class="sub">${T.flagsSub}</p>
+      <div class="flags">
+        <div class="eyebrow">${T.flagsOkH}</div>
+        ${C.flagsOk.map((w, i) => `<div class="flag"><div class="what">${esc(w)}</div><div class="eps">${FLAG_OK_EPS[i].map(([t, s]) => epLink(t, s)).join("")}</div></div>`).join("")}
+        <div class="eyebrow" style="margin-top:6px">${T.flagsNoH}</div>
+        ${C.flagsNo.map((w, i) => `<div class="flag"><div class="what">${esc(w)}</div><div class="eps">${FLAG_NO_EPS[i].map(([t, s]) => epLink(t, s)).join("")}</div></div>`).join("")}
+      </div>
+    </section>
+    <section class="card">
+      <h2>${T.factsH}</h2>
+      <p class="sub">${T.factsSub}</p>
+      <ul class="facts">${C.facts.map(f => `<li>${f}</li>`).join("")}</ul>
+    </section>
+  </div>
+
+  <section id="tasks" style="display:grid;gap:12px">
+    <h2 style="font-size:19px">${T.tasksH}</h2>
+    <div class="tasks">${TASKS.map(taskCard).join("")}</div>
+  </section>`;
+}
+
+function taskCard(t) {
+  const f = t.episodes.filter(e => !e.success);
+  const rc = {};
+  f.forEach(e => { const k = e.diag.root_cause_stage; rc[k] = (rc[k] || 0) + 1; });
+  const stack = MODES.map(m => [m, f.filter(e => e.diag.mode === m).length]).filter(x => x[1]);
+  return `<a class="tcard" href="#${t.task}">
+    <div class="top"><h3>${esc(short(t.task))}</h3><span class="rate">${t.successes}<small>/30</small></span></div>
+    <div class="stchips">${t.stages.map((s, k) => `<span class="stchip">S${k} ${esc(short(s))}</span>`).join("")}</div>
+    <div class="stack">${stack.map(([m, n]) => `<div style="flex:${n};background:${mcol(m)}" data-tip="${esc(mLabel(m))}: ${n}"></div>`).join("") || '<div style="flex:1;background:var(--grid)"></div>'}</div>
+    <div class="rc">${esc(L().tcardRc(f.length, Object.entries(rc).sort().map(([k, n]) => `S${k} ${n}`).join(" · ") || "—"))}</div>
+  </a>`;
+}
+
+/* ---------- task view ---------- */
+const FILTER = {status: "fail", mode: null};
+function taskView(task) {
+  const T = L(), t = BYTASK[task];
+  const f = t.episodes.filter(e => !e.success);
+  const idx = TASKS.findIndex(x => x.task === task);
+  const prev = TASKS[(idx + TASKS.length - 1) % TASKS.length].task, next = TASKS[(idx + 1) % TASKS.length].task;
+  const stack = MODES.map(m => [m, f.filter(e => e.diag.mode === m).length]).filter(x => x[1]);
+  const defs = t.stage_definitions || [];
+  const stages = t.stages.map((s, k) => {
+    const ty = t.typical[k] || t.typical[String(k)];
+    return `<li><span class="stbadge" style="${stVar(k)}">S${k}</span><b>${esc(short(s))}</b>
+      ${defs[k] ? `<span class="def">${T.doneWhen}${esc(stageDef(task, k, defs[k].counts_as_complete))}</span>` : ""}
+      ${ty ? `<span class="typ">${esc(T.typical(ty.median, sec(ty.median), ty.p90))}</span>` : ""}</li>`;
+  }).join("");
+  const sumZh = LANG === "zh" && t.summary_html_zh;
+  return `
+  <section class="card">
+    <div class="thead">
+      <div>
+        <div class="eyebrow">${esc(T.taskOf(idx + 1, t.horizon, Math.round(t.horizon * STEP_S)))}</div>
+        <h1>${esc(short(task))}</h1>
+        <p class="instr"><small>${T.instrLbl}</small>“${esc(t.instruction)}”</p>
+        <ul class="stagelist">${stages}</ul>
+      </div>
+      <div class="tstats">
+        <div><div class="bigrate">${t.successes}<small>${T.succOf30}</small></div></div>
+        <div><div class="eyebrow" style="margin-bottom:6px">${esc(T.failByMode(f.length))}</div>
+          <div class="stack" style="height:14px">${stack.map(([m, n]) => `<div style="flex:${n};background:${mcol(m)}" data-tip="${esc(mLabel(m))}: ${n}"></div>`).join("") || '<div style="flex:1;background:var(--grid)"></div>'}</div>
+          <div class="legend" style="margin-top:8px">${stack.map(([m, n]) => `<span><span class="sw" style="background:${mcol(m)}"></span>${esc(mLabel(m))} ${n}</span>`).join("")}</div>
+        </div>
+        <div class="legend"><span><span class="sw" style="background:var(--st0)"></span><span class="sw" style="background:var(--st1)"></span><span class="sw" style="background:var(--st2)"></span>${T.lgDone}</span><span><span class="sw" style="background:var(--bad-wash);outline:1px solid var(--bad)"></span>${T.lgRc}</span><span><span class="sw" style="background:repeating-linear-gradient(135deg,var(--bad-wash) 0 3px,transparent 3px 6px)"></span>${T.lgUnf}</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="#${prev}">← ${esc(short(prev))}</a><a class="btn" href="#${next}">${esc(short(next))} →</a></div>
+      </div>
+    </div>
+    <details class="summary"><summary>${T.summaryLbl}${LANG === "zh" && !sumZh ? `<span class="orig">${T.orig}</span>` : ""}</summary><div class="prose">${sumZh || t.summary_html}</div></details>
+  </section>
+  <div class="filters" id="filters">
+    <div class="seg" role="group">
+      <button type="button" data-status="all" aria-pressed="${FILTER.status === "all"}">${T.all} <span class="count">30</span></button>
+      <button type="button" data-status="fail" aria-pressed="${FILTER.status === "fail"}">${T.fail} <span class="count">${f.length}</span></button>
+      <button type="button" data-status="ok" aria-pressed="${FILTER.status === "ok"}">${T.ok} <span class="count">${30 - f.length}</span></button>
+    </div>
+    <div class="chips">${stack.map(([m, n]) => `<button type="button" class="chip" data-mode="${m}" aria-pressed="${FILTER.mode === m}"><span class="sw" style="background:${mcol(m)}"></span>${esc(mLabel(m))} <span class="count">${n}</span></button>`).join("")}</div>
+  </div>
+  <div class="eplist" id="eplist"></div>`;
+}
+
+function renderEpisodes(task) {
+  const t = BYTASK[task];
+  let eps = t.episodes;
+  if (FILTER.status === "fail") eps = eps.filter(e => !e.success);
+  if (FILTER.status === "ok") eps = eps.filter(e => e.success);
+  if (FILTER.mode) eps = eps.filter(e => !e.success && e.diag.mode === FILTER.mode);
+  $("#eplist").innerHTML = eps.length ? eps.map(e => epCard(task, e)).join("") : `<div class="card empty">${L().empty}</div>`;
+  armClamps($("#eplist"));
+}
+
+function armClamps(root) {
+  requestAnimationFrame(() => root.querySelectorAll(".clamp").forEach(p => {
+    const b = p.nextElementSibling;
+    if (b && b.classList.contains("more") && p.scrollHeight > p.clientHeight + 2) b.hidden = false;
+  }));
+}
+
+/* ---------- upper-bound tab: window.CEILING, built by build_ceiling.py ---------- */
+const CE = window.CEILING;
+const UB = {
+  en: {
+    nav: "Upper bound",
+    eyebrow: "Oracle upper bound · stage-level imagine, then choose",
+    h: "How far can choosing among the policy's own attempts go?",
+    p: "At each stage, the frozen policy makes 8 attempts from the same state, each with different action noise. The simulator plays every attempt out, and a search keeps the attempts that finish the stage, backtracking when a choice leads nowhere. The simulator stands in for a perfect world model, so these numbers are a ceiling, not a method we can deploy.",
+    from: p => `from ${p}%`, kpiL: (t, n) => `${t} · ${n} stages · search`,
+    kpiCost: "policy calls per scene for the search, relative to one plain rollout",
+    methodH: "How the search works",
+    methodSub: "One search per scene. The tree grows one stage at a time, and the simulator answers every “what if”.",
+    steps: [
+      {h: "Restore", p: "Set the simulator to the node's exact state, including Python-side fixture state such as whether the microwave is on.", out: "node = state, stage k, steps used"},
+      {h: "Imagine 8 attempts", p: "The frozen policy runs closed-loop from that state 8 times, each with its own action noise, until the stage's official condition holds or L steps pass.", out: "8 attempts with outcomes"},
+      {h: "Keep finishers", p: "Up to 3 attempts that finished the stage, earliest first, become nodes of the next stage. If none finished, the attempt with the most progress continues the stage.", out: "child nodes"},
+      {h: "Best-first, with backtracking", p: "Expand the deepest stage first, then the node with the fewest steps. When a branch cannot finish its next stage, fall back to the next-earliest finisher of the stage before.", out: "a path through the stages"},
+      {h: "Commit", p: "Stop at a node that passes the official success check, or when the attempt cap or the horizon runs out. The episode clock counts only the committed steps.", out: "success or failure, and the cost"},
+    ],
+    setRow: t => `N ${t.N} per expansion · keep ≤ ${t.keep} · cap ${t.cap} attempts per scene · L ${t.L.join(" / ")} steps · horizon ${t.horizon}`,
+    resH: "Success rate", resSub: "30 frozen scenes per task. Plain policy = mean over policy seeds 0–3, so 4 rollouts per scene.",
+    stagesN: n => `${n} stages`,
+    bars: ["Plain policy", "Best of 4 whole episodes", "Search, no backtracking", "Search"],
+    barTips: ["The frozen policy as it is: mean success over 4 seeds per scene",
+      "Run the whole episode 4 times; the scene counts if any run succeeds",
+      "The search's first descent, before any backtracking",
+      "Stage-level search with backtracking"],
+    costH: "What it costs", costSub: "Policy calls, one per 16-step chunk, counting imagined and executed chunks.",
+    costTh: ["Task", "One plain rollout", "Best of 4, per scene", "Search, per scene", "Search ÷ plain"],
+    failH: "Why the remaining searches failed",
+    reasons: {cap: "attempt cap reached", horizon: "out of horizon", criterion: "stage checks passed, official check failed"},
+    failOf: (n) => `${n}/30 failed`,
+    findH: "What it shows",
+    finds: F => [
+      {h: "Gains grow with the number of stages", stat: F.map(f => `${f.task} +${f.gain.toFixed(1)} pts`).join(" · "),
+        p: "A 4-stage task fails if any one stage fails. Choosing per stage gives every stage several chances, so the longer the task, the more it gains."},
+      {h: "Choosing per stage beats rerunning whole episodes", stat: F.map(f => `${f.task} ${f.b4.toFixed(1)} → ${f.se.toFixed(1)}%`).join(" · "),
+        p: `The search also solved scenes that the plain policy never solved in 4 tries: ${F.map(f => `${f.task} ${f.newly}`).join(", ")}.`},
+      {h: "Backtracking matters more on long tasks", stat: F.map(f => `${f.task} +${f.bt.toFixed(1)} pts`).join(" · "),
+        p: "Where an object ends up decides whether the next stage is possible. Taking the fastest finisher is not enough; sometimes the search has to return to a slower one."},
+      {h: "Most remaining failures are budget", stat: `${F.tot} failed searches: cap ${F.r.cap || 0} · horizon ${F.r.horizon || 0} · criterion ${F.r.criterion || 0}`,
+        p: `${(F.r.cap || 0) + (F.r.horizon || 0)} of ${F.tot} ran out of attempts or time. In ${F.r.criterion || 0}, every stage check passed, but the official success check failed at the end.`},
+    ],
+    showH: "One scene per task",
+    showSub: "Scenes the plain policy never solved in 4 tries. Left: the main run's rollout (seed 0). Right: the search's committed path, its chosen attempts played back to back.",
+    plain04: "plain 0/4", searchOk: s => `search ✓ · ${s} steps`, bt: "backtracked",
+    plainVid: "Plain policy, seed 0", searchVid: "Search, committed path", seg: (k, s) => `S${k} · ${s} steps`,
+    sceneH: "Every scene", sceneSub: "Open a scene to see its search. One row per expansion, indented by stage; one cell per attempt.",
+    lg: {done: "finished the stage", kept: "kept as a node", chosen: "on the committed path", open: "did not finish (bar = progress)"},
+    exp: (i, k, t, L) => `E${i} · S${k} from step ${t} · L ${L}`,
+    abandoned: "abandoned branch",
+    cTip: (i, c, k) => c[0] ? `attempt ${i}: finished S${k} in ${c[1]} steps` : `attempt ${i}: did not finish S${k} within ${c[1]} steps (progress ${c[2]})`,
+    ok: s => `✓ ${s} steps`, no: r => `✗ ${r}`, cands: n => `${n} attempts`, calls: n => `${n} calls`,
+    plainTip: (p, x) => `plain policy, seed ${p}: ${x == null ? "missing" : x ? "success" : "failed"}`,
+    probeH: "Where it started: does the noise matter?",
+    probeSub: "KettleBoiling, 12 points of the main run, most just before it went wrong. From each saved state, the policy reran to the end 16 times with fresh noise. A green square is a rerun that succeeded.",
+    stepAt: t => `step ${t}`, role: {fail: "failed in the main run", success: "succeeded in the main run"},
+    probeNote: (r, n) => `${r} of the ${n} failure points succeed in at least one of 16 reruns. Resampling helps only where the policy can still recover, and the search then finds those attempts.`,
+    capH: "Why this is an upper bound",
+    caps: ["Perfect world model: imagining means restoring the simulator to the exact state, so an executed attempt is exactly the imagined one.",
+      "Perfect judge: the official stage conditions decide which attempt finished.",
+      "Free imagination: imagining does not count toward the episode's time. The cost shows only as policy calls, about 7–9× one plain rollout."],
+    nextH: "Next",
+    next: "Replace the simulator with a critic that scores attempts from the current observation alone, without playing them out. Data for it is being collected on KettleBoiling: 250 decision points × 8 attempts × 2 continuations.",
+  },
+  zh: {
+    nav: "上限實驗",
+    eyebrow: "Oracle 上限 · 逐 stage 想像再挑",
+    h: "只在 policy 自己的嘗試裡挑，最多能做到多好？",
+    p: "每個 stage，凍結的 policy 從同一個狀態出發，用不同的 action noise 做 8 次嘗試。模擬器把每次嘗試都實際跑完，搜尋保留完成該 stage 的嘗試；選錯路時就回溯。這裡的模擬器等於一個完美的世界模型，所以結果是上限，不是可以直接部署的方法。",
+    from: p => `原本 ${p}%`, kpiL: (t, n) => `${t} · ${n} 個 stage · 搜尋`,
+    kpiCost: "搜尋每個場景的 policy 呼叫數，相對於原始 policy 跑一次",
+    methodH: "搜尋怎麼做",
+    methodSub: "每個場景做一次搜尋。搜尋樹一次長一個 stage，每個「如果這樣做會怎樣」都交給模擬器回答。",
+    steps: [
+      {h: "還原狀態", p: "把模擬器設回這個節點的精確狀態，包括 Python 端的設備狀態，例如微波爐有沒有開。", out: "節點 = 狀態、stage k、已用步數"},
+      {h: "想像 8 次嘗試", p: "凍結的 policy 從這個狀態閉迴路執行 8 次，每次用不同的 action noise，直到該 stage 的官方條件成立，或用完 L 步。", out: "8 次嘗試與結果"},
+      {h: "保留完成者", p: "完成該 stage 的嘗試中，最快的至多 3 個成為下一個 stage 的節點。如果都沒完成，就從進度最多的那次接著做這個 stage。", out: "子節點"},
+      {h: "最佳優先，可回溯", p: "先展開 stage 最深的節點，再挑用步數最少的。某條分支做不完下一個 stage 時，退回上一個 stage，改用次快的完成者。", out: "一條走完各 stage 的路徑"},
+      {h: "提交", p: "遇到通過官方成功判定的節點就停；嘗試數用完上限或時間用完也停。整集的時間只算提交的步數。", out: "成功或失敗，以及成本"},
+    ],
+    setRow: t => `每次展開 N ${t.N} · 保留 ≤ ${t.keep} · 每場景上限 ${t.cap} 次嘗試 · L ${t.L.join(" / ")} 步 · 時限 ${t.horizon}`,
+    resH: "成功率", resSub: "每個任務 30 個固定場景。原始 policy 為 policy seed 0–3 的平均，每個場景 4 次 rollout。",
+    stagesN: n => `${n} 個 stage`,
+    bars: ["原始 policy", "整集跑 4 次，任一次成功", "搜尋，不回溯", "搜尋"],
+    barTips: ["凍結的 policy 直接跑：每個場景 4 個 seed 的平均成功率",
+      "整集跑 4 次，只要有一次成功就算這個場景成功",
+      "搜尋第一次往下走的路徑，還沒有任何回溯",
+      "逐 stage 搜尋，可回溯"],
+    costH: "成本", costSub: "policy 呼叫數，每 16 步一個 chunk 算一次，想像與實際執行的都算。",
+    costTh: ["任務", "原始 policy 跑一次", "跑 4 次，每場景", "搜尋，每場景", "搜尋 ÷ 原始"],
+    failH: "剩下的搜尋為什麼失敗",
+    reasons: {cap: "用完嘗試上限", horizon: "用完時間", criterion: "各 stage 檢查都過，官方判定沒過"},
+    failOf: n => `30 個場景失敗 ${n} 個`,
+    findH: "看到了什麼",
+    finds: F => [
+      {h: "stage 越多，提升越大", stat: F.map(f => `${f.task} +${f.gain.toFixed(1)} 個百分點`).join(" · "),
+        p: "4-stage 任務只要有一個 stage 失敗，整集就失敗。逐 stage 挑選讓每個 stage 都有好幾次機會，所以任務越長，好處越大。"},
+      {h: "逐 stage 挑選勝過整集重跑", stat: F.map(f => `${f.task} ${f.b4.toFixed(1)} → ${f.se.toFixed(1)}%`).join(" · "),
+        p: `搜尋還解出原始 policy 跑 4 次都沒成功的場景：${F.map(f => `${f.task} ${f.newly} 個`).join("、")}。`},
+      {h: "回溯在長任務上更重要", stat: F.map(f => `${f.task} +${f.bt.toFixed(1)} 個百分點`).join(" · "),
+        p: "物體最後放在哪裡，會決定下一個 stage 做不做得到。只挑最快完成的不夠，有時要退回去改選比較慢的那一個。"},
+      {h: "剩下的失敗大多是預算不夠", stat: `失敗 ${F.tot} 次：上限 ${F.r.cap || 0} · 時間 ${F.r.horizon || 0} · 判定 ${F.r.criterion || 0}`,
+        p: `${F.tot} 次失敗中，${(F.r.cap || 0) + (F.r.horizon || 0)} 次是嘗試數或時間用完。另外 ${F.r.criterion || 0} 次每個 stage 的檢查都通過了，但最後的官方成功判定沒過。`},
+    ],
+    showH: "每個任務一個例子",
+    showSub: "挑的都是原始 policy 跑 4 次都沒成功的場景。左邊是主實驗的 rollout（seed 0），右邊是搜尋提交的路徑，把每段選中的嘗試接起來播放。",
+    plain04: "原始 0/4", searchOk: s => `搜尋 ✓ · ${s} 步`, bt: "有回溯",
+    plainVid: "原始 policy，seed 0", searchVid: "搜尋，提交的路徑", seg: (k, s) => `S${k} · ${s} 步`,
+    sceneH: "所有場景", sceneSub: "點開場景可以看它的搜尋過程。每一列是一次展開，依 stage 縮排；每一格是一次嘗試。",
+    lg: {done: "完成該 stage", kept: "保留為節點", chosen: "在提交的路徑上", open: "沒完成（底線長度 = 進度）"},
+    exp: (i, k, t, L) => `E${i} · S${k} 從第 ${t} 步 · L ${L}`,
+    abandoned: "放棄的分支",
+    cTip: (i, c, k) => c[0] ? `嘗試 ${i}：${c[1]} 步完成 S${k}` : `嘗試 ${i}：${c[1]} 步內沒完成 S${k}（進度 ${c[2]}）`,
+    ok: s => `✓ ${s} 步`, no: r => `✗ ${r}`, cands: n => `${n} 次嘗試`, calls: n => `${n} 次呼叫`,
+    plainTip: (p, x) => `原始 policy，seed ${p}：${x == null ? "缺資料" : x ? "成功" : "失敗"}`,
+    probeH: "起點：重抽 noise 有差嗎？",
+    probeSub: "KettleBoiling 主實驗中的 12 個時間點，大多在出錯之前。從每個存下的狀態，用新的 noise 重跑到結束 16 次；綠色方格代表那次重跑成功。",
+    stepAt: t => `第 ${t} 步`, role: {fail: "主實驗失敗", success: "主實驗成功"},
+    probeNote: (r, n) => `${n} 個失敗點中，有 ${r} 個在 16 次重跑裡至少成功一次。重抽 noise 只在 policy 還救得回來時有用，搜尋做的就是把這些嘗試找出來。`,
+    capH: "為什麼這是上限",
+    caps: ["完美的世界模型：想像就是把模擬器還原到精確狀態，所以實際執行的結果和想像的完全一樣。",
+      "完美的評判：由官方的 stage 條件判斷哪次嘗試完成了。",
+      "想像不花時間：想像不算進整集的時間，成本只反映在 policy 呼叫數，約為原始 policy 跑一次的 7–9 倍。"],
+    nextH: "下一步",
+    next: "把模擬器換成 critic：只看當下的觀測就替各個嘗試打分，不必把它們跑完。KettleBoiling 的訓練資料正在收集：250 個決策點 × 8 個嘗試 × 2 次接續。",
+  },
+};
+const BAR_KEYS = ["plain", "best4", "greedy", "search"];
+const BAR_COL = ["var(--st1)", "var(--st2)", "rgba(var(--heat),.45)", "rgb(var(--heat))"];
+let CTASK = CE.tasks[0].task;
+
+function ceilingView() {
+  const U = UB[LANG], ts = CE.tasks;
+  const pct = x => (100 * x).toFixed(1);
+  const ratio = ts.map(t => t.summary.calls_search / t.summary.calls_plain);
+  const F = ts.map(t => {
+    const s = t.summary;
+    return {task: short(t.task), gain: 100 * (s.search - s.plain), bt: 100 * (s.search - s.greedy), b4: 100 * s.best4, se: 100 * s.search,
+      newly: t.scenes.filter(x => x.ok && !x.plain.some(Boolean)).length};
+  });
+  F.r = {}; ts.forEach(t => Object.entries(t.reasons).forEach(([k, n]) => { F.r[k] = (F.r[k] || 0) + n; }));
+  F.tot = Object.values(F.r).reduce((a, b) => a + b, 0);
+  const pf = CE.probe.filter(p => p.role === "fail");
+
+  const kpis = ts.map(t => `<div class="kpi"><div class="v">${pct(t.summary.search)}%<small>${U.from(pct(t.summary.plain))}</small></div><div class="l">${esc(U.kpiL(short(t.task), t.n_stages))}</div></div>`).join("")
+    + `<div class="kpi"><div class="v">${Math.min(...ratio).toFixed(1)}–${Math.max(...ratio).toFixed(1)}×</div><div class="l">${U.kpiCost}</div></div>`;
+  const bars = ts.map(t => `<div class="ubgroup"><h3>${esc(short(t.task))}<span>${U.stagesN(t.n_stages)}</span></h3>${BAR_KEYS.map((k, i) => {
+    const v = t.summary[k], w = (82 * v).toFixed(1);
+    return `<div class="ubbar${k === "search" ? " hi" : ""}" data-tip="${esc(U.barTips[i])}"><span>${U.bars[i]}</span><div class="track"><div class="fill" style="width:${w}%;background:${BAR_COL[i]}"></div><span class="val" style="left:${w}%">${pct(v)}%</span></div></div>`;
+  }).join("")}</div>`).join("");
+  const cost = ts.map((t, i) => `<tr><td>${esc(short(t.task))}</td><td>${Math.round(t.summary.calls_plain)}</td><td>${Math.round(t.summary.calls_best4)}</td><td>${Math.round(t.summary.calls_search)}</td><td>${ratio[i].toFixed(1)}×</td></tr>`).join("");
+  const fails = ts.map(t => `<div class="ubfail"><b>${esc(short(t.task))}</b><span class="meta">${U.failOf(Object.values(t.reasons).reduce((a, b) => a + b, 0))}</span>${Object.entries(t.reasons).map(([k, n]) => `<span class="modechip">${n} <em>${esc(U.reasons[k])}</em></span>`).join("")}</div>`).join("");
+  const shows = ts.map(t => {
+    const sc = t.scenes.find(x => x.seed === t.showcase.seed);
+    const ep = BYTASK[t.task] && BYTASK[t.task].episodes.find(x => x.seed === t.showcase.seed);
+    return `<div class="show"><div class="show-head"><h3>${esc(short(t.task))} s${sc.seed}</h3><span class="pill no">${U.plain04}</span><span class="pill ok">${U.searchOk(sc.steps)}</span>${sc.bt ? `<span class="modechip">${U.bt}</span>` : ""}</div>
+      <div class="vids">
+        ${ep ? `<div class="vid"><video controls muted playsinline preload="metadata" src="${esc(ep.video)}"></video><div class="cap">${U.plainVid}</div></div>` : ""}
+        <div class="vid"><video controls muted playsinline preload="metadata" src="${esc(t.showcase.video)}"></video><div class="cap">${U.searchVid} ${t.showcase.segs.map(s => `<span class="stbadge" style="${stVar(s.k)}">${esc(U.seg(s.k, s.steps))}</span>`).join("")}</div></div>
+      </div></div>`;
+  }).join("");
+  const cell = (cls, w) => `<span class="cell ${cls}">${w != null ? `<i style="width:${w}%"></i>` : ""}</span>`;
+  const probes = CE.probe.map(p => `<div class="prb"><div class="lbl"><span class="mono">s${p.seed} · ${U.stepAt(p.t0)}</span><small>${U.role[p.role]}</small></div><span class="sq" role="img" aria-label="${p.success}/${p.n}">${Array.from({length: p.n}, (_, i) => `<i class="${i < p.success ? "y" : ""}"></i>`).join("")}</span><span class="n">${p.success}/${p.n}</span></div>`).join("");
+  return `
+  <section class="hero">
+    <div><div class="eyebrow">${U.eyebrow}</div><h1>${U.h}</h1><p>${U.p}</p></div>
+    <div class="kpis">${kpis}</div>
+  </section>
+  <section class="card">
+    <h2>${U.methodH}</h2><p class="sub">${U.methodSub}</p>
+    <div class="pipe p5">${U.steps.map((s, i) => `<div class="pstep"><span class="n">${i + 1}</span><h3>${s.h}</h3><p>${s.p}</p><div class="out">→ <b>${s.out}</b></div></div>`).join("")}</div>
+    <div class="ubset">${ts.map(t => `<div><b>${esc(short(t.task))}</b>${esc(U.setRow(t))}</div>`).join("")}</div>
+  </section>
+  <div class="grid2">
+    <section class="card"><h2>${U.resH}</h2><p class="sub">${U.resSub}</p><div class="ubgroups">${bars}</div></section>
+    <section class="card"><h2>${U.costH}</h2><p class="sub">${U.costSub}</p>
+      <div class="tablewrap"><table class="ubtab"><thead><tr>${U.costTh.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${cost}</tbody></table></div>
+      <h3 style="font-size:15px;margin-top:22px">${U.failH}</h3><div class="ubfails">${fails}</div>
+    </section>
+  </div>
+  <section class="card"><h2>${U.findH}</h2>
+    <div class="mechs" style="margin-top:10px">${U.finds(F).map(f => `<div class="mech"><h3>${esc(f.h)}</h3><div class="stat">${esc(f.stat)}</div><p>${esc(f.p)}</p></div>`).join("")}</div>
+  </section>
+  <section class="card"><h2>${U.showH}</h2><p class="sub">${U.showSub}</p><div class="shows">${shows}</div></section>
+  <section class="card"><h2>${U.sceneH}</h2><p class="sub">${U.sceneSub}</p>
+    <div class="seg ubseg" role="group">${ts.map(t => `<button type="button" data-ctask="${t.task}" aria-pressed="${t.task === CTASK}">${esc(short(t.task))} <span class="count">${Math.round(30 * t.summary.search)}/30</span></button>`).join("")}</div>
+    <div class="tlg">
+      <span>${cell("done")}${U.lg.done}</span><span>${cell("done kept")}${U.lg.kept}</span>
+      <span>${cell("done kept chosen")}${U.lg.chosen}</span><span>${cell("", 40)}${U.lg.open}</span>
+    </div>
+    <div class="scns" id="ubScenes">${sceneList()}</div>
+  </section>
+  <div class="grid2">
+    <section class="card"><h2>${U.probeH}</h2><p class="sub">${U.probeSub}</p><div class="probes">${probes}</div>
+      <p class="sub" style="margin:14px 0 0">${U.probeNote(pf.filter(p => p.success > 0).length, pf.length)}</p></section>
+    <section class="card"><h2>${U.capH}</h2><ul class="facts" style="margin-top:10px">${U.caps.map(c => `<li>${c}</li>`).join("")}</ul>
+      <h3 style="font-size:15px;margin-top:20px">${U.nextH}</h3><p class="sub" style="margin:4px 0 0">${U.next}</p></section>
+  </div>`;
+}
+
+function sceneList() {
+  const U = UB[LANG], t = CE.tasks.find(x => x.task === CTASK);
+  return t.scenes.map(sc => {
+    const chosen = new Map(sc.path.map(([ei, i]) => [ei, i]));
+    const rows = sc.exps.map((e, ei) => {
+      const on = chosen.has(ei);
+      return `<div class="trow${on ? "" : " off"}" style="--ind:${e.k}"><span class="tl2">${U.exp(ei, e.k, e.t, e.L)}</span><span class="cells">${e.c.map((c, i) =>
+        `<span class="cell${c[0] ? " done" : ""}${e.fin.includes(i) ? " kept" : ""}${chosen.get(ei) === i ? " chosen" : ""}" data-tip="${esc(U.cTip(i, c, e.k))}">${c[0] ? "" : `<i style="width:${Math.round(100 * c[2])}%"></i>`}</span>`).join("")}</span>${on ? "" : `<span class="ab">${U.abandoned}</span>`}</div>`;
+    }).join("");
+    return `<details class="scn"><summary><span class="sid">s${sc.seed}</span><span class="dots">${sc.plain.map((x, p) => `<i class="${x == null ? "na" : x ? "y" : ""}" data-tip="${esc(U.plainTip(p, x))}"></i>`).join("")}</span>${sc.ok ? `<span class="pill ok">${U.ok(sc.steps)}</span>` : `<span class="pill no">${esc(U.no(U.reasons[sc.reason]))}</span>`}${sc.bt ? `<span class="modechip">${U.bt}</span>` : ""}<span class="meta2">${U.cands(sc.cands)} · ${U.calls(sc.calls)}</span></summary><div class="trace">${rows}</div></details>`;
+  }).join("");
+}
+function prepVideos() { app.querySelectorAll("video").forEach(v => { v.defaultPlaybackRate = RATE; v.playbackRate = RATE; }); }
+
+/* ---------- data tab: window.DATATAB, built by build_datatab.py ---------- */
+const DTD = window.DATATAB;
+const DT = {
+  en: {
+    nav: "Data",
+    eyebrow: "VLM-critic data · collected 2026-10-26",
+    h: "What the collected data looks like",
+    p: "Before deciding what the critic should learn: the units we use, one real episode and one real decision point, then everything the collection saved.",
+    kPts: (n, m) => `decision points, KettleBoiling (${n} of ${m})`, kRolls: "rollouts, KettleBoiling", kSamples: "chunk starts along those rollouts",
+    kSim: (n, m) => `SteamInMicrowave decision points so far (of ${m})`,
+    unitsH: "Units, from large to small", unitsSub: ep => `Shown on one real episode: KettleBoiling s${ep.seed} from the main run (seed 0), which succeeded at step ${ep.steps}.`,
+    units: (ep, s0, s1) => [
+      {u: "task", what: "The whole job, one episode: pick the kettle up, put it on a burner, turn that burner on.", here: `at most 1000 steps (50 s) · this episode: ${ep.steps} steps, success`},
+      {u: "stage", what: "One sub-goal with an official done condition. KettleBoiling has two: S0 kettle on a burner, S1 burner on.", here: `S0: steps 0–${s0} (${Math.round(s0 / 16)} chunks) · S1: steps ${s0}–${s1} (${Math.round((s1 - s0) / 16)} chunks)`},
+      {u: "chunk", what: "One GR00T call: it looks once and outputs 16 actions, which run without looking again.", here: `16 steps = 0.8 s · this episode: ${Math.ceil(ep.steps / 16)} chunks`},
+      {u: "step", what: "One control action at 20 Hz: arm, gripper, base.", here: "0.05 s"},
+    ],
+    tlRows: ["stage", "chunk", "decision"], tlNote: (n, every) => `Ticks are chunk boundaries (every 16 steps). Dots are the ${n} decision points collected from this episode, one every ${every} steps; their colour is the share of 16 rollouts from there that finished the stage.`,
+    film: (s, c, k) => `step ${s} · chunk ${c} · S${k}`, filmLink: "Full rollout in the diagnosis view",
+    termsH: "From a decision point to rollouts",
+    terms: (t) => [
+      {h: "decision point", p: `A saved state of a main-run episode at a chunk boundary, every ${t.every} steps.`, n: `${t.n_jobs} for ${short(t.task)}`},
+      {h: "candidate", p: "One of 8 first chunks GR00T proposes there, each from a different noise draw.", n: "8 per decision point"},
+      {h: "continuation", p: "After the candidate's chunk, the plain policy runs on with fresh noise until the stage is done or L steps pass.", n: `2 per candidate · L = ${t.L.map(([k, l]) => `S${k} ${l}`).join(", ")}`},
+      {h: "rollout", p: "One candidate plus one continuation. Its label: did it finish the stage, in how many steps, with how much progress.", n: "16 per decision point"},
+    ],
+    exH: (ex) => `Example: KettleBoiling s${ex.seed} · step ${ex.t} · stage S0`,
+    exSub: "What was saved at this decision point, and what its 16 rollouts did.",
+    snapCaps: ["agent view, left", "agent view, right", "wrist camera", "wrist depth", "wrist depth, robot hidden"],
+    gridH: "8 candidates × 2 continuations", gridSub: "Green: finished S0 (number = steps). Grey: did not finish within L = 416 (bar = progress at the end). Outlined: the four rollouts in the video.",
+    cand: i => `candidate ${i}`, cell: c => c[0] ? `✓ ${c[1]}` : `✗ ${c[1]}`,
+    cellTip: (i, m, c) => `candidate ${i}, continuation ${m}: ${c[0] ? `finished S0 in ${c[1]} steps` : `did not finish in ${c[1]} steps, progress ${c[2]}`}`,
+    vidCap: "The same decision point, four rollouts played together. Candidates 0 and 2 each start with their own first chunk; within a candidate, the two continuations share that chunk and differ only afterwards.",
+    chunkH: "One chunk = 16 actions", chunkSub: (i) => `The first chunk of candidate ${i} at this decision point, as GR00T returned it. Values are the normalized commands sent to the environment.`,
+    chunkCols: ["step", "arm position (x y z)", "arm rotation (3)", "gripper close", "base motion (4)", "mode"],
+    savedH: "What is saved", savedSub: "Per decision point one snapshot file, per rollout one file of states and chunks plus a small video, and one result row per decision point.",
+    snapFile: "snap/<tag>_t<step>.npz · once per decision point", rollFile: "roll/<tag>_t<step>_c<candidate>_m<continuation>.npz · once per rollout",
+    rowFile: "results_w<worker>.jsonl · one row per decision point (candidates trimmed to the first)",
+    vidFile: "roll/…mp4: agent view left + wrist, every 4th step, 10 fps, about 40–200 KB",
+    th: ["key", "shape", "type", "meaning"],
+    derivedH: "Derived offline from the saved states, no policy needed",
+    derived: ["gripper path and finger poses for every chunk; contacts", "progress of the stage at every step; drop, tip-over and collision events",
+      "any camera view at any step (for the VLM), path overlays", "GR00T features, recomputed from the saved policy inputs"],
+    disk: (a, b) => `On disk: KettleBoiling ${a} GB, SteamInMicrowave ${b} GB so far.`,
+    allH: "Every decision point", allSub: "One row per main-run episode. Dots are decision points; colour is the share of the 16 rollouts from there that finished the stage. Click a dot to see its 16 rollouts.",
+    stats: t => `${t.n_points} of ${t.n_jobs} decision points · ${t.n_rollouts.toLocaleString()} rollouts · ${t.sim_steps.toLocaleString()} simulated steps · ${t.chunk_samples.toLocaleString()} chunk starts`,
+    mix: t => `all 16 finish: ${t.mix.all} · none: ${t.mix.none} · mixed: ${t.mix.mixed} · mean share finished ${(100 * t.p_done).toFixed(0)}%`,
+    agree: t => `two continuations agree: same candidate ${t.same.toFixed(2)}, different candidates ${t.cross.toFixed(2)}`,
+    inProg: "still collecting", lgStage: "stage S0 / S1 / S2 / S3", lgDot: "share finished, 0 → 1", lgEnd: "episode end",
+    epLbl: e => `s${e.seed} ${e.ok ? "✓" : "✗"} ${e.steps}`,
+    det: (e, p, t) => `s${e.seed} · step ${p.t} · S${p.k} · L ${p.L}`, detN: (n) => `${n} of 16 finished`,
+    noPick: "Click a dot.",
+  },
+  zh: {
+    nav: "資料",
+    eyebrow: "VLM critic 的資料 · 2026-10-26 收集",
+    h: "收集到的資料長什麼樣子",
+    p: "在決定 critic 要學什麼之前，先把單位、一集真實的 episode、一個真實的決策點，以及收集時存下的所有東西攤開來看。",
+    kPts: (n, m) => `KettleBoiling 決策點（${n} / ${m}）`, kRolls: "KettleBoiling rollout 數", kSamples: "這些 rollout 上的 chunk 起點數",
+    kSim: (n, m) => `SteamInMicrowave 目前收到的決策點（共 ${m}）`,
+    unitsH: "單位，由大到小", unitsSub: ep => `用一集真實的 episode 說明：主實驗（seed 0）的 KettleBoiling s${ep.seed}，第 ${ep.steps} 步成功。`,
+    units: (ep, s0, s1) => [
+      {u: "task", what: "整個任務，也就是一集：拿起水壺、放到爐口上、把那個爐口打開。", here: `最多 1000 步（50 秒）· 這集：${ep.steps} 步，成功`},
+      {u: "stage", what: "一個有官方完成條件的子目標。KettleBoiling 有兩個：S0 水壺放上爐口、S1 開火。", here: `S0：第 0–${s0} 步（${Math.round(s0 / 16)} 個 chunk）· S1：第 ${s0}–${s1} 步（${Math.round((s1 - s0) / 16)} 個 chunk）`},
+      {u: "chunk", what: "GR00T 呼叫一次：看一次畫面，輸出 16 個動作，執行期間不再看。", here: `16 步 = 0.8 秒 · 這集共 ${Math.ceil(ep.steps / 16)} 個 chunk`},
+      {u: "step", what: "一個控制動作（20 Hz）：手臂、夾爪、底座。", here: "0.05 秒"},
+    ],
+    tlRows: ["stage", "chunk", "決策點"], tlNote: (n, every) => `刻度是 chunk 的邊界（每 16 步）。圓點是從這集取的 ${n} 個決策點，每 ${every} 步一個；顏色代表從那裡出發的 16 條 rollout 中，完成該 stage 的比例。`,
+    film: (s, c, k) => `第 ${s} 步 · chunk ${c} · S${k}`, filmLink: "在診斷頁看整集影片",
+    termsH: "從決策點到 rollout",
+    terms: (t) => [
+      {h: "決策點", p: `主實驗某一集在 chunk 邊界存下的狀態，每 ${t.every} 步取一個。`, n: `${short(t.task)} 共 ${t.n_jobs} 個`},
+      {h: "候選", p: "GR00T 在那裡提出的 8 個第一 chunk 之一，每個來自不同的 noise。", n: "每個決策點 8 個"},
+      {h: "接續", p: "執行完候選的 chunk 後，交給原始 policy 用新的 noise 繼續，直到 stage 完成或用完 L 步。", n: `每個候選 2 次 · L = ${t.L.map(([k, l]) => `S${k} ${l}`).join("、")}`},
+      {h: "rollout", p: "一個候選加一次接續。標籤：有沒有完成 stage、用了幾步、最後的進度。", n: "每個決策點 16 條"},
+    ],
+    exH: (ex) => `例子：KettleBoiling s${ex.seed} · 第 ${ex.t} 步 · stage S0`,
+    exSub: "這個決策點存了什麼，以及它的 16 條 rollout 各自的結果。",
+    snapCaps: ["左側視角", "右側視角", "手腕相機", "手腕深度", "手腕深度（隱藏機器人）"],
+    gridH: "8 個候選 × 2 次接續", gridSub: "綠色：完成 S0（數字是步數）。灰色：L = 416 步內沒完成（底線是最後的進度）。外框：影片中的四條 rollout。",
+    cand: i => `候選 ${i}`, cell: c => c[0] ? `✓ ${c[1]}` : `✗ ${c[1]}`,
+    cellTip: (i, m, c) => `候選 ${i}，接續 ${m}：${c[0] ? `${c[1]} 步完成 S0` : `${c[1]} 步內沒完成，進度 ${c[2]}`}`,
+    vidCap: "同一個決策點的四條 rollout 一起播放。候選 0 和候選 2 各自從自己的第一個 chunk 開始；同一個候選的兩次接續共用這個 chunk，之後才不同。",
+    chunkH: "一個 chunk = 16 個動作", chunkSub: (i) => `這個決策點上候選 ${i} 的第一個 chunk，也就是 GR00T 回傳的原始內容。數值是送進環境、經過正規化的控制指令。`,
+    chunkCols: ["步", "手臂位置（x y z）", "手臂旋轉（3）", "夾爪合上", "底座移動（4）", "模式"],
+    savedH: "存了哪些東西", savedSub: "每個決策點一個快照檔；每條 rollout 一個 state 與 chunk 檔，外加一支小影片；每個決策點一列結果。",
+    snapFile: "snap/<tag>_t<步>.npz · 每個決策點一個", rollFile: "roll/<tag>_t<步>_c<候選>_m<接續>.npz · 每條 rollout 一個",
+    rowFile: "results_w<worker>.jsonl · 每個決策點一列（候選只列出第一個）",
+    vidFile: "roll/…mp4：左側視角 + 手腕，每 4 步一格，10 fps，約 40–200 KB",
+    th: ["key", "形狀", "型別", "意義"],
+    derivedH: "可以從存下的 state 離線算出，不必再跑 policy",
+    derived: ["每個 chunk 的夾爪路徑、手指姿態、接觸", "每一步的 stage 進度；掉落、傾倒、碰撞等事件",
+      "任何時刻、任何視角的畫面（給 VLM 用），以及路徑疊圖", "GR00T 內部特徵（由存下的 policy 輸入重算）"],
+    disk: (a, b) => `硬碟用量：KettleBoiling ${a} GB，SteamInMicrowave 目前 ${b} GB。`,
+    allH: "所有決策點", allSub: "每一列是主實驗的一集。圓點是決策點，顏色代表從那裡出發的 16 條 rollout 中完成 stage 的比例。點圓點可以看它的 16 條 rollout。",
+    stats: t => `決策點 ${t.n_points} / ${t.n_jobs} · rollout ${t.n_rollouts.toLocaleString()} 條 · 模擬 ${t.sim_steps.toLocaleString()} 步 · chunk 起點 ${t.chunk_samples.toLocaleString()} 個`,
+    mix: t => `16 條全完成：${t.mix.all} · 全沒完成：${t.mix.none} · 有好有壞：${t.mix.mixed} · 平均完成比例 ${(100 * t.p_done).toFixed(0)}%`,
+    agree: t => `兩次接續結果一致的比例：同一個候選 ${t.same.toFixed(2)}，不同候選 ${t.cross.toFixed(2)}`,
+    inProg: "仍在收集", lgStage: "stage S0 / S1 / S2 / S3", lgDot: "完成比例 0 → 1", lgEnd: "這集結束",
+    epLbl: e => `s${e.seed} ${e.ok ? "✓" : "✗"} ${e.steps}`,
+    det: (e, p, t) => `s${e.seed} · 第 ${p.t} 步 · S${p.k} · L ${p.L}`, detN: (n) => `16 條中 ${n} 條完成`,
+    noPick: "點一個圓點。",
+  },
+};
+const KEY_MEAN = {
+  en: [[/^state$/, "flattened sim state: restores the scene exactly"], [/^states$/, "sim state at the start and after every step"],
+    [/^rgb\//, "RGB image"], [/^depth_env\//, "wrist depth with the robot hidden (m)"], [/^depth\//, "depth (m)"], [/^K\//, "camera intrinsics"],
+    [/^T\//, "camera pose, camera → world"], [/^req\/video/, "image the policy saw"], [/^req\/state/, "proprio the policy saw"],
+    [/^req\/annotation/, "instruction the policy saw"], [/^action\./, "every chunk received: chunks × 16 × dim"]],
+  zh: [[/^state$/, "攤平的 sim state，可完全還原場景"], [/^states$/, "起點與每一步之後的 sim state"],
+    [/^rgb\//, "RGB 影像"], [/^depth_env\//, "隱藏機器人的手腕深度（公尺）"], [/^depth\//, "深度（公尺）"], [/^K\//, "相機內參"],
+    [/^T\//, "相機姿態（相機 → 世界）"], [/^req\/video/, "policy 看到的影像"], [/^req\/state/, "policy 看到的本體感測"],
+    [/^req\/annotation/, "policy 看到的指令"], [/^action\./, "收到的每個 chunk：chunk 數 × 16 × 維度"]],
+};
+const keyMean = k => (KEY_MEAN[LANG].find(([re]) => re.test(k)) || [, ""])[1];
+const pcol = p => `color-mix(in srgb, var(--good) ${Math.round(100 * p)}%, var(--bad))`;
+let DTASK = DTD.tasks[0].task, DSEL = {seed: DTD.example.seed, t: DTD.example.t};
+
+function stageSegs(e, H) {
+  const ends = e.hist.map(([t]) => t), out = [];
+  let a = 0;
+  for (let k = 0; a < e.steps; k++) {
+    const b = ends[k] != null ? ends[k] : e.steps;
+    if (b > a) out.push({k, a, b});
+    if (ends[k] == null) break;
+    a = b;
+  }
+  return out.map(s => ({...s, l: 100 * s.a / H, w: 100 * (s.b - s.a) / H}));
+}
+
+function dataView() {
+  const U = DT[LANG], ex = DTD.example, KB = DTD.tasks[0], SM = DTD.tasks[1];
+  const ep = KB.episodes.find(e => e.seed === ex.seed);
+  const s0 = ep.hist[0][0], s1 = ep.hist[1] ? ep.hist[1][0] : ep.steps, HX = 480;
+  const pctX = s => (100 * s / HX).toFixed(3);
+  const pd = p => p.g.filter(c => c[0]).length / p.g.length;
+  const segs = stageSegs(ep, HX).map(s => `<div class="etl-seg" style="left:${s.l}%;width:${s.w}%;${stVar(s.k)}">S${s.k}</div>`).join("");
+  const ticks = `<div class="etl-ticks" style="background:repeating-linear-gradient(90deg, var(--axis) 0 1px, transparent 1px ${(100 * 16 / ep.steps).toFixed(4)}%);width:${pctX(ep.steps)}%;border-right:1px solid var(--axis)"></div>`;
+  const dps = ep.points.map(p => `<span class="etl-dp" style="left:${pctX(p.t)}%;background:${pcol(pd(p))}" data-tip="${esc(`t=${p.t} · S${p.k} · ${p.g.filter(c => c[0]).length}/16`)}"></span>`).join("");
+  const axis = [0, 80, 160, 240, 320, 400, 480].map(s => `<span style="left:${pctX(s)}%">${s}</span>`).join("");
+  const film = ex.film_steps.map((s, i) => `<figure><div class="im" role="img" aria-label="${esc(U.film(s, Math.floor(s / 16), s < s0 ? 0 : 1))}" style="background-image:url(dt/film.jpg);background-size:${ex.film_steps.length * 100}% 100%;background-position:${(100 * i / (ex.film_steps.length - 1)).toFixed(3)}% 0"></div><figcaption>${esc(U.film(s, Math.floor(s / 16), s < s0 ? 0 : 1))}</figcaption></figure>`).join("");
+  const snaps = U.snapCaps.map((c, i) => `<figure><div class="im" role="img" aria-label="${esc(c)}" style="background-image:url(dt/snap.jpg);background-size:${U.snapCaps.length * 100}% 100%;background-position:${(100 * i / (U.snapCaps.length - 1)).toFixed(3)}% 0"></div><figcaption>${esc(c)}</figcaption></figure>`).join("");
+  const og = Array.from({length: 8}, (_, i) => `<div class="og-row"><span>${U.cand(i)}</span>${[0, 1].map(m => { const c = ex.grid[2 * i + m]; return `<span class="oc${c[0] ? " y" : ""}${ex.cands.includes(i) ? " ex" : ""}" data-tip="${esc(U.cellTip(i, m, c))}">${U.cell(c)}${c[0] ? "" : `<i style="width:${Math.round(100 * c[2])}%"></i>`}</span>`; }).join("")}</div>`).join("");
+  const ck = Object.keys(ex.chunk);
+  const get = k => ex.chunk[ck.find(x => x.endsWith(k))] || [];
+  const f = v => v.map(x => (x >= 0 ? " " : "") + x.toFixed(2)).join(" ");
+  const chunkRows = Array.from({length: 16}, (_, i) => `<tr><td>${i + 1}</td><td>${f(get("end_effector_position")[i])}</td><td>${f(get("end_effector_rotation")[i])}</td><td>${get("gripper_close")[i][0].toFixed(2)}</td><td>${f(get("base_motion")[i])}</td><td>${get("control_mode")[i][0].toFixed(0)}</td></tr>`).join("");
+  const keyTab = keys => `<div class="tablewrap"><table class="ubtab"><thead><tr>${U.th.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${keys.map(([k, sh, ty]) => `<tr><td class="mono" style="font-weight:500">${esc(k)}</td><td>${sh.join(" × ") || "scalar"}</td><td>${esc(ty)}</td><td style="font-family:var(--f-body);text-align:left;white-space:normal">${esc(keyMean(k))}</td></tr>`).join("")}</tbody></table></div>`;
+  const gb = b => (b / 1e9).toFixed(1);
+  return `
+  <section class="hero">
+    <div><div class="eyebrow">${U.eyebrow}</div><h1>${U.h}</h1><p>${U.p}</p></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">${KB.n_points}</div><div class="l">${U.kPts(KB.n_points, KB.n_jobs)}</div></div>
+      <div class="kpi"><div class="v">${KB.n_rollouts.toLocaleString()}</div><div class="l">${U.kRolls}</div></div>
+      <div class="kpi"><div class="v">${KB.chunk_samples.toLocaleString()}</div><div class="l">${U.kSamples}</div></div>
+      <div class="kpi"><div class="v">${SM.n_points}<small>/ ${SM.n_jobs}</small></div><div class="l">${U.kSim(SM.n_points, SM.n_jobs)}</div></div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>${U.unitsH}</h2><p class="sub">${U.unitsSub(ep)}</p>
+    <div class="units">${U.units(ep, s0, s1).map(u => `<div class="unit"><b>${u.u}</b><span class="what">${u.what}</span><span class="here">${u.here}</span></div>`).join("")}</div>
+    <div class="etl">
+      <div class="etl-row"><span class="etl-lbl">${U.tlRows[0]}</span><div class="etl-track">${segs}</div></div>
+      <div class="etl-row"><span class="etl-lbl">${U.tlRows[1]}</span><div class="etl-track">${ticks}</div></div>
+      <div class="etl-row"><span class="etl-lbl">${U.tlRows[2]}</span><div class="etl-track" style="overflow:visible">${dps}</div></div>
+      <div class="etl-row"><span></span><div class="etl-axis">${axis}</div></div>
+    </div>
+    <p class="sub" style="margin:8px 0 0">${U.tlNote(ep.points.length, KB.every)}</p>
+    <div class="film">${film}</div>
+    <p style="margin:10px 0 0"><a class="btn" href="#KettleBoiling-s${ep.seed}">${U.filmLink} →</a></p>
+  </section>
+  <section class="card">
+    <h2>${U.termsH}</h2>
+    <div class="terms" style="margin-top:10px">${U.terms(KB).map(t => `<div class="term"><b>${t.h}</b><p>${t.p}</p><span class="n">${esc(t.n)}</span></div>`).join("")}</div>
+    <h3 style="font-size:16px;margin-top:22px">${U.exH(ex)}</h3><p class="sub">${U.exSub}</p>
+    <div class="snaps">${snaps}</div>
+    <div class="grid2" style="margin-top:16px">
+      <div><h3 style="font-size:15px">${U.gridH}</h3><p class="sub" style="margin:4px 0 10px">${U.gridSub}</p><div class="og">${og}</div></div>
+      <div class="vid"><video controls muted playsinline preload="metadata" src="dt/grid.mp4"></video><div class="cap">${U.vidCap}</div></div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>${U.chunkH}</h2><p class="sub">${U.chunkSub(ex.cands[0])}</p>
+    <div class="tablewrap"><table class="ubtab"><thead><tr>${U.chunkCols.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${chunkRows}</tbody></table></div>
+  </section>
+  <section class="card">
+    <h2>${U.savedH}</h2><p class="sub">${U.savedSub}</p>
+    <h3 style="font-size:14px;margin:14px 0 6px" class="mono">${esc(U.snapFile)}</h3>${keyTab(ex.snap_keys)}
+    <h3 style="font-size:14px;margin:18px 0 6px" class="mono">${esc(U.rollFile)}</h3>${keyTab(ex.roll_keys)}
+    <p class="sub" style="margin:8px 0 0">${esc(U.vidFile)}</p>
+    <h3 style="font-size:14px;margin:18px 0 6px" class="mono">${esc(U.rowFile)}</h3>
+    <pre class="json">${esc(JSON.stringify(ex.row, null, 1))}</pre>
+    <div class="grid2" style="margin-top:16px">
+      <div><h3 style="font-size:15px">${U.derivedH}</h3><ul class="facts" style="margin-top:8px">${U.derived.map(d => `<li>${d}</li>`).join("")}</ul></div>
+      <p class="sub" style="margin:0;align-self:end">${U.disk(gb(KB.bytes), gb(SM.bytes))}</p>
+    </div>
+  </section>
+  <section class="card">
+    <h2>${U.allH}</h2><p class="sub">${U.allSub}</p>
+    <div class="seg ubseg" role="group">${DTD.tasks.map(t => `<button type="button" data-dtask="${t.task}" aria-pressed="${t.task === DTASK}">${esc(short(t.task))} <span class="count">${t.n_points}/${t.n_jobs}</span></button>`).join("")}</div>
+    <div id="dtAll">${dataAll()}</div>
+  </section>`;
+}
+
+function dataAll() {
+  const U = DT[LANG], t = DTD.tasks.find(x => x.task === DTASK), H = t.horizon;
+  const pd = p => p.g.filter(c => c[0]).length / p.g.length;
+  const rows = t.episodes.map(e => `<div class="estrip"><span class="el${e.ok ? " ok" : ""}">${esc(U.epLbl(e))}</span><div class="track">
+      ${stageSegs(e, H).map(s => `<div class="sg" style="left:${s.l}%;width:${s.w}%;${stVar(s.k)};opacity:.55"></div>`).join("")}
+      <span class="end" style="left:${(100 * e.steps / H).toFixed(2)}%" data-tip="${esc(U.lgEnd)}: ${e.steps}"></span>
+      ${e.points.map(p => `<button type="button" class="dp" data-dp="${e.seed}|${p.t}" aria-pressed="${DSEL.seed === e.seed && DSEL.t === p.t}" style="left:${(100 * p.t / H).toFixed(2)}%;background:${pcol(pd(p))}" data-tip="${esc(`t=${p.t} · S${p.k} · ${p.g.filter(c => c[0]).length}/16`)}"></button>`).join("")}
+    </div></div>`).join("");
+  return `<p class="sub" style="margin:6px 0 2px">${esc(U.stats(t))}${t.n_points < t.n_jobs ? ` · <b>${U.inProg}</b>` : ""}</p>
+    <p class="sub" style="margin:0 0 2px">${esc(U.mix(t))}</p>
+    ${t.same != null ? `<p class="sub" style="margin:0">${esc(U.agree(t))}</p>` : ""}
+    <div class="legend" style="margin-top:10px"><span>${[0, 1, 2, 3].slice(0, t.per_stage.length).map(k => `<span class="sw" style="${stVar(k)}"></span>`).join("")}${U.lgStage}</span><span><span class="dtgrad"></span>${U.lgDot}</span><span><span class="sw" style="background:var(--ink-2);width:3px"></span>${U.lgEnd}</span></div>
+    <div class="dtwrap"><div class="estrips">${rows}</div><div class="dtdet" id="dtDet">${dataDetail()}</div></div>`;
+}
+
+function dataDetail() {
+  const U = DT[LANG], t = DTD.tasks.find(x => x.task === DTASK);
+  const e = t.episodes.find(x => x.seed === DSEL.seed), p = e && e.points.find(x => x.t === DSEL.t);
+  if (!p) return `<p class="sub" style="margin:0">${U.noPick}</p>`;
+  const n = p.g.filter(c => c[0]).length;
+  return `<h3>${esc(short(t.task))} ${esc(U.det(e, p, t))}</h3><p class="sub" style="margin:0">${U.detN(n)}</p>
+    <div class="og">${Array.from({length: p.g.length / 2}, (_, i) => `<div class="og-row"><span>${U.cand(i)}</span>${[0, 1].map(m => { const c = p.g[2 * i + m]; return `<span class="oc${c[0] ? " y" : ""}" data-tip="${esc(U.cellTip(i, m, c).replace(/S0/g, `S${p.k}`))}">${U.cell(c)}${c[0] ? "" : `<i style="width:${Math.round(100 * c[2])}%"></i>`}</span>`; }).join("")}</div>`).join("")}</div>`;
+}
+
+/* ---------- static chrome ---------- */
+function applyChrome() {
+  const T = L();
+  document.documentElement.lang = LANG === "zh" ? "zh-Hant" : "en";
+  $("#brandSub").textContent = T.brandSub;
+  $("#navOverview").textContent = T.overview;
+  $("#navCeiling").textContent = UB[LANG].nav;
+  $("#navData").textContent = DT[LANG].nav;
+  $("#speedLbl").textContent = T.speed;
+  $("#speedLbl").title = T.speedTip;
+  $("#speedSeg").setAttribute("aria-label", T.speed);
+  document.querySelectorAll("#speedSeg button").forEach((b, i) => { b.textContent = T.rates[i]; });
+  document.querySelectorAll("#langSeg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === LANG)));
+  $("#plClose").textContent = T.close; $("#shClose").textContent = T.close;
+  $("#shPrev").textContent = T.prev; $("#shNext").textContent = T.next;
+  $("#plPlay").textContent = T.play;
+  const cur = sel.value;
+  sel.innerHTML = `<option value="">${esc(T.allTasks)}</option>` + TASKS.map(t => `<option value="${t.task}">${esc(short(t.task))} · ${t.successes}/30</option>`).join("");
+  sel.value = cur;
+}
+
+/* ---------- routing ---------- */
+const app = $("#app");
+function route() {
+  stopAll();
+  const h = decodeURIComponent(location.hash.slice(1));
+  $("#navCeiling").setAttribute("aria-current", h === "ceiling" ? "page" : "false");
+  $("#navData").setAttribute("aria-current", h === "data" ? "page" : "false");
+  if (h === "ceiling" || h === "data") {
+    $("#navOverview").setAttribute("aria-current", "false");
+    if (app.dataset.view !== h) { app.innerHTML = h === "ceiling" ? ceilingView() : dataView(); app.dataset.view = h; prepVideos(); }
+    sel.value = ""; window.scrollTo(0, 0);
+    return;
+  }
+  const m = h.match(/^([A-Za-z]+)(?:-s(\d+))?$/);
+  $("#navOverview").setAttribute("aria-current", BYTASK[m && m[1]] ? "false" : "page");
+  if (m && BYTASK[m[1]]) {
+    const task = m[1], seed = m[2] != null ? +m[2] : null;
+    if (seed != null && BYTASK[task].episodes.some(x => x.seed === seed)) { FILTER.status = "all"; FILTER.mode = null; }
+    if (app.dataset.view !== task) {
+      if (seed == null) FILTER.mode = null;
+      app.innerHTML = taskView(task); app.dataset.view = task;
+    } else {
+      syncFilters();
+    }
+    sel.value = task;
+    renderEpisodes(task);
+    if (seed != null) {
+      const el = document.getElementById(`ep-${task}-s${seed}`);
+      if (el) { el.classList.add("hl"); el.scrollIntoView({block: "start"}); }
+    } else window.scrollTo(0, 0);
+  } else {
+    if (app.dataset.view !== "overview") { app.innerHTML = overview(); app.dataset.view = "overview"; }
+    sel.value = "";
+    if (h === "tasks" || h === "pipeline") { const el = document.getElementById(h); if (el) el.scrollIntoView(); }
+    else window.scrollTo(0, 0);
+  }
+}
+function syncFilters() {
+  document.querySelectorAll("#filters [data-status]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.status === FILTER.status)));
+  document.querySelectorAll("#filters [data-mode]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mode === FILTER.mode)));
+}
+window.addEventListener("hashchange", route);
+
+/* ---------- task select, speed, language ---------- */
+const sel = $("#taskSelect");
+sel.addEventListener("change", () => { location.hash = sel.value || "overview"; });
+function setRate(r) {
+  RATE = r;
+  try { localStorage.setItem("s480.rate", String(r)); } catch (e) {}
+  document.querySelectorAll("#speedSeg button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.rate === r)));
+  document.querySelectorAll("video").forEach(v => { v.playbackRate = r; });
+}
+$("#speedSeg").addEventListener("click", ev => { const b = ev.target.closest("button[data-rate]"); if (b) setRate(+b.dataset.rate); });
+function setLang(l) {
+  if (l === LANG) return;
+  LANG = l;
+  try { localStorage.setItem("s480.lang", l); } catch (e) {}
+  stopAll();
+  const y = window.scrollY, view = app.dataset.view;
+  applyChrome();
+  if (view === "overview") app.innerHTML = overview();
+  else if (view === "ceiling") { app.innerHTML = ceilingView(); prepVideos(); }
+  else if (view === "data") { app.innerHTML = dataView(); prepVideos(); }
+  else if (BYTASK[view]) { app.innerHTML = taskView(view); renderEpisodes(view); }
+  window.scrollTo(0, y);
+}
+$("#langSeg").addEventListener("click", ev => { const b = ev.target.closest("button[data-lang]"); if (b) setLang(b.dataset.lang); });
+
+/* ---------- clip playback ---------- */
+function stopAll(except) {
+  document.querySelectorAll(".clip-media.playing").forEach(m => { if (m !== except) { const v = m.querySelector("video"); v.pause(); m.classList.remove("playing"); } });
+}
+function playClip(btn) {
+  const v = btn.querySelector("video");
+  const a = +btn.dataset.a, b = +btn.dataset.b, t0 = tOf(a), t1 = Math.max(tOf(b), t0 + 0.2);
+  if (btn.classList.contains("playing")) { v.pause(); btn.classList.remove("playing"); return; }
+  stopAll(btn);
+  const e = BYTASK[btn.dataset.task].episodes.find(x => x.seed === +btn.dataset.seed);
+  if (!v.src) {
+    v.src = e.video;
+    v.addEventListener("loadedmetadata", () => { v.currentTime = t0; }, {once: true});
+    v.addEventListener("timeupdate", () => {
+      const t = v.currentTime;
+      if (t >= t1 - 0.02 || t < t0 - 0.3) { v.currentTime = t0; }
+      const st = Math.min(stepOf(t), b);
+      btn.querySelector(".stepread").textContent = L().stepRead(st, sec(st));
+      btn.querySelector(".segprog i").style.width = `${Math.min(100, Math.max(0, 100 * (t - t0) / (t1 - t0)))}%`;
+    });
+    v.addEventListener("playing", () => btn.classList.add("live"), {once: true});
+  } else if (v.currentTime < t0 - 0.3 || v.currentTime >= t1) v.currentTime = t0;
+  v.playbackRate = RATE;
+  btn.classList.add("playing");
+  const p = v.play(); if (p && p.catch) p.catch(() => btn.classList.remove("playing"));
+}
+
+/* ---------- full rollout player ---------- */
+const plDlg = $("#playerDlg"), plV = $("#plVideo");
+let PL = null;
+function openPlayer(task, seed, startStep) {
+  stopAll();
+  const T = L(), e = BYTASK[task].episodes.find(x => x.seed === seed);
+  PL = {task, e};
+  $("#plTitle").textContent = T.plTitle(short(task), seed, e.success);
+  $("#plTl").innerHTML = timeline(e, {playhead: true});
+  $("#plJumps").innerHTML = e.stages.filter(s => s.clip).map(s => `<button type="button" class="btn" data-jump="${s.clip[0]}">${esc(T.jumpStage(s.k, s.clip[0]))}</button>`).join("")
+    + (!e.success && e.diag.root_cause_steps ? `<button type="button" class="btn" data-jump="${e.diag.root_cause_steps[0]}" style="border-color:var(--bad)">${esc(T.jumpRc(e.diag.root_cause_steps[0]))}</button>` : "");
+  plV.src = e.video; plV.playbackRate = RATE;
+  plV.addEventListener("loadedmetadata", () => { plV.currentTime = tOf(startStep || 0); }, {once: true});
+  plDlg.showModal();
+  const p = plV.play(); if (p && p.catch) p.catch(() => {});
+}
+function plUpdate() {
+  if (!PL) return;
+  const T = L(), st = Math.min(stepOf(plV.currentTime), PL.e.steps);
+  $("#plRead").textContent = T.stepRead(st, sec(st));
+  const cur = PL.e.stages.find(s => s.clip && st >= s.clip[0] && st <= s.clip[1]);
+  $("#plStage").textContent = cur ? T.inStage(cur.k, short(cur.skill)) : "";
+  const ph = $("#plTl .playhead"); if (ph) ph.style.left = `${100 * st / PL.e.horizon}%`;
+  $("#plPlay").textContent = plV.paused ? T.play : T.pause;
+}
+plV.addEventListener("timeupdate", plUpdate); plV.addEventListener("play", plUpdate); plV.addEventListener("pause", plUpdate);
+$("#plPlay").addEventListener("click", () => { if (plV.paused) plV.play(); else plV.pause(); });
+$("#plClose").addEventListener("click", () => plDlg.close());
+plDlg.addEventListener("close", () => { plV.pause(); plV.removeAttribute("src"); plV.load(); PL = null; });
+$("#plTl").addEventListener("click", ev => {
+  const tr = ev.target.closest(".tl-track"); if (!tr || !PL) return;
+  const r = tr.getBoundingClientRect(), x = (ev.clientX - r.left) / r.width;
+  plV.currentTime = tOf(Math.round(x * PL.e.horizon));
+});
+$("#plJumps").addEventListener("click", ev => { const b = ev.target.closest("[data-jump]"); if (b) { plV.currentTime = tOf(+b.dataset.jump); plV.play(); } });
+plDlg.addEventListener("keydown", ev => {
+  if (ev.key === " ") { ev.preventDefault(); plV.paused ? plV.play() : plV.pause(); }
+  if (ev.key === "ArrowRight") plV.currentTime += 16 / 40;
+  if (ev.key === "ArrowLeft") plV.currentTime = Math.max(0, plV.currentTime - 16 / 40);
+});
+
+/* ---------- evidence sheets ---------- */
+const shDlg = $("#sheetDlg");
+let SH = null;
+function showSheet(i) {
+  SH.i = (i + SH.list.length) % SH.list.length;
+  $("#shImg").src = SH.list[SH.i];
+  $("#shTitle").textContent = `${SH.title} · ${SH.list[SH.i].split("/").pop()} (${SH.i + 1}/${SH.list.length})`;
+}
+$("#shPrev").addEventListener("click", () => showSheet(SH.i - 1));
+$("#shNext").addEventListener("click", () => showSheet(SH.i + 1));
+$("#shClose").addEventListener("click", () => shDlg.close());
+shDlg.addEventListener("keydown", ev => { if (ev.key === "ArrowRight") showSheet(SH.i + 1); if (ev.key === "ArrowLeft") showSheet(SH.i - 1); });
+
+/* ---------- delegated clicks ---------- */
+document.addEventListener("click", ev => {
+  const c = ev.target.closest(".clip-media[data-a]"); if (c) { playClip(c); return; }
+  const f = ev.target.closest("[data-full]"); if (f) { const [t, s] = f.dataset.full.split("|"); openPlayer(t, +s, 0); return; }
+  const sh = ev.target.closest("[data-sheets]");
+  if (sh) { const [t, s] = sh.dataset.sheets.split("|"); const e = BYTASK[t].episodes.find(x => x.seed === +s); SH = {list: e.diag.sheets, title: L().sheetTitle(short(t), s), i: 0}; showSheet(0); shDlg.showModal(); return; }
+  const mo = ev.target.closest(".more"); if (mo) { const p = mo.previousElementSibling; const open = p.classList.toggle("clamp"); mo.textContent = open ? L().showAll : L().showLess; return; }
+  const st = ev.target.closest("#filters [data-status]"); if (st) { FILTER.status = st.dataset.status; FILTER.mode = null; syncFilters(); renderEpisodes(app.dataset.view); return; }
+  const md = ev.target.closest("#filters [data-mode]"); if (md) { FILTER.mode = FILTER.mode === md.dataset.mode ? null : md.dataset.mode; if (FILTER.mode) FILTER.status = "fail"; syncFilters(); renderEpisodes(app.dataset.view); return; }
+  const go = ev.target.closest("[data-go]"); if (go) { location.hash = go.dataset.go; return; }
+  const dtk = ev.target.closest("[data-dtask]");
+  if (dtk) {
+    DTASK = dtk.dataset.dtask;
+    const t = DTD.tasks.find(x => x.task === DTASK);
+    const keep = t.episodes.some(e => e.seed === DSEL.seed && e.points.some(p => p.t === DSEL.t)) && DTASK === DTD.tasks[0].task;
+    if (!keep) { const e = t.episodes.find(x => x.points.some(p => p.g.some(c => c[0]) && p.g.some(c => !c[0]))) || t.episodes[0]; const p = e.points.find(q => q.g.some(c => c[0]) && q.g.some(c => !c[0])) || e.points[0]; DSEL = {seed: e.seed, t: p ? p.t : -1}; }
+    document.querySelectorAll("[data-dtask]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.dtask === DTASK)));
+    $("#dtAll").innerHTML = dataAll();
+    return;
+  }
+  const dp = ev.target.closest("[data-dp]");
+  if (dp) {
+    const [s, t] = dp.dataset.dp.split("|"); DSEL = {seed: +s, t: +t};
+    document.querySelectorAll("[data-dp]").forEach(b => b.setAttribute("aria-pressed", String(b === dp)));
+    $("#dtDet").innerHTML = dataDetail();
+    return;
+  }
+  const ct = ev.target.closest("[data-ctask]");
+  if (ct) {
+    CTASK = ct.dataset.ctask;
+    document.querySelectorAll("[data-ctask]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.ctask === CTASK)));
+    $("#ubScenes").innerHTML = sceneList();
+  }
+});
+
+/* ---------- tooltip ---------- */
+const tip = $("#tip");
+document.addEventListener("mousemove", ev => {
+  const el = ev.target.closest("[data-tip]");
+  if (!el) { tip.classList.remove("on"); return; }
+  tip.textContent = el.dataset.tip; tip.classList.add("on");
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = `${Math.min(window.innerWidth - w - 8, ev.clientX + 12)}px`;
+  tip.style.top = `${Math.max(8, ev.clientY - h - 12)}px`;
+});
+
+setRate(RATE);
+applyChrome();
+route();
+})();
+</script>
+</body>
+</html>
