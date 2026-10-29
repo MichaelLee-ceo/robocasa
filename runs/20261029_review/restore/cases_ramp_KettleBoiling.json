@@ -1,0 +1,74 @@
+[
+ {
+  "dir": "run_confirm_KettleBoiling",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s29_single",
+  "t": 0,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   16
+  ],
+  "label": "b16: free, 75.2-78.5 mm (creep band); c_true -1.0; rules a_v3=-1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=-1.0"
+ },
+ {
+  "dir": "run_v2/s3",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s24_single",
+  "t": 400,
+  "c": 2,
+  "m": 0,
+  "boundaries": [
+   16
+  ],
+  "label": "b16: holding, < 20 mm; c_true +1.0; rules a_v3=+1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_v2/s4",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s29_single",
+  "t": 80,
+  "c": 6,
+  "m": 0,
+  "boundaries": [
+   32
+  ],
+  "label": "b32: touching an object, not held; c_true -1.0; rules a_v3=-1.0,b_v4=-1.0,c_v5=-1.0,d_val=+1.0,f_hyb=-1.0"
+ },
+ {
+  "dir": "run_dense_KettleBoiling",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s23_single",
+  "t": 416,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   64
+  ],
+  "label": "b64: mid-ramp, steady mid gap; c_true -0.8; rules a_v3=+1.0,b_v4=+1.0,c_v5=+1.0,d_val=-0.6,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_v2/s2",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s12_single",
+  "t": 240,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   112
+  ],
+  "label": "b112: touching a fixture, mid gap; c_true +1.0; rules a_v3=+1.0,b_v4=+1.0,c_v5=+1.0,d_val=+0.2,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_v2/s4",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s7_single",
+  "t": 80,
+  "c": 2,
+  "m": 0,
+  "boundaries": [
+   144
+  ],
+  "label": "b144: mid-ramp, releasing (last cmd open); c_true +0.4; rules a_v3=+1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=+1.0"
+ }
+]

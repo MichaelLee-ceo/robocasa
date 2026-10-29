@@ -1,0 +1,101 @@
+{
+"summary": {
+"KettleBoiling": {
+"series": 53,
+"points": 295,
+"triples": 191,
+"observed": {
+"DIP": 0,
+"SPIKE": 0,
+"JR": 0
+},
+"expected_const_p": {
+"DIP": 0.001,
+"SPIKE": 0.001,
+"JR": 0.009
+},
+"boot_monotone": {
+"DIP": {
+"mean": 0.001,
+"p95": 0.0,
+"p_ge_obs": 1.0
+},
+"SPIKE": {
+"mean": 0.001,
+"p95": 0.0,
+"p_ge_obs": 1.0
+},
+"JR": {
+"mean": 0.0165,
+"p95": 0.0,
+"p_ge_obs": 1.0
+}
+}
+},
+"SteamInMicrowave": {
+"series": 97,
+"points": 345,
+"triples": 166,
+"observed": {
+"DIP": 0,
+"SPIKE": 0,
+"JR": 0
+},
+"expected_const_p": {
+"DIP": 0.001,
+"SPIKE": 0.002,
+"JR": 0.03
+},
+"boot_monotone": {
+"DIP": {
+"mean": 0.005,
+"p95": 0.0,
+"p_ge_obs": 1.0
+},
+"SPIKE": {
+"mean": 0.001,
+"p95": 0.0,
+"p_ge_obs": 1.0
+},
+"JR": {
+"mean": 0.0425,
+"p95": 0.0,
+"p_ge_obs": 1.0
+}
+}
+},
+"PackIdenticalLunches": {
+"series": 81,
+"points": 530,
+"triples": 395,
+"observed": {
+"DIP": 0,
+"SPIKE": 0,
+"JR": 0
+},
+"expected_const_p": {
+"DIP": 0.005,
+"SPIKE": 0.005,
+"JR": 0.11
+},
+"boot_monotone": {
+"DIP": {
+"mean": 0.0075,
+"p95": 0.0,
+"p_ge_obs": 1.0
+},
+"SPIKE": {
+"mean": 0.007,
+"p95": 0.0,
+"p_ge_obs": 1.0
+},
+"JR": {
+"mean": 0.166,
+"p95": 1.0,
+"p_ge_obs": 1.0
+}
+}
+}
+},
+"flags": []
+}

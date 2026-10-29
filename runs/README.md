@@ -1,5 +1,63 @@
 # runs/
 
+## Research goal (agreed with the user, 2026-10-29)
+**The frozen GR00T N1.5 can already do these tasks: its own samples contain successful trajectories.**
+- **Evidence:** stage-level "imagine, then choose" (`20261026_imagine/`). The simulator is the oracle: it imagines 8 of
+  the policy's own rollouts per stage and keeps one that finishes.
+
+  | task | plain policy | imagine |
+  |---|---|---|
+  | KettleBoiling | 65.0 % | 96.7 % |
+  | SteamInMicrowave | 30.8 % | 90.0 % |
+  | PackIdenticalLunches | 11.7 % | 63.3 % |
+
+  - The last two tasks still need a re-run with the restore fixes.
+  - More samples could go higher (most PackIdenticalLunches failures hit the candidate cap).
+- **Backtracking counts.** The committed path is still one forward trajectory, so these numbers prove that a solution
+  exists among the policy's samples.
+- **Goal.** A stage trajectory is a sequence of chunks, so the same solutions can be reached by choosing chunks. We
+  want this performance by choosing among the policy's own candidate chunks ("think then leap"). We choose only at the
+  chunks that decide the outcome, so we need far fewer evaluations than the stage-level search.
+
+Objectives:
+1. **Target:** the imagine success rates above (the existence proof / upper bound).
+2. **Find the critical chunks:** the chunk where a stage's outcome gets decided, i.e. where V = P(finish | state, plain
+   policy) jumps (`20261028_critical/`).
+3. **Choose well there:**
+   - first with an oracle (the simulated outcome);
+   - then with a VLM critic that judges the observation and the candidates' action trajectories.
+4. **Final comparison:** plain policy vs our method (oracle, then VLM) vs the imagine target, on task success and on the
+   number of evaluations.
+
+**Current step: which chunks decide success or failure, and can we find them?**
+- **Premise.** From the same scenes the stage-level search finds a path that finishes, so the plain run made bad
+  choices somewhere.
+- **Approach.** Policy steering, as imagine does: at some decision points, pick a better chunk among the policy's own
+  candidates to raise the chance of finishing the task.
+- **Questions this step answers:**
+  1. Which chunks decide success or failure (the critical chunks)?
+  2. Can we find them, i.e. tell when to steer?
+
+Question 1, answered (2026-10-29; `20261028_critical/README.md`):
+- **Data.** The restore bugs are fixed (settled-v5). Every affected point was re-collected, checked row by row and gated
+  (`20261029_review/fix/README.md`). The data is in `20261026_critic_data/data/<task>/<dataset>`.
+- **Located critical chunks** (one chunk, |dV| >= 0.4, > 2 SE): KettleBoiling 5, SteamInMicrowave 6,
+  PackIdenticalLunches 21 (`20261028_critical/critical_chunks.json`).
+- **Choosing among 8 candidates at them raises the stage-completion chance by +25 points** (cross-validated, 95 % CI
+  [+15, +36]; per task +34 / +20 / +25). At random chunks the gain is -2 [-8, +2]. The outcome is decided at a few
+  chunks, and steering there works.
+
+Next (running since 2026-10-29 14:00):
+- **Closed loop with an oracle** (`20261029_closedloop/`): steer chunk by chunk in real KettleBoiling episodes, and
+  compare task success with the plain policy and imagine. The 10 scenes are the ones where the plain policy often
+  fails: plain 32.5 %, imagine 10 / 10.
+- **Question 2** (`20261029_signals/`): which observable signal, without simulation, tells the critical chunks apart?
+
+**Lesson from imagine's backtracking.** A choice must keep the later stages possible. For example, a kettle placed
+where its knob cannot be turned finishes S0 but fails S1. So the critic's label has to look at the whole task, not only
+the current stage.
+
+---
 Current work (from 2026-10-25): stage-level root-cause diagnosis of GR00T N1.5 on the 16 Composite-Seen tasks.
 Everything earlier (experiments, results, launchers, the old README) is in `prev/`.
 
