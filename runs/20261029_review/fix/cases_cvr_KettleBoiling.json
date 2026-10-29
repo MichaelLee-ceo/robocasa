@@ -1,0 +1,117 @@
+[
+ {
+  "dir": "run_v2/s0",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s0_single",
+  "t": 0,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   16
+  ],
+  "label": "b0: t=0 point (true hidden state = right after load_scene); b16: arm, gripper opening",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   128
+  ],
+  "dir": "run_v2/s2",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s27_single",
+  "t": 160,
+  "c": 6,
+  "m": 0,
+  "label": "b128: KB s0 arm, holding kettle",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   128,
+   48
+  ],
+  "dir": "run_v2/s1",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s9_single",
+  "t": 320,
+  "c": 4,
+  "m": 0,
+  "label": "b128: KB s1 knob turning (knob joint moving, fingers on knob); b48: KB gripper misread: true closed, settle opening",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   144
+  ],
+  "dir": "run_v2/s0",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s29_single",
+  "t": 160,
+  "c": 2,
+  "m": 0,
+  "label": "b144: KB mode switch inside chunk",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   208
+  ],
+  "dir": "run_v2/s2",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s2_single",
+  "t": 400,
+  "c": 4,
+  "m": 0,
+  "label": "b208: KB gripper misread: true open, settle closing, free",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   304,
+   192
+  ],
+  "dir": "run_v2/s1",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s5_single",
+  "t": 0,
+  "c": 0,
+  "m": 0,
+  "label": "b304: KB gripper misread: true open, settle closing, touching kettle; b192: KB mid-ramp boundary",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   288,
+   384
+  ],
+  "dir": "run_v2/s1",
+  "task": "KettleBoiling",
+  "tag": "KettleBoiling_s4_single",
+  "t": 240,
+  "c": 2,
+  "m": 0,
+  "label": "b288: KB s0 arm, gripper open, free; b384: KB s0 arm, closed empty",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ }
+]

@@ -9,7 +9,7 @@ of the previous stage (backtracking). The found path is committed by setting the
 counts only the committed steps (imagining takes no episode time; its cost is logged separately).
 condition "baseline": a plain rollout from the scene start with policy_seed ps (same seeding as runs/20261025_seen480).
 Units: 1 step = 0.05 s; chunk = 16 steps. usage: python imagine.py --jobs jobs.json --worker W --n_workers N --out DIR --port P"""
-import argparse, glob, hashlib, json, os, sys, time, traceback
+import argparse, copy, glob, hashlib, json, os, sys, time, traceback
 import numpy as np
 import gymnasium as gym
 
@@ -26,18 +26,41 @@ import hidden_state  # noqa: E402
 FIXTURE_ON = {"stove": 0.35}  # official on-threshold of the fixture value used by progress() (default 1.0)
 
 
+def _plain(v):
+    if v is None or isinstance(v, (bool, int, float, str, np.bool_, np.integer, np.floating)):
+        return True
+    if isinstance(v, (list, tuple)):
+        return all(_plain(x) for x in v)
+    if isinstance(v, dict):
+        return all(isinstance(k, (str, int)) and _plain(x) for k, x in v.items())
+    return False
+
+
 def py_state(kenv):
     """python-side fixture state that the sim state does not hold (e.g. microwave._turned_on, which update_state only
-    sets when a button is pressed): the scalar attributes of every fixture that overrides update_state."""
+    sets when a button is pressed): the plain-data attributes of every fixture that overrides update_state, copied.
+    Containers included (2026-10-29): the Toaster keeps _turned_on, _num_steps_on, _cooldown and _state in dicts, and
+    with scalars only a toaster turned on in one rollout forced its lever down at the start of the next."""
     from robocasa.models.fixtures.fixture import Fixture
-    return {n: {k: v for k, v in vars(fx).items() if isinstance(v, (bool, int, float, str, np.bool_))}
+    return {n: {k: copy.deepcopy(v) for k, v in vars(fx).items() if _plain(v)}
             for n, fx in kenv.fixtures.items() if type(fx).update_state is not Fixture.update_state}
+
+
+def _like(old, new):
+    """a copy of new with the container types and dict-key types of old (a JSON round trip makes int keys strings)."""
+    if isinstance(old, dict) and isinstance(new, dict):
+        keys = {str(k): k for k in old}
+        return {keys.get(str(k), k): _like(old.get(keys.get(str(k), k)), v) for k, v in new.items()}
+    if isinstance(old, tuple) and isinstance(new, list):
+        return tuple(new)
+    return copy.deepcopy(new)
 
 
 def set_py_state(kenv, ps):
     for n, d in ps.items():
+        fx = kenv.fixtures[n]
         for k, v in d.items():
-            setattr(kenv.fixtures[n], k, v)
+            setattr(fx, k, _like(getattr(fx, k, None), v))
 
 
 def restore(kenv, state, ps):

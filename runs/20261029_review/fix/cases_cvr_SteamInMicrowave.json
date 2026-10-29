@@ -1,0 +1,149 @@
+[
+ {
+  "boundaries": [
+   32
+  ],
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s26_single",
+  "t": 480,
+  "c": 2,
+  "m": 0,
+  "label": "b32: SIM s1 holding bowl, base mode, yaw>160",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   64
+  ],
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s13_single",
+  "t": 640,
+  "c": 2,
+  "m": 0,
+  "label": "b64: SIM s1 holding bowl, arm mode after base mode (prev chunk ended in base)",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   144
+  ],
+  "dir": "run_dense_SteamInMicrowave",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s4_single",
+  "t": 96,
+  "c": 4,
+  "m": 0,
+  "label": "b144: SIM s0 holding vegetable, arm",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   96,
+   32,
+   144
+  ],
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s27_single",
+  "t": 480,
+  "c": 4,
+  "m": 0,
+  "label": "b96: SIM s1 holding bowl, base mode, yaw<20; b32: SIM s1 holding bowl, base mode, yaw 70-110; b144: SIM s1 holding bowl, switch inside chunk",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   208
+  ],
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s20_single",
+  "t": 1280,
+  "c": 4,
+  "m": 0,
+  "label": "b208: SIM gripper misread: true open, settle closing, free",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   240
+  ],
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s2_single",
+  "t": 1120,
+  "c": 4,
+  "m": 0,
+  "label": "b240: SIM s3 button: fingers on microwave in stage 3",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   256
+  ],
+  "dir": "run_dense_SteamInMicrowave",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s14_single",
+  "t": 1216,
+  "c": 0,
+  "m": 0,
+  "label": "b256: SIM s2 door: fingers on microwave, door joint moving",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   352
+  ],
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s16_single",
+  "t": 800,
+  "c": 2,
+  "m": 0,
+  "label": "b352: SIM gripper misread: true open, settle closing, near/at object",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ },
+ {
+  "boundaries": [
+   656,
+   96
+  ],
+  "dir": "run_dense_SteamInMicrowave",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s1_single",
+  "t": 544,
+  "c": 6,
+  "m": 0,
+  "label": "b656: SIM s1 base mode, gripper free, yaw>160; b96: SIM gripper misread: true closed, settle opening, holding",
+  "versions": [
+   "v5",
+   "v4"
+  ]
+ }
+]

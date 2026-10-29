@@ -1,7 +1,7 @@
 """Decision points for collect.py: the 30 seed-0 episodes of a task in runs/20261025_seen480, every EVERY steps
 (a chunk boundary) before the episode ended; stage k at t from the episode's stage history.
 N = 8 candidates, M = 2 continuations, L per stage as in the search (runs/20261026_imagine).
-KettleBoiling (EVERY 80) writes jobs.json; other tasks write jobs_<task>.json (EVERY 160 by default: their episodes are
+Writes jobs/<task>.json (KettleBoiling: EVERY 80; (EVERY 160 by default: their episodes are
 1.3-2.5x longer). Also a smoke job file (one decision point, N = 2, short L), from the deepest stage reached.
 usage: python make_jobs.py [task=KettleBoiling] [every]"""
 import glob, json, os, sys
@@ -25,8 +25,8 @@ for r in eps:
         jobs.append(dict(task=TASK, tag=r["tag"], scene=scene[r["tag"]], t=t, k=k, L=L[TASK][k], N=8, M=2,
                          episode_success=r["success"]))
 name = "" if TASK == "KettleBoiling" else f"_{TASK}"
-json.dump(jobs, open(f"{HERE}/jobs{name}.json", "w"), indent=0)
+json.dump(jobs, open(f"{HERE}/jobs/{TASK}.json", "w"), indent=0)
 smoke = jobs[1] if TASK == "KettleBoiling" else max(jobs, key=lambda j: (j["k"], -j["t"]))
-json.dump([dict(smoke, N=2, L=48)], open(f"{HERE}/jobs_smoke{name}.json", "w"), indent=0)
+json.dump([dict(smoke, N=2, L=48)], open(f"{HERE}/jobs/smoke_{TASK}.json", "w"), indent=0)
 print(TASK, len(jobs), "decision points; per stage", [sum(j["k"] == k for j in jobs) for k in range(len(L[TASK]))],
       ";", sum(not j["episode_success"] for j in jobs), "from failed episodes")

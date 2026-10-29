@@ -20,8 +20,8 @@ import hidden_state as HS  # noqa: E402
 TAG = sys.argv[1] if len(sys.argv) > 1 else "KettleBoiling_s0_single"
 T = int(sys.argv[2]) if len(sys.argv) > 2 else 160
 task = TAG.split("_")[0]
-scene = next(j["scene"] for j in json.load(open(f"{HERE}/jobs.json" if task == "KettleBoiling" else f"{HERE}/jobs_{task}.json")) if j["tag"] == TAG)
-run_dir = "run" if task == "KettleBoiling" else f"run_{task}"
+scene = next(j["scene"] for j in json.load(open(f"{HERE}/jobs/{task}.json")) if j["tag"] == TAG)
+run_dir = f"data/{task}/coarse"  # the actions come from the coarse rollouts of the point
 ep = np.load(f"{HERE}/../20261025_seen480/run/{task}/{TAG}_steps.npz")["states"]
 
 

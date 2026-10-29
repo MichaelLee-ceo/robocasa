@@ -1,0 +1,879 @@
+{
+ "dirs": {
+  "run_v2/s0": {
+   "task": "KettleBoiling",
+   "role": "coarse0",
+   "rows": 50,
+   "good": 50,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled": 50
+   },
+   "dup_rows": {},
+   "roll_files": 1600,
+   "snap_files": 50,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 0,
+   "claims_without_row": []
+  },
+  "run_v2/s1": {
+   "task": "KettleBoiling",
+   "role": "coarse0",
+   "rows": 55,
+   "good": 50,
+   "error": 5,
+   "unparseable": [],
+   "hidden": {
+    "settled": 50
+   },
+   "dup_rows": {},
+   "roll_files": 1600,
+   "snap_files": 50,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [
+    {
+     "tag": "KettleBoiling_s5_single",
+     "t": 400,
+     "file": "results_w1.jsonl",
+     "line": 1,
+     "error": "AssertionError()"
+    },
+    {
+     "tag": "KettleBoiling_s5_single",
+     "t": 800,
+     "file": "results_w2.jsonl",
+     "line": 1,
+     "error": "AssertionError()"
+    },
+    {
+     "tag": "KettleBoiling_s8_single",
+     "t": 960,
+     "file": "results_w7.jsonl",
+     "line": 1,
+     "error": "AssertionError()"
+    },
+    {
+     "tag": "KettleBoiling_s4_single",
+     "t": 240,
+     "file": "results_w8.jsonl",
+     "line": 0,
+     "error": "AssertionError()"
+    },
+    {
+     "tag": "KettleBoiling_s9_single",
+     "t": 320,
+     "file": "results_w8.jsonl",
+     "line": 1,
+     "error": "AssertionError()"
+    }
+   ],
+   "claims": 0,
+   "claims_without_row": []
+  },
+  "run_v2/s2": {
+   "task": "KettleBoiling",
+   "role": "coarse0",
+   "rows": 51,
+   "good": 50,
+   "error": 1,
+   "unparseable": [],
+   "hidden": {
+    "settled": 50
+   },
+   "dup_rows": {},
+   "roll_files": 1600,
+   "snap_files": 50,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [
+    {
+     "tag": "KettleBoiling_s3_single",
+     "t": 960,
+     "file": "results_w7.jsonl",
+     "line": 0,
+     "error": "AssertionError()"
+    }
+   ],
+   "claims": 0,
+   "claims_without_row": []
+  },
+  "run_v2/s3": {
+   "task": "KettleBoiling",
+   "role": "coarse0",
+   "rows": 50,
+   "good": 50,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled": 50
+   },
+   "dup_rows": {},
+   "roll_files": 1600,
+   "snap_files": 50,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 0,
+   "claims_without_row": []
+  },
+  "run_v2/s4": {
+   "task": "KettleBoiling",
+   "role": "coarse0",
+   "rows": 50,
+   "good": 50,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled": 50
+   },
+   "dup_rows": {},
+   "roll_files": 1600,
+   "snap_files": 50,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 0,
+   "claims_without_row": []
+  },
+  "run_KettleBoiling_fix": {
+   "task": "KettleBoiling",
+   "role": "coarse1",
+   "rows": 1,
+   "good": 1,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-basefix": 1
+   },
+   "dup_rows": {},
+   "roll_files": 32,
+   "snap_files": 1,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 1,
+   "claims_without_row": []
+  },
+  "run_SteamInMicrowave_v2": {
+   "task": "SteamInMicrowave",
+   "role": "coarse0",
+   "rows": 267,
+   "good": 262,
+   "error": 5,
+   "unparseable": [],
+   "hidden": {
+    "settled": 262
+   },
+   "dup_rows": {},
+   "roll_files": 8384,
+   "snap_files": 262,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [
+    {
+     "tag": "SteamInMicrowave_s19_single",
+     "t": 0,
+     "file": "results_w10.jsonl",
+     "line": 11,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "SteamInMicrowave_s20_single",
+     "t": 800,
+     "file": "results_w10.jsonl",
+     "line": 12,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "SteamInMicrowave_s22_single",
+     "t": 160,
+     "file": "results_w10.jsonl",
+     "line": 13,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "SteamInMicrowave_s23_single",
+     "t": 960,
+     "file": "results_w10.jsonl",
+     "line": 14,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "SteamInMicrowave_s25_single",
+     "t": 320,
+     "file": "results_w10.jsonl",
+     "line": 15,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    }
+   ],
+   "claims": 5,
+   "claims_without_row": []
+  },
+  "run_SteamInMicrowave_fix": {
+   "task": "SteamInMicrowave",
+   "role": "coarse1",
+   "rows": 33,
+   "good": 32,
+   "error": 1,
+   "unparseable": [],
+   "hidden": {
+    "settled-basefix": 32
+   },
+   "dup_rows": {},
+   "roll_files": 1024,
+   "snap_files": 32,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [
+    {
+     "tag": "SteamInMicrowave_s27_single",
+     "t": 480,
+     "file": "results_w705.jsonl",
+     "line": 0,
+     "error": "RuntimeError('Ran _load_model() 50 times but could not initialize task!')"
+    }
+   ],
+   "claims": 1,
+   "claims_without_row": []
+  },
+  "run_SteamInMicrowave_fix3": {
+   "task": "SteamInMicrowave",
+   "role": "coarse2",
+   "rows": 154,
+   "good": 154,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-v3": 153,
+    "settled-v4": 1
+   },
+   "dup_rows": {},
+   "roll_files": 4928,
+   "snap_files": 154,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 1,
+   "claims_without_row": []
+  },
+  "run_PackIdenticalLunches": {
+   "task": "PackIdenticalLunches",
+   "role": "coarse0",
+   "rows": 264,
+   "good": 256,
+   "error": 8,
+   "unparseable": [],
+   "hidden": {
+    "settled": 256
+   },
+   "dup_rows": {},
+   "roll_files": 8192,
+   "snap_files": 256,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [
+    {
+     "tag": "PackIdenticalLunches_s0_single",
+     "t": 320,
+     "file": "results_w1.jsonl",
+     "line": 0,
+     "error": "RuntimeError('Server error: CUDA out of memory. Tried to allocate 2.00 MiB. GPU 0 has a total capaci"
+    },
+    {
+     "tag": "PackIdenticalLunches_s1_single",
+     "t": 0,
+     "file": "results_w1.jsonl",
+     "line": 1,
+     "error": "RuntimeError('Server error: CUDA out of memory. Tried to allocate 2.00 MiB. GPU 0 has a total capaci"
+    },
+    {
+     "tag": "PackIdenticalLunches_s0_single",
+     "t": 640,
+     "file": "results_w2.jsonl",
+     "line": 0,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "PackIdenticalLunches_s1_single",
+     "t": 320,
+     "file": "results_w2.jsonl",
+     "line": 1,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "PackIdenticalLunches_s0_single",
+     "t": 960,
+     "file": "results_w3.jsonl",
+     "line": 0,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "PackIdenticalLunches_s1_single",
+     "t": 640,
+     "file": "results_w3.jsonl",
+     "line": 1,
+     "error": "FatalError('Offscreen framebuffer is not complete, error 0x8cdd')"
+    },
+    {
+     "tag": "PackIdenticalLunches_s0_single",
+     "t": 1600,
+     "file": "results_w5.jsonl",
+     "line": 0,
+     "error": "RuntimeError('Server error: CUDA out of memory. Tried to allocate 2.00 MiB. GPU 0 has a total capaci"
+    },
+    {
+     "tag": "PackIdenticalLunches_s0_single",
+     "t": 2240,
+     "file": "results_w7.jsonl",
+     "line": 0,
+     "error": "RuntimeError('Server error: CUDA out of memory. Tried to allocate 2.00 MiB. GPU 0 has a total capaci"
+    }
+   ],
+   "claims": 244,
+   "claims_without_row": []
+  },
+  "run_PackIdenticalLunches_fix": {
+   "task": "PackIdenticalLunches",
+   "role": "coarse1",
+   "rows": 65,
+   "good": 65,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-basefix": 65
+   },
+   "dup_rows": {},
+   "roll_files": 2080,
+   "snap_files": 65,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 65,
+   "claims_without_row": []
+  },
+  "run_PackIdenticalLunches_fix3": {
+   "task": "PackIdenticalLunches",
+   "role": "coarse2",
+   "rows": 126,
+   "good": 126,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-v3": 126
+   },
+   "dup_rows": {},
+   "roll_files": 4032,
+   "snap_files": 126,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 0,
+   "claims_without_row": []
+  },
+  "run_dense_KettleBoiling": {
+   "task": "KettleBoiling",
+   "role": "dense",
+   "rows": 45,
+   "good": 45,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-basefix": 45
+   },
+   "dup_rows": {},
+   "roll_files": 720,
+   "snap_files": 45,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 45,
+   "claims_without_row": [],
+   "jobs": 45,
+   "jobs_missing": [],
+   "rows_not_in_jobs": [],
+   "multi": [],
+   "field_mismatch": []
+  },
+  "run_dense_SteamInMicrowave": {
+   "task": "SteamInMicrowave",
+   "role": "dense",
+   "rows": 66,
+   "good": 66,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-v3": 66
+   },
+   "dup_rows": {},
+   "roll_files": 1056,
+   "snap_files": 66,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 66,
+   "claims_without_row": [],
+   "jobs": 66,
+   "jobs_missing": [],
+   "rows_not_in_jobs": [],
+   "multi": [],
+   "field_mismatch": []
+  },
+  "run_dense_PackIdenticalLunches": {
+   "task": "PackIdenticalLunches",
+   "role": "dense",
+   "rows": 246,
+   "good": 246,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-v3": 246
+   },
+   "dup_rows": {},
+   "roll_files": 3936,
+   "snap_files": 246,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 246,
+   "claims_without_row": [],
+   "jobs": 246,
+   "jobs_missing": [],
+   "rows_not_in_jobs": [],
+   "multi": [],
+   "field_mismatch": []
+  },
+  "run_dense_SteamInMicrowave_bug3": {
+   "task": "SteamInMicrowave",
+   "role": "bug3",
+   "rows": 62,
+   "good": 62,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-basefix": 62
+   },
+   "dup_rows": {},
+   "roll_files": 1028,
+   "snap_files": 62,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {
+    "SteamInMicrowave_s7_single t448": 10,
+    "SteamInMicrowave_s2_single t608": 14,
+    "SteamInMicrowave_s2_single t576": 2,
+    "SteamInMicrowave_s2_single t384": 2,
+    "SteamInMicrowave_s2_single t352": 2,
+    "SteamInMicrowave_s2_single t544": 2,
+    "SteamInMicrowave_s2_single t416": 2,
+    "SteamInMicrowave_s2_single t512": 2
+   },
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 73,
+   "claims_without_row": [
+    "SteamInMicrowave_s29_single_t1056",
+    "SteamInMicrowave_s29_single_t1088",
+    "SteamInMicrowave_s2_single_t352",
+    "SteamInMicrowave_s2_single_t384",
+    "SteamInMicrowave_s2_single_t416",
+    "SteamInMicrowave_s2_single_t448",
+    "SteamInMicrowave_s2_single_t512",
+    "SteamInMicrowave_s2_single_t544",
+    "SteamInMicrowave_s2_single_t576",
+    "SteamInMicrowave_s2_single_t608",
+    "SteamInMicrowave_s7_single_t448"
+   ]
+  },
+  "run_dense_PackIdenticalLunches_bug3": {
+   "task": "PackIdenticalLunches",
+   "role": "bug3",
+   "rows": 117,
+   "good": 117,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-basefix": 117
+   },
+   "dup_rows": {},
+   "roll_files": 1934,
+   "snap_files": 117,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {
+    "PackIdenticalLunches_s21_single t1344": 12,
+    "PackIdenticalLunches_s21_single t1312": 10,
+    "PackIdenticalLunches_s13_single t384": 14,
+    "PackIdenticalLunches_s21_single t1728": 2,
+    "PackIdenticalLunches_s21_single t1824": 4,
+    "PackIdenticalLunches_s21_single t1856": 4,
+    "PackIdenticalLunches_s21_single t288": 2,
+    "PackIdenticalLunches_s21_single t256": 2,
+    "PackIdenticalLunches_s21_single t1664": 2,
+    "PackIdenticalLunches_s21_single t1792": 2,
+    "PackIdenticalLunches_s21_single t1888": 4,
+    "PackIdenticalLunches_s21_single t1696": 2,
+    "PackIdenticalLunches_s21_single t1760": 2
+   },
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 135,
+   "claims_without_row": [
+    "PackIdenticalLunches_s13_single_t384",
+    "PackIdenticalLunches_s21_single_t128",
+    "PackIdenticalLunches_s21_single_t1312",
+    "PackIdenticalLunches_s21_single_t1344",
+    "PackIdenticalLunches_s21_single_t160",
+    "PackIdenticalLunches_s21_single_t1632",
+    "PackIdenticalLunches_s21_single_t1664",
+    "PackIdenticalLunches_s21_single_t1696",
+    "PackIdenticalLunches_s21_single_t1728",
+    "PackIdenticalLunches_s21_single_t1760",
+    "PackIdenticalLunches_s21_single_t1792",
+    "PackIdenticalLunches_s21_single_t1824",
+    "PackIdenticalLunches_s21_single_t1856",
+    "PackIdenticalLunches_s21_single_t1888",
+    "PackIdenticalLunches_s21_single_t192",
+    "PackIdenticalLunches_s21_single_t224",
+    "PackIdenticalLunches_s21_single_t256",
+    "PackIdenticalLunches_s21_single_t288"
+   ]
+  },
+  "run_confirm_KettleBoiling": {
+   "task": "KettleBoiling",
+   "role": "confirm",
+   "rows": 12,
+   "good": 12,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-v3": 12
+   },
+   "dup_rows": {},
+   "roll_files": 768,
+   "snap_files": 12,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 12,
+   "claims_without_row": [],
+   "jobs": 12,
+   "jobs_missing": [],
+   "rows_not_in_jobs": [],
+   "multi": [],
+   "field_mismatch": []
+  },
+  "run_dense2_SteamInMicrowave": {
+   "task": "SteamInMicrowave",
+   "role": "dense2",
+   "rows": 18,
+   "good": 18,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-v4": 18
+   },
+   "dup_rows": {},
+   "roll_files": 288,
+   "snap_files": 18,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 18,
+   "claims_without_row": [],
+   "jobs": 18,
+   "jobs_missing": [],
+   "rows_not_in_jobs": [],
+   "multi": [],
+   "field_mismatch": []
+  },
+  "run_dense2_PackIdenticalLunches": {
+   "task": "PackIdenticalLunches",
+   "role": "dense2",
+   "rows": 28,
+   "good": 28,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "settled-v4": 28
+   },
+   "dup_rows": {},
+   "roll_files": 448,
+   "snap_files": 28,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 28,
+   "claims_without_row": [],
+   "jobs": 28,
+   "jobs_missing": [],
+   "rows_not_in_jobs": [],
+   "multi": [],
+   "field_mismatch": []
+  },
+  "run": {
+   "task": "KettleBoiling",
+   "role": "bug1",
+   "rows": 250,
+   "good": 250,
+   "error": 0,
+   "unparseable": [],
+   "hidden": {
+    "null": 250
+   },
+   "dup_rows": {},
+   "roll_files": 8000,
+   "snap_files": 250,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [],
+   "claims": 0,
+   "claims_without_row": []
+  },
+  "run_SteamInMicrowave": {
+   "task": "SteamInMicrowave",
+   "role": "bug1",
+   "rows": 263,
+   "good": 262,
+   "error": 1,
+   "unparseable": [],
+   "hidden": {
+    "null": 262
+   },
+   "dup_rows": {},
+   "roll_files": 8384,
+   "snap_files": 262,
+   "foreign_files": [],
+   "n_foreign": 0,
+   "orphan_roll_points": {},
+   "orphan_snap": [],
+   "outside_NxM": {},
+   "missing_files": {},
+   "error_rows_not_replaced_in_dir": [],
+   "error_rows": [
+    {
+     "tag": "SteamInMicrowave_s27_single",
+     "t": 960,
+     "file": "results_w1.jsonl",
+     "line": 20,
+     "error": "RuntimeError('Ran _load_model() 50 times but could not initialize task!')"
+    }
+   ],
+   "claims": 0,
+   "claims_without_row": []
+  }
+ },
+ "tasks": {
+  "KettleBoiling": {
+   "jobs": 250,
+   "current": 250,
+   "missing": [],
+   "extra": [],
+   "current_from": {
+    "run_v2/s0": 50,
+    "run_v2/s1": 50,
+    "run_v2/s2": 50,
+    "run_v2/s3": 49,
+    "run_KettleBoiling_fix": 1,
+    "run_v2/s4": 50
+   },
+   "superseded_rows": {
+    "run_v2/s3": 1
+   },
+   "fix_lists": {
+    "jobs_fix_KettleBoiling.json": {
+     "points": 1,
+     "not_current_from_fix_dir": []
+    }
+   },
+   "current_hidden": {
+    "settled": 249,
+    "settled-basefix": 1
+   },
+   "points_with_n_rows": {
+    "1": 249,
+    "2": 1
+   }
+  },
+  "SteamInMicrowave": {
+   "jobs": 262,
+   "current": 262,
+   "missing": [],
+   "extra": [],
+   "current_from": {
+    "run_SteamInMicrowave_v2": 105,
+    "run_SteamInMicrowave_fix3": 154,
+    "run_SteamInMicrowave_fix": 3
+   },
+   "superseded_rows": {
+    "run_SteamInMicrowave_v2": 157,
+    "run_SteamInMicrowave_fix": 29
+   },
+   "fix_lists": {
+    "jobs_fix_SteamInMicrowave.json": {
+     "points": 32,
+     "not_current_from_fix_dir": []
+    },
+    "jobs_fix3_SteamInMicrowave.json": {
+     "points": 153,
+     "not_current_from_fix_dir": []
+    },
+    "jobs_fix4_SteamInMicrowave.json": {
+     "points": 1,
+     "not_current_from_fix_dir": []
+    }
+   },
+   "current_hidden": {
+    "settled": 105,
+    "settled-v3": 153,
+    "settled-basefix": 3,
+    "settled-v4": 1
+   },
+   "points_with_n_rows": {
+    "1": 105,
+    "2": 128,
+    "3": 29
+   }
+  },
+  "PackIdenticalLunches": {
+   "jobs": 256,
+   "current": 256,
+   "missing": [],
+   "extra": [],
+   "current_from": {
+    "run_PackIdenticalLunches": 110,
+    "run_PackIdenticalLunches_fix3": 126,
+    "run_PackIdenticalLunches_fix": 20
+   },
+   "superseded_rows": {
+    "run_PackIdenticalLunches": 146,
+    "run_PackIdenticalLunches_fix": 45
+   },
+   "fix_lists": {
+    "jobs_fix_PackIdenticalLunches.json": {
+     "points": 65,
+     "not_current_from_fix_dir": []
+    },
+    "jobs_fix3_PackIdenticalLunches.json": {
+     "points": 126,
+     "not_current_from_fix_dir": []
+    }
+   },
+   "current_hidden": {
+    "settled": 110,
+    "settled-v3": 126,
+    "settled-basefix": 20
+   },
+   "points_with_n_rows": {
+    "1": 110,
+    "3": 45,
+    "2": 101
+   }
+  }
+ },
+ "issues": []
+}

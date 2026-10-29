@@ -1,0 +1,86 @@
+[
+ {
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s9_single",
+  "t": 800,
+  "c": 2,
+  "m": 0,
+  "boundaries": [
+   16
+  ],
+  "label": "b16: free, 75.2-78.5 mm (creep band); c_true -1.0; rules a_v3=-1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=-1.0"
+ },
+ {
+  "dir": "run_dense_SteamInMicrowave",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s8_single",
+  "t": 992,
+  "c": 4,
+  "m": 0,
+  "boundaries": [
+   16
+  ],
+  "label": "b16: touching a fixture, mid gap; c_true -1.0; rules a_v3=+1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_dense2_SteamInMicrowave",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s4_single",
+  "t": 144,
+  "c": 2,
+  "m": 0,
+  "boundaries": [
+   64
+  ],
+  "label": "b64: holding, wide grasp >= 60 mm; c_true +1.0; rules a_v3=-1.0,b_v4=+1.0,c_v5=+1.0,d_val=+1.0,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_dense_SteamInMicrowave",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s4_single",
+  "t": 32,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   112
+  ],
+  "label": "b112: mid-ramp, grasping (last cmd close); c_true -0.0; rules a_v3=-1.0,b_v4=-1.0,c_v5=+1.0,d_val=+1.0,f_hyb=-1.0"
+ },
+ {
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s24_single",
+  "t": 960,
+  "c": 4,
+  "m": 0,
+  "boundaries": [
+   144
+  ],
+  "label": "b144: touching a fixture, mid gap; c_true -1.0; rules a_v3=+1.0,b_v4=+1.0,c_v5=+1.0,d_val=-1.0,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s18_single",
+  "t": 640,
+  "c": 4,
+  "m": 0,
+  "boundaries": [
+   160
+  ],
+  "label": "b160: holding, 20-60 mm; c_true +1.0; rules a_v3=+1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s20_single",
+  "t": 480,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   176
+  ],
+  "label": "b176: mid-ramp, steady mid gap; c_true +0.6; rules a_v3=+1.0,b_v4=+1.0,c_v5=-1.0,d_val=+1.0,f_hyb=+1.0"
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "dir": "run_dense_PackIdenticalLunches",
+  "task": "PackIdenticalLunches",
+  "tag": "PackIdenticalLunches_s15_single",
+  "t": 64,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   48
+  ],
+  "label": "b48: mid-ramp, grasping (last cmd close); c_true -0.6; rules a_v3=-1.0,b_v4=+1.0,c_v5=+1.0,d_val=+1.0,f_hyb=-1.0"
+ },
+ {
+  "dir": "run_dense_PackIdenticalLunches",
+  "task": "PackIdenticalLunches",
+  "tag": "PackIdenticalLunches_s13_single",
+  "t": 448,
+  "c": 0,
+  "m": 0,
+  "boundaries": [
+   80
+  ],
+  "label": "b80: touching an object, not held; c_true -1.0; rules a_v3=-1.0,b_v4=-1.0,c_v5=+1.0,d_val=+1.0,f_hyb=-1.0"
+ },
+ {
+  "dir": "run_dense_PackIdenticalLunches",
+  "task": "PackIdenticalLunches",
+  "tag": "PackIdenticalLunches_s11_single",
+  "t": 1376,
+  "c": 6,
+  "m": 0,
+  "boundaries": [
+   96
+  ],
+  "label": "b96: mid-ramp, releasing (last cmd open); c_true +0.6; rules a_v3=-1.0,b_v4=-1.0,c_v5=+1.0,d_val=-1.0,f_hyb=-1.0"
+ },
+ {
+  "dir": "run_dense_PackIdenticalLunches",
+  "task": "PackIdenticalLunches",
+  "tag": "PackIdenticalLunches_s6_single",
+  "t": 1120,
+  "c": 4,
+  "m": 0,
+  "boundaries": [
+   112
+  ],
+  "label": "b112: holding, wide grasp >= 60 mm; c_true +1.0; rules a_v3=+1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=+1.0"
+ },
+ {
+  "dir": "run_dense2_PackIdenticalLunches",
+  "task": "PackIdenticalLunches",
+  "tag": "PackIdenticalLunches_s29_single",
+  "t": 240,
+  "c": 4,
+  "m": 0,
+  "boundaries": [
+   144
+  ],
+  "label": "b144: free, 75.2-78.5 mm (creep band); c_true -1.0; rules a_v3=-1.0,b_v4=+1.0,c_v5=-1.0,d_val=-1.0,f_hyb=-1.0"
+ }
+]

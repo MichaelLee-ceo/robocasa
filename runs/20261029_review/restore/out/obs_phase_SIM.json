@@ -1,0 +1,1559 @@
+{
+ "case": {
+  "dir": "run_SteamInMicrowave_fix3",
+  "task": "SteamInMicrowave",
+  "tag": "SteamInMicrowave_s13_single",
+  "t": 640,
+  "c": 0
+ },
+ "after_point": {
+  "robot0_eye_in_hand_image": [
+   0.002,
+   true
+  ],
+  "robot0_base_to_eef_pos": [
+   0.002,
+   true
+  ]
+ },
+ "render_repeat_maxdiff": [
+  {
+   "state.gripper_qpos": 0.0,
+   "state.base_position": 0.0,
+   "state.base_rotation": 0.0,
+   "state.end_effector_position_relative": 0.0,
+   "state.end_effector_rotation_relative": 0.0,
+   "video.robot0_agentview_left": 1.0,
+   "video.robot0_agentview_right": 1.0,
+   "video.robot0_eye_in_hand": 0.0
+  },
+  {
+   "state.gripper_qpos": 0.0,
+   "state.base_position": 0.0,
+   "state.base_rotation": 0.0,
+   "state.end_effector_position_relative": 0.0,
+   "state.end_effector_rotation_relative": 0.0,
+   "video.robot0_agentview_left": 0.0,
+   "video.robot0_agentview_right": 1.0,
+   "video.robot0_eye_in_hand": 0.0
+  },
+  {
+   "state.gripper_qpos": 0.0,
+   "state.base_position": 0.0,
+   "state.base_rotation": 0.0,
+   "state.end_effector_position_relative": 0.0,
+   "state.end_effector_rotation_relative": 0.0,
+   "video.robot0_agentview_left": 0.0,
+   "video.robot0_agentview_right": 1.0,
+   "video.robot0_eye_in_hand": 0.0
+  },
+  {
+   "state.gripper_qpos": 0.0,
+   "state.base_position": 0.0,
+   "state.base_rotation": 0.0,
+   "state.end_effector_position_relative": 0.0,
+   "state.end_effector_rotation_relative": 0.0,
+   "video.robot0_agentview_left": 0.0,
+   "video.robot0_agentview_right": 1.0,
+   "video.robot0_eye_in_hand": 0.0
+  },
+  {
+   "state.gripper_qpos": 0.0,
+   "state.base_position": 0.0,
+   "state.base_rotation": 0.0,
+   "state.end_effector_position_relative": 0.0,
+   "state.end_effector_rotation_relative": 0.0,
+   "video.robot0_agentview_left": 0.0,
+   "video.robot0_agentview_right": 1.0,
+   "video.robot0_eye_in_hand": 0.0
+  }
+ ],
+ "after_renders": {
+  "robot0_eye_in_hand_image": [
+   0.014,
+   true
+  ],
+  "robot0_base_to_eef_pos": [
+   0.014,
+   true
+  ]
+ },
+ "runs": [
+  {
+   "r": 0,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.014,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.014,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.0,
+      "vs_true": 5.710671424865723
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0,
+      "vs_true": 0.9681162238121033
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0,
+      "vs_true": 0.808900773525238
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0,
+      "vs_true": 1.2030011415481567
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 0.0,
+      "vs_true": 0.014544581063091755
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.0,
+      "vs_true": 6.281531810760498
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0,
+      "vs_true": 0.9491726756095886
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0,
+      "vs_true": 0.8299024105072021
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0,
+      "vs_true": 1.173742413520813
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 0.0,
+      "vs_true": 0.014544706791639328
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.0,
+      "vs_true": 6.9666547775268555
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0,
+      "vs_true": 0.9537547826766968
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0,
+      "vs_true": 0.8517621755599976
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0,
+      "vs_true": 1.1410645246505737
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 0.0,
+      "vs_true": 0.014531699940562248
+     }
+    }
+   }
+  },
+  {
+   "r": 1,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.016,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.016,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.00147247314453125,
+      "vs_true": 5.710510730743408
+     },
+     "state.base_rotation": {
+      "vs_r0": 8.997321128845215e-05,
+      "vs_true": 0.9681394696235657
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 4.599615931510925e-05,
+      "vs_true": 0.808865487575531
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00011241436004638672,
+      "vs_true": 1.2029647827148438
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 7.296912372112274e-07,
+      "vs_true": 0.014545310288667679
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.0014641284942626953,
+      "vs_true": 6.281550407409668
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00010442733764648438,
+      "vs_true": 0.9492073059082031
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 2.983957529067993e-05,
+      "vs_true": 0.8298805356025696
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 7.382035255432129e-05,
+      "vs_true": 1.1737232208251953
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 4.3120235204696655e-07,
+      "vs_true": 0.014544641599059105
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.0009465217590332031,
+      "vs_true": 6.965742111206055
+     },
+     "state.base_rotation": {
+      "vs_r0": 3.6269426345825195e-05,
+      "vs_true": 0.9537661671638489
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 4.713237285614014e-05,
+      "vs_true": 0.851742148399353
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 7.537007331848145e-05,
+      "vs_true": 1.1410515308380127
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 4.041939973831177e-07,
+      "vs_true": 0.014531295746564865
+     }
+    }
+   }
+  },
+  {
+   "r": 2,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.018,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.018,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.0029451847076416016,
+      "vs_true": 5.710346221923828
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0001798868179321289,
+      "vs_true": 0.9681627154350281
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 9.217113256454468e-05,
+      "vs_true": 0.8088300824165344
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00022405385971069336,
+      "vs_true": 1.2029293775558472
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.4472752809524536e-06,
+      "vs_true": 0.014545489102602005
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.0029282569885253906,
+      "vs_true": 6.281569480895996
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00020882487297058105,
+      "vs_true": 0.9492419958114624
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 5.9897080063819885e-05,
+      "vs_true": 0.8298584818840027
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0001475811004638672,
+      "vs_true": 1.1737043857574463
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 7.776543498039246e-07,
+      "vs_true": 0.014544676057994366
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.0018918514251708984,
+      "vs_true": 6.964827537536621
+     },
+     "state.base_rotation": {
+      "vs_r0": 7.2479248046875e-05,
+      "vs_true": 0.953777551651001
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 9.44286584854126e-05,
+      "vs_true": 0.8517218232154846
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00015157461166381836,
+      "vs_true": 1.1410386562347412
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 5.955807864665985e-07,
+      "vs_true": 0.014531103894114494
+     }
+    }
+   }
+  },
+  {
+   "r": 3,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.02,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.02,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.004417896270751953,
+      "vs_true": 5.710176467895508
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0002696514129638672,
+      "vs_true": 0.9681859612464905
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00013841316103935242,
+      "vs_true": 0.8087946176528931
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0003350377082824707,
+      "vs_true": 1.2028943300247192
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 2.314336597919464e-06,
+      "vs_true": 0.014545764774084091
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.004392385482788086,
+      "vs_true": 6.281588077545166
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0003133118152618408,
+      "vs_true": 0.9492765665054321
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 9.01389867067337e-05,
+      "vs_true": 0.8298362493515015
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00022146105766296387,
+      "vs_true": 1.1736855506896973
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 9.71369445323944e-07,
+      "vs_true": 0.014544889330863953
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.0028352737426757812,
+      "vs_true": 6.963911056518555
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0001087486743927002,
+      "vs_true": 0.9537889361381531
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00014182180166244507,
+      "vs_true": 0.8517011404037476
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00022813677787780762,
+      "vs_true": 1.1410260200500488
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.1390075087547302e-06,
+      "vs_true": 0.01453133299946785
+     }
+    }
+   }
+  },
+  {
+   "r": 4,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.022,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.022,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.005890369415283203,
+      "vs_true": 5.7100019454956055
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00035941600799560547,
+      "vs_true": 0.9682090878486633
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00018461421132087708,
+      "vs_true": 0.8087591528892517
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00044530630111694336,
+      "vs_true": 1.202859878540039
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.102235496044159e-06,
+      "vs_true": 0.014546185731887817
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.005856513977050781,
+      "vs_true": 6.281606674194336
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0004177689552307129,
+      "vs_true": 0.9493111371994019
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00012059882283210754,
+      "vs_true": 0.8298138380050659
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00029528141021728516,
+      "vs_true": 1.1736669540405273
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 8.530914783477783e-07,
+      "vs_true": 0.014545449987053871
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.0037772655487060547,
+      "vs_true": 6.962993144989014
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00014495849609375,
+      "vs_true": 0.9538003206253052
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00018925219774246216,
+      "vs_true": 0.8516801595687866
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0003052353858947754,
+      "vs_true": 1.141013503074646
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.648440957069397e-06,
+      "vs_true": 0.014531360007822514
+     }
+    }
+   }
+  },
+  {
+   "r": 5,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.024,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.024,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.007363080978393555,
+      "vs_true": 5.709822654724121
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0004490017890930176,
+      "vs_true": 0.9682323336601257
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00023063644766807556,
+      "vs_true": 0.8087236285209656
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0005542635917663574,
+      "vs_true": 1.2028264999389648
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.7439167499542236e-06,
+      "vs_true": 0.01454683393239975
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.007320404052734375,
+      "vs_true": 6.281625747680664
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0005221962928771973,
+      "vs_true": 0.9493457674980164
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00015120208263397217,
+      "vs_true": 0.8297913670539856
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.00036919116973876953,
+      "vs_true": 1.173648715019226
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.0337680578231812e-06,
+      "vs_true": 0.014545740559697151
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.004717588424682617,
+      "vs_true": 6.962072849273682
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00018107891082763672,
+      "vs_true": 0.9538118243217468
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00023665279150009155,
+      "vs_true": 0.851658821105957
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0003828704357147217,
+      "vs_true": 1.1410014629364014
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.885928213596344e-06,
+      "vs_true": 0.014531111344695091
+     }
+    }
+   }
+  },
+  {
+   "r": 6,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.026,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.026,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.008835554122924805,
+      "vs_true": 5.709638595581055
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0005385428667068481,
+      "vs_true": 0.968255341053009
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0002763979136943817,
+      "vs_true": 0.808688223361969
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0006620883941650391,
+      "vs_true": 1.202793836593628
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 4.068948328495026e-06,
+      "vs_true": 0.0145478630438447
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.00878453254699707,
+      "vs_true": 6.281644821166992
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0006267130374908447,
+      "vs_true": 0.9493802189826965
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0001819320023059845,
+      "vs_true": 0.829768717288971
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0004430115222930908,
+      "vs_true": 1.1736310720443726
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.5096738934516907e-06,
+      "vs_true": 0.014545569196343422
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.005656242370605469,
+      "vs_true": 6.961150646209717
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0002173781394958496,
+      "vs_true": 0.9538230895996094
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00028399378061294556,
+      "vs_true": 0.8516372442245483
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0004609227180480957,
+      "vs_true": 1.1409894227981567
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.7713755369186401e-06,
+      "vs_true": 0.01453049760311842
+     }
+    }
+   }
+  },
+  {
+   "r": 7,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.028,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.028,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.010308265686035156,
+      "vs_true": 5.709448337554932
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0006279647350311279,
+      "vs_true": 0.9682784676551819
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.000321708619594574,
+      "vs_true": 0.8086529970169067
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0007685422897338867,
+      "vs_true": 1.2027620077133179
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 4.6836212277412415e-06,
+      "vs_true": 0.01454867608845234
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.010248661041259766,
+      "vs_true": 6.281662940979004
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0007312595844268799,
+      "vs_true": 0.949414849281311
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0002127569168806076,
+      "vs_true": 0.8297460079193115
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0005164742469787598,
+      "vs_true": 1.173613429069519
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.991167664527893e-06,
+      "vs_true": 0.01454543974250555
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.006593227386474609,
+      "vs_true": 6.960226058959961
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00025349855422973633,
+      "vs_true": 0.9538344740867615
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0003312155604362488,
+      "vs_true": 0.851615309715271
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0005393922328948975,
+      "vs_true": 1.1409780979156494
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.7490237951278687e-06,
+      "vs_true": 0.01452996488660574
+     }
+    }
+   }
+  },
+  {
+   "r": 8,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.03,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.03,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.011780977249145508,
+      "vs_true": 5.70925235748291
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0007173269987106323,
+      "vs_true": 0.96830153465271
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00036641955375671387,
+      "vs_true": 0.8086180090904236
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0008732080459594727,
+      "vs_true": 1.2027310132980347
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 5.670823156833649e-06,
+      "vs_true": 0.014548896811902523
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.011712789535522461,
+      "vs_true": 6.281682014465332
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0008357465267181396,
+      "vs_true": 0.9494494199752808
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0002436414361000061,
+      "vs_true": 0.8297231793403625
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0005897879600524902,
+      "vs_true": 1.1735961437225342
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 2.407468855381012e-06,
+      "vs_true": 0.014545382000505924
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.007528066635131836,
+      "vs_true": 6.959299087524414
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00028964877128601074,
+      "vs_true": 0.9538459777832031
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00037825852632522583,
+      "vs_true": 0.8515931963920593
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0006180107593536377,
+      "vs_true": 1.1409664154052734
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 2.137850970029831e-06,
+      "vs_true": 0.014529561623930931
+     }
+    }
+   }
+  },
+  {
+   "r": 9,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.032,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.032,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.013253450393676758,
+      "vs_true": 5.709051132202148
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.000806659460067749,
+      "vs_true": 0.9683245420455933
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00041035935282707214,
+      "vs_true": 0.8085832595825195
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0009761452674865723,
+      "vs_true": 1.2027006149291992
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 6.618909537792206e-06,
+      "vs_true": 0.01454922929406166
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.013176679611206055,
+      "vs_true": 6.28170108795166
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0009403228759765625,
+      "vs_true": 0.9494840502738953
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00027453526854515076,
+      "vs_true": 0.8297002911567688
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0006627142429351807,
+      "vs_true": 1.173579454421997
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 2.7082860469818115e-06,
+      "vs_true": 0.014545449987053871
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.008461236953735352,
+      "vs_true": 6.958370208740234
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00032579898834228516,
+      "vs_true": 0.9538572430610657
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00042507052421569824,
+      "vs_true": 0.8515707850456238
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0006971657276153564,
+      "vs_true": 1.1409550905227661
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 2.327375113964081e-06,
+      "vs_true": 0.01452937163412571
+     }
+    }
+   }
+  },
+  {
+   "r": 10,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.034,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.034,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.01472616195678711,
+      "vs_true": 5.708843231201172
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0008958429098129272,
+      "vs_true": 0.9683475494384766
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00045333802700042725,
+      "vs_true": 0.8085489273071289
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0010770559310913086,
+      "vs_true": 1.2026712894439697
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 7.48317688703537e-06,
+      "vs_true": 0.014549709856510162
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.01464080810546875,
+      "vs_true": 6.28171968460083
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0010448694229125977,
+      "vs_true": 0.9495185613632202
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0003054589033126831,
+      "vs_true": 0.8296773433685303
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.000735551118850708,
+      "vs_true": 1.17356276512146
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 2.7921050786972046e-06,
+      "vs_true": 0.014545755460858345
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.009392023086547852,
+      "vs_true": 6.9574384689331055
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0003618597984313965,
+      "vs_true": 0.9538686275482178
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00047156959772109985,
+      "vs_true": 0.8515481948852539
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0007764995098114014,
+      "vs_true": 1.140944242477417
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 2.9318034648895264e-06,
+      "vs_true": 0.014529605396091938
+     }
+    }
+   }
+  },
+  {
+   "r": 11,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.036,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.036,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.01619863510131836,
+      "vs_true": 5.708629131317139
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0009850412607192993,
+      "vs_true": 0.9683705568313599
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0004951320588588715,
+      "vs_true": 0.8085150718688965
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.001175522804260254,
+      "vs_true": 1.202642798423767
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 8.206814527511597e-06,
+      "vs_true": 0.014550440013408661
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.016104698181152344,
+      "vs_true": 6.28173828125
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0011495351791381836,
+      "vs_true": 0.9495531320571899
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00033633410930633545,
+      "vs_true": 0.8296544551849365
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0008078217506408691,
+      "vs_true": 1.1735467910766602
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.216788172721863e-06,
+      "vs_true": 0.014545712620019913
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.01032114028930664,
+      "vs_true": 6.956504821777344
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0003978610038757324,
+      "vs_true": 0.9538800120353699
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0005176588892936707,
+      "vs_true": 0.8515254259109497
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.000855863094329834,
+      "vs_true": 1.1409333944320679
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.4654513001441956e-06,
+      "vs_true": 0.01452963799238205
+     }
+    }
+   }
+  },
+  {
+   "r": 12,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.038,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.038,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.01767134666442871,
+      "vs_true": 5.708408355712891
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0010741949081420898,
+      "vs_true": 0.9683935046195984
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0005355924367904663,
+      "vs_true": 0.8084818720817566
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.001271367073059082,
+      "vs_true": 1.2026151418685913
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 8.522532880306244e-06,
+      "vs_true": 0.014551561325788498
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.01756882667541504,
+      "vs_true": 6.281757354736328
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0012541413307189941,
+      "vs_true": 0.9495876431465149
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00036711059510707855,
+      "vs_true": 0.829631507396698
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.000879138708114624,
+      "vs_true": 1.1735312938690186
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.5371631383895874e-06,
+      "vs_true": 0.014545781537890434
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.011247873306274414,
+      "vs_true": 6.955567836761475
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00043383240699768066,
+      "vs_true": 0.9538913369178772
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0005632415413856506,
+      "vs_true": 0.851502537727356
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0009352564811706543,
+      "vs_true": 1.140923023223877
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.734603524208069e-06,
+      "vs_true": 0.01452939584851265
+     }
+    }
+   }
+  },
+  {
+   "r": 13,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.04,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.04,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.01914381980895996,
+      "vs_true": 5.7081804275512695
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0011634975671768188,
+      "vs_true": 0.9684165120124817
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0005744285881519318,
+      "vs_true": 0.8084494471549988
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0013642311096191406,
+      "vs_true": 1.202588677406311
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 9.106472134590149e-06,
+      "vs_true": 0.01455251406878233
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.019032716751098633,
+      "vs_true": 6.281776428222656
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0013588666915893555,
+      "vs_true": 0.9496222734451294
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00039773061871528625,
+      "vs_true": 0.8296086192131042
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0009501874446868896,
+      "vs_true": 1.1735159158706665
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.684312105178833e-06,
+      "vs_true": 0.014546038582921028
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.012172222137451172,
+      "vs_true": 6.954627990722656
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.00046962499618530273,
+      "vs_true": 0.9539026021957397
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0006082355976104736,
+      "vs_true": 0.8514795303344727
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0010145008563995361,
+      "vs_true": 1.1409127712249756
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.6619603633880615e-06,
+      "vs_true": 0.014528786763548851
+     }
+    }
+   }
+  },
+  {
+   "r": 14,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.042,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.042,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.02061629295349121,
+      "vs_true": 5.707944869995117
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.001252979040145874,
+      "vs_true": 0.9684395790100098
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0006113871932029724,
+      "vs_true": 0.8084178566932678
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0014540553092956543,
+      "vs_true": 1.2025628089904785
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.0042451322078705e-05,
+      "vs_true": 0.014552953653037548
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.020496606826782227,
+      "vs_true": 6.281795024871826
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0014637410640716553,
+      "vs_true": 0.9496569037437439
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.000428197905421257,
+      "vs_true": 0.8295857906341553
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0010204315185546875,
+      "vs_true": 1.1735010147094727
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.5194680094718933e-06,
+      "vs_true": 0.014546629972755909
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.013094425201416016,
+      "vs_true": 6.953685760498047
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0005052387714385986,
+      "vs_true": 0.9539137482643127
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0006525442004203796,
+      "vs_true": 0.8514565229415894
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0010932981967926025,
+      "vs_true": 1.1409028768539429
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.691762685775757e-06,
+      "vs_true": 0.014528259634971619
+     }
+    }
+   }
+  },
+  {
+   "r": 15,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.044,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.044,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.02208876609802246,
+      "vs_true": 5.70770263671875
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0013429373502731323,
+      "vs_true": 0.9684627056121826
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0006461888551712036,
+      "vs_true": 0.808387279510498
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0015404820442199707,
+      "vs_true": 1.202538013458252
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.0883435606956482e-05,
+      "vs_true": 0.014553571119904518
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.02196025848388672,
+      "vs_true": 6.281814098358154
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0015687048435211182,
+      "vs_true": 0.9496915340423584
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.00045840442180633545,
+      "vs_true": 0.8295630812644958
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0010896623134613037,
+      "vs_true": 1.1734869480133057
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.6153942346572876e-06,
+      "vs_true": 0.014546969905495644
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.014014005661010742,
+      "vs_true": 6.952740669250488
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0005405247211456299,
+      "vs_true": 0.9539249539375305
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0006960555911064148,
+      "vs_true": 0.8514334559440613
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0011719763278961182,
+      "vs_true": 1.1408931016921997
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 3.8780272006988525e-06,
+      "vs_true": 0.014527863822877407
+     }
+    }
+   }
+  },
+  {
+   "r": 16,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.046,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.046,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.02356123924255371,
+      "vs_true": 5.707451820373535
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0014336556196212769,
+      "vs_true": 0.968485951423645
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0006785206496715546,
+      "vs_true": 0.8083579540252686
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.001622915267944336,
+      "vs_true": 1.202513337135315
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.1553987860679626e-05,
+      "vs_true": 0.014554459601640701
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.023424148559570312,
+      "vs_true": 6.281832695007324
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0016739964485168457,
+      "vs_true": 0.9497261047363281
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0004882998764514923,
+      "vs_true": 0.8295405507087708
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0011581778526306152,
+      "vs_true": 1.1734728813171387
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 4.063360393047333e-06,
+      "vs_true": 0.014546909369528294
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.014930963516235352,
+      "vs_true": 6.951791763305664
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0005753040313720703,
+      "vs_true": 0.9539358019828796
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0007386729121208191,
+      "vs_true": 0.8514105677604675
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0012500584125518799,
+      "vs_true": 1.1408835649490356
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 4.308298230171204e-06,
+      "vs_true": 0.014527683146297932
+     }
+    }
+   }
+  },
+  {
+   "r": 17,
+   "phase_start": {
+    "robot0_eye_in_hand_image": [
+     0.048,
+     true
+    ],
+    "robot0_base_to_eef_pos": [
+     0.048,
+     true
+    ]
+   },
+   "states_vs_saved": 0.0,
+   "boundary": {
+    "16": {
+     "state.base_position": {
+      "vs_r0": 0.02503347396850586,
+      "vs_true": 5.707193374633789
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0015255212783813477,
+      "vs_true": 0.9685096740722656
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0007080994546413422,
+      "vs_true": 0.8083299398422241
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0017015933990478516,
+      "vs_true": 1.2024896144866943
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 1.1654570698738098e-05,
+      "vs_true": 0.014555775560438633
+     }
+    },
+    "32": {
+     "state.base_position": {
+      "vs_r0": 0.024887800216674805,
+      "vs_true": 6.281851768493652
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.0017795264720916748,
+      "vs_true": 0.9497609734535217
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.0005178172141313553,
+      "vs_true": 0.82951819896698
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0012256503105163574,
+      "vs_true": 1.173459529876709
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 4.410743713378906e-06,
+      "vs_true": 0.01454695500433445
+     }
+    },
+    "48": {
+     "state.base_position": {
+      "vs_r0": 0.015845537185668945,
+      "vs_true": 6.950839996337891
+     },
+     "state.base_rotation": {
+      "vs_r0": 0.000609278678894043,
+      "vs_true": 0.9539465308189392
+     },
+     "state.end_effector_position_relative": {
+      "vs_r0": 0.000780254602432251,
+      "vs_true": 0.8513877391815186
+     },
+     "state.end_effector_rotation_relative": {
+      "vs_r0": 0.0013273358345031738,
+      "vs_true": 1.1408742666244507
+     },
+     "state.gripper_qpos": {
+      "vs_r0": 5.144625902175903e-06,
+      "vs_true": 0.014527924358844757
+     }
+    }
+   }
+  }
+ ]
+}

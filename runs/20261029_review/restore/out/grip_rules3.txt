@@ -1,0 +1,93 @@
+
+== ALL: cells = wrong side at saturated boundaries (%) / mean |c_rule - c_true| in policy steps
+situation                                     n  n_sat            a_v3            b_v4            c_v5           d_val          d_valv         e_v5val
+ALL                                       77533  74344     1.6% / 0.33     4.5% / 0.62     4.7% / 0.64     6.1% / 0.76     6.7% / 0.83     5.3% / 0.68
+free, 75.2-78.5 mm (creep band)            2357   2357     0.0% / 0.00    78.7% / 7.87    13.4% / 1.34     4.7% / 0.47     4.1% / 0.41    13.4% / 1.34
+free, >= 78.5 mm                          21388  21388     0.0% / 0.00     0.0% / 0.00     2.3% / 0.23     1.8% / 0.18     2.2% / 0.22     2.3% / 0.23
+free, closed < 5 mm                       26061  26061     0.0% / 0.00     0.0% / 0.00     0.8% / 0.08     0.5% / 0.05     0.6% / 0.06     0.8% / 0.08
+free, mid gap 5-75 mm                       819    819     2.2% / 0.22     2.2% / 0.22     9.4% / 0.94     5.1% / 0.51     3.4% / 0.34     9.2% / 0.93
+holding, 20-60 mm                         11311  11311     0.9% / 0.09     0.9% / 0.09     4.1% / 0.41     4.3% / 0.43     6.1% / 0.61     4.1% / 0.41
+holding, < 20 mm                           2790   2790     0.3% / 0.03     0.3% / 0.03     4.0% / 0.40     3.4% / 0.34     5.0% / 0.50     4.0% / 0.40
+holding, wide grasp (>= 60 mm)             1849   1849    14.9% / 1.49     3.4% / 0.34    11.3% / 1.13    14.7% / 1.47    17.4% / 1.74    11.3% / 1.13
+mid-ramp, grasping (last cmd close)        1195      0        - / 4.08        - / 4.90        - / 4.95        - / 5.03        - / 5.10        - / 4.95
+mid-ramp, releasing (last cmd open)        1838      0        - / 4.62        - / 4.64        - / 4.78        - / 4.98        - / 5.03        - / 4.78
+mid-ramp, steady mid gap (5-75 mm)          156      0        - / 1.79        - / 1.79        - / 1.97        - / 1.62        - / 6.28        - / 1.90
+touching a fixture, gap < 5 or >= 75 mm    3769   3769     1.0% / 0.10     9.9% / 0.99    16.4% / 1.64    11.7% / 1.18    14.8% / 1.48    16.4% / 1.64
+touching a fixture, mid gap 5-75 mm        1874   1874    36.4% / 3.64    36.4% / 3.64    38.8% / 3.88    62.5% / 5.12    60.8% / 5.04    63.5% / 5.33
+touching an object, not held               2126   2126     2.6% / 0.26     9.6% / 0.96    11.8% / 1.18    67.7% / 6.77    65.6% / 6.56    11.8% / 1.18
+
+== KettleBoiling: cells = wrong side at saturated boundaries (%) / mean |c_rule - c_true| in policy steps
+situation                                     n  n_sat            a_v3            b_v4            c_v5           d_val          d_valv         e_v5val
+ALL                                       19592  18397     1.0% / 0.36     3.9% / 0.65     3.3% / 0.60    10.7% / 1.20    11.0% / 1.26     6.1% / 0.77
+saturated                                 18397  18397     1.0% / 0.10     3.9% / 0.39     3.3% / 0.33    10.7% / 0.96    11.0% / 1.00     6.1% / 0.51
+mid-ramp (all)                             1195      0        - / 4.33        - / 4.64        - / 4.81        - / 4.89        - / 5.26        - / 4.79
+free, 75.2-78.5 mm (creep band)             559    559     0.0% / 0.00    77.5% / 7.75     1.1% / 0.11     0.2% / 0.02     0.2% / 0.02     1.1% / 0.11
+free, >= 78.5 mm                           3773   3773     0.0% / 0.00     0.0% / 0.00     0.3% / 0.03     0.1% / 0.01     0.2% / 0.02     0.3% / 0.03
+free, closed < 5 mm                        7597   7597     0.0% / 0.00     0.0% / 0.00     0.2% / 0.02     0.1% / 0.01     0.2% / 0.02     0.2% / 0.02
+free, mid gap 5-75 mm                       241    241     1.2% / 0.12     1.2% / 0.12     3.7% / 0.37     3.3% / 0.34     2.9% / 0.29     3.7% / 0.38
+holding, 20-60 mm                          1554   1554     0.8% / 0.08     0.8% / 0.08     6.3% / 0.63     5.8% / 0.58     8.0% / 0.80     6.3% / 0.63
+holding, < 20 mm                           1806   1806     0.3% / 0.03     0.3% / 0.03     5.8% / 0.58     4.8% / 0.48     6.8% / 0.68     5.8% / 0.58
+holding, wide grasp (>= 60 mm)               22     22    22.7% / 2.27    22.7% / 2.27    27.3% / 2.73    22.7% / 2.27    22.7% / 2.27    27.3% / 2.73
+mid-ramp, grasping (last cmd close)         441      0        - / 3.92        - / 4.75        - / 4.89        - / 4.91        - / 5.01        - / 4.89
+mid-ramp, releasing (last cmd open)         688      0        - / 4.83        - / 4.84        - / 5.01        - / 5.20        - / 5.24        - / 5.00
+mid-ramp, steady mid gap (5-75 mm)           66      0        - / 1.80        - / 1.80        - / 2.14        - / 1.50        - / 7.14        - / 1.97
+touching a fixture, gap < 5 or >= 75 mm     285    285     1.1% / 0.11     8.8% / 0.88    15.8% / 1.58    15.1% / 1.52    17.9% / 1.80    15.8% / 1.58
+touching a fixture, mid gap 5-75 mm        1157   1157    10.6% / 1.06    10.6% / 1.06    16.3% / 1.63    63.4% / 4.63    63.3% / 4.72    61.1% / 4.52
+touching an object, not held               1403   1403     2.1% / 0.21     7.8% / 0.78     8.1% / 0.81    70.0% / 7.00    68.6% / 6.86     8.1% / 0.81
+
+== SteamInMicrowave: cells = wrong side at saturated boundaries (%) / mean |c_rule - c_true| in policy steps
+situation                                     n  n_sat            a_v3            b_v4            c_v5           d_val          d_valv         e_v5val
+ALL                                       19316  18842     4.7% / 0.56     8.6% / 0.96    10.1% / 1.10     8.2% / 0.91     8.9% / 0.99     9.8% / 1.07
+saturated                                 18842  18842     4.7% / 0.47     8.6% / 0.86    10.1% / 1.01     8.2% / 0.81     8.9% / 0.89     9.8% / 0.98
+mid-ramp (all)                              474      0        - / 4.24        - / 4.57        - / 4.68        - / 4.82        - / 5.10        - / 4.68
+free, 75.2-78.5 mm (creep band)             788    788     0.0% / 0.00    79.7% / 7.97    24.6% / 2.46     7.7% / 0.78     6.6% / 0.66    24.6% / 2.46
+free, >= 78.5 mm                           4340   4340     0.0% / 0.00     0.0% / 0.00     2.6% / 0.26     2.5% / 0.25     2.9% / 0.29     2.6% / 0.26
+free, closed < 5 mm                        5987   5987     0.0% / 0.00     0.0% / 0.00     2.1% / 0.21     1.1% / 0.11     1.3% / 0.13     2.1% / 0.21
+free, mid gap 5-75 mm                       239    239     5.9% / 0.59     5.9% / 0.59    25.1% / 2.51    12.6% / 1.24     7.5% / 0.75    24.3% / 2.46
+holding, 20-60 mm                          2656   2656     1.8% / 0.18     1.8% / 0.18     7.3% / 0.73     7.0% / 0.70     8.0% / 0.80     7.3% / 0.73
+holding, < 20 mm                            458    458     0.2% / 0.02     0.2% / 0.02     0.9% / 0.09     0.7% / 0.07     1.5% / 0.15     0.9% / 0.09
+holding, wide grasp (>= 60 mm)              707    707    34.8% / 3.48     8.1% / 0.81    24.5% / 2.45    32.5% / 3.25    37.2% / 3.72    24.5% / 2.45
+mid-ramp, grasping (last cmd close)         161      0        - / 4.78        - / 5.52        - / 5.47        - / 5.56        - / 5.56        - / 5.47
+mid-ramp, releasing (last cmd open)         284      0        - / 4.18        - / 4.32        - / 4.52        - / 4.73        - / 4.70        - / 4.52
+mid-ramp, steady mid gap (5-75 mm)           29      0        - / 1.79        - / 1.79        - / 1.79        - / 1.55        - / 6.48        - / 1.79
+touching a fixture, gap < 5 or >= 75 mm    2775   2775     1.1% / 0.11    11.2% / 1.12    18.0% / 1.80    12.1% / 1.22    15.7% / 1.58    18.0% / 1.80
+touching a fixture, mid gap 5-75 mm         673    673    78.6% / 7.86    78.6% / 7.86    75.0% / 7.50    60.5% / 5.85    56.2% / 5.49    67.0% / 6.58
+touching an object, not held                219    219     7.3% / 0.73    17.4% / 1.74    14.6% / 1.46    50.7% / 5.07    50.2% / 5.02    14.6% / 1.46
+
+== PackIdenticalLunches: cells = wrong side at saturated boundaries (%) / mean |c_rule - c_true| in policy steps
+situation                                     n  n_sat            a_v3            b_v4            c_v5           d_val          d_valv         e_v5val
+ALL                                       38625  37105     0.3% / 0.20     2.6% / 0.43     2.7% / 0.44     2.9% / 0.46     3.5% / 0.53     2.7% / 0.44
+saturated                                 37105  37105     0.3% / 0.03     2.6% / 0.26     2.7% / 0.27     2.9% / 0.29     3.5% / 0.35     2.7% / 0.27
+mid-ramp (all)                             1520      0        - / 4.25        - / 4.57        - / 4.64        - / 4.80        - / 5.01        - / 4.64
+free, 75.2-78.5 mm (creep band)            1010   1010     0.0% / 0.00    78.7% / 7.87    11.4% / 1.14     4.8% / 0.48     4.3% / 0.43    11.4% / 1.14
+free, >= 78.5 mm                          13275  13275     0.0% / 0.00     0.0% / 0.00     2.8% / 0.28     2.1% / 0.21     2.6% / 0.26     2.8% / 0.28
+free, closed < 5 mm                       12477  12477     0.0% / 0.00     0.0% / 0.00     0.5% / 0.05     0.3% / 0.03     0.5% / 0.05     0.5% / 0.05
+free, mid gap 5-75 mm                       339    339     0.3% / 0.03     0.3% / 0.03     2.4% / 0.24     1.2% / 0.12     0.9% / 0.09     2.4% / 0.24
+holding, 20-60 mm                          7101   7101     0.6% / 0.06     0.6% / 0.06     2.5% / 0.25     3.0% / 0.30     5.0% / 0.50     2.5% / 0.25
+holding, < 20 mm                            526    526     0.4% / 0.04     0.4% / 0.04     0.8% / 0.08     1.1% / 0.11     1.9% / 0.19     0.8% / 0.08
+holding, wide grasp (>= 60 mm)             1120   1120     2.1% / 0.21     0.1% / 0.01     2.7% / 0.27     3.3% / 0.33     4.7% / 0.47     2.7% / 0.27
+mid-ramp, grasping (last cmd close)         593      0        - / 4.02        - / 4.84        - / 4.86        - / 4.97        - / 5.04        - / 4.86
+mid-ramp, releasing (last cmd open)         866      0        - / 4.59        - / 4.59        - / 4.69        - / 4.89        - / 4.97        - / 4.69
+mid-ramp, steady mid gap (5-75 mm)           61      0        - / 1.79        - / 1.79        - / 1.89        - / 1.79        - / 5.26        - / 1.89
+touching a fixture, gap < 5 or >= 75 mm     709    709     0.4% / 0.04     5.2% / 0.52    10.6% / 1.06     8.7% / 0.87     9.9% / 0.99    10.6% / 1.06
+touching a fixture, mid gap 5-75 mm          44     44    68.2% / 6.82    68.2% / 6.82    77.3% / 7.73    68.2% / 6.91    65.9% / 6.68    72.7% / 7.41
+touching an object, not held                504    504     2.0% / 0.20    11.5% / 1.15    20.8% / 2.08    68.8% / 6.88    64.1% / 6.41    20.8% / 2.08
+
+t = 0 (true c = 0 after load_scene): rule outputs {"KettleBoiling": {"a_v3": 1.0, "b_v4": 1.0, "c_v5": 1.0, "d_val": -0.0, "d_valv": -0.0, "e_v5val": -0.0}, "SteamInMicrowave": {"a_v3": 1.0, "b_v4": 1.0, "c_v5": 1.0, "d_val": -0.0, "d_valv": -0.0, "e_v5val": -0.0}, "PackIdenticalLunches": {"a_v3": 1.0, "b_v4": 1.0, "c_v5": 1.0, "d_val": -0.0, "d_valv": -0.0, "e_v5val": -0.0}}
+known main-run cases (c: +1 closing, -1 opening):
+  KettleBoiling_s26_single t112: {'a_v3': -1.0, 'b_v4': 1.0, 'c_v5': 1.0, 'd_val': 1.0, 'd_valv': 1.0, 'e_v5val': 1.0}  gap t-8..t+14 (mm) [np.float64(79.9), np.float64(79.9), np.float64(79.9), np.float64(79.9), np.float64(79.9), np.float64(79.6), np.float64(78.7), np.float64(78.4), np.float64(78.4), np.float64(76.8), np.float64(72.8), np.float64(67.1), np.float64(60.3), np.float64(53.0), np.float64(45.8), np.float64(38.3), np.float64(30.6), np.float64(22.8), np.float64(15.0), np.float64(11.7), np.float64(8.6), np.float64(6.0), np.float64(4.4)]
+  PackIdenticalLunches_s14_single t16: {'a_v3': -1.0, 'b_v4': 1.0, 'c_v5': -1.0, 'd_val': -1.0, 'd_valv': -1.0, 'e_v5val': -1.0}  gap t-8..t+14 (mm) [np.float64(76.0), np.float64(76.9), np.float64(77.4), np.float64(77.7), np.float64(77.8), np.float64(77.9), np.float64(78.0), np.float64(78.1), np.float64(78.2), np.float64(78.2), np.float64(78.3), np.float64(78.4), np.float64(78.5), np.float64(78.5), np.float64(78.6), np.float64(78.7), np.float64(78.7), np.float64(78.8), np.float64(78.8), np.float64(78.9), np.float64(78.9), np.float64(79.0), np.float64(79.0)]
+
+examples, mid-ramp with a steady mid gap:
+  {"task": "KettleBoiling", "dir": "run_confirm_KettleBoiling", "tag": "KettleBoiling_s26_single", "t": 96, "c": 6, "b": 112, "gap_mm": 17.1, "c_true": 0.8, "touch": ["obj_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}
+  {"task": "KettleBoiling", "dir": "run_confirm_KettleBoiling", "tag": "KettleBoiling_s8_single", "t": 48, "c": 0, "b": 288, "gap_mm": 17.7, "c_true": 0.8, "touch": ["obj_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s12_single", "t": 96, "c": 0, "b": 336, "gap_mm": 33.2, "c_true": 0.8, "touch": ["stovetop_main_group_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s12_single", "t": 96, "c": 0, "b": 368, "gap_mm": 33.0, "c_true": 0.8, "touch": ["stovetop_main_group_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s12_single", "t": 112, "c": 2, "b": 272, "gap_mm": 11.9, "c_true": 0.8, "touch": ["stovetop_main_group_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s12_single", "t": 128, "c": 2, "b": 240, "gap_mm": 33.1, "c_true": 0.4, "touch": ["stovetop_main_group_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, -1, -1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s12_single", "t": 144, "c": 0, "b": 256, "gap_mm": 33.2, "c_true": -0.2, "touch": ["stovetop_main_group_main"], "cmds_last10": [1, 1, 1, 1, -1, -1, -1, -1, -1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s19_single", "t": 112, "c": 2, "b": 80, "gap_mm": 20.9, "c_true": 0.6, "touch": ["obj_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, -1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s19_single", "t": 144, "c": 2, "b": 80, "gap_mm": 21.0, "c_true": 0.8, "touch": ["obj_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s23_single", "t": 416, "c": 0, "b": 64, "gap_mm": 64.9, "c_true": -0.8, "touch": ["stove_main_group_main"], "cmds_last10": [-1, -1, -1, -1, -1, -1, -1, -1, -1, 1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s26_single", "t": 96, "c": 2, "b": 96, "gap_mm": 16.7, "c_true": 0.8, "touch": ["obj_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}
+  {"task": "KettleBoiling", "dir": "run_dense_KettleBoiling", "tag": "KettleBoiling_s29_single", "t": 32, "c": 6, "b": 208, "gap_mm": 19.4, "c_true": 0.8, "touch": ["obj_main"], "cmds_last10": [1, 1, 1, 1, 1, 1, 1, 1, 1, -1]}

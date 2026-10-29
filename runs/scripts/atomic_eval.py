@@ -81,12 +81,14 @@ def fingerprint(d):
 
 
 def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr, k0=0, k_stop=None, save=None,
-            seed_fn=None, digest=None, step_states=None, hidden=None):
+            seed_fn=None, digest=None, step_states=None, hidden=None, boundary_hook=None):
     """seed_fn(ci) -> seed sent with the request of chunk ci (needs serve_seeded.py). digest: list to append
     [observation sent, action received, sim state after the chunk, {observation key: fingerprint}] to, one entry
     per chunk. step_states: list to fill with the flattened sim state at the start and after every control step.
     hidden: controller / warm-start state to start from (hidden_state.capture()); without it the rollout inherits
-    whatever the env's previous rollout left in the controllers (see hidden_state.py)."""
+    whatever the env's previous rollout left in the controllers (see hidden_state.py).
+    boundary_hook(t, kenv, S, rewards): called at every chunk boundary, before the stage checks (rewards: the chunk's
+    per-step task-success rewards)."""
     fg = FrameGrab(base, states=step_states)
     menv = MultiStepWrapper(fg, video_delta_indices=np.array([0]), state_delta_indices=np.array([0]),
                             n_action_steps=16, max_episode_steps=horizon)
@@ -128,6 +130,8 @@ def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr
         t += len(info["rewards"])
         if np.any(info["rewards"] > 0):
             success = True
+        if boundary_hook is not None:
+            boundary_hook(t, kenv, S, np.asarray(info["rewards"]))
         while k < len(steps) and steps[k]["check"](kenv, S):
             hist.append((t, k)); k += 1
             if save is not None:  # state at the chunk boundary where step k-1 finished = correct start of step k
