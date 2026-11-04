@@ -369,69 +369,6 @@ details.scn[open] > summary::before { content: "−"; }
 .cell.chosen { outline: 2px solid var(--ink); outline-offset: 1px; }
 .tlg .cell { width: 14px; height: 14px; border-radius: 3px; }
 .tlg .cell i { height: 3px; }
-.probes { display: grid; gap: 7px; }
-.prb { display: grid; grid-template-columns: minmax(150px, 200px) auto minmax(44px, auto); gap: 4px 14px; align-items: center; font-size: 13px; }
-.prb .lbl { display: grid; } .prb .lbl small { color: var(--muted); font-size: 12px; }
-.sq { display: inline-flex; gap: 2px; flex-wrap: wrap; }
-.sq i { width: 11px; height: 11px; border-radius: 2px; background: var(--grid); }
-.sq i.y { background: var(--good); }
-.prb .n { font: 500 12.5px var(--f-mono); color: var(--ink-2); }
-@media (max-width: 560px) { .prb { grid-template-columns: minmax(0, 1fr) auto; } .prb .sq { grid-column: 1 / -1; grid-row: 2; } }
-
-/* data tab (#data) */
-.units { display: grid; gap: 8px; }
-.unit { display: grid; grid-template-columns: 92px minmax(0, 1fr) minmax(0, 1.1fr); gap: 4px 16px; align-items: baseline; padding: 10px 12px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); }
-.unit b { font: 700 15px var(--f-display); }
-.unit .what { font-size: 13.5px; color: var(--ink-2); }
-.unit .here { font: 400 12.5px/1.5 var(--f-mono); color: var(--ink); }
-.unit:nth-child(2) { margin-left: 18px; } .unit:nth-child(3) { margin-left: 36px; } .unit:nth-child(4) { margin-left: 54px; }
-@media (max-width: 700px) { .unit { grid-template-columns: 1fr; } .unit:nth-child(n) { margin-left: 0; } }
-.etl { position: relative; margin-top: 18px; }
-.etl-row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 10px; align-items: center; }
-.etl-row + .etl-row { margin-top: 6px; }
-.etl-lbl { font: 600 12px var(--f-mono); color: var(--muted); text-align: right; }
-.etl-track { position: relative; height: 24px; border-radius: 5px; background: var(--surface-2); border: 1px solid var(--hair); overflow: hidden; }
-.etl-seg { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; font: 600 11.5px var(--f-mono); white-space: nowrap; overflow: hidden; border-right: 2px solid var(--surface); }
-.etl-ticks { position: absolute; inset: 0; }
-.etl-dp { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; box-shadow: 0 0 0 2px var(--surface); }
-.etl-axis { position: relative; height: 16px; font: 400 10.5px var(--f-mono); color: var(--muted); }
-.etl-axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
-.film { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; margin-top: 14px; }
-.film figure, .snaps figure { margin: 0; display: grid; gap: 4px; min-width: 0; }
-.film .im { aspect-ratio: 2 / 1; max-width: 100%; border-radius: 6px; background-repeat: no-repeat; background-color: var(--surface-2); }
-.film figcaption, .snaps figcaption { font: 400 11.5px/1.35 var(--f-mono); color: var(--ink-2); }
-@media (max-width: 900px) { .film { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-@media (max-width: 520px) { .film { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 10px; }
-.term { padding: 12px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); display: grid; gap: 4px; align-content: start; }
-.term b { font: 700 14.5px var(--f-display); }
-.term p { margin: 0; font-size: 13px; color: var(--ink-2); }
-.term .n { font: 500 12px var(--f-mono); color: var(--muted); }
-.snaps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
-.snaps .im { aspect-ratio: 1 / 1; max-width: 100%; border-radius: 6px; background-repeat: no-repeat; background-color: var(--surface-2); }
-@media (max-width: 760px) { .snaps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.og { display: grid; gap: 4px; }
-.og-row { display: flex; align-items: center; gap: 6px; font: 500 12px var(--f-mono); color: var(--ink-2); flex-wrap: wrap; }
-.og-row > span:first-child { min-width: 92px; }
-.oc { display: inline-flex; align-items: center; justify-content: center; min-width: 76px; height: 24px; padding: 0 6px; border-radius: 5px; font: 500 11.5px var(--f-mono); position: relative; overflow: hidden; background: var(--grid); color: var(--ink-2); }
-.oc.y { background: color-mix(in srgb, var(--good) 72%, var(--surface)); color: var(--ink); }
-.oc i { position: absolute; left: 0; bottom: 0; height: 3px; background: var(--st3); }
-.oc.ex { outline: 2px solid var(--ink); outline-offset: 1px; }
-pre.json { margin: 0; font: 400 12px/1.5 var(--f-mono); background: var(--surface-2); border: 1px solid var(--hair); border-radius: var(--r-s); padding: 10px 12px; overflow-x: auto; max-height: 360px; color: var(--ink); }
-.estrips { display: grid; gap: 3px; margin-top: 10px; }
-.estrip { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 10px; align-items: center; }
-.estrip .el { font: 500 12px var(--f-mono); color: var(--ink-2); white-space: nowrap; }
-.estrip .el.ok { color: var(--good-ink); }
-.estrip .track { position: relative; height: 18px; border-radius: 4px; background: var(--surface-2); }
-.estrip .sg { position: absolute; top: 0; bottom: 0; }
-.estrip .end { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink-2); }
-.estrip .dp { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; box-shadow: 0 0 0 1.5px var(--surface); }
-.estrip .dp[aria-pressed="true"] { outline: 2px solid var(--ink); outline-offset: 1px; }
-.dtgrad { display: inline-block; width: 90px; height: 10px; border-radius: 3px; background: linear-gradient(90deg, var(--bad), var(--good)); vertical-align: middle; }
-.dtwrap { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 18px; align-items: start; }
-@media (max-width: 960px) { .dtwrap { grid-template-columns: 1fr; } }
-.dtdet { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 70px); display: grid; gap: 10px; padding: 14px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); }
-.dtdet h3 { font-size: 15px; }
 
 /* steering tab (#steering): one strip per closed-loop episode, one cell per 16-step chunk on the task's horizon */
 .ckrows { display: grid; gap: 7px; }
@@ -470,7 +407,6 @@ pre.json { margin: 0; font: 400 12px/1.5 var(--f-mono); background: var(--surfac
     <a class="navlink" id="navOverview" href="#overview"></a>
     <a class="navlink" id="navCeiling" href="#ceiling"></a>
     <a class="navlink" id="navSteer" href="#steering"></a>
-    <a class="navlink" id="navData" href="#data"></a>
     <label class="ctl" for="taskSelect"><span>Task</span><select id="taskSelect"></select></label>
     <div class="ctl"><span id="speedLbl"></span>
       <div class="seg" id="speedSeg" role="group">
@@ -505,7 +441,6 @@ pre.json { margin: 0; font: 400 12px/1.5 var(--f-mono); background: var(--surfac
 <script src="data.js"></script>
 <script src="ceiling.js"></script>
 <script src="steering.js"></script>
-<script src="datatab.js"></script>
 <script>
 (() => {
 "use strict";
@@ -1173,7 +1108,7 @@ const UB = {
       {h: "Commit", p: "Stop at a node that passes the official success check, or when the attempt cap or the horizon runs out. The episode clock counts only the committed steps.", out: "success or failure, and the cost"},
     ],
     setRow: t => `N ${t.N} per expansion · keep ≤ ${t.keep} · cap ${t.cap} attempts per scene · L ${t.L.join(" / ")} steps · horizon ${t.horizon}`,
-    resH: "Success rate", resSub: "30 frozen scenes per task. Plain policy = mean over policy seeds 0–3, so 4 rollouts per scene. Search re-run on 2026-10-30 with every restore fix and the plain policy's success rule (SteamInMicrowave was 90.0%, PackIdenticalLunches 63.3% before).",
+    resH: "Success rate", resSub: "30 frozen scenes per task. Plain policy = mean over policy seeds 0–3, so 4 rollouts per scene. SteamInMicrowave and PackIdenticalLunches: search re-run on 2026-10-30 with every restore fix and the plain policy's success rule (90.0% and 63.3% before). KettleBoiling: search of 2026-10-27, with the controller-state restore fix but before the later ones.",
     stagesN: n => `${n} stages`,
     bars: ["Plain policy", "Best of 4 whole episodes", "Search, no backtracking", "Search"],
     barTips: ["The frozen policy as it is: mean success over 4 seeds per scene",
@@ -1207,10 +1142,6 @@ const UB = {
     cTip: (i, c, k) => c[0] ? `attempt ${i}: finished S${k} in ${c[1]} steps` : `attempt ${i}: did not finish S${k} within ${c[1]} steps (progress ${c[2]})`,
     ok: s => `✓ ${s} steps`, no: r => `✗ ${r}`, cands: n => `${n} attempts`, calls: n => `${n} calls`,
     plainTip: (p, x) => `plain policy, seed ${p}: ${x == null ? "missing" : x ? "success" : "failed"}`,
-    probeH: "Where it started: does the noise matter?",
-    probeSub: "KettleBoiling, 12 points of the main run, most just before it went wrong. From each saved state, the policy reran to the end 16 times with fresh noise. A green square is a rerun that succeeded.",
-    stepAt: t => `step ${t}`, role: {fail: "failed in the main run", success: "succeeded in the main run"},
-    probeNote: (r, n) => `${r} of the ${n} failure points succeed in at least one of 16 reruns. Resampling helps only where the policy can still recover, and the search then finds those attempts.`,
     capH: "Why this is an upper bound",
     caps: ["Perfect world model: imagining means restoring the simulator to the exact state, so an executed attempt is exactly the imagined one.",
       "Perfect judge: the official stage conditions decide which attempt finished.",
@@ -1235,7 +1166,7 @@ const UB = {
       {h: "提交", p: "遇到通過官方成功判定的節點就停；嘗試數用完上限或時間用完也停。整集的時間只算提交的步數。", out: "成功或失敗，以及成本"},
     ],
     setRow: t => `每次展開 N ${t.N} · 保留 ≤ ${t.keep} · 每場景上限 ${t.cap} 次嘗試 · L ${t.L.join(" / ")} 步 · 時限 ${t.horizon}`,
-    resH: "成功率", resSub: "每個任務 30 個固定場景。原始 policy 為 policy seed 0–3 的平均，每個場景 4 次 rollout。搜尋於 2026-10-30 重跑，套用所有還原修正，並使用和原始 policy 相同的成功判定（之前 SteamInMicrowave 為 90.0%、PackIdenticalLunches 為 63.3%）。",
+    resH: "成功率", resSub: "每個任務 30 個固定場景。原始 policy 為 policy seed 0–3 的平均，每個場景 4 次 rollout。SteamInMicrowave 與 PackIdenticalLunches 的搜尋於 2026-10-30 重跑，套用所有還原修正，並使用和原始 policy 相同的成功判定（之前為 90.0% 與 63.3%）。KettleBoiling 的搜尋為 2026-10-27 的版本，已含控制器狀態的還原修正，但早於之後的修正。",
     stagesN: n => `${n} 個 stage`,
     bars: ["原始 policy", "整集跑 4 次，任一次成功", "搜尋，不回溯", "搜尋"],
     barTips: ["凍結的 policy 直接跑：每個場景 4 個 seed 的平均成功率",
@@ -1269,10 +1200,6 @@ const UB = {
     cTip: (i, c, k) => c[0] ? `嘗試 ${i}：${c[1]} 步完成 S${k}` : `嘗試 ${i}：${c[1]} 步內沒完成 S${k}（進度 ${c[2]}）`,
     ok: s => `✓ ${s} 步`, no: r => `✗ ${r}`, cands: n => `${n} 次嘗試`, calls: n => `${n} 次呼叫`,
     plainTip: (p, x) => `原始 policy，seed ${p}：${x == null ? "缺資料" : x ? "成功" : "失敗"}`,
-    probeH: "起點：重抽 noise 有差嗎？",
-    probeSub: "KettleBoiling 主實驗中的 12 個時間點，大多在出錯之前。從每個存下的狀態，用新的 noise 重跑到結束 16 次；綠色方格代表那次重跑成功。",
-    stepAt: t => `第 ${t} 步`, role: {fail: "主實驗失敗", success: "主實驗成功"},
-    probeNote: (r, n) => `${n} 個失敗點中，有 ${r} 個在 16 次重跑裡至少成功一次。重抽 noise 只在 policy 還救得回來時有用，搜尋做的就是把這些嘗試找出來。`,
     capH: "為什麼這是上限",
     caps: ["完美的世界模型：想像就是把模擬器還原到精確狀態，所以實際執行的結果和想像的完全一樣。",
       "完美的評判：由官方的 stage 條件判斷哪次嘗試完成了。",
@@ -1296,7 +1223,6 @@ function ceilingView() {
   });
   F.r = {}; ts.forEach(t => Object.entries(t.reasons).forEach(([k, n]) => { F.r[k] = (F.r[k] || 0) + n; }));
   F.tot = Object.values(F.r).reduce((a, b) => a + b, 0);
-  const pf = CE.probe.filter(p => p.role === "fail");
 
   const kpis = ts.map(t => `<div class="kpi"><div class="v">${pct(t.summary.search)}%<small>${U.from(pct(t.summary.plain))}</small></div><div class="l">${esc(U.kpiL(short(t.task), t.n_stages))}</div></div>`).join("")
     + `<div class="kpi"><div class="v">${Math.min(...ratio).toFixed(1)}–${Math.max(...ratio).toFixed(1)}×</div><div class="l">${U.kpiCost}</div></div>`;
@@ -1316,7 +1242,6 @@ function ceilingView() {
       </div></div>`;
   }).join("");
   const cell = (cls, w) => `<span class="cell ${cls}">${w != null ? `<i style="width:${w}%"></i>` : ""}</span>`;
-  const probes = CE.probe.map(p => `<div class="prb"><div class="lbl"><span class="mono">s${p.seed} · ${U.stepAt(p.t0)}</span><small>${U.role[p.role]}</small></div><span class="sq" role="img" aria-label="${p.success}/${p.n}">${Array.from({length: p.n}, (_, i) => `<i class="${i < p.success ? "y" : ""}"></i>`).join("")}</span><span class="n">${p.success}/${p.n}</span></div>`).join("");
   return `
   <section class="hero">
     <div><div class="eyebrow">${U.eyebrow}</div><h1>${U.h}</h1><p>${U.p}</p></div>
@@ -1346,12 +1271,8 @@ function ceilingView() {
     </div>
     <div class="scns" id="ubScenes">${sceneList()}</div>
   </section>
-  <div class="grid2">
-    <section class="card"><h2>${U.probeH}</h2><p class="sub">${U.probeSub}</p><div class="probes">${probes}</div>
-      <p class="sub" style="margin:14px 0 0">${U.probeNote(pf.filter(p => p.success > 0).length, pf.length)}</p></section>
-    <section class="card"><h2>${U.capH}</h2><ul class="facts" style="margin-top:10px">${U.caps.map(c => `<li>${c}</li>`).join("")}</ul>
-      <h3 style="font-size:15px;margin-top:20px">${U.nextH}</h3><p class="sub" style="margin:4px 0 0">${U.next}</p></section>
-  </div>`;
+  <section class="card"><h2>${U.capH}</h2><ul class="facts" style="margin-top:10px">${U.caps.map(c => `<li>${c}</li>`).join("")}</ul>
+    <h3 style="font-size:15px;margin-top:20px">${U.nextH}</h3><p class="sub" style="margin:4px 0 0">${U.next}</p></section>`;
 }
 
 function sceneList() {
@@ -1394,7 +1315,7 @@ const ST = {
     resH: "Hard scenes: plain policy, steering, ceiling",
     resSub: "10 scenes per task where the plain policy fails most (4 seeds each), chosen from the plain policy alone. Ceiling = the stage-level search on the same scenes.",
     th: ["Task", "Plain policy", "Steering", "Ceiling", "Chunks with a choice", "Plain draw would fail", "Calls per episode", "÷ plain · ÷ ceiling"],
-    running: n => `${n} running`, updated: s => `Updated ${s}. PackIdenticalLunches episodes are still running; the page is republished when they finish.`,
+    running: n => `${n} running`, updated: s => `Updated ${s}.`,
     stripH: "Every episode, chunk by chunk",
     stripSub: "One cell per 16-step chunk, placed on the task's horizon; the band under each strip is the stage. Dots are the plain policy's 4 seeds on the same scene.",
     lg: {S: "a choice: some candidates finished, the earliest was executed", A: "all 8 finished: candidate 0", N: "none finished: candidate 0", plain: "plain seed succeeded"},
@@ -1420,10 +1341,10 @@ const ST = {
     fixes: ["A restart re-read a fresher observation, so the real episode did not continue like the imagined candidate. A first KettleBoiling run got 7/10; after the fix, 10/10.",
       "The search re-checked success after a restore and missed 4 successes; it also required earlier stage checks to still hold, which rejected about 20% of SteamInMicrowave door-closing finishers. Both now match the plain policy's definition.",
       "A restore ran every fixture's update (microwave buttons, toaster-oven timer) once more. It is now undone and the state asserted."],
-    nextH: "Next: a VLM critic instead of the simulator",
+    nextH: "Next: a critic instead of the simulator",
     next: ["At the critical chunks found earlier, choosing well among 8 candidates raises the chance of finishing the stage by 25 points (cross-validated), against −2 at random chunks. That is the target for a critic.",
-      "Plan: assume the critical chunk is known. Show a VLM the current camera views and each candidate's commanded path, computed from the actions alone, and score its picks against the measured outcomes at 32 critical and 32 control points.",
-      "Progress: once the controller's response is modelled, the arm's commanded path matches the executed one to 1.7 cm (median, KettleBoiling). The base's motion is being calibrated."],
+      "First try, a blind VLM: at 32 critical and 32 control points, Claude saw the cameras and each candidate's commanded path, computed from the actions alone. Its picks gained −2.1 points (95% CI −11.8 to +8.7), the same as random. The candidates' commanded paths barely differ, and a successful candidate finishes its stage a median 15 chunks later.",
+      "Next: a critic trained on the simulated rollouts, with a measured outcome for every candidate, and tested on scenes it has not seen. The simulator stays out of the test."],
     refsH: "Closest prior work",
     refs: {"FOREWARN": "world model predicts each candidate's outcome, a VLM judges it", "V-GPS": "a learned value function re-ranks sampled actions", "RoboMonkey": "a VLM verifier picks among sampled actions"},
   },
@@ -1445,7 +1366,7 @@ const ST = {
     resH: "難場景：原始 policy、逐 chunk 挑選、上限",
     resSub: "每個任務挑 10 個原始 policy 最常失敗的場景（各 4 個 seed），只依原始 policy 挑選。上限 = 同一批場景上的逐 stage 搜尋。",
     th: ["任務", "原始 policy", "逐 chunk 挑選", "上限", "有做選擇的 chunk", "原始抽樣會失敗", "每集呼叫數", "÷ 原始 · ÷ 上限"],
-    running: n => `${n} 集進行中`, updated: s => `更新於 ${s}。PackIdenticalLunches 還有幾集在跑，跑完後會更新這一頁。`,
+    running: n => `${n} 集進行中`, updated: s => `更新於 ${s}。`,
     stripH: "每一集，逐個 chunk",
     stripSub: "每格是一個 16 步的 chunk，依任務時限排列；下方色帶是 stage。圓點是原始 policy 在同一場景的 4 個 seed。",
     lg: {S: "做了選擇：有些候選完成，執行最早完成的", A: "8 個都完成：候選 0", N: "都沒完成：候選 0", plain: "原始 policy 該 seed 成功"},
@@ -1471,10 +1392,10 @@ const ST = {
     fixes: ["重新開始時會重抓一個比較新的觀測，所以實際執行沒有照著想像的候選走下去。KettleBoiling 第一輪 7/10，修正後 10/10。",
       "搜尋在還原後重新判定成功，漏算了 4 個成功；它還要求前面 stage 的條件仍成立，誤殺了 SteamInMicrowave 約 20% 關門的完成者。兩者現在都和原始 policy 的定義一致。",
       "還原時會再跑一次所有設備的更新（微波爐按鈕、烤箱計時器），現在會把它復原並檢查狀態。"],
-    nextH: "下一步：用 VLM critic 取代模擬器",
+    nextH: "下一步：用 critic 取代模擬器",
     next: ["在先前找到的關鍵 chunk 上，從 8 個候選裡挑對，能把完成該 stage 的機率提高 25 個百分點（交叉驗證），隨機的 chunk 則是 −2。這就是 critic 的目標。",
-      "做法：先假設關鍵 chunk 已知。給 VLM 看目前的相機畫面，和每個候選只從動作算出的指令軌跡，再在 32 個關鍵點與 32 個對照點上，用實測的候選結果為它的選擇打分。",
-      "進度：把控制器的反應納入模型後，手臂的指令軌跡和實際執行的軌跡相差 1.7 cm（中位數，KettleBoiling）。底座的移動正在校準。"],
+      "第一個嘗試是盲測 VLM：在 32 個關鍵點與 32 個對照點上，Claude 看相機畫面，和每個候選只從動作算出的指令軌跡。它挑的候選增益 −2.1 個百分點（95% 信賴區間 −11.8 到 +8.7），和隨機一樣。候選的指令軌跡幾乎沒有差別，而成功的候選中位數要再 15 個 chunk 才完成該 stage。",
+      "下一步：用模擬的 rollout 訓練 critic，每個候選都有實測的結果，再在沒看過的場景上測試。測試時不用模擬器。"],
     refsH: "最接近的既有研究",
     refs: {"FOREWARN": "用世界模型預測每個候選的結果，再由 VLM 判斷", "V-GPS": "用學到的價值函數為抽樣的動作重新排序", "RoboMonkey": "用 VLM 驗證器從抽樣的動作中挑選"},
   },
@@ -1544,235 +1465,6 @@ function stStrips() {
 }
 
 
-/* ---------- data tab: window.DATATAB, built by build_datatab.py ---------- */
-const DTD = window.DATATAB;
-const DT = {
-  en: {
-    nav: "Data",
-    eyebrow: "VLM-critic data · collected 2026-10-26",
-    h: "What the collected data looks like",
-    p: "Before deciding what the critic should learn: the units we use, one real episode and one real decision point, then everything the collection saved.",
-    kPts: (n, m) => `decision points, KettleBoiling (${n} of ${m})`, kRolls: "rollouts, KettleBoiling", kSamples: "chunk starts along those rollouts",
-    kSim: (n, m) => `SteamInMicrowave decision points so far (of ${m})`,
-    unitsH: "Units, from large to small", unitsSub: ep => `Shown on one real episode: KettleBoiling s${ep.seed} from the main run (seed 0), which succeeded at step ${ep.steps}.`,
-    units: (ep, s0, s1) => [
-      {u: "task", what: "The whole job, one episode: pick the kettle up, put it on a burner, turn that burner on.", here: `at most 1000 steps (50 s) · this episode: ${ep.steps} steps, success`},
-      {u: "stage", what: "One sub-goal with an official done condition. KettleBoiling has two: S0 kettle on a burner, S1 burner on.", here: `S0: steps 0–${s0} (${Math.round(s0 / 16)} chunks) · S1: steps ${s0}–${s1} (${Math.round((s1 - s0) / 16)} chunks)`},
-      {u: "chunk", what: "One GR00T call: it looks once and outputs 16 actions, which run without looking again.", here: `16 steps = 0.8 s · this episode: ${Math.ceil(ep.steps / 16)} chunks`},
-      {u: "step", what: "One control action at 20 Hz: arm, gripper, base.", here: "0.05 s"},
-    ],
-    tlRows: ["stage", "chunk", "decision"], tlNote: (n, every) => `Ticks are chunk boundaries (every 16 steps). Dots are the ${n} decision points collected from this episode, one every ${every} steps; their colour is the share of 16 rollouts from there that finished the stage.`,
-    film: (s, c, k) => `step ${s} · chunk ${c} · S${k}`, filmLink: "Full rollout in the diagnosis view",
-    termsH: "From a decision point to rollouts",
-    terms: (t) => [
-      {h: "decision point", p: `A saved state of a main-run episode at a chunk boundary, every ${t.every} steps.`, n: `${t.n_jobs} for ${short(t.task)}`},
-      {h: "candidate", p: "One of 8 first chunks GR00T proposes there, each from a different noise draw.", n: "8 per decision point"},
-      {h: "continuation", p: "After the candidate's chunk, the plain policy runs on with fresh noise until the stage is done or L steps pass.", n: `2 per candidate · L = ${t.L.map(([k, l]) => `S${k} ${l}`).join(", ")}`},
-      {h: "rollout", p: "One candidate plus one continuation. Its label: did it finish the stage, in how many steps, with how much progress.", n: "16 per decision point"},
-    ],
-    exH: (ex) => `Example: KettleBoiling s${ex.seed} · step ${ex.t} · stage S0`,
-    exSub: "What was saved at this decision point, and what its 16 rollouts did.",
-    snapCaps: ["agent view, left", "agent view, right", "wrist camera", "wrist depth", "wrist depth, robot hidden"],
-    gridH: "8 candidates × 2 continuations", gridSub: "Green: finished S0 (number = steps). Grey: did not finish within L = 416 (bar = progress at the end). Outlined: the four rollouts in the video.",
-    cand: i => `candidate ${i}`, cell: c => c[0] ? `✓ ${c[1]}` : `✗ ${c[1]}`,
-    cellTip: (i, m, c) => `candidate ${i}, continuation ${m}: ${c[0] ? `finished S0 in ${c[1]} steps` : `did not finish in ${c[1]} steps, progress ${c[2]}`}`,
-    vidCap: "The same decision point, four rollouts played together. Candidates 0 and 2 each start with their own first chunk; within a candidate, the two continuations share that chunk and differ only afterwards.",
-    chunkH: "One chunk = 16 actions", chunkSub: (i) => `The first chunk of candidate ${i} at this decision point, as GR00T returned it. Values are the normalized commands sent to the environment.`,
-    chunkCols: ["step", "arm position (x y z)", "arm rotation (3)", "gripper close", "base motion (4)", "mode"],
-    savedH: "What is saved", savedSub: "Per decision point one snapshot file, per rollout one file of states and chunks plus a small video, and one result row per decision point.",
-    snapFile: "snap/<tag>_t<step>.npz · once per decision point", rollFile: "roll/<tag>_t<step>_c<candidate>_m<continuation>.npz · once per rollout",
-    rowFile: "results_w<worker>.jsonl · one row per decision point (candidates trimmed to the first)",
-    vidFile: "roll/…mp4: agent view left + wrist, every 4th step, 10 fps, about 40–200 KB",
-    th: ["key", "shape", "type", "meaning"],
-    derivedH: "Derived offline from the saved states, no policy needed",
-    derived: ["gripper path and finger poses for every chunk; contacts", "progress of the stage at every step; drop, tip-over and collision events",
-      "any camera view at any step (for the VLM), path overlays", "GR00T features, recomputed from the saved policy inputs"],
-    disk: (a, b) => `On disk: KettleBoiling ${a} GB, SteamInMicrowave ${b} GB so far.`,
-    allH: "Every decision point", allSub: "One row per main-run episode. Dots are decision points; colour is the share of the 16 rollouts from there that finished the stage. Click a dot to see its 16 rollouts.",
-    stats: t => `${t.n_points} of ${t.n_jobs} decision points · ${t.n_rollouts.toLocaleString()} rollouts · ${t.sim_steps.toLocaleString()} simulated steps · ${t.chunk_samples.toLocaleString()} chunk starts`,
-    mix: t => `all 16 finish: ${t.mix.all} · none: ${t.mix.none} · mixed: ${t.mix.mixed} · mean share finished ${(100 * t.p_done).toFixed(0)}%`,
-    agree: t => `two continuations agree: same candidate ${t.same.toFixed(2)}, different candidates ${t.cross.toFixed(2)}`,
-    inProg: "still collecting", lgStage: "stage S0 / S1 / S2 / S3", lgDot: "share finished, 0 → 1", lgEnd: "episode end",
-    epLbl: e => `s${e.seed} ${e.ok ? "✓" : "✗"} ${e.steps}`,
-    det: (e, p, t) => `s${e.seed} · step ${p.t} · S${p.k} · L ${p.L}`, detN: (n) => `${n} of 16 finished`,
-    noPick: "Click a dot.",
-  },
-  zh: {
-    nav: "資料",
-    eyebrow: "VLM critic 的資料 · 2026-10-26 收集",
-    h: "收集到的資料長什麼樣子",
-    p: "在決定 critic 要學什麼之前，先把單位、一集真實的 episode、一個真實的決策點，以及收集時存下的所有東西攤開來看。",
-    kPts: (n, m) => `KettleBoiling 決策點（${n} / ${m}）`, kRolls: "KettleBoiling rollout 數", kSamples: "這些 rollout 上的 chunk 起點數",
-    kSim: (n, m) => `SteamInMicrowave 目前收到的決策點（共 ${m}）`,
-    unitsH: "單位，由大到小", unitsSub: ep => `用一集真實的 episode 說明：主實驗（seed 0）的 KettleBoiling s${ep.seed}，第 ${ep.steps} 步成功。`,
-    units: (ep, s0, s1) => [
-      {u: "task", what: "整個任務，也就是一集：拿起水壺、放到爐口上、把那個爐口打開。", here: `最多 1000 步（50 秒）· 這集：${ep.steps} 步，成功`},
-      {u: "stage", what: "一個有官方完成條件的子目標。KettleBoiling 有兩個：S0 水壺放上爐口、S1 開火。", here: `S0：第 0–${s0} 步（${Math.round(s0 / 16)} 個 chunk）· S1：第 ${s0}–${s1} 步（${Math.round((s1 - s0) / 16)} 個 chunk）`},
-      {u: "chunk", what: "GR00T 呼叫一次：看一次畫面，輸出 16 個動作，執行期間不再看。", here: `16 步 = 0.8 秒 · 這集共 ${Math.ceil(ep.steps / 16)} 個 chunk`},
-      {u: "step", what: "一個控制動作（20 Hz）：手臂、夾爪、底座。", here: "0.05 秒"},
-    ],
-    tlRows: ["stage", "chunk", "決策點"], tlNote: (n, every) => `刻度是 chunk 的邊界（每 16 步）。圓點是從這集取的 ${n} 個決策點，每 ${every} 步一個；顏色代表從那裡出發的 16 條 rollout 中，完成該 stage 的比例。`,
-    film: (s, c, k) => `第 ${s} 步 · chunk ${c} · S${k}`, filmLink: "在診斷頁看整集影片",
-    termsH: "從決策點到 rollout",
-    terms: (t) => [
-      {h: "決策點", p: `主實驗某一集在 chunk 邊界存下的狀態，每 ${t.every} 步取一個。`, n: `${short(t.task)} 共 ${t.n_jobs} 個`},
-      {h: "候選", p: "GR00T 在那裡提出的 8 個第一 chunk 之一，每個來自不同的 noise。", n: "每個決策點 8 個"},
-      {h: "接續", p: "執行完候選的 chunk 後，交給原始 policy 用新的 noise 繼續，直到 stage 完成或用完 L 步。", n: `每個候選 2 次 · L = ${t.L.map(([k, l]) => `S${k} ${l}`).join("、")}`},
-      {h: "rollout", p: "一個候選加一次接續。標籤：有沒有完成 stage、用了幾步、最後的進度。", n: "每個決策點 16 條"},
-    ],
-    exH: (ex) => `例子：KettleBoiling s${ex.seed} · 第 ${ex.t} 步 · stage S0`,
-    exSub: "這個決策點存了什麼，以及它的 16 條 rollout 各自的結果。",
-    snapCaps: ["左側視角", "右側視角", "手腕相機", "手腕深度", "手腕深度（隱藏機器人）"],
-    gridH: "8 個候選 × 2 次接續", gridSub: "綠色：完成 S0（數字是步數）。灰色：L = 416 步內沒完成（底線是最後的進度）。外框：影片中的四條 rollout。",
-    cand: i => `候選 ${i}`, cell: c => c[0] ? `✓ ${c[1]}` : `✗ ${c[1]}`,
-    cellTip: (i, m, c) => `候選 ${i}，接續 ${m}：${c[0] ? `${c[1]} 步完成 S0` : `${c[1]} 步內沒完成，進度 ${c[2]}`}`,
-    vidCap: "同一個決策點的四條 rollout 一起播放。候選 0 和候選 2 各自從自己的第一個 chunk 開始；同一個候選的兩次接續共用這個 chunk，之後才不同。",
-    chunkH: "一個 chunk = 16 個動作", chunkSub: (i) => `這個決策點上候選 ${i} 的第一個 chunk，也就是 GR00T 回傳的原始內容。數值是送進環境、經過正規化的控制指令。`,
-    chunkCols: ["步", "手臂位置（x y z）", "手臂旋轉（3）", "夾爪合上", "底座移動（4）", "模式"],
-    savedH: "存了哪些東西", savedSub: "每個決策點一個快照檔；每條 rollout 一個 state 與 chunk 檔，外加一支小影片；每個決策點一列結果。",
-    snapFile: "snap/<tag>_t<步>.npz · 每個決策點一個", rollFile: "roll/<tag>_t<步>_c<候選>_m<接續>.npz · 每條 rollout 一個",
-    rowFile: "results_w<worker>.jsonl · 每個決策點一列（候選只列出第一個）",
-    vidFile: "roll/…mp4：左側視角 + 手腕，每 4 步一格，10 fps，約 40–200 KB",
-    th: ["key", "形狀", "型別", "意義"],
-    derivedH: "可以從存下的 state 離線算出，不必再跑 policy",
-    derived: ["每個 chunk 的夾爪路徑、手指姿態、接觸", "每一步的 stage 進度；掉落、傾倒、碰撞等事件",
-      "任何時刻、任何視角的畫面（給 VLM 用），以及路徑疊圖", "GR00T 內部特徵（由存下的 policy 輸入重算）"],
-    disk: (a, b) => `硬碟用量：KettleBoiling ${a} GB，SteamInMicrowave 目前 ${b} GB。`,
-    allH: "所有決策點", allSub: "每一列是主實驗的一集。圓點是決策點，顏色代表從那裡出發的 16 條 rollout 中完成 stage 的比例。點圓點可以看它的 16 條 rollout。",
-    stats: t => `決策點 ${t.n_points} / ${t.n_jobs} · rollout ${t.n_rollouts.toLocaleString()} 條 · 模擬 ${t.sim_steps.toLocaleString()} 步 · chunk 起點 ${t.chunk_samples.toLocaleString()} 個`,
-    mix: t => `16 條全完成：${t.mix.all} · 全沒完成：${t.mix.none} · 有好有壞：${t.mix.mixed} · 平均完成比例 ${(100 * t.p_done).toFixed(0)}%`,
-    agree: t => `兩次接續結果一致的比例：同一個候選 ${t.same.toFixed(2)}，不同候選 ${t.cross.toFixed(2)}`,
-    inProg: "仍在收集", lgStage: "stage S0 / S1 / S2 / S3", lgDot: "完成比例 0 → 1", lgEnd: "這集結束",
-    epLbl: e => `s${e.seed} ${e.ok ? "✓" : "✗"} ${e.steps}`,
-    det: (e, p, t) => `s${e.seed} · 第 ${p.t} 步 · S${p.k} · L ${p.L}`, detN: (n) => `16 條中 ${n} 條完成`,
-    noPick: "點一個圓點。",
-  },
-};
-const KEY_MEAN = {
-  en: [[/^state$/, "flattened sim state: restores the scene exactly"], [/^states$/, "sim state at the start and after every step"],
-    [/^rgb\//, "RGB image"], [/^depth_env\//, "wrist depth with the robot hidden (m)"], [/^depth\//, "depth (m)"], [/^K\//, "camera intrinsics"],
-    [/^T\//, "camera pose, camera → world"], [/^req\/video/, "image the policy saw"], [/^req\/state/, "proprio the policy saw"],
-    [/^req\/annotation/, "instruction the policy saw"], [/^action\./, "every chunk received: chunks × 16 × dim"]],
-  zh: [[/^state$/, "攤平的 sim state，可完全還原場景"], [/^states$/, "起點與每一步之後的 sim state"],
-    [/^rgb\//, "RGB 影像"], [/^depth_env\//, "隱藏機器人的手腕深度（公尺）"], [/^depth\//, "深度（公尺）"], [/^K\//, "相機內參"],
-    [/^T\//, "相機姿態（相機 → 世界）"], [/^req\/video/, "policy 看到的影像"], [/^req\/state/, "policy 看到的本體感測"],
-    [/^req\/annotation/, "policy 看到的指令"], [/^action\./, "收到的每個 chunk：chunk 數 × 16 × 維度"]],
-};
-const keyMean = k => (KEY_MEAN[LANG].find(([re]) => re.test(k)) || [, ""])[1];
-const pcol = p => `color-mix(in srgb, var(--good) ${Math.round(100 * p)}%, var(--bad))`;
-let DTASK = DTD.tasks[0].task, DSEL = {seed: DTD.example.seed, t: DTD.example.t};
-
-function stageSegs(e, H) {
-  const ends = e.hist.map(([t]) => t), out = [];
-  let a = 0;
-  for (let k = 0; a < e.steps; k++) {
-    const b = ends[k] != null ? ends[k] : e.steps;
-    if (b > a) out.push({k, a, b});
-    if (ends[k] == null) break;
-    a = b;
-  }
-  return out.map(s => ({...s, l: 100 * s.a / H, w: 100 * (s.b - s.a) / H}));
-}
-
-function dataView() {
-  const U = DT[LANG], ex = DTD.example, KB = DTD.tasks[0], SM = DTD.tasks[1];
-  const ep = KB.episodes.find(e => e.seed === ex.seed);
-  const s0 = ep.hist[0][0], s1 = ep.hist[1] ? ep.hist[1][0] : ep.steps, HX = 480;
-  const pctX = s => (100 * s / HX).toFixed(3);
-  const pd = p => p.g.filter(c => c[0]).length / p.g.length;
-  const segs = stageSegs(ep, HX).map(s => `<div class="etl-seg" style="left:${s.l}%;width:${s.w}%;${stVar(s.k)}">S${s.k}</div>`).join("");
-  const ticks = `<div class="etl-ticks" style="background:repeating-linear-gradient(90deg, var(--axis) 0 1px, transparent 1px ${(100 * 16 / ep.steps).toFixed(4)}%);width:${pctX(ep.steps)}%;border-right:1px solid var(--axis)"></div>`;
-  const dps = ep.points.map(p => `<span class="etl-dp" style="left:${pctX(p.t)}%;background:${pcol(pd(p))}" data-tip="${esc(`t=${p.t} · S${p.k} · ${p.g.filter(c => c[0]).length}/16`)}"></span>`).join("");
-  const axis = [0, 80, 160, 240, 320, 400, 480].map(s => `<span style="left:${pctX(s)}%">${s}</span>`).join("");
-  const film = ex.film_steps.map((s, i) => `<figure><div class="im" role="img" aria-label="${esc(U.film(s, Math.floor(s / 16), s < s0 ? 0 : 1))}" style="background-image:url(dt/film.jpg);background-size:${ex.film_steps.length * 100}% 100%;background-position:${(100 * i / (ex.film_steps.length - 1)).toFixed(3)}% 0"></div><figcaption>${esc(U.film(s, Math.floor(s / 16), s < s0 ? 0 : 1))}</figcaption></figure>`).join("");
-  const snaps = U.snapCaps.map((c, i) => `<figure><div class="im" role="img" aria-label="${esc(c)}" style="background-image:url(dt/snap.jpg);background-size:${U.snapCaps.length * 100}% 100%;background-position:${(100 * i / (U.snapCaps.length - 1)).toFixed(3)}% 0"></div><figcaption>${esc(c)}</figcaption></figure>`).join("");
-  const og = Array.from({length: 8}, (_, i) => `<div class="og-row"><span>${U.cand(i)}</span>${[0, 1].map(m => { const c = ex.grid[2 * i + m]; return `<span class="oc${c[0] ? " y" : ""}${ex.cands.includes(i) ? " ex" : ""}" data-tip="${esc(U.cellTip(i, m, c))}">${U.cell(c)}${c[0] ? "" : `<i style="width:${Math.round(100 * c[2])}%"></i>`}</span>`; }).join("")}</div>`).join("");
-  const ck = Object.keys(ex.chunk);
-  const get = k => ex.chunk[ck.find(x => x.endsWith(k))] || [];
-  const f = v => v.map(x => (x >= 0 ? " " : "") + x.toFixed(2)).join(" ");
-  const chunkRows = Array.from({length: 16}, (_, i) => `<tr><td>${i + 1}</td><td>${f(get("end_effector_position")[i])}</td><td>${f(get("end_effector_rotation")[i])}</td><td>${get("gripper_close")[i][0].toFixed(2)}</td><td>${f(get("base_motion")[i])}</td><td>${get("control_mode")[i][0].toFixed(0)}</td></tr>`).join("");
-  const keyTab = keys => `<div class="tablewrap"><table class="ubtab"><thead><tr>${U.th.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${keys.map(([k, sh, ty]) => `<tr><td class="mono" style="font-weight:500">${esc(k)}</td><td>${sh.join(" × ") || "scalar"}</td><td>${esc(ty)}</td><td style="font-family:var(--f-body);text-align:left;white-space:normal">${esc(keyMean(k))}</td></tr>`).join("")}</tbody></table></div>`;
-  const gb = b => (b / 1e9).toFixed(1);
-  return `
-  <section class="hero">
-    <div><div class="eyebrow">${U.eyebrow}</div><h1>${U.h}</h1><p>${U.p}</p></div>
-    <div class="kpis">
-      <div class="kpi"><div class="v">${KB.n_points}</div><div class="l">${U.kPts(KB.n_points, KB.n_jobs)}</div></div>
-      <div class="kpi"><div class="v">${KB.n_rollouts.toLocaleString()}</div><div class="l">${U.kRolls}</div></div>
-      <div class="kpi"><div class="v">${KB.chunk_samples.toLocaleString()}</div><div class="l">${U.kSamples}</div></div>
-      <div class="kpi"><div class="v">${SM.n_points}<small>/ ${SM.n_jobs}</small></div><div class="l">${U.kSim(SM.n_points, SM.n_jobs)}</div></div>
-    </div>
-  </section>
-  <section class="card">
-    <h2>${U.unitsH}</h2><p class="sub">${U.unitsSub(ep)}</p>
-    <div class="units">${U.units(ep, s0, s1).map(u => `<div class="unit"><b>${u.u}</b><span class="what">${u.what}</span><span class="here">${u.here}</span></div>`).join("")}</div>
-    <div class="etl">
-      <div class="etl-row"><span class="etl-lbl">${U.tlRows[0]}</span><div class="etl-track">${segs}</div></div>
-      <div class="etl-row"><span class="etl-lbl">${U.tlRows[1]}</span><div class="etl-track">${ticks}</div></div>
-      <div class="etl-row"><span class="etl-lbl">${U.tlRows[2]}</span><div class="etl-track" style="overflow:visible">${dps}</div></div>
-      <div class="etl-row"><span></span><div class="etl-axis">${axis}</div></div>
-    </div>
-    <p class="sub" style="margin:8px 0 0">${U.tlNote(ep.points.length, KB.every)}</p>
-    <div class="film">${film}</div>
-    <p style="margin:10px 0 0"><a class="btn" href="#KettleBoiling-s${ep.seed}">${U.filmLink} →</a></p>
-  </section>
-  <section class="card">
-    <h2>${U.termsH}</h2>
-    <div class="terms" style="margin-top:10px">${U.terms(KB).map(t => `<div class="term"><b>${t.h}</b><p>${t.p}</p><span class="n">${esc(t.n)}</span></div>`).join("")}</div>
-    <h3 style="font-size:16px;margin-top:22px">${U.exH(ex)}</h3><p class="sub">${U.exSub}</p>
-    <div class="snaps">${snaps}</div>
-    <div class="grid2" style="margin-top:16px">
-      <div><h3 style="font-size:15px">${U.gridH}</h3><p class="sub" style="margin:4px 0 10px">${U.gridSub}</p><div class="og">${og}</div></div>
-      <div class="vid"><video controls muted playsinline preload="metadata" src="dt/grid.mp4"></video><div class="cap">${U.vidCap}</div></div>
-    </div>
-  </section>
-  <section class="card">
-    <h2>${U.chunkH}</h2><p class="sub">${U.chunkSub(ex.cands[0])}</p>
-    <div class="tablewrap"><table class="ubtab"><thead><tr>${U.chunkCols.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${chunkRows}</tbody></table></div>
-  </section>
-  <section class="card">
-    <h2>${U.savedH}</h2><p class="sub">${U.savedSub}</p>
-    <h3 style="font-size:14px;margin:14px 0 6px" class="mono">${esc(U.snapFile)}</h3>${keyTab(ex.snap_keys)}
-    <h3 style="font-size:14px;margin:18px 0 6px" class="mono">${esc(U.rollFile)}</h3>${keyTab(ex.roll_keys)}
-    <p class="sub" style="margin:8px 0 0">${esc(U.vidFile)}</p>
-    <h3 style="font-size:14px;margin:18px 0 6px" class="mono">${esc(U.rowFile)}</h3>
-    <pre class="json">${esc(JSON.stringify(ex.row, null, 1))}</pre>
-    <div class="grid2" style="margin-top:16px">
-      <div><h3 style="font-size:15px">${U.derivedH}</h3><ul class="facts" style="margin-top:8px">${U.derived.map(d => `<li>${d}</li>`).join("")}</ul></div>
-      <p class="sub" style="margin:0;align-self:end">${U.disk(gb(KB.bytes), gb(SM.bytes))}</p>
-    </div>
-  </section>
-  <section class="card">
-    <h2>${U.allH}</h2><p class="sub">${U.allSub}</p>
-    <div class="seg ubseg" role="group">${DTD.tasks.map(t => `<button type="button" data-dtask="${t.task}" aria-pressed="${t.task === DTASK}">${esc(short(t.task))} <span class="count">${t.n_points}/${t.n_jobs}</span></button>`).join("")}</div>
-    <div id="dtAll">${dataAll()}</div>
-  </section>`;
-}
-
-function dataAll() {
-  const U = DT[LANG], t = DTD.tasks.find(x => x.task === DTASK), H = t.horizon;
-  const pd = p => p.g.filter(c => c[0]).length / p.g.length;
-  const rows = t.episodes.map(e => `<div class="estrip"><span class="el${e.ok ? " ok" : ""}">${esc(U.epLbl(e))}</span><div class="track">
-      ${stageSegs(e, H).map(s => `<div class="sg" style="left:${s.l}%;width:${s.w}%;${stVar(s.k)};opacity:.55"></div>`).join("")}
-      <span class="end" style="left:${(100 * e.steps / H).toFixed(2)}%" data-tip="${esc(U.lgEnd)}: ${e.steps}"></span>
-      ${e.points.map(p => `<button type="button" class="dp" data-dp="${e.seed}|${p.t}" aria-pressed="${DSEL.seed === e.seed && DSEL.t === p.t}" style="left:${(100 * p.t / H).toFixed(2)}%;background:${pcol(pd(p))}" data-tip="${esc(`t=${p.t} · S${p.k} · ${p.g.filter(c => c[0]).length}/16`)}"></button>`).join("")}
-    </div></div>`).join("");
-  return `<p class="sub" style="margin:6px 0 2px">${esc(U.stats(t))}${t.n_points < t.n_jobs ? ` · <b>${U.inProg}</b>` : ""}</p>
-    <p class="sub" style="margin:0 0 2px">${esc(U.mix(t))}</p>
-    ${t.same != null ? `<p class="sub" style="margin:0">${esc(U.agree(t))}</p>` : ""}
-    <div class="legend" style="margin-top:10px"><span>${[0, 1, 2, 3].slice(0, t.per_stage.length).map(k => `<span class="sw" style="${stVar(k)}"></span>`).join("")}${U.lgStage}</span><span><span class="dtgrad"></span>${U.lgDot}</span><span><span class="sw" style="background:var(--ink-2);width:3px"></span>${U.lgEnd}</span></div>
-    <div class="dtwrap"><div class="estrips">${rows}</div><div class="dtdet" id="dtDet">${dataDetail()}</div></div>`;
-}
-
-function dataDetail() {
-  const U = DT[LANG], t = DTD.tasks.find(x => x.task === DTASK);
-  const e = t.episodes.find(x => x.seed === DSEL.seed), p = e && e.points.find(x => x.t === DSEL.t);
-  if (!p) return `<p class="sub" style="margin:0">${U.noPick}</p>`;
-  const n = p.g.filter(c => c[0]).length;
-  return `<h3>${esc(short(t.task))} ${esc(U.det(e, p, t))}</h3><p class="sub" style="margin:0">${U.detN(n)}</p>
-    <div class="og">${Array.from({length: p.g.length / 2}, (_, i) => `<div class="og-row"><span>${U.cand(i)}</span>${[0, 1].map(m => { const c = p.g[2 * i + m]; return `<span class="oc${c[0] ? " y" : ""}" data-tip="${esc(U.cellTip(i, m, c).replace(/S0/g, `S${p.k}`))}">${U.cell(c)}${c[0] ? "" : `<i style="width:${Math.round(100 * c[2])}%"></i>`}</span>`; }).join("")}</div>`).join("")}</div>`;
-}
-
 /* ---------- static chrome ---------- */
 function applyChrome() {
   const T = L();
@@ -1781,7 +1473,6 @@ function applyChrome() {
   $("#navOverview").textContent = T.overview;
   $("#navCeiling").textContent = UB[LANG].nav;
   $("#navSteer").textContent = ST[LANG].nav;
-  $("#navData").textContent = DT[LANG].nav;
   $("#speedLbl").textContent = T.speed;
   $("#speedLbl").title = T.speedTip;
   $("#speedSeg").setAttribute("aria-label", T.speed);
@@ -1802,10 +1493,9 @@ function route() {
   const h = decodeURIComponent(location.hash.slice(1));
   $("#navCeiling").setAttribute("aria-current", h === "ceiling" ? "page" : "false");
   $("#navSteer").setAttribute("aria-current", h === "steering" ? "page" : "false");
-  $("#navData").setAttribute("aria-current", h === "data" ? "page" : "false");
-  if (h === "ceiling" || h === "data" || h === "steering") {
+  if (h === "ceiling" || h === "steering") {
     $("#navOverview").setAttribute("aria-current", "false");
-    if (app.dataset.view !== h) { app.innerHTML = h === "ceiling" ? ceilingView() : h === "steering" ? steeringView() : dataView(); app.dataset.view = h; prepVideos(); }
+    if (app.dataset.view !== h) { app.innerHTML = h === "ceiling" ? ceilingView() : steeringView(); app.dataset.view = h; prepVideos(); }
     sel.value = ""; window.scrollTo(0, 0);
     return;
   }
@@ -1859,7 +1549,6 @@ function setLang(l) {
   if (view === "overview") app.innerHTML = overview();
   else if (view === "ceiling") { app.innerHTML = ceilingView(); prepVideos(); }
   else if (view === "steering") app.innerHTML = steeringView();
-  else if (view === "data") { app.innerHTML = dataView(); prepVideos(); }
   else if (BYTASK[view]) { app.innerHTML = taskView(view); renderEpisodes(view); }
   window.scrollTo(0, y);
 }
@@ -1956,23 +1645,6 @@ document.addEventListener("click", ev => {
   const st = ev.target.closest("#filters [data-status]"); if (st) { FILTER.status = st.dataset.status; FILTER.mode = null; syncFilters(); renderEpisodes(app.dataset.view); return; }
   const md = ev.target.closest("#filters [data-mode]"); if (md) { FILTER.mode = FILTER.mode === md.dataset.mode ? null : md.dataset.mode; if (FILTER.mode) FILTER.status = "fail"; syncFilters(); renderEpisodes(app.dataset.view); return; }
   const go = ev.target.closest("[data-go]"); if (go) { location.hash = go.dataset.go; return; }
-  const dtk = ev.target.closest("[data-dtask]");
-  if (dtk) {
-    DTASK = dtk.dataset.dtask;
-    const t = DTD.tasks.find(x => x.task === DTASK);
-    const keep = t.episodes.some(e => e.seed === DSEL.seed && e.points.some(p => p.t === DSEL.t)) && DTASK === DTD.tasks[0].task;
-    if (!keep) { const e = t.episodes.find(x => x.points.some(p => p.g.some(c => c[0]) && p.g.some(c => !c[0]))) || t.episodes[0]; const p = e.points.find(q => q.g.some(c => c[0]) && q.g.some(c => !c[0])) || e.points[0]; DSEL = {seed: e.seed, t: p ? p.t : -1}; }
-    document.querySelectorAll("[data-dtask]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.dtask === DTASK)));
-    $("#dtAll").innerHTML = dataAll();
-    return;
-  }
-  const dp = ev.target.closest("[data-dp]");
-  if (dp) {
-    const [s, t] = dp.dataset.dp.split("|"); DSEL = {seed: +s, t: +t};
-    document.querySelectorAll("[data-dp]").forEach(b => b.setAttribute("aria-pressed", String(b === dp)));
-    $("#dtDet").innerHTML = dataDetail();
-    return;
-  }
   const stk = ev.target.closest("[data-stask]");
   if (stk) {
     STASK = stk.dataset.stask;

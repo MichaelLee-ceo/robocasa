@@ -16,7 +16,7 @@ stage by stage.
 | `replay_check.py` | a saved episode replays to the same stage verdicts |
 | `analyze_stages.py`, `after_rerun.sh` | stage-level root cause of every episode (`../scripts/stage_trace.py` + the official labeler) -> `analysis/` |
 | `make_packets.py`, `frames.py` | per-episode packets and contact sheets for the video-based diagnosis -> `packets/`, `diagnosis/` |
-| `report/` | the published report (`index.html`; `build_*.py` write its data files); `report_pub/` is its build output |
+| `report/` | the published report (`index.html`; `build_*.py` write its data files); `report_pub/` is its build output. Published at https://claude.ai/artifact/8mpnb3XU5wE39eDZfh5RK5 (private). On 2026-11-04 its Data tab and the upper-bound tab's noise-probe section were removed: both showed data from before the restore fixes |
 
 Only code, the result jsonl and the report sources are in git. Videos, states and the diagnosis images stay on the
 machine (`../_handoff/README.md` tells how to copy them).

@@ -7,9 +7,8 @@ The artifact host limits a version to 511 files / 256 MB and a publish to 255 fi
 - the stage poster frames of each task go into one sprite image (report_pub/p/<Task>.jpg);
 - the agents' evidence contact sheets (1.3 GB) are left out;
 - index.html loses the document skeleton (the host adds its own) and gets the side-gutter meta tag;
-- the upper-bound tab's data and showcase videos (report/ceiling.js, report/ceiling/, from build_ceiling.py), the steering
-  tab's data (report/steering.js, from build_steering.py) and the data
-  tab's data and media (report/datatab.js, report/dt/, from build_datatab.py) are copied.
+- the upper-bound tab's data and showcase videos (report/ceiling.js, report/ceiling/, from build_ceiling.py) and the
+  steering tab's data (report/steering.js, from build_steering.py) are copied.
 Run after report/build.py: python report/build_pub.py (groot env, for PIL)."""
 import json, math, os, re, shutil
 from PIL import Image
@@ -52,8 +51,6 @@ open(f"{OUT}/index.html", "w").write(html)
 shutil.copy(f"{HERE}/ceiling.js", f"{OUT}/ceiling.js")
 shutil.copy(f"{HERE}/steering.js", f"{OUT}/steering.js")
 shutil.copytree(f"{HERE}/ceiling", f"{OUT}/ceiling", dirs_exist_ok=True)
-shutil.copy(f"{HERE}/datatab.js", f"{OUT}/datatab.js")
-shutil.copytree(f"{HERE}/dt", f"{OUT}/dt", dirs_exist_ok=True)
 sizes = {p: os.path.getsize(f"{OUT}/p/{p}") for p in os.listdir(f"{OUT}/p")}
 print(f"sprites {sum(sizes.values()) // 1024} KB (max {max(sizes.values()) // 1024} KB), data.js {os.path.getsize(f'{OUT}/data.js') // 1024} KB, "
       f"index.html {os.path.getsize(f'{OUT}/index.html') // 1024} KB")

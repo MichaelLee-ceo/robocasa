@@ -1,6 +1,6 @@
 """Data for the report's "Upper bound" tab (index.html#ceiling): the stage-level imagine-then-choose search
-(runs/20261026_imagine) and the noise probe it started from (report/noise_probe.json: the 12 points shown, kept when
-the probe's run dir was deleted on 2026-11-04; the probe predates the restore fixes of 2026-10-27/29).
+(runs/20261026_imagine). The noise-probe section it used to show was removed on 2026-11-04: that probe predates the
+restore fixes.
 
 Writes report/ceiling.js (window.CEILING) and, for one showcase scene per task, report/ceiling/<tag>.mp4: the committed
 search path, i.e. the chosen candidate of every expansion on the path, concatenated (CRF 31, index at the front).
@@ -78,8 +78,7 @@ def task_block(task, d, dbase, show):
     return out
 
 
-probe = json.load(open(f"{HERE}/noise_probe.json"))
-C = dict(tasks=[task_block(*t) for t in TASKS], probe=probe)
+C = dict(tasks=[task_block(*t) for t in TASKS])
 with open(f"{HERE}/ceiling.js", "w") as f:
     f.write("window.CEILING = ")
     json.dump(C, f, separators=(",", ":"))
