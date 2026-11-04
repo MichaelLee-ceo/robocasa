@@ -3,7 +3,9 @@ import glob, gzip, json, os
 import numpy as np
 import pandas as pd
 
-DS_ROOT = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/datasets/v1.0/target/composite")
+from paths import ROOT
+
+DS_ROOT = f"{ROOT}/datasets/v1.0/target/composite"
 
 
 def ds_dir(task):

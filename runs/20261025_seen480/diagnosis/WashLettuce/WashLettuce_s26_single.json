@@ -1,0 +1,35 @@
+{
+ "tag": "WashLettuce_s26_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  720,
+  1100
+ ],
+ "category": "stall_pre_grasp",
+ "secondary": [
+  "stall_approach_retreat",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene layout 9 / style 9 (same sink/faucet as s2/s3/s13/s18); lettuce (Lettuce009) in a fine wire-mesh colander (Colander012) on the counter LEFT of the sink. Stage 0 slow: the gripper reached the small lever beside the faucet column at 186 and touched it 186-339 without turning it (wrist view: lever between the fingers, unchanged); 380-520 the gripper rose above the lever (wrist sees only the tiled wall), and only at 521-562 did it turn it (0.05 at 528, 0.30 at 544, 0.50 at 560). Water on at 550 (median 253, p90 449). Stage 1: 600-680 the arm made a large awkward swing (wrist sees the upper cabinet at 680), then from ~720 it hovered over the colander on the left counter, moving closer and farther (760, 840, 920, 1000 near; 1040-1096 drifting back toward the sink) without ever closing the fingers (width 0.08 all episode). Timeout at 1100 with the lettuce still on the counter; washed_time 0.",
+ "causal_chain": "lever touched but not turned 186-520 (stage 0 took 550 steps vs median 253) -> water on 550 -> arm swing 600-680 -> hovered over the colander 720-1100 (~380 steps) without a single grasp attempt -> timeout",
+ "self_recovery": "Stage 0: it eventually turned the lever at 521-562 after ~335 steps of stalling. Stage 1: none; no close at all.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_handle.png",
+   "frames/s26_stage1.png",
+   "frames/L9_stream_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[186,339],[350,351],[381,387],[521,543],[545,562]]",
+   "handle 0 until 512, 0.05@528 0.30@544 0.50@560; stage0 first complete 550 (median 253, p90 449)",
+   "gripper width 0.079-0.081 all episode, close_events []",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why it would not descend onto the colander: the left-of-sink placement forces a long reach to the robot's left, and the arm posture after the 600-680 swing looks awkward; this is my reading, not measured. Stage 0 was slow (550) but still left 550 steps, more than the p90 of stage 1 (345); the 380-step hover without any grasp attempt is the failure, not the time budget."
+}

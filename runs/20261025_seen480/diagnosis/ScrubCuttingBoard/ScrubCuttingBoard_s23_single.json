@@ -1,0 +1,27 @@
+{
+ "tag": "ScrubCuttingBoard_s23_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L5 (same kitchen as s1/s6/s9): dark-green sponge_8, dark cutting_board_4 next to the sink. Stage 0 from 115 (online 128). Stage 1: first contact 183. The grasp test was blind for 325 of the 601 scrub steps (186-332, 462-476, 542-595, 637-743), and the criterion was met at 401 (8 contacts, sweep 0.134 at the end). The policy scrubbed until ~777 (601-step scrub, the longest), released on the board at ~777-784 and rose (frames/s23_release.png). The gripper was 15 cm away at 796, so success came at 796, 4 steps before the 800 horizon. A near-miss of the 'never released' failure.",
+ "causal_chain": "",
+ "self_recovery": "none needed; abnormally long scrub (601 steps); success only 4 steps before timeout",
+ "official_criterion_notes": "Counter blind for 325 of 601 scrub steps (finger-1 grasp test).",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_release.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[128,0],[800,1]]",
+   "stage1 first_complete 796",
+   "process_progress_end contacts 8 sweep 0.134",
+   "grasp test False 186-332, 462-476, 542-595, 637-743"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

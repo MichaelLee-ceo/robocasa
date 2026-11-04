@@ -1,26 +1,34 @@
 """Data for the report's "Upper bound" tab (index.html#ceiling): the stage-level imagine-then-choose search
-(runs/20261026_imagine) and the noise probe it started from (runs/20261026_noise_probe).
+(runs/20261026_imagine) and the noise probe it started from (report/noise_probe.json: the 12 points shown, kept when
+the probe's run dir was deleted on 2026-11-04; the probe predates the restore fixes of 2026-10-27/29).
 
 Writes report/ceiling.js (window.CEILING) and, for one showcase scene per task, report/ceiling/<tag>.mp4: the committed
 search path, i.e. the chosen candidate of every expansion on the path, concatenated (CRF 31, index at the front).
-Per scene: the plain policy with policy_seed 0 (runs/20261025_seen480) and 1-3 (runs/20261026_imagine), and the search
+Per scene: the plain policy with policy_seed 0 (runs/20261025_seen480) and 1-3 (runs/20261026_imagine/{full,multi},
+condition baseline), and the search
 with every expansion (stage k, start step t, budget L, kept finishers, each candidate's done / steps / progress).
 A failed search is put down to the candidate cap, the horizon, or the official success check failing although every
-stage check passed ("criterion"). usage: python report/build_ceiling.py; build_pub.py copies the output."""
+stage check passed ("criterion").
+Searches (2026-10-30): KettleBoiling from full_v2 (the re-run after the controller-state restore fix; the page showed the
+older `full` until then), the 4-stage tasks from sim_pil (the re-run with every restore fix and the per-step success rule;
+`multi` is superseded). usage: python report/build_ceiling.py; build_pub.py copies the output."""
 import glob, json, os, subprocess, tempfile
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RUNS = os.path.dirname(os.path.dirname(HERE))
 IMAG = f"{RUNS}/20261026_imagine"
-TASKS = [("KettleBoiling", "full", 10), ("SteamInMicrowave", "multi", 12), ("PackIdenticalLunches", "multi", 26)]
+# (task, dir of the search, dir of the plain baselines with policy_seed 1-3, showcase scene)
+TASKS = [("KettleBoiling", "full_v2", "full", 10), ("SteamInMicrowave", "sim_pil", "multi", 12),
+         ("PackIdenticalLunches", "sim_pil", "multi", 26)]
 seed_of = lambda tag: int(tag.split("_s")[1].split("_")[0])
 calls = lambda steps: -(-steps // 16)
 
 
-def task_block(task, d, show):
-    rs = [json.loads(l) for p in glob.glob(f"{IMAG}/{d}/results_w*.jsonl") for l in open(p)]
-    rs = [r for r in rs if "error" not in r and r["tag"].startswith(task + "_")]
+def task_block(task, d, dbase, show):
+    load = lambda dd: [r for p in glob.glob(f"{IMAG}/{dd}/results_w*.jsonl") for r in map(json.loads, open(p))
+                       if "error" not in r and r["tag"].startswith(task + "_")]
+    rs = [r for r in load(d) if r["condition"] == "imagine"] + [r for r in load(dbase) if r["condition"] == "baseline"]
     base = defaultdict(dict)
     for p in glob.glob(f"{RUNS}/20261025_seen480/run/results_w*.jsonl"):
         for r in map(json.loads, open(p)):
@@ -70,11 +78,7 @@ def task_block(task, d, show):
     return out
 
 
-probe = []
-for p in json.load(open(f"{RUNS}/20261026_noise_probe/summary.json")):
-    sd, t0 = p["point"].split(" t0=")
-    probe.append(dict(seed=int(sd[1:]), t0=int(t0), role=p["role"], n=p["n"], success=p["success"], lifted=p["lifted"],
-                      spread=p["pos_disp_spread"], grip=p["grip_disagree"]))
+probe = json.load(open(f"{HERE}/noise_probe.json"))
 C = dict(tasks=[task_block(*t) for t in TASKS], probe=probe)
 with open(f"{HERE}/ceiling.js", "w") as f:
     f.write("window.CEILING = ")

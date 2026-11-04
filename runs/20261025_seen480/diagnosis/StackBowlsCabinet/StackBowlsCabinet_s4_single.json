@@ -1,0 +1,29 @@
+{
+ "tag": "StackBowlsCabinet_s4_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 8/style 8 (wood-panelled kitchen, open wooden upper cabinet); small brown bowl_8 (x0.7) and larger tan bowl_7 (x0.95). Nest-then-carry. Small bowl grasped 74/89 (lift 0.15 m) and set into the large bowl at 176 (clean nest, wrist 188). First pair grasp failed: at 225 the gripper closed with both rims left of the finger gap (contact with both, lift 1 cm, 233-238), and a second close at 245 touched only the large bowl (lift 1 cm). The arm rose, re-centred over the double rim (252-380) and closed again at 390, lifting the pair 0.62 m into the cabinet; released 503-506. Stage 0 at 503 (median 318, p90 427: slow by ~185 steps, almost all of it the 225->390 re-grasp), stage 1 at 518 (15 steps later); success 518.",
+ "causal_chain": "",
+ "self_recovery": "Missed pair grasp at 225/245 (rims outside the finger gap); recovered by lifting, re-centring and re-closing at 390 (~165 steps lost).",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_regrasp.png",
+   "frames/cmp_pair_grasp.png"
+  ],
+  "packet_facts": [
+   "closes 74 (bowl1), 225 (bowl1+bowl2, not lifted), 245 (bowl2, not lifted), 390 (both lifted)",
+   "bowl1 hold 233-238 lift 0.008; bowl2 hold 238-248 lift 0.011",
+   "pair holds 398/399-503/506 lift 0.62",
+   "stage0 503 (slow), stage1 518"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

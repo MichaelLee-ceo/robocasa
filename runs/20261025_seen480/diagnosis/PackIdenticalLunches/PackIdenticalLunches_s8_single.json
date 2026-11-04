@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s8_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout/style 5 (tupperwares side by side on the counter next to the fridge, ~0.64 m travel); bell_pepper_3/_2 and two ChickenDrumstick012. Drumstick meat0 grasped 86-97, released 258 into tupperware A (y~-1.2); stage 0 at 278. Drumstick meat1 grasped 475-499, released at 603 on the near rim/edge of the empty tupperware B (y~-1.43) (0.15 m from its centre, dropped 12 cm); the gripper came back and nudged it in (contact 650-653), at target from 654; stage 1 at 678. Pepper veg0 grasped 884-901, released 1016 into tupperware A (y~-1.2) with meat0; stage 2 at 1036. Pepper veg1 grasped 1208-1216, released 1403 into B with meat1; success 1430. The second meat went to the empty tupperware and each pepper to a tupperware holding only a meat.",
+ "causal_chain": "",
+ "self_recovery": "Recovered a rim placement of meat1 (release 603 at 0.147 m from centre) by pushing it in at 650-653 (lift 0); cost ~50 steps.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s8_overview.png", "frames/s8_m1_rim.png", "frames/compare_tupperware_choice.png"],
+  "packet_facts": ["meat1 holds: g499 r603 dist 0.147 drop 0.121; g650 r653 dist 0.018", "stages 278, 678, 1036, 1430 (all near median)"]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The rim placement and nudge are only partly visible behind the arm (zoom sheet)."
+}

@@ -1,0 +1,34 @@
+{
+ "tag": "PreSoakPan_s28_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  720,
+  1600
+ ],
+ "category": "stall_approach_retreat",
+ "secondary": [
+  "stall_at_fixture",
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene L8/S8, same faucet as s4/s8/s22. Here the sponge went first: grasped at 233 and released at 334, dropping ~16 cm into the basin (stage 0 at 348). The pan (pan_5) was grasped by the handle at 460 and placed flat in the basin at 612; the fingers brushed the sponge at 607-614 (stage 1 at 631). Stage 2, first approach 720-860: the gripper pressed against the round spout head (sink contact 770-858; the head fills the wrist view and the lever shows behind or below it). The lever never moved. 880-1120: it hovered upside-down to the left of the faucet with the lever in close view (940-1120), without contact. ~1200: it retreated to the right. 1283-1305: brief contact with the basin rim while looking into the basin. ~1400: another close approach with the lever in view, no contact. 1480-1600: retreat and looking around. The handle stayed at 0.000.",
+ "causal_chain": "both objects in by 631 (969 steps left) -> first approach hits the spout head (770-858), not the lever -> hovers near the lever 880-1120 without touching -> retreat / re-approach (~1400) / retreat cycle -> lever never moved, water off at 1600",
+ "self_recovery": "Several re-approaches to the faucet (880-1120, ~1400). None touched the lever.",
+ "official_criterion_notes": "The sink contact intervals mix spout-head (770-858) and basin-rim (1283-1305) contacts. Objects stayed in the basin.",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_handle.png",
+   "frames/s28_after.png"
+  ],
+  "packet_facts": [
+   "sink value 0.000 all episode",
+   "sink touch [[770,808],[810,830],[846,858],[1283,1295],[1297,1305]]",
+   "closes 824 and 1407 on nothing",
+   "sponge hold 233-334 (drop 0.158); pan hold 460-612; stage1 631"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether 880-1120 was a deliberate hover at the lever or repositioning. The wrist shows the lever within a few cm but no contact."
+}

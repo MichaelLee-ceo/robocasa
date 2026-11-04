@@ -1,0 +1,33 @@
+{
+ "tag": "GetToastedBread_s28_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  94,
+  861
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 8, silver/black single-pair toaster standing end-on to the robot (same kitchen as s3/s16/s19), with the lever slot and lever tab at the bottom of the black near end; bread in the left slot. Stage 0: from 94 to 270 the gripper was at the near end with the lever slot centred in the wrist view (nearly continuous contact). It moved the lever only 0.02-0.08 for ~180 steps. The fingers closed at ~170. At 282-292 the fist got onto the lever tab and pushed it to 0.53 (bread -3.5 cm), and at 336 to 0.58, both below the 0.9 switch-on. It let go, and the lever sprang back by 496. 435-530 and 660-861 it touched the end and side of the toaster again with no lever motion. From ~900 the arm lifted and turned away: 1000-1400 at the window corner, 1600-1800 at the stove/fridge, and at 2000 at the dining counter, empty-handed. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "~180 steps at the lever slot moving it <= 0.08 (94-270) -> two pushes reaching 0.53 and 0.58 (288, 336; 0.9 needed) -> released, no further effective push (435-861) -> wandered through the kitchen to the dining counter (900-2000) -> toaster never on",
+ "self_recovery": "a second push at 336 (0.58) after the first (0.53), then more touches 435-861 without lever motion.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_press.png"
+  ],
+  "packet_facts": [
+   "lever 0.02-0.08 at 96-272, 0.53@288, 0.58@336, 0@496; done []",
+   "bread dz -3.5 cm at 288, -3.9 cm at 336",
+   "toaster touch 99-292, 328-332, 435-528, 660-672, 735-861",
+   "gripper closed 176-2000 (except 664-680); obj touch []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

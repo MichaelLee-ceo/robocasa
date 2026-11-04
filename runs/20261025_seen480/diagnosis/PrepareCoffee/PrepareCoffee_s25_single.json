@@ -1,0 +1,30 @@
+{
+ "tag": "PrepareCoffee_s25_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  127,
+  1200
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 8 (capsule machine CoffeeMachine102 on the counter), wide printed tea mug_8 in a beige upper cabinet with a peeler distractor, handle pointing right. Stage 0: the gripper came to the mug (100-124; it fills the wrist view) and the fingers closed at ~127-144 at the mug's front wall without touching it (no contact in the packet; the wall appears just at/beyond the fingertips). The fingers then stayed closed (0.001) for the rest of the episode. From ~160 the arm backed off and from 248 to 1200 it hovered 15-30 cm in front of the mug inside the cabinet opening, the mug centred in the wrist view, without another grasp. The mug never moved; the machine was never approached.",
+ "causal_chain": "close at the mug wall without contact (127) -> gripper never reopens -> ~1050 steps hovering in front of the mug with closed fingers -> mug never picked -> timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s25_overview.png"
+  ],
+  "packet_facts": [
+   "mug gripper_touch_intervals []; end_pos = start_pos",
+   "close_events: 127 on_nothing; gripper width 0.001 from 160 to 1200",
+   "min_eef_dist_to_centre 0.055"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the fingers closed just short of the wall or slid past the rim; both give no contact."
+}

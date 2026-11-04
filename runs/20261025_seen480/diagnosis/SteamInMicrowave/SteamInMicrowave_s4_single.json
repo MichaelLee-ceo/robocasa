@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s4_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 8 (over-the-range microwave above a gas range, as s10, s17, s23). Stage 0: potato grasped at 142, released into the wooden bowl at 269 (stage 0 at 270). Stage 1 was slow (605 steps, p90 596): the first bowl grasp at 371 closed on the rim and the potato (width 0.014, nothing lifted). The gripper then hovered over the bowl 380-535 before a second grasp at 535 lifted it (~165 steps lost). Bowl carried to the microwave, released inside at 852, stage 1 at 875. Stage 2: the arm reached far left to the door's outer face (960) and swung it shut 976-1037 (162 steps). Stage 3 was slow (344 steps, at p90 345): a contact at 1095-1100 on the door glass, a press at 1233-1239 on the KITCHEN TIMER key (one key above START, the same near-miss as in failures s11/s15), then a press at 1381-1389 squarely on START/ENTER. Success at 1381, 19 steps before the timeout.",
+ "causal_chain": "",
+ "self_recovery": "Re-grasped the bowl after a failed first close (371 -> 535). Re-pressed after a near-miss on KITCHEN TIMER (1233) and hit START at 1381.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s4_overview.png", "frames/s4_press.png", "frames/cmp_L8_afterplace.png"],
+   "packet_facts": ["close_events 371 bowl+vegetable lifted none; 535 bowl lifted", "bowl hold 546-852 lift 0.64", "door 0.03 -> 1.0 at 1040", "microwave touches 1095-1100, 1233-1239, 1381-1389; success 1381"]},
+ "confidence": "high", "uncertain_about": ""}

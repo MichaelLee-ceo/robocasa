@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s14_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 2 (wood counters, white cabinets, island with sink); knife (knife_5, wooden handle) in a drawer of the island; large dark board on the back counter 1.5 m away; a thick steak (steak_5) on a white plate by the sink 1.26 m from the board. Stage 0 fast: single close at 182 (lift 0.45 m from 192), base move, released on the board at 403 (0.135 m from centre, near one end of the large board). Stage 1 slowish (381 steps, p90 478) only because of the base move to the plate and back: grasped the steak at 615 (lift 0.21 m), placed it on the board at 762 (0.019 m from centre) next to the knife. Success at 784.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "One-step stage-0 flicker at 414 ('object left the target') while the knife lies still; contact flicker of the on-board check.",
+ "evidence": {"sheets": ["frames/s14_overview.png"],
+   "packet_facts": ["close 182 lifted knife; hold 192-403 lift 0.454 dist 0.135", "meat hold 615-762 lift 0.205 dist 0.019; meat dist_to_target_start 1.26 m"]},
+ "confidence": "high", "uncertain_about": ""}

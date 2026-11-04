@@ -6,8 +6,8 @@ import glob, json, os
 import numpy as np
 import pandas as pd
 
-D = "/home/michaellee/mclee/robocasa/runs/20261026_critic_data"
-MAIN = "/home/michaellee/mclee/robocasa/runs/20261025_seen480/run"
+D = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261026_critic_data")
+MAIN = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261025_seen480/run")
 HERE = os.path.dirname(os.path.abspath(__file__))
 F1, F2 = 12, 13  # finger joints in the flattened state
 STEPS = (1, 2, 4, 8, 16)

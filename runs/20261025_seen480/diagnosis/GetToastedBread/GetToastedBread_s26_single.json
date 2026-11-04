@@ -1,0 +1,36 @@
+{
+ "tag": "GetToastedBread_s26_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  114,
+  728
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "missed_grasp",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster, bread in slot 3 (right pair, pair 1); the two lever handles are on the front face. Stage 0: from 114 to ~370 the open gripper rested on the toaster top above the bread (continuous toaster contact) without moving any lever. 370-392 the fingertips pushed down on the bread top. That pushed the bread and the pair-1 carriage down to 0.46 (bread -2.3 cm), well short of the 0.9 needed to switch on, and both sprang back by 480. 490-720 it tried to grasp the untoasted bread from above. The bread was centred between the open fingers at 608-688, with contacts at 490-516, 524-534, 569-597 and 694-709. The fingers closed at 630 (0.058), 678 (0.023) and 721 (0.001), each time without lifting the bread (lift 0-1 mm; the bread sat too low in the slot). Each push nudged the carriage to 0.11-0.13. After 728 the fingers stayed closed. 760-1240 the fist moved around the toaster front and top (toaster contact 1070-1226) without touching either lever handle. It then lifted away (1400) and hovered in front of the toaster until 2000. The lever was never pressed; the bread stayed in the toaster, untoasted.",
+ "causal_chain": "rested on the toaster top 114-370 -> pushed the bread down (carriage 0.46, below the 0.9 switch-on) -> repeated attempts to grasp and pull out the untoasted bread (490-721, no lift) -> fingers closed for good at 728; never used the lever handle -> toaster never on, stage 0 failed",
+ "self_recovery": "none effective: the only lever motion was a side-effect of pushing on the bread.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_lever.png",
+   "frames/s26_bread.png",
+   "frames/s26_late.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "pair1 lever 0.46@384 (bread dz -2.3 cm), 0.13@512, 0.12@592, 0.06@704; never >= 0.9",
+   "obj touch 370-392, 490-534, 569-597, 694-709; holds 524-530, 586-598, 694-710 all lift <= 0.001",
+   "close_events 630 (0.058), 678 (0.023), 721 (0.001) flagged on_nothing",
+   "toaster touch 114-728 nearly continuous, 1070-1226, 1882-1885"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 370-392 push on the bread was an intended 'press' (pressing the bread down instead of the lever) or the first grasp approach."
+}

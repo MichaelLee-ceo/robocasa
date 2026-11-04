@@ -1,0 +1,57 @@
+{
+ "task": "StirVegetables",
+ "instruction": "Put the potato and tomato in the pot. Retrieve the spatula and lightly stir the vegetables in the pot.",
+ "stages": [
+  "0: PickPlaceCounterToStove",
+  "1: PickPlaceCounterToStove",
+  "2: PickUpSpatula",
+  "3: StirVegetables"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "at least one of the two vegetables lies in the pot and the gripper is no longer touching it.",
+   "does_not_count": "no vegetable is in the pot yet (still on the counter, held, or dropped outside)."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "both vegetables lie in the pot and the gripper is not touching them.",
+   "does_not_count": "only one vegetable is in the pot, or the gripper is still holding the second one."
+  },
+  {
+   "stage": 2,
+   "counts_as_complete": "the gripper is holding the spatula and the spatula is lifted off the counter.",
+   "does_not_count": "the spatula still lies on the counter, or the gripper touches it without holding it up."
+  },
+  {
+   "stage": 3,
+   "counts_as_complete": "while holding the spatula, the robot has pushed both vegetables around inside the pot (the vegetables visibly move), with the pot on the burner of the task.",
+   "does_not_count": "the spatula has not touched the vegetables, the vegetables did not move, or the robot is not holding the spatula."
+  }
+ ],
+ "horizon": 1600,
+ "episodes": 30,
+ "successes": 9,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 232,
+   "p90": 251,
+   "n": 9
+  },
+  "1": {
+   "median": 282,
+   "p90": 551,
+   "n": 9
+  },
+  "2": {
+   "median": 152,
+   "p90": 217,
+   "n": 9
+  },
+  "3": {
+   "median": 315,
+   "p90": 637,
+   "n": 8
+  }
+ }
+}

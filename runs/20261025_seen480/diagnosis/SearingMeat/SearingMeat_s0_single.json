@@ -1,0 +1,36 @@
+{
+ "tag": "SearingMeat_s0_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  60,
+  2900
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 9, dark-blue cabinets; pan_6 (dark pan, wooden handle with metal ferrule) on a high open shelf/upper cabinet (z=1.45) left of the robot, target front_center burner 2.28 m away; fish on a plate 2.95 m from the burner. Stage 0: the gripper reached up to the pan's handle end at 60-112 (pan touch 63-111, pushes only; wrist shows the handle lying at/just below finger level, not between the fingers) and closed at 115 on air (width 0.002); the handle ends up under the gripper (zoom 116-128). It backed off, re-opened at ~288, came back to the handle end at 340-372 and closed on air again at 375 (no pan contact). From 392 to 2848 the fingers stayed closed and the arm hovered 15-40 cm in front of/below the pan (wrist keeps the pan in view at 500, 1400, 2060, 2860), with two more closes on air (879, 2065) and no further pan contact until a brush at 2895. The pan never moved (end 2.29 m from the burner); stages 1-2 never started.",
+ "causal_chain": "approached the end of the pan handle from below/in front at ~60 -> closed on air at 115 (handle below the fingers) -> second close on air at 375 -> fingers kept closed and arm hovered near the pan 392-2848 (~2450 steps) -> pan never left the cabinet -> timeout at 2900",
+ "self_recovery": "One re-try (re-opened ~288, closed on air again at 375). After that the gripper stayed closed and the policy only hovered; no further real attempt.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/s0_grasp1.png",
+   "frames/s0_grasp1_zoom.png",
+   "frames/s0_grasp2.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan touch 63-111 (16 short intervals), then only 2895-2899",
+   "close_events 115 air, 375 air, 879 air, 2065 air",
+   "gripper closed (<0.01) 392-2848",
+   "pan holds: none; pan end dist 2.29 m (unchanged)",
+   "pan min_eef_dist 0.165"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact finger-handle geometry at 115 (the handle seems to pass under the closing fingers); why the policy kept the fingers closed while hovering."
+}

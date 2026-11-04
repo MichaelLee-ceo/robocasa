@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s7_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  80,
+  192
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster, bread in the RIGHT-most slot (pair 1). At the start the bread was at the top-right edge of the wrist view. The fingers closed at ~40 and never reopened. Stage 0: the fist went to the LEFT lever (under slots 1-2), which was centred in the wrist view at 80-144, and pushed it down 144-192 (0.04 -> 0.74 -> 1.0). Pair 0 was on 180-679 while the bread in pair 1 did not move (dz 0). The arm lifted at ~380, with the bread visible in the right slot. 600-720 the closed fist came round the toaster's right end to the bread and touched it twice (663-668, 688-692). The fingers stayed closed, so this was a push, not a grasp (lift 0). It backed off at ~760. The empty pair-0 carriage sprang back up at ~688. From 800 to 2000 the arm hovered to the right of and above the toaster with the bread in view, without touching anything.",
+ "causal_chain": "pressed the left lever (pair 0) while the bread was in pair 1 (144-192) -> the toaster ran empty, bread never switched on -> stage 0 impossible without pressing the right lever, which it never touched -> closed-fist contact with the bread at 663-692, then hover until timeout",
+ "self_recovery": "none: it never tried the right lever; the contacts with the bread at 663-692 were made with closed fingers.",
+ "official_criterion_notes": "done_intervals [[180,679]] = the wrong (empty) pair was toasting; stage 0 correctly never holds.",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/s7_press.png",
+   "frames/s7_bread_touch.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "pair0 lever 0.11@160, 0.74@176, 1.0@192; toaster done_intervals [[180,679]] (pair 0); pair1 lever 0 except 0.07 at 672-688",
+   "bread dz 0 all episode (saved states)",
+   "obj touch [[663,668],[688,690],[692,692]] with lift 0.0",
+   "gripper closed from 40 to 2000"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

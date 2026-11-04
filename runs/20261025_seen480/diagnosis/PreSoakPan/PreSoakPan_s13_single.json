@@ -1,0 +1,25 @@
+{
+ "tag": "PreSoakPan_s13_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L9/S9. A different strategy: the sponge was grasped first at 121 and carried over the sink, where it briefly counted as inside at 154-156. It was then placed ON the pan still on the counter, at 319 (0.26 m from the basin). The pan (pan_4) was then grasped by the handle at 442 with the sponge inside, carried, and released at 522 slightly above the basin (dropped 10 cm). Both landed inside: stage 0 at 525, stage 1 at 530. Stage 2: contact with the stub lever from above, 770-865; success at 867 (97 steps of contact).",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Stage 0 is only credited at 525 because the sponge's first release (319) was on the pan on the counter. Stage durations (525 / 5) are artefacts of the order-free counting, not slowness.",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png",
+   "frames/L9_lever_compare.png"
+  ],
+  "packet_facts": [
+   "sponge hold 121-319 dist at release 0.258; pan hold 442-522 drop 0.102",
+   "stage times 525 / 530 / 867"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

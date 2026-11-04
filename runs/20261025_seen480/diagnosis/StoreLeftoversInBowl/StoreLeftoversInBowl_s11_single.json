@@ -1,0 +1,11 @@
+{"tag": "StoreLeftoversInBowl_s11_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 2, "root_cause_steps": [627, 792],
+ "category": "undid_previous_stage",
+ "secondary": ["placed_then_fell_or_slid", "other: bowl carried tilted > 45 deg in the rim grasp (627-783)"],
+ "what_happened": "Layout 9 (side-by-side fridge, narrow open right compartment), deep brown bowl_8, red bell pepper, drumstick 011. Stage 0: pepper grasped 86, released in the bowl 161 (stage 0 at 158). Stage 1: drumstick grasped 281, released in the bowl 356 (stage 1 at 356, 198 steps, normal). Stage 2: rim grasp 403-424 (width 0.023), lift 0.441 m, base drove to the fridge 500-660. The bowl tilted past 45 deg at 627 and was carried with its opening toward the robot. 700-784 the arm pressed the sideways bowl against the front edge of an upper shelf, at the left post of the compartment opening. With the bowl on its side the drumstick (~766, drop 1.32 m) and the pepper (~778, drop 1.27 m) slid out and fell to the floor. At 784 the gripper opened (0.027 -> 0.073) with the bowl 4.5 cm outside the interior; the bowl fell off the shelf edge to the floor (drop 1.15 m). 800-1700 the empty arm stayed at the fridge.",
+ "causal_chain": "bowl tilted > 45 deg in the rim grasp during the carry (627) -> held on its side against the front edge of an upper shelf (700-784) -> both foods slid out to the floor (766, 778), undoing stages 0/1 -> gripper opened at 784, the bowl fell off the shelf edge -> nothing left to recover in the remaining 900 steps",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s11_carry.png", "frames/s11_drop_zoom.png", "frames/L9_release_compare.png"],
+  "packet_facts": ["bowl tipped [[627,783],...]; hold 413-786 lift 0.441, dist at release 0.045, drop 1.15", "drumstick hold 664-766 drop 1.323; veg hold 721-778 drop 1.27", "gripper 0.022 until 760, 0.073 at 784", "stage1 last interval ends 782, stage0 ends 793"]},
+ "confidence": "high", "uncertain_about": ""}

@@ -1,0 +1,28 @@
+{
+ "tag": "SearingMeat_s23_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 1 (dark-grey cabinets, brick wall), 4-element black glass electric range with front knobs; pan_5 (black pan, long tan wooden handle with a black neck) in an upper cabinet; target front_right; steak on a plate right of the range. Stage 0 took 1970 steps (median 378, p90 813) because of two failed grasps and a drop. (1) 188-340: fingers at the handle with the handle lying across the fingers; close 327 (width 0.027) slipped, fingers fully closed at 352; close on air at 400; 400-700 it backed off and hovered. (2) 721: closed on the handle and pulled the pan out (hold 736-791, lift 0.09 m) while the base turned; the pan hung from the handle and slipped out at ~792, falling 0.52 m onto the counter in front of the robot, landing flat and upright with the handle toward the robot. (3) 820-1300 the policy turned to the range empty-handed and looked at the burners (no place attempt, gripper partly open), then came back to the pan on the counter (1440-1500), grasped the tan handle just below the black neck with the handle running toward the camera between the fingers (close 1491, hold 1506-1949, lifted ~0.48 m), carried it to the range and released it on front_right at 1949 (0.056 m). Stage 0 complete 1970. Stage 1: steak grasped at 2075-2087, released into the pan at 2166 (stage 1 at 2166, 196 steps, normal). Stage 2: knob contact 2373-2560, front_right 0.05 (2464) -> 0.36 (2560): success 2558, only 342 steps before the horizon.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from a slipped grasp (327-352) and from a dropped pan (~792): re-grasped the pan from the counter at 1491 with a body-side handle grasp and completed all stages. The drop landed the pan upright on the counter within reach, which made the recovery possible; in s2/s4/s9/s13 the pan fell to the floor, off the counter or upside down and the policy never retried.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_drop.png",
+   "frames/s23_recover.png"
+  ],
+  "packet_facts": [
+   "pan holds 293-296; 736-791 lift 0.094 drop 0.524; 1506-1949 lift 0.481 at_target dist 0.0565",
+   "close 327 -> 0.001 at 352 (slip); close 400 air; 721; 1491",
+   "stage0 1970 (p90 813), stage1 2166, stage2 2558",
+   "front_right 0.36 at end"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 820-1300 phase was a deliberate empty 'place' or just exploration; the gripper stayed partly open and no knob was touched."
+}

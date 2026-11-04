@@ -164,6 +164,6 @@ TASKS["CondimentCollection"] = _pair_steps("PickPlaceCounterToCabinet", ["condim
 
 
 # The other 11 composite-seen tasks (ASUS-GPU, 2026-10-14): steps from the dataset subtask annotations, checks validated
-# by demo replay (runs/prev/_handoff_verify_asus/seen11/README.md). Every task's last step is env._check_success().
+# by demo replay (runs/20261025_labeler_check). Every task's last step is env._check_success().
 from atomic_steps_seen11 import TASKS as _TASKS_SEEN11  # noqa: E402
 TASKS.update(_TASKS_SEEN11)

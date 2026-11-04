@@ -1,0 +1,31 @@
+{
+ "tag": "DeliverStraw_s10_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  200,
+  1700
+ ],
+ "category": "stall_approach_retreat",
+ "secondary": [
+  "missed_grasp",
+  "wander_away"
+ ],
+ "what_happened": "Layout 9 corner. ~200 the handle was in the finger gap but the gripper only twitched (231, width 0.076, i.e. no real close), then rose and moved along the drawers; 520-1400 the arm went down to floor level / lower cabinets. Closes on air at 708 (0.04), 797, 1264 and 1582, none near the handle. Drawer 0, no drawer touch, straw untouched (min eef 0.37 m).",
+ "causal_chain": "aligned with the handle (~200) but did not close -> retreated and searched elsewhere (520-1400) -> repeated closes on air -> drawer never opened -> timeout",
+ "self_recovery": "none effective",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_dense.png"
+  ],
+  "packet_facts": [
+   "closes 231 (0.076), 708 (0.04), 797, 1264, 1582 all on_nothing",
+   "drawer touch [] value 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the gripper was close enough to the handle at ~200 to grasp it; the packet registers no drawer contact."
+}

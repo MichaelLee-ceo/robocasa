@@ -1,0 +1,10 @@
+{"tag": "LoadDishwasher_s26_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene layout 9 (navy cabinets, double sink; dishwasher at the right edge of the agent view, the same side as failures s3 and s20), red cup_4 and dark-red bowl_9. Stage 0: cup grasped 109-117, released 203 into the slid-out rack where it lay on its side (tipped 208-1008); stage 0 complete 208 (fast). Stage 1: bowl grasped 332-340, released 436 standing on edge between the rack wires (tilt 52 deg); stage 1 complete 437 (229 steps, normal). Stage 2 was abnormally slow (570 steps; median 169, p90 273): 520-700 the gripper sat at the top edge/control strip of the open door (wrist: '12:00' display at close range, the same pose as failure s11), with closes on air at 518 and 637; 720-900 it hovered over the still slid-out rack looking at the dishes (close on air 823); 920-940 it went down to floor level beside the door's outer edge, and from ~960 it was under the door and lifted it (0.24@976, 0.60@992, 0.98@1008). Success at 1007, with the door at 0.98.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from a ~400-step stall at the door top (520-900, 3 closes on air) by eventually going low and under the door at ~950; success came at step 1007 of 1200.",
+ "official_criterion_notes": "The cup was lying on its side in the rack the whole time and counted as placed. Stage 2 success at closedness 0.98 (threshold 0.95).",
+ "evidence": {"sheets": ["frames/s26_overview.png", "frames/s26_door.png"],
+  "packet_facts": ["stage0 208, stage1 437, stage2 1007 (570 steps)", "closes on air 518, 637, 823, 982", "door 0.24@976 0.60@992 0.98@1008"]},
+ "confidence": "high", "uncertain_about": "When exactly the rack went back into the tub (still out at 880)."}

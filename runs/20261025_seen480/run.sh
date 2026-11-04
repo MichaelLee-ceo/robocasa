@@ -7,7 +7,7 @@
 # usage: run.sh <out dir> <jobs.json> <workers per GPU> [servers per GPU=4] [threads per server=4]
 set -u
 OUT=$1; JOBS=$2; NPG=$3; SPG=${4:-4}; ST=${5:-4}
-export ROBOCASA_ROOT=/home/michaellee/mclee/robocasa
+export ROBOCASA_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 source $(conda info --base)/etc/profile.d/conda.sh && conda activate $ROBOCASA_ROOT/envs/groot
 export CUDA_DEVICE_ORDER=PCI_BUS_ID MUJOCO_GL=egl PIP_CONFIG_FILE=/dev/null NO_ALBUMENTATIONS_UPDATE=1 HF_HUB_CACHE=$ROBOCASA_ROOT/.hf_cache/hub
 CK=$ROBOCASA_ROOT/checkpoints/gr00t_n1-5/foundation_model_learning/target_posttraining/composite_seen/checkpoint-60000

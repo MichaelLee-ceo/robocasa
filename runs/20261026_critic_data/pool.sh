@@ -7,7 +7,7 @@
 # usage: [G=1] [PORT0=5741 | PORTS="5731 5732"] [W0=100] pool.sh <out dir> <jobs.json> <n workers> [n servers=4]
 set -u
 OUT=$(realpath -m "$1"); JOBS=$(realpath "$2"); NW=$3; NS=${4:-4}
-export ROBOCASA_ROOT=/home/michaellee/mclee/robocasa
+export ROBOCASA_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 source $(conda info --base)/etc/profile.d/conda.sh && conda activate $ROBOCASA_ROOT/envs/groot
 export CUDA_DEVICE_ORDER=PCI_BUS_ID MUJOCO_GL=egl PIP_CONFIG_FILE=/dev/null NO_ALBUMENTATIONS_UPDATE=1 HF_HUB_CACHE=$ROBOCASA_ROOT/.hf_cache/hub
 CK=$ROBOCASA_ROOT/checkpoints/gr00t_n1-5/foundation_model_learning/target_posttraining/composite_seen/checkpoint-60000

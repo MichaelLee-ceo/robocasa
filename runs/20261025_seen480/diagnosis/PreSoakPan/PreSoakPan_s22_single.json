@@ -1,0 +1,39 @@
+{
+ "tag": "PreSoakPan_s22_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  754,
+  1600
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture",
+  "stall_approach_retreat"
+ ],
+ "what_happened": "Scene L8/S8: single grey basin with a drainboard, faucet with a horizontal spout ending in a round spray head and a small paddle lever at the right side of the column base, directly under the spout arm. Stages 0/1: pan (pan_5, wooden handle) grasped by the handle at 140, lowered flat into the basin and released at 259 (stage 0 at 271). Sponge grasped at 368 and dropped into the pan at 507 (stage 1 at 529). Both lie fully in the basin until the end. Stage 2: the gripper went to the spout head at 600-720, then down to the lever by 754. It stayed in contact with the lever for about 200 steps (754-953) without moving it. At 968-992 it swept the lever sideways to 0.214 rad (water needs > 0.40; range 0-0.5). At about 992 the lever slipped out of the finger gap and the arm left. 1040-1160 it backed off and looked down at the sink (no water). It re-approached the lever twice: 1220-1256 (one-step touch, no change) and 1508-1556. The second visit pushed the lever back from 0.214 to 0.119 rad. At 1560-1600 the arm swung away.",
+ "causal_chain": "both objects in by 529 (1071 steps left; stage 2 median 232) -> dwell at the lever 754-953 without moving it -> sweep 968-992 reaches 0.214 rad, lever slips out of the fingers -> retreat and two short re-approaches (1220-1256, 1508-1556) that do not push it further (the last one pushes it back to 0.119) -> water never on at 1600",
+ "self_recovery": "Two re-approaches to the lever (1220-1256, 1508-1556). Neither re-engaged the lever properly; the second moved it back toward off.",
+ "official_criterion_notes": "The pan and sponge stayed fully inside the basin, and turning the lever did not disturb them. The packet's fixtures.sink.gripper_touch_intervals count contact with any sink geom (spout head included), so 618-706 is the spout head and 754-1013 is the lever.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_handle1.png",
+   "frames/s22_sweep_wrist.png",
+   "frames/s22_faucet_zoom.png",
+   "frames/s22_after.png",
+   "frames/s22_late.png",
+   "frames/s10_handle.png",
+   "frames/s10_sweep_wrist.png"
+  ],
+  "packet_facts": [
+   "sink value 0.0012@944 -> 0.1094@976 -> 0.2133@992 -> 0.2143 held -> 0.1189 from ~1540; water_on never",
+   "sink touch [[618,692],[694,706],[754,953],[958,991],[998,1013],[1254,1254],[1508,1556]]",
+   "pan hold 140-259 lift 0.108; sponge hold 368-507; both at target to 1600",
+   "stage1 complete 529"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the lever slipped at 0.214 rad. The wrist view shows it leaving the finger gap while the hand moved up/sideways. I cannot tell whether the arm was at a reach or orientation limit."
+}

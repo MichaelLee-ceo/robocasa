@@ -1,0 +1,35 @@
+{
+ "tag": "WashLettuce_s10_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  199,
+  620
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture",
+  "wander_away"
+ ],
+ "what_happened": "Scene layout 8 / style 8 (same sink and lever as s4/s8/s22); lettuce colander right of the sink, out of the agent view. Stage 0: the gripper reached the lever at ~199 and closed on it at 240 (width 0.020, lever visible between the fingers 232-500), holding it until 571 (touch 250-571). During this ~330-step hold the handle stayed at ~0 (0.00-0.02 rad; the 6.28 samples 208-400 are a tiny negative angle wrapped by mod 2pi), while the mobile base drifted (agent view pans 360-540). At ~528-584 the spout swung past the wrist camera and the lever reached only 0.19-0.28 rad (560-576) as the gripper let go (571). Handle 0.28 rad to the end: no water. 600-1100: the arm hovered near the faucet with the base shifted left, the wrist camera looking at the drainboard and the utensil rail; it never returned to the lever and never went to the lettuce.",
+ "causal_chain": "held the lever 240-571 without turning it (handle ~0 for 330 steps) -> lever left at 0.28 rad (< 0.40) when released at 571 -> water never on -> wandered near the faucet 600-1100 -> no washing possible",
+ "self_recovery": "none effective: after releasing the lever at 0.28 rad it stayed near the faucet but did not re-grasp the lever.",
+ "official_criterion_notes": "fixture value_every_16_steps shows 6.28 for 208-400: an angle a hair below 0 wrapped mod 2pi then abs'd by the packet tooling, effectively 0. No stream visible, consistent with water_on false.",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_handle.png",
+   "frames/s10_late.png",
+   "frames/L8_handle_compare.png"
+  ],
+  "packet_facts": [
+   "sink gripper_touch [[199,209],...,[250,542],[544,571],[574,574]]",
+   "close_events 240 (0.026, lever between fingers; packet says on_nothing because the lever is not a tracked object) and 571 (0.003)",
+   "handle 6.28/0.00-0.02 until 544, 0.19@560, 0.28 from 576 to end; water_on false",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "What arm/base motion was intended during the 330-step hold; the spout rotation at 528-584 suggests the arm was pushing on the spout rather than turning the lever."
+}

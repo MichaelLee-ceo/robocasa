@@ -1,0 +1,35 @@
+{
+ "tag": "GetToastedBread_s3_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  160,
+  1181
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "missed_grasp",
+  "stall_at_fixture",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 8, silver 2-slot (single-pair) toaster standing END-ON to the robot: the black end with the lever and knob faces the robot, and the slots run away from it. The bread is in the right slot. Stage 0: the open gripper went over the slot top, not to the lever on the near end face. 160-300 it hovered over the bread (brief bread contacts 253-272, slight touch of the carriage), then lifted and hovered by the window 300-750. 760-912 it came down over the bread again with the slice between the open fingers. Pushing on the bread top drove the carriage partly down (0.20 at 784, 0.46 at 880; the bread dropped 2.4 cm), then it closed on the bread at 881-901 (lift 1 mm) and fully at 923-936. The carriage sprang back by 1008. With closed fingers it then touched the near (lever) end of the toaster 1027-1181 without moving the lever (value 0). From ~1400 it turned away to the window and sink (1600-2000). The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "went to the bread on top instead of the lever on the near end face -> hovered (160-300, 300-750) -> pushed down on the bread (lever 0.46 as a side-effect) and tried to grasp it (881-923, no lift) -> fingers closed for good; touched the lever end 1027-1181 without moving the lever -> wandered off -> toaster never on",
+ "self_recovery": "none effective.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_early.png",
+   "frames/s3_press.png"
+  ],
+  "packet_facts": [
+   "obj touch 253-272, 766-787, 827-900; holds 881-893 (lift 0.001), 897-901",
+   "lever 0.195@784, 0.456@880, 0@1008; done []; bread dz -2.4 cm at 896",
+   "gripper open until 896, closed 936-2000; close_event 923 on nothing",
+   "toaster touch 151-255, 763-933, 1027-1181"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The intent of 760-912: a grasp on the bread top, or an attempt to 'press' by pushing the bread down. The partial carriage motion came from the push on the bread, not from the lever handle."
+}

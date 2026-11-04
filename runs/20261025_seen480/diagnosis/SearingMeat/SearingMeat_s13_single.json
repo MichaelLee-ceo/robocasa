@@ -1,0 +1,34 @@
+{
+ "tag": "SearingMeat_s13_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  100,
+  268
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "missed_grasp_continued_empty",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: layout 9 (dark-blue cabinets, same kitchen as s0/s2/s3), pan_7 (rusty cast iron, flat integrated handle with a hanging hole) in the high upper cabinet; target = the large 'left' burner of the 5-burner gas hob ~1.8 m to the right; steak on a plate right of the hob. Stage 0: the gripper took the pan by the END of the handle (wrist 100-140: the hole at the fingertips; hold 106-262 with width ~0.057). It pulled the pan out; the pan hung almost vertically from the handle tip (180-260) while the base rotated toward the hob. At ~262 the handle tip slipped out (fingers to 0.003 at 254-272) and the pan fell 0.85 m off the counter edge, ending tilted (64 deg) at z 0.47 m in front of the lower cabinets (tipped 264-2900). The policy did not go back: it looked over the hob (320-700), picked the steak at 923-931 (lift 0.30 m), put it straight onto the bare left grate (~1031), and turned the left (task) knob to 2.8 rad (1152-1344; flame under the steak); later also front_center to 1.46 rad (2784). Stages 0-2 never held.",
+ "causal_chain": "held the cast-iron pan by the tip of its handle -> pan hung vertically during the base rotation -> slipped out at ~262 and fell off the counter -> policy continued as if the pan were placed: steak put on the bare left burner (1031), task knob turned on (1152+) -> fail",
+ "self_recovery": "none for the pan.",
+ "official_criterion_notes": "stage2:stove done_intervals [[1156,2900]] = task knob 'left' on (2.82 rad) with the steak directly on the grate and no pan; stage 2 correctly never holds.",
+ "evidence": {
+  "sheets": [
+   "frames/s13_drop.png",
+   "frames/s13_after.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 106-262, drop_after_release 0.85 m, tipped [[264,2900]], end z 0.474",
+   "close 254 -> 0.003",
+   "steak hold 931-1031 lift 0.302, end 0.83 m from the pan",
+   "left (task) 0.21@1152 -> 2.82; front_center 1.46@2784"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact resting place of the pan (z 0.47 m: against the lower cabinet front or a drawer); it is out of view."
+}

@@ -1,0 +1,33 @@
+{
+ "tag": "SearingMeat_s18_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  256,
+  377
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene: layout 9 (dark-blue cabinets, white tiles; same kitchen as s0/s2/s3/s13/s26), 5-burner gas hob (large 'left' burner, front/rear centre, front/rear right); pan_6 (dark pan, wooden handle with metal ferrule) in the high upper cabinet; target front_center; fish on a plate right of the hob. Stage 0: clean grasp at 110 at the ferrule (handle toward the camera between the fingers, width ~0.056, hold 135-377). The base turned to the hob and the pan was carried in from the right; it passed over front_center (0.171 m at 288) but was lowered farther left and released at 377 straddling the gap between the large left burner and the centre column, 0.088-0.112 m from the 'left' burner centre and 0.233 m from front_center. Stage 1: fish grasped at 486 (lift 0.22 m) and released into the pan at 601 (0.03 m): complete 601-2900. Stage 2: the policy turned the 'left' knob first (0.93 rad at 736, the burner actually under the pan; it stayed 0.57-2.41 to the end), then the task knob front_center to 1.15 rad (2144-2176) and front_right to 0.75 rad (2304-2336). Flames on left and front_center are visible either side of the pan (2200). Stage 2 never held because the pan is not within 0.15 m of front_center.",
+ "causal_chain": "pan carried past front_center and set down one burner too far left (377; 0.233 m from front_center, 0.11 m from left) -> fish correctly in the pan -> three knobs turned including the task knob -> task burner lit next to the pan, not under it -> fail",
+ "self_recovery": "none for the pan; it never re-touched it except a brief contact at 1334-1344.",
+ "official_criterion_notes": "stage2:stove done_intervals [[2153,2900]] = task knob front_center on; the pan is on the neighbouring 'left' burner. Correct behaviour of the official check.",
+ "evidence": {
+  "sheets": [
+   "frames/s18_place.png",
+   "frames/s18_place_zoom.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 135-377, dist_to_target at release 0.2326, end 0.2348",
+   "pan_nearest front_center 0.171@288 -> left 0.088@320, 0.112 end",
+   "fish hold 497-601 at_target; stage1 [[601,2900]]",
+   "knobs end: left 1.383, front_center (task) 1.163, front_right 0.746"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

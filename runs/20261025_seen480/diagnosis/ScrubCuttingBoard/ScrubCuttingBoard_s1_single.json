@@ -1,0 +1,25 @@
+{
+ "tag": "ScrubCuttingBoard_s1_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L5: sponge_4 on white marble; the board (holed cutting_board_5) is ~80 cm away, so the base had to drive. Stage 0: fingers touched the sponge at 105-128 before closing at ~133, stage 0 from 140 (online 144; median 111, p90 132). The base drove to the board 133-258 (labeler: NavigateKitchen). Grasp test blind 149-326 during the carry (no effect). Stage 1: first board contact 327, criterion met 409, 12 contacts / sweep 0.369. It released at 550 on the counter at the board's edge; eef 15 cm away at 568; success 568. Scrub phase 223 steps.",
+ "causal_chain": "",
+ "self_recovery": "none needed; slightly slow grasp (28 steps of touching before closing) and a long drive",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[144,0],[576,1]]",
+   "process_progress_end contacts 12 sweep 0.369",
+   "touch 105-128, 133-550; grasp test False 149-326"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

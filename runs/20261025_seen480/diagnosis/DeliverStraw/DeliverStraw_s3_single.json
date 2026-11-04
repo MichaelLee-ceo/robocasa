@@ -1,0 +1,34 @@
+{
+ "tag": "DeliverStraw_s3_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  740,
+  900
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "disturbed_placed_object",
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Layout 9, red-white Straw010, GlassCup022 (same layout as success s17). Stage 0 at 190. Straw grasped 305-315, lifted 0.73 m and held vertically (width 0.013); navigation 318-~690. 740-797 the straw hung vertically just right of the cup. It was released at 797 with its centre 5.3 cm from the cup centre, just outside the rim; it never touched the cup (at_target never held) and leaned. At 805 the gripper grasped it again (hold 805-884, lift 0.136 m), lifted it diagonally and released it at 884 over the counter edge; the straw fell onto a stool (end z 0.81, 0.136 m from the cup). After that the arm wandered (closes none).",
+ "causal_chain": "straw vertical beside the cup 740-797 -> released 5 cm off-centre, outside the rim (797) -> re-grasped (805) and dropped it off the counter edge onto a stool (884) -> unrecoverable",
+ "self_recovery": "Re-grasped the straw 8 steps after releasing it (805) and lifted it 13.6 cm, but released it again at 884 over the counter edge; the fix made it worse.",
+ "official_criterion_notes": "Official success = straw touches the cup AND straw centre < 0.5 m horizontally from the cup centre AND gripper far; there is no 'inside' or upright test, so a straw lying across the rim or leaning on the outside of the cup would count once the gripper leaves.",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_place.png",
+   "frames/s3_cupzoom.png",
+   "frames/all_at_cup_wrist.png"
+  ],
+  "packet_facts": [
+   "hold 315-797 lift 0.727 dist_at_release 0.053",
+   "hold 805-884 lift 0.136 dist_at_release 0.069; end z 0.807 (stool), end dist 0.136",
+   "at_target_intervals []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why it re-grasped: possibly reacting to the straw tipping against the cup."
+}

@@ -1,0 +1,37 @@
+{
+ "tag": "WashLettuce_s4_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  116,
+  620
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture",
+  "wander_away"
+ ],
+ "what_happened": "Scene layout 8 / style 8: double-basin steel sink, gooseneck spout with a small separate lever handle at the right of the spout base; colander with lettuce on the counter to the right of the sink (off the agent view). Stage 0: the gripper reached the lever at 116 and stayed on it almost continuously until 594 (touch 116-337, 365-594), fingers open. The wrist view shows the lever between the fingers and barely moving 116-340 (handle 0.00 rad); from ~380 it creeps toward the left finger (0.01 at 384, 0.09-0.14 at 448-576). At 562-583 the fingers closed on nothing and the arm pulled away, dragging the lever to 0.29 rad (592-608), short of the 0.40 rad water-on threshold. No stream is visible at any point. 620-1100: the arm rose and the wrist camera looked down at the sink and counter from above (colander visible at 720-760 and 1048), without approaching the lettuce or the lever again. Stage 1 never started (water off, washed_time 0).",
+ "causal_chain": "lever contacted 116-594 (~480 steps; typical whole stage 0 is 253, and the L8 success s22 turned the same lever 0->0.50 in ~50 steps of contact) -> lever only pushed to 0.29 rad (< 0.40) when the arm withdrew at ~594 -> water never on -> arm wandered above the sink 620-1100 -> no lettuce washing possible",
+ "self_recovery": "none: after leaving the lever at 0.29 rad it never returned to it, and it did not try the lettuce either.",
+ "official_criterion_notes": "Consistent with the video: no water stream at 0.29 rad. The packet's close_events (562 and 583, on_nothing) are the fingers closing as the arm left the lever.",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_handle.png",
+   "frames/s4_faucetzoom.png",
+   "frames/s4_late.png",
+   "frames/L8_handle_compare.png"
+  ],
+  "packet_facts": [
+   "sink gripper_touch [[116,148],[162,193],[195,206],[208,300],[305,337],[339,339],[341,341],[365,594]]",
+   "handle value 0.00 until 368, 0.01-0.14 at 384-576, 0.23@592, 0.29 from 608 to end",
+   "state_end handle 0.29 water_on false",
+   "close_events 562 (0.045) and 583 (0.003), on_nothing",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the lever moved so little in ~480 steps of contact; from the wrist view the fingers rest on the lever and push it only slightly. The jump from 0.14 to 0.29 seems to come from the withdrawal motion."
+}

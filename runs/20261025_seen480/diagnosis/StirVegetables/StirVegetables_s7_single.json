@@ -1,0 +1,28 @@
+{
+ "tag": "StirVegetables_s7_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 10 (same kitchen as s15, s29), brown steel pot (Pot075) on the rear-right zone of an electric hob, potato and sweet potato on the counter right of the hob, spatula_7 (wooden handle, metal blade) on the counter. Stage 0: potato grasped 105, dropped in 138 (complete 140, fastest). Stage 1 was slow (616 steps, median 282, p90 551): the first close on the flat sweet potato at 211 did not lift it (width 0.014), and the gripper then stayed CLOSED (0.001) from 240 to ~585 while the arm hovered back and forth between the counter and the pot empty-handed (wrist 260-540: the pot with the potato, the sweet potato still on the counter). The fingers reopened ~592, re-grasped the sweet potato 660, dropped it in 755 (complete 756). Stage 2: spatula grasped 858 at the end of the wooden handle, lifted (complete 875). Stage 3 (~100 steps): 900-940 the blade was brought over the pot's right rim and pushed down into the pot among the vegetables (944-976); the online log recorded stage 3 at 976 (success).",
+ "causal_chain": "",
+ "self_recovery": "Recovered from the missed sweet-potato grasp at 211 after ~380 steps of closed-gripper hovering (re-opened 592, re-grasp 660). This cost ~330 steps over the median but the rest was fast.",
+ "official_criterion_notes": "Replay disagrees with the online log for stage 3 (replay success_time 4 at the end, online success at 976) - the known counter-replay issue; trust the online log.",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/s7_stage1.png",
+   "frames/s7_stir_zoom.png"
+  ],
+  "packet_facts": [
+   "close 211 on veg1 width 0.014 not lifted; gripper width 0.001 240-576, reopens 592",
+   "veg1 hold 672-755; stage1 first 756 (since previous 616)",
+   "spatula close 858 width 0.029 lifted; stage2 875-976",
+   "online stage 3 at 976; replay success_time 4"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s12_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  1517,
+  2000
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "stall_pre_grasp",
+  "other: re-pressed the lever while it was popping up (~812), starting a second 500-step toasting cycle"
+ ],
+ "what_happened": "Scene: layout 8, black/silver single-pair toaster with the lever and knob on the side facing the robot's right (same kitchen as s9/s25), bread in the left slot. Stage 0: with OPEN fingers it pushed the lever down at 145-176 (the bread dropped 6.6 cm), toaster on 161-660. It stayed at the lever side through toasting (toaster contact 349-396 and 544-711). The fingers closed at ~720 and stayed closed to the end. When the lever started to rise (672-800), the gripper pushed it again: at ~720 (0.83 -> 0.98, no restart because of the cooldown) and at ~812 (0.64 -> 1.0). The second push restarted the toaster, on 811-1310. The lever rose 1312-1552 and stage 0 completed at 1517 (online 1520). Stage 1: 1300-1720 the closed gripper hovered above the toaster and window, with the popped bread visible at 1360. At ~1760 the base turned away and drove (1880 in transit), and at 1988 it was at the dining counter with the plate in view and an empty gripper. It never touched the bread.",
+ "causal_chain": "correct press at 176 -> re-pushed the rising lever at 812 -> second toasting, pop-up done only at 1517 (~670 steps lost) -> hovered 1300-1720 without reaching into the slot -> drove to the dining counter empty-handed (1760-1990) -> bread still in the toaster at 2000",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s12_overview.png",
+   "frames/s12_repress.png",
+   "frames/s12_after_pop.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[1520,0]]; stage0 first_complete 1517",
+   "toaster on 161-660 and 811-1310; lever 0.64@800 -> 1.0@816",
+   "gripper open until 720, closed 728-2000 (single close_event 706 on nothing)",
+   "obj touch [] / holds []; bread end = start; min_eef 0.129 m"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the re-push at 812 was deliberate or the gripper just stayed against the lever; the gripper was in contact with the lever area 544-711 and 800-862."
+}

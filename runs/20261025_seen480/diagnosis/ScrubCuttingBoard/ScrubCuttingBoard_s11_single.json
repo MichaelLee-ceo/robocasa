@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s11_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [158, 280],
+ "category": "missed_grasp",
+ "secondary": ["missed_grasp_continued_empty"],
+ "what_happened": "Scene L2: large grey sponge_5 lying on a light wood counter, rotated ~25 deg to the finger-closing axis in the wrist view; dark cutting_board_2 to its left, sink beyond. Stage 0: the gripper came down slowly over the sponge (~100-158, about 3 s of descent/hover), touched it with open fingers at 158 and closed at 164-180 (width 0.070 -> 0.056). The sponge tilted 10-30 deg, squeezed out sideways from between the fingers at ~180-184 and fell back flat (max lift 1.4 cm), while the fingers closed on air (0.004 at 186). Stage 0 held only for single steps (176, 181). The policy did not reopen the gripper (width stayed 0.001 to 800). It hovered over the sponge 186-240 with closed fingers, nudging it once at 240, then moved over the board (280-360) and made scrubbing-like passes over the board with the empty, closed gripper until 800 (frames at 520-760). The sponge stayed at its start. Counter 0.",
+ "causal_chain": "closed on the wide, rotated sponge_5 at 164-180 -> sponge squeezed out of the fingers (lift 1.4 cm) -> gripper fully closed on air 186 and never reopened -> empty-handed 'scrub' over the board 280-800 -> stage 0 never held",
+ "self_recovery": "none effective: one contact with the closed gripper at 240; it never opened to re-grasp.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s11_overview.png", "frames/s11_grasp.png", "frames/s11_after.png"],
+   "packet_facts": ["close_events 170 width 0.005 touching sponge, not lifted", "touch 157-181, 240", "stage0 [[176,176],[181,181]] only", "sponge max lift 0.014 m; end at start position", "process_progress_end contacts 0"]},
+ "confidence": "high", "uncertain_about": "Why the grasp failed. My reading is that the sponge's rotated, wide footprint let it squeeze out as the fingers closed. The only other sponge_5 grasp failures were partial (s13 grasp test False 94-188), and s8, s15 and s18 picked sponge_5 up fine."}

@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s6_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 1, "root_cause_steps": [376, 428],
+ "category": "undid_previous_stage", "secondary": ["wrong_fixture_element"],
+ "what_happened": "Style/layout 5 (over-the-range microwave above a gas range, same model as s1, s5 and success s9). Stage 0: lemon wedge grasped at 135 and released at 303 near the rim of the large wooden bowl (0.11 m from its centre, still inside the official 0.7 x radius). Stage 0 at 303. Stage 1: the bowl was grasped by its near rim at 376 and lifted; it tilted toward the gripper (up to 24 deg), and the wedge slid over the rim at 412-428 and dropped onto the robot's mobile base (wrist 440-468; vegetable ends at z 0.41, 0.84 m from the bowl). Stage 0 was undone at 416 for good. The policy did not notice and carried the empty bowl on: released inside the microwave at 668 (stage 1 at 682), door closed 745-789 (stage 2 at 785, fast). Stage 3: presses 848-997 all landed on the grey bezel just below the 'Start' / 'Stop/Reset' row (same near-miss as s1 and s5 on this microwave), so the microwave never turned on. Then it hovered at the microwave until the end.",
+ "causal_chain": "wedge placed near the bowl rim (303) -> bowl lifted by that rim and tilts toward the gripper (376-412) -> wedge slides out onto the robot base 412-428 (stage 0 undone at 416) -> rest of the task done with an empty bowl (bowl in 668, door 785) -> button presses also off START -> fail on two counts",
+ "self_recovery": "none: it never looked for the wedge.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s6_overview.png", "frames/s6_spill.png", "frames/s6_press.png"],
+   "packet_facts": ["vegetable hold 145-303 dist 0.114 at release; at_target 276-415; undone 416 'an object left the target'; end z 0.408, 0.84 m from bowl", "bowl hold 385-668 lift 0.65 at target; tilt max 23.7", "door closed 785", "microwave touches 848-862 866-872 896-905 933-939 952-969 989-997; turned_on 0"]},
+ "confidence": "high", "uncertain_about": "The wedge's landing spot (robot base) is read from the wrist view and the end height 0.41 m."}

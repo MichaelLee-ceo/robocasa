@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s14_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 0, "root_cause_steps": [260, 920],
+ "category": "stall_holding_at_target", "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene layout 2 (wood counter, grey cabinets; robot on the side where the dishwasher is at the right edge of the agent view, the other side from s11), white/pink cup_5 and brown bowl_8. Stage 0, cup first: grasped 141-149 (lift 0.013) and brought over the slid-out rack by ~260. It then held the cup upright a few cm above the rack floor near the rack's side wall from ~260 to 917 (~650 steps, 33 s), with only small drifts of the wrist view (rack wires, cup in the fingers) and no contact with the rack (at_target only from 922). It opened at 920 and the cup fell over onto its side on the rack (tipped 927-1200, drop 0.072); stage 0 complete 922 (median 298, p90 336). Stage 1: the arm rose and looked around (1040-1100 cabinets, sink), then went to the bowl on the counter and was hovering just above it at 1196; the bowl was never touched. Stage 2 never started.",
+ "causal_chain": "cup held above the rack 260-917 instead of being released (~650 steps; successful dish holds total 70-310 steps) -> stage 0 at 922 (+624 over the median) -> 278 steps left -> 270 steps of looking around and approaching the bowl -> bowl untouched at the timeout (1200)",
+ "self_recovery": "The policy eventually released the cup (920) and moved on to the bowl, too late.",
+ "official_criterion_notes": "The cup counts as on the rack while lying on its side (tilt 76 deg).",
+ "evidence": {"sheets": ["frames/s14_overview.png", "frames/s14_hold_zoom.png", "frames/s14_release.png"],
+  "packet_facts": ["dish0 touch 140-917, hold 149-920 lift 0.013 drop 0.072; at_target from 922", "stage0 922", "dish1 never touched, min eef dist 0.105", "gripper width ~0.02 (closed on cup) 149-917"]},
+ "confidence": "high",
+ "uncertain_about": "Why the policy does not release: the cup is upright just above the rack floor, near the side wall; there is no visible obstruction."}

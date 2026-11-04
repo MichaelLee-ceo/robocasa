@@ -1,0 +1,57 @@
+{
+ "task": "PackIdenticalLunches",
+ "instruction": "Place one onion and one chicken drumstick in each tupperware on the nearby counter, to pack two identical lunches.",
+ "stages": [
+  "0: PickPlaceFridgeToCounter",
+  "1: PickPlaceFridgeToCounter",
+  "2: PickPlaceFridgeToCounter",
+  "3: PickPlaceFridgeToCounter"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "at least one of the four food items lies in a tupperware on the counter and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "no food item is in a tupperware yet (still in the fridge, held, or dropped elsewhere)."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "at least two of the four food items lie in the tupperwares and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "fewer than two items are in the tupperwares, or the gripper is still at the last one placed."
+  },
+  {
+   "stage": 2,
+   "counts_as_complete": "at least three of the four food items lie in the tupperwares and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "fewer than three items are in the tupperwares, or the gripper is still at the last one placed."
+  },
+  {
+   "stage": 3,
+   "counts_as_complete": "each of the two tupperwares contains exactly one vegetable and exactly one meat item, and the gripper has moved away from all items (about 25 cm or more).",
+   "does_not_count": "an item is missing, a tupperware has two of the same kind, or the gripper is still at an item."
+  }
+ ],
+ "horizon": 2600,
+ "episodes": 30,
+ "successes": 4,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 286,
+   "p90": 339,
+   "n": 4
+  },
+  "1": {
+   "median": 401,
+   "p90": 474,
+   "n": 4
+  },
+  "2": {
+   "median": 419,
+   "p90": 505,
+   "n": 4
+  },
+  "3": {
+   "median": 393,
+   "p90": 401,
+   "n": 4
+  }
+ }
+}

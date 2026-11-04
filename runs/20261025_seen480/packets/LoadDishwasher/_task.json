@@ -1,0 +1,46 @@
+{
+ "task": "LoadDishwasher",
+ "instruction": "Pick up the cup and bowl from the counter, place them in the dishwasher, and close the dishwasher door.",
+ "stages": [
+  "0: PickPlaceCounterToDishwasher",
+  "1: PickPlaceCounterToDishwasher",
+  "2: CloseDishwasher"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "at least one of the two dishes rests on the dishwasher rack and the gripper is no longer touching it.",
+   "does_not_count": "no dish is on the rack yet (dishes still on the counter, held, or on the open door)."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "both dishes rest on the dishwasher rack and the gripper is not touching either of them.",
+   "does_not_count": "only one dish is on the rack, or the gripper is still holding / touching the second dish."
+  },
+  {
+   "stage": 2,
+   "counts_as_complete": "both dishes are on the rack and the dishwasher door is fully closed.",
+   "does_not_count": "the door is open or only partly closed, or a dish is not on the rack."
+  }
+ ],
+ "horizon": 1200,
+ "episodes": 30,
+ "successes": 12,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 298,
+   "p90": 336,
+   "n": 12
+  },
+  "1": {
+   "median": 239,
+   "p90": 272,
+   "n": 12
+  },
+  "2": {
+   "median": 169,
+   "p90": 273,
+   "n": 12
+  }
+ }
+}

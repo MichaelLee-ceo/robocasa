@@ -1,6 +1,6 @@
 """Atomic steps of the remaining 11 composite_seen target tasks (same entry format as runs/scripts/atomic_steps.py).
 The step sequence is the official per-frame subtask annotation of the target datasets; the checks are the official
-_check_success() conjuncts per step (validation: runs/prev/_handoff_verify_asus/seen11/README.md).
+_check_success() conjuncts per step (validation against the official labeler on demos: runs/20261025_labeler_check).
 
 For every step:
   * skill        : the subtask annotation name (annotation.human.subtask_name) of that step in the majority annotation sequence

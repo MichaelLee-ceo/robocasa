@@ -1,0 +1,331 @@
+{
+ "tag": "StackBowlsCabinet_s11_single",
+ "task": "StackBowlsCabinet",
+ "instruction": "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl.",
+ "success": true,
+ "steps": 384,
+ "horizon": 1400,
+ "success_step": 379,
+ "online_stage_log": [
+  [
+   352,
+   0
+  ],
+  [
+   384,
+   1
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 352,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 384,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 2,
+  "style": 2,
+  "objects": {
+   "bowl1": "objaverse/bowl/bowl_8/model.xml",
+   "bowl2": "objaverse/bowl/bowl_5/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0605,
+   0.0186,
+   0.0184,
+   0.0184,
+   0.0184,
+   0.0184,
+   0.0184,
+   0.0184,
+   0.0186,
+   0.0186,
+   0.0185,
+   0.0186,
+   0.0185,
+   0.0187,
+   0.0185,
+   0.0185,
+   0.0185,
+   0.0432,
+   0.0773,
+   0.0783,
+   0.0788,
+   0.0792,
+   0.0775,
+   0.031,
+   0.0289,
+   0.0289,
+   0.029,
+   0.029,
+   0.029,
+   0.029,
+   0.029,
+   0.0291,
+   0.0291,
+   0.0293,
+   0.0293,
+   0.0307,
+   0.0744,
+   0.0781,
+   0.0785,
+   0.0787
+  ],
+  "close_events": [
+   {
+    "step": 63,
+    "width_after": 0.019,
+    "on_nothing": false,
+    "touching": [
+     "bowl1"
+    ],
+    "lifted": [
+     "bowl1"
+    ]
+   },
+   {
+    "step": 242,
+    "width_after": 0.029,
+    "on_nothing": false,
+    "touching": [
+     "bowl1",
+     "bowl2"
+    ],
+    "lifted": [
+     "bowl1",
+     "bowl2"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": null,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToCabinet",
+   "kind": "pnp",
+   "first_complete_step": 352,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     352,
+     352
+    ],
+    [
+     356,
+     384
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 353,
+     "reason": "objects still at target - only the release part broke (gripper back within 25 cm or touching)"
+    }
+   ],
+   "steps_since_previous_stage": 352,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 318,
+    "p90": 427,
+    "n": 21
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToCabinet",
+   "kind": "pnp",
+   "first_complete_step": 379,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     379,
+     384
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 27,
+   "window_start": 352,
+   "typical_in_successes": {
+    "median": 28,
+    "p90": 54,
+    "n": 21
+   }
+  }
+ ],
+ "objects": {
+  "bowl1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    2.0188,
+    -0.3434,
+    0.9544
+   ],
+   "end_pos": [
+    1.7544,
+    -0.2183,
+    1.465
+   ],
+   "at_target_intervals": [
+    [
+     322,
+     384
+    ]
+   ],
+   "dist_to_target_start_m": 0.4656,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.068,
+   "gripper_touch_intervals": [
+    [
+     77,
+     204
+    ],
+    [
+     206,
+     207
+    ],
+    [
+     239,
+     239
+    ],
+    [
+     245,
+     351
+    ],
+    [
+     353,
+     355
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 77,
+     "release_step": 208,
+     "lift_m": 0.215,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4487,
+     "height_drop_after_release_m": 0.006,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4548
+    },
+    {
+     "grasp_step": 250,
+     "release_step": 356,
+     "lift_m": 0.55,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0,
+     "height_drop_after_release_m": 0.001,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.5,
+   "tilt_deg_end": 2.1,
+   "tilt_deg_max": 47.8,
+   "tipped_over_intervals": [
+    [
+     303,
+     310
+    ]
+   ]
+  },
+  "bowl2": {
+   "target_of_stage": 0,
+   "start_pos": [
+    1.4292,
+    -0.3666,
+    0.9518
+   ],
+   "end_pos": [
+    1.7463,
+    -0.2021,
+    1.4518
+   ],
+   "at_target_intervals": [
+    [
+     321,
+     384
+    ]
+   ],
+   "dist_to_target_start_m": 0.4682,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.0835,
+   "gripper_touch_intervals": [
+    [
+     256,
+     355
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 256,
+     "release_step": 356,
+     "lift_m": 0.561,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0,
+     "height_drop_after_release_m": -0.0,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 44.0,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToCabinet",
+    "pick"
+   ],
+   [
+    74,
+    "PickPlaceCounterToCabinet",
+    "place"
+   ],
+   [
+    209,
+    "PickPlaceCounterToCabinet",
+    "pick"
+   ],
+   [
+    253,
+    "PickPlaceCounterToCabinet",
+    "place"
+   ],
+   [
+    356,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/StackBowlsCabinet/StackBowlsCabinet_s11_single.mp4"
+}

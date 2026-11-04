@@ -1,0 +1,27 @@
+{
+ "tag": "WashLettuce_s5_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 7 / style 7 (same sink/swivel faucet as s0/s12/s28/s29); perforated colander (Colander010) LEFT of the sink. Stage 0: water on at 310 (median 253). Lever turned 281-324. The arm reached far left, grasped the colander rim at ~527, carried it right and held it under the stream from ~620 (wrist: stream at the colander, 620-652); spout stayed forward. Stage 1 took 343 steps (median 303); success at 653. No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s5_brief.png",
+   "frames/L7_spout_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[281, 324]]",
+   "stage0 first complete 310",
+   "close_events [(527, 0.029)]",
+   "success 653, washed_time 28"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s11_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  240,
+  1700
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "missed_grasp_continued_empty",
+  "wander_away"
+ ],
+ "what_happened": "Layout 2. At 251-270 the gripper closed on air next to the long bar handle (the bar was not between the fingers; width 0.0024 at 272, no drawer contact). The fingers stayed closed for the rest of the episode. It hovered over the cooktop 900-1300, then turned away and drove to the dining counter 1440-1696 with the empty closed gripper. Drawer 0, straw untouched.",
+ "causal_chain": "closed on air at the handle (251) -> never reopened -> wandered, then drove to the dining counter empty-handed -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s11_overview.png",
+   "frames/s11_dense.png",
+   "frames/s11_late.png"
+  ],
+  "packet_facts": [
+   "close 251 width 0.014 on_nothing; width <0.003 from 272 to end",
+   "drawer touch [] value 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

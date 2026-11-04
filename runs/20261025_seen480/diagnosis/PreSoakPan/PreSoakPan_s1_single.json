@@ -1,0 +1,26 @@
+{
+ "tag": "PreSoakPan_s1_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L5/S5 (single grey basin with a white mat, gooseneck faucet with a short stick lever on the column). Pan (pan_6, dark handle) grasped by the handle at 129, in the basin from 220 but held there until 325, ~105 steps of holding at the target (stage 0 at 367; median 301, p90 414). Fingers re-touched the pan at 554-569 (no lift) while placing the sponge. Sponge grasped at 467 and dropped into the pan at 602 (stage 1 at 624). Stage 2: lever contact from 737, water on by 784, success 786 (162 steps). The pan ends tilted ~30 deg with its handle up against the basin wall, fully inside.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png",
+   "frames/tilted_pans_end.png"
+  ],
+  "packet_facts": [
+   "pan hold 129-325 (at target from 220); re-touch 554-569",
+   "sponge hold 467-602",
+   "stage times 367 / 624 / 786"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,35 @@
+{
+ "tag": "GetToastedBread_s15_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  116,
+  656
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "actuation_insufficient",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster next to a toaster oven, bread in slot 2 (left pair, pair 0). Stage 0: 116-370 the open gripper rested on the toaster top over the slots, right of the bread (nearly continuous contact 116-368), without moving a lever. The fingers closed at ~320. 420-512 the fist pushed on the front-right of the toaster, on the RIGHT (pair-1) lever, which belongs to the empty slots, and moved it to only 0.20-0.30. The bread did not move (dz 0 all episode). The lever sprang back by 528, and a second touch at 552-605 moved it only 0.05. The last toaster contact was at 656. From ~700 to 2000 the arm hovered to the right of and in front of the toaster with the bread in view, without touching anything. The left lever under the bread was never touched, and the toaster was never on.",
+ "causal_chain": "~250 steps resting on the toaster top (116-368) -> pushed the wrong (right, empty-pair) lever, and only to 0.30 (420-512) -> no further lever attempt after 656 -> hovered to the end -> toaster never on",
+ "self_recovery": "a second, weaker push on the same wrong lever (552-605, 0.05); nothing else.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png",
+   "frames/s15_press.png",
+   "frames/s15_zoom.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "state: pair1 lever 0.20-0.26 at 448-512, 0.06 at 576; pair0 lever 0 all episode; done []",
+   "bread dz 0 all episode",
+   "toaster touch 116-368, 420-520, 552-656",
+   "gripper open until 320, closed 328-2000; obj touch []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

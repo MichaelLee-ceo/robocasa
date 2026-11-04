@@ -1,0 +1,35 @@
+{
+ "task": "PrepareCoffee",
+ "instruction": "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button.",
+ "stages": [
+  "0: CoffeeSetupMug",
+  "1: StartCoffeeMachine"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the mug stands under the coffee machine dispenser, in the pouring position on the machine's tray, and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "the mug is still in the cabinet, still held, on the counter beside the machine, not under the spout, or the gripper is still at the mug."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the mug is under the dispenser, the coffee machine has been switched on with its button, and the gripper is away from both the mug and the button.",
+   "does_not_count": "the button has not been pressed, the mug is not under the dispenser, or the gripper is still at the button or the mug."
+  }
+ ],
+ "horizon": 1200,
+ "episodes": 30,
+ "successes": 6,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 506,
+   "p90": 865,
+   "n": 6
+  },
+  "1": {
+   "median": 31,
+   "p90": 249,
+   "n": 6
+  }
+ }
+}

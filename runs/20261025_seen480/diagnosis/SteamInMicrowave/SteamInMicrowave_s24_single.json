@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s24_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 4 (microwave built in above a wall oven, left-hinged door open toward the robot; same as s21 and failure s22). Stage 0: broccoli grasped at 108, released into the striped bowl at 283 (stage 0 at 283). Stage 1: bowl grasped at 384 (the broccoli touches the fingers during the carry, 'holds' 372-395 and 617-715), tilted up to 58 deg while pushed in, released inside at 733, stage 1 at 750 (467 steps). Stage 2 was slow (459 steps, median 201): after the release the arm dropped low and to the left, below the open door (800-1100; the wrist looks at the floor, the cabinets and up at the door), with no microwave contact for ~380 steps. This is the same retreat as in the failed s22 in this layout. Here it came back: it reached the door's free edge at 1113 and swung it shut 1136-1216 (stage 2 at 1209). Stage 3: it went to the keypad (START at the bottom right) and pressed START at 1381 (172 steps), 19 steps before the timeout.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from a ~380-step retreat below the open door (760-1110) by returning to the door at 1113. Finished with only 19 steps left.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s24_overview.png"],
+   "packet_facts": ["vegetable hold 116-283", "bowl hold 393-733 lift 0.61; tipped 632-660, 703-720", "microwave touches start at 1113; closedness 0.08 -> 1.0 at 1216", "stage 2 459 steps (median 201, p90 483); success 1381"]},
+ "confidence": "medium", "uncertain_about": "Light check only (overview plus packet)."}

@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s15_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [286, 1600],
+ "category": "dropped_in_transit",
+ "secondary": ["stall_pre_grasp", "missed_grasp_continued_empty", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 10 (same kitchen as s7/s29: grey cabinets, microwave column); knife (knife_7, wooden handle) in the grey drawer; dark board and a plate with a steak on the counter above (board 0.22 m from the knife). Stage 0: close on air at 286 with the knife out of the wrist view; 400-990 the gripper hovered above the drawer with the handle at the top/right edge of the wrist view, closing on air at 646 (w 0.014) and 892, i.e. ~700 steps without a real grasp. At 1002 it closed on the butt end of the handle (handle diagonal across the finger gap) and lifted 0.10 m; the knife pivoted around the contact and slid out at ~1032-1040 (fingers shut to 0.003), falling back into the drawer. With the gripper still shut it carried on to the board (1100-1240, wrist over the board at 1248) and opened there (1248) - an empty place. It came back to the drawer (1300), grasped the handle again at 1363 (lift 0.087), and the knife again slid out at ~1390-1400 and fell into the drawer. It then hovered over the knife with closed fingers until 1600. The meat was never touched.",
+ "causal_chain": "~700 steps of hovering with air closes (286-990) -> handle-end grasp 1002, knife pivots and slips out ~1035 -> empty carry and open over the board 1100-1248 -> second grasp 1363 slips ~1395 -> no time left; knife in the drawer at timeout",
+ "self_recovery": "Two lifting grasps (1002, 1363), both slipped within ~30 steps of lifting; one empty 'place' in between.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s15_overview.png", "frames/s15_slips.png", "frames/s15_midgap.png"],
+   "packet_facts": ["closes on_nothing 286, 646, 892", "knife holds 1010-1033 lift 0.101 drop 0.099; 1371-1393 lift 0.087 drop 0.087", "closes 1025 and 1386 to ~0.003 (slip)", "gripper shut 1040-1240, opened 1248 over the board", "knife end 0.35 m from the board, in the drawer"]},
+ "confidence": "high", "uncertain_about": "Exact contact point in the second grasp (1363): the wrist view shows the handle running past the finger pads, so it could be mid-handle rather than the butt."}

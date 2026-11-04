@@ -5,7 +5,8 @@
 > after the comparison. The scripts here that read `run_*` dirs document what was run; they do not re-run on the new
 > layout.
 
-The five review reports (`../*/report.md`) found these problems in the restore. All are fixed in code; collected rows
+The five review reports (`../*/report.md`; only `../restore/report.md` is still here, the others were deleted on
+2026-11-04 and are in git history at commit 3fbfb89) found these problems in the restore. All are fixed in code; collected rows
 carry `hidden="settled-v5"`.
 
 1. **Gripper ramp restored as +-1** (bug 5): restore F1-F3, integrity A/B/B3, anomaly cluster 1, labels finding A.
@@ -26,7 +27,7 @@ carry `hidden="settled-v5"`.
     - fixture only, fingers still: the contact side;
     - otherwise (free fingers, one object touched, or fingers moving): the servo target,
       `c = 1 - (gap + 2 * dgap) / 40 mm`, rounded to the 0.2 grid.
-  - `finger_contacts()` was moved here from `../restore/settle_candidate.py`.
+  - `finger_contacts()` was moved here from `../restore/settle_candidate.py` (since deleted).
   - `capture` / `restore` now include each observable's clock (`_time_since_last_sample`, `_sampled`,
     `_current_delay`).
 - **`runs/20261026_critic_data/collect.py`**
@@ -96,7 +97,7 @@ Future main runs should save `capture()` and the actions at every chunk boundary
 
 ## Phase-1 result and the gate (2026-10-29 06:30-09:55)
 - **Collection:** 244 of 244 points, 0 errors, no retries (`watchdog_v5.sh`).
-- **Live QC** (`qc_v5.py`): 8 flags, each investigated in `../../20261026_critic_data/run_v5_queue/flags_reviewed.md`:
+- **Live QC** (`qc_v5.py`): 8 flags, each investigated in `../../20261026_critic_data/logs/flags_reviewed.md`:
   - 4 are policy or contact cases;
   - 3 are door-stage points where the old row was the bug-5 clamp (V 1.0 -> 0.5 / 0.38 / 0.75);
   - 1 is a fixture-moving row whose outcome is unaffected (V 0 both ways).

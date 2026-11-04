@@ -13,6 +13,10 @@ identical start state + identical actions diverged at the first step in every pa
 
 capture(kenv) / restore(kenv, h): exact copy, for states reached by stepping (e.g. a search node, or the scene right
 after load_scene, which is the main run's exact hidden state at t = 0).
+capture(kenv, obs=True) also keeps the observables' last sampled values and the python fixture state (py_state). rollout() then starts from that observation
+instead of forcing a fresh one (which is 1-2 substeps fresher and advances the sampling clock by a substep, restore
+review F4), so a rollout from the node continues exactly like a continuous run would. Only for nodes reached by stepping
+(found 2026-10-29 in the closed loop: a committed chunk's continuation diverged from the imagined one at the first step).
 settle(kenv, prev_state): a canonical hidden state for a state restored from a saved trajectory, where the true one is
 unknown: every part controller's goal reset to the current pose, the gripper ramp inferred from the fingers
 (gripper_ramp), warm start zeroed. Call restore(kenv, capture(kenv)) of that before each rollout from the same state,
@@ -35,11 +39,52 @@ def _set_attrs(obj, d):
         setattr(obj, k, copy.deepcopy(v))
 
 
-def capture(kenv):
+def _plain(v):
+    if v is None or isinstance(v, (bool, int, float, str, np.bool_, np.integer, np.floating)):
+        return True
+    if isinstance(v, (list, tuple)):
+        return all(_plain(x) for x in v)
+    if isinstance(v, dict):
+        return all(isinstance(k, (str, int)) and _plain(x) for k, x in v.items())
+    return False
+
+
+def py_state(kenv):
+    """python-side fixture state that the sim state does not hold (e.g. microwave._turned_on, which update_state only
+    sets when a button is pressed): the plain-data attributes of every fixture that overrides update_state, copied.
+    Containers included (2026-10-29): the Toaster keeps _turned_on, _num_steps_on, _cooldown and _state in dicts, and
+    with scalars only a toaster turned on in one rollout forced its lever down at the start of the next.
+    (Moved here from ../20261026_imagine/imagine.py on 2026-10-30; imagine.py re-exports it.)"""
+    from robocasa.models.fixtures.fixture import Fixture
+    return {n: {k: copy.deepcopy(v) for k, v in vars(fx).items() if _plain(v)}
+            for n, fx in kenv.fixtures.items() if type(fx).update_state is not Fixture.update_state}
+
+
+def _like(old, new):
+    """a copy of new with the container types and dict-key types of old (a JSON round trip makes int keys strings)."""
+    if isinstance(old, dict) and isinstance(new, dict):
+        keys = {str(k): k for k in old}
+        return {keys.get(str(k), k): _like(old.get(keys.get(str(k), k)), v) for k, v in new.items()}
+    if isinstance(old, tuple) and isinstance(new, list):
+        return tuple(new)
+    return copy.deepcopy(new)
+
+
+def set_py_state(kenv, ps):
+    for n, d in ps.items():
+        fx = kenv.fixtures[n]
+        for k, v in d.items():
+            setattr(fx, k, _like(getattr(fx, k, None), v))
+
+
+def capture(kenv, obs=False):
     d = kenv.sim.data
     h = dict(warmstart=np.array(d.qacc_warmstart), ctrl=np.array(d.ctrl), qfrc_applied=np.array(d.qfrc_applied),
              xfrc_applied=np.array(d.xfrc_applied), timestep=kenv.timestep, cur_time=kenv.cur_time, robots=[],
              obs_clock={n: (o._time_since_last_sample, o._sampled, o._current_delay) for n, o in kenv._observables.items()})
+    if obs:  # a node reached by stepping: also its last observation and its python fixture state
+        h["obs_value"] = {n: copy.deepcopy(o._current_observed_value) for n, o in kenv._observables.items()}
+        h["fixtures"] = py_state(kenv)
     for r in kenv.robots:
         cc = r.composite_controller
         h["robots"].append(dict(
@@ -58,6 +103,10 @@ def restore(kenv, h):
     for n, (ts, sampled, delay) in h.get("obs_clock", {}).items():
         o = kenv._observables[n]
         o._time_since_last_sample, o._sampled, o._current_delay = ts, sampled, delay
+    for n, v in h.get("obs_value", {}).items():
+        kenv._observables[n]._current_observed_value = copy.deepcopy(v)
+    if "fixtures" in h:
+        set_py_state(kenv, h["fixtures"])
     for r, hr in zip(kenv.robots, h["robots"]):
         cc = r.composite_controller
         _set_attrs(cc, hr["composite"])

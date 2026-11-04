@@ -1,0 +1,33 @@
+{
+ "tag": "KettleBoiling_s9_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  340,
+  515
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: white kettle on the counter right of a dark 4-burner gas range (frying pan at the rear). Stage 0 was fine: grasp 96, lift 0.109 m, released at 169 on a burner on the RIGHT half of the range, 0.13 m from its centre. Stage 0 complete at 191 (fast). Stage 1: 280-340 the gripper went to the front knob panel and took the LEFT-most knob, turning it 340-392 (0.30 at 384, 0.47 at 416). A blue flame appears on the REAR-LEFT burner at ~392, while the kettle sits on the right. 480-512 it turned the same knob further (1.32 rad by 528) and let go at 515. Then it wandered: 528-568 low in front of the cabinet drawers, 600-1000 up and to the right (wrist sees counters, microwave, wall). It never touched the right-hand knobs, and the kettle's burner stayed off.",
+ "causal_chain": "kettle placed on a right-hand burner (169) -> policy turned the left-most knob = rear_left burner (340-512, 1.32 rad) -> wrong burner lit; stage 1 needs the burner under the kettle -> wandered 515-1000 without correcting -> fail",
+ "self_recovery": "none: after turning the wrong knob it never looked at or touched another knob.",
+ "official_criterion_notes": "fixtures.stage1:stove.done_intervals [[386,1000]] say 'done' because the fixture value is the max over all knobs; stage 1 itself correctly never holds. The packet does not say which burner the kettle is on, so the wrong burner had to be read from the flame in the video.",
+ "evidence": {
+  "sheets": [
+   "frames/s9_overview.png",
+   "frames/s9_knob.png",
+   "frames/s9_knob2.png",
+   "frames/s9_stove_zoom.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 96 release 169 lift 0.109 dist 0.130",
+   "stage0 complete 191-1000",
+   "stove touch [[363,511],[515,515]]; values 0.30@384 0.47@416 1.32@528; end rear_left 1.324, others 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "The exact name of the kettle's burner (front_right vs rear_right): the kettle is 0.13 m from the nearest burner centre, close to the 0.15 m threshold."
+}

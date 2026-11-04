@@ -1,0 +1,28 @@
+{
+ "tag": "StackBowlsCabinet_s16_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 5/style 5 (dark kitchen; same layout as failures s0/s1); small blue-striped bowl_6 (x0.7) and larger black ribbed bowl_5 (x0.95), 0.43 m apart. The only episode whose first grasp took the LARGE bowl: black bowl grasped 88/97, lifted 16 cm and carried over to the striped bowl, where it was set down partly overlapping it (released 216; it tipped up to 88 deg 234-271 when the fingers pushed it during the next approach, then settled upright). The close at 241 touched both and lifted the striped bowl (hold 256-329, lift 0.21 m), which was then put into the black bowl (released 329; wrist 344: nested). Pair grasp at 350 (both lifted), lifted 0.61 m into the upper cabinet, released 463. Stage 0 at 427 (pair still held; = p90 427), stage 1 at 485 (22 steps after the release); success 485. Slow by ~110 steps vs the median because of the large-bowl-first detour; final stack correct (small on top).",
+ "causal_chain": "",
+ "self_recovery": "After picking the large bowl first and moving it next to the small one, it switched to the usual order (small into large, then carry the pair). The tipped black bowl (234-271) righted itself.",
+ "official_criterion_notes": "Stage 0 fired 36 steps before the final release.",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png",
+   "frames/s16_dense.png"
+  ],
+  "packet_facts": [
+   "closes 88 (bowl2 lifted), 241 (both touched, bowl1 lifted), 350 (both lifted)",
+   "bowl2 holds 97-216 lift 0.158; 230-256 lift 0.042; 364-463 lift 0.614; tipped 234-258, 262-271",
+   "bowl1 hold 256-329 lift 0.213",
+   "stage0 427, stage1 485"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry (large bowl first moved next to the small one)"
+}

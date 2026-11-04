@@ -1,0 +1,37 @@
+{
+ "tag": "SearingMeat_s2_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  121,
+  184
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "missed_grasp",
+  "missed_grasp_continued_empty",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: layout 9 (same kitchen as s0), pan_8 (dark pan, long dark-brown handle with a hanging hole at its end) in a high upper cabinet; the 5-burner gas hob with the fish on a cutting board is ~2.3 m to the right; target front_center. Stage 0: the gripper went to the very END of the handle (the hole is between/above the fingers, 112-120) and closed at 121 with width 0.037 (pinching only the tip). 130-178 it pulled the pan out of the cabinet by the handle tip (hold 130-179); the pan tilted and at ~178-180 slipped out (fingers closed to 0.003 at 184). The pan fell 0.50 m onto the counter next to the toaster and landed upside-down (tipped from 182, tilt 180 deg to the end). The policy did not go back for it: it turned to the hob (250-400), picked the fish at 885 (lift 0.14 m), carried it over the bare hob and let it fall on the cooktop at ~960 (no pan there). It then worked the knobs: front_center (the task knob) to 0.93 rad at ~1103-1145, back to 0, then 0.35 from ~1509 to the end; front_right to 0.64 (~2200) and rear_right to 0.48/0.32 (~2400-2900). Flames are visible from ~1540. Stage 0/1/2 never held because the pan was on the counter 2.27 m away.",
+ "causal_chain": "pinched the pan by the handle tip (121, width 0.037) -> pan pulled out and slipped out of the fingers at ~180 -> fell 0.5 m to the counter upside-down -> policy continued as if the pan were placed: fish dropped on the bare cooktop (960), three knobs turned (1080-2700) -> pan never on the burner -> timeout",
+ "self_recovery": "none for the pan; it never looked back at it. It executed stages 1-2 motions on an empty hob.",
+ "official_criterion_notes": "stage2:stove done_intervals [[1103,1145],[1509,2900]] = task knob front_center >= 0.35 (end 0.353, barely), while pan and fish are not in place; stage 2 correctly never holds.",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png",
+   "frames/s2_grasp.png",
+   "frames/s2_fish_knobs.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "close 121 on pan width 0.037; close 170 -> 0.003",
+   "pan hold 130-179, drop_after_release 0.501 m, tipped [[182,2900]], tilt 180",
+   "pan end z 0.936 (counter), dist 2.27 m",
+   "fish hold 894-960 lift 0.139, end on cooktop 2.37 m from target",
+   "knobs end: front_center 0.353, front_right 0.642, rear_right 0.324"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

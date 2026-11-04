@@ -1,6 +1,7 @@
+import os
 import json, sys
 import numpy as np
-R_DIR = "/home/michaellee/mclee/robocasa/runs/20261029_review/restore"
+R_DIR = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../..")), "20261029_review/restore")
 Z = np.load(f"{R_DIR}/out/grip_table.npz", allow_pickle=True); T = {k: Z[k] for k in Z.files}
 h = T["hist"]; g0, g1, g2 = h[:, -1], h[:, -2], h[:, -3]; c = T["c"]
 OPEN_V3 = abs(0.020833 * 2) * 1.9 - 0.004

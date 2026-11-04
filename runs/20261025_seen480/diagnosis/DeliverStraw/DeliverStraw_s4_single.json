@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s4_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  232,
+  1700
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Layout 9. 232-336 the gripper descended to the drawer handle, which sat above-left of the finger gap in the wrist view; at 336-352 the fingers closed on air (width 0.0087 at 352, no drawer contact at all). The fingers stayed closed until ~1120. The robot then drove to the dining counter (560-1000) with the empty closed gripper and hovered near the cup, as if delivering the straw; it reopened the gripper after ~1120 but did nothing useful. Drawer 0 and straw untouched (min eef 0.33 m).",
+ "causal_chain": "handle off-centre in the finger gap -> closed on air at 336 -> carried on to the dining counter empty-handed (560-1000) -> drawer never opened, straw never picked -> timeout",
+ "self_recovery": "none: no second attempt at the handle.",
+ "official_criterion_notes": "The packet registers no drawer touch; the missed handle grasp is only visible as an on_nothing close at 336.",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_handle.png",
+   "frames/all_handle_close_wrist.png"
+  ],
+  "packet_facts": [
+   "close 336 width 0.014 on_nothing",
+   "drawer touch [] value 0",
+   "gripper closed (<0.01) 352-~1100"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

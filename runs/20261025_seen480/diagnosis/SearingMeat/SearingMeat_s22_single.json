@@ -1,0 +1,26 @@
+{
+ "tag": "SearingMeat_s22_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 5 (black kitchen; same as s1/s6/s8/s9), 4-burner gas range; pan_8 (dark pan, long dark-brown handle) in the upper cabinet; target front_left; drumstick on a wooden board right of the range. Stage 0: close at 121 near the handle base (handle toward the camera between the fingers, hold 128-328), carried flat, released at 328 a few cm above the front_left grate (it dropped 7 cm and settled at 0.074 m). Stage 0 complete 340. Stage 1: drumstick grasped at 441-450 (lift 0.20 m), released into the pan at 549; a brief re-touch 557-572 did not move it; complete 551/572. Stage 2: down to the knob row 600-700, front_left 0.17 (768) -> 0.64 (800): success 776. No errors, no slow stage.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/all_success_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 128-328 dist 0.066, drop 0.071",
+   "stage0 340, stage1 551, stage2 776",
+   "front_left 0.635 at end; others 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

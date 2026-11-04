@@ -1,0 +1,26 @@
+{
+ "tag": "SearingMeat_s27_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 4 (same kitchen as s21/s24), 5-zone black induction cooktop with front knobs; pan_7 (rusty cast iron) in an upper cabinet left of the cooktop; target front_center. Stage 0: close at 118 at the handle/body junction (hold 129-401), pan carried flat, over front_center from 347 and held there ~55 steps before release at 401 (0.09 m); stage 0 complete 418. Compare s24 (same kitchen, same target): there the pan was carried over front_center but lowered onto rear_center. Stage 1: shrimp grasped at 552 (lift 0.30 m), released into the pan at 676. Stage 2: knob contact 795-821, front_center 0.72 rad at 832: success 834. Stage 0 breaks 614-826 only from gripper proximity while working near the pan.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/all_success_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 129-401 at_target from 347, dist 0.0915",
+   "stage0 418, stage1 677, stage2 834",
+   "front_center 0.72 at end; others 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

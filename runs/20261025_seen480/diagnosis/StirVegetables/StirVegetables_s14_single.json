@@ -1,0 +1,36 @@
+{
+ "tag": "StirVegetables_s14_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  1300,
+  1600
+ ],
+ "category": "other: hand/spatula caught the pot and lifted or tipped it off the burner during the stir",
+ "secondary": [
+  "disturbed_placed_object",
+  "undid_previous_stage"
+ ],
+ "what_happened": "Scene: layout 2, red cast-iron pot (Pot065) on the rear-right zone of an induction hob; garlic, avocado and spatula_7 on the counter far LEFT of the hob. Stage 0 was slow: the arm took until 286 to grasp the garlic, carried it to the pot, hovered at the pot's front-left 380-480 and let it go at 494 short of the pot (0.29 m from the pot centre; it fell onto the hob by the knobs, 500-520); it re-grasped it 576 and dropped it in 661 (complete 663; median 232). Stage 1: avocado grasped 820, dropped in 953 (complete 956). Stage 2: base turned left, spatula grasped 1127 at the end of the handle, lifted (complete 1152). Stage 3: 1240-1300 the blade was over and in the pot (wrist: garlic and avocado under the blade). From ~1320 the hand pressed on the pot rim; at 1360 the pot was tilted up and from ~1440 to 1600 it was held up/tipped off the burner (the glowing red induction ring is exposed under it; stage 0/1 conditions break at 1365). The episode ended with the pot lifted off the burner and the spatula still in hand. success_time 0.",
+ "causal_chain": "slow stage 0 (dropped the garlic in front of the pot 494, re-grasp; 663 vs median 232) left 440 steps for stage 3 -> blade in the pot 1240-1300 without a counted stir -> hand/spatula caught the pot rim and lifted/tipped the pot off the burner 1320-1600 -> no stir counted",
+ "self_recovery": "Stage 0 drop recovered by a re-grasp (576-661). The pot was not set back down before the timeout.",
+ "official_criterion_notes": "The packet has no pot pose; the pot lift is visible only in the video and through the stage 0/1 breaks at 1365.",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_stage0.png",
+   "frames/s14_stir.png",
+   "frames/s14_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 holds 294-494 (release 0.289 m from the pot, drop 0.232) and 576-661",
+   "stage0 first 663 (median 232, p90 251)",
+   "spatula close 1127 width 0.041 lifted; stage2 1152-1600",
+   "stage0/1 undone 1365 (object left target)",
+   "success_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the pot was lifted by the fingers catching its handle/rim or by the spatula blade wedged inside; whether stage 3 would have succeeded with more time (the stir had ~60 steps over the vegetables before the pot was caught)."
+}

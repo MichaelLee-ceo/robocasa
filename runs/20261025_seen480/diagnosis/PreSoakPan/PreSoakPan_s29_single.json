@@ -1,0 +1,24 @@
+{
+ "tag": "PreSoakPan_s29_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L7/S7 (single black basin, black gooseneck faucet with a side lever). Pan (pan_4) grasped at 100 and placed at 204 (stage 0 at 224). Sponge grasped at 337 and placed in the pan at 420 (stage 1 at 462). Stage 2: contact with the side lever 586-688; water on and success at 679 (93 steps of contact). The pan ends tilted ~27 deg, inside.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "The sink value 6.283 appears: wrap artefact.",
+ "evidence": {
+  "sheets": [
+   "frames/s29_overview.png"
+  ],
+  "packet_facts": [
+   "stage times 224 / 462 / 679",
+   "sink touch [[586,588],[590,688]]"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

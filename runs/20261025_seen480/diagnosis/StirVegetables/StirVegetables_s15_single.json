@@ -1,0 +1,34 @@
+{
+ "tag": "StirVegetables_s15_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  720,
+  944
+ ],
+ "category": "other: spatula slipped out of the grasp while the blade was pushed into the pot",
+ "secondary": [
+  "undid_previous_stage",
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Scene: layout 10, small black pot (Pot071) on the rear-left zone of an electric hob, sweet potato and mushroom on the counter right of the hob, spatula_6 (teal handle, yellow blade) by a utensil rail. Stage 0: sweet potato grasped 104, dropped in 191 (complete 194). Stage 1: mushroom grasped 334, dropped in 439 (complete 445). Stage 2: a first close at 550 hit nothing; second close 582 on the spatula near its blade, lifted (complete 607/616). Stage 3: from ~720 the blade stood vertically in the pot and the arm worked it there for ~200 steps (720-920); the env counted 2 of the 5 required stir steps (success_time 2). At ~920 the spatula slipped out of the fingers (width 0.019 at 912 -> 0.003 at 928; stage 2 ends 922) and fell into the pot, lying across the mushroom with the handle over the rim. The fingers stayed closed (0.001) for the remaining ~680 steps while the arm hovered over the pot and then off to the side; no re-grasp.",
+ "causal_chain": "blade in the pot 720-920, only 2 of 5 stir steps counted -> spatula slid out of the fingers ~920 (stage 2 undone) -> gripper stayed closed, no re-grasp 928-1600 -> success_time stuck at 2",
+ "self_recovery": "none after the slip.",
+ "official_criterion_notes": "Near miss: success_time reached 2 of 5. Each counted step needs both vegetables to move > 0.5 mm in that step and the spatula to touch veg1 (the sweet potato here); the wrist view at 928 shows the blade on the mushroom (veg2), which alone never counts. Packet first_incomplete_stage is 2 only because PickUpSpatula is evaluated as 'held and lifted now' (not latched); the online log completed stages 0-2, so the failed stage is 3.",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png",
+   "frames/s15_stir.png",
+   "frames/s15_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 104-191, veg2 hold 334-439",
+   "close 550 on nothing; close 582 width 0.019 lifted; stage2 616-922",
+   "gripper width 0.017-0.019 (624-912) -> 0.003 (928) -> 0.001 to 1600",
+   "process_progress_end success_time 2"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Which vegetable the blade touched during the 2 counted steps; why the counter did not advance during most of the 200 steps in the pot (contact with veg1 vs simultaneous movement of both cannot be read from the video)."
+}

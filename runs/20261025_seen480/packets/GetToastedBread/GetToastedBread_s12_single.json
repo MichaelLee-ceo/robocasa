@@ -1,0 +1,1048 @@
+{
+ "tag": "GetToastedBread_s12_single",
+ "task": "GetToastedBread",
+ "instruction": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+ "success": false,
+ "steps": 2000,
+ "horizon": 2000,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   1520,
+   0
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 1520,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 8,
+  "style": 8,
+  "objects": {
+   "obj": "lightwheel/sandwich_bread/SandwichBread009/model_upright.xml",
+   "plate": "objaverse/plate/plate_5/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0802,
+   0.08,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.08,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0805,
+   0.0828,
+   0.0815,
+   0.0812,
+   0.0804,
+   0.0808,
+   0.08,
+   0.0799,
+   0.0798,
+   0.0797,
+   0.0796,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0793,
+   0.0792,
+   0.0802,
+   0.0799,
+   0.0794,
+   0.08,
+   0.0805,
+   0.0804,
+   0.0802,
+   0.08,
+   0.0798,
+   0.0796,
+   0.0802,
+   0.0799,
+   0.0797,
+   0.0796,
+   0.0791,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0793,
+   0.0783,
+   0.0221,
+   0.0022,
+   0.0017,
+   0.0014,
+   0.0013,
+   0.0011,
+   0.0011,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.0011,
+   0.0017,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0028,
+   0.0022,
+   0.0022,
+   0.0025,
+   0.0041,
+   0.0019,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0031,
+   0.0057,
+   0.0025,
+   0.0041,
+   0.0017,
+   0.0018,
+   0.001,
+   0.001,
+   0.001,
+   0.0125,
+   0.0018,
+   0.0014,
+   0.0013,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.0011,
+   0.0069,
+   0.002,
+   0.0014,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0012,
+   0.0013,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.0013,
+   0.0011,
+   0.0011,
+   0.0012,
+   0.001,
+   0.001,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001
+  ],
+  "close_events": [
+   {
+    "step": 706,
+    "width_after": 0.014,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 1,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "TurnOnToaster",
+   "kind": "fixture",
+   "first_complete_step": 1517,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     1517,
+     2000
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 1517,
+   "window_start": 0,
+   "typical_in_successes": null
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceToasterToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 1517,
+   "typical_in_successes": null
+  }
+ ],
+ "objects": {
+  "obj": {
+   "target_of_stage": 1,
+   "start_pos": [
+    3.0132,
+    -0.2164,
+    1.1227
+   ],
+   "end_pos": [
+    3.0132,
+    -0.2164,
+    1.1227
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 3.197,
+   "dist_to_target_end_m": 3.197,
+   "min_eef_dist_to_centre_m": 0.1293,
+   "gripper_touch_intervals": [],
+   "holds": [],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 0.0,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {
+  "stage0:toaster": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.8907,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.9343,
+    0.8578,
+    0.8324,
+    0.9811,
+    0.9037,
+    0.8277,
+    0.7533,
+    0.6803,
+    0.6411,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.9829,
+    0.9054,
+    0.8295,
+    0.755,
+    0.682,
+    0.6104,
+    0.5401,
+    0.4713,
+    0.4038,
+    0.3376,
+    0.2727,
+    0.209,
+    0.1466,
+    0.0854,
+    0.0254,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "done_intervals": [
+    [
+     161,
+     660
+    ],
+    [
+     811,
+     1310
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     145,
+     165
+    ],
+    [
+     255,
+     255
+    ],
+    [
+     259,
+     265
+    ],
+    [
+     349,
+     396
+    ],
+    [
+     544,
+     552
+    ],
+    [
+     565,
+     573
+    ],
+    [
+     578,
+     591
+    ],
+    [
+     593,
+     604
+    ],
+    [
+     628,
+     631
+    ],
+    [
+     657,
+     658
+    ],
+    [
+     696,
+     700
+    ],
+    [
+     705,
+     711
+    ],
+    [
+     800,
+     800
+    ],
+    [
+     802,
+     802
+    ],
+    [
+     805,
+     805
+    ],
+    [
+     807,
+     807
+    ],
+    [
+     812,
+     821
+    ],
+    [
+     823,
+     830
+    ],
+    [
+     852,
+     862
+    ],
+    [
+     978,
+     1021
+    ],
+    [
+     1035,
+     1054
+    ],
+    [
+     1058,
+     1085
+    ],
+    [
+     1089,
+     1089
+    ],
+    [
+     1091,
+     1100
+    ],
+    [
+     1102,
+     1102
+    ],
+    [
+     1104,
+     1113
+    ],
+    [
+     1135,
+     1136
+    ],
+    [
+     1138,
+     1146
+    ],
+    [
+     1160,
+     1166
+    ],
+    [
+     1174,
+     1176
+    ],
+    [
+     1178,
+     1178
+    ],
+    [
+     1214,
+     1215
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.891
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.934
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.832
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.904
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.753
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.641
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": true,
+      "lever": 1.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.983
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.829
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.682
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.54
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.404
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.273
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.147
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.025
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    },
+    {
+     "0": {
+      "turned_on": false,
+      "lever": 0.0
+     }
+    }
+   ],
+   "state_end": {
+    "0": {
+     "turned_on": false,
+     "lever": 0.0
+    }
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "TurnOnToaster",
+    "press"
+   ],
+   [
+    161,
+    "TurnOnToaster",
+    "wait"
+   ],
+   [
+    1523,
+    "PickPlaceToasterToCounter",
+    "pick"
+   ],
+   [
+    2000,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": [
+   "zero-length segment(s): subtask_idx skips [3, 4]"
+  ]
+ },
+ "video": "run/GetToastedBread/GetToastedBread_s12_single.mp4"
+}

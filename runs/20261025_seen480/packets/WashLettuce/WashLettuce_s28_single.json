@@ -1,0 +1,533 @@
+{
+ "tag": "WashLettuce_s28_single",
+ "task": "WashLettuce",
+ "instruction": "Wash the lettuce in the sink by running water over it.",
+ "success": false,
+ "steps": 1100,
+ "horizon": 1100,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   272,
+   0
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 272,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 7,
+  "style": 7,
+  "objects": {
+   "lettuce_container": "lightwheel/colander/Colander012/model.xml",
+   "lettuce": "lightwheel/lettuce/Lettuce010/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0808,
+   0.0807,
+   0.0807,
+   0.0808,
+   0.081,
+   0.0779,
+   0.0787,
+   0.079,
+   0.0792,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.066,
+   0.0657,
+   0.0657,
+   0.0658,
+   0.0655,
+   0.0652,
+   0.065,
+   0.059,
+   0.0529,
+   0.053,
+   0.053,
+   0.0532,
+   0.053,
+   0.053,
+   0.0522,
+   0.0517,
+   0.0502,
+   0.05,
+   0.05,
+   0.0498,
+   0.0479,
+   0.045,
+   0.0387,
+   0.0375,
+   0.0348,
+   0.0347,
+   0.0346,
+   0.0344,
+   0.0343,
+   0.0341,
+   0.034,
+   0.0339,
+   0.0337,
+   0.0336,
+   0.0335,
+   0.0333,
+   0.0332,
+   0.0331,
+   0.033,
+   0.0329,
+   0.0327,
+   0.0326,
+   0.0325,
+   0.0324,
+   0.0323,
+   0.0321,
+   0.032,
+   0.0319,
+   0.0318,
+   0.0318,
+   0.0317,
+   0.0288,
+   0.0284,
+   0.028,
+   0.0278,
+   0.0264,
+   0.0264,
+   0.0263,
+   0.0263,
+   0.0263,
+   0.0263,
+   0.0262,
+   0.0262,
+   0.0262,
+   0.0262,
+   0.0262,
+   0.0262,
+   0.0262,
+   0.0261,
+   0.0261,
+   0.0261,
+   0.0263,
+   0.0263,
+   0.0267,
+   0.0273,
+   0.0289
+  ],
+  "close_events": []
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 1,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "TurnOnSinkFaucet",
+   "kind": "fixture",
+   "first_complete_step": 267,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     267,
+     1100
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 267,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 253,
+    "p90": 449,
+    "n": 19
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToSink",
+   "kind": "process",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 267,
+   "typical_in_successes": {
+    "median": 303,
+    "p90": 345,
+    "n": 19
+   }
+  }
+ ],
+ "objects": {},
+ "fixtures": {
+  "stage0:sink": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0017,
+    0.1602,
+    0.5002,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "done_intervals": [
+    [
+     267,
+     1100
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     239,
+     275
+    ],
+    [
+     738,
+     738
+    ],
+    [
+     750,
+     750
+    ],
+    [
+     756,
+     756
+    ],
+    [
+     793,
+     793
+    ],
+    [
+     797,
+     798
+    ],
+    [
+     802,
+     802
+    ],
+    [
+     804,
+     804
+    ],
+    [
+     864,
+     864
+    ],
+    [
+     867,
+     867
+    ],
+    [
+     886,
+     886
+    ],
+    [
+     888,
+     888
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "handle_joint": 6.784779077231844e-07,
+     "water_on": false
+    },
+    {
+     "handle_joint": 2.88741819830294e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 5.096362468054992e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 7.305310716975719e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 9.514262945061508e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 1.1723219152308747e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 1.3932179338713823e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 1.6141143504273108e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.16015729968228265,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.5000000792911619,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.500000070722491,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224885,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224862,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224839,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224815,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224792,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224769,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224744,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224721,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224693,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224674,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224651,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224627,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224603,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.500000070722458,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224557,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224533,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224509,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224486,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224462,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224439,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224416,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224391,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224368,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224345,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000707224336,
+     "water_on": true
+    }
+   ],
+   "state_end": {
+    "handle_joint": 0.5000000707224336,
+    "water_on": true
+   }
+  }
+ },
+ "process_progress_end": {
+  "stage1": {
+   "washed_time": 0,
+   "water_on": true
+  }
+ },
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "TurnOnSinkFaucet",
+    "execute"
+   ],
+   [
+    267,
+    "PickPlaceCounterToSink",
+    "pick"
+   ],
+   [
+    514,
+    "PickPlaceCounterToSink",
+    "place"
+   ],
+   [
+    829,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": [
+   "lettuce washed only 0 frames (< 25)"
+  ]
+ },
+ "video": "run/WashLettuce/WashLettuce_s28_single.mp4"
+}

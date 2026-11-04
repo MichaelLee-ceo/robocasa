@@ -1,0 +1,26 @@
+{
+ "tag": "PrepareCoffee_s27_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 3, grey/black CoffeeMachine041 (dispenser above a grate tray, round dial and small buttons on the right side of the front), round blue mug_7 on an open wooden shelf above. Stage 0: grasp 131/142 by the rim, mug carried down to the tray (~300), released 357 at 0.0033 m (0.0048 m 2 s later), upright - the most precise placement of the task. Stage 1: the gripper moved to the right of the machine and came at the buttons from the side (420-470), the button registered at 478; stage 0 complete 441 (broke 474-497 while at the button), success 501. Fastest episode (501 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Stage 0 broke at 474 only because the gripper came back within 25 cm of the mug at the button.",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/cmp_success_press.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 142 release 357 dist 0.0033 -> 0.0048",
+   "machine touch 335-343, 360-363 (arm while placing), 478-481 (on at 478)",
+   "success 501"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s27_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [51, 2600],
+ "category": "missed_grasp",
+ "secondary": ["stall_pre_grasp"],
+ "what_happened": "Scene: layout/style 10; two LemonWedge009 (veg0 on the lower glass shelf, veg1 upper) and steaks on the upper shelf. The gripper went straight down to the lower-shelf lemon wedge, which lay with its long axis pointing away from the camera, between the fingers (44-56). It closed at 51; the wedge squeezed out and rotated aside (60-68), lift 0.002 m (hold 59-64), and the fingers closed fully (width 0.014). The fingers then stayed closed for the rest of the episode (72-2600, ~2530 steps, no further close event) while the arm hovered in front of the fridge, the wrist camera looking down at the wedge through the glass shelf (frames 200-2600 nearly identical). The base never left the fridge and nothing else was touched.",
+ "causal_chain": "closed on the lemon wedge at 51, it slipped out sideways -> fingers stayed closed and the arm hovered over the wedge for ~2530 steps -> 0 items placed",
+ "self_recovery": "none - never reopened the fingers or tried again",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s27_overview.png", "frames/s27_miss.png"],
+  "packet_facts": ["single close event 51 on veg0, width 0.014, not lifted", "veg0 hold g59 r64 lift 0.002", "width closed 72-2600"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

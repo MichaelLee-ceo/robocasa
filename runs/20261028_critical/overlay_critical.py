@@ -8,14 +8,14 @@ and the finger bodies per step. They are projected into the three cameras GR00T 
 snapshot (rgb, K, T). Drawn per candidate:
   - the path;
   - dots at the steps that command the gripper closed;
-  - the gripper glyph at the end of the chunk: palm line and two fingers (../20261026_vlm_critic/overlay_views.py).
+  - the gripper glyph at the end of the chunk: palm line and two fingers (as in ../20261030_vlm_critic/panels.py).
 Colours: blue = finished the stage in both continuations, orange = in neither, grey = one of two.
 Labels, rollouts and snapshot all come from the coarse row in use (data.py).
 Writes overlay/<tag>_t<t>.png (left | right | wrist) to $CRIT_OUT. usage: python -I overlay_critical.py <workers>"""
 import json, multiprocessing, os, sys
 import numpy as np
 
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path[:0] = [f"{R}/runs/scripts", f"{R}/runs/20261025_seen480", HERE]
 import data  # noqa: E402

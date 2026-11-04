@@ -1,0 +1,14 @@
+##### feature last: 1277 points; candidates kept (re-sampled within 0.05 of the executed chunk): 10040 / 10216
+=== 1 pipeline: Spearman(u8, raw-action variance) on coarse
+  KettleBoiling         n 250: +0.13
+  SteamInMicrowave      n 262: +0.39
+  PackIdenticalLunches  n 256: +0.53
+=== 2 state: cross-validated prediction of V from the candidates' mean z (vs stage index + time)
+  KettleBoiling         n 313: rho(pred, V) features +0.50, stage+time +0.39; AUROC V > 0.5: features 0.74, stage+time 0.73; undecided vs decided: features |pred - 0.5| 0.59
+  SteamInMicrowave      n 366: rho(pred, V) features +0.36, stage+time +0.32; AUROC V > 0.5: features 0.72, stage+time 0.70; undecided vs decided: features |pred - 0.5| 0.60
+  PackIdenticalLunches  n 598: rho(pred, V) features +0.41, stage+time +0.37; AUROC V > 0.5: features 0.68, stage+time 0.65; undecided vs decided: features |pred - 0.5| 0.62
+=== 3 action: gain of the candidate picked from its features over the mean candidate (held-out main runs)
+  features               confirm  n 32: +0.7 pts [-11.3, +12.9]  (Kettle +8; SteamI -13; PackId +3); in-sample best-of-8 +42.1
+  features               control  n 31: +3.6 pts [-0.7, +8.8]  (Kettle -2; SteamI +4; PackId +5); in-sample best-of-8 +11.7
+  shuffled-label control confirm  n 32: -1.6 pts [-11.3, +8.8]  (Kettle +2; SteamI -5; PackId -2); in-sample best-of-8 +42.1
+  shuffled-label control control  n 31: -1.2 pts [-7.0, +4.5]  (Kettle -2; SteamI -5; PackId +0); in-sample best-of-8 +11.7

@@ -1,0 +1,36 @@
+{
+ "tag": "RinseSinkBasin_s13_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  104,
+  740
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_at_fixture",
+  "stall_approach_retreat",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene layout/style 9: double black basin, tall pull-down faucet with a spring neck; the on/off handle is a round hub with a red dot and a lever hanging down on the side of the base (same faucet as s0, s2, s3, s18, s20, s26). Stage 0: first approach 92-116, the lever hangs down to the upper-left of the finger gap; the gripper closed at 104 to width 0.014 beside the lever (touch 104-112), the lever tilted only 0.025 rad; the arm moved away 124-160 (wrist sees the window). Second approach 236-268: closed again at 268 to 0.009 at/next to the lever (touch 247-259), handle still ~0.03. From 288 the gripper stayed closed and the arm hovered 10-25 cm from the handle for ~450 steps (300-740) with the lever in the wrist view, approaching and backing off (close at 420/580, farther at 468/700) without touching. 744-784 it pushed the faucet stem (spout to -0.19) with the water off, then hovered near the handle again to 900. Water never ran.",
+ "causal_chain": "two closes beside the lever (104 -> 0.014, 268 -> 0.009) moved it only 0.03 rad -> gripper left closed, hovered at the handle 288-740 without another real attempt -> pushed the spout with water off 744-784 -> stage 0 never complete at 900",
+ "self_recovery": "One re-approach at 236-268 (also missed). After that, approach/retreat cycles near the handle but no further contact with the lever. Not successful.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png",
+   "frames/s13_handle.png",
+   "frames/s13_hover.png",
+   "frames/L9_handle_compare.png"
+  ],
+  "packet_facts": [
+   "closes 104 (0.014), 242 (0.043), 268 (0.009), 476 (0.009), all on_nothing",
+   "fixture touch 104-106, 109-112, 247-259, 744-784",
+   "handle max ~0.03 (state_end 0.025), water_on false",
+   "spout -0.19 from 784 (saved states)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly where the fingers were relative to the lever at the two closes; 4-step wrist frames show the lever just outside the finger gap but the contact geometry is not fully resolvable."
+}

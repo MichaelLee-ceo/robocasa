@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scan_boundaries import Model  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-D = "/home/michaellee/mclee/robocasa/runs/20261026_critic_data"
+D = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261026_critic_data")
 
 
 def finger_side(M, s):

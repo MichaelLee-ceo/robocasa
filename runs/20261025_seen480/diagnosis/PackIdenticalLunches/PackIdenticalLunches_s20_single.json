@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s20_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 1,
+ "root_cause_steps": [900, 954],
+ "category": "placed_off_target",
+ "secondary": ["official_criterion_issue"],
+ "what_happened": "Scene: layout/style 4; garlic_4 (veg0) and garlic_5 (veg1), two fish_8 (slim, meat0/meat1); two rectangular tupperwares on the counter right of the cooktop (left L next to the cooktop, right R by the toaster, ~0.48 m apart). Stage 0: grasped garlic veg0 at 84-87 in a loose grip (packet hold 87-182, contact continues to 285), carried it and set it into L at ~285; stage 0 complete 307. Stage 1: grasped garlic veg1 at 637-646 and released it at ~950 into L again, on top of/against the first garlic (dist 0.012), although R was empty; the robot was already backing off by ~1000 but veg1 only counted as 'in the tupperware' from 1027, when it tipped off the first garlic onto the tupperware floor (stage 1 complete 1027; 720 steps, p90 474). From here the goal was unreachable without moving a garlic. Stage 2: grasped fish meat1 at 1198-1208 and released it at 1436 into L too (L = 2 garlic + fish); stage 2 complete 1460. Stage 3: grasped fish meat0 at 1729-1741 and released it at 1927 into R (dist 0.04). Final L = 2 garlic + 1 fish, R = 1 fish. The last ~600 steps it hovered at the fridge (close on air 2539).",
+ "causal_chain": "second garlic released into the tupperware already holding the first garlic (~950) while the other tupperware was empty -> third item also into L (1436) -> last fish into R (1927) -> L = 2 veg + 1 meat, R = 1 meat; stage 3 impossible; all items placed by 1927, not a time problem",
+ "self_recovery": "none",
+ "official_criterion_notes": "Stage 1 lagged 73 steps behind the real placement: the second garlic rested on the first one, out of contact with the tupperware, so check_obj_in_receptacle (which requires contact with the tupperware) was false until it tipped down at ~1014-1027. A stacked item does not count as 'in'.",
+ "evidence": {
+  "sheets": ["frames/s20_overview.png", "frames/s20_v1place.png"],
+  "packet_facts": ["veg0 hold g87 r182, touch 84-285, at_target from 286; stage0 307", "veg1 hold g646 r954 dist 0.012, at_target only from 1027 (tipped from 1014)", "meat1 hold g1208 r1436; meat0 hold g1741 r1927", "end: v0 (2.85,-0.46), v1 (2.87,-0.41), m1 (2.83,-0.44) together; m0 (3.33,-0.41)"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

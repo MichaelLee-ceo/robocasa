@@ -1,0 +1,27 @@
+{
+ "tag": "StirVegetables_s5_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 7 (same kitchen as s12, s28), brown steel pot (Pot075) on the rear-left burner of a gas hob, potato and lemon wedge on the counter right of the hob, spatula_5 (blue silicone) on the counter left. Stage 0: potato grasped 69/75, dropped in 167 (complete 169, fast). Stage 1: lemon wedge grasped 243/251, dropped in 327 (complete 331). Stage 2: spatula grasped 529 near the middle of the handle, lifted (complete 546). Stage 3 (134 steps, the fastest): at ~600-620 the paddle was lowered vertically, blade down, into the middle of the pot; 620-680 the arm pushed it around inside the pot (the pot itself stays on the burner) and the env counted the stir steps (success_step 680, success_time 8). No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png",
+   "frames/s5_stir.png",
+   "frames/s5_stir_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 75-167, veg2 hold 251-327",
+   "spatula close 529 width 0.029 lifted; stage2 546-688",
+   "success_step 680, success_time 8"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

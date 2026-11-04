@@ -1,0 +1,27 @@
+{
+ "tag": "WashLettuce_s29_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 7 / style 7; perforated colander (Colander008) LEFT of the sink. Stage 0: water on at 202 (median 253). Lever 174-202. Colander rim grasped at 416, carried right, set low in the basin under the spout; stream on the lettuce 488-516 (wrist). Stage 1 took 318 steps (median 303); success at 520. No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s29_brief.png",
+   "frames/L7_spout_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[174, 191], [193, 200], [202, 202]]",
+   "stage0 first complete 202",
+   "close_events [(416, 0.043)]",
+   "success 520, washed_time 33"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

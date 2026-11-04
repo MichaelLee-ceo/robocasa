@@ -5,7 +5,7 @@ usage: python -I fixture_pose_check.py [n_scenes_per_task=3]"""
 import collections, json, os, sys
 import numpy as np
 import gymnasium as gym
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 sys.path.insert(0, f"{R}/runs/scripts")
 import atomic_eval as A  # noqa: E402
 from robocasa.models.fixtures import Fixture  # noqa: E402

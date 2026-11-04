@@ -1,0 +1,26 @@
+{
+ "tag": "KettleBoiling_s18_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Grasp at 110, lift 0.19 m. Over the target from 215, held there 51 steps, released 266 0.114 m from centre; stage 0 at 273. 330-380 the gripper came back down beside the kettle on its way to the knobs and touched it (350-359, lift 8 mm; the kettle stayed on target). 400-480 at the left knob, on at 487 (1.0). Stage 1 is only counted at 538, when the gripper moved away: 265 steps (> p90 229), of which ~51 come from the gripper-away clause.",
+ "causal_chain": "",
+ "self_recovery": "Bumped the kettle at 350-359 on the way to the knob without displacing it.",
+ "official_criterion_notes": "Stage 0 broken 285-300, 318-364 and 408-538: Stage 0 interval breaks while the gripper is within 25 cm of the kettle at the knob (gripper-away clause), not a real undo. Stage 1 'slow' is partly the same artefact (burner on at 487, counted at 538).",
+ "evidence": {
+  "sheets": [
+   "frames/s18_overview.png",
+   "frames/s18_dense.png"
+  ],
+  "packet_facts": [
+   "holds: 110-266 lift 0.186 dist 0.114; 350-359 lift 0.008",
+   "stove done from 487; touch 462-520",
+   "stage1 steps 265 (p90 229)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

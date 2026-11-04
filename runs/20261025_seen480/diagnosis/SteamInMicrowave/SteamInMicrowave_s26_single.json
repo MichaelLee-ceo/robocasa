@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s26_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 9 (wall-stack microwave MW071). Stage 0: squash grasped at ~139, released into the bowl at 274 (stage 0 at 275). Stage 1: bowl grasped at 332 and carried (the squash touches the fingers repeatedly during the carry, 'holds' 365-767), tilted up to 72 deg while lifted into the cavity (tipped 664-798), released inside at 798, stage 1 at 818 (543 steps, above the median 477). Stage 2: door shut 933-1033, closed at 1023 (205 steps). Stage 3: a first approach at 1179-1191 had the fingertips at the TIME COOK / STOP-CLEAR level, then it pressed START/ENTER at 1214-1224 (201 steps). Success at 1224.",
+ "causal_chain": "",
+ "self_recovery": "the first contact on the keypad (1179-1191) did not turn it on; the second press 1214-1224 did.",
+ "official_criterion_notes": "Vegetable 'holds' 365-767 are fingertip contacts during the bowl carry.",
+ "evidence": {"sheets": ["frames/s26_overview.png", "frames/s26_press.png", "frames/cmp_press_success_wrist.png"],
+   "packet_facts": ["vegetable hold 139-274", "bowl hold 340-798 lift 0.73; tipped 664-798", "door closed 1023", "microwave touch 1179-1191, 1214-1224; success 1224"]},
+ "confidence": "medium", "uncertain_about": "Light check only."}

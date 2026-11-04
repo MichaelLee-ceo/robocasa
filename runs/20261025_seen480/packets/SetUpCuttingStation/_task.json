@@ -1,0 +1,35 @@
+{
+ "task": "SetUpCuttingStation",
+ "instruction": "Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board.",
+ "stages": [
+  "0: PickPlaceDrawerToCounter",
+  "1: PickPlaceCounterToCounter"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the knife lies on the cutting board and the gripper is no longer touching it.",
+   "does_not_count": "the knife is still in the drawer, still held, or lying off the board."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the knife and the meat both lie on the cutting board, and the gripper has moved away from the knife and the board (about 25 cm or more).",
+   "does_not_count": "the meat is not on the board yet, the knife is no longer on the board, or the gripper is still at the board."
+  }
+ ],
+ "horizon": 1600,
+ "episodes": 30,
+ "successes": 14,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 486,
+   "p90": 724,
+   "n": 14
+  },
+  "1": {
+   "median": 220,
+   "p90": 478,
+   "n": 14
+  }
+ }
+}

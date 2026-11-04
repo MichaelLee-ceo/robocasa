@@ -6,11 +6,12 @@
     start (their base commands were rotated by that angle; fix3 re-collected >= 5 degrees only).
 Confirm points are left for phase 2 (after the coarse and dense data are re-analysed). Writes points_v5.json (all
 selected rows) and the jobs file. usage: python select_v5.py jobs_v5.json"""
+import os
 import json, sys
 from collections import Counter, defaultdict
 
-D = "/home/michaellee/mclee/robocasa/runs/20261026_critic_data"
-DYAW = json.load(open("/home/michaellee/mclee/robocasa/runs/20261028_critical/dyaw.json"))
+D = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261026_critic_data")
+DYAW = json.load(open(os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261028_critical/dyaw.json")))
 ORDER = {"KettleBoiling": [("coarse", ["run_v2/s0", "run_v2/s1", "run_v2/s2", "run_v2/s3", "run_v2/s4", "run_KettleBoiling_fix"]),
                            ("dense", ["run_dense_KettleBoiling"]), ("confirm", ["run_confirm_KettleBoiling"])],
          "SteamInMicrowave": [("coarse", ["run_SteamInMicrowave_v2", "run_SteamInMicrowave_fix", "run_SteamInMicrowave_fix3"]),

@@ -1,9 +1,10 @@
 """Jobs that re-collect given decision points with the settled-v5 restore, each with the N, M, L, k and seeds of the row
 it replaces (salt "" keeps the original seeds, so old and new rows of a point pair up) and an "out" dir per dataset.
 usage: python make_jobs_v5.py points.json jobs_out.json   (points: [{dir, tag, t, out}] or affected rows)"""
+import os
 import glob, json, sys
 
-D = "/home/michaellee/mclee/robocasa/runs/20261026_critic_data"
+D = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261026_critic_data")
 
 
 def row(d, tag, t):

@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s1_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 2,
+ "root_cause_steps": [1100, 1146],
+ "category": "placed_off_target",
+ "secondary": ["missed_grasp_continued_empty"],
+ "what_happened": "Scene: layout/style 2; squash_7 (butternut, veg0) and squash_5 (round, veg1), fish_6 (trout, meat0) and fish_7 (meat1); two tupperwares side by side by the knife block: a round grey one (left, A) and a rectangular dark one (right, B). Stage 0: grasped the trout meat0 at 67-74 and released it at 258 into A; stage 0 complete 282. Stage 1: grasped the butternut veg0 at 513-522 and released it at 728 into A next to the trout (A = meat + veg, correct); stage 1 complete 748 (466). Stage 2: grasped the round squash veg1 at 969-983, brought it over the counter with both tupperwares in the wrist view (1100) and released it at 1146 again into A (dist 0.04), which already held a meat and a vegetable; stage 2 complete 1163 (415). A now held two vegetables, so the goal was no longer reachable without moving an item. Stage 3: at the fridge it closed on fish meat1 at 1492 (width 0.006, no lift), drove the closed empty fingers to the counter and made an empty place over B (~1760). It returned, grasped meat1 at 2024-2034 and released it at 2267 into B (dist 0.13). End: A = trout + butternut + round squash, B = fish_7; stage 3 never true.",
+ "causal_chain": "3rd item (second vegetable) released into the tupperware that already held a vegetable and a meat (1146), although the empty tupperware was right next to it -> composition A = 2 veg + 1 meat, B = 1 meat after the 4th placement (2267) -> stage 3 impossible; the missed fish grasp (1492) and empty trip only delayed the 4th item",
+ "self_recovery": "none for the composition (never moved an item between tupperwares); the missed fish grasp was recovered on the second try (2024).",
+ "official_criterion_notes": "Stages 0-2 have many short 'object left the target' undo events (11, 17, 10) while items pile up in tupperware A - contact flicker of stacked items, not real removals.",
+ "evidence": {
+  "sheets": ["frames/s1_overview.png"],
+  "packet_facts": ["meat0 hold g74 r258; veg0 hold g522 r728; veg1 hold g983 r1146 dist 0.037; meat1 hold g2034 r2267 dist 0.13", "end positions: v0 (1.71,-0.44), v1 (1.80,-0.38), m0 (1.75,-0.43) together; m1 (2.09,-0.53)", "close 1492 meat1 w0.006 no lift; width closed 1512-1752"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

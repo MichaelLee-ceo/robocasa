@@ -1,0 +1,35 @@
+{
+ "tag": "StoreLeftoversInBowl_s27_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  880,
+  1172
+ ],
+ "category": "stall_holding_at_target",
+ "secondary": [
+  "undid_previous_stage",
+  "placed_off_target",
+  "other: bowl carried tilted > 45 deg in the rim grasp for ~600 steps (558-1171)"
+ ],
+ "what_happened": "Layout 9 (side-by-side fridge, narrow open right compartment), light wooden bowl_7, lemon, drumstick 012. Stage 0: lemon grasped 107, released in the bowl 172 (stage 0 at 174). Stage 1: drumstick grasped 257, released in the bowl 334 (stage 1 at 340, fast). Stage 2: rim grasp 388-408 with the lemon pinched against the rim (width 0.031), lift up to 0.715 m. The bowl tilted past 45 deg at 558 and stayed tilted. The base reached the fridge by ~720 with the arm low, then 800-920 the arm rose to the very top of the compartment opening, above the top shelf (bowl 0.22 m outside the interior box at release). It held the bowl there ~270 steps (900-1170) without setting it down, while the fingers slowly opened (0.031 at 864 -> 0.054 at 1072). The contents slid out: lemon at ~1133 and again ~1166 (drops 0.61 and 1.57 m), drumstick at ~1149 (drop 1.62 m). The bowl itself fell at ~1171 (drop 1.52 m). 1180-1700 the empty arm moved around the fridge (closing on air at 1276).",
+ "causal_chain": "bowl tilted in the rim grasp from 558 -> at the fridge the arm raised it above the top shelf instead of onto a shelf (~900) -> ~270-step hold at the top with the grip slowly loosening -> lemon and drumstick slid out (1133-1166), then the bowl fell (1171) -> all stages lost",
+ "self_recovery": "none",
+ "official_criterion_notes": "Stage 1 shows ~30 'undone' events while the bowl is carried tilted with the lemon pinched; most are the xy-offset / finger-contact effect, not real spills. The real spill is at 1133-1166. Stage 0 is 'complete' at the end (intervals 1192-1700, first_incomplete_stage = 1) although bowl and foods are all on the floor: the lemon touches the fallen bowl within the xy threshold.",
+ "evidence": {
+  "sheets": [
+   "frames/s27_carry.png",
+   "frames/s27_drop_zoom.png",
+   "frames/L9_release_compare.png"
+  ],
+  "packet_facts": [
+   "bowl hold 396-1171 lift 0.715 dist at release 0.217 drop 1.523",
+   "bowl tipped [[558,1171]]",
+   "gripper 0.031 to 864, 0.042-0.054 during 880-1168, 0.077 at 1176",
+   "veg holds 499-1096 (pinched), 1117-1133 drop 0.607, 1138-1166 drop 1.571; drumstick 973-1149 drop 1.623"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "The exact height of the bowl relative to the top shelf; it is mostly out of the agent-view frame during the hold."
+}

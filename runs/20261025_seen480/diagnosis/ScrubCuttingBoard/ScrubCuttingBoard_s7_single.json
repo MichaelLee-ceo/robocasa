@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s7_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [330, 800],
+ "category": "stall_holding_at_target",
+ "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene L10 (same kitchen as s15 success and s29): green sponge_6 on white marble, small rounded cutting_board_7 ~33 cm to the right at the counter's end. Stage 0 normal: grasp 96-99, lifted 8.6 cm, carried right (120-190); stage 0 from 97/100. Stage 1: counter 1 at 194. Wide strokes over the board, at first partly over its left edge (200-330); the criterion was met at 330 (6 contacts, sweep 0.164) and there were 12 contacts by 405. The policy then kept the sponge on the small board and kept moving it around for the remaining ~400 steps (408-800, frames every 32 steps all show the sponge on the board). Only one more point was counted (644), so it was going over spots it had already covered. The grip never loosened (width 0.057-0.060, grasp True almost throughout) and it never lifted the sponge for a return. Still scrubbing at 800.",
+ "causal_chain": "criterion met at 330 -> policy never switched from scrubbing to releasing (scrub phase 194-800 = 606+ steps vs 153-601 in successes) -> sponge still held at timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s7_overview.png", "frames/s7_late.png", "frames/groupA_end.png"],
+   "packet_facts": ["process_progress_end contacts 13 sweep 0.286", "trace: criterion met from 330; contacts 12 at 405, 13 at 644", "touch 96-800, grasp True 99-800", "eef-sponge distance <= 0.02 m 39-800"]},
+ "confidence": "high", "uncertain_about": ""}

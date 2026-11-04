@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s26_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [128, 2600],
+ "category": "missed_grasp",
+ "secondary": ["missed_grasp_continued_empty", "stall_pre_grasp"],
+ "what_happened": "Scene: layout/style 3; all four items on one fridge shelf: two bell_pepper_3 and two thin steak_4 slices lying flat (tilt 53 deg from the start). Attempt 1: the fingers came down straddling the flat steak slice meat0 (124-156), closed at 128 (width 0.051, lift 0.015) and again at 151 (width 0.003): the slice stayed on the shelf. 300-460 it hovered, closing on air at 462. Attempt 2 on the same slice at 569-653 (close 644, width 0.003, lift 0.011): no lift. It still drove to the counter with closed, empty fingers (656-840) and made an empty 'place' over the right tupperware next to the toaster (~800-860). Back at the fridge ~1000: brief contacts with the steak at 1131-1139, a close on the pepper veg0 at 1170 (width 0.008, no lift), and the steak slice was dragged toward the shelf edge (holds 1235-1290, lift 0). From ~1350 to ~2250 the arm was folded low in front of the fridge, the wrist camera looking at the robot's own arm and the floor; a close on air at 1957 was followed by a second empty trip to the counter (~2400), and it was back at the fridge at the end. No item ever left the shelf.",
+ "causal_chain": "pinch grasps on the thin flat steak slice fail (128/151, 644) -> empty trip and empty place at the counter (~800) -> failed close on the pepper (1170), steak dragged (1235-1290) -> ~900 steps folded/stalled (1350-2250) -> second empty trip (~2400) -> 0 items",
+ "self_recovery": "Several retries (steak x2, pepper x1), all without lift; it never switched to a different grasp approach for the flat slice and never tried the second pepper.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s26_overview.png", "frames/s26_grasps.png", "frames/s26_late.png"],
+  "packet_facts": ["meat0 holds: g136 r160 lift 0.015; g583 r654 lift 0.011; g1235 r1246; g1250 r1290 lift 0", "close 128 w0.051 meat0; 151 w0.003; 462 air; 644 w0.003 meat0; 1170 w0.008 veg0; 1957 air", "width closed 168-456, 656-840, 1192-1560, 1976-2376", "meat0 tipped (lying flat) from step 0"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the second counter trip (~2400) ended in an explicit empty place; the overview shows the wrist over the counter by the toaster with nothing held."
+}

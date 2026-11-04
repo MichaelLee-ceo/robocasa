@@ -1,5 +1,5 @@
 """Our per-stage checks (atomic_steps.TASKS) vs the official stage segmentation on official demos (step 2 of the
-(c) validation). Generalises prev/_handoff_verify_asus/seen11/validate_seen11.py to all 16 Composite-Seen tasks.
+(c) validation). Covers all 16 Composite-Seen tasks.
 
 Per demo: env from the dataset's env_args (official build_env), scene restored with oracle.reset_to (the reset our
 rollouts use), then every frame: set_state (runs update_state), env._check_success() once (what env.step's reward()
@@ -13,7 +13,7 @@ already there), and validate_stage_checks.json (per-stage summary) is rebuilt fr
 import glob, json, multiprocessing, os, sys, time
 from pathlib import Path
 import numpy as np
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 sys.path.insert(0, f"{R}/runs/scripts")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # python -I leaves the script dir off sys.path
 import robocasa.scripts.dataset_scripts.add_subtask_labels_to_lerobot as L  # noqa: E402

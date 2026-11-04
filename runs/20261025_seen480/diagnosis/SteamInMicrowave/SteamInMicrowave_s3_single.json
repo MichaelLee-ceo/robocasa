@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s3_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 2 (built-in microwave above a wall oven, left-hinged door; same as failures s8, s11, s14). Stage 0: carrot grasped at 127, released into the bowl at 330 (0.007 m from the centre), stage 0 at 330. Stage 1: bowl grasped at 387, released inside at 709, stage 1 at 728 (398 steps). Stage 2: like s8/s14 the base stopped to the right of the microwave and viewed it obliquely, but the gripper reached the door's outer face near its free edge (812-840) and swung it shut 821-903 (175 steps). Stage 3: it went to the keypad and pressed START/ENTER at 1070 (167 steps), with the wrist camera seeing the keypad roughly upright. Success at 1070.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s3_overview.png", "frames/s3_door.png", "frames/cmp_L2_door.png", "frames/cmp_press_success_wrist.png"],
+   "packet_facts": ["vegetable hold 139-330", "bowl hold 396-709 lift 0.56", "door 0.06 -> 1.0 by 912, first 903", "microwave touch 1070-1072; success 1070"]},
+ "confidence": "high", "uncertain_about": ""}

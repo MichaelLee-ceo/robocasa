@@ -1,0 +1,36 @@
+{
+ "tag": "SearingMeat_s10_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  2216,
+  2900
+ ],
+ "category": "other: shrimp stuck to the open fingers - the gripper opened fully above the pan (2224-2232) but the shrimp stayed attached to one finger and was carried away",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene: layout 8 (green cabinets), pan_6 (dark pan, dark-wood handle with metal ferrule and end cap) on a high shelf above a microwave; target rear_right burner of a 4-burner gas range ~1.4 m to the left; shrimp on a decorated plate left of the range. Stage 0 was very slow: 148-188 the fingers were at the handle END cap (pan dragged 3.5 cm, close on air 233); 240-900 the arm withdrew and looked at the pan from afar; 940-956 and 1252-1292 two more attempts at the ferrule with the handle crossing the fingers diagonally (closes 944 -> 0.005, 1276 -> 0.009, slipped). At 1391 the handle ran from the pan toward the camera between the fingers and the grasp held (width 0.047); the pan was carried to the range and released at 1788 on the rear_right burner (0.054 m). Stage 0 complete 1819 (median 378, p90 813). Stage 1: shrimp grasped at 2053 (width ~0.03) and held directly above the pan at ~2160-2220. At 2224-2232 the gripper opened fully (0.079), but the shrimp stayed stuck to the left finger and did not fall. The arm then went to the knob panel with the shrimp still hanging on the finger (2270-2550), re-closed on it at ~2560 and turned the FRONT_RIGHT knob to 3.14 rad (2592-2720; flame on front_right). The task knob rear_right stayed 0. At the end (2760-2900) it was hovering over the pan again with the shrimp still in the fingers (shrimp z 1.10 m). Stage 0 dropped at 2168 and 2871 only because the gripper came within 25 cm of the pan while it was still on the burner.",
+ "causal_chain": "stage 0: three slipped handle grasps (148-1292) -> pan placed only at 1788 (1819 vs median 378), but 1081 steps remained, so time was not binding -> stage 1: gripper opened over the pan at 2224-2232 but the shrimp stuck to the open finger -> policy proceeded to the knob holding the shrimp, turned the wrong knob (front_right instead of rear_right) -> shrimp never in the pan, task burner never on -> timeout",
+ "self_recovery": "Stage 0: retried the grasp three times and succeeded on the fourth (1391). Stage 1: after the shrimp did not drop, it carried it around and came back over the pan at the end (2760-2900), but did not get it off the finger before the timeout.",
+ "official_criterion_notes": "first_incomplete_stage = 0 only because the stage-0 'gripper away' clause broke when the gripper returned near the pan (undone 2168 and 2871, 'objects still at target'); the pan is on the rear_right burner (0.061 m) at the end. The real first failing stage is 1.",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_stage0.png",
+   "frames/s10_release_try.png",
+   "frames/s10_stage12.png"
+  ],
+  "packet_facts": [
+   "pan holds 155-194, 921-962, 1260-1273 (failed), 1399-1788 (dist 0.054 at release)",
+   "stage0 complete [[1819,2167],[2250,2870]]",
+   "shrimp hold 2039-2502 lift 0.286, hold 2554-2900 lift 0.468; never at_target",
+   "gripper width 0.027 at 2216 -> 0.077 at 2232 -> 0.079 until 2552 while the shrimp is still held/lifted",
+   "front_right 0.15@2592 -> 3.14@2720; rear_right (task) 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the shrimp sticking to an open finger is a contact/physics artifact or a real wedge between finger and pad; from the wrist view it sits on the inside of the left finger. Whether the policy would have turned the correct knob had the shrimp been released (it turned front_right, not rear_right)."
+}

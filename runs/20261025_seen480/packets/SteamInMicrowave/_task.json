@@ -1,0 +1,57 @@
+{
+ "task": "SteamInMicrowave",
+ "instruction": "Pick the squash from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button.",
+ "stages": [
+  "0: PickPlaceSinkToCounter",
+  "1: PickPlaceCounterToMicrowave",
+  "2: CloseMicrowave",
+  "3: TurnOnMicrowave"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the vegetable lies in the bowl on the counter and the gripper is no longer touching it.",
+   "does_not_count": "the vegetable is still in the sink, still held, or outside the bowl."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the bowl is inside the microwave and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "the bowl is still on the counter, still held, only partly inside the microwave, or the gripper is still at the bowl."
+  },
+  {
+   "stage": 2,
+   "counts_as_complete": "the microwave door is closed.",
+   "does_not_count": "the door is still open or only partly closed."
+  },
+  {
+   "stage": 3,
+   "counts_as_complete": "the vegetable is in the bowl, the bowl is inside the microwave, the door is closed, and the microwave has been switched on (start button pressed).",
+   "does_not_count": "the start button has not been pressed, or the door is open, or the bowl / vegetable is not in place."
+  }
+ ],
+ "horizon": 1400,
+ "episodes": 30,
+ "successes": 10,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 282,
+   "p90": 358,
+   "n": 10
+  },
+  "1": {
+   "median": 477,
+   "p90": 596,
+   "n": 10
+  },
+  "2": {
+   "median": 201,
+   "p90": 483,
+   "n": 10
+  },
+  "3": {
+   "median": 169,
+   "p90": 345,
+   "n": 10
+  }
+ }
+}

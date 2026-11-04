@@ -4,7 +4,7 @@ material name. usage: python -I transparent_survey.py [n_scenes_per_task=5]"""
 import collections, json, os, sys
 import gymnasium as gym
 import mujoco
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 sys.path.insert(0, f"{R}/runs/scripts")
 import atomic_eval as A  # noqa: E402
 from atomic_steps import TASKS  # noqa: E402

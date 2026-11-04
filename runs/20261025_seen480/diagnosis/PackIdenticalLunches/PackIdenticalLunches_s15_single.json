@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s15_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [700, 2600],
+ "category": "other: wrong destination - carried the item away from the tupperware counter (to the stove side) and wandered holding it until it dropped",
+ "secondary": ["dropped_in_transit", "wander_away"],
+ "what_happened": "Scene: layout/style 10 (same kitchen as s7/s23/s27); corn x2 on the lower shelf, two steak_8 (T-bone shape) on the upper and lower shelf; tupperwares on the corner counter LEFT of the fridge by the microwave (~(0.73, -2.96)). Stage 0: grasped the upper-shelf steak meat0 at 103-106, turned left and released it at 310 into a tupperware (dist 0.034); stage 0 complete 327 (typical 286). Stage 1: back at the fridge ~450, grasped the lower-shelf steak meat1 at 607-615 (lift 0.24 m), then turned RIGHT and drove along the counter past the toaster oven (800-950) to the electric stove (1100-1640) - no tupperware anywhere on this side. For ~1000 steps it carried/held the steak with the arm folded close to its body (wrist view shows the robot's own arm behind the steak), never offering it to a counter. At ~1639-1644 the fingers closed past the steak and it dropped onto the robot's own mobile base (end z 0.41, visible on the white base at 2000; 2.47 m from the nearest tupperware at release). 1660-2600 the arm moved around near the stove and the base drifted back toward the fridge (2600) without any further grasp. Only 1 item placed.",
+ "causal_chain": "first item to the correct (left) counter, stage 0 at 327 -> second item driven the wrong way (right, to the stove) and carried ~1000 steps (615-1639) -> dropped onto the robot base ~1640 -> no further grasp; 1 of 4 placed",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s15_overview.png", "frames/s15_drop.png"],
+  "packet_facts": ["meat0 hold g106 r310 dist 0.034, stage0 327", "meat1 hold g615 r1639 lift 0.237 dist_at_release 2.47, end z 0.41 (robot base)", "width slowly closing 640-1632 (0.04 -> 0.02), closed 1640-2600"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the drop at ~1640 was a slip (fingers closing) or a deliberate release; the width went to closed, not open, so slip."
+}

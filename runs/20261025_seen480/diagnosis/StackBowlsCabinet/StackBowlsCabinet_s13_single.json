@@ -1,0 +1,24 @@
+{
+ "tag": "StackBowlsCabinet_s13_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [258, 1400],
+ "category": "stall_holding_at_target",
+ "secondary": ["placed_off_target", "other: far-counter layout - bowls on a kitchen island ~2.4-2.8 m from the open cabinet (all 21 successes start ~0.47 m away)"],
+ "what_happened": "Scene layout 9/style 9, the same island layout as s3: the robot starts at the open cabinet and the bowls (small brown bowl1 = bowl_8 x0.7, larger tan bowl2 = bowl_7 x0.95) sit on the island 2.43/2.79 m away. The base drove to the island by ~200. Strategy: nest-then-carry (attempted). Grasp 250/258, lift 0.29 m; 300-420 it held the brown bowl against the near side of the tan bowl's rim (agent zoom: brown bowl beside and below the tan rim, not above its centre) and released at 423; the brown bowl came to rest leaning against the outside of the tan bowl (tipped 426-477). Re-grasp at 465/470, then the arm raised the bowl ~0.53 m above the island (528-616), as if reaching for an upper cabinet that is not there, and opened at 617: the bowl fell 0.42 m back onto the counter in front of the tan bowl (624, tipped 488-617). Third grasp 727-764 (lift 0.11). Fourth grasp 798/806 held to the end (lift 0.35): 860-1320 it hovered with the brown bowl at the tan bowl's rim again without releasing, and at ~1360-1396 the base began turning away still holding only the brown bowl. The tan bowl was never touched; neither bowl reached the cabinet.",
+ "causal_chain": "bowls on an island 2.4-2.8 m from the cabinet (unusual layout) -> small bowl grasped (258) but held/released beside the large bowl's rim instead of over it (423, leaned on its outside) -> re-grasped, lifted 0.5 m and dropped back onto the counter (617) -> re-grasped twice and hovered at the large bowl's rim 806-1360 without nesting -> no nest, no carry, no navigation back to the cabinet -> timeout",
+ "self_recovery": "Four grasps of the small bowl (258, 470, 735, 806), all successful lifts, but no successful nest: one release leaning on the outside of the large bowl, one release from 0.5 m in the air, then a 600-step hold at the rim. It started turning the base only in the last ~40 steps.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s13_overview.png", "frames/s13_nest1.png", "frames/s13_nest1z.png", "frames/s13_raise.png", "frames/s13_late.png"],
+  "packet_facts": [
+   "dist_to_target_start: bowl1 2.43 m, bowl2 2.79 m",
+   "bowl1 holds: 258-423 lift 0.288; 470-617 lift 0.531 drop 0.417; 735-764 lift 0.111; 806-end lift 0.348",
+   "bowl1 tipped 426-477, 488-617",
+   "bowl2 no touch, min_eef 0.214"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exact position of the small bowl relative to the large bowl during the holds (agent view partly occluded, wrist view filled by the held bowl); the base-turn at the very end is read from the agent-view change at 1360-1396."
+}

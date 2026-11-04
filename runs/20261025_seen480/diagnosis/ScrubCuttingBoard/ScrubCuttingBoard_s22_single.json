@@ -1,0 +1,25 @@
+{
+ "tag": "ScrubCuttingBoard_s22_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L8 (same kitchen as s4/s8/s10/s17): sponge_4, dark cutting_board_4 ~40 cm left by the sink. Stage 0: closed at 99, stage 0 from 113 (online 128). Stage 1: first contact 212; grasp test blind 214-282; only 4 more points in the next 230 steps, so the criterion was met only at 448 (6 contacts, sweep 0.349). Scrub 212-593 (381 steps); released at 593 on the counter near the sponge's start; eef 15 cm away at 609; success 609. Like s13, much of the scrub did not register, but here the release came after the criterion was met.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Counter blind 214-282 right after the first contact.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[128,0],[624,1]]",
+   "criterion met 448; release 593",
+   "process_progress_end contacts 6 sweep 0.349"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

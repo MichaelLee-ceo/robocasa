@@ -1,0 +1,34 @@
+{
+ "tag": "SearingMeat_s24_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  480,
+  569
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "wrong_fixture_element",
+  "other: handle-tip grasp (pan hung, imprecise lowering)"
+ ],
+ "what_happened": "Scene: layout 4 (same kitchen as s21): 5-zone black induction cooktop (large front_left zone, centre column rear/front, right column rear/front) with a front knob row; pan_8 (dark pan, long dark-brown handle with a hole) in an upper cabinet left of the cooktop; target front_center; steak on a plate right of the cooktop. Stage 0: grasp at ~136-212 at the END of the handle (wrist at 212 shows the hanging hole between the fingers; width ~0.058, hold 136-569; the packet lists no pan close event), so the pan hung near-vertically while carried (248, tilt up to 48 deg); it was carried over the cooktop (it passed over front_center at 0.104 m around 512) and set down one zone too far back, on the REAR_CENTER zone (0.022 m from its centre at 544), released at 569, 0.193 m from front_center. Stage 1: steak grasped at 746 (lift 0.21 m) and released into the pan at 841: complete 858-2900. Stage 2: the policy turned the CORRECT task knob front_center first (0.89 rad at 1024, 1.77 rad from 1056; the front_center zone glows red right in front of the pan at 1100), but then kept going along the row: front_right to 3.06 (1280-1920), rear_right to 2.7 (1600-2176), rear_center to 1.94 (2656-2720), the last one being the zone under the pan, at 2656+. Stage 2 never held because the pan is not within 0.15 m of front_center.",
+ "causal_chain": "pan carried over front_center but set down on the zone behind it (rear_center, 0.193 m from target at release 569) -> steak in pan OK, task knob turned on (1024) -> lit zone is empty, pan next to it -> policy then turned three more knobs -> fail",
+ "self_recovery": "none for the pan.",
+ "official_criterion_notes": "stage2:stove done_intervals [[1007,2900]] = task knob on; pan on the neighbouring zone. Official check is correct. Packet: close_events contain no pan grasp although the pan was carried 136-569 (width fell only to ~0.058).",
+ "evidence": {
+  "sheets": [
+   "frames/s24_place.png",
+   "frames/s24_place_zoom.png",
+   "frames/all_first_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 136-569, dist at release 0.1931, end 0.1924",
+   "pan_nearest front_center 0.104@512 -> rear_center 0.022@544 -> 0.084 end",
+   "steak hold 746-841 at_target; stage1 [[858,2900]]",
+   "knobs: front_center (task) 1.77 from 1056; front_right 3.06; rear_right 2.72; rear_center 1.94 (from 2656)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

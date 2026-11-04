@@ -1,0 +1,26 @@
+{
+ "tag": "StoreLeftoversInBowl_s5_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 9 (side-by-side fridge, narrow right compartment), striped bowl_6, lime, drumstick 010. Stage 0: lime grasped 92, released in the bowl 137 (stage 0 at 138). Stage 1: drumstick grasped 259, released in the bowl 330 (stage 1 at 333). Stage 2: at 364 the gripper closed on the rim together with the lime (lime touched 365-386 and 502-656, pinched against the rim), lift 0.38 m, base drove to the fridge ~440-680. The bowl was tilted > 45 deg 566-751, but the foods stayed in. At the fridge the arm lowered the bowl to a MIDDLE shelf (z 1.31 -> 1.19) and pushed it in to x 5.56, the deepest of all L9 releases with s17. It levelled the bowl and released at 748 (rack contact from 724). Success at 771 (stage 2 took 438 steps, median 437). No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png",
+   "frames/L9_release_compare.png"
+  ],
+  "packet_facts": [
+   "bowl hold 380-748 lift 0.38, at target at release; bowl x at release 5.558, z 1.191",
+   "bowl tipped 566-751, foods stayed in",
+   "close 364 on bowl+lime"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,28 @@
+{
+ "tag": "StackBowlsCabinet_s14_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 2/style 2 (white kitchen, light wood counter, coffee machine and toaster); small tan bowl_7 (x0.7) and larger black ribbed bowl_5 (x0.95), 0.51 m apart. Nest-then-carry: small bowl grasped 68/78 (lift 0.18 m), carried over and set into the black bowl at 205 (wrist 216: seated). First pair grasp at 264 (touching both) lifted the pair only 7 cm and was released at 293-294 (bowls dropped back ~6-8 cm, still nested; wrist 296-304 shows the stack slightly shifted). The gripper re-centred over the double rim and closed again at 354 (both), lifted 0.53 m into the upper cabinet, released 455. Stage 0 at 453 (median 318, p90 427: slow by ~135 steps, mostly the long pre-grasp hover 205-264 plus the aborted 264-294 lift and re-approach to 354), stage 1 at 471 (18 steps later); success 471.",
+ "causal_chain": "",
+ "self_recovery": "First pair lift (264-294, 7 cm) was aborted and the stack set back down; re-grasped at 354 and carried successfully (~90 steps lost).",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_regrasp.png"
+  ],
+  "packet_facts": [
+   "closes 68 (bowl1), 264 (both lifted), 354 (both lifted)",
+   "bowl1 holds 78-205 lift 0.180; 272-293 lift 0.073; 360-455 lift 0.527",
+   "bowl2 holds 273-294 lift 0.073; 361-455 lift 0.530",
+   "stage0 453 (slow), stage1 471"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

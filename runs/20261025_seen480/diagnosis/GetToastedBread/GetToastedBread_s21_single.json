@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s21_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  118,
+  700
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "other: pressed down on the bread top instead of the lever handle on the front face",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 4, small black single-pair toaster with its lever on the front face (same kitchen as s5/s10/s17/s24), bread in the left slot. Stage 0: from 118 to 504 the open gripper sat on top of the toaster over the slots (contact almost continuous), without moving anything (lever 0). The fingers closed at 478-510 on nothing (no bread contact). 569-673 the closed fist pressed DOWN on the bread top, which lay tilted in the slot (bread contact 569-672, 'hold' with lift 0). That pushed the carriage to only 0.27-0.32 (bread -1.6 cm), held for ~100 steps. The lever handle on the front face was never pushed. The fist let go at ~673 and the carriage sprang back by 752. From ~700 to 2000 the arm hovered around and above the toaster with the bread in view, with only two brief toaster touches (1860-1884, 1949-1984). The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "~390 steps resting on the toaster top (118-504) -> pushed down on the bread top instead of the front lever, reaching only 0.32 (569-673; 0.9 needed) -> hovered beside the toaster 700-2000 -> toaster never on",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png",
+   "frames/s21_press.png",
+   "frames/s21_zoom.png"
+  ],
+  "packet_facts": [
+   "lever 0.27-0.32 at 576-672, 0@752; done []",
+   "obj touch 470-474, 569-672; hold 569-673 lift 0.0",
+   "toaster touch 118-514 (nearly continuous), 574-672, 1860-1884, 1949-1984",
+   "gripper open until 488, closed 528-2000; close_events 478, 510 on nothing"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the fist at 569-673 was on the bread only, or also partly on the carriage; either way the lever handle on the front face was untouched."
+}

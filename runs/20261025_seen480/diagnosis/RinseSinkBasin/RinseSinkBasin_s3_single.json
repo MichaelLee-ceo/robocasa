@@ -1,0 +1,32 @@
+{
+ "tag": "RinseSinkBasin_s3_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  366,
+  900
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene layout/style 9 (pull-down faucet, as s0/s26). Stage 0: lever turned 192-233, water at 233 (median 189, p90 230; slightly slow, not decisive). The spout drifted to -0.13 while the handle was turned. Stage 1: from 340 the arm reached round the neck to the spout head and pushed it LEFT 366-382 (stream toward the left basin), but only to -0.365 at 377 (left needs -0.524). At ~390 the motion reversed and it swung the spout right, +0.53 at 416 (right washed) and +0.85 by 454. From ~460 to 900 the open gripper stayed in contact with the spout head right of the neck (fixture touch continuous 497-900), with an almost static wrist view, holding the spout at +0.81..+0.85 for ~440 steps. No close events at all; it pushed with open fingers.",
+ "causal_chain": "left push 366-382 stopped at -0.365 rad (0.16 short) -> reversed and swung right (right washed 416) -> held the spout at the right in contact 460-900 without another left attempt -> left never washed, timeout",
+ "self_recovery": "none after 390.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_spout_zoom.png",
+   "frames/s3_hold.png"
+  ],
+  "packet_facts": [
+   "stage0 233; washed_loc [F,T,T], spout_ori right",
+   "fixture touch 363-900 (merged); no gripper close events",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: min -0.365@377, +0.53@416, +0.81..0.85 from 446 to 900"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

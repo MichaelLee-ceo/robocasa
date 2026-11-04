@@ -1,0 +1,34 @@
+{
+ "tag": "KettleBoiling_s17_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  104,
+  128
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "stall_approach_retreat"
+ ],
+ "what_happened": "Scene: white kettle with a white arched handle on the counter LEFT of the gas range (pot on the range); same layout as s4/s10. Stage 0: on the approach (104-124) the handle is upright but to the right of the finger gap in the wrist view. The grasp at 118-126 lifted the kettle only 1.4 cm before it slipped out. 128-176 the gripper rose, drifted toward the range and came back. 280-412 it stayed low at the kettle's side with the camera looking past it (kettle barely in view) and pushed it with lift-0 contacts (326-332, 349-379, 386-410), moving it ~4.5 cm farther from the range. 440-560 it went to the pot on the range empty-handed (place-like motion). 640-712 it was back at the kettle for one more contact (671-699; hold 691-700, lift 0), and 712-800 back over the pot with nothing in hand. At 1000 it is above the kettle again.",
+ "causal_chain": "handle off-centre in the finger gap -> grasp at 118 slipped after 1.4 cm -> low pushes 326-410 (no lift) -> empty-handed 'place' at the pot 440-560 and 712-800 -> stage 0 never complete",
+ "self_recovery": "Several re-attempts (326, 349, 386, 691); none lifted the kettle. Twice the policy went on to the stove without it.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_grasp1.png",
+   "frames/s17_regrasp.png",
+   "frames/all_first_touch_wrist.png"
+  ],
+  "packet_facts": [
+   "holds 118-126 lift 0.014; 326-332, 349-379, 386-410, 691-700 lift <=0.007",
+   "dist_to_target start 0.437 end 0.479 (pushed away)",
+   "stove: no touch"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "'Off-centre handle' is read from one wrist frame per 4 steps. During 280-412 the kettle is mostly out of the wrist view, so the nature of the contacts (push vs failed close) is inferred from the packet."
+}

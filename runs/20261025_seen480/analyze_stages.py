@@ -13,8 +13,9 @@ One jsonl line per episode in <out>/stages.jsonl (a rerun skips done tags); per-
 import glob, gzip, json, multiprocessing, os, sys
 import numpy as np
 import gymnasium as gym
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 sys.path.insert(0, f"{R}/runs/scripts")
+from paths import local  # noqa: E402
 
 
 _ENV = {}
@@ -51,7 +52,7 @@ def work(job):
     r, run, out = job
     task, tag = r["task"], r["tag"]
     try:
-        z = np.load(r["scene"], allow_pickle=True)
+        z = np.load(local(r["scene"]), allow_pickle=True)
         xml, ep_meta = str(z["xml"]), json.loads(str(z["ep_meta"]))
         states = np.load(f"{run}/{task}/{tag}_steps.npz")["states"]
         env = replay_env(task)

@@ -1,0 +1,34 @@
+{
+ "tag": "PrepareCoffee_s4_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  280,
+  492
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "disturbed_placed_object",
+  "skipped_or_wrong_stage",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 5, black machine CoffeeMachine042 (two cup-icon buttons on the front of the upper housing, two small nozzles under it), tall orange mug_4 on the upper shelf. Stage 0: grasp 110/122 (rim), carried down; 280-347 it held the mug at the front-right corner of the drip tray - the wrist view shows the two nozzles to the left of and behind the mug, i.e. the mug was in front of / beside the spout rather than under it. Released 347 at 0.0513 m (1.1 cm outside the 4 cm tolerance), 0.0663 m 2 s later. Never at target. Stage 1: 392-448 the gripper rotated and swung up-left to the cup-icon buttons while the hand still brushed the mug (mug contacts 407-480); the machine registered on at 447. While coming down/back (464-492) the hand pushed the mug further out and knocked it onto its side (tipped from 487). It lay on the counter in front of the machine, 0.115 m from the pour site, to the end. 500-1200 the arm wandered in front of the machine and never touched the mug again.",
+ "causal_chain": "mug held at the front-right edge of the tray and released 0.051 m from the pour site (347) -> policy goes on to the button with the mug off target, presses it (447) -> hand knocks the mug over while working at the button (464-492) -> mug on its side 0.115 m away -> no re-placement -> timeout",
+ "self_recovery": "none: no attempt to push the mug in after release or to right it after it fell.",
+ "official_criterion_notes": "Near miss: release at 0.0513 m, 1.1 cm outside the tolerance; in the wrist view the mug rim overlaps the nozzle area only partly, so 'not under the spout' is a fair call. The machine turned on (447) with no mug under it - the on-latch accepts a press regardless of the mug. Labeler 'place' end at 344 matches the release.",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_release.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 122 release 347 dist 0.0513 -> 0.0663 2 s later, at_target never",
+   "mug touch 124-402, 407-480 (hand brushing during the press)",
+   "coffee_machine turned_on 447-1200",
+   "tipped_over_intervals [[487,1200]], end dist 0.115"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact direction of the 5 cm offset (wrist view suggests right of and in front of the nozzles, from the robot's viewpoint)."
+}

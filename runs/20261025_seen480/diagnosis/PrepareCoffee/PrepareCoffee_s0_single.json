@@ -1,0 +1,35 @@
+{
+ "tag": "PrepareCoffee_s0_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  443,
+  1200
+ ],
+ "category": "other: no retreat after the button press - pressed the start button, then kept rubbing the top of the machine until timeout",
+ "secondary": [
+  "stall_at_fixture",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 9, brown machine with two small round buttons on its front-right face, red mug_5 on an open upper shelf. Stage 0: fingers closed at 124 and the mug was taken out of the shelf from 140 (rim grasp), carried down and set on the drip tray under the spout; released 371 at 0.0205 m from the pour site (0.0285 m 2 s later), upright. That is a good placement. Stage 1: the gripper went to the front buttons (412-448) and the lower button registered at 443 (turned_on from 443 to the end). It did not back off: 480-650 it stayed at the front/upper body of the machine, and from ~664 to 1200 it lay on the machine's lid, rubbing it (machine contact 686-767, 769-987, 1016-1200). Stage 0's release clause held only 663-688, while the arm was momentarily > 25 cm from the mug; stage 1 (success) never held because the gripper was never > 15 cm from the button and > 25 cm from the mug at the same time.",
+ "causal_chain": "mug placed 0.02 m from the pour site (371) -> button pressed, machine on (443) -> gripper never withdraws: works on the machine top 664-1200 -> success needs gripper > 0.15 m from button and > 0.25 m from mug -> timeout at 1200 with mug placed and machine on",
+ "self_recovery": "none needed for the placement. After the press the policy behaves as if the button were still to be found (moves over the machine top), and never retreats.",
+ "official_criterion_notes": "Physically both sub-goals were achieved by 443 (mug under the spout, machine on). The failure is only the 'gripper away' clause. The packet's first_incomplete_stage = 0 is an artifact of the 25 cm release clause (gripper back near the mug), not a real undo (undone_events: 'only the release part broke').",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/s0_press.png",
+   "frames/s0_hover.png",
+   "frames/s0_liquid_zoom.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 140 release 371 dist 0.0205 -> 0.0285 2 s later, at target 269-1200",
+   "coffee_machine done (turned_on) 443-1200",
+   "machine touch 443-456, 476-507, ..., 686-767, 769-987, 1016-1200",
+   "stage0 complete only 663-688 (release part broke at 689)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Which of the two front buttons registered (looks like the lower one at 440-448). Why the policy goes to the lid afterwards (possibly looking for a top button as on other machine models)."
+}

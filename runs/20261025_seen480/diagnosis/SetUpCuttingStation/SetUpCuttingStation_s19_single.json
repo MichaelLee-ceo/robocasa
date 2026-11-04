@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s19_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 5 (black cabinets, marble counter); knife (knife_7, wooden handle) in a drawer by the sink; board and a red plate with a fish (fish_7) on another counter 2.4 m away. Stage 0 normal for the distance: grasp at 249 (lift 0.44 m), carried across the kitchen, released on the board at 601 (0.075 m from centre); stage 0 at 602. Stage 1 was slow (801 steps vs median 220, p90 478): the gripper hovered over the fish on the plate 650-1300 and closed at 691 (touch, no lift), 1144 (touch, lift 9 mm) and 1199 (air), mostly on the fish's middle/head side; at ~1300 it grasped the fish by the tail fin (hold 1303-1386, lift 0.145) and placed it on the board next to the knife at 1386 (0.121 m from centre). Success at 1403.",
+ "causal_chain": "",
+ "self_recovery": "Stage 1: three failed closes on the fish (691, 1144, 1199) over ~600 steps before the tail grasp at ~1300 succeeded.",
+ "official_criterion_notes": "Stage 0 shows 14 one-step drops with reason 'an object left the target' (650-1397) while the knife lies still on the board 0.07 m from its centre; these are contact flickers of the official on-board check, not real undos. The same 1-step flicker appears in s4, s9, s14, s23 and s26.",
+ "evidence": {"sheets": ["frames/s19_overview.png"],
+   "packet_facts": ["knife hold 254-601 lift 0.442 dist 0.075; knife dist_to_target_start 2.38 m", "meat closes 691 (no lift), 1144 (lift 0.009), 1199 (air); hold 1303-1386 lift 0.145 dist 0.121", "stage1 steps_since_previous 801 (median 220, p90 478)"]},
+ "confidence": "medium", "uncertain_about": "The reason the first fish grasps failed (light pass, overview only)."}

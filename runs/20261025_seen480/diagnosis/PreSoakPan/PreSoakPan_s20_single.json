@@ -1,0 +1,35 @@
+{
+ "tag": "PreSoakPan_s20_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  176,
+  860
+ ],
+ "category": "stall_pre_grasp",
+ "secondary": [
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene L9/S9: black double-basin sink with a pull-down gooseneck faucet. The sponge sat on the counter just left of the sink. The cast-iron pan (pan_7, flat handle with a hanging hole) lay on the counter far left, with its handle pointing toward the robot. Stage 0 (sponge first): the sponge was grasped at 123 near its edge and carried over the left basin. At 164-172 it slipped out of the fingers and fell ~20 cm into the basin (at target from 138, stage 0 at 201). The fingers then closed fully (width 0.003 at 176) and stayed closed (0.001) until 1436. Stage 1 (pan): with the gripper still closed, the arm stretched to the far left (240-320) over the handle end. From 430 to 793 it repeatedly pushed down on the handle tip with the closed fingertips: ten 'holds' with lift 0-2 cm, widths never above 0.021. It never opened to grasp. At ~860-900 the sweep rotated the pan on the counter, and the arm left. Stage 2 anyway: 1100-1440 it moved to the faucet, opened the fingers at 1436-1448, pressed the lever from above and turned the water on at 1516 (handle 0.50). The pan stayed on the counter 0.34 m from the basin, so stage 2 never held.",
+ "causal_chain": "sponge slips out at ~170 and the fingers close on nothing (176) -> the gripper stays closed for 1260 steps -> 360 steps of pushing the pan handle with closed fingers (430-793), never a real grasp -> the pan is abandoned on the counter -> the policy turns the water on at 1516 without the pan -> success condition false",
+ "self_recovery": "The fallen sponge happened to land in the basin. It made no recovery for the pan: it kept poking with closed fingers and then moved on to the faucet.",
+ "official_criterion_notes": "Stage 2 shows fixtures done_intervals [[1516,1600]] (water on) while the stage never completes, correctly, because the pan is outside. The packet's 'holds' 430-793 are pushes by closed fingers, not grasps (width <= 0.021 throughout). The 6.283 sink values are the wrap artefact of a tiny negative joint angle.",
+ "evidence": {
+  "sheets": [
+   "frames/s20_overview.png",
+   "frames/s20_sponge.png",
+   "frames/s20_grasp.png",
+   "frames/s20_faucet.png",
+   "frames/L9_lever_compare.png"
+  ],
+  "packet_facts": [
+   "gripper width 0.0605@160 -> 0.003@176 -> 0.001 ... until 1432, 0.058@1440",
+   "sponge hold 123-170 drop 0.202; at target from 138",
+   "pan holds 430-793 (10 intervals) lift <= 0.021, dist ~0.28-0.34; end dist 0.335",
+   "sink value 0.13@1504, 0.50@1520; done [[1516,1600]]"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the policy kept the gripper closed after the sponge slipped. The pan handle end was at the far left, close to the arm's reach, but it was reached; with open fingers a grasp looked geometrically possible."
+}

@@ -1,0 +1,27 @@
+{
+ "tag": "StackBowlsCabinet_s12_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 7/style 7 (orange tile backsplash, dark granite counter, dark grey open wall shelf as the target; same layout as failure s5); both bowls tan bowl_7 (x0.7, x0.95), 0.29 m apart. Nest-then-carry, clean: small bowl grasped 77/91 (lift 0.17 m), set into the large bowl at 165 (wrist 164-176: seated); pair grasp at 197 (both lifted; inner-bowl finger contact only 196-214), lifted 0.53 m onto the shelf, released 286. Stage 0 fired at 259 while the pair was still held, stage 1 at 307 (21 steps after the release); success 307.",
+ "causal_chain": "",
+ "self_recovery": "none",
+ "official_criterion_notes": "Stage 0 fired 27 steps before the final release (inner bowl inside, not touched).",
+ "evidence": {
+  "sheets": [
+   "frames/s12_overview.png"
+  ],
+  "packet_facts": [
+   "closes 77 (bowl1), 197 (both lifted)",
+   "bowl1 hold 91-165 lift 0.167; 196-214 lift 0.019 (drop -0.499, rode on in bowl2)",
+   "bowl2 hold 201-286 lift 0.529",
+   "stage0 259, stage1 307"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

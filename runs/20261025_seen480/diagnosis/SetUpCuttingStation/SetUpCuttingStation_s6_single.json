@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s6_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 5 (black cabinets, same kitchen as s1/s16); green-handled knife (knife_9) in a black drawer below the board; plate with a fish (fish_8) left of the board. Stage 0: grasped the knife at 265 with the handle centred (lift 0.45 m), released it on the board at 446 (0.058 m from centre). Stage 1: grasped the fish near the head at 542 (lift 0.12 m), laid it on the board beside the knife at 611 (0.047 m from centre); the gripper passed over the knife handle on the way out without moving it. Success at 635.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s6_overview.png"],
+   "packet_facts": ["close 265 lifted knife; hold 272-446 lift 0.452 dist 0.058", "meat hold 553-611 lift 0.12 dist 0.047"]},
+ "confidence": "high", "uncertain_about": ""}

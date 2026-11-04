@@ -1,0 +1,35 @@
+{
+ "task": "KettleBoiling",
+ "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+ "stages": [
+  "0: PickPlaceCounterToStove",
+  "1: TurnOnStove"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the kettle rests on the stove top, centred within about 15 cm of a burner, and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "the kettle is still held or in the air, still on the counter, on the stove but not over a burner, or the gripper is still at the kettle."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the kettle sits on a burner (within about 15 cm), THAT burner is turned on, and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "the burner under the kettle is still off, a different burner was turned on, or the kettle is not on a burner."
+  }
+ ],
+ "horizon": 1000,
+ "episodes": 30,
+ "successes": 20,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 271,
+   "p90": 348,
+   "n": 20
+  },
+  "1": {
+   "median": 152,
+   "p90": 229,
+   "n": 20
+  }
+ }
+}

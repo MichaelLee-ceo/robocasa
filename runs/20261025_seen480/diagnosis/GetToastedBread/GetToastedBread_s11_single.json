@@ -1,0 +1,35 @@
+{
+ "tag": "GetToastedBread_s11_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  194,
+  881
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "missed_grasp",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 2, black 4-slot (two-pair) toaster, bread in the left-most slot (pair 0). Stage 0: 148-256 the open gripper came down over the bread instead of going to a lever. It closed on the untoasted bread at 220 (0.042) and lifted it 4 cm (hold 228-270). While it gripped, the bread pushed the carriage to only 0.10-0.14. The fingers then slipped (fully closed at 264), and the bread dropped back onto its seat by ~288. The gripper went back to the bread/front area 410-513 (toaster contact, fingers closing 424-464 and 512) without moving a lever. 600-880 it worked at the toaster's right end, over the empty right slots (contact 683-881, close on nothing at 815), and again moved no lever. From ~950 to 2000 it hovered beside and above the toaster with closed fingers, with the bread in view at 1800-2000 (brief contact 1577-1583). The lever never exceeded 0.14, so the toaster was never on.",
+ "causal_chain": "went for the bread first and pulled the untoasted slice up 4 cm (220-270) -> grasp slipped, bread fell back -> ~470 more steps of poking at the toaster top and right end without pressing a lever (410-881) -> hovered to the end -> toaster never on",
+ "self_recovery": "none effective: after the slip it never targeted a lever handle.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s11_overview.png",
+   "frames/s11_pull.png",
+   "frames/s11_mid.png",
+   "frames/cmp_layout2_t100.png"
+  ],
+  "packet_facts": [
+   "close_events 220 (0.042, obj, lifted), 264 (0.002, obj), 815 (0.005, nothing)",
+   "hold 228-270 lift 0.04, height drop after release 0.036 (fell back)",
+   "pair0 lever max 0.145 at 240; never >= 0.9; toaster done []",
+   "toaster touch 189-250, 410-513, 683-881, 1577-1583"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the gripper was on the right lever handle during 683-881 (the wrist view shows the right slots from above); if it was, it pushed with no effect."
+}

@@ -1,0 +1,31 @@
+{
+ "tag": "DeliverStraw_s1_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  440,
+  1700
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Layout 7. The gripper never closed in the whole episode (no close events). It moved to the drawer column 440-580 and touched the drawer only 552-557; the handle was never between the fingers. Afterwards it hovered and wandered with an open gripper until 1700. Drawer value stayed 0; straw never touched (min eef 0.35 m).",
+ "causal_chain": "reached the drawer area 440-580 without aligning to the handle and without closing -> backed off and hovered/wandered -> drawer never opened -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png",
+   "frames/s1_dense.png"
+  ],
+  "packet_facts": [
+   "drawer touch [[552,557]], value 0 throughout",
+   "no close_events",
+   "straw min_eef 0.350"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "What the policy was aiming at 440-580; the wrist view never shows the handle centred."
+}

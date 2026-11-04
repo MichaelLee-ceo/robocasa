@@ -21,7 +21,8 @@ torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 torch.use_deterministic_algorithms(True)
 
-ROOT = os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa"))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import ROOT  # noqa: E402
 sys.path.insert(0, f"{ROOT}/third_party/Isaac-GR00T")
 sys.path.insert(0, f"{ROOT}/third_party/Isaac-GR00T/scripts")
 import run_eval  # noqa: E402

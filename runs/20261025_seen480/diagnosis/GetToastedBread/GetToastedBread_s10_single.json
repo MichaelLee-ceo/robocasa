@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s10_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  1080,
+  2000
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 4, black single-pair toaster (same kitchen as s17), bread in the right slot. Stage 0: the fingers closed at ~190 and stayed closed for the rest of the episode. The first push 336-400 took the lever to 0.77 (bread -4.2 cm), short of the 0.9 needed to switch on, and the lever sprang back up (416-512). A second push at 560-592 reached 1.0 and the toaster was on 582-1081. The lever rose 1088-1264 and stage 0 completed at 1239 (online 1248). Stage 1: while the bread was rising (1080-1180) the arm was already raised to the right, looking down at the toaster. From ~1220 the base turned and drove away from the toaster (1260-1560, facing walls in transit). At ~1560-1580 it was next to the dining counter with the plate in view, with closed, empty fingers. It then turned back toward the kitchen and wandered (1620-2000). It never touched the bread, which stayed in the toaster.",
+ "causal_chain": "partial lever push (0.77) at 400 -> second push at 592 switched it on -> pop-up done 1239 -> without reaching into the slot, the robot drove off toward the dining counter (1220-1580) empty-handed with closed fingers -> turned away and wandered until timeout -> bread still in the toaster",
+ "self_recovery": "Stage 0: the policy re-pushed the lever after the insufficient first push (592), which worked. Stage 1: none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_press.png",
+   "frames/s10_after_pop.png",
+   "frames/s10_late.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[1248,0]]; stage0 first_complete 1239",
+   "lever 0.77@400 (no switch-on), 1.0@592; toaster on 582-1081",
+   "gripper closed from 192 to 2000; close_events only 169 (on nothing)",
+   "obj touch [] / holds []; bread end = start; min_eef 0.131 m"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the drive was aimed at the dining counter; it passed the plate at ~1560-1580 and then turned away."
+}

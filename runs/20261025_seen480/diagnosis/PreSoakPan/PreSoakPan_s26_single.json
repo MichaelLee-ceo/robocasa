@@ -1,0 +1,38 @@
+{
+ "tag": "PreSoakPan_s26_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  1290,
+  1600
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Scene L9/S9: black double-basin sink with a tall black pull-down (coil) gooseneck faucet standing between the basins, and a small stub lever on the side of the column. Stage 0: pan (pan_6) grasped by the handle at 98 and placed flat in the right basin at 222 (stage 0 at 240). Stage 1 took 882 steps (median 281). The sponge started on the counter far left of the sink. It was grasped at 447, held on its edge (tilt > 45 deg from 437), and carried over the left basin, where it counts as inside from 564. The policy did not release it there. It tried to carry it to the pan in the right basin, and the hand got wedged against the gooseneck faucet between the basins from ~600 to ~880 (sink contacts 619-1075 are this faucet contact). Around 900 it worked past the faucet, while the base view shifted. It lowered the sponge over the pan and dropped it into the pan at 1092 (stage 1 at 1122). Stage 2 had 478 steps left (p90 385). The gripper reached the faucet column at ~1290 and pressed against it continuously 1299-1600, level with and right of the column where the stub lever is. The handle stayed at 0.000 for 300 steps of contact. In the L9 successes (s0, s18, s20) the gripper comes down on the lever from above, with the wrist camera pitched up at the wall.",
+ "causal_chain": "sponge held 447-1092; inside the left basin from 564 but not released; hand stuck on the faucet 600-880 while heading for the pan -> stage 1 at 1122, still 478 steps (above p90 385) -> gripper presses sideways against the faucet column 1299-1600 without moving the lever (0.000 rad) -> water off",
+ "self_recovery": "Freed the hand from the faucet at ~880-900 and completed stage 1 (1122). Stayed in contact with the faucet at the end but never actuated the lever.",
+ "official_criterion_notes": "The sponge counts as in the sink from 564 while still held. Stage 1 is only credited at 1122 because the gripper-far clause fails until release. Sink contacts 619-1075 are the sponge-carrying hand against the faucet, not a faucet attempt. Objects stayed in the basin during stage 2.",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_sponge_hold.png",
+   "frames/s26_hold_left_zoom.png",
+   "frames/s26_base_move.png",
+   "frames/s26_faucet.png",
+   "frames/s26_faucet_zoom.png",
+   "frames/s26_lever_zoom.png",
+   "frames/L9_lever_compare.png"
+  ],
+  "packet_facts": [
+   "sponge hold 447-1092 lift 0.237, at target [[471,502],[564,1600]], tipped from 437",
+   "stage1 first 1122 (882 steps; median 281, p90 348)",
+   "sink touch 619-1075 (many short intervals) and [[1299,1600]]",
+   "sink value 0.000 all episode"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Root cause could arguably be stage 1: its 882 steps left only 478 for stage 2. But that is above p90, and the 300 steps of motionless contact at the faucet show the lever was not being actuated rather than running late. I cannot see exactly where the fingers touch, because the arm hides the stub lever in the agent view."
+}

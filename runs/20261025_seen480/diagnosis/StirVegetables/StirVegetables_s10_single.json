@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s10_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  420,
+  1600
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "wander_away",
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Scene: layout 8 (same kitchen as s8, s17), but the vegetables and spatula_7 lie on the counter LEFT of the gas range, ~0.8 m from the pot on the rear-right burner. Stage 0: the arm stretched far left, grasped the cucumber 158, carried it across the range and dropped it into the pot 296 (complete 301; 301 steps vs median 232, p90 251). Stage 1: 420-524 the arm stretched fully left across the hob to the broccoli; in the wrist view the broccoli stayed at the lower-left edge of the finger gap (488-524) and the fingers closed ~523-536 beside it on air (width 0.001 at 560; closest gripper approach 6.6 cm from its centre, never touched). The arm retracted (580) and went to the far right instead: at the microwave/coffee machine 620-720 (another close on air ~701), then from ~760 to 1600 it hovered at the right side of the pot with the fingers closed (wrist view: wooden counter edge). The broccoli and spatula were never touched again.",
+ "causal_chain": "broccoli at the far left edge of reach -> gripper came down off-centre and closed on air beside it (523) -> no retry; arm went to the microwave (closed on air 701) and then parked by the pot with closed fingers 760-1600 -> stage 1 never complete",
+ "self_recovery": "none: no second attempt at the broccoli.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_veg2.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 158-296; stage0 first 301",
+   "veg2 (broccoli) no holds, no touches, min_eef_dist 0.066 m, start 0.84 m from the pot",
+   "close 523 width 0.014 on nothing; close 701 width 0.004 on nothing",
+   "gripper width 0.001 from ~560 to 1600 except ~704"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the far-left object position (reach limit with the base fixed in front of the range) caused the off-centre approach; the cucumber at a similar distance was grasped fine."
+}

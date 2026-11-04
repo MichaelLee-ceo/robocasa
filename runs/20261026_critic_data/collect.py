@@ -12,7 +12,7 @@ inherited the controllers of the rollout before it (the first collection, delete
 gripper ramp it starts from, the finger gap and the fingers' contacts at t.
 At each decision point, saved once in snap/<tag>_t<t>.npz:
   the sim state; RGB and depth (m) of the three robot cameras at 480x480 with intrinsics K and extrinsics T (camera ->
-  world); the wrist depth with the robot hidden (environment only, as in ../20261026_vlm_critic/depth_overlay.py); the
+  world); the wrist depth with the robot hidden (environment only); the
   exact request the policy received (256x256 images, proprio, instruction), keys prefixed req/.
 Candidates: N first chunks, one policy noise seed each. Each candidate is continued M times: its first chunk is executed,
 then the plain policy runs with fresh noise (a different noise stream per continuation) until stage k's official

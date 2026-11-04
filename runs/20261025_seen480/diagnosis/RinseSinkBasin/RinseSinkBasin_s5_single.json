@@ -1,0 +1,25 @@
+{
+ "tag": "RinseSinkBasin_s5_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 7 (single basin, tall gooseneck). Stage 0: lever 151-205 (close 146), water at 189. Overview pose ~260. Spout taken ~285 (close 299, 0.033), swept LEFT (left washed 336, min -0.61; it dipped back to centre for 2 steps at 352-353), then back to the RIGHT (right washed 410, success 410), contact continuous 285-416. Stage 1: 221 steps.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png"
+  ],
+  "packet_facts": [
+   "online log [[192,0],[416,1]]",
+   "fixture touch 285-416",
+   "spout angle from saved states (column validated against packet washed_loc): L 336 (min -0.61), R 410"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -5,7 +5,7 @@
 # usage: run_test.sh <run name> <gpu> <port> <n_workers> <policy_seed>
 set -u
 NAME=$1; GPU=$2; P=$3; NW=$4; PS=$5
-export ROBOCASA_ROOT=/home/michaellee/mclee/robocasa
+export ROBOCASA_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 source $(conda info --base)/etc/profile.d/conda.sh && conda activate $ROBOCASA_ROOT/envs/groot
 export CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=$GPU MUJOCO_GL=egl MUJOCO_EGL_DEVICE_ID=$GPU PIP_CONFIG_FILE=/dev/null
 export NO_ALBUMENTATIONS_UPDATE=1 HF_HUB_CACHE=$ROBOCASA_ROOT/.hf_cache/hub
@@ -13,8 +13,8 @@ CK=$ROBOCASA_ROOT/checkpoints/gr00t_n1-5/foundation_model_learning/target_posttr
 OUT=$ROBOCASA_ROOT/runs/20261025_determinism/$NAME
 mkdir -p "$OUT"
 python3 - "$OUT" "$PS" <<'PY'
-import json, sys
-out, ps = sys.argv[1], int(sys.argv[2]); R = "/home/michaellee/mclee/robocasa/runs/"
+import json, os, sys
+out, ps = sys.argv[1], int(sys.argv[2]); R = os.environ["ROBOCASA_ROOT"] + "/runs/"
 jobs = [dict(task=t, seed=s, scene=f"{R}scenes_seen5_v2/{t}_s{s}.npz", condition="baseline_seed", horizon=h,
              tag=f"{t}_s{s}_single", policy_seed=ps)
         for t, s, h in (("KettleBoiling", 1, 1000), ("StackBowlsCabinet", 13, 1400))]

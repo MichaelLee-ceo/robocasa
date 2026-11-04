@@ -1,0 +1,26 @@
+{
+ "tag": "StirVegetables_s11_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 2 (same kitchen as s14), red cast-iron pot (Pot065) on the rear-left zone of an induction hob, avocado, garlic and spatula_8 (black handle, slotted turner) on the counter LEFT of the hob. Stage 0: avocado grasped 122, dropped in 245 (complete 245). Stage 1 was slowish (389 steps, median 282): the arm went far left to the garlic only at ~470, grasped 476/483, dropped it in 632 (complete 634). Stage 2: spatula grasped 770 at the end of the handle, lifted (complete 786). Stage 3 was slow (516 steps, median 315, p90 637): from ~900 the turner was inside the right half of the pot, angled down from the right rim, and the arm made small pushes there for ~400 steps (900-1300) with the pot staying on the burner; the counter reached 5 at 1302 (success_time 6).",
+ "causal_chain": "",
+ "self_recovery": "none needed; the stir was slow (small pushes at the right side of the pot) but kept the pot in place.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s11_overview.png",
+   "frames/s11_stir_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 122-245, veg2 hold 483-632; stage1 since previous 389",
+   "spatula close 770 width 0.027 lifted; stage2 786-1312",
+   "stage3 first 1302 (since previous 516); success_time 6"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

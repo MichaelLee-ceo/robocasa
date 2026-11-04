@@ -1,0 +1,29 @@
+{
+ "tag": "SearingMeat_s20_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 9 (dark-blue cabinets; same kitchen as s0/s2/s3/s13/s18/s26), 5-burner gas hob; pan_7 (rusty cast iron, integrated handle) in the high upper cabinet; target front_right; drumstick on a plate right of the hob. Stage 0: the fingers took the handle right at its junction with the pan body (wrist 84-128: handle running from the pan toward the camera between the fingers; width only ~0.06 because the handle is thick), the pan was carried flat, and released at 311 on front_right (0.073 m). Stage 0 complete 321 (fast). Stage 1: drumstick grasped at 383 (lift 0.16 m), released into the pan at 441. Stage 2: knob contact from 526; the task knob front_right was on (0.6 rad) by 564-576 and reached 1.5 rad by 640, but the gripper stayed at the knob, within 25 cm of the drumstick, until ~785; the official success fired only at 805. So stage 2 shows 364 steps (p90 369) although the burner was on after ~123.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "The gripper-far-from-meat clause delayed the success by ~240 steps (task burner on from 564, success 805) because the knob row is within 25 cm of the meat in the pan. The packet's close_events miss the pan grasp at ~90 (width fell only to ~0.06 on the thick cast-iron handle); only the 526 close is listed.",
+ "evidence": {
+  "sheets": [
+   "frames/s20_grasp.png",
+   "frames/all_success_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan holds 90-98 and 166-311 (dist 0.0725 at release)",
+   "stage0 321, stage1 441, stage2 805",
+   "stove done [[564,816]]; front_right 0.6@576, 1.5@640; stove touch 537-785",
+   "close_events: only 526 (air)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

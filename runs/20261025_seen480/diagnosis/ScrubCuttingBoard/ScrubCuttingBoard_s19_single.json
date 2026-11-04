@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s19_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [160, 378],
+ "category": "actuation_insufficient",
+ "secondary": ["official_criterion_issue", "release_timing"],
+ "what_happened": "Scene L6: green sponge_4 on a granite counter in front of a toaster oven, light cutting_board_5 ~42 cm to the left. Stage 0 normal: grasp 95, lifted 9 cm, carried left, stage 0 from 95. Stage 1: pressed onto the board at 160-168 (counter 1 at 166). 168-264 it pushed the sponge slowly forward on the board (~11 cm, one direction, no back-and-forth; wrist view shows the sponge flat on the board). For 167-243 finger_joint1 was at its open limit (q1 0.041, q2 -0.011..-0.016), so grasp=False and nothing counted. At 272-330 it lifted the sponge to +27 cm, tilted 45-60 deg in the grip, carried it right over the counter, lowered it and released at 378 on the counter right of the board (eef > 15 cm at 385). Final 1 contact, sweep 0. Afterwards it turned away and looked around until 800.",
+ "causal_chain": "one slow ~11 cm push on the board (168-264) -> counter blind 167-243 (finger-1 grasp test) -> only 1 contact counted -> sponge carried back and released at 378 -> no further attempt",
+ "self_recovery": "none.",
+ "official_criterion_notes": "Blind window 167-243 covers almost the whole on-board push. Counted normally, it might have given about 5 points over about 11 cm, just enough. The scrub itself was minimal: one short push, much less than in most successes.",
+ "evidence": {"sheets": ["frames/s19_overview.png", "frames/s19_scrub.png", "frames/groupB_late.png"],
+   "packet_facts": ["process_progress_end contacts 1 sweep 0.0", "trace grasp False 167-243 while touch True; states q1 0.041 q2 -0.011..-0.016", "sponge xy moved y +0.034 -> +0.142 during 168-240 at z +7..16 mm (counted contact at z +15 mm)", "last touch 378 (counter, z 0), eef >0.15 at 385"]},
+ "confidence": "medium", "uncertain_about": "Whether proper counting would have just reached 5 points and 0.10 m; it is borderline."}

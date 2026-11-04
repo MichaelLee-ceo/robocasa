@@ -6,7 +6,7 @@ import json, os, sys
 import numpy as np
 import gymnasium as gym
 
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 sys.path[:0] = [f"{R}/runs/scripts", f"{R}/runs/20261026_imagine", f"{R}/runs/20261026_critic_data"]
 import hidden_state  # noqa: E402
 from atomic_eval import load_scene, rollout  # noqa: E402

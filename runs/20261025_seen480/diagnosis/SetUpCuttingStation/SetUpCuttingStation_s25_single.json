@@ -1,0 +1,26 @@
+{
+ "tag": "SetUpCuttingStation_s25_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout/style 6 (wood cabinets, granite counter, toaster oven); knife (knife_5) in a drawer 2.6 m from the board; the thin flat steak_8 (the same model s20 and s21 failed to lift) on a light-blue plate 1.9 m from the board. Stage 0: a first close starting at 252 brushed the knife (touch 269-275, no lift; listed as on_nothing) and reopened; second close at 310 grasped it (lift 0.46 m from 324), long base move, released on the board at 603 (0.038 m from centre). Stage 1 (437 steps, mostly navigation to the plate and back): the gripper came down over the steak's bone end and closed only to 0.060 m at ~824-832, i.e. the fingers closed around the whole width of the narrow end of the steak instead of pinching its thin edge; it lifted it 0.35 m, carried it back and released it on the board at 1019 (0.035 m from centre). Success at 1042.",
+ "causal_chain": "",
+ "self_recovery": "One non-lifting close on the knife at 252 before the grasp at 310; otherwise none needed.",
+ "official_criterion_notes": "The steak grasp is missing from gripper.close_events: the fingers only went from 0.080 to 0.060 (closing around a 6 cm wide object), which the close-event detector does not count, although the meat hold 836-1019 is recorded. Also the 252 close is listed as on_nothing although the knife was touched at 269-275 during it.",
+ "evidence": {
+  "sheets": [
+   "frames/s25_overview.png",
+   "frames/cmp_flatsteak_grasp.png"
+  ],
+  "packet_facts": [
+   "knife hold 324-603 lift 0.46 dist 0.038",
+   "meat touch 819-1018, hold 836-1019 lift 0.345 dist 0.035; gripper width 0.080 -> 0.062 at 832 and ~0.055-0.060 while carrying",
+   "close_events: only 252 (air) and 310 (knife)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

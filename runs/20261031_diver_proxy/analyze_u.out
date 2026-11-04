@@ -1,0 +1,48 @@
+=== discovery: 64 points (critical 32, random 32, steerable 15)
+signal   crit vs random         steerable vs not       steer|crit             rho(var_b)            
+u8       0.47 [0.31,0.63]       0.55 [0.38,0.73]       0.62 [0.40,0.84]       +0.06 [-0.18,+0.29]
+u32      0.48 [0.33,0.64]       0.60 [0.44,0.76]       0.68 [0.47,0.88]       +0.13 [-0.09,+0.36]
+utok     0.43 [0.27,0.58]       0.47 [0.29,0.65]       0.50 [0.26,0.74]       -0.05 [-0.29,+0.16]
+uz       0.44 [0.28,0.61]       0.48 [0.33,0.64]       0.52 [0.28,0.74]       +0.03 [-0.19,+0.25]
+var      0.43 [0.28,0.59]       0.52 [0.32,0.73]       0.55 [0.31,0.79]       +0.25 [+0.04,+0.45]
+u8 vs u32 Spearman over the points: +0.91
+=== replication: 768 coarse points (undecided 298)
+signal   rho(var_b) all         rho(var_b) undecided   undecided vs decided  
+u8       +0.03 [-0.03,+0.10]        +0.06 [-0.05,+0.18]        0.51 [0.46,0.55] 
+utok     +0.01 [-0.05,+0.07]        +0.03 [-0.09,+0.14]        0.47 [0.43,0.51] 
+uz       +0.03 [-0.04,+0.09]        +0.05 [-0.07,+0.15]        0.50 [0.46,0.54] 
+var      +0.02 [-0.04,+0.09]        +0.05 [-0.06,+0.16]        0.48 [0.44,0.53] 
+=== temporal: u at each critical chunk vs the dense points of its main run within +-64 steps
+  KettleBoiling_s17_single t112: 96:u0.00595/V0.12 *112:u0.00644/V0.62 128:u0.00713/V0.00 144:u0.00634/V0.00
+  KettleBoiling_s19_single t80: *80:u0.0108/V0.38 96:u0.00689/V1.00 112:u0.00593/V1.00 128:u0.00583/V1.00 144:u0.00683/V1.00
+  KettleBoiling_s24_single t480: *480:u0.00545/V0.25 496:u0.00372/V1.00
+  KettleBoiling_s26_single t96: *96:u0.00676/V0.62 112:u0.0119/V0.00 128:u0.006/V0.00 144:u0.00517/V0.00
+  KettleBoiling_s2_single t80: 16:u0.00434/V0.25 32:u0.00559/V0.38 48:u0.00543/V0.25 64:u0.0049/V0.00 *80:u0.00697/V0.38 96:u0.00514/V0.12 112:u0.00715/V0.12 128:u0.0061/V0.00 144:u0.00728/V0.00
+  SteamInMicrowave_s14_single t704: 672:u0.00672/V0.38 *704:u0.00757/V0.75 720:u0.00666/V0.00 736:u0.00509/V0.12 768:u0.006/V0.00
+  SteamInMicrowave_s1_single t624: 576:u0.0148/V0.88 608:u0.00555/V0.50 *624:u0.0045/V0.00
+  SteamInMicrowave_s23_single t688: 672:u0.00717/V0.62 *688:u0.00966/V0.62 704:u0.00774/V1.00 736:u0.00717/V1.00
+  SteamInMicrowave_s28_single t32: *32:u0.00459/V0.38 48:u0.00453/V0.88 64:u0.00591/V1.00 96:u0.00633/V1.00
+  SteamInMicrowave_s29_single t976: *976:u0.0106/V0.62 992:u0.00979/V0.00 1024:u0.00715/V0.12
+  SteamInMicrowave_s7_single t960: *960:u0.00625/V0.62 976:u0.00624/V1.00
+  PackIdenticalLunches_s0_single t464: 416:u0.0129/V0.50 448:u0.00688/V0.38 *464:u0.00866/V0.62 480:u0.00717/V0.88 496:u0.00826/V0.75 512:u0.0138/V0.25
+  PackIdenticalLunches_s11_single t448: 384:u0.00602/V0.75 416:u0.01/V0.62 *448:u0.00665/V0.50 464:u0.00561/V0.12 480:u0.00746/V0.12 512:u0.00606/V0.00
+  PackIdenticalLunches_s13_single t368: 352:u0.00779/V0.75 *368:u0.00791/V0.50 384:u0.00703/V0.25 416:u0.0217/V0.75
+  PackIdenticalLunches_s13_single t1344: 1312:u0.00666/V0.12 *1344:u0.00656/V0.50 1360:u0.00543/V0.00 1376:u0.00804/V0.00 1408:u0.00675/V0.00
+  PackIdenticalLunches_s15_single t160: 96:u0.00772/V0.38 128:u0.00669/V0.25 *160:u0.0108/V0.12 176:u0.0184/V0.88 192:u0.0125/V1.00 224:u0.00778/V1.00
+  PackIdenticalLunches_s17_single t432: 384:u0.00967/V0.25 416:u0.0063/V0.38 *432:u0.00976/V0.25 448:u0.0164/V0.75 480:u0.0116/V0.50
+  PackIdenticalLunches_s17_single t1376: 1312:u0.00948/V0.50 1344:u0.00856/V0.75 1360:u0.00578/V0.50 *1376:u0.00696/V0.62 1392:u0.00533/V1.00 1408:u0.00628/V0.62 1440:u0.00656/V0.50
+  PackIdenticalLunches_s18_single t1504: 1440:u0.00731/V0.00 1472:u0.00854/V0.12 *1504:u0.00768/V0.12 1520:u0.00982/V1.00 1536:u0.005/V1.00 1568:u0.00804/V1.00
+  PackIdenticalLunches_s19_single t720: 656:u0.00503/V0.50 672:u0.00565/V0.75 704:u0.00746/V0.50 *720:u0.00791/V0.62 736:u0.00806/V0.88 768:u0.00632/V1.00
+  PackIdenticalLunches_s20_single t320: *320:u0.00665/V0.25 336:u0.00932/V0.88 352:u0.0105/V0.62 384:u0.00816/V0.62
+  PackIdenticalLunches_s21_single t32: *32:u0.00747/V0.50 48:u0.00626/V0.00 64:u0.00757/V0.00 96:u0.00571/V0.00
+  PackIdenticalLunches_s21_single t1344: 1312:u0.00608/V0.12 *1344:u0.00834/V0.38 1360:u0.0065/V0.88 1376:u0.00519/V1.00 1408:u0.00943/V1.00
+  PackIdenticalLunches_s21_single t1600: *1600:u0.00606/V0.75 1616:u0.0119/V0.25 1632:u0.0141/V0.25 1664:u0.00627/V0.00
+  PackIdenticalLunches_s25_single t80: 32:u0.00559/V0.88 64:u0.00624/V0.75 *80:u0.00721/V0.75 96:u0.00859/V0.25 128:u0.00661/V0.00
+  PackIdenticalLunches_s28_single t48: 32:u0.006/V0.75 *48:u0.00789/V0.75 64:u0.00679/V0.38 96:u0.00769/V0.62
+  PackIdenticalLunches_s29_single t224: 160:u0.0155/V0.00 192:u0.0172/V0.00 *224:u0.0105/V0.25 240:u0.0072/V1.00 256:u0.00792/V1.00 288:u0.00846/V1.00
+  PackIdenticalLunches_s3_single t592: 544:u0.00678/V0.25 576:u0.00628/V0.25 *592:u0.00713/V0.12 608:u0.00718/V1.00
+  PackIdenticalLunches_s3_single t1008: 992:u0.00506/V0.38 *1008:u0.00586/V0.50 1024:u0.00477/V0.00 1056:u0.00662/V0.12
+  PackIdenticalLunches_s5_single t48: 32:u0.00998/V0.62 *48:u0.00576/V0.62 64:u0.00679/V0.25 96:u0.00613/V0.50
+  PackIdenticalLunches_s5_single t352: 288:u0.00804/V0.00 *352:u0.00679/V0.00 368:u0.0075/V0.75 384:u0.00828/V0.88 416:u0.00474/V0.50
+  PackIdenticalLunches_s7_single t1200: 1152:u0.0058/V0.88 1184:u0.00918/V0.88 *1200:u0.0127/V1.00 1216:u0.0189/V0.00 1248:u0.0131/V0.00
+critical chunks with dense neighbours: 32; mean percentile of u at the critical chunk 0.60 (0.5 = none); largest u at the critical chunk in 7/32, one chunk before 1, one after 9

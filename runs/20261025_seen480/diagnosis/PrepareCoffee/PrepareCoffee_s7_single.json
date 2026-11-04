@@ -1,0 +1,35 @@
+{
+ "tag": "PrepareCoffee_s7_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  300,
+  404
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "disturbed_placed_object",
+  "official_criterion_issue",
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene: layout 10, grey espresso machine CoffeeMachine051 (portafilter group head, a dial and two small round controls on the front; its only start_button geom is high on the upper-left of the front), wide printed tea mug_8 on the upper shelf. The machine sits at the right edge of the agent camera, so the policy mostly sees it through the wrist camera. Stage 0: grasp 86/101, mug carried to the machine and held under the group head 300-352 (wrist view: rim centred under the portafilter spout). Released 364 at 0.043 m - 3 mm outside the 4 cm tolerance. On the retreat the fingers caught the rim (second hold 368-373) and dragged the mug, which wobbled (tilt up to 26 deg) and settled 0.0688 m from the pour site, upright. Never at target. Stage 1: 444-656 the fingers worked at the lower cup-icon control on the front (machine contact 458-656), 670-800 they moved over the top rails of the machine (683-798), then the arm withdrew; the machine never turned on.",
+ "causal_chain": "mug held under the group head and released 0.043 m from the pour site (364, just outside 4 cm) -> fingers drag the rim on retreat (368-373) -> mug at 0.069 m -> policy proceeds to the controls, presses the lower cup-icon control (458-656), not the start button -> machine never on, mug never re-placed -> timeout",
+ "self_recovery": "none for the mug; after the button attempt it moved over the top of the machine and then withdrew.",
+ "official_criterion_notes": "Near miss: in the wrist view at 340-352 the wide mug is under the portafilter spout, yet the centre is 0.043 m from the pour site. With a wide mug the rim can be under the spout while the centre is just outside 4 cm. The later drag to 0.069 m would have failed it anyway.",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/s7_release.png",
+   "frames/s7_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 101 release 364 dist 0.043; grasp 368 release 373 dist 0.0663 -> 0.0687",
+   "at_target_intervals [] (never < 0.04)",
+   "tilt max 25.8, end 0.1",
+   "machine touch 458-656, 683-798; turned_on never; close 499 on nothing"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Which visual control is the start_button geom on CoffeeMachine051 (from the model: x=-0.12, z=+0.157, upper-left; the lower cup icon the fingers worked on looks lower than that). The direction of the 4.3 cm offset is not visible (agent camera barely sees the machine)."
+}

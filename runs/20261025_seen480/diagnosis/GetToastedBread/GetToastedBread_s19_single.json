@@ -1,0 +1,32 @@
+{
+ "tag": "GetToastedBread_s19_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  200,
+  700
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 8, dark single-pair toaster standing end-on to the robot (same kitchen as s3/s16), with the lever and knob on the near rounded end; bread in the far slot. The fingers closed at ~30 and never reopened. Stage 0: the arm reached the toaster's near end by ~200, with the lever and knob in the wrist view. At 228-240 the fist pushed the lever to only 0.30 (bread -2.0 cm), then backed off (contact 228-234 only), and the lever sprang back by 336. 300-650 the fist hovered over the end and top of the toaster, with brief touches at 552-583 and 618 that moved nothing. From ~700 the arm turned away: 850-1200 toward the right counter, and 1400-2000 at the stove/microwave area, never returning to the toaster. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "one short push of the correct lever to 0.30 (228-240; 0.9 needed) -> no follow-up push; hovered 300-650 -> wandered to the stove/microwave 700-2000 -> toaster never on",
+ "self_recovery": "none: the brief touches at 552-618 did not move the lever.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s19_overview.png",
+   "frames/s19_press.png"
+  ],
+  "packet_facts": [
+   "lever 0.30@240, 0@336; done []",
+   "bread dz -2.0 cm at 240",
+   "toaster touch 228-234, 552-556, 571-583, 618",
+   "gripper closed 32-2000; obj touch []; min_eef 0.193 m"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

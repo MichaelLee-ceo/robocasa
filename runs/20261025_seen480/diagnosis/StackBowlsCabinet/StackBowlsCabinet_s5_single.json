@@ -1,0 +1,24 @@
+{
+ "tag": "StackBowlsCabinet_s5_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [860, 1400],
+ "category": "missed_grasp",
+ "secondary": ["missed_grasp_continued_empty", "other: nest attempt failed at 179 (small bowl released beside the large bowl, not in it), forcing one-by-one"],
+ "what_happened": "Scene layout 7/style 7 (wooden upper cabinet, orange tile backsplash, dark granite counter, toaster). Small black ribbed bowl1 (bowl_5 x0.7, the shallowest model, ~16 cm wide / 4.6 cm high) and larger red wooden bowl2 (bowl_9 x0.95, ~25 cm wide). Strategy: nest attempted, then one-by-one. bowl1 grasped at 79/87 (lift 0.21 m) and brought over the red bowl, but at release (179) it hung offset to the right of the red bowl (wrist view 140-180) and landed on the counter beside it, near the toaster - not nested. The gripper then grasped the red bowl alone (264/272) and for ~370 steps (300-640) moved it around at counter height next to the black bowl (wrist view shows the black bowl beside it at 400, 576-624) before lifting it into the upper cabinet: released 718, stage 0 complete 718 (median 318; slow but left 680 steps). Stage 1: the black bowl now sat near the counter's front edge close to the robot. Three attempts: close 879 (touch 879-884, width 0.014, no lift), then an empty-handed trip up to the cabinet (960-1060, wrist sees the red bowl in the cabinet); close 1145 (hold 1153-1158 lift 1 mm), another empty trip up to the cabinet (~1240); close 1381 (touch 1392, no lift) at the timeout. The red bowl stayed in the cabinet (stage 0 condition only broke when the gripper came back near it).",
+ "causal_chain": "small bowl released beside the large bowl instead of into it (179) -> large bowl carried alone to the cabinet (272-718, slow) -> small bowl must be picked separately -> three closes on its rim (879, 1145, 1381) none lifts it; after the first two the arm goes to the cabinet empty-handed -> stage 1 never holds -> timeout",
+ "self_recovery": "Switched from nest-then-carry to one-by-one after the failed nest and completed stage 0 with the large bowl. Three re-grasp attempts on the small bowl, all failed, and each failure was followed by an empty 'place' trip to the cabinet as if the bowl were held.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s5_overview.png", "frames/s5_nest.png", "frames/s5_nestz.png", "frames/s5_nestw.png", "frames/s5_carry.png", "frames/s5_holdw.png", "frames/s5_late.png"],
+  "packet_facts": [
+   "bowl1 hold 87-179 lift 0.206, dist to cabinet at release 0.311 (on the counter)",
+   "bowl2 hold 272-718 lift 0.601, at target; stage 0 first_complete 718; undone only by gripper proximity (1054, 1275, 1279)",
+   "close_events 879, 1145, 1381 touching bowl1, width 0.014, not lifted; bowl1 hold 1153-1158 lift 0.001",
+   "bowl model sizes from mesh x registry scale 2.0: bowl_5 x0.7 = 0.161 m dia, 0.046 m high; bowl_9 x0.95 = 0.247 m dia"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Why the three rim grasps on the black bowl fail (width 0.014 means the fingers closed on something ~1.4 cm thick; the shallow, low-rimmed bowl_5 may leave too little rim height to pinch). Exactly where the small bowl landed at 179 (agent view occluded by the arm; inferred from the wrist view)."
+}

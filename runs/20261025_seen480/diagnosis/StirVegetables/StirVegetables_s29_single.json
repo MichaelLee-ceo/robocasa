@@ -1,0 +1,28 @@
+{
+ "tag": "StirVegetables_s29_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 10 (same kitchen as s7, s15), brown steel pot (Pot075) on the rear-left element of an electric hob, carrot, lime and spatula_8 (white slotted turner on a black handle) on the counter left of the hob. Stage 0: carrot grasped 99/107, dropped in 248 (complete 240-271). Stage 1 was slow (535 steps, median 282, p90 551): the first close at 346 on the lime (lying against the spatula) did not lift it, and the gripper stayed CLOSED (0.001) 368-592 while the arm carried on to the pot empty-handed and hovered there (440-600). It reopened ~600, re-grasped the lime 682 (spatula touched too, not lifted), placed it 768 (complete 775). Stage 2: spatula grasped 885, lifted (complete 905). Stage 3 (189 steps): 960-1040 the turner was pushed vertically down into the pot among the vegetables; from ~1050 the wedged turner/hand LIFTED the pot off the glowing element and swung it, tilted, above the element (1052-1100); success was logged at 1094 (online 1104, success_time 12) while the pot was being lifted and tilted.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from the missed lime grasp at 346 after ~230 steps of closed-gripper hovering (reopened ~600, re-grasp 682).",
+ "official_criterion_notes": "Success was logged at 1094 while the pot hung tilted above the element. pot-on-burner requires pot-stove contact, so either the counts came earlier (960-1040, the turner in the pot), or the tilted pot's edge still touched the cooktop while the vegetables slid around against the turner. The packet has no per-step counter or pot pose, so I cannot tell which.",
+ "evidence": {
+  "sheets": [
+   "frames/s29_overview.png",
+   "frames/s29_stage1.png",
+   "frames/s29_stir_zoom.png",
+   "frames/s29_tilt.png"
+  ],
+  "packet_facts": [
+   "close 346 on veg2 not lifted; gripper 0.001 368-592; veg2 hold 692-768; stage1 since previous 535",
+   "spatula close 885 width 0.019 lifted; stage2 905-1104",
+   "success_step 1094, success_time 12"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Which steps the 12 counts came from (before or during the pot lift)."
+}

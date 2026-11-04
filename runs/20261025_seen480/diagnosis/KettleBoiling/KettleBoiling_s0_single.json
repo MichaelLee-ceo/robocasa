@@ -1,0 +1,25 @@
+{
+ "tag": "KettleBoiling_s0_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Copper kettle on the counter right of the gas hob (same layout as failed s2/s3/s26). Grasp at 144, 3 steps after first touch, lift 0.33 m; at target 276, released 300 on the left burner 0.02 m from its centre. Stage 0 at 319 (median 271). Knob: touches 368-370 and 397-416, 'left' knob to 0.44, stage 1 at 414 (95 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Stage 0 interval breaks 363-376: Stage 0 interval breaks while the gripper is within 25 cm of the kettle at the knob (gripper-away clause), not a real undo.",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png"
+  ],
+  "packet_facts": [
+   "holds: 144-300 lift 0.334 dist 0.021",
+   "stage0 [[319,363],[376,416]]",
+   "stove touch 368-370, 397-416; left 0.437"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

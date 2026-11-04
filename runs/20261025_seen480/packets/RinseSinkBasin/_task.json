@@ -1,0 +1,35 @@
+{
+ "task": "RinseSinkBasin",
+ "instruction": "Turn on the sink and manuever the spout to wash all locations of the sink basin.",
+ "stages": [
+  "0: TurnOnSinkFaucet",
+  "1: TurnSinkSpout"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "water is running from the faucet.",
+   "does_not_count": "the faucet is still off (no water stream), even if the gripper is touching the handle."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "while the water was running, the spout has been turned to all three positions \u2014 left, centre and right (in any order, over the course of the video).",
+   "does_not_count": "the water is off, or the spout has not yet been pointed in all three directions with water running."
+  }
+ ],
+ "horizon": 900,
+ "episodes": 30,
+ "successes": 17,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 189,
+   "p90": 230,
+   "n": 17
+  },
+  "1": {
+   "median": 263,
+   "p90": 362,
+   "n": 17
+  }
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s14_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  98,
+  480
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 2, black 4-slot (two-pair) toaster (same kitchen as s1/s6), bread in slot 2 (left pair, pair 0). Stage 0: from 98 to ~380 the open gripper rested against the toaster front, in continuous contact, with the wrist camera centred on the toaster and the bread in view, and moved no lever. At 384-480 it moved to the right and pushed the RIGHT (pair-1) lever down (0.06 -> 0.53 -> 1.0). Pair 1 (the empty right slots) was on 479-978, and the bread did not move (dz 0 all episode). The gripper then stayed against the right side of the toaster until ~830 (contact 478-828) and closed on nothing at 785-819. It lifted away at ~860 and hovered right of and above the toaster for the rest of the episode, with the bread in view (pair 1 popped at ~990). It never touched the left lever or the bread.",
+ "causal_chain": "~280 steps resting against the toaster front (98-380) -> pressed the right lever over the empty slots (480) instead of the left lever under the bread -> toaster ran empty, stage 0 can never latch -> hovered beside the toaster until timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "done_intervals [[479,978]] are for the wrong (empty) pair; stage 0 correctly never holds.",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_press.png",
+   "frames/s14_mid.png",
+   "frames/cmp_layout2_t100.png"
+  ],
+  "packet_facts": [
+   "pair1 lever 0.06@384, 0.28@416, 0.53@448, 1.0@480; pair1 on 480-992; pair0 lever 0 all episode",
+   "bread dz 0 all episode",
+   "toaster touch 98-828 almost continuous",
+   "gripper open until 800, closed 832-2000; close_events 785/819 on nothing; obj touch []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

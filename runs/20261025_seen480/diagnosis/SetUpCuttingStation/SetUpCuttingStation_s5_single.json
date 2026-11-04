@@ -1,0 +1,25 @@
+{
+ "tag": "SetUpCuttingStation_s5_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout/style 7 (dark wood cabinets, dark marble counter, toaster); green-handled knife (knife_9) in the drawer; board and a red plate with a drumstick on the counter. Stage 0 fast: the fingers started closing at ~225 and closed on the handle as they reached it (width 0.080 -> 0.064 at 232 -> 0.036 by 264; knife touch from 241), lift 0.48 m, released on the board at 373 (0.050 m from centre). Stage 1 fast: grasped the drumstick at 463 (lift 0.17 m), placed it on the board beside the knife at 544 (0.045 m from centre). Success at 563.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Packet artefact: close_events lists 225 as on_nothing, but it is the successful knife grasp; contact started 16 steps after the close began (touch from 241) while the fingers were still closing.",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png"
+  ],
+  "packet_facts": [
+   "close 225 labelled on_nothing, but width 0.080->0.036 over 225-264 with knife touch from 241",
+   "knife hold 241-373 lift 0.479 dist 0.050",
+   "meat hold 476-544 lift 0.169 dist 0.045"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

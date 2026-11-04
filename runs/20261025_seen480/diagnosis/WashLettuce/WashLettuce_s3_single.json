@@ -1,0 +1,38 @@
+{
+ "tag": "WashLettuce_s3_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  540,
+  1100
+ ],
+ "category": "other: held_beside_stream - the colander bumped the swivel spout and swung the stream aside; the lettuce was then held beside the stream, never under it",
+ "secondary": [
+  "stall_holding_at_target",
+  "placed_off_target"
+ ],
+ "what_happened": "Scene layout 9 / style 9 (same black double sink and tall pull-down faucet as s2/s13); iceberg lettuce (Lettuce008) in a perforated colander on the counter right of the sink. Stage 0 normal: lever touched 129-219, handle 0.04 at 144, 0.34 at 176, water on at 208 (0.50 rad). Stage 1: grasped the colander rim at 439 (width ~0.04; the gripper also touched the lettuce, close_event lifted lettuce) and brought it over the left basin by ~540. From 540 to ~1000 it held the colander just right of the stream: the left-view zoom shows the stream falling past the colander's left rim straight to the basin floor the whole time (540-940), with small up/down and tilt adjustments. At ~1000 it opened the gripper and left the colander resting in the left basin, still with the stream at its left rim (wrist view 1016-1064), and the arm retreated. washed_time 0: the lettuce centre was never within its radius of the stream axis. Spout check (s3_spout.png): until ~528 the spout points forward with the stream next to the faucet column; when the colander arrived from the right (540-580) it pushed the swivel spout to the left (gooseneck seen in profile from 552) and the stream moved left with it, to the colander's left rim.",
+ "causal_chain": "water on 208 (normal) -> colander grasped 439, at the faucet ~540 (normal) -> colander pushed the swivel spout left (540-580), stream moved with it -> stream grazing the colander's left rim, lettuce ~one colander radius away, 540-1000 -> colander released beside the stream (~1000), arm withdrew -> washed_time 0 at timeout",
+ "self_recovery": "none effective: small height/tilt adjustments 540-1000 never moved the colander the few cm left needed; after release the arm withdrew as if done.",
+ "official_criterion_notes": "Consistent with the video. The official labeler's 'place' at 449 and 'done' at 548 are meaningless for this failure. The packet records only the sink handle joint and water_on, not the spout swivel joint, so the displaced stream is not visible in the packet. No gripper-finger contact with the sink fixture is recorded at 540-580 (touches end at 219, one at 837-841), so the colander or an arm link pushed the spout; such contacts are not recorded in the packet.",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_sinkzoom.png",
+   "frames/s3_grasp_release.png",
+   "frames/L9_wash_compare.png",
+   "frames/L9_stream_compare.png",
+   "frames/s3_spout.png",
+   "frames/spout_swing_compare.png"
+  ],
+  "packet_facts": [
+   "handle 0.04@144 0.18@160 0.34@176 0.50 from 224; water on 208",
+   "close_events 439 width 0.043 touching lettuce, lifted lettuce",
+   "gripper width 0.031-0.044 from 450 to ~992, open 0.078 from ~1008",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact lettuce-to-stream distance (no lettuce trace in the packet); from the video the stream stays at the colander rim."
+}

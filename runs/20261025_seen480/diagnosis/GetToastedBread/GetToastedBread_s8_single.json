@@ -1,0 +1,36 @@
+{
+ "tag": "GetToastedBread_s8_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  156,
+  464
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "wrong_fixture_element",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 2, black 4-slot (two-pair) toaster, bread in slot 2 (left pair, pair 0). Stage 0: instead of going to a lever, the gripper came down over the bread (140-248) with the bread between the open fingers, and closed on it at 156 (0.057), 219 (0.024, lifted) and 240 (0.002). It pulled the untoasted bread up 2.6 cm (hold 207-245). The fingers then slipped off (they closed fully at 240), and the bread stayed WEDGED in the slot about 2.8 cm above its seat from ~256 to 1232. It pushed the right (pair-1) lever to 0.31 (384-400), then moved left and pushed the correct left lever fully (448-464). Pair 0 was on 464-963, but the wedged bread did not go down with the carriage (dz stayed +2.8 cm), so it never touched the slot floor while the toaster was on. After pair 0 popped (~976), the gripper went to the right end and pushed the right (pair-1, empty) lever down at 1017-1050 (pair 1 on 1040-1536). The bread dropped back onto its slot floor by itself at ~1232, while only the wrong pair was on. 1400-2000 it hovered beside the toaster with the bread in view, closed fingers, no further contact.",
+ "causal_chain": "grabbed and lifted the untoasted bread before pressing (156-245) -> grasp slipped, bread wedged 2.8 cm up in the slot -> correct lever pressed at 464, but the bread was off the slot floor during the whole toasting cycle (464-963), so the bread-in-slot condition never held -> second press on the wrong (empty) lever at 1040 -> no toasting credit, bread never taken to the plate",
+ "self_recovery": "It did press the correct lever after the failed pull (464), but the bread was no longer seated; the later right-lever press (1040) was on the wrong pair. No further attempt.",
+ "official_criterion_notes": "Borderline: during pair 0's cycle (464-963) the bread was inside the slot of the switched-on pair, but wedged 2.8 cm above the carriage. Both the env check (slot-floor contact at a step while turned_on) and the stage-0 latch correctly refuse it. A human would also say it was not toasted properly, since it never went down. done_intervals [[464,963],[1025,1524]] count both pairs.",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png",
+   "frames/s8_pull.png",
+   "frames/s8_press.png",
+   "frames/s8_late.png",
+   "frames/cmp_layout2_t100.png"
+  ],
+  "packet_facts": [
+   "close_events 156 (0.057, obj), 219 (0.024, obj lifted), 240 (0.002, obj)",
+   "holds 182-193 lift 0.0; 207-245 lift 0.026",
+   "bread dz +2.8 cm 256-1232 then 0 (saved states)",
+   "pair1 0.31@384-400; pair0 0.74@448, on 464-976; pair1 0.88@1024, on 1040-1536"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the bread touched the slot floor at any single step during 464-963; the saved states show it held at +2.8 cm throughout, and stage 0 never latched."
+}

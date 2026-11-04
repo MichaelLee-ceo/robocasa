@@ -1,0 +1,25 @@
+{
+ "tag": "LoadDishwasher_s21_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 4 (dark wood cabinets, wall oven and microwave), white/pink cup_5 and black bowl_5. Stage 0: cup grasped 125-133 (lift 0.012), held over the slid-out rack and released 335 (drop 0.17) where it lay tilted on its side (tipped 356-736); stage 0 complete 338 (p90 336, slightly slow). Stage 1: a first close at 468 touched the bowl without lifting, the second grip 481 slid/lifted it only ~1 cm, but it was carried to the rack and released 576 (drop 0.14), ending tilted 46 deg; stage 1 complete 576 (238 steps). Stage 2: door touched from 683, lifted 692-736 (0.18@704, 0.56@720, 1.00@736); success 733 (157 steps).",
+ "causal_chain": "",
+ "self_recovery": "The first bowl close at 468 did not lift; it re-gripped within ~13 steps and continued (worked).",
+ "official_criterion_notes": "Both dishes count while lying tilted (57 and 46 deg).",
+ "evidence": {
+  "sheets": [
+   "frames/succ_B_overview.png"
+  ],
+  "packet_facts": [
+   "dish0 hold 133-335 drop 0.167; stage0 338",
+   "close 468 dish1 not lifted; dish1 hold 481-576 lift 0.009; stage1 576",
+   "door 0.18@704 -> 1.00@736; success 733"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

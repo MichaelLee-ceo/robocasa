@@ -1,0 +1,484 @@
+{
+ "tag": "KettleBoiling_s25_single",
+ "task": "KettleBoiling",
+ "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+ "success": true,
+ "steps": 432,
+ "horizon": 1000,
+ "success_step": 427,
+ "online_stage_log": [
+  [
+   208,
+   0
+  ],
+  [
+   432,
+   1
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 208,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 432,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 6,
+  "style": 6,
+  "objects": {
+   "obj": "lightwheel/kettle/Kettle024/model.xml",
+   "stove_distr": "objaverse/pan/pan_4/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.0298,
+   0.0171,
+   0.0167,
+   0.0164,
+   0.0161,
+   0.0158,
+   0.0155,
+   0.0153,
+   0.0428,
+   0.0773,
+   0.0783,
+   0.0788,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0803,
+   0.0565,
+   0.0381,
+   0.0381,
+   0.0381,
+   0.0381,
+   0.0381
+  ],
+  "close_events": [
+   {
+    "step": 115,
+    "width_after": 0.02,
+    "on_nothing": false,
+    "touching": [
+     "obj"
+    ],
+    "lifted": [
+     "obj"
+    ]
+   },
+   {
+    "step": 380,
+    "width_after": 0.037,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": null,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToStove",
+   "kind": "pnp",
+   "first_complete_step": 202,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     202,
+     432
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 202,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 271,
+    "p90": 348,
+    "n": 20
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "TurnOnStove",
+   "kind": "fixture",
+   "first_complete_step": 427,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     427,
+     432
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 225,
+   "window_start": 202,
+   "typical_in_successes": {
+    "median": 152,
+    "p90": 229,
+    "n": 20
+   }
+  }
+ ],
+ "objects": {
+  "obj": {
+   "target_of_stage": 0,
+   "start_pos": [
+    3.8721,
+    -1.0286,
+    0.9211
+   ],
+   "end_pos": [
+    3.8737,
+    -1.3906,
+    0.9201
+   ],
+   "at_target_intervals": [
+    [
+     190,
+     432
+    ]
+   ],
+   "dist_to_target_start_m": 0.3664,
+   "dist_to_target_end_m": 0.0382,
+   "min_eef_dist_to_centre_m": 0.1678,
+   "gripper_touch_intervals": [
+    [
+     117,
+     125
+    ],
+    [
+     129,
+     187
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 123,
+     "release_step": 188,
+     "lift_m": 0.091,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0307,
+     "height_drop_after_release_m": 0.03,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0382
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 11.4,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {
+  "stage1:stove": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0006,
+    0.1779,
+    0.4531
+   ],
+   "done_intervals": [
+    [
+     427,
+     432
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     383,
+     432
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.366
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.366
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.366
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.366
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.366
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.122
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.178,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.453,
+      "front_right": 0.0
+     },
+     "kettle_nearest_burner": [
+      "front_left",
+      0.038
+     ]
+    }
+   ],
+   "state_end": {
+    "knob_angles": {
+     "rear_left": 0.0,
+     "rear_right": 0.0,
+     "front_left": 0.453,
+     "front_right": 0.0
+    },
+    "kettle_nearest_burner": [
+     "front_left",
+     0.038
+    ]
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToStove",
+    "pick"
+   ],
+   [
+    144,
+    "PickPlaceCounterToStove",
+    "place"
+   ],
+   [
+    193,
+    "TurnOnStove",
+    "execute"
+   ],
+   [
+    427,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/KettleBoiling/KettleBoiling_s25_single.mp4"
+}

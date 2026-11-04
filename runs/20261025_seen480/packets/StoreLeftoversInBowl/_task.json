@@ -1,0 +1,46 @@
+{
+ "task": "StoreLeftoversInBowl",
+ "instruction": "Pick the chicken drumstick and cucumber from their plates and place them in the bowl. Then put the bowl in the fridge.",
+ "stages": [
+  "0: PickPlaceCounterToCounter",
+  "1: PickPlaceCounterToCounter",
+  "2: PickPlaceCounterToFridge"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "at least one of the two food items lies in the bowl and the gripper is no longer touching it.",
+   "does_not_count": "no food item is in the bowl yet (still on its plate, held, or dropped elsewhere)."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "both food items lie in the bowl and the gripper is not touching them.",
+   "does_not_count": "only one food item is in the bowl, or the gripper is still holding the second one."
+  },
+  {
+   "stage": 2,
+   "counts_as_complete": "both food items are in the bowl, the bowl stands on a shelf inside the fridge, and the gripper has moved away from the bowl (about 25 cm or more).",
+   "does_not_count": "the bowl is still on the counter, still held, not on a fridge shelf, a food item fell out, or the gripper is still at the bowl."
+  }
+ ],
+ "horizon": 1700,
+ "episodes": 30,
+ "successes": 11,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 149,
+   "p90": 255,
+   "n": 11
+  },
+  "1": {
+   "median": 216,
+   "p90": 284,
+   "n": 11
+  },
+  "2": {
+   "median": 437,
+   "p90": 524,
+   "n": 11
+  }
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "tag": "WashLettuce_s2_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  520,
+  1100
+ ],
+ "category": "other: held_beside_stream - the colander bumped the swivel spout and swung the stream aside; the lettuce was then held beside the stream, never under it",
+ "secondary": [
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Scene layout 9 / style 9: black double-basin sink, tall pull-down faucet over the left basin; romaine lettuce (Lettuce009) in a colander on the counter right of the sink. Stage 0 was normal: lever touched 177-202, water on at 206 (handle 0.45 rad), stream visible in the left basin. Stage 1: the arm went to the colander, closed on its far rim at 392 (width 0.021 = holding the colander; the packet says on_nothing because only the lettuce is tracked) and carried colander + lettuce over the sink by ~500. From ~520 to the end (1100) it held the colander in the left basin next to the stream: 540-660 the stream falls just left of / in front of the colander rim; 720-1096 the colander is lower and further left and the stream hits the left part of the colander, but the lettuce lies in the right half, away from the stream. washed_time stayed 0 the whole episode, i.e. the lettuce centre was never within its own radius of the stream axis. The wrist camera shows only the colander and lettuce during the hold; the stream is not visible to it. Spout check (s2_spout.png): until ~548 the pull-down spout points forward and the stream falls next to the faucet column; as the colander/gripper arrived from the right (548-700) the spout swivelled to the left (the gooseneck now seen in profile) and the stream moved left with it, so the stream ended up at the colander's left rim.",
+ "causal_chain": "water on 206 (normal) -> colander grasped 392, at the sink ~520 (normal) -> colander/gripper pushed the swivel spout to the left (548-700), stream moved with it -> lettuce held with the stream on the colander's left rim, 520-1100 (~580 steps; successes need ~25 steps under the stream) -> washed_time 0 at timeout",
+ "self_recovery": "Slow drift of the colander toward the stream (lower and further left after ~700) brought the stream onto the colander's left part but not onto the lettuce; never enough.",
+ "official_criterion_notes": "Consistent with the video: washed_time 0 although the stream touched the colander near the end. The criterion uses the lettuce body centre within the lettuce's horizontal radius of the stream axis, so water on the colander rim or the edge of the lettuce does not count. The packet records only the sink handle joint and water_on, not the spout swivel joint, so the displaced stream is not visible in the packet. No gripper-finger contact with the sink fixture is recorded at 548-700 (touches 177-202, then single steps at 887-1027), so the colander or an arm link pushed the spout; such contacts are not recorded.",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png",
+   "frames/s2_grasp.png",
+   "frames/s2_sinkzoom.png",
+   "frames/s2_wristhold.png",
+   "frames/L9_wash_compare.png",
+   "frames/s2_spout.png",
+   "frames/spout_swing_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[177,193],...,[201,202]]; water on 206, handle 0.45 to end",
+   "close_events 392 width 0.028 on_nothing (colander rim, untracked); width ~0.021-0.025 from 400 to end",
+   "washed_time 0",
+   "objects {} (no lettuce trace in packet)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The lettuce-to-stream offset is judged from the agent view only (no lettuce position in the packet); depth along the camera axis is ambiguous, so the miss may be partly front/back rather than left/right."
+}

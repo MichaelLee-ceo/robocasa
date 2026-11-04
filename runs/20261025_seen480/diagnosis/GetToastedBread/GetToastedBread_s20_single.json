@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s20_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  123,
+  608
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster, bread in slot 2 (left pair, pair 0). Stage 0: from 123 to ~320 the open gripper rested on the toaster top right of the bread (contact 158-323), without moving a lever. The fingers then opened and closed several times (312-464) while it moved down the front face. At 440-456 it pushed the LEFT (pair-0, correct) lever only to 0.18 (the bread dropped 1.1 cm) and let go. The lever sprang back by 512. A further touch at 566-608 moved nothing. From ~620 to 2000 the closed fist hovered in front of and right of the toaster with the bread in view (700-1800), without touching the toaster again. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "~200 steps resting on the toaster top (123-323) -> one shallow push of the correct lever to 0.18 (448; 0.9 needed) -> no second push -> hovered beside the toaster to the end -> toaster never on",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s20_overview.png",
+   "frames/s20_press.png",
+   "frames/s20_zoom.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "state: pair0 lever 0.18 at 448-464, 0.10@480, 0@512; pair1 lever 0; done []",
+   "bread dz -1.1 cm at 448",
+   "toaster touch 123-323, 345-428, 437-458, 566-608",
+   "gripper open until 312, closed from 464; obj touch []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

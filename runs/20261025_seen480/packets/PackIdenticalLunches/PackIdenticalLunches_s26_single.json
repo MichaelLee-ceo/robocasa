@@ -1,0 +1,727 @@
+{
+ "tag": "PackIdenticalLunches_s26_single",
+ "task": "PackIdenticalLunches",
+ "instruction": "Place one bell pepper and one steak in each tupperware on the nearby counter, to pack two identical lunches.",
+ "success": false,
+ "steps": 2600,
+ "horizon": 2600,
+ "success_step": null,
+ "online_stage_log": [],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [],
+ "scene": {
+  "layout": 3,
+  "style": 3,
+  "objects": {
+   "vegetable0": "objaverse/bell_pepper/bell_pepper_3/model.xml",
+   "vegetable1": "objaverse/bell_pepper/bell_pepper_3/model.xml",
+   "meat0": "objaverse/steak/steak_4/model.xml",
+   "meat1": "objaverse/steak/steak_4/model.xml",
+   "tupperware0": "lightwheel/tupperware/Tupperware040/model.xml",
+   "tupperware1": "lightwheel/tupperware/Tupperware037/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0779,
+   0.0686,
+   0.0506,
+   0.0488,
+   0.0356,
+   0.0023,
+   0.0016,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0027,
+   0.0581,
+   0.0217,
+   0.0022,
+   0.0015,
+   0.0011,
+   0.001,
+   0.001,
+   0.0269,
+   0.0759,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0645,
+   0.0595,
+   0.0566,
+   0.0539,
+   0.0513,
+   0.0491,
+   0.047,
+   0.0455,
+   0.0437,
+   0.0091,
+   0.002,
+   0.0014,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0013,
+   0.001,
+   0.001,
+   0.0013,
+   0.0016,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0345,
+   0.0768,
+   0.0782,
+   0.0788,
+   0.0791,
+   0.0793,
+   0.0794,
+   0.0797,
+   0.079,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0803,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0777,
+   0.0134,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0016,
+   0.0013,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0423,
+   0.0773,
+   0.0783,
+   0.0786,
+   0.0787,
+   0.0788,
+   0.0789,
+   0.079,
+   0.079,
+   0.079,
+   0.079,
+   0.079,
+   0.079,
+   0.079,
+   0.079,
+   0.079,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0793,
+   0.0793,
+   0.0793,
+   0.0794,
+   0.0794,
+   0.0795,
+   0.0795,
+   0.0455,
+   0.0032,
+   0.0018,
+   0.0013,
+   0.0012,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0183,
+   0.0014,
+   0.015,
+   0.002,
+   0.0017,
+   0.0012,
+   0.0013,
+   0.001,
+   0.0012,
+   0.0013,
+   0.0015,
+   0.0013,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0027,
+   0.058,
+   0.0778,
+   0.0782,
+   0.0784,
+   0.0785,
+   0.0786,
+   0.0788,
+   0.079,
+   0.0792,
+   0.0793,
+   0.0797,
+   0.0798,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0798
+  ],
+  "close_events": [
+   {
+    "step": 128,
+    "width_after": 0.051,
+    "on_nothing": false,
+    "touching": [
+     "meat0"
+    ],
+    "lifted": [
+     "meat0"
+    ]
+   },
+   {
+    "step": 151,
+    "width_after": 0.003,
+    "on_nothing": false,
+    "touching": [
+     "meat0"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 462,
+    "width_after": 0.003,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 644,
+    "width_after": 0.003,
+    "on_nothing": false,
+    "touching": [
+     "meat0"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 1170,
+    "width_after": 0.008,
+    "on_nothing": false,
+    "touching": [
+     "vegetable0"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 1957,
+    "width_after": 0.014,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 286,
+    "p90": 339,
+    "n": 4
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 401,
+    "p90": 474,
+    "n": 4
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 419,
+    "p90": 505,
+    "n": 4
+   }
+  },
+  {
+   "stage": 3,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 393,
+    "p90": 401,
+    "n": 4
+   }
+  }
+ ],
+ "objects": {
+  "vegetable0": {
+   "target_of_stage": 0,
+   "start_pos": [
+    4.7743,
+    -4.0239,
+    1.1065
+   ],
+   "end_pos": [
+    4.7949,
+    -4.0383,
+    1.1065
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 1.2031,
+   "dist_to_target_end_m": 1.2036,
+   "min_eef_dist_to_centre_m": 0.0396,
+   "gripper_touch_intervals": [
+    [
+     1170,
+     1173
+    ],
+    [
+     1175,
+     1180
+    ]
+   ],
+   "holds": [],
+   "brief_contacts_without_lift": 1,
+   "tilt_deg_start": 4.8,
+   "tilt_deg_end": 4.8,
+   "tilt_deg_max": 5.5,
+   "tipped_over_intervals": []
+  },
+  "vegetable1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    4.7007,
+    -4.0906,
+    1.1065
+   ],
+   "end_pos": [
+    4.7007,
+    -4.0906,
+    1.1065
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 1.2742,
+   "dist_to_target_end_m": 1.2604,
+   "min_eef_dist_to_centre_m": 0.0926,
+   "gripper_touch_intervals": [],
+   "holds": [],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 4.8,
+   "tilt_deg_end": 4.8,
+   "tilt_deg_max": 4.8,
+   "tipped_over_intervals": []
+  },
+  "meat0": {
+   "target_of_stage": 0,
+   "start_pos": [
+    4.7299,
+    -3.9057,
+    1.0852
+   ],
+   "end_pos": [
+    4.5973,
+    -3.9274,
+    1.056
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 1.0875,
+   "dist_to_target_end_m": 1.1127,
+   "min_eef_dist_to_centre_m": 0.0122,
+   "gripper_touch_intervals": [
+    [
+     101,
+     101
+    ],
+    [
+     103,
+     108
+    ],
+    [
+     120,
+     120
+    ],
+    [
+     123,
+     123
+    ],
+    [
+     125,
+     125
+    ],
+    [
+     128,
+     128
+    ],
+    [
+     130,
+     130
+    ],
+    [
+     134,
+     159
+    ],
+    [
+     567,
+     567
+    ],
+    [
+     569,
+     653
+    ],
+    [
+     1128,
+     1128
+    ],
+    [
+     1131,
+     1139
+    ],
+    [
+     1235,
+     1245
+    ],
+    [
+     1250,
+     1250
+    ],
+    [
+     1253,
+     1287
+    ],
+    [
+     1289,
+     1289
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 136,
+     "release_step": 160,
+     "lift_m": 0.015,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.0907,
+     "height_drop_after_release_m": 0.011,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.0928
+    },
+    {
+     "grasp_step": 583,
+     "release_step": 654,
+     "lift_m": 0.011,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.118,
+     "height_drop_after_release_m": 0.003,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.1189
+    },
+    {
+     "grasp_step": 1235,
+     "release_step": 1246,
+     "lift_m": 0.002,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.1172,
+     "height_drop_after_release_m": 0.002,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.1254
+    },
+    {
+     "grasp_step": 1250,
+     "release_step": 1290,
+     "lift_m": 0.0,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.1271,
+     "height_drop_after_release_m": 0.011,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.1271
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 53.2,
+   "tilt_deg_end": 53.1,
+   "tilt_deg_max": 53.6,
+   "tipped_over_intervals": [
+    [
+     0,
+     1243
+    ],
+    [
+     1246,
+     2600
+    ]
+   ]
+  },
+  "meat1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    4.7564,
+    -4.1298,
+    1.0852
+   ],
+   "end_pos": [
+    4.7564,
+    -4.1298,
+    1.0852
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 1.3096,
+   "dist_to_target_end_m": 1.2961,
+   "min_eef_dist_to_centre_m": 0.1203,
+   "gripper_touch_intervals": [],
+   "holds": [],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 53.2,
+   "tilt_deg_end": 53.2,
+   "tilt_deg_max": 53.2,
+   "tipped_over_intervals": [
+    [
+     0,
+     2600
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    139,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    660,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/PackIdenticalLunches/PackIdenticalLunches_s26_single.mp4"
+}

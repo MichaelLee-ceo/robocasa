@@ -1,0 +1,34 @@
+{
+ "tag": "KettleBoiling_s10_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  104,
+  152
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: brown kettle on the counter LEFT of the gas range (same layout as s4/s17). Stage 0: on the approach (104-152) the wrist view shows the handle lying horizontally across the kettle top, along the closing axis. The hold at 125-147 lifted it only 5 mm. 160-240 the arm went over the range and hovered over the front-left grate empty-handed. It came back at 280-392 with the same flat-handle view (hold 369-386, lift 2 mm) and tried again at 536-546 with the wrist slightly rotated (lift 3 mm). From ~620 to 1000 it stayed at the kettle making short closes (764-771, 794-802, 876-877, 882-890; lift <=5 mm). Seven closes in total, and none lifted the kettle (it moved 0.3 cm). No knob contact.",
+ "causal_chain": "handle presented flat, along the closing axis -> 7 closes 125-890, max lift 5 mm -> kettle never left the counter -> stage 0 never complete (stage 1 never started)",
+ "self_recovery": "Re-attempts at 369, 537, 764, 794, 876 and 882, with some wrist rotation from 536. None lifted the kettle.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_grasp1.png",
+   "frames/s10_regrasp.png",
+   "frames/all_first_touch_wrist.png"
+  ],
+  "packet_facts": [
+   "7 holds (125-147, 369-386, 537-546, 764-771, 794-802, 876-877, 882-890), max lift 0.005 m",
+   "dist_to_target start 0.425 end 0.428",
+   "stove: no touch"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Handle orientation is read from the wrist view; in the later attempts (620-1000) the handle looks more diagonal and I cannot see why those closes failed."
+}

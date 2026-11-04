@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s12_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [1025, 2600],
+ "category": "missed_grasp",
+ "secondary": ["stall_pre_grasp"],
+ "what_happened": "Scene: layout/style 3; lemon wedges LemonWedge009 (upper shelf, veg0) and LemonWedge010 (lower shelf, veg1), drumsticks ChickenDrumstick012/010; tupperwares on the white counter (one by the cooktop, one by the toaster). Stage 0: grasped drumstick meat1 at 113-124 and released it at 306 into the cooktop-side tupperware (dist 0.05); stage 0 complete 330 (typical 286). Stage 1: grasped drumstick meat0 at 602-613 and released it at 754 into the toaster-side tupperware (dist 0.04); stage 1 complete 782 (452, typical 401). Composition so far: one meat in each tupperware (correct). Stage 2: at the fridge the fingers came down on the upper-shelf lemon wedge, which lay with its curved side toward the fingers; they closed at 1025 (width 0.023) and the wedge squeezed out and rotated aside (1036-1052, lift 0). With the fingers closed (1048-2600, except a brief open at ~1216 with a close on air at 1215 over the lower wedge) the arm hovered in front of the shelves for ~1550 steps, the wrist view showing a lemon wedge unchanged (1150-2600). No further contact.",
+ "causal_chain": "two drumsticks placed correctly by 782 -> lemon wedge squeezed out of the fingers at 1025 -> close on air at 1215 -> ~1400 steps hovering with closed fingers to timeout -> 2 of 4 placed",
+ "self_recovery": "one half-attempt at the other wedge (close on air 1215), then none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s12_overview.png", "frames/s12_wedge.png"],
+  "packet_facts": ["meat1 hold g124 r306; meat0 hold g613 r754; stages 330, 782", "close 1025 veg0 w0.023, veg0 hold g1033 r1046 lift 0", "close 1215 air w0.002", "width closed 1048-2600 (open only ~1216)"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

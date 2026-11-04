@@ -1,0 +1,24 @@
+{
+ "tag": "ScrubCuttingBoard_s21_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L4 (same layout as failure s24): sponge_4, small rounded cutting_board_7 left of the robot. Stage 0: fingers touched 103-119 before closing at ~123; stage 0 from 126 (online 128). Stage 1: first contact 185, grasp test blind 189-207. The criterion was met at 275 with exactly 5 contacts and sweep 0.121, the minimum. Scrub 185-424 (239 steps); released at 424 on the counter; eef 15 cm away at 440; success 440.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Marginal pass: exactly 5 contacts, sweep 0.121.",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[128,0],[448,1]]",
+   "process_progress_end contacts 5 sweep 0.121"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

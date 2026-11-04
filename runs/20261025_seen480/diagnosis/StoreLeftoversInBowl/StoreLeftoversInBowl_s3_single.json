@@ -1,0 +1,11 @@
+{"tag": "StoreLeftoversInBowl_s3_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 2, "root_cause_steps": [860, 976],
+ "category": "placed_off_target",
+ "secondary": ["undid_previous_stage"],
+ "what_happened": "Layout 9 (side-by-side fridge: base parks in front of the closed blue left door with the dispenser, the arm reaches right into the narrow open fridge compartment), large red wooden bowl_9, onion, drumstick 010. Stage 0: onion grasped 85, dropped into the bowl 138 (stage 0 at 140). Stage 1: drumstick grasped 291, released in the bowl 445 (stage 1 at 475, 335 steps, a bit above p90 284). Stage 2: rim grasp 554-570 (width 0.022), lift 0.319 m, carried with the foods wedged at the rim on the gripper side; base drove 620-860 and parked in front of the left door. 860-964 the arm held the bowl at the front of the open compartment, at the height of an upper shelf, at the door-side edge of the opening. At 968-976 the gripper opened (0.024 -> 0.069) with the bowl ~8 cm outside the fridge interior; the bowl fell ~1.1 m to the floor and landed upside down. 1000-1700 the empty arm moved around inside the fridge (door bins, shelves) without going back for the bowl.",
+ "causal_chain": "carried the bowl to the fridge normally (stage 2 started 475, at the fridge by ~860) -> held it at the compartment opening, not over a shelf (860-964) -> opened the gripper with the bowl 8 cm outside the interior (968) -> bowl fell to the floor, foods spilled -> stages 0-2 all lost",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s3_overview.png", "frames/s3_approach.png", "frames/s3_drop_zoom.png", "frames/L9_release_compare.png"],
+  "packet_facts": ["bowl hold 564-969 lift 0.319, dist_to_target_at_release 0.083, drop 1.12", "gripper width 0.022-0.024 from 592 to 968, 0.069 at 976", "bowl tipped only after release (973-1700)", "stage1 since_prev 335 (p90 284)"]},
+ "confidence": "medium", "uncertain_about": "The exact shelf geometry at the release point is hard to see from the agent view; the 8 cm 'outside the interior' comes from the packet. Whether the bowl touched the shelf lip before falling is not visible."}

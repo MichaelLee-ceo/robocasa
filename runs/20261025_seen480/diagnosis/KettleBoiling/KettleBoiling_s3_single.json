@@ -1,0 +1,37 @@
+{
+ "tag": "KettleBoiling_s3_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  124,
+  152
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: white kettle with a black arched handle on the counter right of a gas hob (black pot on the hob); same layout as s2/s26. Attempt 1: the gripper came down over the kettle 124-136, with the handle lying horizontally across the wrist image (along the finger-closing axis). At 140-144 the fingers appear closed below the handle without catching it (no contact registered), and by 148-152 the gripper rose and left. The policy then acted as if it held the kettle. 176-336 it went over the hob beside the pot, rose high and looked into the pot. 360-560 it hovered low over the left and front-left burner grates with an empty gripper (place-like motion), then swung back right 600-720. Attempt 2: 808-840 it came down again with the wrist rotated, so the handle was roughly upright but to the right of the finger gap. It touched the kettle 824-835 (hold 830-836, lift 0) and did not lift it. 856-1000 it hovered 20-30 cm above the kettle. The kettle moved 0.3 cm, and no knob was touched.",
+ "causal_chain": "handle across the closing axis at first approach (124-136) -> closed on air ~140 -> ~400 steps of empty-handed 'place' over the hob (176-560) -> back at the kettle ~720, second miss 824-836 (lift 0) -> hovered to timeout; stage 0 never complete",
+ "self_recovery": "One re-attempt at 808-836, about 670 steps later, with the wrist re-oriented. It touched the kettle for 12 steps but did not lift it. Failed.",
+ "official_criterion_notes": "The first miss (~140) does not appear in the packet: no gripper touch is registered, and min_eef 0.04 m comes from attempt 2. From gripper_touch_intervals alone the first 800 steps look like they had no grasp attempt.",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_grasp1.png",
+   "frames/s3_early.png",
+   "frames/s3_mid.png",
+   "frames/s3_late.png",
+   "frames/all_first_touch_wrist.png"
+  ],
+  "packet_facts": [
+   "gripper_touch_intervals [[824,835]]",
+   "holds: grasp 830 release 836 lift 0.0",
+   "dist_to_target start 0.363 end 0.365",
+   "stove: no touch"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "'Closed on air at ~140' is inferred from wrist frames 140-144 (fingers look closed with the handle above them); the packet registers no contact then. Sequence of events after that: high confidence."
+}

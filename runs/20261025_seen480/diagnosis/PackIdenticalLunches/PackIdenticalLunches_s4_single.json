@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s4_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [591, 2600],
+ "category": "missed_grasp",
+ "secondary": ["other: arm folded down toward its own base and stayed there ~1900 steps", "stall_pre_grasp"],
+ "what_happened": "Scene: layout/style 2; two sweet_potato_3, steak_5 (thick round steak, upper shelf) and steak_6. Stage 0: closed at 80 on the upper-shelf sweet potato (touching both steaks too), carried it to the counter and released it at 307 into the left (round) tupperware (dist 0.03); stage 0 complete 329 (typical 286). Stage 1: drove back to the fridge (~450-560) and came down on the thick round steak meat0 on the upper shelf; closed at 591 (width 0.032), the steak tilted up at one edge (lift 0.034 m, 600-608) and slipped out at 608, falling back flat on the shelf. With the fingers then closed (616-2080) the arm turned down so that the wrist camera looked at the robot's own base (644-700), and from ~700 to 2600 the arm stayed folded/extended low in front of the fridge, the wrist view showing only the robot body; the base slowly rotated (left view changes 1500-2600). The fingers opened at ~2096 but nothing else happened. Only 1 item placed.",
+ "causal_chain": "first item placed normally (307) -> slip on the thick steak (591-608) -> arm folded toward the base and froze ~1900 steps (700-2600) -> 1 of 4 items at timeout",
+ "self_recovery": "none after the slip",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s4_overview.png", "frames/s4_steak.png"],
+  "packet_facts": ["veg1 hold g91 r307 dist 0.034, stage0 329", "meat0 hold g597 r608 lift 0.034", "close 591 w0.032 meat0 not lifted", "width closed 616-2080"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the arm folds into this pose after a failed grasp (same pose as s16, s26)."
+}

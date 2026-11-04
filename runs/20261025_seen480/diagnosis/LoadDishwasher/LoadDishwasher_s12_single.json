@@ -1,0 +1,27 @@
+{
+ "tag": "LoadDishwasher_s12_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 7 (kitchen island, orange tile floor; same kitchen as failures s5 and s28), red cup_4 and striped bowl_6. Stage 0: cup grasped 144-151 (lift 0.096), released 319 into the slid-out rack; stage 0 complete 322 (median 298). Stage 1: bowl grasped 434-444 (lift 0.123), released 589 beside the cup, where it tipped onto its edge (tilt 88 deg, drop 0.18; stage 1 dropped for 6 steps 596-601 while it settled); stage 1 complete 589 (267 steps). Stage 2: the gripper went under the door (touch 715-784) and lifted it (0.16@752, 0.81@768, 1.00@784); success 771 (182 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "The bowl counts as placed while standing on its edge (tilt 88 deg).",
+ "evidence": {
+  "sheets": [
+   "frames/succ_A_overview.png",
+   "frames/s12_close.png",
+   "frames/cmp_door_lift.png"
+  ],
+  "packet_facts": [
+   "dish0 hold 151-319; stage0 322",
+   "dish1 hold 444-589 drop 0.177; stage1 589, undone 596-601",
+   "door 0.16@752 0.81@768 1.00@784; success 771"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

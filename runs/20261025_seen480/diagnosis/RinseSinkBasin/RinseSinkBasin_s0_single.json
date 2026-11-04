@@ -1,0 +1,35 @@
+{
+ "tag": "RinseSinkBasin_s0_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  452,
+  900
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene layout/style 9: double black basin, tall pull-down faucet with spring neck, side lever handle (same as s2, s3, s13, s18, s20, s26). Stage 0 normal: the gripper worked the lever 178-221, handle 0.10 (192) -> 0.37 (208), water on at 210 (median 189); centre washed immediately (spout starts at 0). Stage 1: the gripper took the spout head at ~352 (partial close at 355, width 0.042) and swung it right 364-380 (+0.82; right washed from 375), holding it there to ~444. 452-508 it swung the spout back to centre (+0.70 -> +0.01 at 508, stream back in the left basin) but stopped there, and 516-572 pushed it right again (+0.80). It let go at ~627 (fingers fully closed, 0.003, at 619), moved up and right and hovered 632-900 beside the faucet with the gripper closed and the neck in the wrist view, never touching it again. Spout parked at +0.79 (right) to the end; left never reached.",
+ "causal_chain": "right side reached 375 -> return swing 452-508 stopped at centre (+0.01; left needs <= -0.524) -> pushed right a second time 516-572 -> released 627 and hovered 270 steps without contact -> left never washed, timeout 900 with 525 steps of stage 1 unused",
+ "self_recovery": "none: after the second right push it never returned to the spout.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/s0_spout_zoom.png",
+   "frames/s0_reverse.png",
+   "frames/s0_reverse_zoom.png",
+   "frames/s0_after.png"
+  ],
+  "packet_facts": [
+   "stage0 210; online log [[224,0]]; washed_loc [F,T,T], spout_ori right",
+   "fixture touch 352-627 (merged), none after 627",
+   "closes 355 (0.042), 619 (0.003)",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: +0.82@380, +0.01@508, +0.80@580, min -0.02"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 452-508 swing was an attempt at the left side that stalled or just a release motion; the spout clearly stopped at centre and was pushed right again."
+}

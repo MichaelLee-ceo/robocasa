@@ -1,0 +1,30 @@
+{
+ "tag": "PrepareCoffee_s20_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  78,
+  1200
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 9 (brown CoffeeMachine036 below), wide printed tea mug_8 on a navy upper shelf next to a cheese-grater distractor. Stage 0: the gripper approached the mug and the fingers closed at ~78-96 with the mug still a few cm beyond the fingertips (wrist 84-96: mug in front of, not between, the fingers); no contact. The fingers then stayed closed (0.001) until the end. 120-600 the arm hovered 10-25 cm in front of the mug with the closed gripper (wrist 200-500: mug and grater in view, the mug never touched); ~700 it dropped down and away, and 900-1200 it hovered again in front of the shelf. The mug never moved, and the machine was never approached.",
+ "causal_chain": "premature close short of the mug (78) -> gripper never reopens -> ~1100 steps hovering in front of the mug with closed fingers -> mug never picked -> timeout",
+ "self_recovery": "none: no reopening of the gripper, no second grasp attempt.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s20_overview.png"
+  ],
+  "packet_facts": [
+   "mug gripper_touch_intervals []; end_pos = start_pos",
+   "close_events: 78 on_nothing; gripper width 0.001 from 112 to 1200",
+   "min_eef_dist_to_centre 0.069"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the close was premature (same pattern as s15 and s25, all with mug_8)."
+}

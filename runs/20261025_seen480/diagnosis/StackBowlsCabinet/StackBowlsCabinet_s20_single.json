@@ -1,0 +1,37 @@
+{
+ "tag": "StackBowlsCabinet_s20_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  168,
+  1400
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "dropped_in_transit",
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene layout 9/style 9 but a near-cabinet counter (white tiles, navy upper cabinet with brass handles; bowls 0.57 / 0.46 m from the cabinet, i.e. normal distance). Small brown bowl1 (bowl_8 x0.7) sits at the right near the robot, large tan bowl2 (bowl_7 x0.95) ~0.49 m to its left. 120-168: the gripper descended with the small bowl centred in the wrist view (gripper over the bowl's middle, not over its rim as in every success at first close) and closed at 168: brief contact 169-178, lift 0 - missed. The policy then switched to the large bowl (one-by-one order, large first): touched it at 385, grasped at 405/415, lifted 0.225 m and carried it right/toward the cabinet (distance to the cabinet 0.45 -> 0.27 m), but at ~453 the bowl slipped out and fell 0.21 m onto the counter, landing upright ~0.3 m right of where it started. 584-624 it went back to the small bowl and closed at 609 (contact 617-626, lift 3 mm) - missed again. From ~640 to 1400 it hovered 15-30 cm above/beside the small bowl (wrist view: bowl small and off-centre), closing on air at 848, 878, 1008 and 1199, never descending to the rim again.",
+ "causal_chain": "first grasp of the small bowl aimed at its centre instead of the rim -> missed (168) -> switched to the large bowl, lifted it 0.23 m, it slipped out at ~453 -> second miss on the small bowl (609) -> ~750 steps of hovering above the small bowl with 4 closes on air -> no bowl ever lifted to the cabinet -> timeout",
+ "self_recovery": "Switched to the other bowl after the first miss (grasp worked, carry dropped it). One more real attempt on the small bowl at 609 (missed). Afterwards only closes on air while hovering; never re-approached the dropped large bowl.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s20_overview.png",
+   "frames/s20_grasp1.png",
+   "frames/s20_tan.png",
+   "frames/s20_hover.png",
+   "frames/cmp_first_close_wrist.png"
+  ],
+  "packet_facts": [
+   "close 168 touching bowl1, not lifted; bowl1 hold 176-179 lift 0.000",
+   "bowl2 hold 415-453 lift 0.225, dist to target 0.266 at release, height drop 0.211 (fell)",
+   "close 609 touching bowl1, hold 617-626 lift 0.003",
+   "close_events on air 848, 878, 1008, 1199",
+   "bowl1-bowl2 start separation 0.49 m (successes range 0.23-0.59 m, so separation alone does not explain it)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the large bowl was being carried toward the cabinet or toward the small bowl when it slipped (the cabinet distance shrank 0.45 -> 0.27 m, so cabinet is more likely); why the 609 grasp failed with the rim apparently in the finger gap."
+}

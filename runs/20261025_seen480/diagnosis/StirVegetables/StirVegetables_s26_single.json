@@ -1,0 +1,34 @@
+{
+ "tag": "StirVegetables_s26_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  880,
+  1600
+ ],
+ "category": "other: hand/spatula caught the pot and lifted or tipped it off the burner during the stir",
+ "secondary": [
+  "disturbed_placed_object"
+ ],
+ "what_happened": "Scene: layout 9 (same kitchen as s0, s2, s13, s20), black pot (Pot071) on the rear-middle burner, broccoli, bell pepper and spatula_8 (black handle, slotted turner) on the counter right of the hob. Stage 0 was slow: a first close on the broccoli at 120 slipped (width 0.005), grasp 320, dropped in 462 (complete 464; median 232, p90 251). Stage 1: pepper grasped 585, dropped in 681 (complete 684). Stage 2: spatula grasped 797, lifted (complete 808/813) and held to the end. Stage 3: 880-1040 the arm hovered over the pot with the turner pointing up/away from the hand (wrist view: blade against the wall and the pot rim, not inside it). From ~1060 the hand came down on the pot: the pot tipped (1100, rim tilted in the wrist view; blue flame exposed) and from ~1200 to 1520 the arm went into contorted poses with the pot raised and tilted against it behind the gripper (1240-1480, the wrist camera faces the room). The vegetables stayed in the pot (stage 0/1 conditions hold, since 'in pot' is relative to the pot), but the stir counter never advanced (success_time 0).",
+ "causal_chain": "spatula held from 808 -> turner pointing up/away while hovering above the pot 880-1040 -> hand came down on the pot and tipped/raised it off the burner 1060-1520 -> no counted stir step -> timeout",
+ "self_recovery": "Stage 0 slip at 120 recovered (grasp 320). None for the pot.",
+ "official_criterion_notes": "Stage 0/1 conditions stay complete while the pot is lifted/tipped, because 'in pot' is checked relative to the pot, not the stove; only the stage-3 pot-on-burner clause notices it, and the packet has no pot pose.",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_pot_zoom.png",
+   "frames/s26_lift.png"
+  ],
+  "packet_facts": [
+   "close 120 on veg1 width 0.005 not lifted; veg1 hold 330-462; stage0 first 464",
+   "veg2 hold 585-681",
+   "spatula close 797 width 0.017 lifted; stage2 813-1600",
+   "stage0 complete 1095-1600 despite the pot being moved",
+   "success_time 0"
+  ]
+ },
+ "confidence": "low",
+ "uncertain_about": "Exactly how the pot was moved after ~1200 (lifted by the hand vs tipped and pinned against the arm); the arm occludes it and the wrist camera faces away."
+}

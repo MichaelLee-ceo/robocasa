@@ -1,0 +1,858 @@
+{
+ "tag": "PreSoakPan_s14_single",
+ "task": "PreSoakPan",
+ "instruction": "Pick the pan and sponge and place them into the sink. Then turn on the water.",
+ "success": true,
+ "steps": 1584,
+ "horizon": 1600,
+ "success_step": 1574,
+ "online_stage_log": [
+  [
+   336,
+   0
+  ],
+  [
+   624,
+   1
+  ],
+  [
+   1584,
+   2
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 336,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 624,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 2,
+   "logged_step": 1584,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 2,
+  "style": 2,
+  "objects": {
+   "obj1": "objaverse/pan/pan_8/model.xml",
+   "obj2": "objaverse/sponge/sponge_6/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0653,
+   0.0257,
+   0.0253,
+   0.0249,
+   0.0248,
+   0.0247,
+   0.0246,
+   0.0246,
+   0.0245,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0244,
+   0.0246,
+   0.025,
+   0.0312,
+   0.0759,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.0802,
+   0.0601,
+   0.0597,
+   0.0597,
+   0.0595,
+   0.0594,
+   0.0593,
+   0.0592,
+   0.0592,
+   0.0589,
+   0.0586,
+   0.0585,
+   0.0584,
+   0.0583,
+   0.0607,
+   0.0777,
+   0.0784,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0805,
+   0.0769,
+   0.024,
+   0.0055,
+   0.0019,
+   0.0013,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0069,
+   0.0021,
+   0.0015,
+   0.001,
+   0.0021,
+   0.0017,
+   0.0014,
+   0.0013,
+   0.001,
+   0.001,
+   0.0016,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0026,
+   0.0045,
+   0.0173,
+   0.0295,
+   0.0747,
+   0.0781,
+   0.0787,
+   0.0791,
+   0.0792,
+   0.0793,
+   0.0793,
+   0.0793,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0795
+  ],
+  "close_events": [
+   {
+    "step": 103,
+    "width_after": 0.026,
+    "on_nothing": false,
+    "touching": [
+     "obj1"
+    ],
+    "lifted": [
+     "obj1"
+    ]
+   },
+   {
+    "step": 472,
+    "width_after": 0.06,
+    "on_nothing": false,
+    "touching": [
+     "obj2"
+    ],
+    "lifted": [
+     "obj2"
+    ]
+   },
+   {
+    "step": 898,
+    "width_after": 0.02,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": null,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToSink",
+   "kind": "pnp",
+   "first_complete_step": 325,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     325,
+     1584
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 325,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 301,
+    "p90": 414,
+    "n": 18
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToSink",
+   "kind": "pnp",
+   "first_complete_step": 620,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     620,
+     1584
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 295,
+   "window_start": 325,
+   "typical_in_successes": {
+    "median": 281,
+    "p90": 348,
+    "n": 18
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "TurnOnSinkFaucet",
+   "kind": "fixture",
+   "first_complete_step": 1574,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     1574,
+     1584
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 954,
+   "window_start": 620,
+   "typical_in_successes": {
+    "median": 232,
+    "p90": 385,
+    "n": 18
+   }
+  }
+ ],
+ "objects": {
+  "obj1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    3.2833,
+    -2.3011,
+    0.9358
+   ],
+   "end_pos": [
+    2.755,
+    -2.3081,
+    0.7662
+   ],
+   "at_target_intervals": [
+    [
+     259,
+     1584
+    ]
+   ],
+   "dist_to_target_start_m": 0.4,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.0817,
+   "gripper_touch_intervals": [
+    [
+     115,
+     310
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 115,
+     "release_step": 311,
+     "lift_m": 0.26,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0,
+     "height_drop_after_release_m": 0.021,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 32.3,
+   "tipped_over_intervals": []
+  },
+  "obj2": {
+   "target_of_stage": 0,
+   "start_pos": [
+    3.149,
+    -2.0828,
+    0.9324
+   ],
+   "end_pos": [
+    2.6756,
+    -2.2774,
+    0.7893
+   ],
+   "at_target_intervals": [
+    [
+     503,
+     1584
+    ]
+   ],
+   "dist_to_target_start_m": 0.2657,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.0213,
+   "gripper_touch_intervals": [
+    [
+     477,
+     583
+    ],
+    [
+     1453,
+     1484
+    ],
+    [
+     1487,
+     1487
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 478,
+     "release_step": 584,
+     "lift_m": 0.124,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0,
+     "height_drop_after_release_m": 0.031,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0
+    },
+    {
+     "grasp_step": 1453,
+     "release_step": 1488,
+     "lift_m": 0.001,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0,
+     "height_drop_after_release_m": 0.003,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 16.3,
+   "tilt_deg_max": 16.8,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {
+  "stage2:sink": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0001,
+    0.0039,
+    0.1655,
+    0.3271,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3272,
+    0.3271,
+    0.3262,
+    0.3261,
+    0.3267,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3259,
+    0.3388,
+    0.5001
+   ],
+   "done_intervals": [
+    [
+     1574,
+     1584
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     891,
+     902
+    ],
+    [
+     904,
+     909
+    ],
+    [
+     912,
+     913
+    ],
+    [
+     1157,
+     1157
+    ],
+    [
+     1161,
+     1161
+    ],
+    [
+     1163,
+     1163
+    ],
+    [
+     1171,
+     1171
+    ],
+    [
+     1198,
+     1198
+    ],
+    [
+     1567,
+     1584
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "handle_joint": 1.0715531193407695e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 4.5602514347135795e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 8.048973798400223e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 1.153772021052397e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 1.5026490671208084e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 1.8515285180575872e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 2.200410373875057e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 2.549294634585545e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 2.8981813002013814e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 3.247070370734893e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 3.595961846198404e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 3.944855726604243e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 4.293752011964737e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 4.6426507022922113e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 4.991551797599004e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 5.3404552978974364e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 5.6893612031998316e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 6.038269513518522e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 6.387180228865825e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 6.736093349254075e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 7.085008874695599e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 7.433926805202726e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 7.782847140787785e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 8.131769881463091e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 8.480695027240977e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 8.829622578133763e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 9.178552534153784e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 9.527484895313374e-05,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.003896630371118891,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32711435904950315,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32720715827193847,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3272111269028716,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32721509553455613,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3272190641669918,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32722303280017845,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32722700143411576,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32712839026100127,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32608757598162574,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32589602261344125,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3259003332286466,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3259046438509508,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3259089544796543,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32591326511475666,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3259175757562579,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32592188640415765,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3259261970584558,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.32593050771915205,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3259348183862462,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.3259391290597382,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.33881090350186843,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.5001445365985856,
+     "water_on": true
+    }
+   ],
+   "state_end": {
+    "handle_joint": 0.5001445365985856,
+    "water_on": true
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToSink",
+    "pick"
+   ],
+   [
+    117,
+    "PickPlaceCounterToSink",
+    "place"
+   ],
+   [
+    318,
+    "PickPlaceCounterToSink",
+    "pick"
+   ],
+   [
+    478,
+    "PickPlaceCounterToSink",
+    "place"
+   ],
+   [
+    591,
+    "TurnOnSinkFaucet",
+    "execute"
+   ],
+   [
+    1574,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/PreSoakPan/PreSoakPan_s14_single.mp4"
+}

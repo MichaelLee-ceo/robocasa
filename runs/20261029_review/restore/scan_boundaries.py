@@ -11,7 +11,7 @@ import mujoco
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from grip_scan import DIRS, rows, infer, rule_of, gap  # noqa: E402
 
-R = "/home/michaellee/mclee/robocasa/runs"
+R = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))  # runs/
 D = f"{R}/20261026_critic_data"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out")
 
@@ -19,7 +19,7 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out")
 class Model:
     def __init__(self, scene):
         z = np.load(scene, allow_pickle=True)
-        xml = str(z["xml"]).replace("/home/michaellee/Desktop/robocasa/", "/home/michaellee/mclee/robocasa/")
+        xml = str(z["xml"]).replace("/home/michaellee/Desktop/robocasa/", os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../..")) + "/")
         self.m = mujoco.MjModel.from_xml_string(xml)
         self.d = mujoco.MjData(self.m)
         m = self.m

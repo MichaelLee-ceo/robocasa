@@ -1,0 +1,26 @@
+{
+ "tag": "KettleBoiling_s27_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Grasp at 105, lift 0.44 m. The kettle was over/on the front-left burner from 242 but held there ~97 steps (wrist 248-340: handle in the fingers, kettle on the ring, little motion) before release at 339 (0.05 m). Stage 0 at 349, 1 step over p90 348. Front-left knob 447-512 to 0.48; stage 1 at 507 (158 steps).",
+ "causal_chain": "",
+ "self_recovery": "Same 'holding at target' behaviour as failed s24 (97 steps here vs 235 there), but released cleanly and retreated without disturbing the kettle.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/s27_dense.png"
+  ],
+  "packet_facts": [
+   "at_target from 242; holds: 105-339 lift 0.44 dist 0.051",
+   "stage0 349 (p90 348)",
+   "front_left 0.476"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

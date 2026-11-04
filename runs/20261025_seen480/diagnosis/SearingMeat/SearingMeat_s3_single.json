@@ -1,0 +1,39 @@
+{
+ "tag": "SearingMeat_s3_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  404,
+  530
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "official_criterion_issue",
+  "missed_grasp",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 9 (same as s0/s2), pan_5 (long tan wooden handle) in the high upper cabinet; target = the large 'left' burner of the 5-burner gas hob; shrimp on a light-blue plate right of the hob. Stage 0: the gripper took the pan by the very END of the handle (close 130, width ~0.05, touch 147-526) and carried it to the hob with the pan hanging tilted (tilt up to 40 deg; 300-404). The pan's centre passed over the left burner while still in the air (pan_nearest left 0.016 m at 416), but it was set down on the rear-left part of the left grate: at release (444) it was 0.147 m from the burner centre and settled at 0.155 m. Two short re-grasps of the handle (455-476, 486-501) did not re-centre it; final distance 0.1512 m, i.e. 1.2 mm beyond the 0.15 m threshold, so stage 0 never held (at_target only 425-445 while still held). The policy behaved as if stage 0 were done: brief contact with the hob 538-583 (no knob moved), then it went to the shrimp plate (640-850), touched the shrimp at the plate rim with the fingers (685-709) and closed on its edge at 835 without lifting it; the fingers closed fully at ~856 and stayed closed. From ~900 to 2900 it wandered (wrist sees walls, cabinets, the ceiling); no knob was ever turned.",
+ "causal_chain": "held the pan by the handle tip, so it hung tilted -> lowered it onto the rear-left edge of the left burner (0.147 m at release 444) -> settled to 0.151-0.157 m, just outside the 0.15 m threshold -> stage 0 never counted; policy moved on as if done -> shrimp grasp missed (685-835) -> fingers closed and wandered 900-2900 -> no knob turned",
+ "self_recovery": "Two brief re-grasps of the handle (455-476, 486-501) moved the pan by < 1 cm; no real re-placement. After the shrimp miss, no retry.",
+ "official_criterion_notes": "Near-miss: pan ends 0.1512 m from the left burner centre (threshold 0.15). Visually the pan sits on the rear-left part of the left grate, partly over the burner. Even with a looser threshold the episode would have failed at stage 1 (shrimp not grasped, no knob turned).",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_place.png",
+   "frames/s3_place_zoom.png",
+   "frames/s3_shrimp.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 147-444 at release dist 0.1467, 2 s later 0.1557; holds 455-476, 486-501 (0.155)",
+   "pan at_target [[425,435],[437,445]]; end dist 0.1512",
+   "pan_nearest_burner left 0.016 @416 -> 0.157 @448",
+   "pan tilt_deg_max 40.1",
+   "meat touch 685-709, 834-837; close 835 on meat, no lift; gripper closed from 856",
+   "all knobs 0 at end"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether to call stage 0 or stage 1 the root cause: stage 0 failed officially by 1.2 mm, but stage 1 (shrimp) also failed outright. I chose stage 0 because it is the first incomplete stage and the pan is visibly off-centre at the back of the grate."
+}

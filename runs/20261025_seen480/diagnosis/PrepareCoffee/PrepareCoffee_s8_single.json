@@ -1,0 +1,27 @@
+{
+ "tag": "PrepareCoffee_s8_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 8, capsule machine CoffeeMachine102 (SINGLE/DOUBLE buttons on a round front face), red mug_5 on the upper shelf. Stage 0: first close on air 116, grasp 132 by the rim, mug under the spout by ~297, released 365 at 0.0144 m (0.0166 m 2 s later), upright; stage 0 complete 452. Stage 1: the gripper went round to the right side of the machine and approached the round face edge-on with open fingers (600-648); the button registered at 646. It then lingered at the button side, touching the machine on and off (690-795), before withdrawing; success 820. Stage 1 took 368 steps after stage 0 (typical median 31, p90 249) because of the lingering after the press, not a missed press.",
+ "causal_chain": "",
+ "self_recovery": "none needed; the initial close on air at 116 was immediately followed by a successful grasp at 132.",
+ "official_criterion_notes": "Stage 0 broke twice (603, 744) only because the gripper came back within 25 cm of the mug while working at the button (not a real undo). Slow stage 1 is the gripper-away clause after the press at 646.",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png",
+   "frames/cmp_layout8_button.png",
+   "frames/cmp_success_press.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 132 release 365 dist 0.0144 -> 0.0166",
+   "machine on 646; touch 646-666, 690-719, 774-795",
+   "success 820"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

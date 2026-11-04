@@ -1,0 +1,35 @@
+{
+ "tag": "PrepareCoffee_s21_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  340,
+  816
+ ],
+ "category": "other: mug tipped in the grip during placement - pitched over near the tray (385), never set down, carried around tipped and dropped from ~40 cm (808)",
+ "secondary": [
+  "dropped_in_transit",
+  "stall_holding_at_target",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 4, beige espresso machine CoffeeMachine037 (gauge, two buttons, bean hopper) at the far right of the agent camera, next to the open door of the upper cabinet the mug came from; wide printed tea mug_8. Stage 0: grasp 120/136 by the rim, mug out of the cabinet and in front of the machine by ~260 (upright, wrist view). 340-396 while being brought to the tray it pitched forward in the grip (tipped > 45 deg from 385; wrist shows the mug's top/side flattened under the fingers). From 432 to 808 the policy kept the tipped mug in hand: the base turned right (the agent camera swings to the microwave/oven at ~480), the arm hovered in front of and then above the machine (576-760, wrist looks down at the machine). It never set the mug on the tray (never within 4 cm). At 808 it opened the gripper with the mug ~40 cm above the counter and 0.24 m from the pour site; the mug fell (816 visible in the agent view) and ended on its side on the counter 0.287 m away. Stage 1: no machine contact at all; the arm hovered by the machine until the end.",
+ "causal_chain": "rim grasp -> mug pitches over in the grip as it is brought to the tray (340-385) -> policy carries the tipped mug around the machine for ~420 steps (base turn at ~480) without placing it -> releases it high above the counter at 808 -> mug falls 0.29 m from the target, on its side -> no button attempt -> timeout",
+ "self_recovery": "none effective: repositioning the base and arm (432-808) did not produce a placement.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png",
+   "frames/s21_tip.png",
+   "frames/s21_carry.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 136 release 808 dist 0.2399 -> 0.2865, height drop 0.40",
+   "tipped_over_intervals [[385,1200]]",
+   "at_target_intervals []",
+   "machine touch none"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The machine is mostly hidden from the agent camera (open cabinet door and frame edge), so the pose of the mug relative to the tray 432-808 is read from the wrist view and the packet; whether the open cabinet door obstructed the approach is a hypothesis."
+}

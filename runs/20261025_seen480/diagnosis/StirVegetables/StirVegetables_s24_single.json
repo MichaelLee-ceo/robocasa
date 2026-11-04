@@ -1,0 +1,35 @@
+{
+ "tag": "StirVegetables_s24_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  860,
+  944
+ ],
+ "category": "other: spatula slipped out of the grasp while the blade was pushed into the pot",
+ "secondary": [
+  "disturbed_placed_object",
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Scene: layout 4, tall black stockpot (Pot074) on the rear-left zone of an induction hob, squash and potato on the counter right of the hob, spatula_9 (white flat blade on a thin wooden stick handle) by a utensil crock. Stage 0: squash grasped 181, dropped in 259 (complete 262). Stage 1: potato grasped 364, dropped in 469 (complete 471). Stage 2: spatula grasped 670 on the thin stick just below the blade (width 0.010, i.e. a pinch on a very thin handle), lifted (complete 686) and carried to the pot blade-first (740-840). Stage 3: at ~860-890 the blade was pushed into the tall pot; the pot tilted and lifted on one side (red induction ring exposed at 880). The stick rotated in the fingers (width 0.010 -> 0.018 at 928) and the spatula fell out at ~940 (stage 2 ends 940; width 0.003 at 944), landing in/against the pot. The fingers stayed closed (0.001) for the remaining 650 steps while the arm hovered over and beside the pot (vegetables visible inside at 1100-1300); no re-grasp. success_time 0.",
+ "causal_chain": "pinch grasp on the thin stick handle (670) -> blade jammed into the tall pot 860-890, tilting it -> stick rotated and slipped out ~940 (stage 2 undone) -> closed gripper hovering over the pot 944-1600, no re-grasp -> no stir counted",
+ "self_recovery": "none after the slip.",
+ "official_criterion_notes": "Packet first_incomplete_stage is 2 only because PickUpSpatula is evaluated as 'held and lifted now' (not latched); the online log completed stages 0-2, so the failed stage is 3.",
+ "evidence": {
+  "sheets": [
+   "frames/s24_overview.png",
+   "frames/s24_stir.png",
+   "frames/s24_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 181-259, veg2 hold 364-469",
+   "spatula close 670 width 0.016 lifted; stage2 686-940",
+   "gripper width 0.010 (688-848) -> 0.018 (928) -> 0.003 (944) -> 0.001",
+   "stage1 breaks 883, 928, 936 while the pot was tilted",
+   "success_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the blade touched the vegetables before the slip."
+}

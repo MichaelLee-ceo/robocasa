@@ -1,0 +1,33 @@
+{
+ "tag": "DeliverStraw_s7_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  248,
+  1700
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Layout 10, drawer on the other wall (straw y=-3.05). 248-287 the gripper hooked the bar handle with the fingers around it but not closed on it and pulled: 0.011 (272) -> 0.38 (288); the fingers closed on air at 279 and the handle slipped out. The drawer stayed at ~0.375 (about 21% of its travel, a ~10 cm gap). For the next ~1400 steps the open gripper hovered above the narrow gap with the straw visible below, never closing at it (min eef 0.27 m); brief brushes of the drawer at 1294-1306, 1316-1318 and 1637-1639 did not move it. Never re-grasped the handle.",
+ "causal_chain": "handle slipped out mid-pull (279) -> drawer left at 0.38 -> hovered over the 10 cm gap for ~1400 steps without re-pulling or reaching in -> timeout",
+ "self_recovery": "none effective: three brief brushes of the drawer front late in the episode, no second pull.",
+ "official_criterion_notes": "Drawer value = slide joint / (0.55 x drawer depth), so fully open reads ~1.82 and the 0.95 threshold is ~52% of the physical travel; the composite task's own _check_success does not check the drawer at all (only straw-cup contact within 0.5 m + gripper far).",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/s7_pull.png",
+   "frames/s7_later.png",
+   "frames/all_handle_close_wrist.png"
+  ],
+  "packet_facts": [
+   "drawer touch [[248,287],[1294,1306],[1316,1318],[1637,1639]]; value 0.38@288, 0.375 end",
+   "closes 251 (0.05), 279 (0.003) on_nothing",
+   "straw min_eef 0.271"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

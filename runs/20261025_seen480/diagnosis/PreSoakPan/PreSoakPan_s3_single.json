@@ -1,0 +1,25 @@
+{
+ "tag": "PreSoakPan_s3_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L5/S5. Sponge on the counter left of the sink. Pan (pan_6) grasped by the handle at 119 and placed in the basin at 253 (stage 0 at 280). Sponge grasped at 490 and placed in the pan at 579 (stage 1 at 626; 346 steps, at p90). The fingers re-touched the pan and sponge briefly at 572-595, then retreated. Stage 2: lever contact 861-906 and success at 902. The pan and sponge end tilted (38 / 33 deg) but inside.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/tilted_pans_end.png"
+  ],
+  "packet_facts": [
+   "pan hold 119-253; sponge hold 490-579; brief re-touches 572-595",
+   "stage times 280 / 626 / 902"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

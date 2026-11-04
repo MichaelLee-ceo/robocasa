@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s24_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [353, 2600],
+ "category": "wander_away",
+ "secondary": [],
+ "what_happened": "Scene: layout/style 2; lemons + two ChickenDrumstick013 in the open fridge, tupperwares ~1.3 m away on the counter by the oven tower. Stage 0: the gripper closed at 65 touching both drumsticks, lifted meat0 (hold 78-329, lift 0.34 m), drove to the counter and dropped it into the left (round) tupperware at 329 (2 cm from centre); stage 0 complete 353 (typical 286). Stage 1: from 336 to the end (2600) the gripper stayed fully open and the base never moved again (the base-mounted left camera shows the same counter view from ~380 to 2600). The arm hovered and rotated in front of the counter: wrist camera turned toward the oven/microwave tower and up at the wall cabinets (760-1700, 2000-2600), and the hand repeatedly sat at the front edge of the second, empty tupperware (500-700, 2140-2320) without closing. No food item was touched after 329 (packet: no touches/holds after 328, single close event at 65). The second tupperware did not move (same position in zooms at 400, 1700, 2000, 2600).",
+ "causal_chain": "first item placed 329 (normal) -> policy never drove back to the fridge; 2270 steps of arm motion at the counter with open fingers -> 1 of 4 items placed at timeout (2600)",
+ "self_recovery": "none - it never returned to the fridge or attempted another grasp",
+ "official_criterion_notes": "Task note says the policy grabbed the empty tupperware; I could not confirm this: the fingers stayed open (width >= 0.065) from 336 to 2600, and the tupperware stayed in place. The hand only hovers in front of/at its rim.",
+ "evidence": {
+  "sheets": ["frames/s24_overview.png", "frames/s24_after_place.png", "frames/s24_tupgrab.png", "frames/s24_tupgrab_zoom.png", "frames/s24_tup2_zoom.png", "frames/s24_tup2_late_zoom.png", "frames/s24_wrist_mid.png", "frames/s24_late.png"],
+  "packet_facts": ["meat0 hold g78 r329 lift 0.339 dist 0.022", "stage0 first 353, stages 1-3 never", "close_events: only step 65", "width segments: open 336-2600", "no item touched after 328"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the base never drove back (no visible obstacle); whether the hand made brief contact with the empty tupperware rim (packet does not track tupperware contacts), but it was certainly not grasped."
+}

@@ -1,0 +1,36 @@
+{
+ "tag": "SearingMeat_s28_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  744,
+  1996
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "other: turned the task knob on and straight back off twice (1632-1696, 1949-2016)",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 7 (dark-wood cabinets, orange tiles), small 5-burner gas hob (left column rear/front, a large 'center' burner, right column rear/front) with a front knob row; pan_8 (dark pan, long dark-brown handle) in an upper cabinet; target 'center'; fish on a wooden board left of the hob. Stage 0: grasp at 77-88 at the handle base, pan carried in from the right and released at 435 on the rear-right part of the hob: 0.145 m from the center burner (just inside the 0.15 m threshold) but 0.108 m from rear_right, i.e. physically sitting mostly on rear_right and overlapping the centre burner's rear-right edge (zoom). Stage 0 complete 451. Stage 1: fish grasped at 547-555 (lift 0.21 m), released into the pan at 654: complete 654-2900. Stage 2: the policy first turned REAR_RIGHT, the burner under the pan (0.49 rad at 768, 1.71 rad from 1248 to the end). It then turned the task knob 'center' on twice and back off each time within the same grasp: 0.35-0.82 rad at 1632-1670 (blue centre flame beside the pan), back to 0 by 1696; 0.50-0.53 rad at 1949-1986, back to 0 by 2016. Finally it turned rear_left to 3.13 rad (2272-2592). The task burner was off at the end.",
+ "causal_chain": "pan placed at the border of the center and rear_right burners (0.145 / 0.108 m) -> policy lit rear_right (the burner actually under the pan, 768-1248) -> task knob center turned on twice but turned straight back off (1632-1696, 1949-2016) -> while rear_right is on, the official check returns 'rear_right' (first burner in its fixed order within 0.15 m and on), so the task could not succeed even with center on -> fail",
+ "self_recovery": "It did go to the task knob (twice) after lighting rear_right, but reverted the turn each time; later lit a third burner (rear_left).",
+ "official_criterion_notes": "SearingMeat._check_success uses stove.check_obj_location_on_stove(pan, 0.15) == knob, which returns the FIRST burner in STOVE_LOCATIONS order (rear_left, rear_center, rear_right, front_left, front_center, front_right, center, ...) that is within 0.15 m of the pan and switched on. Here the pan is within 0.15 m of both rear_right (0.108) and center (0.145); with rear_right on, the check returns rear_right, so the centre-on intervals 1633-1670 and 1949-1986 could not count. Also, stage 0 counts the pan as 'on center' at 0.145 m although visually it sits mostly on rear_right. The packet cannot tell whether the gripper-far (>= 25 cm from the meat) clause also failed in those intervals.",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_center_knob1.png",
+   "frames/s28_center_knob2.png",
+   "frames/s28_flame_zoom.png"
+  ],
+  "packet_facts": [
+   "pan hold 88-435, dist to center at release 0.1453; pan_nearest rear_right 0.106-0.108",
+   "stage0 [[451,608],[680,1038],[1116,2900]]; stage1 [[654,2900]]",
+   "rear_right 0.49@768 -> 1.71@1248 (to end)",
+   "center (task) 0.35@1632, 0.82@1664, 0.0@1696; 0.50@1952, 0.53@1984, 0.0@2016; done_intervals [[1633,1670],[1949,1986]]",
+   "rear_left 3.13 from 2592"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the two short centre-on windows would have counted with rear_right off (gripper-far clause not in the packet); why the policy rotated the task knob back (it looks like one twist-and-return motion)."
+}

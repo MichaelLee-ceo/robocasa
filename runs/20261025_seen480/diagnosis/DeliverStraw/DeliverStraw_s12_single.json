@@ -1,0 +1,33 @@
+{
+ "tag": "DeliverStraw_s12_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  960,
+  1517
+ ],
+ "category": "stall_holding_at_target",
+ "secondary": [
+  "placed_off_target"
+ ],
+ "what_happened": "Layout 8, green bendy Straw012, GlassCup025. Stage 0 slow (310, p90 202): closes on air at 243/263/308 before the drawer was dragged open 272-320. Straw: close on air 459, grasp 483-493, lifted 0.63 m (width 0.009), navigation 494-~850. From ~960 to ~1260 (~300 steps) the straw was held near the cup and re-positioned around it; it touched the cup only 1223-1225 and 1229-1231. ~1260-1320 the arm lifted away still holding the straw, held it elsewhere until 1517, and released it 0.23 m from the cup; it fell to the floor (end z 0.007).",
+ "causal_chain": "at the cup by ~960 (time enough) -> ~300 steps of hovering/re-positioning with two brief rim contacts -> carried the straw away -> released 23 cm off over the edge (1517) -> straw on the floor",
+ "self_recovery": "none after the release.",
+ "official_criterion_notes": "Official success = straw touches the cup AND straw centre < 0.5 m horizontally from the cup centre AND gripper far; there is no 'inside' or upright test, so a straw lying across the rim or leaning on the outside of the cup would count once the gripper leaves.",
+ "evidence": {
+  "sheets": [
+   "frames/s12_overview.png",
+   "frames/s12_cup.png",
+   "frames/s12_cupzoom.png",
+   "frames/all_at_cup_wrist.png"
+  ],
+  "packet_facts": [
+   "stage0 first 310",
+   "hold 493-1517 lift 0.629 dist_at_release 0.228 height drop 1.121",
+   "at_target [[1223,1225],[1229,1231]]"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": ""
+}

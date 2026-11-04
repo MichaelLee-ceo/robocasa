@@ -1,0 +1,34 @@
+{
+ "tag": "StirVegetables_s2_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  600,
+  1600
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "missed_grasp_continued_empty",
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 9, dark pot (Pot075) on the rear-left burner, lime and cucumber right of the hob, spatula_9 (flat blade on a thin stick handle) on the counter to the right. Stage 0: lime grasped 160, dropped in 266 (complete 268). Stage 1: cucumber grasped 395, dropped in 509 (complete 509/514). Stage 2: from ~600 the gripper descended over the far END of the thin handle, which sat at the edge of the finger gap in the wrist view (600-720); it closed at 706 (width 0.014) on the tip of the handle and rose at ~736 with the spatula left lying on the counter. The policy then carried on empty-handed: 800-880 to the pot as if to stir, back over the counter ~940-1060 (closed on nothing 1057, the handle off to the lower-left of the finger gap), again to the pot ~1200, and back to the counter 1300-1412 (closed on nothing 1401). The spatula was never lifted; stage 2 never held.",
+ "causal_chain": "approached the end of the thin stick handle off-centre in the finger gap (600-706) -> closed on the handle tip 706 (width 0.014), slipped, spatula not lifted -> empty-handed stir motion over the pot 800-880 and ~1200 -> two further closes on air 1057, 1401 next to the handle -> timeout 1600 with stage 2 never complete",
+ "self_recovery": "Two re-attempts (1057, 1401), both closing on air beside the handle end; neither touched the spatula.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png",
+   "frames/s2_grasp.png",
+   "frames/s2_later.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 160-266, veg2 hold 395-509; stage1 first 509",
+   "close 706 width 0.014 touching spatula, not lifted",
+   "close 1057 width 0.009 on nothing; close 1401 width 0.007 on nothing",
+   "stage2 never complete"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 706 close pinched the very tip of the handle or brushed it while closing; either way it never lifted."
+}

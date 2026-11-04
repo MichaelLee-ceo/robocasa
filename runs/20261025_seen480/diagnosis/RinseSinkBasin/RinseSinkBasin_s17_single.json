@@ -1,0 +1,33 @@
+{
+ "tag": "RinseSinkBasin_s17_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  157,
+  900
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene layout/style 8: steel single sink with drainboard; gooseneck spout with a round head and a white paddle lever on top of the base (same faucet as s4, s8, s10, s22). Stage 0: the gripper reached the paddle at ~152 (touch 157-205, 210-212), partly closed at 157 (0.043) and 209 (0.028), and rotated the paddle 200-224 (handle 0.02 -> 0.23 rad). At ~224-236 it pulled away; the wrist view at 236 shows the paddle left pointing down at about half its travel. Handle stayed 0.23 (needs > 0.40; successes go to 0.50). 300 the arm moved right, then 371-429 it pushed the spout head right to +0.83 with the water off, as if doing stage 1. 456 the gripper closed (0.014) and from ~560 to 900 it hovered right of the faucet at a standoff with the closed gripper, the faucet in the wrist view, touching only at 601 and 810-824. Water never ran.",
+ "causal_chain": "paddle turned only 0.23 rad (200-224) and released -> no water -> spout swung right with water off 371-429 (no credit) -> hovered 560-900 -> stage 0 never complete",
+ "self_recovery": "none: it never went back to the paddle after 236.",
+ "official_criterion_notes": "Criterion agrees with the video (no water stream).",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_handle.png"
+  ],
+  "packet_facts": [
+   "closes 157 (0.043), 209 (0.028), 456 (0.014)",
+   "fixture touch 157-205, 371-415 (spout), 601, 810-824",
+   "saved-state trace: handle 0.08@208 0.17@216 0.23@224, flat after; spout +0.83@416 water off",
+   "state_end handle 0.230 water_on false; washed_loc all false"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

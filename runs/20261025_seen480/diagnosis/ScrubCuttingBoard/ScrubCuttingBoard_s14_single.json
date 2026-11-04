@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s14_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [385, 800],
+ "category": "stall_holding_at_target",
+ "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene L2 (same kitchen as s11): green sponge_6 on a light wood counter, rotated ~35 deg to the gripper, cutting_board_9 (handle slot) ~21 cm to the left. Stage 0 a little slow: the gripper crept down over the sponge 90-148 (eef 12 cm -> 3 cm), touched at 148, closed at ~158 (width 0.074 -> 0.058) and lifted. Stage 0 from 162 (online 176; median 111, p90 132). Stage 1: onto the board at ~205 (counter 1 at 210). It scrubbed the board's near half with the sponge increasingly tilted (10-20 deg), and the criterion was met at 385 (5 contacts, sweep 0.141). 12 contacts by 561. After that it kept moving the sponge around the same part of the board for ~240 more steps without adding a point, and it never lifted or opened (width 0.058, grasp True 158-800). Still scrubbing at 800.",
+ "causal_chain": "slightly slow grasp (stage 0 at 162) -> criterion met at 385 -> policy never switched to releasing; scrubbed 590 steps (210-800; successes release after 153-601) -> sponge held at timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s14_overview.png", "frames/groupA_end.png"],
+   "packet_facts": ["online_stage_log [[176,0]]", "stage0 first 162 (typical median 111, p90 132)", "process_progress_end contacts 12 sweep 0.177", "trace criterion met 385; last new contact 561", "width 0.058 and touch until 800"]},
+ "confidence": "high", "uncertain_about": ""}

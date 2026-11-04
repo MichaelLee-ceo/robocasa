@@ -1,0 +1,11 @@
+{"tag": "StoreLeftoversInBowl_s18_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 2, "root_cause_steps": [840, 980],
+ "category": "placed_then_fell_or_slid",
+ "secondary": ["stall_holding_at_target", "other: bowl carried tilted > 45 deg in the rim grasp (707-967)", "undid_previous_stage"],
+ "what_happened": "Layout 9 (side-by-side fridge, narrow open right compartment), light wooden bowl_7, tomato, drumstick 010. Stage 0: tomato grasped 92, released in the bowl 154. Stage 1: drumstick grasped 347, released in the bowl 410 (stage 1 at 410, 256 steps, normal). Stage 2: rim grasp at 444-456 with the tomato pinched against the rim (width ~0.030), lift 0.576 m. The bowl tilted past 45 deg at 707 and was carried that way. At the fridge (~840) the arm raised it to the TOP shelf (carrot distractor on it) and spent ~125 steps (840-964) at the front edge of that shelf, fingers working (0.03-0.05), the bowl tilted and only partly over the shelf. At 968 the gripper opened (0.047 -> 0.078) with the bowl 3 cm outside the interior; it fell past the lower shelves to the floor (drop 1.42 m), spilling both foods. 980-1700 the empty arm stayed at the fridge.",
+ "causal_chain": "rim grasp, bowl tilted > 45 deg during the carry (707) -> raised to the top shelf and held at its front edge for ~125 steps (840-964) -> gripper opened with the bowl not on the shelf (968) -> bowl fell to the floor and the foods spilled -> stages 0/1/2 lost",
+ "self_recovery": "Some re-positioning at the top shelf edge 840-964 (finger width changes); it did not get the bowl onto the shelf.",
+ "official_criterion_notes": "Stage 1 shows ~30 'undone' events 673-893 while the bowl is carried tilted. These are not real spills: the foods stay in the bowl (visible in the wrist view), but the tilt pushes their xy offset past 0.7 x the bowl radius, or the tomato touches the fingers.",
+ "evidence": {"sheets": ["frames/s18_fridge.png", "frames/s18_drop_zoom.png", "frames/L9_release_compare.png"],
+  "packet_facts": ["bowl tipped [[707,896],[906,913],[921,935],[941,967]]", "bowl hold 452-968 lift 0.576 dist at release 0.032 drop 1.419", "gripper 0.030 to 768, 0.03-0.052 during 776-960, 0.078 at 968", "close 886 on bowl (not lifted)"]},
+ "confidence": "high", "uncertain_about": ""}

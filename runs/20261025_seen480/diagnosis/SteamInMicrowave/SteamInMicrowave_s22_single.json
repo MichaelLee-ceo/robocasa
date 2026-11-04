@@ -1,0 +1,34 @@
+{
+ "tag": "SteamInMicrowave_s22_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  684,
+  1400
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "official_criterion_issue",
+  "wander_away"
+ ],
+ "what_happened": "Style/layout 4 (microwave built in above a wall oven, left-hinged door open toward the robot; same as successes s21 and s24). Stage 0: onion grasped at 133, released into the wooden bowl (bowl_9) at 234, stage 0 at 234; the onion shifts in the bowl during the carry but stays in. Stage 1: bowl grasped at 290, carried to the microwave, pushed in and released at 691. It sits on the turntable toward the front-right corner of the cavity, close to the right wall and the opening (left view 760-1396). Its centre is inside the interior box (packet distance 0.0), but the official 'bowl inside microwave' condition (all 8 bounding-box corners within the interior box + 5 cm) never held: at_target_intervals is empty for the whole episode. Bowl end x is 0.539, against 0.469 in s24 and 0.364 in s21, so it is 7-17 cm further toward the right wall than in the successes. The policy behaved as if stage 1 were done. It retreated down and to the left, below the open door (800-1400), the wrist mostly looking at the kitchen. It never touched the microwave (no microwave contacts at all); the door stayed open (0.02) and the start button was not pressed.",
+ "causal_chain": "bowl released at 691 in the front-right corner of the cavity -> official inside-check (bbox corners) fails although the bowl looks inside -> policy moves on but never engages the door (wanders below/left 800-1400) -> stage 1 never official, door open, timeout",
+ "self_recovery": "none: no re-adjustment of the bowl and no attempt on the door.",
+ "official_criterion_notes": "Possible false negative, unresolved: the bowl looks inside the microwave on the turntable and the packet puts its centre inside the interior box (distance 0.0), but obj_inside_of (all 8 bbox corners inside the interior box) never held. Per the coordinator, that check's tolerance is th/|edge| metres (often >10 cm), so failing it needs a bbox corner well outside the box: either bowl_9's bounding box is large relative to this microwave's (MW083) interior region, or part of the bowl protrudes in a way I cannot see (e.g. past the door plane). bowl_9 passed stage 1 in other microwave models (s4, s14, s17, s23, s28); s21 (bowl_8) and s24 (bowl_6) passed in this one. Needs a state replay to settle. The episode would have failed anyway because the door was never touched.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_place.png",
+   "frames/s22_bowl_zoom.png"
+  ],
+  "packet_facts": [
+   "vegetable hold 133-234 lift 0.36 at target",
+   "bowl hold 298-691 lift 0.655, at_target_at_release false, dist_to_target_at_release 0.0, dist_end 0.0, at_target_intervals []",
+   "bowl end (0.539,-4.147,1.492) vs s24 (0.469,-4.133,1.504) vs s21 (0.364,-4.293,1.504)",
+   "microwave gripper_touch_intervals empty; closedness 0.02 throughout"
+  ]
+ },
+ "confidence": "low",
+ "uncertain_about": "Whether the bowl is physically partly outside (a real off-target placement) or only fails the bbox-corner test. Also arguable: root cause could be put on stage 2 (door never attempted). I keep stage 1 as the first incomplete stage."
+}

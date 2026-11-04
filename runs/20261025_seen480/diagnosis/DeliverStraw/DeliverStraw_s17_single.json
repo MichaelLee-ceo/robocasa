@@ -1,0 +1,28 @@
+{
+ "tag": "DeliverStraw_s17_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 9, yellow Straw009, GlassCup022. Stage 0: closed on the handle at 167 and pulled the drawer to 1.04 by 208 (complete 205, median). Stage 1: drawer bumped further open 274-288 (1.50), straw grasped 355-368 (width 0.0135) and lifted 0.58 m, navigation 371-588. 700-743 the straw was held vertically directly over the cup, lowered in and released at 743 (centre 3.4 cm from the cup centre); it stayed standing/leaning in the cup and the gripper backed off. Success at 765 (stage 1 took 560 steps).",
+ "causal_chain": "",
+ "self_recovery": "No error to recover from; the time at the cup before release was ~40 steps.",
+ "official_criterion_notes": "Straw tilt fields are relative to the straw lying flat: 'tipped_over' (>45 deg) here means the straw was held or standing vertical, not that it fell over. tipped_over 598-768 = straw vertical.",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_drawer.png",
+   "frames/s17_place.png",
+   "frames/s17_cupzoom.png"
+  ],
+  "packet_facts": [
+   "stage0 205, stage1 765",
+   "hold 368-743 dist_at_release 0.034, dist 2 s after 0.046",
+   "at_target 749-768"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

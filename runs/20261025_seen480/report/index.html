@@ -433,6 +433,28 @@ pre.json { margin: 0; font: 400 12px/1.5 var(--f-mono); background: var(--surfac
 .dtdet { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 70px); display: grid; gap: 10px; padding: 14px; border: 1px solid var(--hair); border-radius: var(--r-s); background: var(--surface-2); }
 .dtdet h3 { font-size: 15px; }
 
+/* steering tab (#steering): one strip per closed-loop episode, one cell per 16-step chunk on the task's horizon */
+.ckrows { display: grid; gap: 7px; }
+.ckrow { display: grid; grid-template-columns: 44px minmax(0, 1fr) minmax(118px, auto); gap: 4px 12px; align-items: center; }
+.ckrow .sid { font: 600 13px var(--f-mono); }
+.ckrow .res { display: flex; gap: 6px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+.cktrack { position: relative; height: 22px; }
+.ckcells { position: absolute; left: 0; right: 0; top: 0; height: 15px; border-radius: 3px; background: var(--surface-2); border: 1px solid var(--hair); overflow: hidden; }
+.ckcells i { position: absolute; top: 0; bottom: 0; border-right: 1px solid var(--surface); }
+.ckband { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; border-radius: 2px; overflow: hidden; }
+.ckband i { position: absolute; top: 0; bottom: 0; }
+.ck-S { background: rgb(var(--heat)); }
+.ck-A { background: color-mix(in srgb, var(--good) 45%, var(--surface)); }
+.ck-N { background: color-mix(in srgb, var(--bad) 55%, var(--surface)); }
+.cklg { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 12px; }
+.cklg span { display: inline-flex; gap: 6px; align-items: center; }
+.cklg b { width: 12px; height: 12px; border-radius: 3px; display: inline-block; flex: none; }
+.pill.run { color: var(--ink-2); background: var(--surface-2); border: 1px dashed var(--axis); }
+.stnote { font-size: 12.5px; color: var(--muted); margin-top: 10px; }
+.refs { display: grid; gap: 6px; margin-top: 8px; font-size: 13.5px; color: var(--ink-2); }
+.refs a { font-weight: 600; color: var(--ink); }
+@media (max-width: 560px) { .ckrow { grid-template-columns: 40px minmax(0, 1fr); } .ckrow .res { grid-column: 2; justify-content: flex-start; } }
+
 @media (max-width: 700px) {
   .tl-axis i.s, .tl-axis span.odd { display: none; }
   .clip.na .clip-media { aspect-ratio: auto; height: 40px; }
@@ -447,6 +469,7 @@ pre.json { margin: 0; font: 400 12px/1.5 var(--f-mono); background: var(--surfac
     <a class="brand" href="#overview"><b>Seen-480 Stage Diagnosis</b><span id="brandSub"></span></a>
     <a class="navlink" id="navOverview" href="#overview"></a>
     <a class="navlink" id="navCeiling" href="#ceiling"></a>
+    <a class="navlink" id="navSteer" href="#steering"></a>
     <a class="navlink" id="navData" href="#data"></a>
     <label class="ctl" for="taskSelect"><span>Task</span><select id="taskSelect"></select></label>
     <div class="ctl"><span id="speedLbl"></span>
@@ -481,6 +504,7 @@ pre.json { margin: 0; font: 400 12px/1.5 var(--f-mono); background: var(--surfac
 
 <script src="data.js"></script>
 <script src="ceiling.js"></script>
+<script src="steering.js"></script>
 <script src="datatab.js"></script>
 <script>
 (() => {
@@ -1149,7 +1173,7 @@ const UB = {
       {h: "Commit", p: "Stop at a node that passes the official success check, or when the attempt cap or the horizon runs out. The episode clock counts only the committed steps.", out: "success or failure, and the cost"},
     ],
     setRow: t => `N ${t.N} per expansion · keep ≤ ${t.keep} · cap ${t.cap} attempts per scene · L ${t.L.join(" / ")} steps · horizon ${t.horizon}`,
-    resH: "Success rate", resSub: "30 frozen scenes per task. Plain policy = mean over policy seeds 0–3, so 4 rollouts per scene.",
+    resH: "Success rate", resSub: "30 frozen scenes per task. Plain policy = mean over policy seeds 0–3, so 4 rollouts per scene. Search re-run on 2026-10-30 with every restore fix and the plain policy's success rule (SteamInMicrowave was 90.0%, PackIdenticalLunches 63.3% before).",
     stagesN: n => `${n} stages`,
     bars: ["Plain policy", "Best of 4 whole episodes", "Search, no backtracking", "Search"],
     barTips: ["The frozen policy as it is: mean success over 4 seeds per scene",
@@ -1192,7 +1216,7 @@ const UB = {
       "Perfect judge: the official stage conditions decide which attempt finished.",
       "Free imagination: imagining does not count toward the episode's time. The cost shows only as policy calls, about 7–9× one plain rollout."],
     nextH: "Next",
-    next: "Replace the simulator with a critic that scores attempts from the current observation alone, without playing them out. Data for it is being collected on KettleBoiling: 250 decision points × 8 attempts × 2 continuations.",
+    next: "Choose one chunk at a time inside a real episode (the Steering tab), then replace the simulator with a critic that judges the candidates without playing them out.",
   },
   zh: {
     nav: "上限實驗",
@@ -1211,7 +1235,7 @@ const UB = {
       {h: "提交", p: "遇到通過官方成功判定的節點就停；嘗試數用完上限或時間用完也停。整集的時間只算提交的步數。", out: "成功或失敗，以及成本"},
     ],
     setRow: t => `每次展開 N ${t.N} · 保留 ≤ ${t.keep} · 每場景上限 ${t.cap} 次嘗試 · L ${t.L.join(" / ")} 步 · 時限 ${t.horizon}`,
-    resH: "成功率", resSub: "每個任務 30 個固定場景。原始 policy 為 policy seed 0–3 的平均，每個場景 4 次 rollout。",
+    resH: "成功率", resSub: "每個任務 30 個固定場景。原始 policy 為 policy seed 0–3 的平均，每個場景 4 次 rollout。搜尋於 2026-10-30 重跑，套用所有還原修正，並使用和原始 policy 相同的成功判定（之前 SteamInMicrowave 為 90.0%、PackIdenticalLunches 為 63.3%）。",
     stagesN: n => `${n} 個 stage`,
     bars: ["原始 policy", "整集跑 4 次，任一次成功", "搜尋，不回溯", "搜尋"],
     barTips: ["凍結的 policy 直接跑：每個場景 4 個 seed 的平均成功率",
@@ -1254,7 +1278,7 @@ const UB = {
       "完美的評判：由官方的 stage 條件判斷哪次嘗試完成了。",
       "想像不花時間：想像不算進整集的時間，成本只反映在 policy 呼叫數，約為原始 policy 跑一次的 7–9 倍。"],
     nextH: "下一步",
-    next: "把模擬器換成 critic：只看當下的觀測就替各個嘗試打分，不必把它們跑完。KettleBoiling 的訓練資料正在收集：250 個決策點 × 8 個嘗試 × 2 次接續。",
+    next: "在真實的一集裡一次挑一個 chunk（見「逐 chunk 挑選」分頁），再把模擬器換成 critic，不必把候選跑完就能判斷。",
   },
 };
 const BAR_KEYS = ["plain", "best4", "greedy", "search"];
@@ -1343,6 +1367,182 @@ function sceneList() {
   }).join("");
 }
 function prepVideos() { app.querySelectorAll("video").forEach(v => { v.defaultPlaybackRate = RATE; v.playbackRate = RATE; }); }
+
+/* ---------- steering tab: window.STEER, built by build_steering.py ---------- */
+const SE = window.STEER;
+const REFS = [
+  {n: "FOREWARN", u: "https://arxiv.org/abs/2502.01828"},
+  {n: "V-GPS", u: "https://arxiv.org/abs/2410.13816"},
+  {n: "RoboMonkey", u: "https://arxiv.org/abs/2506.17811"},
+];
+const ST = {
+  en: {
+    nav: "Steering",
+    eyebrow: "Closed-loop steering · choose one chunk at a time",
+    h: "Does choosing chunks one at a time reach the ceiling?",
+    p: "The search on the Upper bound tab chooses whole stages and can backtrack. Here the episode runs once, forward. At every 16-step chunk the frozen policy proposes 8 chunks, the simulator plays each one out to the end of the current stage, and the episode executes one of them. The simulator is still the judge, so this is an oracle; the next step is to replace it with a critic.",
+    kpiFrom: (p, i, n) => `plain ${p}% · ceiling ${i}/${n}`, kpiL: (t, n, d, m) => `${t} · ${n} stages · ${d === m ? `${m} hard scenes` : `${d} of ${m} hard scenes done`}`,
+    kpiCost: "policy calls per episode, relative to one plain rollout",
+    methodH: "How it works", methodSub: "One process per episode. The 8 candidates are imagined from an exact copy of the current state; only the chosen one is executed.",
+    steps: [
+      {h: "Snapshot", p: "Capture the node exactly: sim state, fixture state, controller state and the last observation the policy saw.", out: "the current node"},
+      {h: "Imagine 8 chunks", p: "Each candidate is the policy's next chunk with its own action noise, then the plain policy until the stage's check holds or L steps pass.", out: "which candidates finish the stage, and when"},
+      {h: "Choose", p: "If some candidates finish and some do not, take the earliest finisher. If all or none finish, take candidate 0, the plain draw.", out: "one chunk"},
+      {h: "Execute", p: "Run the chosen chunk's recorded actions for 16 steps. A live check confirms the new state equals the imagined one, bit for bit.", out: "the next node"},
+      {h: "Repeat", p: "Until the official success check holds or the task's horizon runs out (1000 / 1400 / 2600 steps). Imagining costs no episode time; it is counted as policy calls.", out: "success or failure, and the cost"},
+    ],
+    resH: "Hard scenes: plain policy, steering, ceiling",
+    resSub: "10 scenes per task where the plain policy fails most (4 seeds each), chosen from the plain policy alone. Ceiling = the stage-level search on the same scenes.",
+    th: ["Task", "Plain policy", "Steering", "Ceiling", "Chunks with a choice", "Plain draw would fail", "Calls per episode", "÷ plain · ÷ ceiling"],
+    running: n => `${n} running`, updated: s => `Updated ${s}. PackIdenticalLunches episodes are still running; the page is republished when they finish.`,
+    stripH: "Every episode, chunk by chunk",
+    stripSub: "One cell per 16-step chunk, placed on the task's horizon; the band under each strip is the stage. Dots are the plain policy's 4 seeds on the same scene.",
+    lg: {S: "a choice: some candidates finished, the earliest was executed", A: "all 8 finished: candidate 0", N: "none finished: candidate 0", plain: "plain seed succeeded"},
+    cellTip: (t, k, c) => `step ${t} · S${k} · ${c === "S" ? "steered" : c === "A" ? "all 8 finished" : "none finished"}`,
+    stageTip: (k, a, b) => `S${k} · steps ${a}–${b}`, plainTip: (p, x) => `plain policy, seed ${p}: ${x ? "success" : "failed"}`,
+    ok: s => `✓ ${s} steps`, no: s => `✗ ${s} steps`, run: t => `running · step ${t}`, missing: "not started",
+    findH: "What it shows",
+    finds: F => [
+      {h: "Choosing chunks reaches the ceiling", stat: F.map(f => `${f.task} ${f.ok}/${f.done} vs plain ${f.plain}%`).join(" · "),
+        p: F.allOk ? "On scenes where the plain policy almost never succeeds, every finished episode succeeds, as the stage-level search with backtracking does." : `On scenes where the plain policy almost never succeeds, ${F.map(f => `${f.ok} of ${f.done}`).join(" / ")} finished episodes succeed.`},
+      {h: "A choice is needed at about a third of the chunks", stat: F.map(f => `${f.task} ${f.st}%`).join(" · "),
+        p: `At the rest, all 8 candidates finish or none does. At ${F.map(f => `${f.pf}%`).join(" / ")} of the chunks, the plain draw would have failed the stage.`},
+      {h: "Choices cluster where the outcome is decided", stat: "grasps · placements · button presses",
+        p: "Approaches and grasps in the first stage, carrying and placing the bowl in the microwave, and pressing the start button. Where the kettle lands (front left or front right burner) decides how hard turning it on is."},
+      {h: "The price is simulation at every chunk", stat: F.map(f => `${f.task} ${f.xp}× plain`).join(" · "),
+        p: "Every chunk imagines 8 candidates to the end of the stage. Choosing only at the few chunks that decide the outcome, judged without the simulator, is the goal of the next step."},
+    ],
+    relH: "Is the result reliable?",
+    rel: ["Before the 4-stage runs, a pre-flight followed 6 full episodes through 734 nodes. After every restore, the sim state and the fixture state equal the node's.",
+      "In 180 closed-loop and 86 search tests, a restored node that replays the continuous run's own actions stays bit-identical. With the policy queried again, the first difference is always GPU render noise in an image.",
+      ok => ok ? "Every chunk of every finished episode passes the consistency checks, and every executed chunk matched its imagined state bit for bit." : "Some finished episodes fail a consistency check; see runs/20261029_closedloop/check.py."],
+    fixH: "Fixed on the way",
+    fixes: ["A restart re-read a fresher observation, so the real episode did not continue like the imagined candidate. A first KettleBoiling run got 7/10; after the fix, 10/10.",
+      "The search re-checked success after a restore and missed 4 successes; it also required earlier stage checks to still hold, which rejected about 20% of SteamInMicrowave door-closing finishers. Both now match the plain policy's definition.",
+      "A restore ran every fixture's update (microwave buttons, toaster-oven timer) once more. It is now undone and the state asserted."],
+    nextH: "Next: a VLM critic instead of the simulator",
+    next: ["At the critical chunks found earlier, choosing well among 8 candidates raises the chance of finishing the stage by 25 points (cross-validated), against −2 at random chunks. That is the target for a critic.",
+      "Plan: assume the critical chunk is known. Show a VLM the current camera views and each candidate's commanded path, computed from the actions alone, and score its picks against the measured outcomes at 32 critical and 32 control points.",
+      "Progress: once the controller's response is modelled, the arm's commanded path matches the executed one to 1.7 cm (median, KettleBoiling). The base's motion is being calibrated."],
+    refsH: "Closest prior work",
+    refs: {"FOREWARN": "world model predicts each candidate's outcome, a VLM judges it", "V-GPS": "a learned value function re-ranks sampled actions", "RoboMonkey": "a VLM verifier picks among sampled actions"},
+  },
+  zh: {
+    nav: "逐 chunk 挑選",
+    eyebrow: "閉迴路 steering · 一次挑一個 chunk",
+    h: "一個 chunk 一個 chunk 地挑，能做到上限嗎？",
+    p: "上限實驗的搜尋是一次挑整個 stage，而且可以回溯。這裡的整集只往前跑一次：每 16 步，凍結的 policy 提出 8 個 chunk，模擬器把每個都跑到目前 stage 結束，整集再執行其中一個。判斷還是交給模擬器，所以這仍是 oracle；下一步就是用 critic 取代它。",
+    kpiFrom: (p, i, n) => `原始 ${p}% · 上限 ${i}/${n}`, kpiL: (t, n, d, m) => `${t} · ${n} 個 stage · ${d === m ? `${m} 個難場景` : `${m} 個難場景已完成 ${d} 個`}`,
+    kpiCost: "每集的 policy 呼叫數，相對於原始 policy 跑一次",
+    methodH: "怎麼做", methodSub: "每集一個行程。8 個候選都從目前狀態的精確複本出發去想像，只有選中的那個會真的執行。",
+    steps: [
+      {h: "存下節點", p: "精確記下目前節點：模擬狀態、設備狀態、控制器狀態，以及 policy 最後看到的觀測。", out: "目前節點"},
+      {h: "想像 8 個 chunk", p: "每個候選是 policy 下一個 chunk（各自的 action noise），之後交給原始 policy，直到該 stage 的條件成立或用完 L 步。", out: "哪些候選完成該 stage、何時完成"},
+      {h: "挑選", p: "有些候選完成、有些沒完成時，選最早完成的。全部完成或全部沒完成時，選候選 0，也就是原始 policy 會抽到的。", out: "一個 chunk"},
+      {h: "執行", p: "把選中 chunk 記錄下來的動作實際執行 16 步。即時檢查確認新狀態和想像時逐位元相同。", out: "下一個節點"},
+      {h: "重複", p: "直到官方成功判定成立，或用完任務時限（1000 / 1400 / 2600 步）。想像不算整集時間，只算進 policy 呼叫數。", out: "成功或失敗，以及成本"},
+    ],
+    resH: "難場景：原始 policy、逐 chunk 挑選、上限",
+    resSub: "每個任務挑 10 個原始 policy 最常失敗的場景（各 4 個 seed），只依原始 policy 挑選。上限 = 同一批場景上的逐 stage 搜尋。",
+    th: ["任務", "原始 policy", "逐 chunk 挑選", "上限", "有做選擇的 chunk", "原始抽樣會失敗", "每集呼叫數", "÷ 原始 · ÷ 上限"],
+    running: n => `${n} 集進行中`, updated: s => `更新於 ${s}。PackIdenticalLunches 還有幾集在跑，跑完後會更新這一頁。`,
+    stripH: "每一集，逐個 chunk",
+    stripSub: "每格是一個 16 步的 chunk，依任務時限排列；下方色帶是 stage。圓點是原始 policy 在同一場景的 4 個 seed。",
+    lg: {S: "做了選擇：有些候選完成，執行最早完成的", A: "8 個都完成：候選 0", N: "都沒完成：候選 0", plain: "原始 policy 該 seed 成功"},
+    cellTip: (t, k, c) => `第 ${t} 步 · S${k} · ${c === "S" ? "做了選擇" : c === "A" ? "8 個都完成" : "都沒完成"}`,
+    stageTip: (k, a, b) => `S${k} · 第 ${a}–${b} 步`, plainTip: (p, x) => `原始 policy，seed ${p}：${x ? "成功" : "失敗"}`,
+    ok: s => `✓ ${s} 步`, no: s => `✗ ${s} 步`, run: t => `進行中 · 第 ${t} 步`, missing: "尚未開始",
+    findH: "看到了什麼",
+    finds: F => [
+      {h: "逐 chunk 挑選可以做到上限", stat: F.map(f => `${f.task} ${f.ok}/${f.done}（原始 ${f.pf0}%）`).join(" · "),
+        p: F.allOk ? "在原始 policy 幾乎做不到的場景上，跑完的每一集都成功，和可回溯的逐 stage 搜尋一樣。" : `在原始 policy 幾乎做不到的場景上，跑完的集數中成功 ${F.map(f => `${f.ok}/${f.done}`).join(" / ")}。`},
+      {h: "大約三分之一的 chunk 需要做選擇", stat: F.map(f => `${f.task} ${f.st}%`).join(" · "),
+        p: `其餘的 chunk，8 個候選要嘛全部完成、要嘛全部沒完成。有 ${F.map(f => `${f.pf}%`).join(" / ")} 的 chunk，原始 policy 抽到的那個會讓該 stage 失敗。`},
+      {h: "選擇集中在決定成敗的地方", stat: "抓取 · 放置 · 按按鈕",
+        p: "第一個 stage 的接近與抓取、把碗搬進微波爐放好、按下啟動鍵。水壺落在哪個爐口（左前或右前）決定了開火有多難。"},
+      {h: "代價是每個 chunk 都要模擬", stat: F.map(f => `${f.task} ${f.xp}× 原始`).join(" · "),
+        p: "每個 chunk 都要把 8 個候選想像到 stage 結束。只在少數決定成敗的 chunk 上、不靠模擬器做判斷，就是下一步的目標。"},
+    ],
+    relH: "結果可靠嗎？",
+    rel: ["跑 4-stage 任務之前，先用 pre-flight 跟著 6 集完整走過 734 個節點：每次還原後，模擬狀態和設備狀態都和節點完全相同。",
+      "在 180 組閉迴路與 86 組搜尋的測試中，還原後重播連續執行時自己的動作，結果逐位元相同；重新詢問 policy 時，第一個差異一律是 GPU 渲染雜訊造成的影像差異。",
+      ok => ok ? "跑完的每一集，每個 chunk 都通過一致性檢查，每個執行的 chunk 都和想像時逐位元相同。" : "有跑完的集數沒通過一致性檢查，見 runs/20261029_closedloop/check.py。"],
+    fixH: "過程中修掉的問題",
+    fixes: ["重新開始時會重抓一個比較新的觀測，所以實際執行沒有照著想像的候選走下去。KettleBoiling 第一輪 7/10，修正後 10/10。",
+      "搜尋在還原後重新判定成功，漏算了 4 個成功；它還要求前面 stage 的條件仍成立，誤殺了 SteamInMicrowave 約 20% 關門的完成者。兩者現在都和原始 policy 的定義一致。",
+      "還原時會再跑一次所有設備的更新（微波爐按鈕、烤箱計時器），現在會把它復原並檢查狀態。"],
+    nextH: "下一步：用 VLM critic 取代模擬器",
+    next: ["在先前找到的關鍵 chunk 上，從 8 個候選裡挑對，能把完成該 stage 的機率提高 25 個百分點（交叉驗證），隨機的 chunk 則是 −2。這就是 critic 的目標。",
+      "做法：先假設關鍵 chunk 已知。給 VLM 看目前的相機畫面，和每個候選只從動作算出的指令軌跡，再在 32 個關鍵點與 32 個對照點上，用實測的候選結果為它的選擇打分。",
+      "進度：把控制器的反應納入模型後，手臂的指令軌跡和實際執行的軌跡相差 1.7 cm（中位數，KettleBoiling）。底座的移動正在校準。"],
+    refsH: "最接近的既有研究",
+    refs: {"FOREWARN": "用世界模型預測每個候選的結果，再由 VLM 判斷", "V-GPS": "用學到的價值函數為抽樣的動作重新排序", "RoboMonkey": "用 VLM 驗證器從抽樣的動作中挑選"},
+  },
+};
+let STASK = SE.tasks[0].task;
+
+function steeringView() {
+  const U = ST[LANG], ts = SE.tasks, pct = x => (100 * x).toFixed(1);
+  const ceil = Object.fromEntries(CE.tasks.map(t => [t.task, t.summary]));
+  const F = ts.map(t => { const s = t.summary, c = ceil[t.task];
+    return {task: short(t.task), ok: s.ok, done: s.done, plain: pct(s.plain), pf0: pct(s.plain), st: Math.round(100 * s.steered / s.chunks),
+      pf: Math.round(100 * s.plain_fail / s.chunks), xp: Math.round(s.calls / c.calls_plain)}; });
+  F.allOk = ts.every(t => t.summary.ok === t.summary.done);
+  const checksOk = ts.every(t => t.summary.all_checks_ok);
+  const xs = F.map(f => f.xp);
+  const kpis = ts.map(t => { const s = t.summary;
+    return `<div class="kpi"><div class="v">${s.ok}/${s.done}<small>${esc(U.kpiFrom(pct(s.plain), s.imagine, s.imagine_n))}</small></div><div class="l">${esc(U.kpiL(short(t.task), t.n_stages, s.done, s.n))}</div></div>`; }).join("")
+    + `<div class="kpi"><div class="v">${Math.min(...xs)}–${Math.max(...xs)}×</div><div class="l">${U.kpiCost}</div></div>`;
+  const rows = ts.map(t => { const s = t.summary, c = ceil[t.task];
+    return `<tr><td>${esc(short(t.task))}</td><td>${pct(s.plain)}%</td><td><b>${s.ok}/${s.done}</b>${s.done < s.n ? ` <span class="meta">${U.running(s.n - s.done)}</span>` : ""}</td><td>${s.imagine}/${s.imagine_n}</td>`
+      + `<td>${pct(s.steered / s.chunks)}%</td><td>${pct(s.plain_fail / s.chunks)}%</td><td>${Math.round(s.calls)}</td><td>${Math.round(s.calls / c.calls_plain)}× · ${(s.calls / c.calls_search).toFixed(1)}×</td></tr>`; }).join("");
+  return `
+  <section class="hero">
+    <div><div class="eyebrow">${U.eyebrow}</div><h1>${U.h}</h1><p>${U.p}</p></div>
+    <div class="kpis">${kpis}</div>
+  </section>
+  <section class="card">
+    <h2>${U.methodH}</h2><p class="sub">${U.methodSub}</p>
+    <div class="pipe p5">${U.steps.map((s, i) => `<div class="pstep"><span class="n">${i + 1}</span><h3>${s.h}</h3><p>${s.p}</p><div class="out">→ <b>${s.out}</b></div></div>`).join("")}</div>
+  </section>
+  <section class="card"><h2>${U.resH}</h2><p class="sub">${U.resSub}</p>
+    <div class="tablewrap"><table class="ubtab"><thead><tr>${U.th.map(h => `<th>${h}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="stnote">${esc(U.updated(SE.updated))}</p>
+  </section>
+  <section class="card"><h2>${U.stripH}</h2><p class="sub">${U.stripSub}</p>
+    <div class="seg ubseg" role="group">${ts.map(t => `<button type="button" data-stask="${t.task}" aria-pressed="${t.task === STASK}">${esc(short(t.task))} <span class="count">${t.summary.ok}/${t.summary.done}</span></button>`).join("")}</div>
+    <div class="cklg"><span><b class="ck-S"></b>${U.lg.S}</span><span><b class="ck-A"></b>${U.lg.A}</span><span><b class="ck-N"></b>${U.lg.N}</span><span><span class="dots"><i class="y"></i></span>${U.lg.plain}</span></div>
+    <div class="ckrows" id="stRows">${stStrips()}</div>
+  </section>
+  <section class="card"><h2>${U.findH}</h2>
+    <div class="mechs" style="margin-top:10px">${U.finds(F).map(f => `<div class="mech"><h3>${esc(f.h)}</h3><div class="stat">${esc(f.stat)}</div><p>${esc(f.p)}</p></div>`).join("")}</div>
+  </section>
+  <div class="grid2">
+    <section class="card"><h2>${U.relH}</h2><ul class="facts" style="margin-top:10px">${U.rel.map(c => `<li>${typeof c === "function" ? c(checksOk) : c}</li>`).join("")}</ul>
+      <h3 style="font-size:15px;margin-top:20px">${U.fixH}</h3><ul class="facts" style="margin-top:8px">${U.fixes.map(c => `<li>${c}</li>`).join("")}</ul></section>
+    <section class="card"><h2>${U.nextH}</h2>${U.next.map(x => `<p class="sub" style="margin:0 0 10px">${x}</p>`).join("")}
+      <h3 style="font-size:15px;margin-top:16px">${U.refsH}</h3>
+      <div class="refs">${REFS.map(r => `<div><a href="${r.u}" target="_blank" rel="noopener">${r.n}</a> · ${esc(U.refs[r.n])}</div>`).join("")}</div></section>
+  </div>`;
+}
+function stStrips() {
+  const U = ST[LANG], t = SE.tasks.find(x => x.task === STASK), H = t.horizon, w = (1600 / H).toFixed(3);
+  return t.episodes.map(e => {
+    if (e.status === "missing") return `<div class="ckrow"><span class="sid">s${e.seed}</span><span class="meta">${U.missing}</span><span></span></div>`;
+    const cells = [...e.codes].map((c, i) => `<i class="ck-${c}" style="left:${(1600 * i / H).toFixed(3)}%;width:${w}%" data-tip="${esc(U.cellTip(16 * i, +e.stages[i], c))}"></i>`).join("");
+    let band = "", i0 = 0;
+    for (let i = 1; i <= e.stages.length; i++) {
+      if (i === e.stages.length || e.stages[i] !== e.stages[i0]) {
+        band += `<i style="left:${(1600 * i0 / H).toFixed(3)}%;width:${(1600 * (i - i0) / H).toFixed(3)}%;${stVar(+e.stages[i0])}" data-tip="${esc(U.stageTip(+e.stages[i0], 16 * i0, 16 * i))}"></i>`;
+        i0 = i;
+      }
+    }
+    const res = e.status === "running" ? `<span class="pill run">${esc(U.run(e.t))}</span>` : e.ok ? `<span class="pill ok">${esc(U.ok(e.steps))}</span>` : `<span class="pill no">${esc(U.no(e.steps))}</span>`;
+    const dots = `<span class="dots">${e.plain.map((x, p) => `<i class="${x ? "y" : ""}" data-tip="${esc(U.plainTip(p, x))}"></i>`).join("")}</span>`;
+    return `<div class="ckrow"><span class="sid">s${e.seed}</span><div class="cktrack"><div class="ckcells">${cells}</div><div class="ckband">${band}</div></div><div class="res">${dots}${res}</div></div>`;
+  }).join("");
+}
+
 
 /* ---------- data tab: window.DATATAB, built by build_datatab.py ---------- */
 const DTD = window.DATATAB;
@@ -1580,6 +1780,7 @@ function applyChrome() {
   $("#brandSub").textContent = T.brandSub;
   $("#navOverview").textContent = T.overview;
   $("#navCeiling").textContent = UB[LANG].nav;
+  $("#navSteer").textContent = ST[LANG].nav;
   $("#navData").textContent = DT[LANG].nav;
   $("#speedLbl").textContent = T.speed;
   $("#speedLbl").title = T.speedTip;
@@ -1600,10 +1801,11 @@ function route() {
   stopAll();
   const h = decodeURIComponent(location.hash.slice(1));
   $("#navCeiling").setAttribute("aria-current", h === "ceiling" ? "page" : "false");
+  $("#navSteer").setAttribute("aria-current", h === "steering" ? "page" : "false");
   $("#navData").setAttribute("aria-current", h === "data" ? "page" : "false");
-  if (h === "ceiling" || h === "data") {
+  if (h === "ceiling" || h === "data" || h === "steering") {
     $("#navOverview").setAttribute("aria-current", "false");
-    if (app.dataset.view !== h) { app.innerHTML = h === "ceiling" ? ceilingView() : dataView(); app.dataset.view = h; prepVideos(); }
+    if (app.dataset.view !== h) { app.innerHTML = h === "ceiling" ? ceilingView() : h === "steering" ? steeringView() : dataView(); app.dataset.view = h; prepVideos(); }
     sel.value = ""; window.scrollTo(0, 0);
     return;
   }
@@ -1656,6 +1858,7 @@ function setLang(l) {
   applyChrome();
   if (view === "overview") app.innerHTML = overview();
   else if (view === "ceiling") { app.innerHTML = ceilingView(); prepVideos(); }
+  else if (view === "steering") app.innerHTML = steeringView();
   else if (view === "data") { app.innerHTML = dataView(); prepVideos(); }
   else if (BYTASK[view]) { app.innerHTML = taskView(view); renderEpisodes(view); }
   window.scrollTo(0, y);
@@ -1768,6 +1971,13 @@ document.addEventListener("click", ev => {
     const [s, t] = dp.dataset.dp.split("|"); DSEL = {seed: +s, t: +t};
     document.querySelectorAll("[data-dp]").forEach(b => b.setAttribute("aria-pressed", String(b === dp)));
     $("#dtDet").innerHTML = dataDetail();
+    return;
+  }
+  const stk = ev.target.closest("[data-stask]");
+  if (stk) {
+    STASK = stk.dataset.stask;
+    document.querySelectorAll("[data-stask]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.stask === STASK)));
+    $("#stRows").innerHTML = stStrips();
     return;
   }
   const ct = ev.target.closest("[data-ctask]");

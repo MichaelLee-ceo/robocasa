@@ -1,0 +1,25 @@
+{
+ "tag": "RinseSinkBasin_s21_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 4 (double basin, black gooseneck). Stage 0: lever 109-183 (close 133), water at 165. Overview ~260. Spout taken 325, swept LEFT (left washed 355, -0.87) then RIGHT (right washed 428, success 428), contact 325-432. Stage 1: 263 steps.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png"
+  ],
+  "packet_facts": [
+   "online log [[176,0],[432,1]]",
+   "fixture touch 325-432",
+   "spout angle from saved states (column validated against packet washed_loc): L 355, R 428"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,34 @@
+{
+ "tag": "DeliverStraw_s21_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  1140,
+  1350
+ ],
+ "category": "stall_holding_at_target",
+ "secondary": [
+  "placed_off_target",
+  "release_timing"
+ ],
+ "what_happened": "Layout 4, red-white Straw010, GlassCup025. Stage 0 at 222. Straw grasped 338-359 and lifted 0.74 m (width 0.013); navigation was slow (labeler 369-976; the robot reached the cup only at ~1100-1140; successes arrive ~600-700). 1140-1344 (~200 steps) the straw was held vertically above/beside the cup; around 1260 it appeared to be right over the opening, but it never touched the cup (at_target never held). At ~1344 the gripper drifted and tilted, and it released at 1350 with the straw centre 5.9 cm from the cup; the straw dropped onto the counter beside the cup (end 6.4 cm, z 0.925). The arm then left; no retry.",
+ "causal_chain": "late arrival at the cup (~1140) -> ~200 steps hovering over/beside the opening without lowering it in -> drifted and released 6 cm off (1350) -> straw on the counter -> no retry until timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "Official success = straw touches the cup AND straw centre < 0.5 m horizontally from the cup centre AND gripper far; there is no 'inside' or upright test, so a straw lying across the rim or leaning on the outside of the cup would count once the gripper leaves. Straw tilt fields are relative to the straw lying flat: 'tipped_over' (>45 deg) here means the straw was held or standing vertical, not that it fell over. The tipped_over interval ends at 1095 although the straw is still held near-vertical in the video until ~1344, so the tilt field is unreliable for this thin object.",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png",
+   "frames/s21_cup.png",
+   "frames/s21_cupzoom.png",
+   "frames/all_at_cup_wrist.png"
+  ],
+  "packet_facts": [
+   "hold 351-1350 lift 0.736 dist_at_release 0.059, end dist 0.064",
+   "at_target_intervals []",
+   "tipped_over [[432,1095]]"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the straw was ever above the opening in depth; the agent view suggests so at ~1260 but there was no contact."
+}

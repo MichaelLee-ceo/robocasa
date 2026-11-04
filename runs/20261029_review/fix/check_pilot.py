@@ -4,8 +4,8 @@ done rate, error rows, and the per-boundary logs. usage: python -I check_pilot.p
 import glob, json, os, sys
 import numpy as np
 
-D = "/home/michaellee/mclee/robocasa/runs/20261026_critic_data"
-MAIN = "/home/michaellee/mclee/robocasa/runs/20261025_seen480/run"
+D = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261026_critic_data")
+MAIN = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261025_seen480/run")
 F1, F2 = 12, 13  # finger joints in the flattened state (1 + qpos index; the robot comes first in every task)
 
 

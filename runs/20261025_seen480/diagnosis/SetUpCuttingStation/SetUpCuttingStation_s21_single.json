@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s21_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [381, 940],
+ "category": "missed_grasp",
+ "secondary": ["stall_pre_grasp", "skipped_or_wrong_stage"],
+ "what_happened": "Scene: layout/style 4 (dark wood cabinets, same kitchen as s18/s24); knife (knife_8, black handle) in a dark-wood drawer right below the board (0.12 m); a thin flat steak (steak_8) on a light-blue plate to the left. Stage 0: close on air at 151 (knife at the top edge of the wrist view), hovering in the drawer 200-340. At 372-396 the handle ran vertically through the finger gap but next to the right finger pad rather than centred; the close at 381 caught it at the side (width 0.034, lift 8 mm), the knife rolled up to 66 deg (401-415) and slid sideways out of the fingers as they reopened (412-440, knife now left of centre). 440-900 the gripper hovered over the knife, with one close on air at 513, slowly drifting up and away (760-900). At ~940 it turned to the steak, skipping the knife. On the flat steak it closed at 1062, 1192, 1355 and 1583 at the steak's near edge (max lift 4 mm) and once on air (1263). The episode ended with the knife in the drawer (moved 7.6 cm) and the steak on its plate.",
+ "causal_chain": "off-centre close on the handle at the right finger pad 381 -> knife rolled and slid out of the fingers 401-440 -> hovered 440-900 (one air close 513) without another real attempt -> abandoned the knife and went to the steak ~940 -> four failed grasps on the flat steak -> timeout, nothing on the board",
+ "self_recovery": "One air close at 513 after the miss; no further knife attempt. Four failed attempts on the steak.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s21_overview.png", "frames/s21_grasp_wrist.png", "frames/s21_mid.png"],
+   "packet_facts": ["close 151 on_nothing; close 381 w=0.034 touch knife, hold 390-402 lift 0.008; tipped 401-415 (tilt_max 65.8)", "close 513 on_nothing", "meat closes 1062, 1192, 1355, 1583 touching, max lift 0.004; 1263 on_nothing", "labeler: no meaningful segments"]},
+ "confidence": "high", "uncertain_about": ""}

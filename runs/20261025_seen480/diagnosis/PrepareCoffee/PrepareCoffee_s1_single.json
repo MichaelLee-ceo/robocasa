@@ -1,0 +1,26 @@
+{
+ "tag": "PrepareCoffee_s1_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 5, black CoffeeMachine042 (two cup-icon buttons on the upper front, two nozzles), round blue mug_7 on the upper shelf. Stage 0: grasp 114/125 on the rim, mug carried down to the tray and under the nozzles by ~309, released 351 at 0.012 m (0.012 m 2 s later), upright (tilt max 33 deg while being carried). The gripper opened deliberately (0.013 -> 0.043 -> 0.077). Stage 1: it rose and came over the top of the machine to the cup-icon button face (420-540, wrist shows the buttons from above-right), touched the button at 543 (on), and backed off; stage 0 complete 560, success 563. Fast, clean episode: stage 0 560 steps (median 506), stage 1 3 steps after stage 0 (the press preceded the retreat).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Stage 0 'first_complete' 560 lags the release (351) by 209 steps because the gripper stayed within 25 cm of the mug while going to the button.",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png",
+   "frames/cmp_success_press.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 125 release 351 dist 0.012 -> 0.012",
+   "machine on 543, touch 543-544",
+   "success 563"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

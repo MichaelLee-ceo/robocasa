@@ -1,0 +1,36 @@
+{
+ "tag": "SearingMeat_s19_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  512,
+  582
+ ],
+ "category": "release_timing",
+ "secondary": [
+  "wrong_fixture_element",
+  "disturbed_placed_object"
+ ],
+ "what_happened": "Scene: layout 6 (brown wood cabinets, orange wall tiles), 4-element black glass electric range with the knobs on the rear console; pan_4 (black pan) in an upper cabinet; target front_left (large left ring); fish on a wooden board left of the range. Stage 0: grasp at 163 near the handle base (width ~0.045, hold 171-582), pan carried to the range and lowered with its centre over the front_left ring (0.068 m at 512; at_target 541-558 while still held). While still holding the handle, the arm then pushed the pan to the right (556-580, zoom) and released it at 582 straddling the front_left and front_right rings, 0.19 m from front_left (0.189 m from front_right). Stage 1: fish grasped at 711 (lift 0.19 m) and released into the pan at 815: complete 817 onward. Stage 2: the arm reached up to the rear console (1000-1088) and turned the REAR_LEFT knob to 2.04 rad (the small rear-left ring glows red from ~1060); front_left (task) stayed 0. From ~2268 the arm folded over the range with its own links blocking the wrist camera; it brushed the pan (2279-2340, moved it 0.19 -> 0.16 -> 0.21 m) and knocked the fish (tipped 2855; stage 1 drops at 2875).",
+ "causal_chain": "pan centred on front_left while held (512-558) -> pushed ~12 cm right before release (582, 0.19 m) -> stage 0 never held -> fish into the pan OK -> wrong knob turned (rear_left, 1040-1088), task burner never on -> late arm contact moved the pan and tipped the fish -> fail",
+ "self_recovery": "none effective: the late pan contact (2279-2340) moved it to 0.158 m briefly, still outside 0.15, and looked incidental (arm links), not a deliberate re-placement.",
+ "official_criterion_notes": "Two independent failures: placement (0.19 m vs 0.15 threshold) and the wrong knob; with the pan counted the episode would still have failed at stage 2.",
+ "evidence": {
+  "sheets": [
+   "frames/s19_place.png",
+   "frames/s19_place_zoom.png",
+   "frames/s19_drift_zoom.png",
+   "frames/s19_late.png"
+  ],
+  "packet_facts": [
+   "pan hold 171-582, at_target [[541,549],[552,558]], dist at release 0.1904",
+   "pan_nearest front_left 0.068@512 -> 0.19@576",
+   "fish hold 720-815 at_target; stage1 [[817,2306],...] undone from 2307 ('object left target')",
+   "knobs end: rear_left 2.039, front_left (task) 0",
+   "pan hold 2279-2288; fish tipped [[2855,2900]]"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the late contacts at 2279-2340 were made by the fingers or by the arm links (the wrist camera is blocked)."
+}

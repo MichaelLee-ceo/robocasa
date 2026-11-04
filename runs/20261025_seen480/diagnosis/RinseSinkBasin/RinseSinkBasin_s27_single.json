@@ -1,0 +1,32 @@
+{
+ "tag": "RinseSinkBasin_s27_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  416,
+  900
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene layout/style 1: double black basin, L-shaped spout tube, small stick handle (same scene as success s23). Stage 0: handle 191-250 (close at 190), water at 236; the spout drifted to -0.16 meanwhile. Stage 1: 342-416 the gripper pushed the spout LEFT (stream into the left basin): -0.42 at 356, left washed 363, -1.02 at 420. Then it left the spout: 440-470 wrist on the back-left wall, 520 arm lowered on the right, 560 it swung over the left basin, and from ~640 to 900 the gripper sat at the tip of the left-pointing spout (wrist looking back across the sink toward the plate), with light contacts 683-740, 770-787, 847-860. The spout moved only from -1.06 to -0.97 until 876 and to -0.78 by 900; right (+0.524) was never reached. The only failure that missed right instead of left. Same scene as success s23, which did the same 'swing over the left basin and come back' manoeuvre (560-604) after a left push that stopped at -0.56; there the gripper came down onto the nozzle (wrist view filled by the nozzle at 604-624) and swept it to +0.61 in ~35 steps. In s27 the spout had been pushed much further (-1.02), and the gripper hovered above and beside the tube (712, 892) without getting onto the nozzle.",
+ "causal_chain": "left washed 363 but pushed on to -1.02 (s23: -0.56) -> left the spout 416-600 -> repositioned over the left basin like s23, but never got onto the far-rotated nozzle; contacts 683-899 rotated it only -1.06 -> -0.78 (needs +0.52) -> timeout",
+ "self_recovery": "Came back to the spout at ~640 and began moving it right only at 876-892 (-0.99 -> -0.78); far too little, too late.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/s27_late.png",
+   "frames/s23_vs_s27_return.png"
+  ],
+  "packet_facts": [
+   "stage0 236; washed_loc [T,T,F], spout_ori left",
+   "fixture touch 342-416, 683-740, 770-787, 847-860, 898-899",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: -1.02@420, min -1.061@711, -0.78@892, never above 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "From the wrist view I cannot tell which side of the spout the fingers pressed in 640-900. The idea that the over-rotation to -1.02 put the nozzle out of reach of the learned return motion rests on one comparison (s23)."
+}

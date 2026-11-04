@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s5_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [1148, 2600],
+ "category": "wander_away",
+ "secondary": ["missed_grasp_continued_empty", "placed_off_target", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 7; squash_16 (round orange pumpkin, veg0) and squash_7 (butternut, veg1), drumsticks ChickenDrumstick014/011; the two tupperwares stand ~1.2 m apart on the same counter (one by the toaster near the fridge, one farther left by a coffee machine). Stage 0: closed on the large pumpkin at 101 (width 0.026, no lift), carried on with closed empty fingers (120-392) and made an empty place over the toaster-side tupperware (~400). Back at the fridge it grasped drumstick meat0 at 581-589 and released it at 725 into the toaster-side tupperware (dist 0.13); stage 0 complete 759 (typical 286, p90 339). Stage 1: grasped the pumpkin at 972 and released it at 1107 into the far tupperware (dist 0.17 -> 0.03); stage 1 complete 1148 (389 steps, normal). So far the composition was right (meat | veg). Stage 2: from 1148 to ~1920 (~770 steps) the robot hovered in front of the counter and drifted slowly back toward the fridge without doing anything (1160-1840). At the fridge it closed on air above the drumstick meat1 at 2039, carried the closed empty fingers back to the toaster-side tupperware and made an empty place there (~2220, brushing meat0 2219-2224). It then returned, grasped meat1 at 2448-2458 and released it at 2586 into the toaster-side tupperware, i.e. next to meat0 (two meats in one tupperware, dist 0.02). At 2600 the gripper was still within 25 cm, so stage 2 (3 items) is not counted; the butternut veg1 was never touched.",
+ "causal_chain": "missed pumpkin + empty place made stage 0 slow (759) -> stage 1 normal (1148) -> ~770 steps of idle hovering/drifting at the counter (1148-1920) -> close on air (2039) + empty place (~2220) -> third item only at 2586, and into the tupperware that already held a meat -> timeout at 2600 (gripper still near, 4th item untouched); stage 3 would have failed anyway because of two meats together",
+ "self_recovery": "After each failure it returned to the fridge (after the empty place at ~400 and at ~2220) and the next grasp worked, but each cost 300-500 steps.",
+ "official_criterion_notes": "Stage 2 is false at the end only because of the gripper-distance clause: three items are in tupperwares from 2587, the release was at 2586 and the episode ended 14 steps later.",
+ "evidence": {
+  "sheets": ["frames/s5_overview.png", "frames/s5_mid.png"],
+  "packet_facts": ["close 101 veg0 w0.026 not lifted; width closed 120-392", "meat0 hold g589 r725; stage0 759", "veg0 hold g972 r1107; stage1 1148", "close 2039 air; width closed 2056-2232", "meat1 hold g2458 r2586 dist 0.021; m0-m1 end 0.16 m apart (same tupperware); veg0 1.23 m away"]
+ },
+ "confidence": "medium",
+ "uncertain_about": "What the policy was doing 1148-1920 (no contacts; slow base drift and arm hovering, no visible target); whether the counter-side hover counts better as a stall than as wandering."
+}

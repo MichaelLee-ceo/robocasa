@@ -1,0 +1,729 @@
+{
+ "tag": "StoreLeftoversInBowl_s29_single",
+ "task": "StoreLeftoversInBowl",
+ "instruction": "Pick the chicken drumstick and mushroom from their plates and place them in the bowl. Then put the bowl in the fridge.",
+ "success": false,
+ "steps": 1700,
+ "horizon": 1700,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   256,
+   0
+  ],
+  [
+   400,
+   1
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 256,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 400,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 10,
+  "style": 10,
+  "objects": {
+   "chicken_drumstick_container": "objaverse/plate/plate_8/model.xml",
+   "chicken_drumstick": "lightwheel/chicken_drumstick/ChickenDrumstick010/model.xml",
+   "vegetable_container": "objaverse/plate/plate_9/model.xml",
+   "vegetable": "objaverse/mushroom/mushroom_6/model.xml",
+   "bowl": "objaverse/bowl/bowl_5/model.xml",
+   "distr1": "lightwheel/cream_cheese_stick/CreamCheeseStick011/model.xml",
+   "distr2": "objaverse/steak/steak_4/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.08,
+   0.0558,
+   0.0515,
+   0.0513,
+   0.0511,
+   0.0509,
+   0.0507,
+   0.0506,
+   0.0504,
+   0.0502,
+   0.0499,
+   0.0497,
+   0.0493,
+   0.0489,
+   0.0485,
+   0.0485,
+   0.05,
+   0.077,
+   0.0783,
+   0.0788,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0595,
+   0.0593,
+   0.0593,
+   0.0595,
+   0.0597,
+   0.0601,
+   0.0596,
+   0.0621,
+   0.0778,
+   0.0785,
+   0.0789,
+   0.0792,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0799,
+   0.0506,
+   0.0221,
+   0.0155,
+   0.0136,
+   0.0134,
+   0.0132,
+   0.013,
+   0.0129,
+   0.0127,
+   0.0127,
+   0.0127,
+   0.0126,
+   0.0126,
+   0.0126,
+   0.0126,
+   0.0125,
+   0.0125,
+   0.0125,
+   0.0124,
+   0.0125,
+   0.0124,
+   0.0124,
+   0.0123,
+   0.0123,
+   0.0122,
+   0.0122,
+   0.0121,
+   0.012,
+   0.0118,
+   0.0117,
+   0.0115,
+   0.0115,
+   0.0115,
+   0.0114,
+   0.0114,
+   0.0114,
+   0.0114,
+   0.0115,
+   0.0114,
+   0.0115,
+   0.0115,
+   0.0115,
+   0.0115,
+   0.0115,
+   0.0115,
+   0.0114,
+   0.0148,
+   0.0192,
+   0.0194,
+   0.0714,
+   0.078,
+   0.0786,
+   0.079,
+   0.0793,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.0799,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0795,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799
+  ],
+  "close_events": [
+   {
+    "step": 118,
+    "width_after": 0.052,
+    "on_nothing": false,
+    "touching": [
+     "chicken_drumstick"
+    ],
+    "lifted": [
+     "chicken_drumstick"
+    ]
+   },
+   {
+    "step": 326,
+    "width_after": 0.059,
+    "on_nothing": false,
+    "touching": [
+     "vegetable"
+    ],
+    "lifted": [
+     "vegetable"
+    ]
+   },
+   {
+    "step": 461,
+    "width_after": 0.024,
+    "on_nothing": false,
+    "touching": [
+     "bowl"
+    ],
+    "lifted": [
+     "bowl"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 2,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToCounter",
+   "kind": "pnp",
+   "first_complete_step": 251,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     251,
+     475
+    ],
+    [
+     477,
+     861
+    ],
+    [
+     863,
+     1700
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 476,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 862,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 251,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 149,
+    "p90": 255,
+    "n": 11
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToCounter",
+   "kind": "pnp",
+   "first_complete_step": 394,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     394,
+     394
+    ],
+    [
+     398,
+     403
+    ],
+    [
+     405,
+     475
+    ],
+    [
+     477,
+     624
+    ],
+    [
+     626,
+     669
+    ],
+    [
+     671,
+     773
+    ],
+    [
+     776,
+     857
+    ],
+    [
+     859,
+     860
+    ],
+    [
+     883,
+     944
+    ],
+    [
+     946,
+     1032
+    ],
+    [
+     1034,
+     1479
+    ],
+    [
+     1481,
+     1700
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 395,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 404,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 476,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 625,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 670,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 774,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 858,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 861,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 945,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1033,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1480,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 143,
+   "window_start": 251,
+   "typical_in_successes": {
+    "median": 216,
+    "p90": 284,
+    "n": 11
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "PickPlaceCounterToFridge",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 394,
+   "typical_in_successes": {
+    "median": 437,
+    "p90": 524,
+    "n": 11
+   }
+  }
+ ],
+ "objects": {
+  "chicken_drumstick": {
+   "target_of_stage": 0,
+   "start_pos": [
+    4.2449,
+    -3.5498,
+    0.9463
+   ],
+   "end_pos": [
+    0.3216,
+    -1.8117,
+    1.0707
+   ],
+   "at_target_intervals": [
+    [
+     244,
+     244
+    ],
+    [
+     246,
+     247
+    ],
+    [
+     251,
+     475
+    ],
+    [
+     477,
+     773
+    ],
+    [
+     775,
+     861
+    ],
+    [
+     863,
+     1700
+    ]
+   ],
+   "dist_to_target_start_m": 0.7986,
+   "dist_to_target_end_m": 0.0351,
+   "min_eef_dist_to_centre_m": 0.0042,
+   "gripper_touch_intervals": [
+    [
+     116,
+     117
+    ],
+    [
+     124,
+     248
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 127,
+     "release_step": 249,
+     "lift_m": 0.204,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0486,
+     "height_drop_after_release_m": 0.04,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0421
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 7.0,
+   "tilt_deg_end": 6.1,
+   "tilt_deg_max": 58.3,
+   "tipped_over_intervals": [
+    [
+     719,
+     856
+    ]
+   ]
+  },
+  "vegetable": {
+   "target_of_stage": 0,
+   "start_pos": [
+    4.7417,
+    -3.454,
+    0.9481
+   ],
+   "end_pos": [
+    0.3665,
+    -1.8618,
+    1.082
+   ],
+   "at_target_intervals": [
+    [
+     394,
+     394
+    ],
+    [
+     398,
+     403
+    ],
+    [
+     405,
+     475
+    ],
+    [
+     477,
+     624
+    ],
+    [
+     626,
+     669
+    ],
+    [
+     671,
+     774
+    ],
+    [
+     776,
+     857
+    ],
+    [
+     859,
+     860
+    ],
+    [
+     883,
+     944
+    ],
+    [
+     946,
+     1032
+    ],
+    [
+     1034,
+     1479
+    ],
+    [
+     1481,
+     1700
+    ]
+   ],
+   "dist_to_target_start_m": 0.2932,
+   "dist_to_target_end_m": 0.064,
+   "min_eef_dist_to_centre_m": 0.0092,
+   "gripper_touch_intervals": [
+    [
+     331,
+     392
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 331,
+     "release_step": 393,
+     "lift_m": 0.131,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.089,
+     "height_drop_after_release_m": 0.018,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0758
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 20.9,
+   "tilt_deg_end": 18.3,
+   "tilt_deg_max": 168.9,
+   "tipped_over_intervals": [
+    [
+     417,
+     879
+    ]
+   ]
+  },
+  "bowl": {
+   "target_of_stage": 2,
+   "start_pos": [
+    5.0328,
+    -3.4195,
+    0.9534
+   ],
+   "end_pos": [
+    0.3054,
+    -1.8428,
+    1.0761
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 4.7959,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.0621,
+   "gripper_touch_intervals": [
+    [
+     465,
+     855
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 469,
+     "release_step": 856,
+     "lift_m": 0.314,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0,
+     "height_drop_after_release_m": 0.063,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.0
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 63.2,
+   "tipped_over_intervals": [
+    [
+     713,
+     858
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToCounter",
+    "pick"
+   ],
+   [
+    129,
+    "PickPlaceCounterToCounter",
+    "place"
+   ],
+   [
+    256,
+    "PickPlaceCounterToCounter",
+    "pick"
+   ],
+   [
+    332,
+    "PickPlaceCounterToCounter",
+    "place"
+   ],
+   [
+    400,
+    "PickPlaceCounterToFridge",
+    "pick"
+   ],
+   [
+    498,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    782,
+    "PickPlaceCounterToFridge",
+    "place"
+   ],
+   [
+    862,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/StoreLeftoversInBowl/StoreLeftoversInBowl_s29_single.mp4"
+}

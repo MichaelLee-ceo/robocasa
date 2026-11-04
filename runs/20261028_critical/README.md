@@ -55,8 +55,11 @@ Reading the table:
     PackIdenticalLunches s18 t1504.
   - At random chunks, 62 % of the points are already decided (V near 0 = stuck, or near 1), and the rest have similar
     candidates.
-- **Not every critical chunk can be steered.** About a fifth show no gain: V jumped in the main run, but the 8 sampled
-  candidates do about equally well.
+- **About half of the critical chunks are clearly steerable.** A permutation test says the 8 candidates differ beyond
+  luck (p < 0.05) at 15 of the 32 critical chunks and at none of the random ones (`../20261029_signals`, recomputed
+  independently).
+  - The cross-validated gain is +46 pts at those 15, +4 at the other 17 critical chunks, and +0.5 at random chunks.
+  - At the other critical chunks V jumped in the main run, but the 8 sampled candidates do about equally well.
 - **Earlier numbers are superseded.** Pooled "best-of-8" gains of +14 / +13 / +10 at uniform points came from a
   pooled formula that overstates the gain, on data with restore bugs. The earlier confirmations (+21 / +10 / +24) used
   bug-affected restores and reused seeds. Neither should be quoted.
@@ -71,6 +74,7 @@ Reading the table:
   winners vs losers, overlays and time in stage ran on those data. Their outputs were removed; question 2 redoes them
   on the clean data.
 - **Kept scripts.** `events.py` (the main runs' physical events, `events.jsonl`), `effect_by_event.py`,
-  `disagreement.py`, `distribution.py`, `candidates.py`, `split_points.py`, `split_analysis.py`, `candidate_rank.py`,
-  `overlay_critical.py`, `drop_check.py`, `grip_check.py`, `timeline.py` and `repro_drop.py` (exact replay of a saved
-  rollout; `DATASET=...`). They are kept for reuse and read the data through `data.py`.
+  `disagreement.py`, `distribution.py`, `overlay_critical.py` and `repro_drop.py` (exact replay of a saved rollout;
+  `DATASET=...`). They read the data through `data.py`. The exploratory scripts that ran on the old data
+  (`candidates.py`, `split_points.py`, `split_analysis.py`, `candidate_rank.py`, `drop_check.py`, `grip_check.py`,
+  `timeline.py`, `make_confirm_jobs.py`) were deleted on 2026-11-04; in git history.

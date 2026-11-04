@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s0_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 0,
+ "root_cause_steps": [116, 176],
+ "category": "dropped_in_transit",
+ "secondary": ["missed_grasp_continued_empty", "official_criterion_issue"],
+ "what_happened": "Scene: layout/style 7; two onions (onion_9 upper shelf, onion_6 lower) and two drumsticks (ChickenDrumstick014/011) in the fridge; tupperwares on the dark counter by the toaster. Stage 0: grasped the large upper-shelf onion veg0 at 116 with the fingers only partly around it (close 158, width 0.009 = fingers closed past it); it fell out at ~165-176 onto the floor in front of the fridge (drop 1.28 m). The policy carried on with closed empty fingers (176-344) and made an empty 'place' over the left tupperware (~300). Back at the fridge it grasped the second onion veg1 at 650 and released it at 836 into the left tupperware (dist 0.13); stage 0 complete 864 (typical 286, p90 339). Stage 1: grasped drumstick meat1 at 1106 and released it at 1315 into the same left tupperware, on top of the onion (correct veg+meat pair); stage 1 complete 1345 (481 steps, typical 401). Stage 2: grasped the last drumstick meat0 at 1575 (lift 0.29 m), but while withdrawing from the fridge (1600-1660) it left the fingers and lodged on the robot's own arm, where it rode along for the rest of the episode (orange drumstick visible on the arm at 1720, 2000, 2600; end z 1.11 at the robot's position). The policy drove to the counter and made an empty place over the empty right tupperware (~1700-1760), then opened (1768) and went back to the fridge, where no items were left (onion veg0 on the floor, meat0 on the robot); it hovered there to the end. 2 of 4 placed.",
+ "causal_chain": "partial grasp on the large onion -> onion fell to the floor at the fridge (~170): from here success was impossible (no 4th item reachable) -> empty place (~300) -> 2 correct placements (836, 1315) -> last drumstick slipped out and lodged on the robot arm (~1640-1687) -> empty place over the right tupperware (~1760) -> 2 of 4 at timeout",
+ "self_recovery": "After the empty place it returned and placed two items correctly (veg1 + meat1 as a proper pair). It never noticed the drumstick on its own arm or the onion on the floor.",
+ "official_criterion_notes": "Stage 1 (>= 2 items) has ~140 'object left the target' undo events 1354-2599: meat1 lies on top of the onion in the tupperware and its tupperware contact flickers on/off every few steps (128 separate at_target intervals). The official in-receptacle test requires direct contact with the tupperware, so a meat item resting on the vegetable is intermittently 'not in the tupperware' - a final success check could fail on this even with a correct pair. Packet note: meat0's end position (z 1.11) is on the robot arm, not a counter.",
+ "evidence": {
+  "sheets": ["frames/s0_overview.png", "frames/s0_meat0.png"],
+  "packet_facts": ["veg0 hold g116 r165 lift 0.054, drop 1.283 (floor)", "veg1 hold g650 r836 dist 0.128; stage0 864", "meat1 hold g1106 r1315 dist 0.164; stage1 1345", "meat0 hold g1585 r1687 lift 0.288 dist_at_release 0.737 drop 0.236", "meat1 at_target: 128 intervals"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact moment meat0 left the fingers (between 1600 and 1687; the packet's release 1687 is when contact ended); where exactly on the arm it is lodged."
+}

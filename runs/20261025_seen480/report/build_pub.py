@@ -1,12 +1,14 @@
 """Make the self-contained copy of the report for publishing as a claude.ai artifact (report_pub/).
 
 The artifact host limits a version to 511 files / 256 MB and a publish to 255 files / 64 MB, so:
-- videos are re-encoded at CRF 31 with the index at the front (report_pub/v/<Task>/<tag>.mp4, made by the ffmpeg
-  command in report_pub/encode.log's caller; about half the original size, keypad text still readable);
+- videos are re-encoded at CRF 31 with the index at the front (report_pub/v/<Task>/<tag>.mp4, by a one-off ffmpeg run
+  whose command was not kept; build_ceiling.py encodes its showcase videos the same way with libx264 and +faststart);
+  about half the original size, keypad text still readable;
 - the stage poster frames of each task go into one sprite image (report_pub/p/<Task>.jpg);
 - the agents' evidence contact sheets (1.3 GB) are left out;
 - index.html loses the document skeleton (the host adds its own) and gets the side-gutter meta tag;
-- the upper-bound tab's data and showcase videos (report/ceiling.js, report/ceiling/, from build_ceiling.py) and the data
+- the upper-bound tab's data and showcase videos (report/ceiling.js, report/ceiling/, from build_ceiling.py), the steering
+  tab's data (report/steering.js, from build_steering.py) and the data
   tab's data and media (report/datatab.js, report/dt/, from build_datatab.py) are copied.
 Run after report/build.py: python report/build_pub.py (groot env, for PIL)."""
 import json, math, os, re, shutil
@@ -48,6 +50,7 @@ html = html.replace("<title>Seen-480 Stage Diagnosis</title>",
                     '<title>Seen-480 Stage Diagnosis</title>\n<meta name="claude:viewport-fit-sides" content="cover">', 1)
 open(f"{OUT}/index.html", "w").write(html)
 shutil.copy(f"{HERE}/ceiling.js", f"{OUT}/ceiling.js")
+shutil.copy(f"{HERE}/steering.js", f"{OUT}/steering.js")
 shutil.copytree(f"{HERE}/ceiling", f"{OUT}/ceiling", dirs_exist_ok=True)
 shutil.copy(f"{HERE}/datatab.js", f"{OUT}/datatab.js")
 shutil.copytree(f"{HERE}/dt", f"{OUT}/dt", dirs_exist_ok=True)

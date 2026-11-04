@@ -1,0 +1,25 @@
+{
+ "tag": "KettleBoiling_s13_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Grasp at 124, lift 0.12 m, released 186 on the front-right burner (0.105 m); stage 0 at 199. Front-right knob 260-336 reached 0.64; stage 1 at 326 (127 steps). The episode ends successfully at 336.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Packet quirk: success=true but first_incomplete_stage=0 and complete_at_end=false for both stages. Both conditions drop at 334-336, apparently because the gripper came back within 25 cm of the kettle in the last 3 steps. Stage 0 also breaks 300-307 for the same reason.",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png"
+  ],
+  "packet_facts": [
+   "stage0 [[199,299],[307,333]]",
+   "stage1 [[326,333]]; episode steps 336",
+   "front_right 0.639"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

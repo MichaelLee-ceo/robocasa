@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s22_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [134, 1600],
+ "category": "missed_grasp",
+ "secondary": ["stall_approach_retreat", "missed_grasp_continued_empty", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 8 (olive drawers under a wood counter; same drawer position as s4/s8/s10/s17); knife (knife_9, green handle) deep in the drawer under the counter edge; board 1.18 m away (base move needed), plate with a shrimp near the board. Stage 0: the knife was never touched (min distance 0.13 m). The policy cycled between the drawer and the counter, closing on air five times: 134 and 376 with the knife out of the wrist view; 448-750 hovering with the knife visible below; at 880-896 it closed (0.002) while rising toward the counter edge with the knife still in the middle of the view below the fingers, kept the gripper shut while moving up over the counter (900-1000, an empty carry) and opened at 1008; at 1204-1232 it came down again with the handle right at the finger line at the bottom of the wrist view, moved past it and closed on air at 1232 (no contact, 1248 fully shut), reopened at 1296 and spent 1300-1600 hovering over the counter edge with the fingers open. The meat was never approached (min distance 0.98 m).",
+ "causal_chain": "knife deep in the drawer under the counter edge -> repeated approach/retreat with closes on air (134, 376, 896, 1232), never low enough to touch the handle -> one empty carry to the counter 896-1008 -> hovering 1300-1600 -> knife still in the drawer at timeout",
+ "self_recovery": "Several re-approaches (448-750, 1180-1232); none made contact.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s22_overview.png", "frames/s22_cycles.png", "frames/s22_close2_wrist.png"],
+   "packet_facts": ["close_events 134, 376, 875, 976, 1218: all on_nothing", "knife: no touch, min_eef_dist 0.133 m", "gripper shut 896-1000, opened 1008; shut 1232-1288, opened 1296", "meat min_eef_dist 0.98 m"]},
+ "confidence": "medium", "uncertain_about": "Whether the 1232 close was too high or overshot the handle; the wrist view shows the handle leaving the bottom of the image just before the close, and no contact was recorded."}

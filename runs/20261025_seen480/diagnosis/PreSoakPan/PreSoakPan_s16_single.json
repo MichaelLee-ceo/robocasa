@@ -1,0 +1,37 @@
+{
+ "tag": "PreSoakPan_s16_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  134,
+  1600
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene L6/S6, same kitchen as s19/s25: black double-basin sink. The sponge sits on the counter at the right edge of the right basin; the pan (pan_6, dark handle with a steel collar and a hanging ring at the end) is further right, partly outside the agent view. Stage 0 is credited from step 0 because the sponge on the counter counts as inside the sink. That leaves the pan as the second object (stage 1). Pan, attempt 1 (120-192): the gripper came down on the very end of the pan handle. The handle tip and ring sat under the right finger, not in the finger gap (brief contacts 134-181). The fingers half-closed at 179-192 (width 0.046) touching the handle end and the sponge, did not lift, and reopened at ~208. The arm pulled back. The fingers then closed on air at 224 and stayed closed until ~464. Sponge (464-956): one slipped close at 529-560 (lift 0.001); the sponge was flipped at 802-810, grasped at 815, lifted 0.19 m and dropped on its side into the right basin at 956. The 852-868 'undo' is the sponge being lifted out of the counter-edge zone. Pan, attempt 2 (1140-1260): the wrist again showed the pan and handle from above; the fingers closed on air beside the handle at 1232-1248 (no pan contact) and reopened at 1264. 1300-1600: the arm wandered over the sink and faucet. The pan never moved (end 0.19 m from the basin) and the faucet was never touched.",
+ "causal_chain": "first pan grasp lands on the handle tip under one finger (179-192), no lift -> the policy switches to the sponge (already counted as in the sink by the criterion) and spends 464-956 placing it properly -> one more pan attempt closes on air (1232) -> pan stays on the counter, stage 1 never complete, faucet never attempted",
+ "self_recovery": "One later re-approach to the pan (1140-1260); it closed on air beside the handle. The sponge's placement was a genuine fix of a stage the criterion had already credited.",
+ "official_criterion_notes": "official_criterion_issue: the sponge counts as inside the sink at step 0 while lying on the counter about 10 cm (centre) outside the basin region (dist_to_target_start 0.103). The effective tolerance of obj_inside_of is larger than the nominal 5 cm: th is compared in un-normalised dot-product units, so it equals th / edge length, about 0.1-0.2 m horizontally for a sink basin. The outcome did not depend on it: the episode failed because the pan was never grasped, and the sponge ended truly in the basin anyway. The stage numbering is order-free (stage 0 = first object in, stage 1 = second), so the criterion issue relabels the pan as stage 1 here.",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png",
+   "frames/s16_pan_attempt.png",
+   "frames/s16_close_wrist.png",
+   "frames/s16_grasp_left_zoom.png",
+   "frames/s16_late.png",
+   "frames/s16_s19_sponge_edge.png"
+  ],
+  "packet_facts": [
+   "obj1 (pan) holds [], touch [[134,134],...,[179,181]], dist_to_target_end 0.191",
+   "close 179 width 0.053 touching obj1+obj2 not lifted; widths 0.046@192, 0.081@208, 0.0037@224",
+   "sponge at target [[0,851],[869,1600]], dist_to_target_start 0.103; holds 815-956 lift 0.187; tipped from 809",
+   "sink touch [] (faucet never touched)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the half-close at 179-192 pinched only the ring at the handle tip. The wrist view shows the tip under the right finger, and the close event also lists the sponge as touched."
+}

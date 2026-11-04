@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s28_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [79, 2600],
+ "category": "dropped_in_transit",
+ "secondary": ["missed_grasp", "missed_grasp_continued_empty"],
+ "what_happened": "Scene: layout/style 7; two sweet_potato_3 and two fish (fish_7 upper shelf, fish_8 lower) in the fridge; tupperwares on the dark counter by the toaster, close to the fridge. Trip 1: closed at 79 on the upper-shelf sweet potato (touching the fish too), holding it only by its narrow tip so it hung vertically below the fingers (finger width <= 0.012 during the carry). It carried it to the counter (200-240), and as the hand came over the counter edge in front of the left tupperware the potato slipped out (~242-248) and fell to the floor in front of the counter (end z 0.02, 0.28 m from the nearest tupperware centre; 0.54 m at release). The policy did not react: it made an empty 'place' over the tupperware (~300). Back at the fridge (~450-620) it closed on the upper-shelf fish meat0 at 612 (width 0.014, no lift; it pushed the fish 17 cm) and then, with closed fingers, drove to the counter for a second empty place (~1050-1100). Further closes on air at the fridge at 1280 and 1712, each followed by closed-finger trips to the counter (empty place ~1450) or by the arm folding low in front of the fridge (~2000). Nothing reached a tupperware.",
+ "causal_chain": "sweet potato grasped by its tip only (79) -> slipped out over the counter edge (~245) and fell to the floor 28 cm short of the tupperware -> empty place (~300) -> fish grasp fails (612) -> repeated closes on air + empty counter trips (1100, 1450) -> 0 items",
+ "self_recovery": "It returned to the fridge each time but never achieved another lifting grasp (fish pushed at 612, closes on air 1280, 1712). It never tried the second sweet potato.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s28_overview.png", "frames/s28_drop.png"],
+  "packet_facts": ["veg0 hold g91 r242 lift 0.017 (rel. shelf) dist_at_release 0.543, drop 1.279 -> floor, end 0.281 from target", "close 79 w0.02 (touch meat0+veg0); close 612 w0.014 meat0 no lift; 1280 air; 1712 air", "width closed 128-304, 632-1048, 1296-1440, 1728-2136"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact counter-trip timing after 1000 (from the 4-step overview only); the outcome is not affected."
+}

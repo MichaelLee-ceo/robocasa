@@ -1,0 +1,33 @@
+{
+ "tag": "PrepareCoffee_s10_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  452,
+  1200
+ ],
+ "category": "other: missed button press - open fingers straddled the SINGLE button, pressing the face around it, then gave up",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 8 (capsule machine CoffeeMachine102, SINGLE/DOUBLE buttons on the round front face), grey mug_9 on the upper shelf. Stage 0: grasp 125/137, mug under the spout by ~325, released 348 at 0.0183 m (0.0174 m 2 s later), upright - a clean, fast placement. Stage 1: 400-552 the gripper faced the round face head-on with the fingers partly open (0.057-0.079); the wrist view shows the SINGLE button sitting in the gap between the two fingertips and the DOUBLE button outside the right finger. It touched the machine face 452-494 and 497-545, but no start-button contact registered. At 566 it closed the fingers (on nothing) and rotated, pushed at the lower face (568-584), then backed off. 700-1200 it hovered high above and in front of the machine, looking down at the mug, without touching anything. Stage 0 first complete 620 when the arm moved away.",
+ "causal_chain": "mug placed 0.018 m at 348 -> press attempt 452-545 with open fingers straddling the SINGLE button (button in the finger gap) -> machine never on -> closed-finger poke 566-584 also missed -> hovered 700-1200 -> timeout",
+ "self_recovery": "one change of strategy (closed the fingers at 566 and poked again), which also missed; then no further attempts for ~600 steps.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_button_zoom.png",
+   "frames/cmp_layout8_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 137 release 348 dist 0.0183 -> 0.0174",
+   "machine touch 452-494, 497-545; turned_on never",
+   "gripper width 0.057-0.079 at 456-544, close on nothing 566",
+   "stage0 complete 620-1200"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the button geom (a 2 cm square, 0.5 mm deep box on the face) can be reached at all between open fingers; the successes on this machine (s8 open, s22 closed) pressed from the right side of the face."
+}

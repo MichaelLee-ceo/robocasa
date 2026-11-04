@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s9_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 5 (over-the-range microwave MW036 above a gas range, same as failures s1, s5, s6). Stage 0: potato grasped at ~134, released into the bowl at 266 (stage 0 at 267). Stage 1: bowl grasped at 348, tilted past 45 deg while lifted into the high cavity (tipped 576-652; the potato rubs the fingers 562-655 but stays in), released inside at 652, stage 1 at 665 (398 steps). Stage 2: door swung shut 736-802, closed at 794 (129 steps). Stage 3: went straight to the keypad's bottom row and pressed 'Start' at 888-903, the fingertip right on the key (the presses in s1, s5 and s6 landed 2-3 cm lower, on the bezel). Success at 901, the fastest episode.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "The vegetable 'hold' 562-655 is the potato touching the fingers during the bowl carry, not a grasp.",
+ "evidence": {"sheets": ["frames/s9_button.png", "frames/cmp_press_success_wrist.png"],
+   "packet_facts": ["vegetable hold 134-266", "bowl hold 356-652 lift 0.65; tipped 576-652", "door closed 794", "microwave touch 888-893, 900-903; success 901"]},
+ "confidence": "high", "uncertain_about": ""}

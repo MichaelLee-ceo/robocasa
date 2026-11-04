@@ -8,6 +8,6 @@ StoreLeftoversInBowl, WashLettuce), generated on ASUS-GPU on 2026-10-14.
 - How they were generated: `runs/scripts/make_scenes.py --tasks <Task> --seeds 30 --out runs/scenes_seen11_v2`,
   one process per task, seeds 0–29 in order in one env (same script and procedure as scenes_seen5_v2: robosuite
   pre-compile MJCF, ep_meta, initial state, fingerprint with phys_sha1; every scene reloaded and checked).
-  Logs: `runs/_handoff/verify_asus/scenegen/<Task>.log`.
+  Launchers and logs: `../scenegen`.
 - A scene is defined by its saved file, not by its seed: the first reset(seed) of a new env in another process is not
   guaranteed to give the same scene (see ../scenes_seen5_v2_s30/README.md).

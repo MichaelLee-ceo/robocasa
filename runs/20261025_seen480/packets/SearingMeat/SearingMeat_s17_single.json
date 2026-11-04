@@ -1,0 +1,2178 @@
+{
+ "tag": "SearingMeat_s17_single",
+ "task": "SearingMeat",
+ "instruction": "Grab the pan from the cabinet and place it on the front left burner on the stove. Then place the shrimp on the stove and turn the burner on.",
+ "success": false,
+ "steps": 2900,
+ "horizon": 2900,
+ "success_step": null,
+ "online_stage_log": [],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [],
+ "scene": {
+  "layout": 8,
+  "style": 8,
+  "objects": {
+   "pan": "objaverse/pan/pan_5/model.xml",
+   "meat_container": "objaverse/plate/plate_5/model.xml",
+   "meat": "lightwheel/shrimp/Shrimp011/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0789,
+   0.0792,
+   0.0795,
+   0.0796,
+   0.0799,
+   0.0799,
+   0.0804,
+   0.0803,
+   0.0803,
+   0.08,
+   0.0785,
+   0.0762,
+   0.0467,
+   0.0313,
+   0.0323,
+   0.0335,
+   0.04,
+   0.0348,
+   0.0331,
+   0.0325,
+   0.0319,
+   0.0315,
+   0.031,
+   0.0306,
+   0.0301,
+   0.0297,
+   0.0293,
+   0.0288,
+   0.0284,
+   0.0284,
+   0.0283,
+   0.0283,
+   0.0282,
+   0.0281,
+   0.0278,
+   0.0274,
+   0.0269,
+   0.0264,
+   0.0259,
+   0.0255,
+   0.0252,
+   0.0249,
+   0.0246,
+   0.0245,
+   0.0242,
+   0.0238,
+   0.0236,
+   0.0233,
+   0.0232,
+   0.023,
+   0.0228,
+   0.0226,
+   0.0224,
+   0.0222,
+   0.0221,
+   0.0219,
+   0.0217,
+   0.0216,
+   0.0214,
+   0.0213,
+   0.0212,
+   0.0212,
+   0.0211,
+   0.021,
+   0.0211,
+   0.0224,
+   0.0237,
+   0.025,
+   0.0259,
+   0.0269,
+   0.0443,
+   0.0774,
+   0.0783,
+   0.0788,
+   0.0792,
+   0.0794,
+   0.0794,
+   0.0793,
+   0.0794,
+   0.0794,
+   0.0795,
+   0.0795,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0801,
+   0.0726,
+   0.0089,
+   0.002,
+   0.0014,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.007,
+   0.0046,
+   0.0057,
+   0.0043,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0128,
+   0.0713,
+   0.078,
+   0.0786,
+   0.0789,
+   0.079,
+   0.0791,
+   0.0791,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0791,
+   0.0791,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0783,
+   0.0784,
+   0.0789,
+   0.0788,
+   0.0797,
+   0.0769,
+   0.0394,
+   0.0025,
+   0.0016,
+   0.0012,
+   0.001,
+   0.001,
+   0.001,
+   0.0028,
+   0.0017,
+   0.0012,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0069,
+   0.0661,
+   0.0779,
+   0.0785,
+   0.079,
+   0.0793,
+   0.0796,
+   0.0801,
+   0.074,
+   0.063,
+   0.0594,
+   0.0597,
+   0.0595,
+   0.0591,
+   0.0583,
+   0.0574,
+   0.056,
+   0.0546,
+   0.0529,
+   0.0516,
+   0.0504,
+   0.0494,
+   0.0474,
+   0.0395,
+   0.0366,
+   0.0338,
+   0.035,
+   0.0314,
+   0.0321,
+   0.0319,
+   0.034,
+   0.0318,
+   0.0351,
+   0.0639,
+   0.0777,
+   0.0784,
+   0.0789,
+   0.0792,
+   0.0795,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0805,
+   0.0801,
+   0.0756,
+   0.0751,
+   0.0795,
+   0.0785,
+   0.0801,
+   0.08,
+   0.0801,
+   0.0799,
+   0.08,
+   0.08,
+   0.0802,
+   0.0801,
+   0.0801,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0379,
+   0.0104,
+   0.0014,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011
+  ],
+  "close_events": [
+   {
+    "step": 197,
+    "width_after": 0.032,
+    "on_nothing": false,
+    "touching": [
+     "pan"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 832,
+    "width_after": 0.014,
+    "on_nothing": false,
+    "touching": [
+     "meat"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 1340,
+    "width_after": 0.011,
+    "on_nothing": false,
+    "touching": [
+     "meat"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 2267,
+    "width_after": 0.026,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCabinetToStove",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 378,
+    "p90": 813,
+    "n": 9
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToStove",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 196,
+    "p90": 261,
+    "n": 9
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "TurnOnStove",
+   "kind": "fixture",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 225,
+    "p90": 369,
+    "n": 9
+   }
+  }
+ ],
+ "objects": {
+  "pan": {
+   "target_of_stage": 0,
+   "start_pos": [
+    1.0556,
+    -0.2158,
+    1.437
+   ],
+   "end_pos": [
+    0.2399,
+    -1.4966,
+    0.9659
+   ],
+   "at_target_intervals": [
+    [
+     629,
+     631
+    ]
+   ],
+   "dist_to_target_start_m": 1.6833,
+   "dist_to_target_end_m": 0.3671,
+   "min_eef_dist_to_centre_m": 0.1274,
+   "gripper_touch_intervals": [
+    [
+     99,
+     100
+    ],
+    [
+     102,
+     112
+    ],
+    [
+     137,
+     145
+    ],
+    [
+     154,
+     196
+    ],
+    [
+     198,
+     207
+    ],
+    [
+     209,
+     668
+    ],
+    [
+     1911,
+     1911
+    ],
+    [
+     1913,
+     1913
+    ],
+    [
+     1915,
+     1919
+    ],
+    [
+     1921,
+     1922
+    ],
+    [
+     1955,
+     1958
+    ],
+    [
+     1961,
+     1962
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 204,
+     "release_step": 669,
+     "lift_m": 0.007,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.3226,
+     "height_drop_after_release_m": 0.063,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.335
+    },
+    {
+     "grasp_step": 1911,
+     "release_step": 1923,
+     "lift_m": 0.0,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.3474,
+     "height_drop_after_release_m": 0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.3671
+    },
+    {
+     "grasp_step": 1955,
+     "release_step": 1959,
+     "lift_m": 0.0,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.3619,
+     "height_drop_after_release_m": 0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.3671
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 66.8,
+   "tipped_over_intervals": [
+    [
+     514,
+     641
+    ]
+   ]
+  },
+  "meat": {
+   "target_of_stage": 1,
+   "start_pos": [
+    0.4809,
+    -2.1677,
+    0.9372
+   ],
+   "end_pos": [
+    0.1999,
+    -1.6946,
+    0.959
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 2.0347,
+   "dist_to_target_end_m": 0.202,
+   "min_eef_dist_to_centre_m": 0.0167,
+   "gripper_touch_intervals": [
+    [
+     842,
+     843
+    ],
+    [
+     1354,
+     1356
+    ],
+    [
+     1742,
+     1963
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 1354,
+     "release_step": 1357,
+     "lift_m": 0.0,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.7128,
+     "height_drop_after_release_m": 0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.7127
+    },
+    {
+     "grasp_step": 1760,
+     "release_step": 1964,
+     "lift_m": 0.228,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.2021,
+     "height_drop_after_release_m": 0.007,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.2021
+    }
+   ],
+   "brief_contacts_without_lift": 1,
+   "tilt_deg_start": 5.2,
+   "tilt_deg_end": 5.2,
+   "tilt_deg_max": 37.5,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {
+  "stage2:stove": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "done_intervals": [],
+   "gripper_touch_intervals": [
+    [
+     915,
+     950
+    ],
+    [
+     1942,
+     1942
+    ],
+    [
+     2060,
+     2070
+    ],
+    [
+     2073,
+     2109
+    ],
+    [
+     2112,
+     2120
+    ],
+    [
+     2125,
+     2125
+    ],
+    [
+     2129,
+     2134
+    ],
+    [
+     2136,
+     2137
+    ],
+    [
+     2139,
+     2139
+    ],
+    [
+     2146,
+     2146
+    ],
+    [
+     2152,
+     2166
+    ],
+    [
+     2168,
+     2169
+    ],
+    [
+     2171,
+     2172
+    ],
+    [
+     2174,
+     2174
+    ],
+    [
+     2182,
+     2185
+    ],
+    [
+     2188,
+     2191
+    ],
+    [
+     2216,
+     2223
+    ],
+    [
+     2228,
+     2229
+    ],
+    [
+     2292,
+     2292
+    ],
+    [
+     2294,
+     2295
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.351
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.351
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.351
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.351
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.362
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.366
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.367
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.371
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      1.19
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      0.901
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      0.6
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      0.499
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_right",
+      0.444
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.466
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.463
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.445
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.44
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.444
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.353
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.185
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.188
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.098
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.093
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.091
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_right",
+      0.069
+     ]
+    }
+   ],
+   "state_end": {
+    "knob_angles": {
+     "rear_left": 0.0,
+     "rear_right": 0.0,
+     "front_left": 0.0,
+     "front_right": 0.0
+    },
+    "task_knob": "front_left",
+    "pan_nearest_burner": [
+     "rear_right",
+     0.069
+    ]
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCabinetToStove",
+    "pick"
+   ],
+   [
+    249,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    398,
+    "PickPlaceCabinetToStove",
+    "place"
+   ],
+   [
+    670,
+    "PickPlaceCounterToStove",
+    "pick"
+   ],
+   [
+    1787,
+    "PickPlaceCounterToStove",
+    "place"
+   ],
+   [
+    1952,
+    "TurnOnStove",
+    "execute"
+   ],
+   [
+    2900,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": [
+   "burner is not on at the end of the demo"
+  ]
+ },
+ "video": "run/SearingMeat/SearingMeat_s17_single.mp4"
+}

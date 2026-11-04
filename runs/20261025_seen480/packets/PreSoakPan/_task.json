@@ -1,0 +1,46 @@
+{
+ "task": "PreSoakPan",
+ "instruction": "Pick the pan and sponge and place them into the sink. Then turn on the water.",
+ "stages": [
+  "0: PickPlaceCounterToSink",
+  "1: PickPlaceCounterToSink",
+  "2: TurnOnSinkFaucet"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the pan lies completely inside the sink basin and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "the pan is still held, still on the counter, resting on the sink rim or only partly inside the basin, or the gripper is still at the pan."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the sponge lies completely inside the sink basin and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "the sponge is still held, still on the counter, only partly inside the basin, or the gripper is still at the sponge."
+  },
+  {
+   "stage": 2,
+   "counts_as_complete": "water is running from the faucet while the pan and the sponge are both completely inside the sink basin and the gripper is away from both.",
+   "does_not_count": "no water is running, or the pan or sponge is not fully inside the basin, or the gripper is still at one of them."
+  }
+ ],
+ "horizon": 1600,
+ "episodes": 30,
+ "successes": 18,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 301,
+   "p90": 414,
+   "n": 18
+  },
+  "1": {
+   "median": 281,
+   "p90": 348,
+   "n": 18
+  },
+  "2": {
+   "median": 232,
+   "p90": 385,
+   "n": 18
+  }
+ }
+}

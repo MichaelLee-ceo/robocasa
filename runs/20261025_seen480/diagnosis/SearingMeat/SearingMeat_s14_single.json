@@ -1,0 +1,26 @@
+{
+ "tag": "SearingMeat_s14_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 2 (white kitchen; same as s11), 5-zone black induction cooktop with front knobs; pan_6 (dark pan, wooden handle with ferrule) on the high shelf; target front_right; fish on a decorated plate left of the cooktop. Stage 0: close at 82 at the ferrule (handle toward the camera between the fingers, hold 90-364), carried upright, over the front_right zone from 352, released at 364 (0.072 m). Stage 0 complete 378 (= median). Stage 1: fish grasped at ~537 (contacts from 511, lift 0.13 m), released into the pan at 650 (0.012 m): complete 651. Stage 2: knob contacts 730-823; at 760-790 the wrist shows the pan handle right above the knob (stage 0's gripper-far clause broke 751-777, pan did not move); front_right turned to 0.37 rad at 821-833: success 833. No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Stage 0 intervals break at 598, 751 and 777 only because the gripper came within 25 cm of the pan while working near it / at the knob (pan stayed put).",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/all_success_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 90-364 dist 0.072",
+   "stage0 378, stage1 651, stage2 833",
+   "front_right 0.08@800 -> 0.37@832; other knobs 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

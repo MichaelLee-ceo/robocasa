@@ -1,0 +1,25 @@
+{
+ "tag": "PreSoakPan_s25_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L6/S6, the only success of the three L6 episodes. Here the sponge started far left of the sink (not at the basin edge as in s16/s19). Pan (pan_4) grasped by the handle at 127 and placed at 255 (stage 0 at 269). Sponge grasped at 389 and placed in the pan at 515 (stage 1 at 540). Stage 2 took 352 steps. 560-850: the gripper hovered right of the faucet with the small stick lever in the wrist view, without contact. It then pushed the lever from above at 856; success at 892.",
+ "causal_chain": "",
+ "self_recovery": "none needed; a ~300-step hover near the lever (like s27's) ended in a push.",
+ "official_criterion_notes": "Unlike s16/s19, the sponge here did not count as in the sink at step 0 (it started 0.21 m from the region).",
+ "evidence": {
+  "sheets": [
+   "frames/s25_overview.png",
+   "frames/s25_faucet.png"
+  ],
+  "packet_facts": [
+   "sink touch [[223,223],[231,231],[856,896]]",
+   "stage times 269 / 540 / 892"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,25 @@
+{
+ "tag": "StackBowlsCabinet_s17_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [403, 1400],
+ "category": "missed_grasp",
+ "secondary": ["stall_pre_grasp", "other: nest attempt failed at 160 (small bowl not left inside the large bowl), so the policy switched to one-by-one"],
+ "what_happened": "Scene layout 8/style 8 (wood-panelled kitchen, open wooden upper shelf-cabinet, brown wooden counter); both bowls are the same brown model bowl_8 (bowl1 x0.7 ~17 cm, bowl2 x0.95 ~23 cm), low contrast against the brown counter. Strategy: nest attempted, then one-by-one. bowl1 grasped 82/94 (lift 0.12 m), brought over the large bowl (wrist 116-136 shows it overlapping the large bowl) and released at 160. When the gripper came back down (close 203) the wrist view shows a single bowl rim (cmp_pair_grasp.png: no outer rim, unlike the double rim seen at the pair grasp of successes s4/s9/s15/s26), and the close touched and lifted bowl1 only: the small bowl was not seated in the large one. It carried the small bowl alone into the shelf-cabinet (lift 0.445, released 305; stage 0 complete 305, within the typical 318). Stage 1: from 403 to 1316 the gripper worked at the large bowl, which sat against the wood-panel backsplash: the wrist view stays on the bowl's outer wall the whole time (fingers beside the bowl, below the rim) and the fingers closed on the outside 4 times (538, 653, 767, 863, widths 0.003-0.009) plus 10 short contacts (holds 545-635, 737-773, 833-873, 909-926, 936-958, 1004-1012, 1074-1118, 1177-1182, 1306-1316; max lift 8 mm), pushing the bowl ~13 cm. At ~1396 the arm finally pulled away toward the shelf.",
+ "causal_chain": "small bowl not left inside the large bowl at 160 -> re-grasp lifts the small bowl alone (203) -> small bowl into the cabinet, stage 0 at 305 -> large bowl must be picked alone; the gripper stays beside its outer wall (near the backsplash) and closes on the outside for ~900 steps (403-1316), never getting a finger over the rim -> large bowl never lifted -> stage 1 never holds -> timeout",
+ "self_recovery": "Switched to one-by-one after the failed nest and completed stage 0 quickly. About 14 attempts on the large bowl over 900 steps, all from the same side-on pose; it never backed off and re-approached from above.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s17_overview.png", "frames/s17_nest.png", "frames/s17_nestz.png", "frames/s17_nestw.png", "frames/cmp_pair_grasp.png", "frames/s17_big.png", "frames/s17_late.png"],
+  "packet_facts": [
+   "bowl1 holds 94-160 lift 0.124 (dist to cabinet 0.36 at release), 180-305 lift 0.445 at target",
+   "close 203 touching only bowl1 (in successes the second close touches both bowls)",
+   "stage 0 first_complete 305, complete to the end",
+   "bowl2 touch 403-1316, 10 holds all lift <= 0.008; close_events 538 (0.009), 653 (0.006), 767 (0.003), 863 (0.003)",
+   "bowl2 moved 0.13 m (start 4.199,-2.487 -> end 4.287,-2.588)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly where the small bowl landed at 160 (beside or tilted on the large bowl's rim; agent view occluded). Whether the backsplash physically prevents a top-down rim grasp of the large bowl, or the policy simply keeps the wrong (side-on) approach."
+}

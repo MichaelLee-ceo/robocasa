@@ -1,0 +1,37 @@
+{
+ "tag": "StoreLeftoversInBowl_s2_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  1108,
+  1204
+ ],
+ "category": "placed_then_fell_or_slid",
+ "secondary": [
+  "other: bowl carried tilted on its side in the rim grasp (tipped 1108-1190)",
+  "undid_previous_stage",
+  "missed_grasp"
+ ],
+ "what_happened": "Layout 10 (French-door fridge Refrigerator066, glass shelves), red-brown wooden bowl_9, broccoli, drumstick 011. Stage 0: drumstick grasped 133 and released in the bowl at 252. Stage 1: two missed grasps on the broccoli - the fingers closed fully (0.001) at ~352 and ~548, and after the first miss the empty gripper went over the bowl (400) as if carrying it. The third attempt (704) lifted it and dropped it in the bowl at 786; stage 1 at 793 (541 steps, median 216). Stage 2: rim grasp at 858-896 (width 0.023), lifted 0.336 m, base drove to the fridge 920-1110. The bowl turned onto its side in the grasp (tipped 1108-1190). At 1140-1188 the arm held the sideways bowl at the front edge of the middle glass shelf; at 1192 the gripper opened (0.023 -> 0.077) and the bowl tumbled off the shelf edge to the floor (1196-1204), landing upside down (end z 0.037). The arm stayed in the fridge 1204-1700 doing nothing useful.",
+ "causal_chain": "slow stage 1 (two missed broccoli grasps, 541 steps) -> bowl rim grasp, bowl rotated on its side during the carry (1108) -> held at the front edge of the middle shelf, not pushed onto it -> gripper opened at 1192 -> bowl fell off the edge to the floor (drop 0.99 m) -> foods out, stage 2 impossible",
+ "self_recovery": "Stage 1: after two misses the third broccoli grasp worked (704-786). Stage 2: none after the bowl fell.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s2_veg.png",
+   "frames/s2_fridge.png",
+   "frames/s2_drop_zoom.png",
+   "frames/L10_place_compare.png"
+  ],
+  "packet_facts": [
+   "veg close 343 width 0.006 and 536 width 0.014, lifted nothing; veg hold 710-786 lift 0.155",
+   "stage1 first 793 (since prev 541; median 216, p90 284)",
+   "bowl hold 867-1191 lift 0.336, dist at release 0.023, drop 0.994",
+   "gripper width 0.023 until 1184, 0.077 at 1200",
+   "bowl tipped 1108-1190, tilt_end 180"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

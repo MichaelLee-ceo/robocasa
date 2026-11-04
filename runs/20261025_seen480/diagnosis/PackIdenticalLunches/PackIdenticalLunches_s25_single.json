@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s25_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [204, 2600],
+ "category": "stall_pre_grasp",
+ "secondary": ["dropped_in_transit", "missed_grasp_continued_empty", "missed_grasp"],
+ "what_happened": "Scene: layout/style 2; garlic x2, steak_4 (thin slice lying flat on the upper glass shelf, tilt 53 deg) and steak_5 (thick, lower drawer). First trip: gripper closed on the upper-shelf garlic (veg1) at 99, lifted it (hold 108-204), and turned toward the counter; at ~204-212 the garlic slipped out of the fingers (close event 194 width 0.002 = fingers closed on nothing) and fell onto the robot's own mobile base, where it rode along for the rest of the episode (end z 0.40, visible on the base in the left view 212-300). The policy did not notice: with closed fingers it drove to the counter and made an empty 'place' over the left tupperware (~300-380), then drove back to the fridge (~520-620). From ~620 to 2600 (~1980 steps) it stayed at the fridge without lifting anything: it hovered over the flat upper-shelf steak and closed on air above it at 705, then kept the fingers closed 720-1528 while looking alternately at the lower drawer (garlic + thick steak, 900-1500) and the upper shelf (1640-2100); closed on air again at 1822 (closed 1840-2176). Its only real attempt was on the flat steak (contact 2231-2288): the fingers came down along the slice and closed to 0.01 at 2275 without lifting it. A last close on air at 2558. No item ever reached a tupperware.",
+ "causal_chain": "garlic slipped from the grasp onto the robot base during the turn (~205) -> empty place at the counter (300-380), trip wasted (~420 steps) -> back at the fridge from ~620: ~1980 steps of hovering with mostly closed fingers (closes on air 705, 1822) and one failed pinch of the flat steak (2275) -> 0 items placed at 2600",
+ "self_recovery": "It returned to the fridge after the empty place (good), but never re-grasped anything; the one attempt on the flat steak failed and it never tried the garlic or thick steak in the drawer.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s25_overview.png", "frames/s25_drop.png", "frames/s25_fridge_phase.png", "frames/s25_steak_attempt.png"],
+  "packet_facts": ["veg1 hold g108 r204 lift 0.086, end z 0.40 (on robot base)", "close 194 w 0.002; close 705 air; close 1822 air; close 2275 on meat0 w 0.01 no lift; close 2558 air", "width closed 720-1528 and 1840-2176", "meat0 touch 2231-2288, max lift 0"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exactly when in 204-212 the garlic left the fingers (it is gone from the wrist view at 212). Why the policy kept the fingers closed while hovering (it looks like the 'holding' mode persisted after the empty place)."
+}

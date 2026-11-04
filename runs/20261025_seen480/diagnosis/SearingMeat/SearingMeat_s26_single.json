@@ -1,0 +1,34 @@
+{
+ "tag": "SearingMeat_s26_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  512,
+  880
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "dropped_in_transit",
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene: layout 9 (dark-blue cabinets; same kitchen as s0/s2/s3/s13/s18), 5-burner gas hob; pan_7 (rusty cast iron, integrated handle) in the high upper cabinet; target rear_center; shrimp on a plate right of the hob. Stage 0: grasp at 122 at the base of the handle (pan body in front of the fingers, width ~0.049, hold 153-587); the pan swung to near-vertical while carried (tipped 349-498) and was lowered from the right onto the gap between the large left burner and the rear_center burner (zoom 560-600), released at 587, 0.190 m from the rear_center centre. Stage 1: shrimp grasped at 681-692 (lift 0.19 m), carried over the hob and released at 736 about 15 cm above the bare grate to the right of the pan (0.55 m from the pan; it fell 0.16 m and stayed on the grate). At 815-880 the gripper went back and held the pan handle again, nudging the pan only to 0.179 m. Stage 2: it turned rear_right first (1.47 rad at 1056, then back to 0 by 1472), then the task knob rear_center (1.07-1.33 rad from 1824, 0.84 at the end; blue flame right next to the pan), and rear_right again (1.32 at the end). Stages 0 and 1 never held.",
+ "causal_chain": "pan set down between the left and rear_center burners (587, 0.19 m from target) -> shrimp released over the bare grate 0.55 m from the pan (736) -> one small pan nudge (815-880) to 0.179 m -> task knob on but neither pan nor shrimp in place -> fail",
+ "self_recovery": "Re-grasped the pan handle at 815-880 (looks like an attempt to adjust the pan) but moved it only ~1 cm; never retrieved the shrimp.",
+ "official_criterion_notes": "Pan ends 0.178 m from rear_center (threshold 0.15); visually it straddles the left/rear_center grates. Even if counted, the shrimp is outside the pan, so stage 1 fails.",
+ "evidence": {
+  "sheets": [
+   "frames/s26_place.png",
+   "frames/s26_place_zoom.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 153-587 dist at release 0.1903; hold 815-880 -> 0.1792; end 0.1781",
+   "shrimp hold 692-736 lift 0.188, released 0.552 m from pan, drop 0.156",
+   "knobs: rear_right 1.47@1056 -> 0@1472 -> 1.32 end; rear_center (task) 1.07@1824 -> 0.84 end",
+   "stage2:stove done [[1802,2900]]"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 815-880 handle contact was a deliberate re-placement attempt."
+}

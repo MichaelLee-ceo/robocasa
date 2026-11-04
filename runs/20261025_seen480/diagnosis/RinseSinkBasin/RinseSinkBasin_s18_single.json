@@ -1,0 +1,27 @@
+{
+ "tag": "RinseSinkBasin_s18_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 9 (pull-down faucet, same as failures s0/s3/s13/s20/s26). Stage 0: approached the lever from the right of the neck (wrist sees only the wall 156-212, as in failure s20), contact 162-200, water at 196. Overview pose ~276. Spout head taken ~328 (close 336), swept LEFT (left washed 357, -0.67) then back RIGHT (right washed 463 at +0.54, success 463), contact 328-464 continuous. Stage 1: 267 steps.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Right credited at +0.54, 0.02 rad past the threshold.",
+ "evidence": {
+  "sheets": [
+   "frames/s18_overview.png",
+   "frames/s18_handle.png",
+   "frames/L9_handle_compare.png"
+  ],
+  "packet_facts": [
+   "online log [[208,0],[464,1]]",
+   "fixture touch 328-464",
+   "spout angle from saved states (column validated against packet washed_loc): L 357, R 463 (max +0.54)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

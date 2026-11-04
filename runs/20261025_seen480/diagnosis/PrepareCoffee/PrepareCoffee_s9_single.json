@@ -1,0 +1,34 @@
+{
+ "tag": "PrepareCoffee_s9_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  240,
+  939
+ ],
+ "category": "other: mug tipped in the grip during placement - pitched forward while being lowered to the tray, then held tipped at the tray for ~650 steps and released on its side",
+ "secondary": [
+  "stall_holding_at_target",
+  "placed_off_target",
+  "ran_out_of_time"
+ ],
+ "what_happened": "Scene: layout 5 (same black CoffeeMachine042 as s4: two cup-icon buttons on the upper front, two nozzles), grey mug_9 on the upper shelf. Stage 0: first close on air 95, grasp 111 by the rim, carried down to the front of the tray by ~212. While it was lowered and pushed towards the tray (240-283) the mug rotated in the fingers: the wrist view shows it pitching forward until its side and handle face up, tipped > 45 deg from 283. The policy kept holding the tipped mug at the tray and nozzles from 283 to 939 (~650 steps, 33 s), shifting it around (at target only briefly while held: 609-687, 691-694, 908-932; the arm touched the machine 657-691 and 888-944). It released at 939, 0.0459 m from the pour site; the mug lay on its side on the tray (tilt 82.6 deg), 0.0422 m from the pour site at the end. Stage 1: 960-1000 the gripper moved up along the machine front past the buttons (touch 969-987, no press) and then withdrew; the machine never turned on.",
+ "causal_chain": "rim grasp; mug pitches forward in the grip while being lowered to the tray (240-283) -> policy holds the tipped mug at the tray 283-939 without resolving it -> released lying on its side 0.046 m from the pour site (939) -> ~260 steps left, one pass along the buttons without a press -> timeout",
+ "self_recovery": "it kept re-positioning the tipped mug for 650 steps (it was within 4 cm briefly while still held) but never set it upright or let go in position.",
+ "official_criterion_notes": "The mug ended lying on its side 0.042 m from the pour site - 2 mm outside the tolerance. Had it been 2 mm closer, stage 0 would have counted a toppled mug as placed (no upright test), as in s5.",
+ "evidence": {
+  "sheets": [
+   "frames/s9_overview.png",
+   "frames/s9_tip.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 111 release 939 dist 0.0459 -> 0.0422",
+   "tipped_over_intervals [[283,1200]], tilt end 82.6",
+   "at_target_intervals [[609,687],[691,694],[908,932]] all while held",
+   "machine touch 657-691, 888-944, 969-987; turned_on never"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "What exactly rotated the mug (contact with the tray front edge vs. gravity about a loose rim grasp); the wrist view shows the rotation but not the contact."
+}

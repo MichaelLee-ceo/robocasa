@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s11_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [509, 2600],
+ "category": "missed_grasp_continued_empty",
+ "secondary": ["missed_grasp", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 2; two broccoli_3 (one upper shelf, one in the lower drawer) and two fish on the upper shelf: fish_5 (deep-bodied, standing tilted, meat0) and fish_7 (trout, meat1). Stage 0: grasped the upper broccoli veg1 at 87-93 and released it at 258 in the right tupperware (dist 0.06); stage 0 complete 278 (typical 286). Stage 1: at the fridge the fingers came down between the trout's head and the deep-bodied fish and closed at 509 (width 0.022, touching both, no lift); fish_5 was knocked over (tipped from 530). With closed empty fingers (528-1016) it drove to the counter and made an empty place over the broccoli tupperware (~1000-1050). It returned and took the drawer broccoli veg0 instead (1269-1278), releasing it at 1466 in the left tupperware (dist 0.01); stage 1 complete 1504 (1226 steps, typical 401). Composition so far veg | veg (fine for the goal). Stage 2: back at the fridge it came down on the trout's back and closed at 1715 (width 0.008) - the fingers slid off without lifting (hold 1718-1726, lift 0.006). It again carried the closed empty fingers to the counter (closed 1736-2600), made an empty place over a tupperware (~2100) and stayed hovering at the counter to the end. Both fish never left the shelf.",
+ "causal_chain": "failed grasp on the fish pair (509) -> empty trip + empty place (~1050), stage 1 only completed with the second broccoli at 1504 (~800 steps lost) -> failed grasp on the trout (1715) -> second empty trip/place (~2100) and hover at the counter to timeout -> 2 of 4 placed (both vegetables), no meat",
+ "self_recovery": "After the first fish failure it switched to the remaining broccoli and succeeded; after the second fish failure it did not return to the fridge (stayed at the counter ~500 steps).",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s11_overview.png", "frames/s11_fish.png"],
+  "packet_facts": ["veg1 hold g93 r258; stage0 278", "close 509 w0.022 touching meat0+meat1, not lifted; meat0 tipped from 530", "width closed 528-1016", "veg0 hold g1278 r1466; stage1 1504", "close 1715 meat0 w0.008 not lifted; width closed 1736-2600"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Which fish the second close was on (packet says meat0; the wrist view looks like the trout's back) - outcome identical."
+}

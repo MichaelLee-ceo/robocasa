@@ -1,0 +1,31 @@
+{
+ "tag": "PrepareCoffee_s14_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  340,
+  404
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 2, black espresso machine CoffeeMachine045 (portafilter with long handle, drip tray grate, one cup-icon start button on the upper housing), grey mug_9 on the upper shelf. Stage 0: grasp 91/106, carried to the machine by ~236. 340-388 the mug was held beside the group head, to its left as seen from the robot (wrist view: mug lower-left, group head centre-top, drip-tray grate lower-right), and released there at 393, 0.0721 m from the pour site. It settled 0.0882 m away 2 s later (small 1.3 cm drop as the fingers left), upright, at the left front edge of the tray. Never at target. The policy did not adjust it. Stage 1: the arm backed off (520 wrist sees the machine top from above), rose and looked around the kitchen 600-1100, and only at 1120-1196 came back over the machine top with the button in view; it never touched the machine. The machine stayed off.",
+ "causal_chain": "mug held beside (left of) the group head and released 0.072 m from the pour site (393) -> slid to 0.088 m as the fingers left -> no correction; policy wanders 520-1100 -> returns to the machine top only at the very end without pressing -> timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_place.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 106 release 393 dist 0.0721 -> 0.0882, drop 0.013",
+   "at_target_intervals []",
+   "machine touch none; turned_on never"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact direction in world coordinates (from the wrist view it is beside the group head, on the side away from the drip-tray centre)."
+}

@@ -1,0 +1,36 @@
+{
+ "tag": "SearingMeat_s6_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  160,
+  900
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: layout 5 (black kitchen, same as s1), pan_4 (black non-stick pan, black handle with a light ferrule) in the upper cabinet; target rear_left burner 0.78 m away; shrimp on a plate right of the range. Stage 0: the gripper came to the handle near the pan body (touch 94-135); in the wrist view the handle runs left-right across the image, i.e. along the finger-closing direction rather than between the fingers (in successes it runs from the pan toward the camera). It closed at 166 touching the pan (width 0.019) and the fingers slid off (0.007 by 184; hold 178-185, no lift). 192-650 it backed off and hovered 30-50 cm in front of the pan (wrist shows the whole pan) with one close on air (655). Second attempt 744-807: fingers at the ferrule/rim junction, handle again diagonal across the fingers; closed at 794 (0.006), slipped again (hold 781-807). From ~900 the robot turned to the range and the shrimp plate empty-handed (1000-1400), and 1724-2430 worked on the shrimp: a pinch at 2212 without lift, then lifted it at 2379-2389 (0.18 m) and let it fall at ~2427 near the front edge of the range/counter (1.39 m from the pan). It never returned to the pan; no knob was touched.",
+ "causal_chain": "approached the pan handle with the handle lying along the finger-closing axis -> fingers slid off at 166 -> hovered 192-650 -> second slip at 794 -> abandoned the pan and moved on to the shrimp (900-2430) -> pan never left the cabinet -> timeout",
+ "self_recovery": "One retry at 744-807 with the same handle orientation; failed the same way. No change of approach angle.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png",
+   "frames/s6_grasp.png",
+   "frames/s6_grasp2.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "close 166 on pan width 0.019 -> 0.007; hold 178-185 lift 0.003",
+   "close 655 air; close 794 on pan 0.006; hold 781-807",
+   "pan end dist 0.834 (start 0.784): stayed in cabinet",
+   "shrimp hold 2389-2427 lift 0.178, drop 0.173",
+   "all knobs 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "The finger-handle geometry is read from 4-step wrist frames of a black handle on a dark background."
+}

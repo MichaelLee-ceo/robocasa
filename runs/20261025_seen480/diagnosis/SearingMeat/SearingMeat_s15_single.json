@@ -1,0 +1,30 @@
+{
+ "tag": "SearingMeat_s15_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 10 (same kitchen as s7/s29), 4-element black glass electric range with front knobs; pan_5 (black pan, long tan wooden handle) in an upper cabinet; target rear_left; steak on a wooden board right of the range. Stage 0: close at 85 near the handle base (handle toward the camera between the fingers, hold 95-311), carried upright and set on the rear_left element (at_target from 264), released at 311 (0.074 m); complete 325 (median 378). Note this is one of only two pan_5 episodes that grasped near the pan body; the four pan_5 failures held the handle tip. Stage 1: steak grasped at 410-421 (lift 0.22 m), released into the pan at 509 (0.016 m). Stage 2: knob contact from 660; at 736 two knobs had moved together, rear_left (task) 0.33 -> 0.49 rad and front_left 0.41 -> 0.52 rad; the large front_left element glows red in front of the pan (736). Success at 737 because the task knob crossed 0.35.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Success came with a second, non-task burner (front_left) on as well; the official check does not penalise extra burners. Both knobs moved during the same contact, so it is unclear which one the policy was aiming for.",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png",
+   "frames/s15_knob_wrist.png",
+   "frames/s15_knob_left.png",
+   "frames/all_success_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 95-311 dist 0.074",
+   "stage0 325, stage1 509, stage2 737",
+   "knobs @736 rear_left 0.33 front_left 0.41; end rear_left 0.492, front_left 0.521"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the policy turned two knobs in one push or meant front_left (its common target) and moved rear_left by contact; the wrist view does not resolve it."
+}

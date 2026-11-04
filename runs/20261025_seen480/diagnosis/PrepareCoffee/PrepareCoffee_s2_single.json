@@ -1,0 +1,33 @@
+{
+ "tag": "PrepareCoffee_s2_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  440,
+  1200
+ ],
+ "category": "other: no retreat after the button press - pressed the start button, then kept rubbing the top of the machine until timeout",
+ "secondary": [
+  "stall_at_fixture",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 9 (same kitchen and brown two-button machine as s0), blue mug_7 on the upper shelf. Stage 0: grasp 117/132 (rim), carried to the machine and set on the tray, released 338 at 0.0343 m from the pour site (0.0346 m 2 s later), upright; at target 311-1200. Stage 1: 384-444 the fingers went down the front face to the lower button; the machine registered on at 440 and stayed on. The gripper never backed off: 480-1200 it hovered over and rubbed the lid of the machine (touch 517-598, 681-839, 1119-1200). Stage 0 held only 609-619 (arm briefly > 25 cm from the mug). Success never held because the gripper was always within 15 cm of the button or 25 cm of the mug.",
+ "causal_chain": "mug placed 0.034 m from the pour site (338) -> button pressed, machine on (440) -> gripper stays over the machine top 480-1200 -> 'gripper away from button and mug' clause never met -> timeout",
+ "self_recovery": "none; after the press it kept moving over the machine as if still looking for the button.",
+ "official_criterion_notes": "Both physical sub-goals were done by 440. Failure is only the gripper-away clause. first_incomplete_stage = 0 is an artifact of the 25 cm release clause (undone_events: 'only the release part broke').",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png",
+   "frames/s2_press.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 132 release 338 dist 0.0343 -> 0.0346",
+   "coffee_machine turned_on 440-1200",
+   "machine touch 384-395, 440-454, 517-598, 681-839, 1119-1200",
+   "stage0 complete only 609-619"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

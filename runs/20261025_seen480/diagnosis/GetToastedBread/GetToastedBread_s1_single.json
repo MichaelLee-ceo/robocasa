@@ -1,0 +1,32 @@
+{
+ "tag": "GetToastedBread_s1_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  816,
+  2000
+ ],
+ "category": "stall_pre_grasp",
+ "secondary": [],
+ "what_happened": "Scene: layout 2, black 4-slot (two-pair) toaster on a wooden counter, bread in the 2nd slot from the left (pair 0). Stage 0: the gripper half-closed at ~160 and pushed the pair-0 lever down 160-176 (bread carriage dropped 5 cm with it), toaster on 176-675. The gripper closed fully at ~224 and stayed closed for the rest of the episode. During toasting it hovered at the front and right of the toaster, touching the housing 546-688. The lever rose 688-848 and stage 0 completed at 816 (online log 816, replay agrees). Stage 1: the bread stood popped up in the slot from ~850 to the end. The arm stayed beside and above the toaster's right end 850-2000 (about 1150 steps, 57 s) with the wrist camera aimed at the toaster and the bread in view. It never opened the gripper, never moved over the slot and never touched the bread (no bread contact all episode; closest eef approach 0.12 m). At the end the bread was still in the toaster.",
+ "causal_chain": "lever pressed correctly at 176 with closed fingers -> waited, pop-up done at 816 -> fingers never reopened, arm hovered beside the toaster 850-2000 without approaching the bread -> bread never left the slot -> stage 1 not done at the timeout (2000)",
+ "self_recovery": "none: no grasp attempt on the bread in ~1150 steps after the pop-up.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png",
+   "frames/s1_press.png",
+   "frames/s1_pop.png",
+   "frames/s1_late.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[816,0]]; stage0 complete 816-2000",
+   "toaster pair0 on 176-675; lever 1.0 at 176, 0.0 at 848",
+   "gripper closed (<=0.004) from 224 to 2000; close_events 143 (0.03), 212 (0.002), both on nothing",
+   "obj gripper_touch_intervals [] and holds []; min_eef_dist_to_centre 0.119 m; bread end pos = start pos"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the policy never re-opened the gripper; the video only shows that it did not."
+}

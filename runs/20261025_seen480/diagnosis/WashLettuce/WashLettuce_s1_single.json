@@ -1,0 +1,27 @@
+{
+ "tag": "WashLettuce_s1_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 5 / style 5 (same sink and faucet as the failure s6); romaine lettuce (Lettuce009) in a perforated colander right of the sink. Stage 0 abnormally slow: the gripper reached the vertical stick lever at 174 and stayed at it, almost continuously in contact, until 743 (touch 174-743). The wrist view shows the stick standing next to the fingers essentially unchanged 200-640; the handle angle stays at 0 and reads 6.28 at 480-640, which is the packet's wrap-then-abs artifact for an angle a hair below 0 (effective angle ~0: the lever was pressed marginally toward the off side, i.e. not turned at all). Only at 656-722 did the lever tilt (0.01 at 672, 0.16 at 704, 0.38 at 720), water on at 722 (median 253, p90 449). Stage 1 then ran at normal speed: colander rim grasped at 951 (width 0.026), carried under the stream ~1000-1020, success at 1048 (326 steps, median 303), only 52 steps before the 1100 horizon.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from a ~480-step stall at the lever (174-656) by itself; the episode succeeded with 52 steps to spare, so it was nearly a stage-0 timeout.",
+ "official_criterion_notes": "fixture value 6.28 = packet tooling artifact (angle a hair below 0 wrapped mod 2pi then abs); effective angle min(v, 2pi-v) ~ 0; water_on false in state_every_32_steps, consistent with the video.",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png",
+   "frames/s1_handle.png"
+  ],
+  "packet_facts": [
+   "sink touch [[174,302],[305,382],[384,430],[433,636],...,[707,743]]",
+   "handle 0 / 6.28 until 656, 0.16@704 0.38@720 0.49 from 736; stage0 first complete 722",
+   "close_events 951 (0.028, colander)",
+   "success_step 1048, washed_time 33"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,29 @@
+{
+ "tag": "RinseSinkBasin_s4_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  403,
+  900
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [],
+ "what_happened": "Scene layout/style 8: steel sink with drainboard, spout arm with a round head, white paddle lever (same faucet as s8, s10, s17, s22). Stage 0: touches from 173, partial close at 192 (0.043); while the paddle was worked the spout was dragged right (+0.18 at 190, +0.39 at 270); handle on at 270 (median 189, p90 230; 80 steps slow, not decisive). Stage 1: 374-430 the gripper pushed the spout head further right (+0.59 at 406, right washed 403, +0.94 at 430). 430-620 it stayed pressed against the round head with an unchanging wrist view, the spout oscillating +0.83..+1.08 (pushing it at/near its right end) for ~190 steps. ~640 it let go, touched the paddle 671-689 (handle stays 0.50), looked at the drainboard 720-760, and 778-883 pushed the spout right again (+0.87). It never pushed the spout toward the left (minimum after water on +0.39).",
+ "causal_chain": "spout dragged right during the handle turn and pushed right (403) -> pressed it at the right end 430-620 -> wandered to the paddle and drainboard 640-770 -> pushed right again 778-883 -> left never washed at 900 (497 steps of stage 1 available)",
+ "self_recovery": "none in the needed direction; all later contacts pushed the spout right again.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_spout.png"
+  ],
+  "packet_facts": [
+   "stage0 270 (typical 189/230); washed_loc [F,T,T], spout_ori right",
+   "fixture touch 374-647, 671-689, 778-883 (merged)",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: +0.39@270, +0.59@406, +0.83..+1.08 during 430-620, +0.79@896, never below 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 430-620 press was intended as a hold or an attempt to rotate further; either way it never reversed direction."
+}

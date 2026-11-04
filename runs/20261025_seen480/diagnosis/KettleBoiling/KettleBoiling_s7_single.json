@@ -1,0 +1,26 @@
+{
+ "tag": "KettleBoiling_s7_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Grasp at 85, lift 0.42 m, released 213 on the front-left burner (0.025 m); stage 0 at 242. Knob on the front panel below the cooktop: gripper at the panel from ~300, knob contact from 369. It turned slowly and reached only 0.358 rad at 464 (threshold 0.35). Stage 1 at 464 (222 steps, near p90 229).",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Success hinged on the knob just crossing 0.35 rad on the last step (0.358 at 464).",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/s7_dense.png"
+  ],
+  "packet_facts": [
+   "holds: 85-213 lift 0.417 dist 0.025",
+   "stove touch 369-464; front_left 0.358",
+   "stage1 steps 222 (p90 229)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

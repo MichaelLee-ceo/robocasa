@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s22_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [560, 2600],
+ "category": "missed_grasp_continued_empty",
+ "secondary": ["missed_grasp", "other: arm folded down toward its own base and froze 1880-2600"],
+ "what_happened": "Scene: layout/style 2; two broccoli_3 and two steak_9 (thick, irregular) in the fridge; tupperwares by the knife block next to the oven tower. Stage 0: grasped the upper-shelf broccoli veg0 at ~66-86 (the fingers closed on it at near-full width, so no close event is logged), carried it to the counter and released it at 260 in the left tupperware (dist 0.097); stage 0 complete 281 (typical 286). Stage 1: back at the fridge ~400, the arm folded with the wrist camera looking at the robot's own base (560-660) and closed on air at 626 (width 0.006). With closed, empty fingers (640-984) it drove back to the counter and made an empty 'place' over the broccoli tupperware (940-1000). Back at the fridge, it hovered over the upper-shelf steak and closed on air twice (1251, 1271), then a second empty trip and empty place at the counter (1440-1500). Third return: the fingers reached the upper-shelf steak meat1 (1776-1800) and closed at 1789 (width 0.014) without lifting it (contact 1798 only). From ~1830 the arm folded down again and stayed in that pose, wrist camera on its own base, with the fingers closed to the end (1808-2600). 1 of 4 items placed.",
+ "causal_chain": "first item placed normally (260) -> close on air at the fridge (626) -> empty trip/place (~980) -> closes on air above the steak (1251, 1271) -> empty trip/place (~1490) -> failed close on the steak (1789) -> folded arm, frozen to timeout; 1 of 4 placed",
+ "self_recovery": "Three returns to the fridge, each ending in a close on air or a non-lifting close; never checked the gripper before driving off.",
+ "official_criterion_notes": "Stage 0 has 8 'object left the target' undo events (999-2445), all 1-3 steps long; the broccoli stays in the tupperware the whole time (contact flicker / gripper coming back during the empty places), not real undos. Packet note: the broccoli grasp (66-260) has no close_event because the finger width never dropped below 'open' (wide object).",
+ "evidence": {
+  "sheets": ["frames/s22_overview.png", "frames/s22_attempts.png"],
+  "packet_facts": ["veg0 hold g86 r260 at target, stage0 281", "close 626 air w0.006; 1251 air; 1271 air; 1789 meat1 w0.014 not lifted", "width closed 640-984, 1280-1480, 1808-2600", "width 'open' 8-616 while carrying the broccoli"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact moment of the empty places (from 4-step frames)."
+}

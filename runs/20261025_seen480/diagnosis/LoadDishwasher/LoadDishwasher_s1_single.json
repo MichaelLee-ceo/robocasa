@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s1_single", "success": false,
+ "failed_stage": 2, "root_cause_stage": 2, "root_cause_steps": [816, 1200],
+ "category": "wrong_fixture_element", "secondary": ["stall_at_fixture"],
+ "what_happened": "Scene layout 5 but with the robot LEFT of the dishwasher (dishwasher at the right edge of the agent view; a bank of black shaker-style drawers/doors with bar handles on the robot's left), cup_5 and bowl_6. Stage 0: bowl grasped 106-115 (lift 0.012), released on the slid-out rack 251; stage 0 complete 251 (fast). Stage 1: cup grasped 355-363, then held over the rack 420-720 (~300 steps, slowly lowering; wrist shows the cup over the rack with the control panel in view), released 722; stage 1 complete 742 (491 steps, p90 272). The cup's arrival nudged the bowl (stage 0 briefly undone 689 and 709). Stage 2 (458 steps left): 768-816 the gripper rose over the rack, then from 832 it went left and down to the handle of the adjacent cabinet drawer/door (wrist 832-1196: a silver bar pull on a black framed cabinet panel; agent view: gripper at the drawer handle left of the dishwasher). It closed on air there at 836, 880 and 960 and stayed at that handle until the timeout. The dishwasher was touched once (815); the rack was never pushed in and the door never moved (closedness 0.00 throughout).",
+ "causal_chain": "both dishes on the rack 742 with 458 steps left -> policy went to the neighbouring cabinet's bar handle instead of the dishwasher door (832) -> three closes on air at that handle (836-960) and hovering there to 1200 -> door never touched -> fail",
+ "self_recovery": "none: it never returned to the dishwasher after 832.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s1_overview.png", "frames/s1_cuphold.png", "frames/s1_door.png", "frames/s1_door_zoom.png", "frames/all_start_left.png"],
+  "packet_facts": ["dish1 hold 115-251; stage0 251", "dish0 hold 363-722 lift 0.042; stage1 742 (491 steps)", "closes on air 836, 880, 960", "dishwasher touch 815 only; door value 0.00 throughout"]},
+ "confidence": "high",
+ "uncertain_about": "Whether the handle is a drawer or a cabinet door handle (the wrist shows a bar pull on a framed black panel); either way it is not the dishwasher."}

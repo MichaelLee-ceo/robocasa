@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s16_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  840,
+  1600
+ ],
+ "category": "other: stir misdirected - blade kept beside or on the rim of the pot, pushing the pot instead of sweeping the vegetables",
+ "secondary": [
+  "disturbed_placed_object"
+ ],
+ "what_happened": "Scene: layout 6, steel pot (Pot069) on the rear-left zone of a smooth-top electric range (zone glowing red), corn and garlic on the counter right of the range, spatula_5 (blue silicone) by a toaster. Stage 0: a double grasp at 92 lifted the corn (garlic touched too), corn dropped into the pot 205 (complete 205). Stage 1: two slipping touches on the garlic (317, 325-334), then grasp 412, dropped in 554 (complete 560; 355 steps vs median 282). Stage 2: spatula grasped 702 at the very end of its handle (wrist view: the hanging hole right between the fingers), lifted (complete 715) and held to the end. Stage 3: the base shifted left (~780) and from ~840 to 1600 the gripper hovered over the pot's left/back rim with the spatula hanging below it, out of view of both cameras. The pot was pushed left: the glowing burner is exposed on the pot's right from ~1080, and stage 0/1 conditions break repeatedly (852-1431). Over ~760 steps no stir step was counted (success_time 0).",
+ "causal_chain": "spatula held by the end of the handle from 715 -> ~760 steps of hovering at the pot rim with the blade hanging into/against the pot -> pot shoved left off the burner centre, vegetables not stirred in a way that counts -> timeout",
+ "self_recovery": "Small re-positionings over the pot for ~760 steps, never a clear sweep through the pot.",
+ "official_criterion_notes": "The blade is hidden from both cameras during the stir; whether it touched veg1 (garlic) cannot be verified from the video and the packet has no spatula-vegetable contact field.",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png",
+   "frames/s16_pot_zoom.png",
+   "frames/s16_wrist.png"
+  ],
+  "packet_facts": [
+   "veg2 hold 102-205; veg1 holds 102-109 (lift 0), 325-334 (lift 0.006), 421-554",
+   "spatula close 702 width 0.028 lifted; stage2 719-1600",
+   "stage0/1 breaks at 852, 888, 912-1024, 1215-1253, 1431",
+   "success_time 0"
+  ]
+ },
+ "confidence": "low",
+ "uncertain_about": "Where the blade was during 840-1600 (occluded): it may have been touching only veg2, only the pot wall, or nothing. The pot displacement is clear."
+}

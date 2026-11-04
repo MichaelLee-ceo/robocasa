@@ -1,16 +1,15 @@
-# large or regenerable outputs (copy with rsync if needed; see runs/_handoff/README.md)
+# Large or regenerable outputs stay on the machine that made them (see runs/_handoff/README.md for moving them)
 *.mp4
 *.jpg
 *.png
 *.log
-!prev/scripts/sched/*.log
 *.npz
+__pycache__/
+# frozen scenes are inputs, and small
 !scenes_seen5_v2/*.npz
 !scenes_seen5_v2_s30/*.npz
 !scenes_seen11_v2/*.npz
-!prev/20261013_scenes_v2/*/*_single_states.npz
-!prev/20261013_pretrain3/*/*_single_states.npz
-report/
-report_v2/
-scenes_seen5/
-__pycache__/
+# the scene-generation logs are the record behind the frozen scenes
+!scenegen/logs/*.log
+# the report's page build (build_pub.py)
+report_pub/

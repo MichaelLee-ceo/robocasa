@@ -1,0 +1,35 @@
+{
+ "task": "WashLettuce",
+ "instruction": "Wash the lettuce in the sink by running water over it.",
+ "stages": [
+  "0: TurnOnSinkFaucet",
+  "1: PickPlaceCounterToSink"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "water is running from the faucet.",
+   "does_not_count": "the faucet is still off (no water stream), even if the gripper is touching the handle."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the lettuce has been under the running water stream for a while (in total at least about one second).",
+   "does_not_count": "the water is off, or the lettuce has not yet been under the water stream long enough (it is still on the counter, held away from the stream, or only just reached it)."
+  }
+ ],
+ "horizon": 1100,
+ "episodes": 30,
+ "successes": 19,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 253,
+   "p90": 449,
+   "n": 19
+  },
+  "1": {
+   "median": 303,
+   "p90": 345,
+   "n": 19
+  }
+ }
+}

@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s20_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 0, "root_cause_steps": [373, 980],
+ "category": "stall_holding_at_target", "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene layout 9 (navy cabinets, double sink; dishwasher at the right edge of the agent view, robot on the same side as s3), white/pink cup_5 and dark wooden bowl_8. Stage 0: cup grasped 140-148 with the fingers almost fully closed on its wall (width 0.005), lowered into the slid-out rack (cup touching the rack from 293 while still held) and released 373 (0.09 m from the box, upright). The gripper then stayed at the cup: open fingers resting against it 384-644 (touch continuous to 652, plus 661-677), and from ~680 to ~980 hovering a few cm from the cup with the wrist view filled by the cup interior and the rack, barely moving. Stage 0 first held only at 645 when contact broke. At ~1000 it finally rose, went to the bowl (1040), grasped it 1069-1077 (lift 0.043) and was holding it over the rack next to the cup at 1148-1200 (not released) when the episode ended. The door was never addressed (dishwasher touches are rack contacts).",
+ "causal_chain": "cup placed at 373 (normal timing) -> gripper parked at the placed cup 373-980 (~600 steps; in successes the arm leaves within ~10-20 steps of release) -> bowl grasped only at 1069 -> bowl over the rack, still held, at the timeout (1200)",
+ "self_recovery": "The policy eventually left the cup (~980) and carried the bowl to the rack; stage 1 would likely have completed within a few dozen steps.",
+ "official_criterion_notes": "Stage 0 first_complete_step 645 lags the real placement (373) because the open fingers kept touching the cup.",
+ "evidence": {"sheets": ["frames/s20_overview.png", "frames/s20_mid.png"],
+  "packet_facts": ["dish0 hold 148-373 lift 0.041; touch 141-644, 647-652, 661-677; at_target from 293", "stage0 645", "gripper width 0.08 (open) 384-1076", "dish1 hold 1077-end (not released), dist 0.22"]},
+ "confidence": "high",
+ "uncertain_about": ""}

@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s18_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout/style 5; two eggplant_4, steak_8 (round, meat0) and steak_9 (meat1); tupperwares right next to the fridge. Steak meat1 grasped 141-150, released 332 into tupperware B (y~-1.45; ended on its side, tilt 67 deg); stage 0 at 359. Eggplant veg1 grasped 601-609, released 740 into the empty tupperware A (y~-1.2); stage 1 at 762. Steak meat0 grasped 950-959, released 1183 into A next to the eggplant (complete pair); stage 2 at 1215. Eggplant veg0 grasped 1440-1448, released 1599 into B next to steak meat1; success 1619. All choices content-correct, all stages near the median.",
+ "causal_chain": "",
+ "self_recovery": "none needed; stage-1/3 undo events (769, 779, 1121, 1620) are 1-step contact flicker.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s18_overview.png", "frames/compare_tupperware_choice.png"],
+  "packet_facts": ["meat1 hold g150 r332; veg1 hold g609 r740; meat0 hold g959 r1183; veg0 hold g1448 r1599", "stages 359, 762, 1215, 1619"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

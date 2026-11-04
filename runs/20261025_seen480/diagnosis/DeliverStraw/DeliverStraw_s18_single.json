@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s18_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  180,
+  1400
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "missed_grasp",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Layout 10, drawer on the far wall (straw x=4.14). 140-210 the wrist passed the drawer's black bar handle and went down to the double-door cabinet handles below; closed on air at 230 and 437 near those door handles (widths 0.033/0.014, no contact). 620-1300 it hovered low in front of the double doors (wrist view on the two handles) without opening them; at 1381 it closed on air over the counter and then wandered. Target drawer 0, no touch; straw untouched.",
+ "causal_chain": "targeted the cabinet-door handles below the drawer (180-440) -> closes on air -> stalled at the doors 620-1300 -> drawer never touched -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s18_overview.png",
+   "frames/s18_dense.png",
+   "frames/s18_later.png"
+  ],
+  "packet_facts": [
+   "closes 230 (0.033), 437 (0.014), 1381 (0.006) on_nothing",
+   "drawer touch [] value 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the 230/437 closes aimed at the door handles or at the drawer handle just above them; neither registered contact."
+}

@@ -1,0 +1,28 @@
+{
+ "tag": "SearingMeat_s7_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 10 (grey/white kitchen, geometric tiles), 4-element black glass electric range with front knobs; pan_6 (dark pan, wooden handle with metal ferrule) in an upper cabinet; target front_right; shrimp on a wooden board right of the range. Stage 0: close at 118 at the ferrule with the handle running toward the camera between the fingers (hold 141-489, lift 0.05 m); the pan was carried upright and held over the front_right element from ~450 (at_target) and released at 489 (0.108 m). Stage 0 complete 524 (median 378; somewhat slow because the base turn/approach took ~300 steps, not because of a stall). Stage 1: shrimp grasped at 624 (one earlier contact 583-613 without lift), released into the pan at 684 (0.038 m): complete 685. Stage 1 dropped briefly at 820-956 ('object left target') while the arm moved down to the knob row; the shrimp stays in the pan in the video, so this is contact flicker of the in-receptacle check. Stage 2: knob contact from 923, front_right 0.07 (992) -> 0.52 (1048): success 1048. Stage 2 took 363 steps (p90 369), mostly the approach to the knob row 700-920.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Stage 1 'undone' 820-956 without visible motion of the shrimp (contact flicker between shrimp and pan in check_obj_in_receptacle).",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/s7_shrimp_zoom.png",
+   "frames/all_success_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 141-489 at_target, dist 0.108",
+   "stage0 524, stage1 685, stage2 1048 (online 528/688/1056)",
+   "shrimp hold 624-684 dist 0.0385",
+   "front_right 0.07@992 -> 0.52@1056; no other knob moved"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

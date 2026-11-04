@@ -1,0 +1,25 @@
+{
+ "tag": "LoadDishwasher_s18_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 9 seen from the robot-left side (same view as s0, s13 and failure s2; and the same cup_5 + bowl_6 pair as s2). Stage 0, cup first this time: cup grasped 117-125 (lift 0.04), released 213 into the slid-out rack (upright, drop 0.03); stage 0 complete 214 (fast). Stage 1: striped bowl grasped 293-304 (lift 0.06), lowered beside the cup (wrist 360: bowl in the fingers, cup to its side in the rack) and released 408; stage 1 complete 404 (190 steps). Stage 2: the gripper went to the door (touch 456-528) and lifted it (0.09@480, 0.38@496, 0.77@512, 1.00@528); success 518 (114 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/succ_B_overview.png"
+  ],
+  "packet_facts": [
+   "dish0 hold 125-213; stage0 214",
+   "dish1 hold 304-408; stage1 404",
+   "door 0.09@480 -> 1.00@528; success 518"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

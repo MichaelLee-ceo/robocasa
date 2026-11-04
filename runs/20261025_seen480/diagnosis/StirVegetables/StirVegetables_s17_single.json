@@ -1,0 +1,34 @@
+{
+ "tag": "StirVegetables_s17_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  1120,
+  1440
+ ],
+ "category": "other: spatula slipped out of the grasp while the blade was pushed into the pot",
+ "secondary": [
+  "stall_pre_grasp",
+  "undid_previous_stage"
+ ],
+ "what_happened": "Scene: layout 8 (same kitchen as s8, s10), light pot (Pot075) on the rear-left grate, lime, carrot and spatula_6 (teal handle, yellow blade) on the counter LEFT of the range. Stage 0: lime grasped 158, dropped in 239 (complete 241). Stage 1: carrot grasped 306, dropped in 404 (complete 404, fast). Stage 2 was slow: the arm stretched far left and from ~560 to ~900 (~340 steps) hovered with open fingers over the handle, which lay diagonally across the finger gap (wrist view almost unchanged 600-900); it closed at 906 and lifted (complete 929; 525 steps vs median 152, p90 217). Stage 3: the spatula reached the pot at ~1000; 1120-1420 the blade was inside the pot, worked around the right half and the middle (1280-1320 deep in the pot). Only 1 stir step was counted (success_time 1). At ~1428 the spatula slipped out of the fingers (width 0.017 -> 0.002 at 1440; stage 2 ends 1428) and fell into the pot, handle sticking out. The gripper stayed closed and the arm drifted toward the microwave until 1600.",
+ "causal_chain": "~340-step hover before closing on the spatula (560-906) -> stirring in the pot 1120-1420 but only 1 of 5 stir steps counted -> spatula slipped out ~1428 (stage 2 undone) -> closed gripper, no re-grasp -> timeout with success_time 1",
+ "self_recovery": "The pre-grasp stall resolved itself at 906. After the slip, no re-grasp.",
+ "official_criterion_notes": "Near miss on the stir counter (1 of 5). Video shows ~300 steps with the blade in the pot among the vegetables; the criterion needs veg1 (lime) touched by the spatula and both vegetables moving > 0.5 mm in the same step, which the slow, mostly pressing motion rarely produced. Packet first_incomplete_stage is 2 only because PickUpSpatula is evaluated as 'held and lifted now' (not latched); the online log completed stages 0-2, so the failed stage is 3.",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_pregrasp.png",
+   "frames/s17_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 158-239, veg2 hold 317-404",
+   "spatula close 906 width 0.029 lifted; stage2 929-1428 (steps_since_previous 525, typical 152)",
+   "gripper width 0.017 (928-1408) -> 0.002 (1440) -> 0.001",
+   "success_time 1"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the blade ever touched the lime (veg1) during the stir; what made the handle slip at 1428 (the hand is over the pot and occludes the blade)."
+}

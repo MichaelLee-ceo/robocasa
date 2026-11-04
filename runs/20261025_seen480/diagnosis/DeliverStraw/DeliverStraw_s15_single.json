@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s15_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  776,
+  836
+ ],
+ "category": "placed_then_fell_or_slid",
+ "secondary": [
+  "official_criterion_issue"
+ ],
+ "what_happened": "Layout 10, yellow Straw009, GlassCup023. Stage 0 at 210. Straw grasped 334-352 (width 0.013), lifted 0.60 m; navigation 352-~624. The straw was held at only ~30-45 deg from horizontal, not vertical. 776-826 it was lowered so that it lay across the cup rim (at_target 795-836, contact + centre 7 cm away). Released at 826; within ~10 steps the straw slid off the rim and lay on the counter next to the cup (end 8.7 cm, z 0.93). The arm then left; no retry.",
+ "causal_chain": "straw carried tilted, near horizontal -> could not drop into the opening, rested across the rim (795-826) -> released 826 -> slid off onto the counter (836) before the gripper was 25 cm away",
+ "self_recovery": "none",
+ "official_criterion_notes": "Official success = straw touches the cup AND straw centre < 0.5 m horizontally from the cup centre AND gripper far; there is no 'inside' or upright test, so a straw lying across the rim or leaning on the outside of the cup would count once the gripper leaves. Near-false-positive: the official condition held 795-836 with the straw lying across the rim, not inside; only the gripper-far clause was missing. If the straw had stayed on the rim, this would have scored as a success.",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png",
+   "frames/s15_cupzoom.png",
+   "frames/all_at_cup_wrist.png"
+  ],
+  "packet_facts": [
+   "hold 352-826 at_target_at_release True dist 0.074; dist 2 s after 0.093",
+   "at_target 795-836 (fragmented)",
+   "end z 0.9275 (counter)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

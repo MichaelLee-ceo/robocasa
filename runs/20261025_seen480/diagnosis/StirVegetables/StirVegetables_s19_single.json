@@ -1,0 +1,34 @@
+{
+ "tag": "StirVegetables_s19_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  560,
+  1600
+ ],
+ "category": "other: spatula held with the blade pointing up/away while hovering over the pot; the stir started late and was ineffective",
+ "secondary": [
+  "disturbed_placed_object",
+  "ran_out_of_time"
+ ],
+ "what_happened": "Scene: layout 6, black pot (Pot071) on the front-left zone of a smooth-top electric range (glowing red), cucumber, lemon and spatula_5 (blue silicone) on the counter left of the range. Stage 0: lemon grasped 98, dropped in 174 (complete 178). Stage 1: cucumber grasped 254, dropped in 344 (complete 346). Stage 2: spatula grasped 429 at the end of the handle (wrist view: handle running from the fingers to the paddle at the far end), lifted (complete 461, fast) and held to the end. Stage 3: ~560-1150 (~590 steps) the gripper hovered above the pot with the paddle sticking UP above the hand, not in the pot (agent view 560-1100). From ~1180 the arm turned and the paddle went down to the pot; 1180-1400 it worked at the pot and the env counted 3 of the 5 stir steps (success_time 3). From ~1420 the pot was dragged to the right, exposing the whole glowing burner (1460-1600; stage 0/1 conditions break 1418-1506), so no further step could count. Timeout at 1600 with success_time 3.",
+ "causal_chain": "spatula held from 461 -> ~590 steps hovering over the pot with the paddle pointing up (560-1150) -> stir only from ~1180, 3 of 5 steps counted by ~1400 -> pot dragged off the burner ~1420 -> no more counted steps -> timeout",
+ "self_recovery": "It eventually re-oriented the spatula into the pot (~1180) and got 3 counted steps, but then displaced the pot.",
+ "official_criterion_notes": "Near miss (3 of 5). After ~1420 the pot is visibly off the burner, so the pot-on-burner clause would block further counting; the packet has no pot position to confirm the 0.15 m threshold.",
+ "evidence": {
+  "sheets": [
+   "frames/s19_overview.png",
+   "frames/s19_pot_zoom.png",
+   "frames/s19_stir.png"
+  ],
+  "packet_facts": [
+   "veg2 hold 106-174, veg1 hold 262-344",
+   "spatula close 429 width 0.025 lifted; stage2 461-1600",
+   "stage0 undone 1418, stage1 undone 1418, 1431, 1506",
+   "success_time 3"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly when the 3 stir steps were counted (no per-step counter in the packet) and whether the paddle was inside the pot or at its rim during 1180-1400; the wrist view shows the paddle against the stove's back panel."
+}

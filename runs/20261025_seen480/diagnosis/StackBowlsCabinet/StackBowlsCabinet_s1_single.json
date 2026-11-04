@@ -1,0 +1,41 @@
+{
+ "tag": "StackBowlsCabinet_s1_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  438,
+  730
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "other: small bowl pushed off the counter edge onto the robot's mobile base during re-grasp attempts (~680-730)",
+  "missed_grasp",
+  "wander_away"
+ ],
+ "what_happened": "Scene layout 5/style 5 (dark kitchen, coffee machine on the counter; bowls at the right edge of the agent view, mostly hidden behind the arm): small brown bowl1 (bowl_8, x0.7) and larger blue-striped bowl2 (bowl_6, x0.95). Strategy: nest-then-carry. bowl1 grasped at 92 (lift 0.19 m) and released at 194 against the striped bowl, but it did not seat: it leaned on/against the rim at a steep angle (tipped 204-338). The gripper took the striped bowl at 321 (lift 0.10 m, set down at 411), then at 438 closed across both rims at once (packet close 438/458 touching and lifting both) and lifted the pair 0.2-0.3 m toward the upper cabinet with the brown bowl hanging tilted against the striped one. At ~485 the pinch slipped (fingers closed to 0.002), and both bowls fell ~0.3 m back to the counter (496-504), the brown bowl landing near the counter's front edge. Re-grasps of the brown bowl (589-606 lift 0, 677-696 lift 1.6 cm, 713-721 lift 2.2 cm) pushed it off the counter's front edge: at ~720-730 it fell onto the robot's own mobile base below the counter (height drop 0.41/0.56 m, end z 0.42 m; wrist view 980-1000 shows the brown bowl lying on the white robot body), tipped 730-1400. The robot then carried the striped bowl alone into the cabinet (grasp 805, release 930, stage 0 complete 926 and held to the end) and afterwards wandered with the gripper open (944-1400); the wrist camera sees the brown bowl lying on the robot base at ~980-1000, but it never went for it.",
+ "causal_chain": "small bowl released leaning on the large bowl's rim instead of inside it (194) -> pair pinched by both rims and lifted at 438 -> slipped out at ~485, both fell 0.3 m to the counter -> small bowl ends at the counter edge; re-grasp attempts push it off the counter onto the robot's base (~720) -> only the large bowl can reach the cabinet (stage 0 at 926) -> stage 1 (both bowls nested in the cabinet) impossible -> timeout",
+ "self_recovery": "After the drop it tried to re-grasp the small bowl three times (589, 677, 713); these pushed it off the counter. It then completed stage 0 with the large bowl alone (805-930), a sensible partial recovery, but made no attempt to recover the bowl from the robot base and wandered 944-1400.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png",
+   "frames/s1_nest1.png",
+   "frames/s1_nest1w.png",
+   "frames/s1_nest1z.png",
+   "frames/s1_lift.png",
+   "frames/s1_floor.png",
+   "frames/s1_cab.png",
+   "frames/s1_floorcheck.png"
+  ],
+  "packet_facts": [
+   "bowl1 hold 92-194 lift 0.188; tipped 204-338",
+   "close 438 and 458 touching and lifting bowl1+bowl2; holds bowl1 441-493 lift 0.313 drop 0.299, bowl2 433-484 lift 0.218 drop 0.296; close 485 width 0.002",
+   "bowl1 holds 677-696 drop 0.409, 713-721 drop 0.561; end_pos z 0.4165 (on the robot base, 0.53 m below counter level); tipped 730-1400",
+   "bowl2 hold 805-930 lift 0.579 at target; stage 0 first_complete 926, complete to the end",
+   "gripper width 0.08 (open) 944-1400"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The exact seating of the small bowl after its 194 release (the agent view is blocked by the arm; the wrist view shows it leaning steeply against the striped bowl). Whether the fingers held both rims or only the striped rim during the 438-485 lift."
+}

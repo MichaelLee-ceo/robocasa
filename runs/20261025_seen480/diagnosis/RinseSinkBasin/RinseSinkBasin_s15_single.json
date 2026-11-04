@@ -1,0 +1,31 @@
+{
+ "tag": "RinseSinkBasin_s15_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  372,
+  900
+ ],
+ "category": "wander_away",
+ "secondary": [],
+ "what_happened": "Scene layout/style 10: single basin, stem faucet with horizontal spout arm and side lever (as s7, s29). Stage 0 fast: lever 107-152 (close at 100), water at 140. Stage 1: 200-300 the arm swung out right and back, the wrist looking down into the sink at the stream. 359-370 the gripper touched the spout and pushed it only to +0.21 (still 'centre'). From ~400 it wandered: the arm reared up (500), swung over to the LEFT of the faucet above the plate (540-608, wrist on the window and backsplash), then swept back right across the faucet 628-668, its forearm (no gripper contact recorded) knocking the spout to +0.62 (right washed 644), and 700-900 stayed right of the sink with the wrist on a canister on the counter, then at the faucet with the stream in view. No contact pushed the spout left (min -0.06).",
+ "causal_chain": "weak first spout push (+0.21, 359-370) -> 500 steps of large arm excursions away from the spout (400-900) -> right credited only by an arm sweep at 644 -> left never washed",
+ "self_recovery": "none.",
+ "official_criterion_notes": "The spout moved +0.21 -> +0.62 at 628-648 with no gripper_touch interval in the packet: the contact was by an arm link, which the packet's gripper-only touch intervals do not record.",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png",
+   "frames/s15_faucet_zoom.png",
+   "frames/s15_dense.png"
+  ],
+  "packet_facts": [
+   "stage0 140; washed_loc [F,T,T]",
+   "fixture touch 107-152, 359-370 only",
+   "closes 100 (0.044), 610 (0.014)",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: +0.21 from 372 to 628, +0.62 from 648, min -0.06"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The purpose of the 500-608 excursion to the left of the faucet; it never contacted the spout from that side."
+}

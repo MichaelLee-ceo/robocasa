@@ -1,0 +1,24 @@
+{
+ "tag": "ScrubCuttingBoard_s20_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L9: sponge_6, small rounded cutting_board_7 near the sink. Stage 0: closed at 83, stage 0 from 95. Stage 1: first contact 165, criterion met at 227, 19 contacts / sweep 0.262. Scrub 165-526 (361 steps), at times off the board's edge towards the sink. Grasp was counted almost the whole time (only 3 blind steps). Released at 526 on the counter; eef 15 cm away at 540; success 540.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s20_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[96,0],[544,1]]",
+   "process_progress_end contacts 19 sweep 0.262"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

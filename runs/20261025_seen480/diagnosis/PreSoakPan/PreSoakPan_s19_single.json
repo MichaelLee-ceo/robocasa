@@ -1,0 +1,33 @@
+{
+ "tag": "PreSoakPan_s19_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  880,
+  1600
+ ],
+ "category": "stall_approach_retreat",
+ "secondary": [
+  "stall_at_fixture",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene L6/S6: black double-basin sink. The faucet has a horizontal lever housing with a red dot on the left of the column and a stick handle hanging down from it. The pan and sponge sat on the counter right of the sink, the sponge right at the basin edge. Stage 0 is credited at step 0 because the sponge on the counter at the sink edge counts as inside (obj_inside_of, 5 cm tolerance). The pan (pan_6) was grasped by the handle at 108, lifted 0.31 m and placed flat in the left basin at 309, so stage 1 is credited at 324 with the sponge still on the counter. The policy then picked the sponge anyway (grasp 522, lift 0.24 m). Lifting it out of the edge zone shows as an 'undo' at 579-583. It was dropped into the left basin at 606 (released 3.8 cm outside the region, fell 8 cm in) and nudged again at 707-712, ending on its side (tilt ~90 deg) inside the basin. Stage 2, approach 1 at 880-912: the gripper came at the lever housing from the front right (contact 903-912) and closed its fingers on air at ~912-944. It then went back down into the basin and poked the pan with closed fingers (1160-1173, pan lifted 1.5 cm and stayed in), and reopened at 1168. Approach 2 at 1320-1384: up to the housing again (contact 1361-1380) and another close on air at 1376. 1400-1600: it hovered in front of and right of the faucet with closed fingers. The handle stayed at 0.000; the packet's 6.283 values are the wrap artefact of a tiny negative joint angle.",
+ "causal_chain": "both objects truly in the basin by ~610 (~990 steps left) -> two short approaches to the lever housing (903-912, 1361-1380), each ending in a finger close on air instead of pushing the hanging handle -> detour back to the pan in between -> lever never moved -> water off",
+ "self_recovery": "A second approach to the faucet at 1320-1384, the same failed close as the first. It also placed the sponge properly even though the criterion already counted it.",
+ "official_criterion_notes": "official_criterion_issue: the sponge counts as in the sink from step 0 while lying on the counter at the basin edge (obj_inside_of with th=0.05). Stages 0/1 were credited at 0/324 although the sponge was only put in the basin at 606; the 579-583 'undo' is the sponge being lifted out of that edge zone. The outcome did not depend on it: the policy placed the sponge in the basin anyway, and the episode failed at the faucet. Also, sink value 6.283 is |joint mod 2pi| of a ~-1e-5 rad joint, not a turn.",
+ "evidence": {
+  "sheets": [
+   "frames/s19_overview.png",
+   "frames/s19_faucet.png"
+  ],
+  "packet_facts": [
+   "sponge at target [[0,578],[583,1600]] (step 0 on the counter); stage0 first 0, stage1 first 324",
+   "pan hold 108-309 lift 0.313; sponge hold 522-606 (dist at release 0.038, drop 0.081) and 707-712; sponge tipped from 715",
+   "sink touch [[576,577],[579,582],[903,912],[1361,1380]]; closes 913 and 1365 on nothing",
+   "sink value 0.000 except 6.283 wrap artefact"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the finger closes at the housing were meant to grasp the lever handle, or the handle was simply missed. The wrist view shows the housing at very close range and the hanging handle below it."
+}

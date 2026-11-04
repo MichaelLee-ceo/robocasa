@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s12_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [129, 1600],
+ "category": "dropped_in_transit",
+ "secondary": ["missed_grasp", "wander_away"],
+ "what_happened": "Scene: layout/style 7 (orange tiles, dark wood cabinets, gas hob); knife (knife_7, wooden handle) in a dark-wood drawer right of the hob, plate with a drumstick on the counter above it, board at the far left end of the counter (1.29 m from the knife, base move needed). Stage 0: three closes on air in the drawer at 129, 216 and 275, each with the knife handle at the top edge of the wrist view, i.e. short of the knife; 260-420 the knife was out of the wrist view. From ~480 the handle ran through the finger gap; it closed at 514 on the very end of the handle and lifted (hold 523-558, lift 0.105). As it rose the knife pivoted blade-down around the finger contact (556-600, wrist) and slid out at ~558, falling back into the drawer (drop 0.096; ends flat where it started). After the drop the policy never returned to the knife: 620-1600 the arm rose and wandered between the plate (looked at it ~940), the wall and the range hood, with no further closes. The meat was never touched.",
+ "causal_chain": "three closes short of the knife 129-275 -> grasp on the handle butt 514, knife pivots and slides out ~558 back into the drawer -> no retry; arm wandered 620-1600 -> knife still in the drawer at timeout",
+ "self_recovery": "Re-approached after the three air closes and got a lifting grasp at 514; after the drop no further attempt.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s12_overview.png", "frames/s12_early_wrist.png", "frames/s12_grasp.png", "frames/s12_after.png"],
+   "packet_facts": ["closes 129, 216, 275 on_nothing", "close 514 w=0.024 lifted knife; hold 523-558 lift 0.105 drop 0.096", "knife end pos = start pos height (0.7634), 1.35 m from board", "no close events after 514; meat min_eef 0.36 m"]},
+ "confidence": "high", "uncertain_about": "Whether the knife's wooden handle on the same-coloured wooden drawer made localisation harder (three short closes); plausible but not testable here."}

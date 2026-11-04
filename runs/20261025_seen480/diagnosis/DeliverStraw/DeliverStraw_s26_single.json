@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s26_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  700,
+  1636
+ ],
+ "category": "wander_away",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Layout 10, green bendy Straw012, GlassCup024. Stage 0 at 289 (closes on air 252 and 301, pulled by hooking). Straw: the open gripper hovered above it 440-630 while bumping the drawer (touch 451-663, drawer 1.45 -> 1.06 -> 1.57), closed on air at 613 and grasped at 637 (lift 0.82 m; straw pick 348 steps after the drawer, successes ~170). The base then stayed at the drawer 700-1000 with the straw held up, turned slowly the wrong way and ended facing the fridge (1300-1660). The straw slipped and fell to the floor at 1636, 3.3 m from the cup. It never got near the dining counter.",
+ "causal_chain": "slow straw pick (hover 440-630) -> grasp 637 -> did not drive to the dining counter: idle at the drawer 700-1000, then turned toward the fridge -> straw dropped 1636 -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "Straw tilt fields are relative to the straw lying flat: 'tipped_over' (>45 deg) here means the straw was held or standing vertical, not that it fell over.",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_pick.png",
+   "frames/s26_carry.png"
+  ],
+  "packet_facts": [
+   "stage0 first 289",
+   "drawer touch 451-663, values 1.21@464 1.06@528 1.51@608",
+   "closes 613 on_nothing; hold 637-1636 lift 0.817 dist_at_release 3.293"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the turn at ~1000-1300 was the start of a (very slow) drive along a wrong route; the cup was never in view."
+}

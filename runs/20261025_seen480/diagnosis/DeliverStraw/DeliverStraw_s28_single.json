@@ -1,0 +1,31 @@
+{
+ "tag": "DeliverStraw_s28_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  200,
+  1700
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_pre_grasp",
+  "stall_at_fixture"
+ ],
+ "what_happened": "Layout 8 corner. 200-850 the gripper hovered at a curved handle (wrist view shows the handle centred for long stretches) without closing (~650 steps). At 861 it closed on the handle (width 0.046) and pulled 900-990; a drawer opened, but it was not the target drawer (target value 0, no touch). 956-968 it closed on air (0.002); 1000-1696 it hovered over the opened wrong drawer and wandered; another close on air at 1368. Straw untouched (min eef 0.34 m).",
+ "causal_chain": "hovered at a handle 200-850 -> grasped and opened a non-target drawer (861-990) -> searched it / wandered -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "Invisible in the packet except the on_nothing close with width 0.046 at 861.",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_dense.png"
+  ],
+  "packet_facts": [
+   "closes 861 (0.046), 956 (0.002), 1368 (0.016) on_nothing",
+   "target drawer touch [] value 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the handle hovered over during 200-850 was the target drawer's; the drawer opened at 861 was not."
+}

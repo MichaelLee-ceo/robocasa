@@ -1,0 +1,35 @@
+{
+ "tag": "GetToastedBread_s29_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  106,
+  600
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "stall_pre_grasp",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster, bread in the right-most slot (pair 1). Stage 0: the gripper never went to the lever handles on the front face, and the lever value was 0.0 for the whole episode. From 106 to 568 it sat on the toaster TOP right next to the bread, with the slice at the edge of the wrist view and the fingers just beside it (toaster contact 106-128, 251-568). The fingers, closed since ~30, partly reopened (to 0.02-0.04 m, 264-320 and 376) and closed again without touching the bread (no bread contact all episode), which looks like lining up a grasp on the bread rather than pressing a lever. At ~600 it withdrew to the right. 700-1400 it hovered at the toaster's right end with the bread in view, without touching anything, and 1600-2000 it turned away to the far counter (coffee machine, knife block). The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "went to the slot top beside the bread instead of the lever (106-568), with finger closes near the bread and no contact -> never touched a lever (value 0.0) -> hovered at the right end 700-1400 -> wandered off -> toaster never on",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s29_overview.png",
+   "frames/s29_zoom.png",
+   "frames/s29_top.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "fixture value 0.0 all episode; done []",
+   "toaster touch 106-128, 251-568",
+   "gripper closed from ~30; partial reopenings 264-320 (max 0.040) and 376 (0.021), not listed in close_events (only 13)",
+   "obj touch [] / holds []; min_eef 0.115 m"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether 250-570 was an aborted bread grasp or aimless contact with the toaster top; the fingers never touched the bread."
+}

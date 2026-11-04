@@ -1,0 +1,26 @@
+{
+ "tag": "WashLettuce_s11_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 2 / style 2: dark single sink with a dish rack, faucet with a vertical stick lever, potted plant behind; iceberg lettuce (Lettuce008) in a perforated colander right of the sink. Stage 0 slowish: the gripper hovered near the lever ~100-394 (wrist: lever and the plant), touched it 394-445 and water came on at 439 (median 253, p90 449). Stage 1: colander grasped at 601 (width 0.038), carried into the basin 650-700 next to the stream. At ~703 the fingers closed further (0.038 -> 0.003): the colander slipped out and dropped onto the basin floor (716-724), the lettuce rolled out of it and came to rest right under the stream (wrist 724-744 shows the stream hitting the lettuce). Success at 742 (303 steps).",
+ "causal_chain": "",
+ "self_recovery": "The colander slipped from the gripper at ~703, but the lettuce fell out under the stream, so the slip produced the success rather than being recovered from. Partly lucky.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s11_overview.png",
+   "frames/s11_dump.png"
+  ],
+  "packet_facts": [
+   "sink touch [[394,432],[434,436],[441,442],[445,445]]; stage0 first complete 439",
+   "close_events 601 (0.038, touching+lifting lettuce = colander grasp), 703 (0.003, nothing: colander slipped)",
+   "success 742, washed_time 35"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the drop at ~703 was a slip (width went down, not up, so the fingers did not open) or a squeeze that tipped the colander; either way the lettuce landed under the stream."
+}

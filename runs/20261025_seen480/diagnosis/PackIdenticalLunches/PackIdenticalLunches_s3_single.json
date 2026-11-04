@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s3_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout/style 2; two mushroom_8, drumsticks ChickenDrumstick012 (meat0) and 013 (meat1); tupperwares by the knife block: a rectangular dark one (left, by the microwave, ~(1.46,-0.46)) and a round grey one (right, ~(2.02,-0.38)). Order and choices: mushroom veg1 grasped 74-84 and carried in an almost open grip (finger width stayed >= 0.065, the cap wedged between the fingers), released at 259 into the round tupperware; stage 0 at 294. Drumstick meat1 grasped 605-613 (the close also brushed veg0), released at 771 into the round tupperware next to the mushroom (complete pair); stage 1 at 799 (505 steps, slightly above p90 474). Drumstick meat0 grasped 1133-1144, released at 1302 into the empty rectangular tupperware; stage 2 at 1327 (528, p90 505). Mushroom veg0 grasped 1527-1537, released at 1702 into the rectangular tupperware next to the drumstick; success at 1720. Every tupperware choice was content-correct.",
+ "causal_chain": "",
+ "self_recovery": "No real error. Stages 1 and 2 were ~100 steps slower than the other successes (time spent at the fridge before the grasps at 605 and 1133). The 5 stage-1 'object left the target' events (809-1149) are contact flicker while the drumstick settled tilted on the mushroom (meat1 tilt 34 -> 88 deg 772-864), not real removals.",
+ "official_criterion_notes": "The final mushroom ended on its side (tilt 104 deg) - no upright requirement, so fine for the task.",
+ "evidence": {
+  "sheets": ["frames/s3_overview.png", "frames/compare_tupperware_choice.png"],
+  "packet_facts": ["veg1 hold g84 r259 (width 'open' throughout); meat1 hold g613 r771; meat0 hold g1144 r1302; veg0 hold g1537 r1702", "stages 294, 799, 1327, 1720"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,10 @@
+{"tag": "LoadDishwasher_s10_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene layout 8 seen from the robot-left side (dishwasher at the right edge of the agent view; same view as s17, s22), white/pink cup_5 and wooden bowl_7. Stage 0: cup grasped 155-163, held over the slid-out rack ~250-319 and released 319 (drop 0.105); stage 0 complete 323 (median 298). Stage 1: bowl grasped 446-459, released 564 next to the cup; stage 1 complete 564 (241 steps). Stage 2 at the p90 (275 steps): after a close on air at 638 the gripper spent ~640-760 at the top edge/control strip of the open door (wrist at 720 shows the '12:00' display; same pose as the s11 failure), then got under the door and lifted it 784-848 (0.12@784, 0.60@816, 1.00@848); success 839.",
+ "causal_chain": "",
+ "self_recovery": "A ~120-step detour at the door's top edge/control strip (640-760) before going under the door; recovered without help.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s10_overview.png"],
+  "packet_facts": ["dish0 hold 163-319; stage0 323", "dish1 hold 459-564; stage1 564", "close on air 638; door 0.12@784 -> 1.00@848; success 839"]},
+ "confidence": "high", "uncertain_about": ""}

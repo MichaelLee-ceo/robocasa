@@ -1,0 +1,38 @@
+{
+ "tag": "KettleBoiling_s24_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  224,
+  500
+ ],
+ "category": "other: dislodged on retreat - after a long hold at the target, the fingers re-closed on the tipping kettle and lifted it 17 cm, and it fell on its side off the burner",
+ "secondary": [
+  "stall_holding_at_target",
+  "placed_then_fell_or_slid",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: copper kettle on the counter right of a 5-burner induction cooktop (pan in the centre). Stage 0: grasp 112, lift 0.215 m, kettle over the left burner by 224 (at_target from 224). It then held the kettle on or just above the burner ring 224-459, about 235 steps (12 s). The wrist shows the handle in the fingers and the kettle on the ring with almost no motion. (Successes hold 0-97 steps before releasing.) At 459 the gripper opened (0.023 m from the centre). At 460-476 the kettle tilted toward the gripper and the fingers closed again on its rim/handle (hold 468-490). The arm rose 484-492, lifting the kettle 0.17 m with it hanging tilted, and at ~490-500 it fell (drop 0.116 m). It came to rest on its side at the rear-left of the cooktop, 0.16-0.18 m from the burner centre. Stage 0 held briefly at 501-522 (lying kettle within 15 cm) and was then lost as the kettle settled farther away. Stage 1: 572-692 the gripper went to the front-left knob and turned it to only 0.05 rad. 700-1000 it raised the arm and looked around (wall, hood). It made no attempt to right or re-place the kettle.",
+ "causal_chain": "held the kettle on the burner 224-459 instead of releasing -> after release, fingers re-closed on the tipping kettle (468) and lifted it 17 cm while retreating -> kettle fell on its side off the burner centre (~490-500) -> stage 0 undone at 522 -> knob nudged to 0.05 rad (572-692), then wandered; kettle not on a burner at the end",
+ "self_recovery": "none for the fallen kettle. The policy went to the knob as if stage 0 were done, and that knob turn was also insufficient (0.05 rad).",
+ "official_criterion_notes": "Stage 0 counted as complete 501-522 with the kettle lying on its side; the official check has no upright test, so a lit burner in that window could have scored a toppled kettle. Hold 1 height_drop_after_release_m = -0.068 because the kettle was re-lifted within 2 s; it is not a real rise.",
+ "evidence": {
+  "sheets": [
+   "frames/s24_overview.png",
+   "frames/s24_hold.png",
+   "frames/s24_release.png",
+   "frames/s24_drop_zoom.png",
+   "frames/s24_after.png",
+   "frames/s24_stove_zoom.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 112 release 459 lift 0.215 dist 0.023; grasp 468 release 490 lift 0.169 dist 0.222 drop 0.116",
+   "at_target from 224; stage0 complete only [[501,522]]",
+   "stove touch [[572,687],...]; front_left 0.048 at end",
+   "dist_to_target end 0.162"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the gripper deliberately re-grasped at 468 or the fingers never fully cleared the handle (touch is almost continuous 452-489). The arm blocks the landing 504-560; 'on its side' is clear from 600 on."
+}

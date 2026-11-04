@@ -1,0 +1,36 @@
+{
+ "tag": "SearingMeat_s21_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  256,
+  321
+ ],
+ "category": "release_timing",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "wrong_fixture_element",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 4 (dark-wood cabinets, white brick wall), 5-zone black induction cooktop with a front knob row (large front_left zone at the left); pan_8 (dark pan, long dark-brown handle) in an upper cabinet left of the robot; target front_left; shrimp on a wooden board far right (0.96 m from the burner). Stage 0: grasp at 94-102 at the handle base (width ~0.055, hold 102-321), base turned to the cooktop, pan lowered onto the front_left zone (0.103 m at 256; at_target 277-290 while still held). It kept holding and pushed the pan backward (288-320, zoom), releasing at 321 with the pan on the rear edge of the front_left zone, 0.176 m from its centre (end 0.175). Stage 1 was skipped: the arm went straight to the knob row (420-480) and turned the FRONT_RIGHT knob to ~2.9-3.1 rad (442-784; the right zone glows red). The task knob front_left stayed 0. It brushed the pan handle at ~963, hovered right above the shrimp around 1200 (eef within 1.2 cm of its centre) without closing on it, and from ~1500 wandered (wrist sees the ceiling and range hood) to the end.",
+ "causal_chain": "pan on front_left while held (277-290) -> pushed ~7 cm back before release (321, 0.176 m) -> stage 0 never held -> policy skipped the shrimp and turned the wrong knob (front_right) -> wandered -> fail",
+ "self_recovery": "none.",
+ "official_criterion_notes": "Pan ends 0.175 m from front_left (threshold 0.15): visually it sits on the rear part of the front_left zone. Even if counted, stages 1-2 failed outright (shrimp never touched, wrong knob).",
+ "evidence": {
+  "sheets": [
+   "frames/s21_place.png",
+   "frames/s21_place_zoom.png",
+   "frames/s21_after.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 102-321, at_target [[277,290]], dist at release 0.1764, end 0.1752",
+   "pan_nearest front_left 0.103@256 -> 0.176@320",
+   "shrimp: no gripper contact; min_eef_dist 0.0115 m (hovered right over it ~1200 without closing); dist_end 0.96",
+   "knobs end: front_right 2.984, front_left (task) 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the drift 288-320 was a deliberate push (the policy re-positioning) or the hand dragging the pan while lowering."
+}

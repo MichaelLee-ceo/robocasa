@@ -1,0 +1,33 @@
+{
+ "tag": "GetToastedBread_s24_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  130,
+  850
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 4, small black single-pair toaster with its lever on the front face (same kitchen as s5/s21), bread in the left slot. The fingers were closed from ~120 to the end. Stage 0: 133-248 the fist pushed at the toaster's front-right, on the lever. It moved the lever slowly to 0.20-0.34 (144-224; bread -1.9 cm), dipped, and reached 0.51 at 256 (bread -2.8 cm), still below the 0.9 switch-on. It then let go, and the lever sprang back by 352. 586-800 the fist came back to the front face (contact 586-800 almost continuous), but the lever value stayed 0, so it was pressing beside or below the handle. 842-850 it made a last touch. It then lifted away: 1000-1800 it hovered right of the toaster with the bread in view, and by 2000 it had turned to the sink. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "slow, shallow push on the correct lever (0.34, then 0.51 at 256; 0.9 needed) -> released -> second visit to the front face 586-850 missed the handle (value 0) -> hovered, then turned to the sink -> toaster never on",
+ "self_recovery": "a second attempt at the front face (586-850) that did not engage the lever.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s24_overview.png",
+   "frames/s24_zoom.png"
+  ],
+  "packet_facts": [
+   "lever 0.20@144, 0.34@224, 0.51@256, 0@352; done []",
+   "bread dz -1.9 cm at 224, -2.8 cm at 256",
+   "toaster touch 130-248, 586-800, 842-850",
+   "gripper closed 120-2000; obj touch []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Where exactly the fist pressed during 586-800 (no lever motion)."
+}

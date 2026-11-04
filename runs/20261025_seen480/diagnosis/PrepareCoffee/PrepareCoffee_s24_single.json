@@ -1,0 +1,32 @@
+{
+ "tag": "PrepareCoffee_s24_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  172,
+  192
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "missed_grasp_continued_empty",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 4, beige espresso machine CoffeeMachine037 at the right, beside the open door of the upper cabinet; red mug_5 in the cabinet with a candle distractor. Stage 0: fingers closed at 92 on the rim and the mug was lifted out of the cabinet at 106 (pinch width only 0.008, i.e. on the thin rim wall). It was carried down towards the machine; at 184-188 it slid down out of the closed fingers (the gripper did not open: width 0.008 -> 0.003) and fell ~19 cm onto the counter in front-left of the machine at ~190, landing upright 0.28 m from the pour site. Stage 1-like motion: the empty gripper carried on to the machine (contact with its top/hopper 340-416), then backed off and hovered, looking at the machine and the mug (700-1196). It never went back for the mug, and the machine never turned on.",
+ "causal_chain": "rim pinch (0.008 m) -> mug slips out of the fingers while being carried down (184-190) -> lands on the counter 0.28 m from the pour site -> policy continues to the machine empty-handed, then wanders -> timeout",
+ "self_recovery": "none: the dropped mug stayed in view (wrist 700-1196) but was never re-grasped.",
+ "official_criterion_notes": "The packet records this as a 'release' at 190; it is a slip - the fingers closed further (0.008 -> 0.002) instead of opening.",
+ "evidence": {
+  "sheets": [
+   "frames/s24_overview.png",
+   "frames/s24_drop.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 106 release 190 dist 0.2847 -> 0.2778, height drop 0.193",
+   "gripper width 0.008 during hold, 0.003/0.002 after 'release' (no opening)",
+   "machine touch 340-416; turned_on never"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

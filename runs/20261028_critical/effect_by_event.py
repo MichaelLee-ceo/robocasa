@@ -2,7 +2,7 @@
 collected (the coarse rows in use, data.py) and the events of events.py.
 
 Per decision point, the between-candidate variance of P(stage done), var_b, is estimated without bias by the
-covariance of the two continuations across candidates (as ../20261026_critic_data/analyze_phase.py). Points are grouped
+covariance of the two continuations across candidates. Points are grouped
 by the time from the point to the next event of a kind in the same stage. The candidate chunk applies actions t..t+15
 and produces the states t+1..t+16, so the events it can cause have their step f in (t, t + 16]; an event at f = t was
 caused by the chunk before.

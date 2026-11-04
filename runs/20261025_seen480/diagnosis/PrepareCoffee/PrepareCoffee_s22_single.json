@@ -1,0 +1,27 @@
+{
+ "tag": "PrepareCoffee_s22_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 8, capsule machine CoffeeMachine102 (SINGLE/DOUBLE buttons on the round front face), red mug_5 on the upper shelf. Stage 0: first close at 99 touched the mug without lifting; grasp 114 by the rim, mug under the spout from 357, released 395 at 0.036 m (0.0361 m 2 s later), upright - only 4 mm inside the 4 cm tolerance. Stage 1: 400-520 the gripper stayed in front of the round face with closed fingers, close to the buttons but without a press (machine touches 501-520); it then moved round to the right side (568-640, touches 563-623), and pressed from the right with the fingertips at 680 (machine on). It stayed at the button side, touching the machine on and off until 886 (gripper within 15 cm of the button), then withdrew; stage 0 first complete 914 and success 916. Slow: success at 916 vs. 501-563 in the fast successes; ~280 steps of searching at the face before the press and ~200 steps of lingering after it.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from a non-registering head-on approach (501-520) by moving round to the right side of the face and pressing edge-on at 680 - the same side-approach used by s8 and s17 on this machine.",
+ "official_criterion_notes": "Placement 0.036 m is a near-pass of the 4 cm tolerance. Stage 0's condition only first held at 914 because the gripper stayed within 25 cm of the mug while at the buttons.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_press.png",
+   "frames/cmp_layout8_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 114 release 395 dist 0.036 -> 0.0361",
+   "machine touch 501-520, 563-623, 680-746 (on at 680), 759-886",
+   "stage0 first 914, success 916"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exactly which button registered at 680 (wrist view suggests the right-hand DOUBLE button)."
+}

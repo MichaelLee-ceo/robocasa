@@ -1,0 +1,26 @@
+{
+ "tag": "StirVegetables_s23_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 1 (same kitchen as s27), brown steel pot (Pot075) on the rear-left element of a smooth-top range, lemon, avocado and spatula_6 (teal handle, yellow blade) on the counter right of the range by a toaster. Stage 0: lemon grasped 91/99, dropped in 155 (complete 158). Stage 1: avocado grasped 241, dropped in 329 (complete 333). Stage 2: a close on nothing at 434, then spatula grasped 483 near the top of the handle, lifted (complete 504). Stage 3 was very slow (920 steps, median 315, p90 637): 720-860 the yellow blade was brought down into the pot from the right; ~860-940 the pot was pushed back and right so the glowing element shows in front of it (stage 0/1 conditions break 807-925); 940-1400 the blade stayed in the pot with repeated pushes against the vegetables and pot wall (pot pushed again ~1260, element exposed), the counter accumulating slowly; it reached 5 exactly at the end of the 1424 chunk (success_time 5).",
+ "causal_chain": "",
+ "self_recovery": "Kept stirring after shoving the pot partly off the element; the pot evidently stayed within the 0.15 m burner radius, and the counter reached 5 at 1424 with 176 steps left.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_stir_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 99-155, veg2 hold 241-329",
+   "close 434 on nothing; spatula close 483 width 0.018 lifted; stage2 504-1424",
+   "stage3 first 1424 (since previous 920); success_time 5"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

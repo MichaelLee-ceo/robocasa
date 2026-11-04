@@ -1,0 +1,449 @@
+{
+ "tag": "RinseSinkBasin_s15_single",
+ "task": "RinseSinkBasin",
+ "instruction": "Turn on the sink and manuever the spout to wash all locations of the sink basin.",
+ "success": false,
+ "steps": 900,
+ "horizon": 900,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   144,
+   0
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 144,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 10,
+  "style": 10,
+  "objects": {
+   "plate": "objaverse/plate/plate_8/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0778,
+   0.0496,
+   0.042,
+   0.0419,
+   0.0415,
+   0.0413,
+   0.061,
+   0.0795,
+   0.0796,
+   0.0795,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0796,
+   0.0794,
+   0.0793,
+   0.0792,
+   0.0792,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0792,
+   0.0793,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0797,
+   0.0796,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0794,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0794,
+   0.0794,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0795,
+   0.0796,
+   0.0777,
+   0.0221,
+   0.0022,
+   0.0015,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0269,
+   0.0759,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0794,
+   0.0793,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0793,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798
+  ],
+  "close_events": [
+   {
+    "step": 100,
+    "width_after": 0.044,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 610,
+    "width_after": 0.014,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 1,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "TurnOnSinkFaucet",
+   "kind": "fixture",
+   "first_complete_step": 140,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     140,
+     900
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 140,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 189,
+    "p90": 230,
+    "n": 17
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "TurnSinkSpout",
+   "kind": "process",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 140,
+   "typical_in_successes": {
+    "median": 263,
+    "p90": 362,
+    "n": 17
+   }
+  }
+ ],
+ "objects": {},
+ "fixtures": {
+  "stage0:sink": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0974,
+    0.5018,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5,
+    0.5
+   ],
+   "done_intervals": [
+    [
+     140,
+     900
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     107,
+     152
+    ],
+    [
+     359,
+     368
+    ],
+    [
+     370,
+     370
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "handle_joint": 0.0,
+     "water_on": false
+    },
+    {
+     "handle_joint": 1.4680275596760444e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 2.936060378235471e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 4.404098464347959e-06,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.09740945583920074,
+     "water_on": false
+    },
+    {
+     "handle_joint": 0.5000008905573409,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.500000069660495,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696604505,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.500000069660406,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696603615,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.500000069660317,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696602723,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696602278,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696601834,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696601388,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696600942,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696600498,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696600052,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696599607,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696599162,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696598716,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696598271,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696597826,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696597381,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696596935,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.500000069659649,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696596044,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696595599,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696595155,
+     "water_on": true
+    },
+    {
+     "handle_joint": 0.5000000696595098,
+     "water_on": true
+    }
+   ],
+   "state_end": {
+    "handle_joint": 0.5000000696595098,
+    "water_on": true
+   }
+  }
+ },
+ "process_progress_end": {
+  "stage1": {
+   "washed_loc": [
+    false,
+    true,
+    true
+   ],
+   "spout_ori": "right"
+  }
+ },
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "TurnOnSinkFaucet",
+    "execute"
+   ],
+   [
+    140,
+    "TurnSinkSpout",
+    "execute"
+   ],
+   [
+    647,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": [
+   "only 2/3 basin locations washed (washed: center,right)"
+  ]
+ },
+ "video": "run/RinseSinkBasin/RinseSinkBasin_s15_single.mp4"
+}

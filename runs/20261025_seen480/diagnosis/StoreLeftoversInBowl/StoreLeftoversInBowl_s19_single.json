@@ -1,0 +1,36 @@
+{
+ "tag": "StoreLeftoversInBowl_s19_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  720,
+  836
+ ],
+ "category": "placed_then_fell_or_slid",
+ "secondary": [
+  "disturbed_placed_object",
+  "other: bowl carried tilted > 45 deg in the rim grasp (615-835)",
+  "undid_previous_stage"
+ ],
+ "what_happened": "Layout 9 (side-by-side fridge, narrow open right compartment), deep brown bowl_8, lemon wedge, drumstick 011. Stage 0: lemon wedge grasped 89, released in the bowl 156 (stage 0 at 157). Stage 1: drumstick grasped 293, released 409 (lift 0.358; stage 1 at 412, normal). Stage 2: rim grasp 439-456 (width ~0.03 -> 0.021), lift 0.482 m. The bowl tilted past 45 deg at 615 and was carried that way. At the fridge (680-756) the arm brought it to the front edge of the TOP shelf (glass-cup distractor). The gripper opened 744-768 (0.022 -> 0.078) with the bowl 4.8 cm outside the interior. The bowl dropped ~8 cm and came to rest half on the shelf lip and half on the open fingers: rack contact held only 759-761, and the wrist view shows the bowl with both foods resting on the hand 776-816. When the arm rotated and withdrew (~816-828), the bowl slid off and fell to the floor (end z 0.05); both foods spilled out. The arm then wandered in the fridge until 1700.",
+ "causal_chain": "bowl tilted > 45 deg during the carry (615) -> brought to the front edge of the top shelf, not over it -> gripper opened at 744-768 with the bowl 5 cm outside the interior -> bowl perched on the shelf lip and the open fingers (rack contact only 759-761) -> arm withdrew at ~816-828 and the bowl fell to the floor -> foods spilled",
+ "self_recovery": "none",
+ "official_criterion_notes": "Rack contact was briefly true (759-761) with the bowl tilted on the shelf lip; the gripper was at the bowl, so stage 2 could not count anyway. Stage 0 is 'complete' at the end (first_incomplete_stage = 1) because the drumstick lies in/against the bowl on the floor (contact + xy distance; no height check).",
+ "evidence": {
+  "sheets": [
+   "frames/s19_early.png",
+   "frames/s19_fridge.png",
+   "frames/s19_drop_zoom.png",
+   "frames/L9_release_compare.png"
+  ],
+  "packet_facts": [
+   "bowl hold 449-756 lift 0.482 dist at release 0.048 drop 0.082; bowl touch continues 761-819",
+   "bowl at_target [[759,761]]; tipped [[615,835]]",
+   "gripper 0.022 at 736 -> 0.078 at 768",
+   "bowl end z 0.050, foods end z 0.04 / 0.01"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the arm actively pulled the bowl off when it withdrew or the bowl slid off on its own; the frames show it falling as the arm moves (~822-828)."
+}

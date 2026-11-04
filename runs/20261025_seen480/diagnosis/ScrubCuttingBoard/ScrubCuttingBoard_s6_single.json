@@ -1,0 +1,25 @@
+{
+ "tag": "ScrubCuttingBoard_s6_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L5: sponge_4 lying next to a large holed cutting_board_5. Stage 0: closed at 106, stage 0 from 111; the sponge touched the board while being lifted (contact 1 at 111). Stage 1: criterion met as early as 227 (5 contacts, sweep 0.157), but the policy kept scrubbing for ~470 more steps (9 contacts, sweep 0.242; at ~412 the sponge was briefly off the board over the counter; grasp test blind 620-670). It released only at ~700 on the counter at the board's left edge; eef 15 cm away at 716; success 716, 84 steps before the horizon. This is the 'keeps scrubbing' behaviour of the never-released failures, but the release came in time.",
+ "causal_chain": "",
+ "self_recovery": "none needed; abnormally long scrub (589 steps, 473 after the criterion was met)",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[112,0],[720,1]]",
+   "criterion met 227; release ~700",
+   "process_progress_end contacts 9 sweep 0.242"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

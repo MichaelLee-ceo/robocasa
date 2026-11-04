@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s27_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [200, 1250],
+ "category": "stall_pre_grasp",
+ "secondary": ["skipped_or_wrong_stage", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 9 (marble counter, navy drawers; same kitchen as s13/s20/s23); knife (knife_9, green handle) at the back of the open drawer with most of it under the countertop overhang - from above only the end of the handle sticks out past the counter edge; board 2.09 m away; a fish (fish_8) on a light-blue plate on the counter right above the drawer. Stage 0: from ~200 to ~1200 (about 1000 steps) the gripper hovered over the drawer in front of the counter edge, with the handle end at the top edge of the wrist view, far from the finger line; it never got closer than 0.22 m to the knife centre. It closed on air twice, at 1059 and 1146, both with the handle well out of reach at the top of the view. At ~1250 it gave up and went to the fish (stage 1 object): it hovered over the plate 1348-1448, grasped the fish at 1545 and lifted it 0.34 m; it was still holding it, far from the board, at 1600.",
+ "causal_chain": "knife lies under the counter overhang at the back of the drawer, only the handle end exposed -> gripper hovered in front of the counter edge ~200-1200 without reaching it (two air closes 1059, 1146) -> abandoned the knife and picked up the fish at 1545 -> timeout with the knife in the drawer",
+ "self_recovery": "none effective; two closes on air at 1059 and 1146, then switched to the meat.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s27_overview.png", "frames/s27_closes.png"],
+   "packet_facts": ["closes 1059 (w 0.043) and 1146 (w 0.061) on_nothing", "knife: no touch, min_eef_dist 0.225 m", "meat hold from 1536, lift 0.344, still held at 1600", "knife tilt 24.5 deg throughout (model axis, lies flat)"]},
+ "confidence": "high", "uncertain_about": "The packet has no drawer-opening value for this task, so I cannot tell whether the drawer was less than fully open; from the wrist view the knife is under the counter edge."}

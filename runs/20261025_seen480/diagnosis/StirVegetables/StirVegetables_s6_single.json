@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s6_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  704,
+  1600
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Scene: layout 5, red cast-iron pot (Pot065) on the rear-left burner, onion and lemon on the right counter, spatula_5 (all-blue silicone spatula: wide oval paddle, thin handle) on the counter right of the range. Stage 0: lemon grasped 111, dropped in 254 (complete 257). Stage 1: onion grasped 449, dropped in 575 (complete 583; 326 steps, a bit slow vs median 282). Stage 2: the gripper descended on the wide flat PADDLE end of the spatula, not the handle (wrist 704-740: the paddle under the left finger). It closed at 742; the spatula lifted for a moment (stage 2 held 752-757) and slipped out as the fingers closed completely (width 0.004 at 760); by 776 it lay on the counter again, rotated. The gripper then stayed fully closed (0.001) for the remaining 840 steps and the arm went to the pot empty-handed (~820-980) and hovered/stirred over and at the pot 980-1600. It never went back for the spatula.",
+ "causal_chain": "grasp aimed at the flat paddle end of the spatula (704-742) -> fingers closed on the paddle edge, spatula slid out within ~15 steps (752-760) -> gripper stayed closed; empty-handed stir motion at the pot 820-1600 -> stage 2/3 never achieved",
+ "self_recovery": "none: no second grasp attempt; the fingers never reopened.",
+ "official_criterion_notes": "The online log credits stage 2 at 752 from a ~5-step lift (752-757) before the spatula slid out, so by the online log the failed stage is 3, but the real failure is the stage-2 grasp. PickUpSpatula is evaluated as 'held and lifted now' (not latched).",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png",
+   "frames/s6_grasp.png",
+   "frames/s6_grasp_zoom.png",
+   "frames/s6_grasp_left.png"
+  ],
+  "packet_facts": [
+   "veg2 hold 111-254, veg1 hold 449-575",
+   "close 742 width 0.011 touching spatula, not lifted; stage2 only 752-757",
+   "gripper width 0.001-0.004 from 760 to 1600"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

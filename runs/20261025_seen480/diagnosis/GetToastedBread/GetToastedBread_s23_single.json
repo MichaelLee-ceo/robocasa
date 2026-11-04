@@ -1,0 +1,35 @@
+{
+ "tag": "GetToastedBread_s23_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  89,
+  2000
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "wrong_fixture_element",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 2, black 4-slot (two-pair) toaster next to a coffee machine (same kitchen as s27), bread in the left-most slot (pair 0, at the far left of the wrist view). The fingers closed at ~30 and stayed closed except at ~944. Stage 0: 89-170 the fist rested on the toaster top over the empty right slots (continuous contact), and 197-372 it touched the top/front repeatedly, moving no lever. 394-500 it worked at the toaster's right end and pushed the pair-1 lever (the pair without the bread) to only 0.11; the bread did not move. 520-1700 the arm hovered to the right of the toaster, looking at its right end panel and the coffee machine, with the bread visible at the left. It touched nothing. At 1780-1800 the fist came back to the toaster's end and moved the pair-0 lever by 0.05 (one contact at 1792), then hovered there until 2000. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "~400 steps on the toaster top without finding a lever (89-372) -> weak push on the wrong pair's lever (0.11, 448-500) -> ~1200 steps of hovering beside the toaster (520-1700) -> one touch of the correct lever at 1792 (0.05) -> toaster never on",
+ "self_recovery": "a late approach to the correct lever at 1780-1800 that moved it 0.05.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_press.png",
+   "frames/s23_late.png",
+   "frames/cmp_layout2_t100.png"
+  ],
+  "packet_facts": [
+   "state: pair1 lever 0.04-0.11 at 448-496; pair0 lever 0.05 at 1792; done []",
+   "bread dz 0 except -0.3 cm at 1792",
+   "toaster touch 89-170, 197-372 (intermittent), 394-500, 1792",
+   "gripper closed 32-2000 except a blip at 944; obj touch []"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Which physical lever handle the fist was on at 448-500 (the packet says pair 1); I could not resolve the lever handles on this black toaster in the 4-step frames."
+}

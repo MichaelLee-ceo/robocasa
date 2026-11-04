@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s9_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [472, 800],
+ "category": "stall_holding_at_target",
+ "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene L5 (same kitchen as successes s1/s6/s23): green sponge_4 on white marble, rotated ~30 deg to the gripper, cutting_board_9 (handle slot) ~20 cm to its left, sink beyond. Stage 0 slow: the gripper crept down over the sponge 100-164 (eef 7 cm -> 1 cm), touched at 155, closed ~176-180 (width 0.068) and lifted at ~190. Stage 0 from 180 (online 192; median 111, p90 132). Stage 1: onto the board at 240 (counter 1 at 239, 2 at 258). 260-470 small motions (about +/-5 cm) at one place on the board gave only 1 new point by 400 (counter 3 at 399). The criterion was met at 472 (5 contacts, sweep 0.142). 480-612 longer strokes to the left and back, partly beyond the board's back edge onto the counter (wrist view at 600-628 shows the back wall corner; 14 contacts by 569). 628-692 it lifted the sponge to +29 cm and carried it right, back over the sponge's start area, which looks like the successes' return-and-release move. It did not open. At 708-772 it brought the sponge back down onto the board and kept scrubbing until 800 (16 contacts, sweep 0.325).",
+ "causal_chain": "slow grasp (stage 0 ~70 steps over median) -> slow, small-amplitude scrub, criterion only at 472 -> return move at 628-692 aborted without opening -> back to scrubbing 708-800 -> timeout with the sponge held",
+ "self_recovery": "none: the one return move (628-692) ended in more scrubbing instead of a release.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s9_overview.png", "frames/s9_return.png", "frames/groupA_end.png"],
+   "packet_facts": ["online_stage_log [[192,0]]", "stage0 first 180 (typical median 111, p90 132)", "process_progress_end contacts 16 sweep 0.325", "trace: criterion met 472; sponge z +0.29 m at 692 then back to +0.02 at 772", "width 0.057-0.068 to 800, never opened"]},
+ "confidence": "high", "uncertain_about": "Whether the 628-692 lift was really meant as a release that the policy then abandoned, or just a re-positioning move."}

@@ -1,0 +1,10 @@
+##### feature clean_first: 1277 points; candidates kept (re-sampled within 0.05 of the executed chunk): 10040 / 10216
+=== 2 state: cross-validated prediction of V from the candidates' mean z (vs stage index + time)
+  KettleBoiling         n 313: rho(pred, V) features +0.18, stage+time +0.39; AUROC V > 0.5: features 0.60, stage+time 0.73; undecided vs decided: features |pred - 0.5| 0.53
+  SteamInMicrowave      n 366: rho(pred, V) features +0.24, stage+time +0.32; AUROC V > 0.5: features 0.67, stage+time 0.70; undecided vs decided: features |pred - 0.5| 0.54
+  PackIdenticalLunches  n 598: rho(pred, V) features +0.15, stage+time +0.37; AUROC V > 0.5: features 0.55, stage+time 0.65; undecided vs decided: features |pred - 0.5| 0.57
+=== 3 action: gain of the candidate picked from its features over the mean candidate (held-out main runs)
+  features               confirm  n 32: -2.4 pts [-13.0, +8.8]  (Kettle +12; SteamI -1; PackId -6); in-sample best-of-8 +42.1
+  features               control  n 31: +0.4 pts [-3.5, +5.2]  (Kettle -7; SteamI -1; PackId +2); in-sample best-of-8 +11.7
+  shuffled-label control confirm  n 32: -1.6 pts [-10.9, +8.0]  (Kettle -2; SteamI +16; PackId -6); in-sample best-of-8 +42.1
+  shuffled-label control control  n 31: +1.2 pts [-2.5, +5.1]  (Kettle +8; SteamI -5; PackId +1); in-sample best-of-8 +11.7

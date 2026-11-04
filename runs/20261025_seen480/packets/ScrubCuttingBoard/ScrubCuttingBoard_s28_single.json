@@ -1,0 +1,223 @@
+{
+ "tag": "ScrubCuttingBoard_s28_single",
+ "task": "ScrubCuttingBoard",
+ "instruction": "Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+ "success": false,
+ "steps": 800,
+ "horizon": 800,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   112,
+   0
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 112,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 7,
+  "style": 7,
+  "objects": {
+   "cutting_board": "objaverse/cutting_board/cutting_board_9/model.xml",
+   "sponge": "objaverse/sponge/sponge_8/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0775,
+   0.0766,
+   0.0747,
+   0.061,
+   0.06,
+   0.0596,
+   0.0586,
+   0.0579,
+   0.0573,
+   0.0561,
+   0.0555,
+   0.0556,
+   0.054,
+   0.0534,
+   0.0524,
+   0.0519,
+   0.035,
+   0.0414,
+   0.0398,
+   0.0402,
+   0.0408,
+   0.002,
+   0.001,
+   0.0025,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011
+  ],
+  "close_events": [
+   {
+    "step": 233,
+    "width_after": 0.002,
+    "on_nothing": false,
+    "touching": [
+     "sponge"
+    ],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickUpSponge",
+   "kind": "pick",
+   "first_complete_step": 109,
+   "complete_at_end": false,
+   "complete_intervals": [
+    [
+     109,
+     241
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 242,
+     "reason": "condition dropped"
+    }
+   ],
+   "steps_since_previous_stage": 109,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 111,
+    "p90": 132,
+    "n": 13
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "ScrubCuttingBoard",
+   "kind": "process",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 109,
+   "typical_in_successes": {
+    "median": 449,
+    "p90": 600,
+    "n": 13
+   }
+  }
+ ],
+ "objects": {},
+ "fixtures": {},
+ "process_progress_end": {
+  "stage1": {
+   "contacts": 2,
+   "sweep": 0.081
+  }
+ },
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickUpSponge",
+    "pick"
+   ],
+   [
+    104,
+    "ScrubCuttingBoard",
+    "execute"
+   ],
+   [
+    208,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/ScrubCuttingBoard/ScrubCuttingBoard_s28_single.mp4"
+}

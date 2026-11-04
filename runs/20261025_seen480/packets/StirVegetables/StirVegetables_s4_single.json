@@ -1,0 +1,756 @@
+{
+ "tag": "StirVegetables_s4_single",
+ "task": "StirVegetables",
+ "instruction": "Put the bell pepper and bell pepper in the pot. Retrieve the spatula and lightly stir the vegetables in the pot.",
+ "success": true,
+ "steps": 912,
+ "horizon": 1600,
+ "success_step": 904,
+ "online_stage_log": [
+  [
+   256,
+   0
+  ],
+  [
+   448,
+   1
+  ],
+  [
+   576,
+   2
+  ],
+  [
+   912,
+   3
+  ]
+ ],
+ "replay_matches_online_log": false,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 256,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 448,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 2,
+   "logged_step": 576,
+   "replay_holds_there": false
+  },
+  {
+   "stage": 3,
+   "logged_step": 912,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 8,
+  "style": 8,
+  "objects": {
+   "spatula": "objaverse/spatula/spatula_8/model.xml",
+   "pot": "lightwheel/pot/Pot065/model.xml",
+   "veg1": "objaverse/bell_pepper/bell_pepper_3/model.xml",
+   "veg2": "objaverse/bell_pepper/bell_pepper_3/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0786,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0618,
+   0.0569,
+   0.0565,
+   0.056,
+   0.0556,
+   0.0553,
+   0.055,
+   0.0548,
+   0.0546,
+   0.0551,
+   0.0543,
+   0.0586,
+   0.0777,
+   0.0784,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0778,
+   0.0641,
+   0.0637,
+   0.0634,
+   0.063,
+   0.0626,
+   0.0622,
+   0.0619,
+   0.0615,
+   0.0611,
+   0.066,
+   0.061,
+   0.0778,
+   0.0785,
+   0.0789,
+   0.0792,
+   0.0792,
+   0.0793,
+   0.0794,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0802,
+   0.08,
+   0.0616,
+   0.0199,
+   0.0197,
+   0.02,
+   0.0187,
+   0.0175,
+   0.0172,
+   0.0172,
+   0.0172,
+   0.0172,
+   0.0171,
+   0.0171,
+   0.0172,
+   0.0172,
+   0.0173,
+   0.0173,
+   0.0173,
+   0.0173,
+   0.0173,
+   0.0173,
+   0.0173,
+   0.0172,
+   0.0173,
+   0.0175,
+   0.0175,
+   0.0175,
+   0.0175,
+   0.017,
+   0.0172,
+   0.0183,
+   0.0176,
+   0.017,
+   0.0172,
+   0.0172,
+   0.0172,
+   0.0179,
+   0.0213,
+   0.0223,
+   0.0228,
+   0.0234,
+   0.0258,
+   0.0273,
+   0.0286,
+   0.0293
+  ],
+  "close_events": [
+   {
+    "step": 143,
+    "width_after": 0.057,
+    "on_nothing": false,
+    "touching": [
+     "veg2"
+    ],
+    "lifted": [
+     "veg2"
+    ]
+   },
+   {
+    "step": 559,
+    "width_after": 0.02,
+    "on_nothing": false,
+    "touching": [
+     "spatula"
+    ],
+    "lifted": [
+     "spatula"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 1,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToStove",
+   "kind": "pnp",
+   "first_complete_step": 242,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     242,
+     418
+    ],
+    [
+     420,
+     807
+    ],
+    [
+     809,
+     854
+    ],
+    [
+     856,
+     912
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 419,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 808,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 855,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 242,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 232,
+    "p90": 251,
+    "n": 9
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToStove",
+   "kind": "pnp",
+   "first_complete_step": 443,
+   "complete_at_end": false,
+   "complete_intervals": [
+    [
+     443,
+     446
+    ],
+    [
+     448,
+     461
+    ],
+    [
+     463,
+     463
+    ],
+    [
+     465,
+     498
+    ],
+    [
+     500,
+     521
+    ],
+    [
+     523,
+     532
+    ],
+    [
+     534,
+     628
+    ],
+    [
+     630,
+     784
+    ],
+    [
+     786,
+     790
+    ],
+    [
+     792,
+     807
+    ],
+    [
+     809,
+     810
+    ],
+    [
+     812,
+     850
+    ],
+    [
+     853,
+     854
+    ],
+    [
+     857,
+     862
+    ],
+    [
+     864,
+     870
+    ],
+    [
+     872,
+     874
+    ],
+    [
+     876,
+     878
+    ],
+    [
+     880,
+     898
+    ],
+    [
+     900,
+     901
+    ],
+    [
+     903,
+     906
+    ],
+    [
+     909,
+     910
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 447,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 462,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 464,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 499,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 522,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 533,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 629,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 785,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 791,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 808,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 811,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 851,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 855,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 863,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 871,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 875,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 879,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 899,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 902,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 907,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 911,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 201,
+   "window_start": 242,
+   "typical_in_successes": {
+    "median": 282,
+    "p90": 551,
+    "n": 9
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "PickUpSpatula",
+   "kind": "pick",
+   "first_complete_step": 575,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     575,
+     575
+    ],
+    [
+     577,
+     577
+    ],
+    [
+     588,
+     590
+    ],
+    [
+     592,
+     912
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 576,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 578,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 591,
+     "reason": "condition dropped"
+    }
+   ],
+   "steps_since_previous_stage": 132,
+   "window_start": 443,
+   "typical_in_successes": {
+    "median": 152,
+    "p90": 217,
+    "n": 9
+   }
+  },
+  {
+   "stage": 3,
+   "skill": "StirVegetables",
+   "kind": "process",
+   "first_complete_step": 904,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     904,
+     912
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 329,
+   "window_start": 575,
+   "typical_in_successes": {
+    "median": 315,
+    "p90": 637,
+    "n": 8
+   }
+  }
+ ],
+ "objects": {
+  "veg1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    0.5759,
+    -2.1703,
+    0.9476
+   ],
+   "end_pos": [
+    0.3339,
+    -1.6865,
+    0.9893
+   ],
+   "at_target_intervals": [
+    [
+     443,
+     446
+    ],
+    [
+     448,
+     461
+    ],
+    [
+     463,
+     463
+    ],
+    [
+     465,
+     498
+    ],
+    [
+     500,
+     521
+    ],
+    [
+     523,
+     807
+    ],
+    [
+     809,
+     810
+    ],
+    [
+     812,
+     850
+    ],
+    [
+     852,
+     854
+    ],
+    [
+     856,
+     870
+    ],
+    [
+     872,
+     874
+    ],
+    [
+     876,
+     898
+    ],
+    [
+     900,
+     910
+    ]
+   ],
+   "dist_to_target_start_m": 0.3987,
+   "dist_to_target_end_m": 0.0563,
+   "min_eef_dist_to_centre_m": 0.001,
+   "gripper_touch_intervals": [
+    [
+     354,
+     432
+    ],
+    [
+     434,
+     434
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 354,
+     "release_step": 435,
+     "lift_m": 0.261,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0166,
+     "height_drop_after_release_m": 0.056,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0609
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 4.8,
+   "tilt_deg_end": 49.7,
+   "tilt_deg_max": 107.0,
+   "tipped_over_intervals": [
+    [
+     489,
+     912
+    ]
+   ]
+  },
+  "veg2": {
+   "target_of_stage": 0,
+   "start_pos": [
+    0.4771,
+    -2.1448,
+    0.9476
+   ],
+   "end_pos": [
+    0.3901,
+    -1.7001,
+    0.9885
+   ],
+   "at_target_intervals": [
+    [
+     242,
+     418
+    ],
+    [
+     420,
+     532
+    ],
+    [
+     534,
+     628
+    ],
+    [
+     630,
+     784
+    ],
+    [
+     786,
+     790
+    ],
+    [
+     792,
+     807
+    ],
+    [
+     809,
+     851
+    ],
+    [
+     853,
+     854
+    ],
+    [
+     857,
+     862
+    ],
+    [
+     864,
+     878
+    ],
+    [
+     880,
+     901
+    ],
+    [
+     903,
+     906
+    ],
+    [
+     909,
+     912
+    ]
+   ],
+   "dist_to_target_start_m": 0.3552,
+   "dist_to_target_end_m": 0.0228,
+   "min_eef_dist_to_centre_m": 0.0132,
+   "gripper_touch_intervals": [
+    [
+     149,
+     238
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 151,
+     "release_step": 239,
+     "lift_m": 0.286,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0339,
+     "height_drop_after_release_m": 0.086,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.02
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 4.8,
+   "tilt_deg_end": 38.3,
+   "tilt_deg_max": 84.5,
+   "tipped_over_intervals": [
+    [
+     780,
+     809
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {
+  "stage3": {
+   "success_time": 5
+  }
+ },
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToStove",
+    "pick"
+   ],
+   [
+    153,
+    "PickPlaceCounterToStove",
+    "place"
+   ],
+   [
+    246,
+    "PickPlaceCounterToStove",
+    "pick"
+   ],
+   [
+    355,
+    "PickPlaceCounterToStove",
+    "place"
+   ],
+   [
+    442,
+    "PickUpSpatula",
+    "pick"
+   ],
+   [
+    574,
+    "StirVegetables",
+    "execute"
+   ],
+   [
+    912,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/StirVegetables/StirVegetables_s4_single.mp4"
+}

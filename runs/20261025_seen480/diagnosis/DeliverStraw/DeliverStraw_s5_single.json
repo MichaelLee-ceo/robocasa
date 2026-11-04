@@ -1,0 +1,33 @@
+{
+ "tag": "DeliverStraw_s5_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  900,
+  1000
+ ],
+ "category": "placed_then_fell_or_slid",
+ "secondary": [
+  "release_timing"
+ ],
+ "what_happened": "Layout 9, yellow Straw009, GlassCup024. Stage 0 at 207. Straw grasped 359-370 (width 0.013), lifted 0.69 m, navigation 379-~720. ~880-976 the straw was held diagonally over/beside the cup. Released at 977 with its centre 2.5 cm from the cup centre; it touched the cup only at 983-984 (at_target), then toppled off the rim and fell off the counter onto a stool (end z 0.876, 0.134 m from the cup). The policy closed on air at 1292 and 1312 and did not recover the straw.",
+ "causal_chain": "straw released tilted at the rim (977, 2.5 cm off) -> touched the cup for 2 steps -> fell outward off the counter onto a stool -> no recovery -> timeout",
+ "self_recovery": "none (two closes on air, 1292 and 1312, nowhere near the straw).",
+ "official_criterion_notes": "Official success = straw touches the cup AND straw centre < 0.5 m horizontally from the cup centre AND gripper far; there is no 'inside' or upright test, so a straw lying across the rim or leaning on the outside of the cup would count once the gripper leaves. Here the condition held only 983-984 while the gripper was still near.",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png",
+   "frames/s5_place.png",
+   "frames/s5_cupzoom.png",
+   "frames/all_at_cup_wrist.png"
+  ],
+  "packet_facts": [
+   "hold 370-977 dist_at_release 0.025, height drop 0.199, dist 2 s after 0.133",
+   "at_target [[983,984]]",
+   "closes 1292, 1312 on_nothing"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the straw was tilted at release or tipped on hitting the rim; the agent-view frames show it diagonal by 988."
+}

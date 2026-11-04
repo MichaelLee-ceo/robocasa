@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s20_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  426,
+  1600
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Scene: layout 9, black pot (Pot071) on the right rear burner, potato and corn on the counter right of the hob, spatula_8 (thick black handle, slotted metal turner) on the counter. Stage 0: corn grasped 105, dropped in 249 (complete 251). Stage 1: potato grasped 318, dropped in 380 (complete 386, fast). Stage 2: 404-424 the gripper came down over the far END of the handle; at 426 it closed partly (0.042) with the butt end at the edge of the finger gap (wrist 432-456), re-closed at 457 and the handle slid out (464: spatula shifted on the counter; width 0.002 at 480). The stage-2 condition flickered 439-448 only. The fingers then stayed closed (0.001) for the remaining ~1120 steps: the arm went to the pot as if to stir (500-960), back over the spatula (~1000) without opening, to the pot again (1040-1100), hovered (1200-1450) and passed over the spatula again at ~1560, still closed.",
+ "causal_chain": "approach to the very end of the handle -> closes at 426/457 caught only the butt end, handle slid out (lift < 1 cm) -> gripper stayed closed; empty-handed stir motions at the pot and passes over the spatula without opening 480-1600 -> stage 2 never held",
+ "self_recovery": "The 457 re-close was an immediate retry and also slipped; after that the fingers never reopened.",
+ "official_criterion_notes": "Stage-2 condition held for 1-2 steps at 439-448 while the handle end was pinched without real lift.",
+ "evidence": {
+  "sheets": [
+   "frames/s20_overview.png",
+   "frames/s20_grasp.png",
+   "frames/s20_later.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 105-249, veg2 hold 318-380; stage1 first 386",
+   "close 426 width 0.042 touching spatula, not lifted; close 457 width 0.004 touching spatula, not lifted",
+   "stage2 intervals 439-440, 442-443, 446, 448 only",
+   "gripper width 0.001-0.003 from 480 to 1600"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

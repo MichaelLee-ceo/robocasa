@@ -1,0 +1,33 @@
+{
+ "tag": "PrepareCoffee_s29_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  300,
+  528
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "official_criterion_issue",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 10, grey espresso machine CoffeeMachine051 (low portafilter, steam wand, dial; start button high on the upper-left front), tall orange mug_4 on the upper shelf. Stage 0: grasp 104/116, carried to the machine by ~300. 300-480 the tall mug was pushed in under the low portafilter; its rim met the portafilter and the mug was held tilted (up to 30 deg) against it for ~180 steps. Released 495 at 0.0466 m; it rocked back upright (500-528) and settled just under the group head, slightly towards the robot, 0.0429 m from the pour site (2.9 mm outside the 4 cm tolerance), and stayed there to the end (0.0429). Stage 1: the policy never touched the machine. After the release it backed away (560-640, wrist looks at the machine front and then the whole counter) and from ~800 to 1200 hovered 40-60 cm away, looking at the machine.",
+ "causal_chain": "tall mug pushed under a low portafilter, held tilted against it 300-480 -> released 495, settles upright just in front of the spout at 0.043 m (3 mm outside tolerance) -> stage 0 never counts -> policy never goes to the button (no machine contact at all) -> timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "Near miss against the official 4 cm: the mug ends 0.0429 m from the pour site. In the agent and wrist views it stands under the group head, a little towards the front; a human would very likely call it 'under the dispenser'. Even so, the episode would not have succeeded, because the button was never attempted.",
+ "evidence": {
+  "sheets": [
+   "frames/s29_overview.png",
+   "frames/s29_release.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 116 release 495 dist 0.0466 -> 0.0429 (end 0.0429)",
+   "tilt max 29.7 (during the hold), end 0.0",
+   "at_target_intervals []",
+   "machine touch none; turned_on never"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the policy skipped the button because the placement looked wrong to it or for another reason; there is no button attempt to look at."
+}

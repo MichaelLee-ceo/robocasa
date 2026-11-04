@@ -1,0 +1,35 @@
+{
+ "tag": "DeliverStraw_s0_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  247,
+  1700
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_pre_grasp",
+  "wander_away"
+ ],
+ "what_happened": "Layout 10 (corner with toaster), bar-handle top drawer at straw x=0.93. 0-240 approach. 247-315 the gripper hooked the long horizontal bar handle with half-open fingers (width 0.05-0.068; the bar lies across the finger axis, it is not between the fingers) and pulled: drawer 0.15 (272) -> 0.37 (288) -> 0.62 (304) -> 0.853 at 320, where it stopped. The fingers closed on air at 308-320 as the handle slipped out, and stayed closed (width ~0.001) for the rest of the episode. The policy never came back to the drawer (drawer touch only 247-315). 480-780 it hovered above the half-open drawer with the straw visible but never descended (closest eef-to-straw 0.30 m); from ~840 it wandered over the counter. Straw never touched; drawer 0.853 at the end.",
+ "causal_chain": "handle hooked, not grasped (247) -> handle slipped off at 0.853 (320; needs 0.95, ~47% of physical travel) -> fingers closed on air and never reopened -> hovered over the straw with a closed gripper 480-780 -> wandered until timeout (1700)",
+ "self_recovery": "none: no second pull and no attempt at the straw (fingers stayed closed).",
+ "official_criterion_notes": "Drawer value = slide joint / (0.55 x drawer depth), so fully open reads ~1.82 and the 0.95 threshold is ~52% of the physical travel; the composite task's own _check_success does not check the drawer at all (only straw-cup contact within 0.5 m + gripper far). At 0.853 the straw was visible in the drawer, so the drawer was probably open enough for the pick; the policy, not the opening, ended the episode.",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/s0_pull.png",
+   "frames/s0_after.png",
+   "frames/all_handle_close_wrist.png",
+   "frames/L10_drawer_open_left.png"
+  ],
+  "packet_facts": [
+   "drawer touch [[247,315]]; value 0.148@272 0.367@288 0.621@304 0.853@320 then flat",
+   "close 308 width 0.003 on_nothing",
+   "straw min_eef_dist 0.297, no touch"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the policy would have reached the straw at this opening if it had reopened the fingers."
+}

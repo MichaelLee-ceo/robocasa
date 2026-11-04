@@ -1,0 +1,33 @@
+{
+ "tag": "GetToastedBread_s4_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  830,
+  2000
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 9, cream/silver single-pair toaster with the lever on its front-right, bread in the left slot. Stage 0: the gripper half-closed and pushed the lever down 144-160 (the bread dropped 5.5 cm with the carriage), toaster on 159-658. It stayed in contact with the toaster/lever area 163-503, then hovered. The lever rose 670-848 and stage 0 completed at 824 (online 832). Stage 1: 830-1520 the gripper hovered at the toaster's right end, touching the housing 803-899 and 943-993. The wrist view showed the bread sticking out of the far (left) slot about 15-20 cm away. The fingers opened 688-1040 and closed at 1025-1040 on nothing at the right end of the toaster, not at the bread, then stayed closed to the end. At ~1520-1560 the arm lifted, and from ~1600 the base drove away (1640-1800 in transit). By 1900-1980 the robot was at the dining counter with the closed, empty gripper right above the plate. The bread never moved from the toaster.",
+ "causal_chain": "lever pressed correctly (160) -> pop-up done 824 -> hovered ~700 steps at the toaster's right end without reaching the bread in the left slot (one close on air at 1025) -> skipped the pick and drove to the dining counter empty-handed (1600-1980), ending over the plate -> bread still in the toaster at 2000",
+ "self_recovery": "none: it never went back for the bread.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_after_pop.png",
+   "frames/s4_leave.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[832,0]]; stage0 first_complete 824",
+   "toaster on 159-658; toaster touch 163-503, 803-899, 943-993",
+   "gripper half 168-512, closed 512-680, open 688-1040, closed 1040-2000; close_events 154, 497, 1025 all on_nothing",
+   "obj touch [] / holds []; min_eef 0.126 m; bread end pos = start pos"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the close at 1025 was meant as a grasp; it was well away from the bread."
+}

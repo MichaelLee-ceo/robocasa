@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s6_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  96,
+  384
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 2, black 4-slot (two-pair) toaster with a lever under each slot pair, bread in slot 2 (left pair, pair 0). The fingers closed into a fist at ~40 and never reopened. Stage 0: 92-215 the fist pushed at the front of the toaster and moved the RIGHT (pair-1) lever to only 0.18-0.22. It then slid right along the front (260-340) and at 368-384 pushed the right lever fully down. Pair 1 (the two empty right slots) was on 378-877. The bread in pair 0 never moved (dz 0 all episode). After ~384 the arm hovered at the toaster's right end and above it until 2000, with the bread standing in the left slots in view. It never touched the toaster again (no contact after 377) and never touched the left lever or the bread. Pair 1 popped up at ~880 with no visible change for the bread, and the behaviour after that looked the same as in s1, where the right lever had been pressed.",
+ "causal_chain": "pushed the right lever (empty pair 1) instead of the left lever under the bread (368-384) -> toaster on but the bread was not in that pair, so stage 0 can never latch -> hovered beside the toaster 400-2000 with closed fingers -> neither toasted nor delivered",
+ "self_recovery": "none: after pair 1 popped up (~880) it never tried the left lever or the bread.",
+ "official_criterion_notes": "fixtures.stage0:toaster.done_intervals [[378,877]] means 'some pair turned on'; it is the wrong pair here, and stage 0 correctly never holds.",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png",
+   "frames/s6_press.png",
+   "frames/s6_after.png",
+   "frames/cmp_layout2_t100.png"
+  ],
+  "packet_facts": [
+   "state_every_32_steps: pair1 lever 0.18-0.22 at 96-192, pair1 on 384-880; pair0 lever 0.0 throughout",
+   "bread dz 0.0 cm all episode (from saved states)",
+   "toaster touch 92-377 only",
+   "gripper closed from 40 to 2000; obj touch []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s1_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 5 (black cabinets); knife (knife_6, black handle) in a black drawer, board and a red plate with a fish (fish_9, lying on its side) next to each other on the counter. Stage 0 normal: grasp at 333 (lift 0.38 m), released on the board at 473 (0.093 m from centre). Stage 1 slow (496 steps vs median 220, p90 478): close on the fish's tail/middle at 558 (touch, lift 1 mm, slipped), then 600-850 hovering over the plate and briefly back over the board (700); at 856 it grasped the fish by the head (lift 0.12 m) and released it at 942 on the board, partly on top of the knife (0.083 m from centre). The knife stayed on the board; success at 969.",
+ "causal_chain": "",
+ "self_recovery": "Stage 1: missed the fish at 558 (no lift), re-grasped successfully at 856 after ~300 steps of hovering.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s1_overview.png"],
+   "packet_facts": ["knife hold 342-473 lift 0.38 dist 0.093", "meat close 558 no lift (hold 566-578 lift 0.001); hold 862-942 lift 0.122 dist 0.083", "stage1 steps 496 (p90 478)"]},
+ "confidence": "high", "uncertain_about": ""}

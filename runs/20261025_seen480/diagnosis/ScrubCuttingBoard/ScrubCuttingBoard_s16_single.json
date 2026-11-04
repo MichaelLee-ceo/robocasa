@@ -1,0 +1,25 @@
+{
+ "tag": "ScrubCuttingBoard_s16_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L6 (same kitchen as failure s19): dark-green sponge_8 on granite in front of a toaster oven, holed cutting_board_5 ~50 cm to the left; the arm reached far left. Stage 0 from 104. Grasp test blind 102-155 and 212-250. Stage 1: first contact 211, criterion met at 332, 11 contacts / sweep 0.244. Scrub 211-558 (347 steps), then it carried the sponge back towards the toaster oven and released at 558. The sponge landed standing on its edge (tilt 79 deg). Eef 15 cm away at 573; success 573.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "The sponge ended on its side (tilt 79 deg); the criterion does not care where or how the sponge is left.",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[112,0],[576,1]]",
+   "process_progress_end contacts 11 sweep 0.244",
+   "tilt at end 78.7 deg"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

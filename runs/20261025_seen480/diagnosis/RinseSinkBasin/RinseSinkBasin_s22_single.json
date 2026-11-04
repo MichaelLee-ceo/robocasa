@@ -1,0 +1,31 @@
+{
+ "tag": "RinseSinkBasin_s22_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  235,
+  858
+ ],
+ "category": "wander_away",
+ "secondary": [
+  "ran_out_of_time"
+ ],
+ "what_happened": "Scene layout/style 8 (same faucet as s4, s10, s17). Stage 0: paddle worked 123-198, water on at 191 (normal); stream visible at 228-240. Stage 1: after 235 the gripper left the faucet without moving the spout: 260-330 it rose and moved right, the wrist overlooking the sink and stream; 380-560 the wrist pointed at the back corner above the faucet (backsplash, utensil rail), the spout drifting to +0.18 (430-500) with no gripper contact recorded; 640-720 the arm moved further right, wrist on the canister/utensils. Only at 785 did it come back onto the spout and push it right (+0.31 at 804, right washed 858, +0.79 at 868). 42 steps remained; left never reached.",
+ "causal_chain": "water on 191 -> no spout work; 550 steps away from the spout (235-785) -> right only at 858 -> timeout 900 before any left attempt",
+ "self_recovery": "Returned to the spout at 785 and completed the right side; too late for the left.",
+ "official_criterion_notes": "Spout drift 430-500 without a gripper_touch interval: arm-link contact not recorded by the packet.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_dense.png"
+  ],
+  "packet_facts": [
+   "stage0 191; washed_loc [F,T,T]",
+   "fixture touch to 235, then 785-900 only; no close events",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: +0.18@500, +0.43@852, +0.79@868"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

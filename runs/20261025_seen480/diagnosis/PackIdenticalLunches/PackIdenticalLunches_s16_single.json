@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s16_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [89, 2600],
+ "category": "missed_grasp_continued_empty",
+ "secondary": ["other: arm folded down toward its own base and froze 960-2600", "stall_pre_grasp"],
+ "what_happened": "Scene: layout/style 7; mushrooms and steaks on two glass fridge shelves (tall mushroom veg1 and steak meat1 on the upper shelf), tupperwares on the dark counter by the toaster. No food item was ever touched (packet: no touch intervals; min eef distance 0.066 m to the mushroom). Trip 1: the gripper hovered above the upper-shelf mushroom (72-100) and closed on air ~10 cm above its cap at 89 (close event: on_nothing, width 0.014). With the fingers closed (112-576) it drove to the counter and made an empty 'place' over the tupperware (~600, opened 592). Trip 2: back at the fridge ~700, it hovered above the upper-shelf steak (760-792) and closed on air again at 777. From ~820 the arm folded down: the wrist camera turned to look at the robot's own base and the floor (860-1260), and from ~960 to 2600 the arm stayed folded low in front of the fridge with the fingers closed; frames 1400-2600 are practically identical (frozen ~1600 steps).",
+ "causal_chain": "close on air above the mushroom (89) -> empty trip and empty place at the counter (~600) -> close on air above the steak (777) -> arm folded down and froze (960-2600) -> 0 items",
+ "self_recovery": "It returned to the fridge once after the empty place and tried a second item, which also closed on air; after that no recovery.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s16_overview.png", "frames/s16_fold.png"],
+  "packet_facts": ["no gripper_touch_intervals on any item", "close 89 air w0.014; close 777 air w0.018", "width closed 112-576, 800-2600"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the closes happened so high above the items (depth misjudgement through the glass shelf?), and why the arm folded; the base did not move after ~800."
+}

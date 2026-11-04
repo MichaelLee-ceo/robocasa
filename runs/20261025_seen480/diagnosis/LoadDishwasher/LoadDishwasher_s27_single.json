@@ -1,0 +1,25 @@
+{
+ "tag": "LoadDishwasher_s27_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 1 (same kitchen, view and objects, cup_5 + wooden bowl_7, as failure s23). Bowl first: grasped 152-166 (lift 0.016), lowered into the INTERIOR of the slid-out rack (wrist 268-300: bowl among the rack wires, well behind the front rail) and released 278; it ended tilted on edge (48 deg); stage 0 complete 286 (median 298). Stage 1: cup grasped 354-364, lowered next to the bowl (wrist 468-476) and released 485, ending lying on its side (83 deg); stage 1 complete 483 (197 steps). Stage 2: rack pushed in and door lifted 552-608 (0.23@576, 0.70@592, 1.00@608); success 600 (117 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Both dishes count while lying tilted/on their side (48 and 83 deg).",
+ "evidence": {
+  "sheets": [
+   "frames/succ_C_overview.png"
+  ],
+  "packet_facts": [
+   "dish1 hold 166-278; stage0 286",
+   "dish0 hold 364-485; stage1 483",
+   "door 0.23@576 -> 1.00@608; success 600"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

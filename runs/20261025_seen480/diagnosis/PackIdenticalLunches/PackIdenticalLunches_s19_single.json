@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s19_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 2,
+ "root_cause_steps": [1500, 1545],
+ "category": "placed_off_target",
+ "secondary": [],
+ "what_happened": "Scene: layout/style 3; bell_pepper_3 (veg0) and bell_pepper_2 (veg1), steak_6 (T-bone, meat0) and steak_8 (round, meat1); two rectangular tupperwares side by side on the white counter between the cooktop (left, L) and the toaster/coffee machine (right, R). Stage 0: grasped steak meat1 at 110-118, released it at 336 into L; stage 0 complete 359 (typical 286). Stage 1: grasped pepper veg1 at 743 (after ~400 steps at the fridge) and released it at 974 into R; stage 1 complete 997 (638, p90 474 - slow). Composition L = meat, R = veg (fine). Stage 2: grasped pepper veg0 at 1354-1364 and released it at 1545 into R again, right next to the first pepper (dist 0.06), instead of L next to the steak; stage 2 complete 1564 (567, slow). From here the goal was unreachable without moving a pepper. Stage 3: grasped the T-bone meat0 at 1928-1936 and released it at 2179 into L (the only consistent choice left): final L = 2 steaks, R = 2 peppers (sorted by kind). The remaining ~400 steps it went back to the fridge.",
+ "causal_chain": "third item (second pepper) released into the tupperware that already held the first pepper (1545) instead of the one holding the steak -> after the last steak (2179) the tupperwares are sorted by kind (2 meat | 2 veg) -> stage 3 impossible; all four placed by 2179, so time was not the cause (stages 1-2 were slow but finished)",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s19_overview.png"],
+  "packet_facts": ["meat1 hold g118 r336; veg1 hold g743 r974; veg0 hold g1364 r1545 dist 0.06; meat0 hold g1936 r2179", "end: v0 (4.71,-2.60) + v1 (4.72,-2.52) together; m0 (4.76,-2.19) + m1 (4.84,-2.11) together", "stages 359, 997, 1564"]
+ },
+ "confidence": "high",
+ "uncertain_about": "What took the extra time before the pepper grasp at 743 (I did not sheet 360-740 densely; no contacts in the packet)."
+}

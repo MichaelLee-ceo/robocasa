@@ -1,0 +1,35 @@
+{
+ "tag": "PreSoakPan_s4_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  668,
+  880
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture",
+  "wander_away"
+ ],
+ "what_happened": "Scene L8/S8, the same kitchen as s22: paddle lever at the base of a spout with a round head. Stage 0: pan (pan_8, dark handle) grasped by the handle at 115, placed flat in the basin and released at 263 (stage 0 at 272). Stage 1: sponge grasped at 374 and dropped into the pan at 477 (stage 1 at 495). Stage 2: the gripper reached the faucet around 620 and was in contact with the lever 668-857, mostly still (~190 steps). The lever stood beside the left finger, not in the gap. At 840-864 the wrist rolled about 45 degrees (knob-like turn); the lever tilted to 0.164 rad and slipped out to the left (860-868). The arm then pulled back to the right (880) and spent 880-1600 hovering above and to the right of the sink. The wrist camera often had the faucet and the tilted lever in view, but the arm never came back (no sink contact after 863).",
+ "causal_chain": "both objects in by 495 (1105 steps left) -> ~190-step dwell at the lever 668-840 -> wrist-roll turn moves the lever to 0.164 rad (needs > 0.40), lever slips out at ~864 -> 736 steps of hovering/wandering without re-approaching -> water off at 1600",
+ "self_recovery": "none. After the lever slipped, the policy never went back to it.",
+ "official_criterion_notes": "The pan and sponge stayed in the basin and were not disturbed.",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_handle.png",
+   "frames/s4_sweep_wrist.png",
+   "frames/s4_after.png"
+  ],
+  "packet_facts": [
+   "sink value 0.0606@848, 0.164@864 to end; water_on never",
+   "sink touch [[668,673],[675,677],[683,830],[832,855],[857,857],[863,863]]",
+   "close events 813 and 849 on nothing (fingers at the lever)",
+   "pan hold 115-263; sponge hold 374-477; stage1 495"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 813/849 finger closes were an attempt to grasp the paddle. The lever was just outside the finger gap."
+}

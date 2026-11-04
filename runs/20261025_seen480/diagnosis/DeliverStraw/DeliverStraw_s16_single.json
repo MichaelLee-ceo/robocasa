@@ -1,0 +1,30 @@
+{
+ "tag": "DeliverStraw_s16_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  213,
+  1700
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Layout 8. At 213 the gripper grasped the vertical curved handle of a cabinet DOOR (width 0.04 = on the handle) and swung the door open 280-360 (wrist view looks into the cabinet). From 480 to the end the arm stayed at/inside that cabinet with the gripper half-closed, wrist view showing only the door panel. Target drawer value 0, no touch; straw untouched (min eef 0.59 m).",
+ "causal_chain": "grasped the cabinet door handle instead of the drawer handle (213) -> opened the door -> stuck at the cabinet ~1400 steps -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "Invisible in the packet except for the on_nothing close with width 0.04 at 213.",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png",
+   "frames/s16_dense.png"
+  ],
+  "packet_facts": [
+   "close 213 width 0.04 on_nothing",
+   "target drawer touch [] value 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

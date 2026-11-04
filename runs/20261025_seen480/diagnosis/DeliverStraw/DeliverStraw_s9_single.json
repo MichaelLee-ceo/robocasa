@@ -1,0 +1,31 @@
+{
+ "tag": "DeliverStraw_s9_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  263,
+  337
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Layout 7, yellow Straw009. Stage 0 fast (164). The gripper closed on one end of the straw at 263 (width 0.043, i.e. only partly on it) and lifted it 0.44 m at 283; while the arm rotated away from the drawer, the straw slipped out (fingers fully closed, 0.002, at 331) and fell at 337 to the floor in front of the drawer (end z 0.012). The policy did not notice: it drove to the dining counter with the empty gripper (500-1000), moved over the cup as if placing, and closed on air at 886 and 1515.",
+ "causal_chain": "grasped the straw by its tip, not the middle (263) -> slipped out during the lift/turn and fell to the floor (337) -> continued the delivery empty-handed -> timeout",
+ "self_recovery": "none: it never looked back for the straw.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s9_overview.png",
+   "frames/s9_grasp.png"
+  ],
+  "packet_facts": [
+   "close 263 width 0.043 touching straw, lifted; close 331 width 0.002",
+   "hold 283-337 lift 0.439 height drop 1.172 (floor)",
+   "closes 886, 1515 on_nothing"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,1291 @@
+{
+ "tag": "SteamInMicrowave_s0_single",
+ "task": "SteamInMicrowave",
+ "instruction": "Pick the squash from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button.",
+ "success": false,
+ "steps": 1400,
+ "horizon": 1400,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   288,
+   0
+  ],
+  [
+   720,
+   1
+  ],
+  [
+   1072,
+   2
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 288,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 720,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 2,
+   "logged_step": 1072,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 9,
+  "style": 9,
+  "objects": {
+   "bowl": "objaverse/bowl/bowl_6/model.xml",
+   "vegetable": "objaverse/squash/squash_3/model.xml",
+   "distr_counter_0": "lightwheel/sugar_cube/SugarCube006/model.xml",
+   "distr_counter_1": "lightwheel/wooden_spoon/WoodenSpoon008/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0802,
+   0.0667,
+   0.0665,
+   0.0663,
+   0.066,
+   0.0656,
+   0.0651,
+   0.0645,
+   0.064,
+   0.0634,
+   0.0628,
+   0.0622,
+   0.0618,
+   0.0608,
+   0.0601,
+   0.0594,
+   0.0588,
+   0.0586,
+   0.0583,
+   0.0578,
+   0.057,
+   0.057,
+   0.0731,
+   0.078,
+   0.0786,
+   0.079,
+   0.0793,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.036,
+   0.0205,
+   0.0205,
+   0.0206,
+   0.02,
+   0.0197,
+   0.0184,
+   0.0184,
+   0.0183,
+   0.0182,
+   0.0181,
+   0.0181,
+   0.018,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0181,
+   0.0182,
+   0.0182,
+   0.0182,
+   0.0182,
+   0.0182,
+   0.0182,
+   0.0182,
+   0.0183,
+   0.0183,
+   0.0184,
+   0.0183,
+   0.0184,
+   0.0184,
+   0.0184,
+   0.0183,
+   0.0205,
+   0.0716,
+   0.078,
+   0.0786,
+   0.0789,
+   0.0791,
+   0.0792,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0786,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0816,
+   0.0804,
+   0.08,
+   0.08,
+   0.0799,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0771,
+   0.0794,
+   0.0786,
+   0.0784,
+   0.0788,
+   0.079,
+   0.0791,
+   0.0792,
+   0.0793,
+   0.0793,
+   0.0793,
+   0.0793,
+   0.0794,
+   0.0726,
+   0.078,
+   0.0786,
+   0.0787,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0798,
+   0.0797,
+   0.0796,
+   0.0674,
+   0.0087,
+   0.002,
+   0.0014,
+   0.0012,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0127,
+   0.0274,
+   0.0759,
+   0.0781,
+   0.0783,
+   0.0785,
+   0.0455,
+   0.0032
+  ],
+  "close_events": [
+   {
+    "step": 331,
+    "width_after": 0.024,
+    "on_nothing": false,
+    "touching": [
+     "bowl"
+    ],
+    "lifted": [
+     "bowl"
+    ]
+   },
+   {
+    "step": 1240,
+    "width_after": 0.014,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 1381,
+    "width_after": 0.014,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 3,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceSinkToCounter",
+   "kind": "pnp",
+   "first_complete_step": 277,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     277,
+     349
+    ],
+    [
+     351,
+     445
+    ],
+    [
+     447,
+     595
+    ],
+    [
+     597,
+     625
+    ],
+    [
+     627,
+     692
+    ],
+    [
+     694,
+     696
+    ],
+    [
+     698,
+     732
+    ],
+    [
+     734,
+     1400
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 350,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 446,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 596,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 626,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 693,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 697,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 733,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 277,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 282,
+    "p90": 358,
+    "n": 10
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToMicrowave",
+   "kind": "pnp",
+   "first_complete_step": 707,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     707,
+     1400
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 430,
+   "window_start": 277,
+   "typical_in_successes": {
+    "median": 477,
+    "p90": 596,
+    "n": 10
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "CloseMicrowave",
+   "kind": "fixture",
+   "first_complete_step": 1057,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     1057,
+     1400
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 350,
+   "window_start": 707,
+   "typical_in_successes": {
+    "median": 201,
+    "p90": 483,
+    "n": 10
+   }
+  },
+  {
+   "stage": 3,
+   "skill": "TurnOnMicrowave",
+   "kind": "fixture",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 1057,
+   "typical_in_successes": {
+    "median": 169,
+    "p90": 345,
+    "n": 10
+   }
+  }
+ ],
+ "objects": {
+  "vegetable": {
+   "target_of_stage": 0,
+   "start_pos": [
+    0.2651,
+    -1.9449,
+    0.745
+   ],
+   "end_pos": [
+    5.5096,
+    -2.8569,
+    1.5101
+   ],
+   "at_target_intervals": [
+    [
+     263,
+     271
+    ],
+    [
+     273,
+     274
+    ],
+    [
+     277,
+     349
+    ],
+    [
+     351,
+     445
+    ],
+    [
+     447,
+     595
+    ],
+    [
+     597,
+     625
+    ],
+    [
+     627,
+     692
+    ],
+    [
+     694,
+     696
+    ],
+    [
+     698,
+     732
+    ],
+    [
+     734,
+     1400
+    ]
+   ],
+   "dist_to_target_start_m": 0.8862,
+   "dist_to_target_end_m": 0.0376,
+   "min_eef_dist_to_centre_m": 0.0175,
+   "gripper_touch_intervals": [
+    [
+     102,
+     276
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 109,
+     "release_step": 277,
+     "lift_m": 0.467,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0377,
+     "height_drop_after_release_m": 0.008,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0263
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 36.6,
+   "tilt_deg_end": 97.4,
+   "tilt_deg_max": 143.3,
+   "tipped_over_intervals": [
+    [
+     4,
+     1400
+    ]
+   ]
+  },
+  "bowl": {
+   "target_of_stage": 1,
+   "start_pos": [
+    0.4674,
+    -2.8077,
+    0.969
+   ],
+   "end_pos": [
+    5.5273,
+    -2.8236,
+    1.5087
+   ],
+   "at_target_intervals": [
+    [
+     668,
+     1400
+    ]
+   ],
+   "dist_to_target_start_m": 4.955,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.0327,
+   "gripper_touch_intervals": [
+    [
+     261,
+     266
+    ],
+    [
+     268,
+     268
+    ],
+    [
+     336,
+     688
+    ],
+    [
+     696,
+     696
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 261,
+     "release_step": 269,
+     "lift_m": 0.005,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 4.9614,
+     "height_drop_after_release_m": 0.006,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 4.9594
+    },
+    {
+     "grasp_step": 339,
+     "release_step": 689,
+     "lift_m": 0.66,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0,
+     "height_drop_after_release_m": 0.043,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0
+    }
+   ],
+   "brief_contacts_without_lift": 1,
+   "tilt_deg_start": 0.2,
+   "tilt_deg_end": 0.2,
+   "tilt_deg_max": 62.5,
+   "tipped_over_intervals": [
+    [
+     526,
+     690
+    ]
+   ]
+  }
+ },
+ "fixtures": {
+  "stage2:microwave": {
+   "value_every_16_steps": [
+    0.0413,
+    0.0414,
+    0.0414,
+    0.0414,
+    0.0415,
+    0.0415,
+    0.0416,
+    0.0416,
+    0.0416,
+    0.0417,
+    0.0417,
+    0.0418,
+    0.0418,
+    0.0419,
+    0.0419,
+    0.0419,
+    0.042,
+    0.042,
+    0.0421,
+    0.0421,
+    0.0421,
+    0.0422,
+    0.0422,
+    0.0423,
+    0.0423,
+    0.0424,
+    0.0424,
+    0.0424,
+    0.0425,
+    0.0425,
+    0.0426,
+    0.0426,
+    0.0426,
+    0.0427,
+    0.0427,
+    0.0428,
+    0.0428,
+    0.0429,
+    0.0429,
+    0.0429,
+    0.043,
+    0.043,
+    0.0431,
+    0.0431,
+    0.0431,
+    0.0432,
+    0.0432,
+    0.0433,
+    0.0433,
+    0.0434,
+    0.0434,
+    0.0434,
+    0.0435,
+    0.0435,
+    0.0436,
+    0.1294,
+    0.2554,
+    0.2991,
+    0.423,
+    0.4958,
+    0.5764,
+    0.588,
+    0.5718,
+    0.6863,
+    0.7551,
+    0.8106,
+    0.9899,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "done_intervals": [
+    [
+     1057,
+     1400
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     867,
+     867
+    ],
+    [
+     872,
+     897
+    ],
+    [
+     903,
+     903
+    ],
+    [
+     905,
+     905
+    ],
+    [
+     907,
+     907
+    ],
+    [
+     910,
+     911
+    ],
+    [
+     913,
+     937
+    ],
+    [
+     939,
+     939
+    ],
+    [
+     942,
+     942
+    ],
+    [
+     944,
+     951
+    ],
+    [
+     963,
+     968
+    ],
+    [
+     970,
+     972
+    ],
+    [
+     974,
+     983
+    ],
+    [
+     1009,
+     1010
+    ],
+    [
+     1014,
+     1014
+    ],
+    [
+     1031,
+     1031
+    ],
+    [
+     1037,
+     1040
+    ],
+    [
+     1043,
+     1043
+    ],
+    [
+     1048,
+     1049
+    ],
+    [
+     1052,
+     1052
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    },
+    {
+     "closed": true
+    }
+   ],
+   "state_end": {
+    "closed": true
+   }
+  },
+  "stage3:microwave": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "done_intervals": [],
+   "gripper_touch_intervals": [
+    [
+     867,
+     867
+    ],
+    [
+     872,
+     897
+    ],
+    [
+     903,
+     903
+    ],
+    [
+     905,
+     905
+    ],
+    [
+     907,
+     907
+    ],
+    [
+     910,
+     911
+    ],
+    [
+     913,
+     937
+    ],
+    [
+     939,
+     939
+    ],
+    [
+     942,
+     942
+    ],
+    [
+     944,
+     951
+    ],
+    [
+     963,
+     968
+    ],
+    [
+     970,
+     972
+    ],
+    [
+     974,
+     983
+    ],
+    [
+     1009,
+     1010
+    ],
+    [
+     1014,
+     1014
+    ],
+    [
+     1031,
+     1031
+    ],
+    [
+     1037,
+     1040
+    ],
+    [
+     1043,
+     1043
+    ],
+    [
+     1048,
+     1049
+    ],
+    [
+     1052,
+     1052
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": false
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    },
+    {
+     "turned_on": false,
+     "closed": true
+    }
+   ],
+   "state_end": {
+    "turned_on": false,
+    "closed": true
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceSinkToCounter",
+    "pick"
+   ],
+   [
+    112,
+    "PickPlaceSinkToCounter",
+    "place"
+   ],
+   [
+    283,
+    "PickPlaceCounterToMicrowave",
+    "pick"
+   ],
+   [
+    350,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    577,
+    "PickPlaceCounterToMicrowave",
+    "place"
+   ],
+   [
+    694,
+    "CloseMicrowave",
+    "execute"
+   ],
+   [
+    1050,
+    "TurnOnMicrowave",
+    "execute"
+   ],
+   [
+    1400,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/SteamInMicrowave/SteamInMicrowave_s0_single.mp4"
+}

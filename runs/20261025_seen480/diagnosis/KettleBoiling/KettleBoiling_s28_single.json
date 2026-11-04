@@ -1,0 +1,25 @@
+{
+ "tag": "KettleBoiling_s28_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Grasp at 88, lift 0.35 m, released 217 on the front-left burner (0.02 m); stage 0 at 246. Knob 354-433, on at 394 (1.22; blue flame visible from ~404). Stage 1 only counts at 453 when the gripper retreated, so 207 packet steps vs ~177 physical.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Stage 0 broken 278-453: Stage 0 interval breaks while the gripper is within 25 cm of the kettle at the knob (gripper-away clause), not a real undo.",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_dense.png"
+  ],
+  "packet_facts": [
+   "stage0 [[246,278],[453,464]]",
+   "stove done from 394; front_left 1.222"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

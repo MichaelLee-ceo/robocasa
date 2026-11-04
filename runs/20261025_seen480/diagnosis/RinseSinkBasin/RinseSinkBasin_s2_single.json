@@ -1,0 +1,27 @@
+{
+ "tag": "RinseSinkBasin_s2_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 9 (pull-down spring faucet; same faucet as failures s0, s3, s13, s20, s26). Stage 0 fast: lever contact 91-135, close 95 (0.042), water at 123. Overview pose ~180. Spout head taken at 218 (close 223, 0.040) and swung RIGHT 224-256 (right washed 239, +0.87), then held at the right for ~170 steps (256-410) before sweeping all the way back to the LEFT in one motion 416-480 (+0.56 -> -0.84; left washed 466, success 466). Contact with the spout was continuous 218-480. Stage 1 took 343 steps (near p90 362) because of the long hold at the right; in the same layout s0/s26 held the right side similarly and then let go instead of sweeping back.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png",
+   "frames/s2_handle.png",
+   "frames/s2_spout_zoom.png"
+  ],
+  "packet_facts": [
+   "online log [[128,0],[480,1]]",
+   "fixture touch 218-480 continuous",
+   "spout angle from saved states (column validated against packet washed_loc): R 239 (+0.87), held +0.78..0.87 to 408, L 466 (-0.84 at 480)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

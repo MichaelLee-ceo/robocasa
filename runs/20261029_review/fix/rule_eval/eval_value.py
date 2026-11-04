@@ -1,8 +1,9 @@
 """Offline: g_final (settle_candidate) vs hybrids that use the ramp value for free fingers; on the restore review's
 ground-truth table (true ramp c at 77.5k chunk boundaries)."""
+import os
 import json, sys
 import numpy as np
-R_DIR = "/home/michaellee/mclee/robocasa/runs/20261029_review/restore"
+R_DIR = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../..")), "20261029_review/restore")
 sys.path.insert(0, R_DIR)
 from grip_eval import rules, situations
 OUT = f"{R_DIR}/out"

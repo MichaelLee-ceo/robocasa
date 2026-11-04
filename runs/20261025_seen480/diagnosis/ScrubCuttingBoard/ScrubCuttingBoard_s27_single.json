@@ -1,0 +1,25 @@
+{
+ "tag": "ScrubCuttingBoard_s27_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L1: sponge_6 on white counter next to a toaster, small rounded cutting_board_7 to its right. Stage 0 from 98/107 (online 112). Stage 1: first contact 216, criterion met at 292, 9 contacts / sweep 0.23. Stage 0 dropped 356-370 because the held sponge touched the counter at the board's edge (not a real undo). Scrub 216-458 (242 steps); released at 458 on the counter; eef 15 cm away at 482; success 482.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[112,0],[496,1]]",
+   "process_progress_end contacts 9 sweep 0.23",
+   "stage0 [[98,99],[107,355],[371,458]]"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,36 @@
+{
+ "tag": "WashLettuce_s14_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  384,
+  690
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp",
+  "wander_away"
+ ],
+ "what_happened": "Scene layout 4 / style 4: dark double-basin sink with the faucet at the divider; iceberg lettuce (Lettuce008) in a perforated colander with a loop handle (Colander008) on the counter right of the sink (out of the agent view). Stage 0 fast: lever touched 150-187, water on at 190. Stage 1: the gripper reached the colander at ~300. At 384-416 it closed on the curved bowl wall just right of the loop handle (wrist zoom: one finger inside on the lettuce/wall, the other outside), width 0.026 then 0.002: slipped off, nothing lifted (close_events 389 and 409). 440-620 it rose and hovered over the colander, then came down again inside the colander at 640-664 and closed on the wall next to the lettuce (659, width 0.014 then 0.002): slipped again. From ~690 it swung the arm up and away: 690-1100 the wrist camera alternates between the robot's own body and the sink seen from high above (stream visible), with one more close on nothing at 857. The colander never left the counter; washed_time 0.",
+ "causal_chain": "water on 190 (fast) -> two closes on the colander bowl wall (not the handle) at 389/409 slip -> hover 440-620 -> third close at 659 slips -> arm wanders high above the sink 690-1100 -> timeout with the lettuce on the counter",
+ "self_recovery": "One re-try (640-664) at a different spot on the colander wall; it slipped too. After that no further attempt at the colander.",
+ "official_criterion_notes": "close_events list 'touching lettuce' for all three attempts because the lettuce is the only tracked object; the fingers were on the colander wall with one finger brushing the lettuce.",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_grasp.png",
+   "frames/s14_fingers.png",
+   "frames/s14_late.png",
+   "frames/grasp_compare_wrist.png",
+   "frames/colander008_grasp_compare.png"
+  ],
+  "packet_facts": [
+   "handle 0.17@176 0.43@192 0.47 to end; water on 190",
+   "close_events 389 (0.026, touching lettuce, not lifted), 409 (0.002), 659 (0.014, touching lettuce, not lifted), 857 (0.003, nothing)",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why these closes slip while other Colander008 grasps hold. All three slipping grasps in this task (s6, s14, s19) are on Colander008 (3 of 9 Colander008 episodes; 0 of 21 with other colanders), but the side-by-side wrist views at closing (colander008_grasp_compare.png) show no clear difference in where the fingers were relative to the rim/loop handle."
+}

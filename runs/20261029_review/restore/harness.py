@@ -5,7 +5,7 @@ Read-only use of runs/scripts, collect.py and the data; nothing outside this fol
 import copy, glob, hashlib, json, os, sys, time
 import numpy as np
 
-R = os.environ.get("ROBOCASA_ROOT", "/home/michaellee/mclee/robocasa")
+R = (os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../..")))
 sys.path[:0] = [f"{R}/runs/scripts", f"{R}/runs/20261026_imagine", f"{R}/runs/20261026_critic_data"]
 import gymnasium as gym  # noqa: E402
 import hidden_state  # noqa: E402

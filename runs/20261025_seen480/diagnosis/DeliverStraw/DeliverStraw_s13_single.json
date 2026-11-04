@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s13_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  148,
+  760
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Layout 10 corner, target drawer at straw x=1.39 (same position as s15/s29, which opened the right drawer). 148-200 the gripper grasped the handle of the drawer on the LEFT (perpendicular) wall (close 160, width 0.032) and pulled it open. 240-680 it searched the empty wrong drawer; at 659-688 it closed on air inside it (width 0.002) and kept the fingers closed. ~760 it left with the closed gripper and wandered. Target drawer value 0, no touch; straw untouched (min eef 0.47 m).",
+ "causal_chain": "grasped the neighbouring drawer's handle (160) -> opened the wrong drawer -> searched it 240-680, closed on air -> left with an empty closed gripper -> timeout",
+ "self_recovery": "none: never went to the target drawer.",
+ "official_criterion_notes": "Opening a non-target drawer is invisible in the packet (target drawer value 0, no touch).",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png",
+   "frames/s13_dense.png",
+   "frames/L10_drawer_open_left.png",
+   "frames/L10_start_left.png"
+  ],
+  "packet_facts": [
+   "close 160 width 0.032 on_nothing (handle); closes 659/679 to 0.002",
+   "target drawer touch [] value 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

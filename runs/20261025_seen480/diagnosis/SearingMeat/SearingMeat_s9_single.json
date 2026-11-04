@@ -1,0 +1,35 @@
+{
+ "tag": "SearingMeat_s9_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  141,
+  592
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "stall_holding_at_target",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: layout 5 (black kitchen, same as s1/s6), pan_5 (long tan wooden handle) in the upper cabinet; target rear_left burner 0.93 m away; shrimp on a plate right of the range. Stage 0: the gripper took the pan by the very END of the long handle (close 141, width 0.053, hold 145-585) and pulled it out; the pan then hung almost vertically from the handle tip, body up (tilt up to ~90 deg). 280-576 the arm held it in front of the range at about burner height, 0.35-0.19 m from the front_left burner and farther from the rear_left target, without ever laying it flat on the grate (wrist view barely changes 380-576). At 577 the fingers closed fully (0.002): the handle tip slipped out and the pan fell 1.15 m in front of the range (end z 0.22, tipped from ~553/607 to the end). The policy did not go back for it: it went to the shrimp (touch 784-798, no lift) and hovered over the shrimp plate with closed fingers from ~1200 to 2900. No knob touched.",
+ "causal_chain": "grasped the pan at the tip of its long handle (141) -> pan hung vertically, could not be set flat on the grate -> held in front of the range ~300 steps (280-576) -> handle tip slipped out at 577, pan fell to the floor area in front of the range -> moved on to the shrimp, missed it, hovered to the end -> fail",
+ "self_recovery": "none: no attempt to pick up the fallen pan.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s9_overview.png",
+   "frames/s9_hang.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "close 141 on pan width 0.053; hold 145-585",
+   "pan_nearest front_left 0.39-0.19 m during 320-576; never at_target",
+   "close 577 -> 0.002; drop_after_release 1.146 m; pan end z 0.22, tipped to end",
+   "shrimp touch 784-798 lift 0.007",
+   "knobs all 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Where exactly the pan landed (floor or the oven door handle region; z 0.22)."
+}

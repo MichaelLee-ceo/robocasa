@@ -1,0 +1,26 @@
+{
+ "tag": "PreSoakPan_s21_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L4/S4 (black double basin, black faucet). The same pan-as-tray strategy as s13. The sponge was grasped at 125, lifted 0.39 m and released ON the cast-iron pan (pan_7) on the counter at 312. The pan was then grasped by the handle at 456 and carried with the sponge on it. The pan was held nearly vertical (tipped 479-652, tilt up to 100 deg), so the sponge slid off into the basin (inside from 469). The pan was lowered into the left basin standing on its rim and released at 639, ending leaning at 35 deg, inside. Stage 0 at 594 (slow; p90 414), stage 1 at 656. Stage 2: lever contact from 911; success at 938.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "The pan counted as inside while leaning steeply against the basin wall. It is inside, so this is correct.",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png",
+   "frames/s21_pan_carry.png",
+   "frames/tilted_pans_end.png"
+  ],
+  "packet_facts": [
+   "sponge hold 125-312 dist at release 0.170; pan hold 456-639, tipped 479-652, tilt max 100",
+   "stage times 594 / 656 / 938"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,30 @@
+{
+ "tag": "RinseSinkBasin_s26_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  348,
+  900
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [],
+ "what_happened": "Scene layout/style 9 (pull-down faucet, as s0/s3). Stage 0 fast: lever 135-162 (close at 125), water at 161. Stage 1: the arm rose for an overview (248), then 304-348 the open gripper pushed the spout head right (+0.37 at 324, right washed 328, +0.83 at 356). It stayed at the spout head holding it at +0.80..+0.85 for ~240 steps (348-590), with small movements but no leftward swing, then backed off (~600-620) and hovered up and right of the faucet 650-900 with the neck in the wrist view, not touching it again. Gripper open throughout.",
+ "causal_chain": "right washed 328 -> held the spout at right 348-590 -> released and hovered 620-900 -> left never washed (572 steps of stage 1 available)",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_spout_zoom.png"
+  ],
+  "packet_facts": [
+   "stage0 161; washed_loc [F,T,T]",
+   "fixture touch 304-584 (merged), none after 584",
+   "gripper width ~0.08 (open) 280-900",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: +0.83@356, +0.79..+0.85 to 900, never below 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -13,7 +13,7 @@
 # usage: setsid nohup ./watchdog.sh <jobs.json> > logs/<jobs name>.watchdog.out 2>&1 < /dev/null &
 cd "$(dirname "$0")"
 HERE=$PWD; JOBS=$(realpath "$1"); Q=$HERE/logs/$(basename "$1" .json); mkdir -p $Q
-PY="/home/michaellee/mclee/robocasa/envs/groot/bin/python -I"
+PY="${GROOT_PY:-$(cd ../.. && pwd)/envs/groot/bin/python} -I"
 WPAT="^python -I $HERE/collect.py --jobs $JOBS"
 declare -A GPU_OF=([5751]=0 [5752]=0 [5753]=0 [5754]=0 [5761]=3 [5762]=3 [5763]=3 [5764]=3)
 retries=0; last_ok=-1; last_change=$(date +%s)

@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s18_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [196, 300],
+ "category": "actuation_insufficient",
+ "secondary": ["official_criterion_issue", "release_timing"],
+ "what_happened": "Scene L9 (same kitchen as s0/s2/s3/s13/s20/s26): large grey sponge_5 on a white marble counter, small rounded cutting_board_7 ~45 cm to the left next to the sink. Stage 0 normal: grasp 82 (width 0.065), lifted 16 cm and carried left (100-196), stage 0 from 82. The sponge tilted 15-24 deg in the grip during the carry. From 145 to 252 finger_joint1 was at its open limit (q1 ~0.040), so the env's grasp test was False. Stage 1: lowered onto the left half of the board at ~200, dragged ~10 cm on its tilted edge (204-228), then overshot past the board's far edge onto the counter (232-256). It came back onto the board (counter 1 at 253, 2 at 274) and released at ~300 on the board (rest height 14.6 mm; eef > 15 cm at 331). Final 2 contacts, sweep 0.108. Only about 100 steps on or near the board. Afterwards the base drove away (eef 4 m from the sponge at 800); no further attempt.",
+ "causal_chain": "slow transfer with a tilted wide sponge -> ~100-step scrub, half of it overshooting off the board, the on-board part uncounted (grasp test False until 252) -> released at 300 with 2/5 contacts -> drove away",
+ "self_recovery": "Partial: after overshooting off the board it brought the sponge back for two counted contacts, then released.",
+ "official_criterion_notes": "Blind window 145-252 overlaps the only on-board drag (204-228, ~10 cm). Sponge_5 holds finger 1 at ~0.032, 3 mm below the 0.035 cut, so small lateral shifts disable counting.",
+ "evidence": {"sheets": ["frames/s18_overview.png", "frames/s18_scrub.png", "frames/groupB_late.png"],
+   "packet_facts": ["process_progress_end contacts 2 sweep 0.108", "trace grasp False 145-252 while touch True (width 0.065)", "counter increments 253, 274", "release ~300 on board (z +14.6 mm), eef >0.15 at 331", "sponge tilt 19-24 deg during 204-292"]},
+ "confidence": "medium", "uncertain_about": "Whether the tilted sponge's edge actually touched the board during 204-228. Even if it did, the scrub was short and partly off the board, so success was unlikely either way."}

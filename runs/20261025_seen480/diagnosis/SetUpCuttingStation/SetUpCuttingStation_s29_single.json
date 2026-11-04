@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s29_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [760, 860],
+ "category": "placed_off_target",
+ "secondary": ["missed_grasp", "wander_away"],
+ "what_happened": "Scene: layout/style 10 (grey/white kitchen with toaster and toaster oven); knife (knife_8, black handle) in a grey drawer; a small narrow dark board (cutting_board_5) on the counter directly right of the plate with a drumstick (board 0.39 m from the knife, 0.30 m from the meat). Stage 0: close on air at 210 (knife at the top of the wrist view), hovered over the knife 400-600 with the handle centred, closed at 632 and lifted it cleanly (0.47 m). It carried the knife hanging blade-down-and-forward over the plate/board area (760-824, wrist: blade over the plate rim, handle next to the board's left edge) and released at 826 over the gap between plate and board, 0.165 m from the board centre; it dropped 7 cm and came to rest with its handle on the counter at the board's front-left corner and its blade across the plate rim (left-view zoom 1600). Stage 0 never held. The policy behaved as if the knife were placed: it swung up toward the toaster (860-1100), then tried the drumstick, closing at 1230 and 1309 (touching, lift 1 mm), and from ~1450 wandered right to the toaster oven until 1600.",
+ "causal_chain": "clean knife grasp 632 -> carried to the plate/board area, released at 826 over the gap between plate and narrow board (0.165 m from board centre) -> knife lies across the plate rim and the counter, not on the board -> policy moved on to the meat (two failed drumstick grasps 1230, 1309) and then wandered -> stage 0 never complete",
+ "self_recovery": "none for the misplaced knife; it never re-grasped it.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s29_overview.png", "frames/s29_release.png", "frames/s29_knifezoom.png"],
+   "packet_facts": ["close 210 on_nothing; close 632 lifted knife", "knife hold 640-826 lift 0.466 dist_at_release 0.1645 drop 0.068; dist 2 s later 0.157; never at_target", "meat closes 1230, 1309 touching, lift 0.001", "board start dist to knife 0.386 m, meat 0.299 m"]},
+ "confidence": "high", "uncertain_about": "Whether the plate's proximity to the narrow board drew the release point toward the plate; the release was about halfway between them."}

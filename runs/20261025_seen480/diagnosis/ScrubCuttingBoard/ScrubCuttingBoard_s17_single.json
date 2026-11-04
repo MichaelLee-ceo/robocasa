@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s17_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [142, 273],
+ "category": "actuation_insufficient",
+ "secondary": ["release_timing"],
+ "what_happened": "Scene L8 (same kitchen as s8/s10): green sponge_6 on a dark wood counter, light cutting_board_9 ~27 cm to the left. Stage 0: open fingers brushed the sponge at 81-88, then closed at 87-95 and lifted it 9 cm at ~100, carried it onto the board (stage 0 from 97). Stage 1: pressed on the right part of the board at 142 (counter 1). It then held the sponge pressed almost in one spot for ~90 steps (148-228: about 2 cm of drift; the wrist view barely changes). For 143-199 the counter was also blind (finger_joint1 at its open limit), but with so little motion that cost at most 1 point. Counter 2 at 201. At 228-250 the sponge slid right off the board's edge (counter 3 at 233) and was lifted 6 cm, carried back towards its start and released at 273 on the counter 9 cm from where it began (eef > 15 cm at 289). Final 3 contacts, sweep 0.144. 290-800: arm raised and robot looked around, no further attempt.",
+ "causal_chain": "pressed the sponge in one spot on the board for ~90 steps instead of scrubbing across it -> dragged it off the edge and returned it -> released at 273 after only ~130 steps on the board, with 3/5 contacts -> wandered to timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "Blind window 143-199 (finger-1 grasp test) coincided with the stationary press; it changes the count by at most about 1.",
+ "evidence": {"sheets": ["frames/s17_overview.png", "frames/s17_scrub.png", "frames/groupB_late.png"],
+   "packet_facts": ["close_events 87 width 0.059 lifted sponge", "process_progress_end contacts 3 sweep 0.144", "trace sponge xy drift ~2 cm during 148-228", "counter increments 141, 201, 233", "last touch 273 (counter, z 0), eef >0.15 at 289"]},
+ "confidence": "high", "uncertain_about": ""}

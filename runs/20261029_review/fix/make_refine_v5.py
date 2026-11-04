@@ -1,8 +1,9 @@
 """Refinement points (dense2) for the 2-chunk jumps of the relocated critical chunks: dense_analysis.analyse()'s refine
 list minus the points already collected, as settled-v5 jobs into run_dense2_<task>_fix5 (jobs_dense2_<task>.json is left
 alone). usage: python -I make_refine_v5.py jobs_out.json"""
+import os
 import json, sys
-sys.path.insert(0, "/home/michaellee/mclee/robocasa/runs/20261028_critical")
+sys.path.insert(0, os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261028_critical"))
 import data  # noqa: E402
 from dense_analysis import analyse  # noqa: E402
 

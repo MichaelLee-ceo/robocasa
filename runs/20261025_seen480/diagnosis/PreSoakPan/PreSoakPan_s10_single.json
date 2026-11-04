@@ -1,0 +1,27 @@
+{
+ "tag": "PreSoakPan_s10_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L8/S8, the only success among the six L8 episodes (paddle lever under the spout arm, round spray head). Pan (pan_8) grasped by the handle at 143 and placed at 275 (stage 0 at 295). Sponge grasped at 401 and dropped into the pan at 532 (stage 1 at 561). Stage 2 was slow (452 steps; p90 385). The gripper sat at the lever with contact 752-960, ~210 steps without moving it, the same dwell seen in failures s4 and s22. It then swept the lever sideways at 975-1013 with the paddle staying in the finger gap (0.02 at 992, 0.28 at 1008, 0.50 at 1024). Success at 1013.",
+ "causal_chain": "",
+ "self_recovery": "The sweep after the long dwell kept the lever engaged all the way to the stop. In s22 the same sweep lost the lever at 0.214 rad, and in s4 at 0.164.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_handle.png",
+   "frames/s10_sweep_wrist.png"
+  ],
+  "packet_facts": [
+   "sink touch [[272,273],[752,960],[981,1024]]",
+   "sink value 0.0226@992, 0.2761@1008, 0.5@1024",
+   "stage times 295 / 561 / 1013 (stage 2 452 steps)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly why this sweep kept the lever when s22's did not. The wrist sheets show the paddle between the fingers through the sweep here, but the 4-step frames do not resolve the finger-lever geometry well."
+}

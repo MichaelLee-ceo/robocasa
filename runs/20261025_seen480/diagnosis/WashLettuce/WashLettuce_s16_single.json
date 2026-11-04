@@ -1,0 +1,27 @@
+{
+ "tag": "WashLettuce_s16_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 6 / style 6 (same sink and faucet as the failure s19); romaine (Lettuce009) in a fine wire-mesh colander (Colander012) right of the sink. Stage 0 slow: the gripper pushed the lever 258-271 to 0.25 (272) and 0.40 (288), then let go with the handle sitting exactly at the 0.40 threshold (water_on needs > 0.40). No stream was visible 288-412 (s16_threshold.png), and the arm hovered above the faucet (wrist: tiled wall) for ~130 steps. At 414-415 it touched the lever again, the handle passed the threshold and water came on at 417 (median 253, p90 449). Stage 1 normal and fast: colander grasped at 518 (width 0.053), carried right under the spout by ~600, stream on the lettuce 630-654, success at 654 (237 steps).",
+ "causal_chain": "",
+ "self_recovery": "Recovered from leaving the lever exactly at the 0.40 rad threshold (288-414) by nudging it again at 414.",
+ "official_criterion_notes": "Near-threshold case: handle 0.40 for ~130 steps counted as water off, and the video agrees (the stream is only rendered when water_on).",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png",
+   "frames/s16_threshold.png"
+  ],
+  "packet_facts": [
+   "sink touch [[258,271],[414,415]]",
+   "handle 0.25@272, 0.40 from 288 to ~400, water on 417",
+   "close_events 518 (0.053, colander)",
+   "success 654, washed_time 27"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,33 @@
+{
+ "tag": "SearingMeat_s25_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  720,
+  1504
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 6 (brown wood, orange wall tiles; same kitchen as s16/s19), 4-element black glass electric range whose knobs sit on the rear console; pan_7 (rusty cast iron) in an upper cabinet; target front_right; fish on a wooden board left of the range. Stage 0: grasp at 85-94 at the handle base, pan placed on the front_right element (0.067 m at release 356), complete 383 (broke 579-670 only while the gripper was back near the pan). Stage 1: fish grasped at 506-518 (lift 0.22 m), released into the pan at 628: complete 628-2900. Stage 2: from 720 the gripper worked the rear console. It turned the REAR_RIGHT knob slowly from 960 to 1504 (0.04 -> 3.02 rad, settling at 2.62); the rear-right element behind the pan glows red from ~1300. The task knob front_right stayed at 0. 1640-1840 it moved along the right end of the console (two knobs in view), then from ~2000 to 2900 it sat at the console again with the fingers partly closed (width ~0.054 from 1760) on a knob that did not move. Stage 2 never held.",
+ "causal_chain": "pan on front_right and fish in pan by 628 (on schedule) -> policy turned the rear_right knob (960-1504) instead of front_right -> wrong element lit behind the pan -> stalled at the console holding a knob without turning it (2000-2900) -> fail",
+ "self_recovery": "It visited the other knob(s) at the right end of the console (1640-1840) but did not turn the front_right knob; then stalled.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s25_knob.png",
+   "frames/s25_knob_zoom.png",
+   "frames/s25_knob2.png"
+  ],
+  "packet_facts": [
+   "stage0 first 383, stage1 first 628 (online log 384, 640)",
+   "stove touch 720-2900 almost continuous",
+   "rear_right 0.04@960 -> 3.02@1504 -> 2.62 end; front_right (task) 0 throughout",
+   "pan_nearest front_right 0.064; fish at_target 628-2900 (tipped from 1398, still in pan)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Which knob it held during 2000-2900 (it looks like the same rear_right knob); the console icons are too small to read."
+}

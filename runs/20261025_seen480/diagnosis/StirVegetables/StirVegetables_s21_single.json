@@ -1,0 +1,26 @@
+{
+ "tag": "StirVegetables_s21_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 4 (same kitchen as s24), tall black stockpot (Pot074) on the rear-left zone of an induction hob, sweet potato, corn and spatula_9 (white blade on a thin wooden stick) on the counter right of the hob. Stage 0: a double grasp at 58 (corn touched too) lifted the sweet potato, dropped in 175 (complete 178). Stage 1: corn grasped 307/316, dropped in 464 (complete 460-466). Stage 2: spatula grasped 674 at the far end of the stick (wrist view: only the stick end visible), lifted (complete 689-693). Stage 3 (239 steps): the base turned back to the hob (~800); 820-928 the blade hung vertically down into the tall pot from above, and short up/down and sideways moves stirred the vegetables (corn visibly moving 896-928); success at 928 (success_time 5, exactly the threshold).",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Same spatula model (spatula_9, thin stick) as failures s2, s24 and s28; here the stick end was gripped and the blade hung straight down into the pot, which worked.",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png",
+   "frames/s21_stir_zoom.png"
+  ],
+  "packet_facts": [
+   "veg2 hold 66-175, veg1 hold 316-464",
+   "spatula close 674 width 0.031 lifted; stage2 693-928",
+   "success_step 928, success_time 5"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

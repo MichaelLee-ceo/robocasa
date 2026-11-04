@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s14_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  228,
+  1700
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "missed_grasp",
+  "wander_away"
+ ],
+ "what_happened": "Layout 2 island. 228-464 the gripper pressed against the target drawer's face above its handle (packet: repeated drawer touches 228-464), wrist view flat against the panel; the drawer did not move. At 459-480 it closed on air (width 0.0024) and the fingers stayed closed to the end. 520-1000 it moved along the drawer bank (handles visible), touched the drawer again at 961-966, then lifted away and wandered (1250-1696). Drawer 0, straw untouched (min eef 0.30 m).",
+ "causal_chain": "pressed on the drawer face instead of hooking the handle (228-464, ~240 steps) -> closed on air (459) -> never reopened -> wandered -> timeout",
+ "self_recovery": "none effective (one more touch at 961-966 with closed fingers).",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_dense.png",
+   "frames/s14_dense2.png"
+  ],
+  "packet_facts": [
+   "drawer touch 228-234, 244-247, 304-305, 360-379, 409-464, 961-966; value 0",
+   "closes 459 (0.014), 783, 815 on_nothing"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly where the fingertips were relative to the handle during 228-464."
+}

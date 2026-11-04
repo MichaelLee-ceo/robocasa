@@ -1,0 +1,27 @@
+{
+ "tag": "PreSoakPan_s14_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L2/S2, a near-failure: success at 1574, 26 steps before the horizon. Pan (pan_8) grasped at 115 and placed at 311 (stage 0 at 325). Sponge placed at 584 (stage 1 at 620). Stage 2 took 954 steps (p90 385). The gripper reached the faucet at 891 and pushed the lever to 0.327 rad by 928, 82 % of the 0.40 needed. It then moved up and away (932-1150: wall, ceiling, sink from above). It came back at 1157-1198 with a few one-step contacts that did not move the lever, wandered again (~1300-1400), and touched the sponge in the pan (1453-1488, no lift). At 1520-1567 it returned to the lever, and the final push took it from 0.33 to 0.50 at 1574.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from an incomplete lever push by returning about 640 steps later. This is the same partial-push-then-leave pattern as failures s4 (0.164) and s22 (0.214), but here the policy came back in time.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_lever.png"
+  ],
+  "packet_facts": [
+   "sink value 0.0039@896, 0.1655@912, 0.327@928 ... 0.326 to 1552, 0.339@1568, 0.50@1584",
+   "sink touch [[891,902],[904,909],[912,913],[1157..1198 single steps],[1567,1584]]",
+   "sponge re-touch 1453-1488 lift 0.001",
+   "success 1574"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

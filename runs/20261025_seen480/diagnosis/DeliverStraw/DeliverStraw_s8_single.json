@@ -1,0 +1,33 @@
+{
+ "tag": "DeliverStraw_s8_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  240,
+  1700
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_pre_grasp",
+  "missed_grasp"
+ ],
+ "what_happened": "Layout 9. 240-272 the gripper reached the handle with the handle post right of the finger gap; it closed partly (246, width 0.044) and dragged the drawer to 0.31 (272) / 0.39 (288), then the fingers closed on air (266, width 0.002) and the arm swung low. Drawer left at ~0.36-0.40 (about 20% of travel). The policy came back to the drawer front twice, 1047-1068 and 1265-1278, but only pressed/brushed it (0.35 -> 0.40 -> 0.36); it never re-grasped the handle and never reached for the straw (min eef 0.28 m).",
+ "causal_chain": "off-centre handle grasp slipped at 266 -> drawer left at ~0.39 -> two late pushes on the drawer front without a grasp -> timeout",
+ "self_recovery": "Came back to the drawer at 1047 and 1265 but pushed instead of pulling; no effect.",
+ "official_criterion_notes": "Drawer value = slide joint / (0.55 x drawer depth), so fully open reads ~1.82 and the 0.95 threshold is ~52% of the physical travel; the composite task's own _check_success does not check the drawer at all (only straw-cup contact within 0.5 m + gripper far).",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png",
+   "frames/s8_pull.png",
+   "frames/s8_later.png",
+   "frames/all_handle_close_wrist.png"
+  ],
+  "packet_facts": [
+   "drawer touch 240-272, 1047-1068, 1265-1278; values 0.31@272 0.387@288 0.349@1056 0.397@1280 0.36 end",
+   "closes 246 (0.044), 266 (0.002) on_nothing"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

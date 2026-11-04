@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s25_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  740,
+  1600
+ ],
+ "category": "other: stir misdirected - blade kept beside or on the rim of the pot, pushing the pot instead of sweeping the vegetables",
+ "secondary": [
+  "disturbed_placed_object"
+ ],
+ "what_happened": "Scene: layout 6 (same kitchen as s16, s19), red cast-iron pot (Pot065) on the rear-right zone of a smooth-top range, cucumber, tomato and spatula_8 (black handle, slotted metal turner) on the counter LEFT of the range. Stage 0: cucumber grasped 106, dropped in 223 (complete 225). Stage 1: tomato grasped 351, dropped in 445 (complete 450). Stage 2: spatula grasped 607 at the very end of the handle (the turner hangs below the hand, out of the wrist view), lifted (complete 628) and held to the end. Stage 3: 740-860 the turner hung OUTSIDE the pot, alongside its right wall (agent view 760, 800); ~900 the spatula was swung up horizontally over the pot; 960-1140 the hand pressed on the pot's top-right, tilting the pot (1140; stage 1 breaks from 1298); 1200-1600 the arm turned so the wrist camera faced the room and the arm occludes the pot in the agent view. No stir step was counted (success_time 0).",
+ "causal_chain": "spatula held at the end of the handle (628) -> turner kept outside the pot's right wall 740-860 -> later the hand pressed on the pot top, tilting it 960-1140 -> arm parked over the pot, wrist turned away 1200-1600 -> no counted stir",
+ "self_recovery": "Several re-positionings around the pot; none put the blade among the vegetables.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s25_overview.png",
+   "frames/s25_grasp.png",
+   "frames/s25_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 106-223, veg2 hold 351-445",
+   "spatula close 607 width 0.042 lifted; width 0.017 from 656 to 1600; stage2 628-1600",
+   "stage1 breaks 1298-1388",
+   "success_time 0"
+  ]
+ },
+ "confidence": "low",
+ "uncertain_about": "Where the blade was during 1200-1600 (arm occludes the pot, wrist camera faces the room); it may have been inside the pot touching only one vegetable."
+}

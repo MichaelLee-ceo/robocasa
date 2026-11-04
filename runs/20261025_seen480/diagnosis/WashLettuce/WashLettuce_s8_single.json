@@ -1,0 +1,37 @@
+{
+ "tag": "WashLettuce_s8_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  88,
+  660
+ ],
+ "category": "missed_grasp_continued_empty",
+ "secondary": [
+  "stall_at_fixture",
+  "skipped_or_wrong_stage",
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene layout 8 / style 8 (same sink and lever as s4/s10/s22); colander with lettuce on the counter right of the sink, visible in the agent view. Stage 0: the gripper reached the lever at the right of the spout base at 88 (touch 88-187). The fingers closed at 166-186 beside the lever, on nothing (width 0.001), and the lever did not move (handle 0.00 rad all episode; the 6.28 samples at 128/160 are a tiny negative angle wrapped by mod 2pi). From ~220 the closed gripper rotated (wrist camera rolls >90 deg) and hovered around the spout base 220-640, a turning-like motion with only brief touches (360-368, 382-384, 415-416, 429-431, 501-515, 588-592) and no handle movement. Then, with the water still off, it moved to the colander (660-700) and hovered over the lettuce/colander for ~400 steps (700-1040), slowly approaching the colander rim; the fingers started closing near the rim at ~1050, too late. Water never on, washed_time 0.",
+ "causal_chain": "fingers closed on air beside the lever (166-186) -> wrist-rotation 'turn' motion around the spout with closed fingers, lever never moved (220-640) -> moved on to the lettuce with the water off (660) -> hovered over the colander 700-1040 -> no washing possible with the water off; timeout at 1100",
+ "self_recovery": "Several brief re-contacts with the lever/spout 360-592 did not move it. It then abandoned the faucet and moved on to stage 1 without water, which could not succeed.",
+ "official_criterion_notes": "fixture value_every_16_steps shows 6.28 at steps 128 and 160: an angle a hair below 0 wrapped mod 2pi and then abs'd by the packet tooling (effective angle ~0), not a real turn.",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png",
+   "frames/s8_handle.png",
+   "frames/s8_handlezoom.png",
+   "frames/s8_late.png",
+   "frames/L8_handle_compare.png"
+  ],
+  "packet_facts": [
+   "sink gripper_touch [[88,92],[94,94],[124,187],[197,197],[234,234],[360,368],[382,384],[415,416],[429,431],[501,515],[588,592]]",
+   "handle 0.00 throughout (6.28 = wrapped tiny negative at 128,160)",
+   "close_events 166 (0.038) and 186 (0.001) on_nothing; 1050 (0.05)",
+   "washed_time 0, water_on false"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the 220-640 motion was meant as a lever turn or as a search; either way the lever was not engaged."
+}

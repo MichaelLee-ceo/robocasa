@@ -1,0 +1,32 @@
+{
+ "tag": "SearingMeat_s11_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  600,
+  684
+ ],
+ "category": "placed_off_target",
+ "secondary": [],
+ "what_happened": "Scene: layout 2 (white kitchen), 5-zone black glass cooktop (front_left large zone, front/rear centre, front/rear right); pan_7 (rusty cast iron, integrated handle) on a high shelf to the left; target rear_center; fish on a plate right of the cooktop. Stage 0: clean grasp at 91 at the base of the handle (handle running toward the camera between the fingers, width 0.038, hold 100-684). The pan swung to near-vertical while being carried (tipped 305-420) and was brought over the cooktop from the right; 600-684 it was lowered onto the REAR-RIGHT zone, not the rear-centre one, and released at 684, 0.184 m from the rear_center centre (0.10-0.14 m from rear_right). Stage 1: fish grasped at 783 (lift 0.16 m) and released into the pan at 856 (0.04 m from the pan centre): stage 1 complete 856-2900. Stage 2: the policy went to the knob row and turned the CORRECT rear_center knob (0.94 rad at 1024, 3.07 at the end); the rear-centre zone glows red from ~1040, next to the pan. It kept fiddling with the knobs (touches to 1841) and parked. Stage 0 (and therefore stage 2) never held because the pan is on the adjacent zone.",
+ "causal_chain": "pan carried from the right and set down on the rear_right zone, one zone right of the target (0.184 m from rear_center at release 684) -> fish correctly in the pan (856), correct knob rear_center turned on (1011+) -> heated zone is empty, pan on the neighbouring zone -> stage 0/2 never hold -> fail",
+ "self_recovery": "none: the pan was never touched after 684.",
+ "official_criterion_notes": "stage2:stove done_intervals [[1011,2900]] = task knob rear_center on; the pan is not on that burner. The official 0.15 m check behaves correctly here (the pan is visibly on the neighbouring zone).",
+ "evidence": {
+  "sheets": [
+   "frames/s11_overview.png",
+   "frames/s11_place.png",
+   "frames/s11_place_zoom.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 100-684, dist_to_target at release 0.184, end 0.184",
+   "pan_nearest_burner rear_right 0.138@640, 0.102 from 1024",
+   "fish hold 792-856 at_target, stage1 complete [[856,2900]]",
+   "rear_center (task) 0.94@1024 -> 3.07 end; other knobs 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the policy aimed at rear_right or simply stopped at the first rear zone it reached when coming from the right."
+}

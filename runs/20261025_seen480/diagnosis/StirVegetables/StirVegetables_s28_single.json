@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s28_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  880,
+  1600
+ ],
+ "category": "other: hand/spatula caught the pot and lifted or tipped it off the burner during the stir",
+ "secondary": [
+  "disturbed_placed_object"
+ ],
+ "what_happened": "Scene: layout 7 (same kitchen as s12), red cast-iron pot (Pot065) on the rear-right burner of a gas hob, bell pepper, onion and spatula_9 (white flat blade on a thin wooden stick handle) on the counter left of the hob. Stage 0: pepper grasped 130, dropped in 253 (complete 257). Stage 1: a first close on the onion at 327 slipped; grasp 577, dropped in 653 (complete 659; 402 steps vs median 282). Stage 2: spatula grasped 833 on the thin stick (width 0.011), lifted (complete 850) and held to the end. Stage 3: 880-1080 the arm hovered beside/above the pot with the blade pointing horizontally at the back wall (wrist view: wall tiles and outlet), not into the pot. From ~1100 the hand pressed into the pot from the front-right: the pot was pushed back-left and tilted up (flame exposed from 1140), and 1380-1600 it was held raised and tilted against the hand (agent view: rim up; wrist view 1500-1580: tilted pot rim with the vegetables above the blade). Stage 1 breaks at 978, 1128, 1390, 1534. success_time 0.",
+ "causal_chain": "spatula held from 850 with the blade pointing at the wall -> ~200 steps hovering beside the pot (880-1080) -> hand drove into the pot, pushing and tilting it off the burner (1100-1600) -> blade never swept the vegetables in a way that counted -> timeout",
+ "self_recovery": "Stage 1 slip at 327 recovered (grasp 577). None for the stir.",
+ "official_criterion_notes": "The packet has no pot pose; whether the pot left the 0.15 m burner radius is inferred from the exposed flame.",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_pot_zoom.png",
+   "frames/s28_wrist.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 130-253; close 327 on veg2 width 0.014 not lifted; veg2 hold 577-653",
+   "spatula close 833 width 0.011 lifted; stage2 850-1600",
+   "stage1 breaks 978, 1128, 1390, 1534",
+   "success_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the pot was actually lifted or only pushed and tilted (the arm occludes it); whether the blade ever touched a vegetable."
+}

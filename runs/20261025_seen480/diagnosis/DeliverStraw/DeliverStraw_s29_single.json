@@ -1,0 +1,32 @@
+{
+ "tag": "DeliverStraw_s29_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  680,
+  930
+ ],
+ "category": "stall_holding_at_target",
+ "secondary": [
+  "placed_off_target"
+ ],
+ "what_happened": "Layout 10, transparent mint Straw011, GlassCup025. Stage 0 at 215 (drawer pushed back below 0.95 at 254-268 while reaching for the straw, then pulled to 1.57 at 288). Straw grasped 333-345, lifted 0.56 m, navigation 351-~600. 680-910 the straw was held vertically a few cm right of the cup (wrist view shows the cup just beside the gripper), never touching it. At ~920 the arm moved right/down toward the counter edge and released at 930, 0.35 m from the cup; the straw fell to the floor (end z 0.007). A close on air at 1253; no recovery.",
+ "causal_chain": "straw beside the cup 680-910 (~230 steps) without inserting it -> moved to the counter edge and released (930) -> straw fell to the floor -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "Official success = straw touches the cup AND straw centre < 0.5 m horizontally from the cup centre AND gripper far; there is no 'inside' or upright test, so a straw lying across the rim or leaning on the outside of the cup would count once the gripper leaves. Stage 0's single 'undone' event (254-268) is the drawer being pushed in slightly during the straw approach, not a real undo.",
+ "evidence": {
+  "sheets": [
+   "frames/s29_overview.png",
+   "frames/s29_cupzoom.png",
+   "frames/all_at_cup_wrist.png"
+  ],
+  "packet_facts": [
+   "stage0 [[215,253],[269,1700]]",
+   "hold 345-930 lift 0.56 dist_at_release 0.347 height drop 1.255",
+   "at_target_intervals []"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The straw is nearly invisible (transparent mint); the lateral offset from the cup is estimated from a few pixels."
+}

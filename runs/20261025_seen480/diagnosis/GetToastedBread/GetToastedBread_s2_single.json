@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s2_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  171,
+  490
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster seen from its left-front, bread in the right-most slot (pair 1). The fingers closed into a fist at ~64 and never reopened. Stage 0: 170-365 the fist pressed against the middle of the toaster's front face (continuous contact 171-365), with the wrist view centred on the empty left/middle slots, and moved no lever. At 352-388 it slid down onto the right lever area and pushed the pair-1 lever to only 0.19 (368; the bread dropped 1.2 cm), then let it spring back by 416. 420-490 it moved up to the toaster's right top next to the bread (contacts 462-490), without grasping or pressing. From ~550 to 2000 the arm hovered to the right of the toaster with the bread in view (700-2000), without touching anything. The toaster was never on.",
+ "causal_chain": "~200 steps pressing the toaster front away from the levers (171-365) -> one shallow push of the correct (right) lever to 0.19 at 368 (0.9 needed) -> released, no second push -> hovered beside the toaster 550-2000 -> toaster never on",
+ "self_recovery": "none: no second lever push.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png",
+   "frames/s2_press.png",
+   "frames/s2_zoom.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "fixture value 0.187@368, 0.11@384, 0@416; max 0.19; done []",
+   "bread dz -1.2 cm at 368 (pair 1 carriage moved)",
+   "toaster touch 171-365 (nearly continuous), 381-392, 462-490",
+   "gripper closed from 72 to 2000; obj touch []"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether 171-365 was meant as a lever push (the fist was on the front face between the levers); the lever value did not change then."
+}

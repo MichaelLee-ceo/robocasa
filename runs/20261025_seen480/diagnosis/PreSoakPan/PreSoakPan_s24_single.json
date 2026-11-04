@@ -1,0 +1,25 @@
+{
+ "tag": "PreSoakPan_s24_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L2/S2. Pan (pan_6) grasped at 107 and lowered into the basin by 292. The hand touched the basin 260-300 (stage 0 at 333). Stage 1 was slow (462; p90 348) because of a hesitation. The arm went toward the sponge (~420) but turned back to the pan, re-touching it at 483-487, then rose to look at the faucet (540-580) without touching it. It came back to the sponge at 620-680, grasped at 679 and placed it in the pan at 765 (stage 1 at 795). Stage 2: lever contact from 960; success at 983.",
+ "causal_chain": "",
+ "self_recovery": "Self-corrected a premature move toward the faucet (540-580) by going back for the sponge; cost about 250 steps.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s24_overview.png",
+   "frames/s24_detour.png"
+  ],
+  "packet_facts": [
+   "pan re-touch 483-487; sponge hold 679-765",
+   "stage times 333 / 795 / 983"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

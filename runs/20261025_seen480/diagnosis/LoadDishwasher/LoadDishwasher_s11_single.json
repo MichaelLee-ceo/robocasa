@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s11_single", "success": false,
+ "failed_stage": 2, "root_cause_stage": 2, "root_cause_steps": [760, 1200],
+ "category": "stall_at_fixture", "secondary": [],
+ "what_happened": "Scene layout 2 (wood counter, grey cabinets, grey dishwasher door with a black control strip on its top edge; robot right of the dishwasher), red cup_4 and wooden bowl_7. Stage 0: cup grasped 167-175 (lift 0.112), carried to the slid-out rack and released 380; stage 0 complete 377 (slightly above p90 336). Stage 1: bowl grasped 500-514, released 644 next to the cup; stage 1 complete 644 (267 steps, normal). Stage 2 (556 steps left): 690-750 the gripper pushed the rack back into the tub (rack in by ~750). From ~760 to 1200 it sat low at the outer left corner of the open door, beside/in front of the door's top edge (wrist 920-1196: the control strip with the '12:00' display filling the view at close range), with fragmented contact (touch 778-1200). The door closedness stayed at 0.00 for the whole 440 steps; there was no lifting motion. Closes on air at 870 and 895.",
+ "causal_chain": "both dishes on the rack 644 -> rack pushed in by ~750 (correct) -> gripper parked at the door's outer corner 760-1200 facing the edge/control strip, not under the door -> door never lifted (0.00) -> fail with 440 steps spent there",
+ "self_recovery": "none: two closes on air (870, 895) at the door corner, then no change of position.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s11_overview.png", "frames/s11_door.png", "frames/s11_door_zoom.png", "frames/cmp_door_lift.png"],
+  "packet_facts": ["dish0 hold 175-380, stage0 377", "dish1 hold 514-644, stage1 644", "dishwasher touch 778-1200 (fragmented)", "door value 0.000 every 16 steps to the end"]},
+ "confidence": "medium",
+ "uncertain_about": "The exact contact geometry at the door corner (pressing the edge horizontally vs resting on top) cannot be resolved from the frames; what is clear is that the wrist never shows the door underside, unlike successful lifts."}

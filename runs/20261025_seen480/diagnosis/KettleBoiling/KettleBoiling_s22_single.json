@@ -1,0 +1,25 @@
+{
+ "tag": "KettleBoiling_s22_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Grasp at 125, lift 0.13 m, released 220 on the front-left burner (0.058 m); stage 0 at 234. The knob phase was long: 328-540 the gripper worked at the front control panel with repeated contacts (357-429, 435-439, 442-472, 494-542). The wrist mostly shows the panel's burner icons, with the knob below the camera. front_left came on at 524 (1.15). Stage 1 took 307 steps (> p90 229) because of slow knob actuation (167 steps from first contact to on).",
+ "causal_chain": "",
+ "self_recovery": "Several re-contacts with the knob before it turned on (357-524); the repeated attempts worked.",
+ "official_criterion_notes": "Stage 0 broken 343-541: Stage 0 interval breaks while the gripper is within 25 cm of the kettle at the knob (gripper-away clause), not a real undo.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_dense.png"
+  ],
+  "packet_facts": [
+   "stove touch [[357,429],[435,439],[442,472],[494,542]]; done from 524; front_left 1.152",
+   "stage1 steps 307 (p90 229)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

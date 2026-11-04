@@ -1,0 +1,34 @@
+{
+ "tag": "KettleBoiling_s2_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  104,
+  140
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: grey kettle on the counter right of a gas hob (pan on the hob); same layout as s0/s3/s13/s18/s20/s26. Stage 0: the gripper came down over the kettle 104-128. In the wrist view the handle lies flat across the kettle top, along the finger-closing direction. The fingers touched it only at 122-123 (packet 'hold' 122-124, lift 0), and by ~136 the gripper rose again without the kettle. 200-240 the arm swung over the hob and pan with an empty gripper. From ~280 to the end it hovered 20-30 cm above or beside the kettle, which stays centred in the wrist view at 640, 720, 800, 880 and 960, and it never came down again (no contact after 123, min_eef 0.16 m). The kettle never moved (0.1 cm). No knob was touched, and stage 1 was never reached.",
+ "causal_chain": "handle lying along the closing axis at approach (104-128) -> 2-step touch 122-123, no lift -> gripper left (~136), empty-handed trip over the hob (200-240) -> hovered above the kettle 280-1000 with no second grasp attempt -> kettle still on the counter at timeout (1000); stage 0 never complete",
+ "self_recovery": "Came back above the kettle at ~280 and stayed there ~700 steps but never descended to re-grasp; no effective recovery.",
+ "official_criterion_notes": "The 2-step contact 122-124 is listed under 'holds' (lift 0.0); it is a touch, not a grasp. Official labeler segments are meaningless here (no pick segment).",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png",
+   "frames/s2_grasp.png",
+   "frames/s2_after.png",
+   "frames/all_first_touch_wrist.png"
+  ],
+  "packet_facts": [
+   "gripper_touch_intervals [[122,123]]",
+   "holds: grasp 122 release 124 lift 0.0",
+   "dist_to_target start 0.322 end 0.323",
+   "stove: no gripper touch, all knobs 0.0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the closure missed: 'handle lying along the closing axis' is my reading of 4-step wrist frames; finger-handle contact geometry is not visible. Also unclear why the policy never re-descended in 860 steps."
+}

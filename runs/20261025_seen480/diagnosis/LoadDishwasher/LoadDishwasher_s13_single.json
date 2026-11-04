@@ -1,0 +1,25 @@
+{
+ "tag": "LoadDishwasher_s13_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 9 seen from the robot-left side of the dishwasher (same view as s0 and failure s2), red cup_4 and wooden bowl_7. Stage 0: bowl grasped 117-132, released 202 on the slid-out rack, where it tilted (59 deg); stage 0 complete 202 (fast). Stage 1: cup grasped 315-323 by its rim (hanging on its side, wrist 300), released 411 beside the bowl; stage 1 complete 406 (204 steps). Stage 2: rack pushed in and the door lifted 471-528 (0.23@496, 0.68@512, 1.00@528); success 521 (115 steps). Fastest episode of the task.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/succ_A_overview.png"
+  ],
+  "packet_facts": [
+   "dish1 hold 132-202; stage0 202",
+   "dish0 hold 323-411; stage1 406",
+   "door 0.23@496 -> 1.00@528; success 521"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

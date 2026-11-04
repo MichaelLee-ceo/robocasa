@@ -1,0 +1,35 @@
+{
+ "tag": "KettleBoiling_s4_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  96,
+  593
+ ],
+ "category": "stall_pre_grasp",
+ "secondary": [
+  "ran_out_of_time"
+ ],
+ "what_happened": "Scene: grey kettle with a white arched handle on the counter LEFT of a gas range (red pot on the rear-left burner); same layout as s10/s17. Stage 0: the arm reached far left, and from ~96 the gripper sat at the lower-left end of the handle (wrist view: handle running from the lower-left corner into the kettle body). It was in contact (touch 96-186, 196-209, 216-756) but not closed around the handle, and the wrist view barely changes 100-584 (~490 steps, 24 s). At ~568-592 the wrist turned slightly, and at 593 the gripper closed and lifted the kettle (0.143 m), which hung tilted below the fingers. It was carried right over the range (664-736) and released at 757 on the front-left burner in front of the red pot (0.126 m from the centre, 2 cm drop; it stayed). Stage 0 complete at 765 (median 271, p90 348). Stage 1: retreat and move to the front knob panel 772-920. The front-left knob was touched from 928 and turned to 0.18 (976), 0.21 (992) and 0.22 at the end, still below 0.35 at the 1000-step timeout.",
+ "causal_chain": "stalled in contact with the handle end 96-593 (~500 steps; in successes first touch -> lift is 0-12 steps) -> kettle placed 757, stage 0 at 765 (494 steps after the median) -> 235 steps left for stage 1 (median 152, p90 229) -> reached the knob at 928 (171 steps after release, normal) -> knob at 0.22 rad and still rising at timeout (1000)",
+ "self_recovery": "The policy eventually re-aligned and lifted the kettle at 593, finished stage 0, and was turning the (apparently correct) front-left knob at timeout. Recovery worked but came too late.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_grasp.png",
+   "frames/s4_lift.png",
+   "frames/s4_knob.png",
+   "frames/all_first_touch_wrist.png"
+  ],
+  "packet_facts": [
+   "gripper_touch_intervals [[96,186],[196,209],[216,756]]",
+   "holds: grasp 593 release 757 lift 0.143 dist_at_release 0.1255",
+   "stage0 first_complete 765 (typical median 271, p90 348)",
+   "stove touch [[928,929],[945,950],[952,1000]]; values 0.18@976 0.21@992; end front_left 0.223"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the fingers were partly closed on the handle end during 96-593; the packet shows contact without lift, and the wrist view looks like resting against it. The packet does not give the kettle's burner. I assume front_left is correct because the kettle sits on the front-left grate in the video."
+}

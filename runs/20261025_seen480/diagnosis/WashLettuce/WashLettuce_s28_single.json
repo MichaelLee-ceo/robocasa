@@ -1,0 +1,34 @@
+{
+ "tag": "WashLettuce_s28_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  540,
+  1100
+ ],
+ "category": "other: held_beside_stream - the colander bumped the swivel spout and swung the stream aside; the lettuce was then held beside the stream, never under it",
+ "secondary": [
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Scene layout 7 / style 7 (same single-basin sink and swivel gooseneck faucet as the successes s0, s5, s12, s29); lettuce (Lettuce010) in a fine wire-mesh colander with a long wire handle (Colander012) on the counter LEFT of the sink. Stage 0 normal: lever touched 239-275, water on at 267; the spout points forward (narrow arch in the agent view) and the stream lands near the drain. Stage 1: the gripper took the colander's wire handle at ~490 (fingers closing slowly 0.066 -> 0.053 -> 0.026 over 490-1000, so no close_event is logged) and swung the colander over the sink from the left. At 540-580 the colander body hit the spout head and the spout swivelled ~90 deg to the right (the gooseneck now seen in profile, spout_zoom 580-760); the stream moved with it to the right side of the basin. From 580 to 1100 the policy held the colander just left of the displaced stream: in the wrist view the stream passes behind/over the colander rim (540-840) and is out of view later; the colander tilted more and more (near vertical by 1096). washed_time 0.",
+ "causal_chain": "water on 267 (normal) -> colander handle grasped ~490, colander swung in from the left -> colander bumps the swivel spout at ~540-580, stream moves right -> lettuce held beside the displaced stream 580-1100 (~520 steps) -> washed_time 0 at timeout",
+ "self_recovery": "Repositioned and tilted the colander 580-1100 but never followed the stream to its new position; failed.",
+ "official_criterion_notes": "The packet records only the handle joint and water_on for the sink, not the spout swivel joint, so the displaced stream is invisible in the packet. In the four L7 successes (s0, s5, s12, s29) the spout stays pointing forward while the colander is held under it (L7_spout_compare.png). The sink's gripper_touch_intervals show no gripper contact at 540-580 (only 239-275 and brief touches from 738), so the spout was pushed by the colander or an arm link, which the packet does not record.",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_sinkzoom.png",
+   "frames/s28_spout.png",
+   "frames/s28_wristhold.png",
+   "frames/L7_spout_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[239,275],...]; handle 0.16@256 0.50 from 272; water on 267",
+   "close_events [] (slow squeeze of the wire handle, width 0.066@496 -> 0.026@1000)",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the colander or the gripper/forearm pushed the spout (they arrive together); the spout rotation is read from the change of the gooseneck's silhouette, not measured."
+}

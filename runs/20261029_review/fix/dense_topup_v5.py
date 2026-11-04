@@ -5,7 +5,7 @@ template job of its episode and stage), written to run_dense_<task>_fix5. Unlike
 jobs_dense_<task>.json and dense_intervals.json alone.
 usage: python -I dense_topup_v5.py jobs_out.json"""
 import json, os, sys
-C = "/home/michaellee/mclee/robocasa/runs/20261028_critical"
+C = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261028_critical")
 sys.path.insert(0, C)
 import data  # noqa: E402
 from make_dense_jobs import intervals, STEP  # noqa: E402

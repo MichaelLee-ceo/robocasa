@@ -14,7 +14,7 @@ usage: python -I scan.py <workers> [m_max] [tag regex]"""
 import glob, gzip, json, multiprocessing, os, pickle, re, sys, time, traceback
 import numpy as np
 
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../.."))
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path[:0] = [f"{R}/runs/scripts", f"{R}/runs/20261025_seen480"]
 DATA = f"{R}/runs/20261026_critic_data"

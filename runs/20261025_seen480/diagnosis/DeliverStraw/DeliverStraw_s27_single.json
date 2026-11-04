@@ -1,0 +1,27 @@
+{
+ "tag": "DeliverStraw_s27_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 2, green bendy Straw012, GlassCup021. Stage 0: closed on the handle at 146 and pulled to 0.86-1.04 by 176-192 (complete 179). Drawer pulled further 233-276 (1.82, fully open). Stage 1: straw grasped 342-356 (width 0.0107), lifted 0.57 m, navigation 358-691. 740-778 the straw was held vertically over the cup; released at 778 0.5 cm from the cup centre. The straight end went into the cup and the bent part leaned over the rim (tilt 64 deg). Success at 797.",
+ "causal_chain": "",
+ "self_recovery": "No error; ~40 steps over the cup before release.",
+ "official_criterion_notes": "Straw tilt fields are relative to the straw lying flat: 'tipped_over' (>45 deg) here means the straw was held or standing vertical, not that it fell over.",
+ "evidence": {
+  "sheets": [
+   "frames/s27_place.png",
+   "frames/s27_cupzoom.png",
+   "frames/s27_finalzoom.png"
+  ],
+  "packet_facts": [
+   "stage0 179, stage1 797",
+   "hold 356-778 at_target_at_release True dist 0.005",
+   "at_target 778-800"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

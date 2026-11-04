@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s19_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [290, 1000],
+ "category": "wander_away", "secondary": ["missed_grasp", "ran_out_of_time"],
+ "what_happened": "Scene layout 6 (speckled granite counter, toaster oven, robot right of the dishwasher; same kitchen as s16 and s25), red cup_4 and black bowl_5. Stage 0: cup grasped 144-152 (lift 0.047), released on the slid-out rack at 251 where it fell onto its side (tipped 262-1200); stage 0 complete 251 (fast, median 298). Stage 1: instead of going to the bowl, the arm rose and wandered for ~700 steps: 290-360 it looked at the rack/door from the left side, 450-850 it pointed up and to the right at the upper cabinets, the toaster oven and the backsplash (wrist: cabinet doors, wall outlet, toaster), with no contact with any task object. From ~900 it came back to the black bowl on the counter and hovered above it; it closed on air at 1064, then closed on the bowl's rim at 1167, tilted it (tilt up to 44 deg, lift 0.019) and lost it at 1187; the bowl settled back upright where it started. At 1200 the gripper was empty, heading back toward the rack. The door was never touched.",
+ "causal_chain": "cup placed at 251 (fast) -> ~600 steps wandering at the upper cabinets/toaster 290-900 -> bowl approached only at ~900-1060 -> miss on air (1064) and rim pinch that slipped (1167-1187) -> timeout with the bowl on the counter",
+ "self_recovery": "The policy did return to the bowl at ~900 and tried twice; neither attempt held.",
+ "official_criterion_notes": "The cup counts as on the rack while lying on its side (tilt 56 deg).",
+ "evidence": {"sheets": ["frames/s19_overview.png", "frames/s19_wander.png", "frames/s19_bowl.png"],
+  "packet_facts": ["dish0 hold 152-251; stage0 251", "dish1 touch only 1080-1081, 1178-1186", "closes: 1064 air, 1167 dish1 lifted 0.019", "dishwasher never touched"]},
+ "confidence": "high",
+ "uncertain_about": "Why the policy wandered; the black bowl on the dark speckled counter is visible in the agent view but may be hard to pick out (cf. s6, s25 with the same black bowl_5)."}

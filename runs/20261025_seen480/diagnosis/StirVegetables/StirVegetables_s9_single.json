@@ -1,0 +1,35 @@
+{
+ "tag": "StirVegetables_s9_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  356,
+  1600
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "wrong_object",
+  "wander_away",
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Scene: layout 5, tall black stockpot (Pot074) on the rear-left burner, two eggplants and spatula_5 (blue silicone) on the counter right of the range, by a toaster. Stage 0: eggplant 1 grasped 101, dropped into the pot 249 (complete 249). Instead of the second eggplant (lying next to the spatula, both visible in the wrist view at 300), the policy grasped the spatula by its paddle at 356 (stage 2 condition 372-587, out of order), carried it to the pot (420-560) and opened over the pot 560-600: the spatula was put INTO the pot, lying across the rim (608). It then fetched eggplant 2 (grasp 721), hovered over the pot with it for ~170 steps (840-1000) and dropped it in at 1007 (stage 1 complete 1009; 760 steps after stage 0, median 282). From 1008 the gripper stayed open (0.080) and the arm wandered over the stove and counter until 1600; it never took the spatula out of the pot again. success_time 0.",
+ "causal_chain": "took the spatula before the second vegetable (356) and placed it into the pot like a vegetable (~590) -> fetched and placed eggplant 2 late (1007) -> no spatula in hand and no attempt to re-grasp it from the pot -> wandered 1060-1600 -> stage 2/3 never achieved",
+ "self_recovery": "Partial: it did go back and complete stage 1 (1007), but never recovered the spatula.",
+ "official_criterion_notes": "Stage 2's interval 921-1003 is a false positive: the gripper was holding the eggplant over the pot (width ~0.05) and touched the spatula lying in the pot, which counts as 'held and lifted' because it rests above counter height.",
+ "evidence": {
+  "sheets": [
+   "frames/s9_overview.png",
+   "frames/s9_a.png",
+   "frames/s9_b.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 101-249; veg2 hold 721-1007 (drop 0.181)",
+   "spatula close 356 width 0.038 lifted; stage2 372-587 (before stage 1), 921-1003",
+   "gripper opens 560-600 over the pot; width 0.080 from 1008 to 1600; no close events after 356",
+   "stage1 first 1009 (steps_since_previous 760)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "What the arm aimed at during 1060-1600 (it hovers over the stove/counter with an open gripper)."
+}

@@ -1,0 +1,30 @@
+{
+ "tag": "DeliverStraw_s22_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  205,
+  1700
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Layout 9 corner (navy cabinets, gold handles). 160-220 the gripper approached a gold handle and closed on it at 205 (width 0.037 = on the handle), 240-300 pulled, and a drawer that is not the target opened (target value stays 0). 340-1700 the arm hovered inside that empty drawer with a half-open gripper, wrist view showing only the drawer interior, until the timeout. Straw untouched (min eef 0.55 m).",
+ "causal_chain": "grasped a non-target drawer's handle (205) -> opened the wrong drawer -> hovered in the empty drawer for ~1350 steps -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "Invisible in the packet except the on_nothing close with width 0.037.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_dense.png"
+  ],
+  "packet_facts": [
+   "close 205 width 0.037 on_nothing",
+   "target drawer touch [] value 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Which drawer was opened (lower or side); in either case not the target."
+}

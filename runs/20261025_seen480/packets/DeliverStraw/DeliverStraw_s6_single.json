@@ -1,0 +1,626 @@
+{
+ "tag": "DeliverStraw_s6_single",
+ "task": "DeliverStraw",
+ "instruction": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+ "success": false,
+ "steps": 1700,
+ "horizon": 1700,
+ "success_step": null,
+ "online_stage_log": [],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [],
+ "scene": {
+  "layout": 7,
+  "style": 7,
+  "objects": {
+   "straw": "lightwheel/straw/Straw008/model.xml",
+   "glass_cup": "lightwheel/glass_cup/GlassCup021/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0796,
+   0.0794,
+   0.0793,
+   0.0792,
+   0.0792,
+   0.0791,
+   0.0811,
+   0.0813,
+   0.0784,
+   0.0683,
+   0.0439,
+   0.0434,
+   0.0432,
+   0.0466,
+   0.0453,
+   0.0421,
+   0.0395,
+   0.0077,
+   0.027,
+   0.0759,
+   0.0782,
+   0.0787,
+   0.0789,
+   0.079,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0791,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0792,
+   0.0793,
+   0.0769,
+   0.0781,
+   0.079,
+   0.0807,
+   0.0777,
+   0.0784,
+   0.0787,
+   0.0788,
+   0.0789,
+   0.079,
+   0.0791,
+   0.0791,
+   0.0796,
+   0.0792,
+   0.0791,
+   0.0792,
+   0.0789,
+   0.0792,
+   0.0793,
+   0.0794,
+   0.0794,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.08,
+   0.0799,
+   0.0786,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0802,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0786,
+   0.0793,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799
+  ],
+  "close_events": [
+   {
+    "step": 169,
+    "width_after": 0.044,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 225,
+    "width_after": 0.008,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "OpenDrawer",
+   "kind": "fixture",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 192,
+    "p90": 202,
+    "n": 2
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceDrawerToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 589,
+    "p90": 612,
+    "n": 2
+   }
+  }
+ ],
+ "objects": {
+  "straw": {
+   "target_of_stage": 1,
+   "start_pos": [
+    4.3782,
+    -0.3439,
+    0.7498
+   ],
+   "end_pos": [
+    4.3782,
+    -0.3439,
+    0.7498
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 3.2865,
+   "dist_to_target_end_m": 3.2864,
+   "min_eef_dist_to_centre_m": 0.5439,
+   "gripper_touch_intervals": [],
+   "holds": [],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 0.0,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {
+  "stage0:drawer": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "done_intervals": [],
+   "gripper_touch_intervals": [],
+   "state_every_32_steps": [
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    },
+    {
+     "door": 0.0
+    }
+   ],
+   "state_end": {
+    "door": 0.0
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceDrawerToCounter",
+    "place"
+   ],
+   [
+    5,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": [
+   "subtask_idx starts at 2, expected 0",
+   "zero-length segment(s): subtask_idx skips [0, 1]",
+   "subtask 2 (PickPlaceDrawerToCounter [place]) is only 5 frames (< 15); boundary may have collapsed",
+   "pick/place mismatch: 0 picks, 1 places",
+   "expected 1 straw delivered, found 0",
+   "missing OpenDrawer subtask"
+  ]
+ },
+ "video": "run/DeliverStraw/DeliverStraw_s6_single.mp4"
+}

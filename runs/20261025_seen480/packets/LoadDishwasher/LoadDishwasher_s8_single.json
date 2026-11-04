@@ -1,0 +1,718 @@
+{
+ "tag": "LoadDishwasher_s8_single",
+ "task": "LoadDishwasher",
+ "instruction": "Pick up the cup and bowl from the counter, place them in the dishwasher, and close the dishwasher door.",
+ "success": false,
+ "steps": 1200,
+ "horizon": 1200,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   400,
+   0
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 400,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 8,
+  "style": 8,
+  "objects": {
+   "dish0": "objaverse/cup/cup_4/model.xml",
+   "dish1": "objaverse/bowl/bowl_7/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0786,
+   0.0662,
+   0.0264,
+   0.0171,
+   0.0168,
+   0.0165,
+   0.0162,
+   0.0159,
+   0.0156,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0155,
+   0.0181,
+   0.0433,
+   0.0774,
+   0.0783,
+   0.0788,
+   0.0792,
+   0.0794,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0532,
+   0.0252,
+   0.017,
+   0.0147,
+   0.0139,
+   0.0137,
+   0.0135,
+   0.0133,
+   0.013,
+   0.0127,
+   0.0123,
+   0.0122,
+   0.0121,
+   0.012,
+   0.0351,
+   0.0768,
+   0.0782,
+   0.0788,
+   0.0791,
+   0.0793,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0787,
+   0.0792,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.081,
+   0.0709,
+   0.0805,
+   0.0804,
+   0.0792,
+   0.06,
+   0.0767,
+   0.074,
+   0.0608,
+   0.0403,
+   0.0771,
+   0.0806,
+   0.0788,
+   0.0716,
+   0.0785,
+   0.08,
+   0.0669,
+   0.0408,
+   0.0738,
+   0.0788,
+   0.0804,
+   0.08,
+   0.0803,
+   0.0763,
+   0.0802,
+   0.0746,
+   0.0807,
+   0.0746,
+   0.0779,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0809,
+   0.0806,
+   0.0801
+  ],
+  "close_events": [
+   {
+    "step": 200,
+    "width_after": 0.027,
+    "on_nothing": false,
+    "touching": [
+     "dish1"
+    ],
+    "lifted": [
+     "dish1"
+    ]
+   },
+   {
+    "step": 510,
+    "width_after": 0.026,
+    "on_nothing": false,
+    "touching": [
+     "dish0"
+    ],
+    "lifted": [
+     "dish0"
+    ]
+   },
+   {
+    "step": 926,
+    "width_after": 0.074,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 952,
+    "width_after": 0.04,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 1016,
+    "width_after": 0.04,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 1,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToDishwasher",
+   "kind": "pnp",
+   "first_complete_step": 390,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     390,
+     620
+    ],
+    [
+     623,
+     1200
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 621,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 390,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 298,
+    "p90": 336,
+    "n": 12
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToDishwasher",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 390,
+   "typical_in_successes": {
+    "median": 239,
+    "p90": 272,
+    "n": 12
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "CloseDishwasher",
+   "kind": "fixture",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 390,
+   "typical_in_successes": {
+    "median": 169,
+    "p90": 273,
+    "n": 12
+   }
+  }
+ ],
+ "objects": {
+  "dish0": {
+   "target_of_stage": 0,
+   "start_pos": [
+    3.8671,
+    -1.9886,
+    0.9725
+   ],
+   "end_pos": [
+    3.9462,
+    -2.1457,
+    0.6246
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 0.1147,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.0347,
+   "gripper_touch_intervals": [
+    [
+     514,
+     514
+    ],
+    [
+     516,
+     629
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 518,
+     "release_step": 630,
+     "lift_m": 0.03,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.1442,
+     "height_drop_after_release_m": -0.002,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.0947
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.1,
+   "tilt_deg_end": 46.9,
+   "tilt_deg_max": 49.6,
+   "tipped_over_intervals": [
+    [
+     858,
+     1200
+    ]
+   ]
+  },
+  "dish1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    3.9114,
+    -2.1054,
+    0.9415
+   ],
+   "end_pos": [
+    3.9448,
+    -2.1305,
+    0.5846
+   ],
+   "at_target_intervals": [
+    [
+     380,
+     620
+    ],
+    [
+     623,
+     1200
+    ]
+   ],
+   "dist_to_target_start_m": 0.0803,
+   "dist_to_target_end_m": 0.0,
+   "min_eef_dist_to_centre_m": 0.0525,
+   "gripper_touch_intervals": [
+    [
+     194,
+     389
+    ],
+    [
+     818,
+     825
+    ],
+    [
+     857,
+     859
+    ],
+    [
+     869,
+     870
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 208,
+     "release_step": 390,
+     "lift_m": 0.099,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.1014,
+     "height_drop_after_release_m": 0.002,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.1003
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 25.3,
+   "tilt_deg_max": 60.3,
+   "tipped_over_intervals": [
+    [
+     276,
+     389
+    ],
+    [
+     624,
+     642
+    ]
+   ]
+  }
+ },
+ "fixtures": {
+  "stage2:dishwasher": {
+   "value_every_16_steps": [
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    0.0006,
+    0.0021,
+    0.0027,
+    0.0015,
+    0.0019,
+    0.0026,
+    0.0026,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0004,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0004,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005,
+    -0.0005
+   ],
+   "done_intervals": [],
+   "gripper_touch_intervals": [
+    [
+     755,
+     761
+    ],
+    [
+     795,
+     795
+    ],
+    [
+     825,
+     826
+    ],
+    [
+     839,
+     841
+    ],
+    [
+     895,
+     903
+    ],
+    [
+     907,
+     910
+    ],
+    [
+     913,
+     970
+    ],
+    [
+     981,
+     1003
+    ],
+    [
+     1009,
+     1035
+    ],
+    [
+     1040,
+     1041
+    ],
+    [
+     1053,
+     1117
+    ],
+    [
+     1121,
+     1124
+    ],
+    [
+     1181,
+     1186
+    ],
+    [
+     1188,
+     1199
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    },
+    {
+     "closed": false
+    }
+   ],
+   "state_end": {
+    "closed": false
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToDishwasher",
+    "pick"
+   ],
+   [
+    211,
+    "PickPlaceCounterToDishwasher",
+    "place"
+   ],
+   [
+    393,
+    "PickPlaceCounterToDishwasher",
+    "pick"
+   ],
+   [
+    521,
+    "PickPlaceCounterToDishwasher",
+    "place"
+   ],
+   [
+    634,
+    "CloseDishwasher",
+    "execute"
+   ]
+  ],
+  "issues": [
+   "ends at subtask_idx 4, expected done index 5 (wrong segment count / never finished)",
+   "trajectory does not end in the 'done' stage",
+   "dishwasher did not end closed"
+  ]
+ },
+ "video": "run/LoadDishwasher/LoadDishwasher_s8_single.mp4"
+}

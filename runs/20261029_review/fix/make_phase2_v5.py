@@ -7,7 +7,7 @@ Both: 8 candidates x 4 continuations, continuation seeds salted ("c5") so they n
 outputs run_confirm5_<task> and run_control5_<task> (data.py datasets confirm5 / control5).
 Writes the jobs file and phase2_points.json (the selection, for the record). usage: python -I make_phase2_v5.py jobs_out.json"""
 import json, os, random, sys
-sys.path.insert(0, "/home/michaellee/mclee/robocasa/runs/20261028_critical")
+sys.path.insert(0, os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../..")), "20261028_critical"))
 import data  # noqa: E402
 
 JUMP, SALT = 0.4, "c5"

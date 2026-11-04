@@ -1,0 +1,10 @@
+{"tag": "LoadDishwasher_s22_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene layout 8 seen from the robot-left side (dishwasher at the right edge of the agent view; same view as failure s17), red/white cup_4 and black bowl_5. Stage 0 slow: bowl grasped 139-148 (lift 0.007) and held low over the slid-out rack ~200-456 (~250 steps; wrist shows the black bowl in the fingers over the rack with little change), released 456 tilted on its side (tipped 437-1008); stage 0 complete 458 (median 298, p90 336). Stage 1: the cup grasped 588-596, released 730 next to the bowl; stage 1 complete 731 (273 steps). Stage 2: the rack was pushed in (~760-840), the gripper went under the door and lifted it 928-1008 (0.09@928, 0.59@976, 0.92@992); success 994 (263 steps).",
+ "causal_chain": "",
+ "self_recovery": "No errors; stage 0 was slow because of a ~250-step hold over the rack before releasing the bowl (the same hesitation that cost s3, s14 and s20 their time).",
+ "official_criterion_notes": "replay_matches_online_log=false only because stage 0 flickers for one step at the logged step 464 (contact 'object left the target' at 462/464), not a real disagreement. The bowl counts while lying tilted on its side.",
+ "evidence": {"sheets": ["frames/s22_overview.png"],
+  "packet_facts": ["dish1 hold 148-456; stage0 458", "dish0 hold 596-730; stage1 731", "door 0.09@928 ... 1.00@1008; success 994"]},
+ "confidence": "high", "uncertain_about": ""}

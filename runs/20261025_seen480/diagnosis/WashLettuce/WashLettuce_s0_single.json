@@ -1,0 +1,27 @@
+{
+ "tag": "WashLettuce_s0_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 7 / style 7: single dark basin, swivel gooseneck faucet, wire-mesh colander (Colander012) with a long wire handle LEFT of the sink. Stage 0: water on at 231 (median 253). Lever pushed 204-225 (0.25 at 224, 0.50 at 240). The gripper took the colander's wire handle at ~392 (fingers only close to ~0.07 on the thin wire, so no close_event), swung it right and held it under the stream ~520-556 with the spout still pointing forward. Stage 1 took 325 steps (median 303); success at 556. No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "No close_event although the colander was grasped: the fingers only closed to ~0.06-0.07 around the colander handle/rim, below the 0.02-drop trigger.",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/L7_spout_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[204, 225]]",
+   "stage0 first complete 231",
+   "close_events []",
+   "success 556, washed_time 29"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

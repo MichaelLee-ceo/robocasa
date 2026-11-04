@@ -1,0 +1,30 @@
+{
+ "tag": "DeliverStraw_s6_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  169,
+  1700
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Layout 7. At 169 the gripper closed (width 0.044, i.e. on a handle) on the vertical handle of a tall cabinet door to the right, not on the top drawer, and swung the door open 216-300 (second close 225-240 to 0.008 as it slipped off). It then stayed in/at that cabinet for the rest of the episode. Target drawer value 0, no drawer touch, straw untouched (min eef 0.54 m).",
+ "causal_chain": "chose the wrong handle (cabinet door, 169) -> opened the cabinet door -> stayed at the cabinet -> target drawer never touched -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "The packet tracks only the target drawer, so opening a different fixture is invisible in it (only the on_nothing close at 169 with width 0.044 hints at a grasp).",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png",
+   "frames/s6_dense.png"
+  ],
+  "packet_facts": [
+   "close 169 width 0.044 on_nothing; close 225 width 0.008",
+   "drawer touch [] value 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

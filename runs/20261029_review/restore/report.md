@@ -3,6 +3,10 @@
 Written by the review-restore agent and saved here by the main session, because the agent could not write .md files.
 Scripts and raw outputs are in this folder (`out/`); nothing outside it was touched.
 
+> 2026-11-04: the scripts of the rejected candidate rules and superseded scans (`settle_candidate.py`,
+> `validate_candidate.py`, `points_at_risk.py`, `grip_rules.py`, `grip_rules2.py`, `model_index.py`, the boundary
+> scans) were deleted; they are in git history. The adopted rule is `hidden_state.gripper_ramp` (`../fix/README.md`).
+
 ## Summary
 **What was checked:**
 - **Exact replays:** 15 cases over all 3 tasks and all 4 settle versions, each run twice. All are bit-identical,

@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s14_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [88, 2600],
+ "category": "missed_grasp_continued_empty",
+ "secondary": ["dropped_in_transit", "missed_grasp"],
+ "what_happened": "Scene: layout/style 4; two avocados (one dark, lying on its side, tilt 45 deg) and a steak on the upper fridge shelf, a second steak (meat0) on the lower shelf; tupperwares on the counter by the sink/cooktop. Trip 1: closed on the edge of the lower-shelf steak at 88 (width 0.051), lifted it (hold 96-157, 0.245 m) hanging vertically from one edge (148-156); the fingers then closed fully (148, width 0.003) and the steak fell to the floor in front of the fridge at ~157-164 (end z 0.006). With the fingers closed and empty (closed 160-504) it drove to the counter and made an empty 'place' over a tupperware (~480-516, opened 512-520). Trip 2: back at the fridge ~830, closed on air ~10 cm above the dark avocado (829), carried the closed empty gripper to the counter and made a second empty place (~1170-1190). Trip 3: back at the fridge, came down on the dark avocado and closed (1428, width 0.007) - it slipped off without lifting (tilt changed, avocado1 also tipped at 1438); fingers closed 1448-1992, third empty place at the counter (~1990-2010). Trip 4: back at the fridge ~2300, closed on air above the round avocado at 2532. No item ever reached a tupperware.",
+ "causal_chain": "edge grasp on the flat steak -> steak slipped and fell on the floor at the fridge (157) -> policy carried on to the counter empty (empty place ~500) -> close on air (829) -> empty place (~1180) -> slip off the avocado (1428) -> empty place (~2000) -> close on air (2532) -> 0 items placed at 2600",
+ "self_recovery": "Each time it returned to the fridge after an empty place (3 returns), so it did 'retry', but each retry was another closed-on-air or slipping grasp followed by an empty-handed trip; it never noticed the empty gripper before driving off.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s14_overview.png", "frames/s14_drop.png", "frames/s14_empty_places.png"],
+  "packet_facts": ["meat0 hold g96 r157 lift 0.245 drop 1.305 (floor)", "close 88 w0.051 meat0; close 148 w0.003; close 829 air; close 1428 veg0 w0.007 no lift; close 1469 air; close 2532 air", "width closed 160-504, 856-1168, 1448-1992", "no stage ever complete"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the close at 1469 (air) was a second attempt on the avocado or a re-close; the outcome is the same."
+}

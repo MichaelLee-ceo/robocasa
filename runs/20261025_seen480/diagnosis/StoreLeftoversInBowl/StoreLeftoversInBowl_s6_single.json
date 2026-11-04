@@ -1,0 +1,27 @@
+{
+ "tag": "StoreLeftoversInBowl_s6_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 10 (French-door fridge Refrigerator066), deep brown bowl_8, corn, drumstick 014. Stage 0: corn grasped 65, released in the bowl 149 (stage 0 at 149). Stage 1: drumstick grasped 288, carried ~1 m with a base move, released over the bowl 389 (stage 1 at 413). Stage 2: rim grasp at 453 (width 0.023), lift 0.386 m, base drove to the fridge 480-700. The bowl was tilted > 45 deg 622-721, and the fingers brushed the drumstick repeatedly 598-774 (short 'holds' with no lift), but the foods stayed in. At ~740-775 it was set on the lower glass shelf, deep (end x 0.184, the deepest L10 placement); rack contact from 757, released 775. Success at 789 (stage 2 376 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "The drumstick 'holds' 598-774 are finger brushes during the bowl carry (lift 0), not re-grasps.",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png",
+   "frames/L10_place_compare.png",
+   "frames/L10_final_compare.png",
+   "frames/L10_final_zoom.png"
+  ],
+  "packet_facts": [
+   "bowl hold 461-775 lift 0.386, at_target from 757; end x 0.184 z 1.092",
+   "bowl tipped 622-721"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,862 @@
+{
+ "tag": "SearingMeat_s8_single",
+ "task": "SearingMeat",
+ "instruction": "Grab the pan from the cabinet and place it on the front left burner on the stove. Then place the chicken drumstick on the stove and turn the burner on.",
+ "success": true,
+ "steps": 800,
+ "horizon": 2900,
+ "success_step": 792,
+ "online_stage_log": [
+  [
+   336,
+   0
+  ],
+  [
+   592,
+   1
+  ],
+  [
+   800,
+   2
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 336,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 592,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 2,
+   "logged_step": 800,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 5,
+  "style": 5,
+  "objects": {
+   "pan": "objaverse/pan/pan_6/model.xml",
+   "meat_container": "objaverse/plate/plate_7/model.xml",
+   "meat": "lightwheel/chicken_drumstick/ChickenDrumstick010/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0451,
+   0.0439,
+   0.0436,
+   0.0433,
+   0.0431,
+   0.0429,
+   0.0426,
+   0.0424,
+   0.0421,
+   0.0419,
+   0.0416,
+   0.0414,
+   0.0412,
+   0.041,
+   0.0408,
+   0.0406,
+   0.0404,
+   0.0402,
+   0.04,
+   0.0398,
+   0.0396,
+   0.0394,
+   0.0392,
+   0.039,
+   0.0389,
+   0.0388,
+   0.0388,
+   0.0392,
+   0.0717,
+   0.078,
+   0.0786,
+   0.079,
+   0.0793,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0613,
+   0.0542,
+   0.0547,
+   0.0539,
+   0.0538,
+   0.0537,
+   0.0536,
+   0.0535,
+   0.0534,
+   0.054,
+   0.0532,
+   0.0531,
+   0.053,
+   0.0529,
+   0.0529,
+   0.0549,
+   0.0763,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0755,
+   0.0656,
+   0.059,
+   0.0541,
+   0.0473,
+   0.0516,
+   0.0711,
+   0.0665,
+   0.0568,
+   0.0501,
+   0.0501,
+   0.0501
+  ],
+  "close_events": [
+   {
+    "step": 84,
+    "width_after": 0.044,
+    "on_nothing": false,
+    "touching": [
+     "pan"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 447,
+    "width_after": 0.054,
+    "on_nothing": false,
+    "touching": [
+     "meat"
+    ],
+    "lifted": [
+     "meat"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": null,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCabinetToStove",
+   "kind": "pnp",
+   "first_complete_step": 329,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     329,
+     529
+    ],
+    [
+     601,
+     800
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 530,
+     "reason": "objects still at target - only the release part broke (gripper back within 25 cm or touching)"
+    }
+   ],
+   "steps_since_previous_stage": 329,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 378,
+    "p90": 813,
+    "n": 9
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToStove",
+   "kind": "pnp",
+   "first_complete_step": 580,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     580,
+     800
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 251,
+   "window_start": 329,
+   "typical_in_successes": {
+    "median": 196,
+    "p90": 261,
+    "n": 9
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "TurnOnStove",
+   "kind": "fixture",
+   "first_complete_step": 792,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     792,
+     800
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 212,
+   "window_start": 580,
+   "typical_in_successes": {
+    "median": 225,
+    "p90": 369,
+    "n": 9
+   }
+  }
+ ],
+ "objects": {
+  "pan": {
+   "target_of_stage": 0,
+   "start_pos": [
+    3.0152,
+    -1.2419,
+    1.4496
+   ],
+   "end_pos": [
+    2.8461,
+    -2.132,
+    0.969
+   ],
+   "at_target_intervals": [
+    [
+     296,
+     800
+    ]
+   ],
+   "dist_to_target_start_m": 1.0004,
+   "dist_to_target_end_m": 0.1094,
+   "min_eef_dist_to_centre_m": 0.0271,
+   "gripper_touch_intervals": [
+    [
+     62,
+     62
+    ],
+    [
+     65,
+     66
+    ],
+    [
+     70,
+     70
+    ],
+    [
+     73,
+     74
+    ],
+    [
+     77,
+     80
+    ],
+    [
+     82,
+     82
+    ],
+    [
+     84,
+     86
+    ],
+    [
+     88,
+     314
+    ],
+    [
+     316,
+     317
+    ],
+    [
+     319,
+     319
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 94,
+     "release_step": 320,
+     "lift_m": 0.018,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.1083,
+     "height_drop_after_release_m": 0.003,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.1094
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.1,
+   "tilt_deg_max": 25.2,
+   "tipped_over_intervals": []
+  },
+  "meat": {
+   "target_of_stage": 1,
+   "start_pos": [
+    2.7197,
+    -3.0007,
+    0.9383
+   ],
+   "end_pos": [
+    2.8478,
+    -2.1195,
+    0.9631
+   ],
+   "at_target_intervals": [
+    [
+     580,
+     800
+    ]
+   ],
+   "dist_to_target_start_m": 1.7835,
+   "dist_to_target_end_m": 0.0126,
+   "min_eef_dist_to_centre_m": 0.0141,
+   "gripper_touch_intervals": [
+    [
+     456,
+     578
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 456,
+     "release_step": 579,
+     "lift_m": 0.245,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0136,
+     "height_drop_after_release_m": 0.026,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0126
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 7.5,
+   "tilt_deg_end": 6.4,
+   "tilt_deg_max": 8.9,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {
+  "stage2:stove": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.1556,
+    0.7387
+   ],
+   "done_intervals": [
+    [
+     792,
+     800
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     710,
+     749
+    ],
+    [
+     753,
+     753
+    ],
+    [
+     757,
+     757
+    ],
+    [
+     759,
+     763
+    ],
+    [
+     765,
+     800
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_left",
+      0.97
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_left",
+      0.97
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_left",
+      0.969
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "rear_left",
+      0.967
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.957
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.939
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.511
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.324
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.215
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.104
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.108
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.0,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    },
+    {
+     "knob_angles": {
+      "rear_left": 0.0,
+      "rear_right": 0.0,
+      "front_left": 0.739,
+      "front_right": 0.0
+     },
+     "task_knob": "front_left",
+     "pan_nearest_burner": [
+      "front_left",
+      0.109
+     ]
+    }
+   ],
+   "state_end": {
+    "knob_angles": {
+     "rear_left": 0.0,
+     "rear_right": 0.0,
+     "front_left": 0.739,
+     "front_right": 0.0
+    },
+    "task_knob": "front_left",
+    "pan_nearest_burner": [
+     "front_left",
+     0.109
+    ]
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCabinetToStove",
+    "pick"
+   ],
+   [
+    103,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    212,
+    "PickPlaceCabinetToStove",
+    "place"
+   ],
+   [
+    317,
+    "PickPlaceCounterToStove",
+    "pick"
+   ],
+   [
+    474,
+    "PickPlaceCounterToStove",
+    "place"
+   ],
+   [
+    579,
+    "TurnOnStove",
+    "execute"
+   ],
+   [
+    796,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/SearingMeat/SearingMeat_s8_single.mp4"
+}

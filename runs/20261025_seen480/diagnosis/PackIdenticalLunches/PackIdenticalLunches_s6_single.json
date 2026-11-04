@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s6_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [1200, 1257],
+ "category": "placed_off_target",
+ "secondary": [],
+ "what_happened": "Scene: layout/style 5 (same kitchen as s2/s8/s9/s18); two lime_2, fish_8 (dark, deep-bodied, meat1) and fish_7 (slim blue, meat0); two rectangular tupperwares right of the sink (left L by the paper towel, right R). Stage 0: grasped fish meat1 at 68-74 (a first hold 74-136 dragged it, regrasp 239), released it at 250 into L; stage 0 complete 279. Stage 1: grasped fish meat0 at 481-494, released it at 632 into R (one meat per tupperware, correct); stage 1 complete 647 (368). Stage 2: grasped lime veg0 at 780-793, released it at 890 into R next to the blue fish (R correct pair); stage 2 complete 905 (258). Stage 3: grasped the last lime veg1 at 1110-1130, came over the counter with L (fish only) and R (fish + lime) both in the wrist view (1200-1216), and released it at 1257 into R again (dist 0.06), leaving L with only the fish. Final: R = fish + 2 limes, L = fish; stage 3 never true. All four placed by 1257 (well within time); the remaining ~1340 steps it went back to the fridge and hovered (closes on air 2465, 2485).",
+ "causal_chain": "4th item (second lime) released into the tupperware that already held a complete fish+lime pair (1257) instead of the one holding only a fish -> stage 3 impossible; not a time problem (placed at 1257 of 2600)",
+ "self_recovery": "none - no attempt to move the extra lime to L; went back to the empty fridge and hovered",
+ "official_criterion_notes": "Stage 2 shows 7 short 'object left the target' events (918-943, 2474) while limes settle/tip in R - not real removals.",
+ "evidence": {
+  "sheets": ["frames/s6_overview.png", "frames/s6_v1place.png"],
+  "packet_facts": ["meat1 hold g239 r250; meat0 hold g494 r632; veg0 hold g793 r890; veg1 hold g1130 r1257 dist 0.06", "end: v0 (0.34,-1.25), v1 (0.40,-1.14), m0 (0.40,-1.23) together; m1 (0.48,-1.45)", "stages 279, 647, 905"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

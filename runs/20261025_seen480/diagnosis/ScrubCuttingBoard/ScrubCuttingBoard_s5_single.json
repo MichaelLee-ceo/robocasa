@@ -1,0 +1,25 @@
+{
+ "tag": "ScrubCuttingBoard_s5_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L6: dark-green sponge_8 beside cutting_board_9 (handle slot), granite counter. Stage 0: closed at 108, stage 0 from 118 (online 128). Stage 1: first contact 166, criterion met at 333 (6 contacts / sweep 0.179 at the end). Scrub 166-577 (411 steps) on the board's lower half; grasp test blind 519-570. Released at 577 on the counter in front of the board; eef 15 cm away at 600; success 600.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[128,0],[608,1]]",
+   "process_progress_end contacts 6 sweep 0.179",
+   "criterion met 333; release 577"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

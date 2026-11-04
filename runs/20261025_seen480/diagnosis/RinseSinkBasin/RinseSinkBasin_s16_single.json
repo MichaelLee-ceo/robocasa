@@ -1,0 +1,25 @@
+{
+ "tag": "RinseSinkBasin_s16_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 6 (angular gooseneck). Fastest episode: lever 123-158, water at 147; spout taken 248 (close 237), LEFT at 283 (-0.70), RIGHT at 335 (+0.55, success 335), contact 248-336. Stage 1: 188 steps.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "The right side was credited at +0.55, only 0.03 rad past the 30-degree threshold.",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png"
+  ],
+  "packet_facts": [
+   "online log [[160,0],[336,1]]",
+   "fixture touch 248-336",
+   "spout angle from saved states (column validated against packet washed_loc): L 283, R 335 (max +0.55)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

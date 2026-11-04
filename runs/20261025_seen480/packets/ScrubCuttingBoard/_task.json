@@ -1,0 +1,35 @@
+{
+ "task": "ScrubCuttingBoard",
+ "instruction": "Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+ "stages": [
+  "0: PickUpSponge",
+  "1: ScrubCuttingBoard"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the gripper is holding the sponge and the sponge is lifted off the counter.",
+   "does_not_count": "the sponge still lies on the counter, or the gripper is near it but not holding it."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "while holding the sponge, the robot has rubbed it on the cutting board at several different spots (at least 5, spread over at least 10 cm), and has then released the sponge and moved the gripper at least 15 cm away from it.",
+   "does_not_count": "the sponge has not touched the board, or only touched it in one small area, or the robot is still holding the sponge or still has its gripper next to it."
+  }
+ ],
+ "horizon": 800,
+ "episodes": 30,
+ "successes": 13,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 111,
+   "p90": 132,
+   "n": 13
+  },
+  "1": {
+   "median": 449,
+   "p90": 600,
+   "n": 13
+  }
+ }
+}

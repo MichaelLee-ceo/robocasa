@@ -1,0 +1,25 @@
+{
+ "tag": "StoreLeftoversInBowl_s17_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 9 (side-by-side fridge, narrow right compartment), black bowl_5, sweet potato, drumstick 010. Stage 0: sweet potato grasped 72, released in the bowl 142 (stage 0 at 142). Stage 1: drumstick grasped 251, released in the bowl 356 (stage 1 at 358). Stage 2: the first close on the bowl at 377-400 missed (fingers closed to 0.001); the gripper reopened 456-480 and re-closed at 475-488 on the rim plus the drumstick (width 0.023), lift 0.27 m. This is the only episode in which the bowl never tipped past 45 deg (max 37.8). At the fridge it lowered the bowl to a middle shelf (z 1.145) and pushed it in to x 5.632 (deepest L9 release); rack contact from 789, released 820. Success at 841 (stage 2 483 steps).",
+ "causal_chain": "",
+ "self_recovery": "Recovered from a missed bowl grasp (377-448, closed on air) with a second grasp at 475, ~100 steps later.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/L9_release_compare.png"
+  ],
+  "packet_facts": [
+   "close 377 on bowl, nothing lifted, width -> 0.001; close 475 bowl+drumstick",
+   "bowl hold 483-820, tilt max 37.8; release x 5.632 z 1.145"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

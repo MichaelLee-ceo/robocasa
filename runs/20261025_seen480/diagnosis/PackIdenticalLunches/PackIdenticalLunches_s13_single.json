@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s13_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [1034, 2600],
+ "category": "missed_grasp_continued_empty",
+ "secondary": ["missed_grasp"],
+ "what_happened": "Scene: layout/style 7; two LemonWedge012 (rendered as lime half-moon wedges, both on the upper shelf), drumsticks ChickenDrumstick014 (upper) and 013 (lower); tupperwares on the dark counter on both sides of the toaster. Stage 0: grasped drumstick meat1 at 62-69 and released it at 251 into the left tupperware (dist 0.04); stage 0 complete 276. Stage 1: grasped wedge veg1 at 533-541, released at 700 into the same left tupperware (dist 0.02; correct veg+meat pair); stage 1 complete 722 (446, typical 401). Stage 2: on the remaining wedge veg0 (lying flat-side down) the fingers closed at 1034 (width 0.014) and the wedge squeezed out and rotated (1040-1052). It carried the closed empty fingers to the counter and made an empty place over the empty right tupperware (~1200). Second try: closed at 1688 on the wedge edge (touching the drumstick meat0 too), the wedge flipped out again (1704-1716); second empty trip/place over the right tupperware (~2150). Third try: closed at 2472, lifted the wedge 5 cm, it slipped at ~2500 (close 2492 width 0.002) and fell back on the shelf; with closed fingers it was again at the counter at 2600 (third empty trip). The drumstick meat0 was never attempted on its own.",
+ "causal_chain": "two items placed correctly by 722 -> three failed pinches on the flat lime wedge (1034, 1688, 2472), each followed by an empty-handed trip and empty place over the right tupperware (~1200, ~2150, ~2600) -> 2 of 4 at timeout",
+ "self_recovery": "It retried the wedge three times (third lifted it 5 cm before slipping), but never switched to the drumstick and never noticed the empty fingers before driving off.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s13_overview.png", "frames/s13_wedge.png"],
+  "packet_facts": ["meat1 hold g69 r251; veg1 hold g541 r700; stages 276, 722", "close 1034 veg0 w0.014 no lift; close 1688 meat0+veg0 w0.02 no lift; close 2472 lifted veg0 0.051, close 2492 w0.002", "width closed 1056-1184, 1712-2152, 2504-2600"]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

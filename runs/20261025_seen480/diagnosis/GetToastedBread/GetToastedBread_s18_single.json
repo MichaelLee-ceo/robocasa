@@ -1,0 +1,31 @@
+{
+ "tag": "GetToastedBread_s18_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  950,
+  2000
+ ],
+ "category": "stall_pre_grasp",
+ "secondary": [],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster, bread in the right-most slot (pair 1). Stage 0: the gripper pressed on the pair-1 lever several times. Pushes at 128-176 reached only 0.06-0.11, one at 192 reached 0.56, and it was held at ~0.50 for 208-240. A further push to 0.73 at 256 and 1.0 at 272 switched it on (the bread dropped 6 cm), toaster on 268-767. The fingers were closed for most of 24-1144. During toasting it kept touching the toaster at the lever/right end (309-490, 662-959). The lever rose 768-976 and stage 0 completed at 950 (online 960). Stage 1: 940-1260 the gripper sat against the toaster's right end, touching the housing 961-1216. The popped bread top was in the upper-left of the wrist view, a few cm away. The fingers opened at ~1150, but the gripper never moved over or onto the bread. At ~1300 it retreated up and to the right and hovered there until 2000, with the toaster still in view (1800). No bread contact all episode.",
+ "causal_chain": "lever pressed after several partial pushes (on at 268) -> pop-up done 950 -> hovered against the toaster right next to the bread 950-1260, opened the fingers at 1150 but never approached the bread -> retreated and hovered 1300-2000 -> bread never left the slot",
+ "self_recovery": "Stage 0: repeated partial pushes until it switched on (272). Stage 1: opened the fingers at 1150 but never followed up with an approach.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s18_overview.png",
+   "frames/s18_after_pop.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[960,0]]; stage0 first_complete 950",
+   "pair1 lever 0.56@192, ~0.50 208-240, 1.0@272; on 268-767",
+   "toaster touch 961-1152, 1161-1168, 1174-1216 after the pop-up",
+   "gripper closed 256-1144, open from 1152 to 2000",
+   "obj touch [] / holds []; min_eef 0.150 m"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

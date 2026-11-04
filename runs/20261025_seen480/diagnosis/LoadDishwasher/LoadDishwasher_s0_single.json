@@ -1,0 +1,10 @@
+{"tag": "LoadDishwasher_s0_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene layout 9 seen from the robot-left side of the dishwasher (same view as failure s2), red cup_4 and brown bowl_8. Stage 0: bowl grasped 153-162, released 235 on the slid-out rack (drop 0.09); stage 0 complete 238 (fast). Stage 1: the cup was grasped 360-367 by its rim so that it hung on its side (wrist 360-480), lowered into the rack beside (not into) the bowl and released 481, where it stayed tilted ~59 deg; stage 1 complete 482 (244 steps). The fingers brushed the cup again 519-526 while withdrawing (no effect). Stage 2: the gripper went under the door (wrist 584-632 filled by the door underside) and lifted it 581-640 (0.36@608, 0.86@624, 1.00@640); success 627 (145 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "The cup counts as placed while lying tilted (59 deg).",
+ "evidence": {"sheets": ["frames/s0_overview.png", "frames/s0_close.png"],
+  "packet_facts": ["dish1 hold 162-235; stage0 238", "dish0 hold 367-481; stage1 482; touch 519-526", "door 0.36@608 0.86@624 1.00@640; success 627"]},
+ "confidence": "high", "uncertain_about": ""}

@@ -1,0 +1,24 @@
+{
+ "tag": "PreSoakPan_s9_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L5/S5. Pan (pan_6) grasped by the handle at 131 and placed at 293 (stage 0 at 311). The sponge was released at 509 3.6 cm outside the region, fell 15 cm and landed upside-down in the pan (tilt 173 deg). The fingers pressed it at 546-568 (stage 1 at 620; 309 steps). Stage 2: lever contact 821-848 and success at 843.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "The upside-down sponge counts as in, correctly (it is in the basin); the official check has no upright test.",
+ "evidence": {
+  "sheets": [
+   "frames/s9_overview.png"
+  ],
+  "packet_facts": [
+   "sponge hold 470-509 drop 0.153; tilt_end 173",
+   "stage times 311 / 620 / 843"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

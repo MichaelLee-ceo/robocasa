@@ -1,0 +1,11 @@
+{"tag": "StoreLeftoversInBowl_s29_single", "success": false,
+ "failed_stage": 2, "root_cause_stage": 2, "root_cause_steps": [820, 864],
+ "category": "placed_off_target",
+ "secondary": ["official_criterion_issue"],
+ "what_happened": "Layout 10 (French-door fridge Refrigerator066, glass shelves), black bowl_5, mushroom, drumstick 010. Stage 0: drumstick grasped 127, released in the bowl 249 (stage 0 at 251). Stage 1: mushroom grasped 331, released in the bowl 393 (stage 1 at 394, fast). Stage 2: rim grasp 461-488 (width 0.011-0.015), lift 0.314 m, base drove to the fridge 560-760. The bowl was tilted 713-858 but the foods stayed in. At 820-856 it was lowered onto the lower glass shelf (z 1.076, as in the L10 successes) and released at 856-864. The bowl stands upright (tilt 0.0) with both foods in it, near the front of the shelf: bowl x 0.305, vs 0.18-0.28 in the L10 successes (s13 used the same bowl_5 at x 0.197 and succeeded). Its position never changed again (862-1700); the arm hovered in front of and below the fridge for ~840 steps.",
+ "causal_chain": "foods in, bowl carried to the right shelf -> released ~3-11 cm less deep than in the successful L10 placements -> the bowl's bounding box extends past the front of the official shelf region -> rack check never true -> stage 2 fails although the bowl stands on the shelf inside the fridge",
+ "self_recovery": "none: no further contact with the bowl after 864.",
+ "official_criterion_notes": "Same as s25/s26: dist_to_target 0.0, at_target empty, the bowl visibly upright on a fridge shelf with both foods. Smallest overhang of the three (x 0.305 vs s7's successful 0.276 with bowl_7).",
+ "evidence": {"sheets": ["frames/s29_place.png", "frames/L10_final_compare.png", "frames/L10_final_zoom.png"],
+  "packet_facts": ["bowl hold 469-856 dist 0.0, drop 0.063; at_target []", "bowl end (0.305,-1.843,1.076) tilt 0.0, unchanged 1281-1700 in saved states", "stage0/1 complete_at_end true", "s13 (success, bowl_5) end x 0.197"]},
+ "confidence": "medium", "uncertain_about": "As for s25: the front-overhang explanation is inferred; the gripper-far clause is not the cause, because at_target, which does not include it, is empty."}

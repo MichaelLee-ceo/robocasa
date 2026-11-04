@@ -1,0 +1,28 @@
+{
+ "tag": "StackBowlsCabinet_s7_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 1/style 1 (brick backsplash, grey upper cabinet; same layout as failure s23); small brown bowl_8 (x0.7) and larger blue-striped bowl_6 (x0.95, a deep model). Nest-then-carry, clean: small bowl grasped 77/85 (lift 0.17 m), set into the striped bowl at 169 (wrist 180-212: seated flat); pair grasp at 214 (close touching both), lifted 0.55 m and pushed well into the cabinet (agent view 316-364: stack inside, left of the opening, compare s23 which released at the lip), released 320-323. Stage 0 at 318, stage 1 at 353 (35 steps later); success 353.",
+ "causal_chain": "",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/cmp_L1_release.png"
+  ],
+  "packet_facts": [
+   "closes 77 (bowl1), 214 (both lifted)",
+   "bowl1 hold 85-169 lift 0.172; 220-323 lift 0.552",
+   "bowl2 hold 222-320 lift 0.552",
+   "stage0 318, stage1 353"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

@@ -1,0 +1,24 @@
+{
+ "tag": "StackBowlsCabinet_s22_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [456, 560],
+ "category": "placed_off_target",
+ "secondary": ["wrong_fixture_element", "wander_away"],
+ "what_happened": "Scene layout 8/style 8, but unlike s4/s10/s17 (same layout, where the target is the wooden open upper cabinet above the counter) the target here is the sage-green upper cabinet above the sink, door open; the robot starts facing it and the bowls are on the counter to the right of the sink, 0.86 / 0.56 m from its interior (successes: 0.45-0.49 m). Small red wooden bowl1 (bowl_9 x0.7) and larger black ribbed bowl2 (bowl_5 x0.95). Strategy: nest-then-carry, executed cleanly: after a few brief touches 174-201 it grasped the red bowl at 237/248 (lift 0.24 m), set it inside the black bowl (released 391; wrist 360-440 shows red inside black), grasped the black bowl's rim at 415/428 and lifted the nested pair 0.62 m (456-536, red still inside). It then moved the stack to the RIGHT of the green cabinet, to the wooden upper shelf/cabinet next to it (the fixture that is the target in the other layout-8 episodes), and released at 539: the stack sits there tilted (bowl1 tilt 29 deg), still nested, but 0.17 m (bowl1) and 0.21 m (bowl2) outside the target cabinet's interior box. Stage 0 never held. 560-1400 the arm wandered (wrist sees wood panelling, drawers, floor) with closes on air at 755, 775 and 1229; it never touched the bowls again.",
+ "causal_chain": "target is the green cabinet over the sink, farther from the bowls than usual (0.56-0.86 m) -> nest and pair-lift done correctly (391-536) -> stack carried to the adjacent wooden upper shelf instead of into the open green cabinet, released 539 ~0.2 m outside its interior -> stage 0 never holds; policy behaves as if done and wanders -> timeout",
+ "self_recovery": "none: after the release it never re-grasped the stack.",
+ "official_criterion_notes": "The official result is correct (stack is outside the target cabinet). Possible scene ambiguity: layout 8 has two upper storage fixtures side by side; the policy chose the one that is the target in s4/s10/s17.",
+ "evidence": {
+  "sheets": ["frames/s22_overview.png", "frames/s22_place.png", "frames/s22_final.png", "frames/cmp_L8_place.png"],
+  "packet_facts": [
+   "dist_to_target_start bowl1 0.864, bowl2 0.560 (successes 0.45-0.49)",
+   "bowl1 hold 248-391 lift 0.240; bowl2 hold 428-539 lift 0.623, at_target_at_release false, dist 0.208",
+   "end: bowl1 z 1.472 dist 0.174, bowl2 z 1.452 dist 0.208; bowl1 tilt_end 29.2",
+   "close_events on air 755, 775, 1229"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the surface the stack rests on is a separate wooden cabinet/shelf or a ledge of the green cabinet itself; the packet only gives the 0.17-0.21 m distance to the interior box, and the agent view shows the stack just right of the open green door against the wood panelling."
+}

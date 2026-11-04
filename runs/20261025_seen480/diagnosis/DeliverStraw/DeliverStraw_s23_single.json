@@ -1,0 +1,35 @@
+{
+ "tag": "DeliverStraw_s23_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  150,
+  1055
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "ran_out_of_time",
+  "missed_grasp"
+ ],
+ "what_happened": "Layout 2. Stage 0: at 150-174 the gripper grasped the bar handle (close 150, width 0.045) and pulled the drawer to 0.38 by 192, but the handle slipped out (close to 0.003 at 174). It then reached into the ~10 cm gap and worked the drawer from inside with an open gripper: 522-639 (pushed in to 0.20, then out to 0.59), 806-850 (0.50-0.68), 1021-1074 (0.91 -> 0.52 -> 1.0 at 1056 -> 1.59). Stage 0 complete at 1055 (median 192, +863 steps). Stage 1: closes on air 802 and 1158, straw grasped at 1219 and lifted 0.80 m; the robot then slowly turned toward the dining counter holding the straw vertically (1300-1696). At the timeout the straw was still held, 1.48 m from the cup. The gripper width fell from 0.015 to 0.001 during the hold, so the straw was sliding toward the fingertips but did not drop.",
+ "causal_chain": "handle slipped out at 0.38 (174-192) -> ~860 steps of pushing/pulling from inside the drawer -> stage 0 at 1055 -> straw grasped 1219 (481 steps left; successes need ~400 from grasp to release) -> still 1.48 m from the cup at 1700",
+ "self_recovery": "Yes: after losing the handle it reopened the drawer by hooking it from inside (three bouts), which worked but took ~860 steps.",
+ "official_criterion_notes": "Drawer value = slide joint / (0.55 x drawer depth), so fully open reads ~1.82 and the 0.95 threshold is ~52% of the physical travel; the composite task's own _check_success does not check the drawer at all (only straw-cup contact within 0.5 m + gripper far).",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_drawer.png",
+   "frames/s23_pushes.png",
+   "frames/s23_late.png"
+  ],
+  "packet_facts": [
+   "drawer values 0.38@192 0.20@624 0.59@640 0.68@864 0.91@992 0.52@1024 1.00@1056 1.59@1072; stage0 first 1055",
+   "drawer touch 142-181, 522-639, 806-850, 980-1074, 1148-1226",
+   "straw hold 1219-end lift 0.798; dist_to_target_end 1.48",
+   "width 0.015 -> 0.001 during the hold"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the robot would have reached the cup with more time: it was moving slowly."
+}

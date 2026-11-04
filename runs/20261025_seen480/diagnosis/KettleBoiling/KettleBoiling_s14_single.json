@@ -1,0 +1,26 @@
+{
+ "tag": "KettleBoiling_s14_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Brief touch at 159 (listed as hold 159-160, lift 0), then grasp at 164, lift 0.19 m. Slow descent onto the front-left burner 260-329 (at target 324), released 329; stage 0 at 348 (= p90). Front-left knob 499-528 to 0.78; stage 1 at 528 (180 steps).",
+ "causal_chain": "",
+ "self_recovery": "First touch at 159 did not catch the handle; re-grasped 5 steps later at 164 (successful self-correction).",
+ "official_criterion_notes": "Stage 0 interval breaks 475-528: Stage 0 interval breaks while the gripper is within 25 cm of the kettle at the knob (gripper-away clause), not a real undo. The hold 159-160 has height_drop_after_release_m = -0.133 because the kettle was lifted by the next grasp within 2 s; not a real rise.",
+ "evidence": {
+  "sheets": [
+   "frames/s14_overview.png",
+   "frames/s14_dense.png"
+  ],
+  "packet_facts": [
+   "holds: 159-160 lift 0; 164-329 lift 0.193 dist 0.039",
+   "stage0 [[348,475],[528,528]]",
+   "front_left 0.783"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

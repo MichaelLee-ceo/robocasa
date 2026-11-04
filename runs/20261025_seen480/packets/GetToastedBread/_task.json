@@ -1,0 +1,24 @@
+{
+ "task": "GetToastedBread",
+ "instruction": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+ "stages": [
+  "0: TurnOnToaster",
+  "1: PickPlaceToasterToCounter"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the bread was in a toaster slot when the lever was pushed down (toaster switched on), and the toasting has since finished: the lever has popped back up.",
+   "does_not_count": "the lever has not been pushed down, the bread was not in the slot, or the lever is still down (still toasting)."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the toasted bread lies on the plate and the robot has let go of it and moved its gripper away (about 25 cm or more).",
+   "does_not_count": "the bread is still in the toaster, still held, not on the plate, or the gripper is still at the bread."
+  }
+ ],
+ "horizon": 2000,
+ "episodes": 30,
+ "successes": 0,
+ "typical_stage_steps_in_successes": {}
+}

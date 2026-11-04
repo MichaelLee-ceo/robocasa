@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s17_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 0,
+ "root_cause_steps": [79, 208],
+ "category": "dropped_in_transit",
+ "secondary": ["placed_off_target"],
+ "what_happened": "Scene: layout/style 10; eggplant_4 (veg0) and eggplant_3 (veg1) on the middle shelf, steak_5 (round, upper shelf, meat0) and steak_6 (T-bone, meat1, upper shelf); two tupperwares side by side on the marble counter right of the fridge, next to the toaster. Stage 0, first attempt: closed on the T-bone steak meat1 at 71-79, lifted it hanging by one edge (120-204); while the arm moved out of the fridge, the fingers closed past it (close 196, width 0.003) and it fell at ~206-208 down through the fridge to the floor (end z 0.007). From then on only three items were reachable, so stage 3 was impossible. The policy did not react: it drove the empty closed fingers to the counter (~400, empty place over a tupperware). Then it placed eggplant veg1 (grasp 613-619, release 788) into the left tupperware A (stage 0 complete 813, typical 286), the round steak meat0 (grasp 1028-1036, release 1198) into A too (A = veg + meat, correct; stage 1 at 1220), and the second eggplant veg0 (grasp 1428-1436, release 1626) again into A next to the first eggplant (stage 2 at 1645), leaving the right tupperware B empty. 1700-2600: back to the fridge, hovering at the empty upper shelf; at the end back at the counter. Final: A = 2 eggplants + steak, B empty, T-bone on the floor.",
+ "causal_chain": "T-bone held by its edge slipped out at ~207 and fell to the floor (first item) -> 4th item unreachable, stage 3 impossible -> empty trip (~400) -> three correct-looking placements, the third (second eggplant, 1626) into the tupperware that already held an eggplant and the steak -> stage 3 never true",
+ "self_recovery": "Recovered from the drop by placing the other three items (stage 0-2 completed 813-1645), but it never tried to retrieve the floor steak, and the third placement chose the full tupperware.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s17_overview.png", "frames/s17_drop.png"],
+  "packet_facts": ["meat1 hold g79 r207 lift 0.015 drop 1.368 (floor)", "close 196 w0.003", "veg1 hold g619 r788; meat0 hold g1036 r1198; veg0 hold g1436 r1626", "end: v0 (1.55,-0.35), v1 (1.39,-0.38), m0 (1.46,-0.44) all within 0.17 m (one tupperware)", "stages 813, 1220, 1645"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the first counter trip (~400) ended in an explicit empty place (the 400 frame shows the hand over an empty tupperware)."
+}

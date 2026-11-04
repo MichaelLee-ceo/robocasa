@@ -1,0 +1,33 @@
+{
+ "tag": "SteamInMicrowave_s27_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  794,
+  1400
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [],
+ "what_happened": "Style/layout 1 (the only episode of this layout; over-the-range microwave above an electric range, left-hinged door swung open ~90 deg and seen edge-on at the microwave's left). Stage 0: onion grasped at 157, released into the wooden bowl at 304, stage 0 at 306. Stage 1: bowl grasped at 397, lifted 0.67 m to the high microwave, tilting up to 58 deg while being pushed in (621-791), released inside at 794, stage 1 at 810 (504 steps, median 477). Stage 2 had 590 steps: after releasing the bowl the arm came down (820-880) and then parked low at the left end of the cooktop, below and in front of the lower corner of the open door, from ~880 to the end. The wrist camera looked up at the open cavity with the door slab edge-on in front of the fingers, i.e. the gripper was pointed at the door's hinge-side/edge rather than at its free edge or outer face. It barely moved for ~500 steps. The only microwave contact is 1388-1392 (the fingers brushing the door edge, consistent with the wrist view). The door never moved (closedness 0.06 throughout).",
+ "causal_chain": "bowl placed 794 -> arm lowers and parks below the open door's edge 880-1400 without pushing it -> one brief door contact at 1388 -> door open at timeout; stage 3 never started",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/s27_post.png",
+   "frames/s27_mw_zoom.png",
+   "frames/s27_end.png"
+  ],
+  "packet_facts": [
+   "vegetable hold 157-304 lift 0.50",
+   "bowl hold 405-794 lift 0.67 at target; tipped 621-791",
+   "closedness 0.058-0.06 throughout",
+   "microwave touch only 1388-1392",
+   "close_events: only 397 (bowl)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Why the policy parked: no same-layout episode to compare with. Depth of the gripper relative to the door is hard to judge from the two views."
+}

@@ -1,0 +1,46 @@
+{
+ "task": "SearingMeat",
+ "instruction": "Grab the pan from the cabinet and place it on the front center burner on the stove. Then place the fish on the stove and turn the burner on.",
+ "stages": [
+  "0: PickPlaceCabinetToStove",
+  "1: PickPlaceCounterToStove",
+  "2: TurnOnStove"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the pan rests on the stove within about 15 cm of the named burner and the robot has let go of it and moved its gripper away from it (about 25 cm or more).",
+   "does_not_count": "the pan is still in the cabinet, still held, on a different burner, or the gripper is still at the pan."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the meat lies inside the pan and the gripper is no longer touching it.",
+   "does_not_count": "the meat is still in its container, still held, or outside the pan."
+  },
+  {
+   "stage": 2,
+   "counts_as_complete": "the named burner has been turned on, with the pan on it and the meat in the pan, and the gripper is away from the meat (about 25 cm or more).",
+   "does_not_count": "the burner is still off, a different burner was turned on, or the pan / meat is not in place."
+  }
+ ],
+ "horizon": 2900,
+ "episodes": 30,
+ "successes": 9,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 378,
+   "p90": 813,
+   "n": 9
+  },
+  "1": {
+   "median": 196,
+   "p90": 261,
+   "n": 9
+  },
+  "2": {
+   "median": 225,
+   "p90": 369,
+   "n": 9
+  }
+ }
+}

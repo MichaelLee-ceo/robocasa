@@ -1,0 +1,28 @@
+{
+ "tag": "WashLettuce_s13_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 9 / style 9 (same black double sink and pull-down faucet as the failures s2/s3/s18/s26); iceberg lettuce in a perforated colander (Colander010) RIGHT of the sink. Stage 0: water on at 259 (median 253). Lever 225-249. Colander rim grasped at 396 (width 0.039), carried left and held directly under the spout outlet 528-541 with the stream running through the colander centre; the spout did not swivel (contrast s2/s3). Stage 1 took 282 steps (median 303); success at 541. No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png",
+   "frames/L9_wash_compare.png",
+   "frames/spout_swing_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[225, 249]]",
+   "stage0 first complete 259",
+   "close_events [(396, 0.039)]",
+   "success 541, washed_time 28"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

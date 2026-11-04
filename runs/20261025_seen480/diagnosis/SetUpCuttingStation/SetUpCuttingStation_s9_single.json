@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s9_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 5 (black cabinets); knife (knife_7, wooden handle) in the drawer; board left of a bowl-like plate with a shrimp. Stage 0: grasped the handle at 439 (lift 0.38 m), released on the board at 533 (0.023 m from centre). Stage 1: grasped the shrimp at 628 (lift 0.12 m), placed it on the board touching the knife blade at 719 (0.041 m from centre). Success at 741.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Stage 0 has four one-step drops ('an object left the target') at 579, 649, 690 and 722 while the knife lies still on the board; contact flickers of the on-board check, not undos.",
+ "evidence": {"sheets": ["frames/s9_overview.png"],
+   "packet_facts": ["close 439 lifted knife; hold 446-533 lift 0.375 dist 0.023", "meat hold 636-719 lift 0.121 dist 0.041", "stage0 1-step drops 579, 649, 690, 722"]},
+ "confidence": "high", "uncertain_about": ""}

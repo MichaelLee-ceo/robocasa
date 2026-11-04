@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s7_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [700, 2600],
+ "category": "other: wrong destination - carried the item to a counter with no tupperware and hovered there until it slipped out",
+ "secondary": ["dropped_in_transit", "stall_holding_at_target", "wander_away"],
+ "what_happened": "Scene: layout/style 10; lemon wedges LemonWedge011 (upper shelf) and LemonWedge008 (lower), steak_8 and steak_6; the tupperwares stand on the corner counter LEFT of the fridge, next to the microwave (~(0.71, -2.90)). Stage 0: grasped the lower lemon wedge veg1 at 70-81, turned left to the microwave corner and released it at 264 into a tupperware (dist 0.098); stage 0 complete 284 (typical 286). Stage 1: back at the fridge, grasped the upper-shelf wedge veg0 at 548-558 (lift 0.10 m), but this time turned RIGHT to the marble counter with the toaster (660-720), where there is no tupperware. It held the wedge at counter-edge height 720-848 while the fingers kept closing (width 0.02 -> 0.01), and at ~850 the wedge slipped out and fell to the floor (856-880; end (1.74, -0.71), z 0.02, 2.33 m from the nearest tupperware). After hovering there ~150 steps it went back to the fridge, grasped steak meat1 at 1116-1126 (lift 0.32 m) and drove even farther right, past the toaster oven to the counter beside the electric stove (1260-1420); it held the steak there 1420-1670 and at ~1673 the steak slipped and fell to the floor (end (3.95, -0.80), 3.57 m from the tupperwares). 1720-2600 it wandered at the stove area (arm folding, wrist looking at cabinets/floor; close on air 1955). Only 1 item placed.",
+ "causal_chain": "first item to the correct (left) counter, stage 0 at 284 -> second item driven to the wrong (right, toaster) counter with no tupperware, held 130 steps, slipped to the floor ~850 -> third item driven even farther (stove), held 250 steps, slipped to the floor ~1673 -> wandered to timeout; 1 of 4 placed",
+ "self_recovery": "It went back for another item after the first loss, but took it to an even more wrong place; it never returned to the tupperware counter it had used at 264.",
+ "official_criterion_notes": "Stage 0 shows 4 'an object left the target' undo events (2021, 2271, 2467, 2592), each 1 step long, while the robot is ~3 m away at the stove; the lemon wedge in the tupperware is lying on its side (tilt ~115 deg) and its tupperware contact flickers. These are not real undos.",
+ "evidence": {
+  "sheets": ["frames/s7_overview.png", "frames/s7_wrongsite.png", "frames/s7_steaktrip.png"],
+  "packet_facts": ["veg1 hold g81 r264 at_target, stage0 284", "veg0 hold g558 r848 lift 0.10 dist_at_release 2.328 drop 1.03 (floor)", "meat1 hold g1126 r1673 lift 0.32 dist_at_release 3.60 drop 0.907 (floor)", "width narrowing 568-840 during veg0 carry", "stage0 undone 2021/2271/2467/2592 (1-step)"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the releases at ~850 and ~1673 were deliberate opens or slips; the finger width shows closing (not opening) before the 850 loss, so slip; the 1673 loss is followed by opening at 1680."
+}

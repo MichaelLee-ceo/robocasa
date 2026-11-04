@@ -1,0 +1,27 @@
+{
+ "tag": "StackBowlsCabinet_s21_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 3/style 3 (white kitchen, light wood open wall shelf as the target, toaster and coffee machine near the bowls); small red wooden bowl_9 (x0.7) and larger brown bowl_8 (x0.95), 0.40 m apart. Nest-then-carry: small bowl grasped 85/93 (lift 0.19 m), set into the brown bowl at 218 (pressing on the brown bowl's rim 183-213; wrist 228: seated, slightly tilted). A first close at 245 caught only the inner bowl's rim (width 0.069, brief), the gripper re-adjusted and closed at 266 on both rims, lifting the pair 0.55 m onto the shelf; released 396-397. Stage 0 at 395 (median 318, p90 427; ~75 steps slower than the median, spread over a slow first carry 93-218 and the re-close), stage 1 at 423 (28 steps later); success 423.",
+ "causal_chain": "",
+ "self_recovery": "Close at 245 on the inner rim only; re-closed on both rims at 266 (~20 steps).",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s21_overview.png"
+  ],
+  "packet_facts": [
+   "closes 85 (bowl1), 245 (bowl1 lifted, width 0.069), 266 (both lifted)",
+   "bowl1 hold 93-218 lift 0.191; 266-397 lift 0.549",
+   "bowl2 183-213 lift 0 (pushed while nesting); 274-396 lift 0.555",
+   "stage0 395, stage1 423"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

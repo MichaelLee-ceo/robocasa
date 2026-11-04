@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s29_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 1,
+ "root_cause_steps": [760, 821],
+ "category": "placed_off_target",
+ "secondary": ["dropped_in_transit", "stall_pre_grasp"],
+ "what_happened": "Scene: layout/style 10 (tupperwares on the marble counter right of the fridge, by the toaster: left L and right R side by side); two broccoli_3 on the upper shelf, drumsticks ChickenDrumstick012 (meat0) and 014 (meat1) in the lower drawer. Stage 0: grasped broccoli veg0 at 95-103 and released it at 348 into L; stage 0 complete 406 (typical 286, p90 339). Stage 1: grasped broccoli veg1 at 603-625, came over the counter with both tupperwares in the wrist view (760: L with the first broccoli, R empty) and released it at 821 into L next to the first broccoli; stage 1 complete 839 (433). From here the goal was unreachable without moving a broccoli. Stage 2: closed on drumstick meat1 in the lower drawer at 1020-1029, lifted it ~1 cm and lost it at ~1049-1055 (close 1049 width 0.002); it fell into the space between the drawer front and the door shelf at the bottom of the fridge (end z 0.65). It then grasped meat0 at 1129-1138 and released it at 1391 into R; stage 2 complete 1415 (576, slow). Stage 3: from ~1500 to 2600 the robot stood at the fridge with the arm low, the wrist camera looking at the drumstick lying by the bottom drawer (1900-2600), without any contact (no touches after 1054). Final: L = 2 broccoli, R = drumstick, other drumstick in the fridge.",
+ "causal_chain": "second broccoli released into the tupperware already holding the first broccoli (821) -> stage 3 already impossible -> additionally the drumstick meat1 slipped and fell to the bottom of the fridge (1055) -> 3rd item placed in R (1391) -> ~1100 steps hovering over the dropped drumstick without grasping",
+ "self_recovery": "After the drumstick slipped it immediately took the other drumstick (1129) and placed it; it looked at the dropped one for the last ~1000 steps but never tried to grasp it.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s29_overview.png", "frames/s29_events.png"],
+  "packet_facts": ["veg0 hold g103 r348; veg1 hold g625 r821 dist 0.053; meat0 hold g1138 r1391", "meat1 hold g1029 r1055 lift 0.012 drop 0.395, end z 0.65 (inside the fridge, low)", "close 1020 meat1 w0.026; close 1049 w0.002", "end: v0 (1.46,-0.44) + v1 (1.47,-0.33) together; m0 (1.73,-0.38)"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exactly where in the fridge the drumstick lodged (it is visible by the bottom drawer front)."
+}

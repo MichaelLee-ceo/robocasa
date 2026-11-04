@@ -1,0 +1,35 @@
+{
+ "task": "DeliverStraw",
+ "instruction": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+ "stages": [
+  "0: OpenDrawer",
+  "1: PickPlaceDrawerToCounter"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "the drawer is pulled fully open (out to the end of its travel).",
+   "does_not_count": "the drawer is still closed or only partly open."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "the straw stands in the glass cup on the dining counter and the robot has let go of it and moved its gripper away (about 25 cm or more).",
+   "does_not_count": "the straw is still in the drawer, still held, lying next to the cup, or the gripper is still at the straw."
+  }
+ ],
+ "horizon": 1700,
+ "episodes": 30,
+ "successes": 2,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 192,
+   "p90": 202,
+   "n": 2
+  },
+  "1": {
+   "median": 589,
+   "p90": 612,
+   "n": 2
+  }
+ }
+}

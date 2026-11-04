@@ -1,0 +1,27 @@
+{
+ "tag": "StackBowlsCabinet_s2_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 9/style 9 (white tiles, gas hob, open wooden wall shelf as the target 'cabinet'); both bowls red wooden bowl_9 (x0.7 and x0.95). Nest-then-carry, clean: small bowl grasped 67/75 (lift 0.15 m) and set into the large bowl (released 138); pair grasped by the stacked rims at 176 (close touching both) and lifted 0.54-0.56 m onto the shelf, released 263. The small bowl tilted >45 deg inside the large one during the carry (218-235) but settled. Stage 0 at 261, stage 1 at 282 (21 steps later); success 282. No errors, all stages at or below the median.",
+ "causal_chain": "",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s2_overview.png"
+  ],
+  "packet_facts": [
+   "closes 67 (bowl1), 176 (bowl1+bowl2 lifted)",
+   "bowl1 hold 75-138 lift 0.154; 169-263 lift 0.558",
+   "bowl2 hold 181-263 lift 0.537",
+   "stage0 261, stage1 282"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

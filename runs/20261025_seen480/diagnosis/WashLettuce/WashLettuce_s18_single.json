@@ -1,0 +1,36 @@
+{
+ "tag": "WashLettuce_s18_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  400,
+  1100
+ ],
+ "category": "other: held_beside_stream - the colander bumped the swivel spout and swung the stream aside; the lettuce was then held beside the stream, never under it",
+ "secondary": [
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Scene layout 9 / style 9 (same sink/faucet as s2/s3/s13); lettuce (Lettuce010) in a perforated colander on the counter LEFT of the sink. Stage 0 fast: fingers half-closed on the lever 101-151, handle 0.18 at 128, water on at 138. Stage 1: the arm swung left, closed on the colander's right rim at 298 (width 0.04, on_nothing = colander) and carried it over the left basin by ~400. 400-640 it moved the colander around the stream at the faucet: the stream is visible just below / beside the colander's lower edge (400-600) but never on the lettuce. From ~660 it raised the colander high next to the faucet column and tilted it (lettuce slid toward the rim, wrist 900-1096); the wrist view 680-1096 shows the stream falling beside the colander into the basin, not into it. Held like this until the 1100 timeout; washed_time 0. Spout check (s18_spout.png): the spout points forward until ~420; from 440-560, with the colander pushed against the faucet head, it swivelled (gooseneck seen in profile), moving the stream; from 660 the colander was lifted to roughly the height of the spout head.",
+ "causal_chain": "water on 138 (fast) -> colander grasped 298, at the faucet ~400 -> colander pushed against the faucet head, spout swivelled (440-560), stream displaced -> held next to the stream 400-640, then raised/tilted beside it 660-1100 -> washed_time 0 at timeout",
+ "self_recovery": "It kept repositioning (around the stream 400-640, then up and tilted 660-1100) but never got the lettuce under the stream; lifting it high probably made it worse (the check also needs the lettuce below the spout outlet).",
+ "official_criterion_notes": "Consistent with the video. The packet records only the sink handle joint and water_on, not the spout swivel joint, so the displaced stream is not visible in the packet. No gripper-finger contact with the sink fixture is recorded after 151, so the spout was pushed by the colander or an arm link (not recorded in the packet).",
+ "evidence": {
+  "sheets": [
+   "frames/s18_overview.png",
+   "frames/s18_sinkzoom.png",
+   "frames/s18_wristhold.png",
+   "frames/L9_stream_compare.png",
+   "frames/s18_spout.png",
+   "frames/spout_swing_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[102,102],[104,143],[145,151]]; handle 6.28(wrap)@112 0.18@128 0.47@144 0.50 to end",
+   "close_events 101 (0.042, lever) and 298 (0.04, colander rim), both on_nothing",
+   "gripper ~0.035-0.053 from 300 to end (holding colander)",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "From 660 on the arm hides most of the colander in the agent view; whether the miss was horizontal, vertical (lettuce above the outlet) or both is not determinable without the lettuce trace."
+}

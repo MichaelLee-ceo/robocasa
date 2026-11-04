@@ -12,7 +12,7 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from grip_scan import rows  # noqa: E402
 
-R = "/home/michaellee/mclee/robocasa/runs"
+R = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))  # runs/
 D = f"{R}/20261026_critic_data"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out")
 DIRS = ["run_v2/s0", "run_v2/s1", "run_v2/s2", "run_v2/s3", "run_v2/s4", "run_dense_KettleBoiling", "run_confirm_KettleBoiling",

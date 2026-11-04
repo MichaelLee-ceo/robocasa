@@ -5,7 +5,7 @@ usage: python -I render_probe.py <scene npz> [K=50] [offsamples override, e.g. 0
 import collections, json, os, sys
 import numpy as np
 import gymnasium as gym
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 sys.path.insert(0, f"{R}/runs/scripts")
 import atomic_eval as A  # noqa: E402
 

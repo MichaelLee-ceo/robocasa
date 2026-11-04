@@ -1,0 +1,38 @@
+{
+ "tag": "StirVegetables_s0_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  704,
+  885
+ ],
+ "category": "other: hand/spatula caught the pot and lifted or tipped it off the burner during the stir",
+ "secondary": [
+  "other: spatula slipped out of the grasp afterwards (878) and was never re-grasped",
+  "undid_previous_stage",
+  "missed_grasp_continued_empty"
+ ],
+ "what_happened": "Scene: layout 9, steel pot (Pot069) on the rear-left burner (flame on), tomato and potato on the counter right of the hob, spatula_7 on the counter. Stage 0: tomato grasped 149, dropped into the pot 254 (complete 257, normal). Stage 1: potato grasped 386, dropped in 488 (complete 493). Stage 2: spatula grasped 613 near the blade end and lifted (complete 631, normal). Stage 3: 688-744 the arm brought the spatula over the pot and pushed the blade down into it; from ~748 the arm rose and the pot came up with it (at 768-788 the pot hangs ~10 cm above the lit burner, at 800-880 it is carried up and left, out of the agent view; stage 0/1 conditions break 748-753 as the vegetables leave the pot's contact). At 878 the fingers closed fully (width 0.002): the spatula slipped out, stage 2 dropped at 885, and the pot fell back onto the stove (~890-940, vegetables stayed inside). The spatula ended lying across the hob/pot rim. For the remaining ~700 steps the gripper stayed fully closed (width 0.001) and hovered over and into the pot; the few 1-2 step stage-2 'holds' (900-911, 1250-1269) are the closed fingers brushing the spatula lying on the pot rim. success_time stayed 0.",
+ "causal_chain": "spatula blade pushed into the pot 704-744 -> arm rose with the blade wedged, lifting the pot off the burner 748-~890 -> spatula slipped out of the fingers 878 (stage 2 undone 885) -> gripper never reopened; hovered with closed fingers 885-1600 -> no stir step ever counted (success_time 0)",
+ "self_recovery": "none effective: after the spatula slipped the gripper stayed closed (0.001) and only brushed the spatula lying on the pot rim; it never reopened to re-grasp it.",
+ "official_criterion_notes": "The 1-2-step stage-2 completions at 900-911 and 1250-1269 are closed fingers touching the spatula that rests on the pot (lifted off the counter), not a real re-grasp. The packet has no pot position, so the pot lift 748-890 is only visible in the video (stage 0/1 breaks at 748-753 are its only trace). Packet first_incomplete_stage is 2 only because PickUpSpatula is evaluated as 'held and lifted now' (not latched); the online log completed stages 0-2, so the failed stage is 3.",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/s0_insert.png",
+   "frames/s0_potlift_zoom.png",
+   "frames/s0_stir.png",
+   "frames/s0_after_drop.png"
+  ],
+  "packet_facts": [
+   "veg2 hold 149-254, veg1 hold 386-488; stage1 first 493",
+   "spatula close 613 width 0.028 lifted; stage2 631-884",
+   "close 878 width 0.002 on spatula, not lifted; gripper width 0.001 from ~888 to the end",
+   "stage0/1 undone 748, 750, 753 (object left target)",
+   "success_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the pot was lifted by the wedged spatula blade or by the fingers catching the pot handle; the agent view at 776-788 shows the pot hanging at the gripper with the blade inside it."
+}

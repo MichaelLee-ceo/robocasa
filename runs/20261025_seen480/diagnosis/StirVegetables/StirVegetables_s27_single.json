@@ -1,0 +1,28 @@
+{
+ "tag": "StirVegetables_s27_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 1 (same kitchen as s23), red cast-iron pot (Pot065) on the rear-left element of a smooth-top range, lemon wedge, eggplant and spatula_8 (black handle, slotted turner) on the counter right of the range. Stage 0: lemon wedge grasped 118/126, dropped in 272 (complete 275; 275 vs median 232). Stage 1: eggplant grasped 438, held over the pot until 609 (complete 609; 334 steps). Stage 2: spatula grasped 756 at the end of the handle, lifted (complete 770). Stage 3 (302 steps): the base moved left (~880); 960-1000 the turner was held down into the pot from the right; 1020-1060 the hand pressed on the pot and tilted/lifted it (pot tipped toward the camera at 1044-1060, stage 0/1 conditions break 1036-1057); while the pot was being jostled the vegetables moved against the turner and the counter reached 5 at 1072 (success).",
+ "causal_chain": "",
+ "self_recovery": "none; the success came while the pot was being tipped, i.e. the counted 'stir' was partly the pot being shaken with the turner inside.",
+ "official_criterion_notes": "The stir criterion only needs the vegetables to move while touching the held spatula, with the pot within 0.15 m of the burner; here the counted steps coincided with the pot being tipped by the hand (1036-1060), so this 'stir' is partly a pot shake.",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/s27_stir_zoom.png",
+   "frames/s27_stir.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 126-272, veg2 hold 438-609",
+   "spatula close 756 width 0.026 lifted; stage2 770-1072",
+   "stage0 undone 1041, 1048, 1055 while the pot was tipped",
+   "success_step 1072, success_time 5"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Which of the steps 960-1072 were counted; the arm occludes the pot interior."
+}

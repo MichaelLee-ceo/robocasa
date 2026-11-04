@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s15_single", "success": false,
+ "failed_stage": 3, "root_cause_stage": 3, "root_cause_steps": [1021, 1400],
+ "category": "wrong_fixture_element", "secondary": ["stall_approach_retreat"],
+ "what_happened": "Style/layout 10 (same microwave on a tall cabinet as s7 and s29; keypad right of the door, round 'Start' and 'Stop' keys at its far end). Stage 0: eggplant grasped at 129, released into the bowl at 263 (stage 0 at 263). Stage 1: bowl grasped at 329, released inside the microwave at 668, stage 1 at 688 (425 steps). Stage 2: door contacts from 745, door swung shut 816-880, closed at 880 (192 steps). Stage 3 had 520 steps. After touching the door bar (881-902) the gripper went to the keypad (960-1000) and pressed five times (contacts 1021-1035, 1045-1051, 1063-1067, 1084-1086, 1090-1095). Every press landed on the 'Clock Time' / 'Timed Defrost' keys, with the round 'Start' key diagonally next to the fingertips (one key, ~2-3 cm) and 'Stop' beside it. After 1095 it rose a little above the keypad and hovered there to the end (1160-1400; 'Start' visible in the wrist view the whole time) without touching the microwave again.",
+ "causal_chain": "door closed 880 with 520 steps left -> 5 presses 1021-1095 on Clock Time / Timed Defrost, one key from Start -> no correction -> hovers above the keypad 1100-1400 -> timeout",
+ "self_recovery": "five presses with small shifts (1021-1095), all one key short of Start; then it stopped trying.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s15_overview.png", "frames/s15_button.png", "frames/s15_press_zoom.png", "frames/s15_late.png"],
+   "packet_facts": ["vegetable hold 135-263 lift 0.44 at target", "bowl hold 337-668 lift 0.55 at target", "closedness 0.07 -> 0 at 752 -> 1.0 at 880", "microwave touches after close: 881-893 900-902 1021-1035 1045-1051 1063-1067 1084-1086 1090-1095, none later", "close_events 875, 940 on_nothing"]},
+ "confidence": "high", "uncertain_about": "Offset in cm (read from the wrist view)."}

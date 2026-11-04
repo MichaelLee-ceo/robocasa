@@ -1,0 +1,25 @@
+{
+ "tag": "LoadDishwasher_s29_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 10 seen from the robot-left side (other side from s7/s15), red cup_4 and brown bowl_8. Bowl first: grasped 112-121 (lift 0.083), released 302 in the slid-out rack; stage 0 complete 299 (median 298). Stage 1: cup grasped 427-435, released 550 beside the bowl; the open fingers stayed against it to 586, so stage 1 first held at 569 with a 1-step flicker at 588; stage 1 complete 569 (270 steps). Stage 2: close on air at 703, rack pushed in, door lifted 768-816 (0.08@768, 0.47@784, 0.93@800, 1.00@816); success 801 (232 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/succ_C_overview.png"
+  ],
+  "packet_facts": [
+   "dish1 hold 121-302; stage0 299",
+   "dish0 hold 435-550, touch to 586; stage1 569",
+   "close on air 703; door 0.08@768 -> 1.00@816; success 801"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

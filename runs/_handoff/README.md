@@ -103,24 +103,20 @@ python robocasa/scripts/download_datasets.py --split target --source human   # a
 
 Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
 
-## 4. Paths: two environment variables
-
-* `ROBOCASA_ROOT` — project root used by every script in `runs/scripts/` (and `runs/scripts/sched/*.sh`).
-  Default `~/Desktop/robocasa` (the original location), so nothing needs to be set if the new server uses the same path:
-  `export ROBOCASA_ROOT=/path/to/robocasa` otherwise.
-* `RC_DIR` — where the batch schedulers in `runs/scripts/sched/*.sh` write their logs, server logs and go-flags
-  (`go_aseen`, `go_pre`). Default `/tmp/claude-1001/rc` (the original location); set it to any writable directory.
-* The scheduler scripts still `source ~/miniconda3/etc/profile.d/conda.sh` and activate `$ROBOCASA_ROOT/envs/groot`.
-* Frozen scene files (`runs/scenes_seen5_v2/*.npz`) store robosuite's pre-compile MJCF with absolute asset paths of the
-  original machine; `reset_to()` → `edit_model_xml()` rewrites them to the local robocasa assets (the dataset demo xmls
-  are loaded the same way). Verified on the original machine with and without `ROBOCASA_ROOT` set; check again with
-  step 5.1 on the new server.
-* Scripts in `runs/scripts/scratch/` are one-off checks; some still write images to the original session's scratch
-  directory under `/tmp/claude-1001/...`.
+## 4. Paths
+* Scripts find the repository from their own location (`runs/scripts/paths.py`), so a clone works anywhere. Two
+  optional overrides: `ROBOCASA_ROOT` (the repository; the shell launchers set it from their own location) and
+  `GROOT_PY` (the python; default `$ROBOCASA_ROOT/envs/groot/bin/python`).
+* Data written before 2026-11-04 (jobs files, results rows) stores scene paths of the original checkout;
+  `paths.local()` maps them into the current one.
+* Frozen scene files store robosuite's pre-compile MJCF with absolute asset paths of the original machine;
+  `reset_to()` -> `edit_model_xml()` rewrites them to the local robocasa assets (the dataset demo xmls are loaded the
+  same way). Check with step 5.1 on the new server.
 
 ## 5. Verification after the move
 
-1. Scenes must load identically. For every `runs/scenes_seen5_v2/<Task>_s<seed>.npz` (8 tasks x 20),
+1. Scenes must load identically. For every frozen scene (`runs/scenes_seen5_v2`: 5 tasks x s0-19,
+   `runs/scenes_seen5_v2_s30`: the same tasks x s20-29, `runs/scenes_seen11_v2`: 11 tasks x s0-29),
    `atomic_eval.load_scene()` must not raise: it compares layout, style, nq, the object list and `phys_sha1`
    (hash of body_mass, body_inertia, body_ipos, geom_friction rounded to 1e-6) with the values stored in the file.
    If only `phys_sha1` differs, do not conclude the scene is wrong yet: dump those arrays on both machines and compare
@@ -134,15 +130,11 @@ Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
    python3 -c "import gzip,os; bad=[p for h,s,p in (l.rstrip('\n').split('  ',2) for l in gzip.open('runs/_handoff/bigfiles_sha256.txt.gz','rt') if not l.startswith('#')) if not os.path.exists(p) or os.path.getsize(p)!=int(s)]; print(len(bad),'mismatches', bad[:10])"
    ```
    A re-download (Option B) may legitimately differ in `checkpoints/.cache/` metadata; the weights must match.
-3. Policy runs are stochastic, so compare statistically (one policy server at a time):
-   * composite_seen, full instruction, the 20 frozen v2 scenes of StackBowlsCabinet and SteamInMicrowave. The same
-     scenes and checkpoint gave, on the original machine, StackBowls 17/20 and 15/20, Steam 7/20 and 10/20 (two runs:
-     `runs/20261013_accept`, `runs/20261013_scenes_v2`). A new run should be in that range (Fisher exact p > 0.05 against
-     each), not identical.
-   * official atomic eval with Atomic-Seen (`runs/scripts/atomic_official_eval.py`, original horizons): those scenes are
-     generated from seeds inside the eval process and differ between processes, so again only a statistical comparison
-     with `runs/20261013_atomic_official/*/stats.json` (e.g. PickPlaceCounterToCabinet 14/20, TurnOnMicrowave 16/20).
+3. Policy runs are stochastic: physics and the seeded policy noise are bitwise reproducible, rendering is not
+   (`runs/20261025_determinism`). Compare statistically: rerun the plain baseline of a task
+   (`runs/20261025_seen480/run.sh`, its 30 frozen scenes, `policy_seed` 0) and compare the success rate with
+   `runs/20261025_seen480/run/results_w*.jsonl` (Fisher exact p > 0.05), not episode by episode.
 
 ## 6. What goes into the project repo
-
-See `FILELIST.md` (everything listed there is committed on `ece780`).
+Everything under `runs/` on branch `ece780`, except what `runs/.gitignore` keeps out (videos, per-step states, images,
+page builds). Copy those with rsync if needed.

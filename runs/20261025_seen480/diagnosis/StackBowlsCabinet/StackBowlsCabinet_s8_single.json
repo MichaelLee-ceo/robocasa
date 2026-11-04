@@ -1,0 +1,27 @@
+{
+ "tag": "StackBowlsCabinet_s8_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 10/style 10 (grey cabinets, white geometric backsplash); both bowls tan bowl_7 (x0.7, x0.95), ~0.23 m apart. Nest-then-carry, clean: small bowl grasped 69/77 (lift 0.14 m), set into the large bowl at 136; pair grasp at 170 (close touched both; the fingers held the outer rim, bowl1 contact only 165-183), lifted 0.55 m into the grey upper cabinet with the inner bowl tilted (tipped 214-282), released 291. Stage 0 fired at 249, 42 steps before the release, because the untouched inner bowl entered the cabinet while the pair was still held; stage 1 at 310 (19 steps after release; 61 after stage 0, above p90 54 only because stage 0 fired early); success 310.",
+ "causal_chain": "",
+ "self_recovery": "none",
+ "official_criterion_notes": "Stage-0 timing artefact: stage 0 counts a bowl inside the cabinet that the fingers are not touching, so in nest-then-carry it fires while the pair is still being carried (249 vs release 291). bowl1 hold 165-183 shows height_drop -0.409 because the bowl kept rising inside bowl2 after the fingers lost contact.",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png"
+  ],
+  "packet_facts": [
+   "closes 69 (bowl1), 170 (both lifted)",
+   "bowl1 hold 77-136 lift 0.145; 165-183 lift 0.008, drop -0.409",
+   "bowl2 hold 181-291 lift 0.547",
+   "stage0 249 (pair still held), stage1 310"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

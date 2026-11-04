@@ -15,7 +15,8 @@ import numpy as np
 import gymnasium as gym
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/third_party/Isaac-GR00T"))
+from paths import ROOT, local  # noqa: E402
+sys.path.insert(0, f"{ROOT}/third_party/Isaac-GR00T")
 import robocasa  # noqa
 import robocasa.utils.object_utils as OU
 from gr00t.eval.wrappers.multistep_wrapper import MultiStepWrapper
@@ -54,7 +55,7 @@ def scene_fp(kenv):
 
 
 def load_scene(kenv, path):
-    z = np.load(path, allow_pickle=True)
+    z = np.load(local(path), allow_pickle=True)
     reset_to(kenv, str(z["xml"]), json.loads(str(z["ep_meta"])), z["state"])
     kenv.unset_ep_meta()
     ref = json.loads(str(z["fp"]))
@@ -80,24 +81,40 @@ def fingerprint(d):
     return m.hexdigest()[:12]
 
 
+def restore_node(kenv, start_state, hidden=None):
+    """set the env to a node: sim state (set_state, which also runs every fixture's update_state()), then the hidden
+    state. For a node reached by stepping (hidden from capture(kenv, obs=True)) that extra update_state() is undone: it
+    sees contacts recomputed at the node's pose, unlike the steps that reached the node, and some fixtures change on it
+    (contact-gated flags such as the microwave's turned_on; counters; the toaster oven's timer knob writes qpos). So the
+    sim state is set again and hidden_state.restore puts back the python fixture state of the node (review 2026-10-30)."""
+    set_state(kenv, start_state)
+    if hidden is not None and "obs_value" in hidden:
+        kenv.sim.set_state_from_flattened(start_state)
+        kenv.sim.forward()
+    if hidden is not None:
+        hidden_state.restore(kenv, hidden)
+        if "obs_value" in hidden and not np.array_equal(kenv.sim.get_state().flatten(), start_state):
+            raise RuntimeError("restore_node: the sim state differs from the node after the restore")
+
+
 def rollout(client, base, kenv, S, steps, start_state, horizon, mode, task_instr, k0=0, k_stop=None, save=None,
             seed_fn=None, digest=None, step_states=None, hidden=None, boundary_hook=None):
     """seed_fn(ci) -> seed sent with the request of chunk ci (needs serve_seeded.py). digest: list to append
     [observation sent, action received, sim state after the chunk, {observation key: fingerprint}] to, one entry
     per chunk. step_states: list to fill with the flattened sim state at the start and after every control step.
     hidden: controller / warm-start state to start from (hidden_state.capture()); without it the rollout inherits
-    whatever the env's previous rollout left in the controllers (see hidden_state.py).
+    whatever the env's previous rollout left in the controllers (see hidden_state.py). With an observation in it
+    (capture(kenv, obs=True)) the first request uses that observation instead of a forced one.
     boundary_hook(t, kenv, S, rewards): called at every chunk boundary, before the stage checks (rewards: the chunk's
     per-step task-success rewards)."""
     fg = FrameGrab(base, states=step_states)
     menv = MultiStepWrapper(fg, video_delta_indices=np.array([0]), state_delta_indices=np.array([0]),
                             n_action_steps=16, max_episode_steps=horizon)
-    set_state(kenv, start_state)
-    if hidden is not None:
-        hidden_state.restore(kenv, hidden)
+    restore_node(kenv, start_state, hidden)
     if step_states is not None:
         step_states.append(kenv.sim.get_state().flatten())
-    o = base.get_observation(kenv._get_observations(force_update=True))
+    # a node captured with its observation (hidden_state.capture(kenv, obs=True)) continues from it like a continuous run
+    o = base.get_observation(kenv._get_observations(force_update=not (hidden is not None and "obs_value" in hidden)))
     menv.obs = deque([o] * 2, maxlen=2); menv.reward, menv.done = [], []
     menv.info = defaultdict(lambda: deque(maxlen=2))
     obs = menv._get_obs(menv.video_delta_indices, menv.state_delta_indices)

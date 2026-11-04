@@ -1,0 +1,34 @@
+{
+ "tag": "StoreLeftoversInBowl_s28_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  700,
+  770
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "undid_previous_stage",
+  "other: bowl tilted in the rim grasp (tipped 637-683, 730-756)"
+ ],
+ "what_happened": "Layout 8 (French-door fridge to the left of the dining table), striped bowl_6, carrot, drumstick 014. Stage 0: carrot grasped 89, released in the bowl 167 (stage 0 at 167). Stage 1: drumstick grasped 305, carried ~1 m to the bowl with a base move and released at 444 (lift 0.278; stage 1 at 445, 278 steps, near p90 284). Stage 2: rim grasp 492-512 (width 0.017-0.020), lift 0.417 m, base turned and drove to the fridge 560-700. The base stopped right next to the open left door, which blocks most of the agent view. 700-756 the arm brought the bowl LOW, beside the door and below the shelves, while the bowl rotated (tipped 730-756; the wrist sees the bowl's inside face-on). The fingers opened 728-760 (0.017 -> 0.078) with the bowl ~11 cm outside the fridge interior. The bowl dropped ~0.8 m and came to rest on its side at z 0.49 m, 0.5 m in front of the fridge interior (probably on the open door's lower bin or the freezer-drawer front; not visible). The carrot ended at z 0.39 and the drumstick on the floor. 770-1700 the empty arm explored the door bins and the fridge interior.",
+ "causal_chain": "carried to the fridge, but the base parked tight against the open left door -> the arm lowered the bowl beside the door, below the shelves, tilted (700-756) -> fingers opened 11 cm outside the interior (756) -> the bowl fell ~0.8 m onto a low surface outside the fridge, on its side -> foods spilled; stages 0/1/2 lost",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_drop.png",
+   "frames/s28_after.png"
+  ],
+  "packet_facts": [
+   "bowl hold 500-756 lift 0.417 dist 0.107 drop 0.796; end (1.085,-2.902,0.491) tilt 78",
+   "L8 success s16 bowl end (0.552,-3.011,1.171)",
+   "gripper 0.017 at 720 -> 0.078 at 760",
+   "veg end z 0.391, drumstick end z 0.015"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "What the bowl landed on (z 0.49): the agent view is blocked by the fridge door and the wrist camera never looks at it again. Also whether the opening at 728-760 was a deliberate place or a loosening during the rotation."
+}

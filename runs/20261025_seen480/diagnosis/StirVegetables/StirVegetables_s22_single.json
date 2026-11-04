@@ -1,0 +1,36 @@
+{
+ "tag": "StirVegetables_s22_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  504,
+  1301
+ ],
+ "category": "other: stir misdirected - blade kept beside or on the rim of the pot, pushing the pot instead of sweeping the vegetables",
+ "secondary": [
+  "disturbed_placed_object",
+  "undid_previous_stage"
+ ],
+ "what_happened": "Scene: layout 8, black pot (Pot071) on the rear-right grate of a gas range, lemon wedge and eggplant on the counter right of the range, spatula_8 (black handle, metal turner) on the counter. Stage 0: lemon wedge grasped 137, dropped in 212 (complete 215). Stage 1: eggplant grasped 286, dropped in 354 (complete 367, fast). Stage 2: spatula grasped 464 at the end of the handle, lifted (complete 482, fast) and held until 1301. Stage 3: the base turned (camera change ~480-500); at 504-540 the metal shaft went down at the pot and the pot was shoved back-left (wrist view swings across the pot interior; the lit burner is exposed at the pot's lower-right from ~540; stage 0/1 conditions break 521-564). From ~550 to 1300 (~750 steps) the gripper stayed at the pot's right side with the turner hanging OUTSIDE the pot, next to its right wall over the exposed flame, while the handle slowly rotated in the fingers (width 0.024 at 480 -> 0.007 at 1296). At 1301 the spatula fell out onto the grate right of the pot (stage 2 ends). The gripper stayed closed (0.001) and drifted away until 1600. success_time 0.",
+ "causal_chain": "first descent with the spatula (504-540) bumped the pot off the burner centre -> ~750 steps with the blade hanging outside the pot's right wall, never inside -> handle slowly slipped and the spatula fell at 1301 -> no stir counted",
+ "self_recovery": "none: small hovering motions beside the pot; no re-grasp after the drop.",
+ "official_criterion_notes": "The packet has no pot position; the exposed flame from ~540 shows the pot was moved, but not whether it left the 0.15 m radius. Packet first_incomplete_stage is 2 only because PickUpSpatula is evaluated as 'held and lifted now' (not latched); the online log completed stages 0-2, so the failed stage is 3.",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_early_pot.png",
+   "frames/s22_push.png",
+   "frames/s22_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 137-212, veg2 hold 286-354",
+   "spatula close 464 width 0.025 lifted; stage2 482-1301",
+   "stage0/1 undone 521, 533, 538, 540, 564",
+   "gripper width 0.024 (480) falling steadily to 0.007 (1296), 0.002 (1312)",
+   "success_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the blade touched the vegetables at 504-540 (only moment it was over the pot interior)."
+}

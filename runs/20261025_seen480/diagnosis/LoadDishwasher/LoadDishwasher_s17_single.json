@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s17_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [310, 1200],
+ "category": "stall_holding_at_target", "secondary": [],
+ "what_happened": "Scene layout 8 seen from the other side (robot left of the dishwasher, which is at the right edge of the agent view; the robot itself is mostly out of view), white/pink cup_5 and dark-red wooden bowl_8. Stage 0: bowl grasped 126-134 (lift 0.053), lowered onto the slid-out rack by ~257 (at_target from 257), fingers opened at ~310. From then to the end (310-1200, ~890 steps) the gripper stayed at the bowl with the fingers open and resting on/against its rim (bowl touch nearly continuous 127-1200; the packet splits this into ten 'holds' with lift 0.0-0.009) and the wrist view almost unchanged: the bowl's rim in the lower right, rack wires beyond. It closed once on the bowl at 767-800 (no lift) and re-opened. It also touched the rack (dishwasher touch 313-620, 810-1141). Because the fingers never left the bowl, stage 0 first held only at 656, when contact broke for one step, and stays latched afterwards. The cup was never touched (min eef distance 0.185 m) and the door was never addressed.",
+ "causal_chain": "bowl placed on the rack ~257-310 -> gripper stays parked on the bowl rim with open fingers 310-1200 (one useless re-close at 767) -> never goes back for the cup -> stage 1 (and 2) not reached",
+ "self_recovery": "none.",
+ "official_criterion_notes": "Stage 0 first_complete_step 656 lags the real placement (~310) only because the open fingers kept touching the bowl; after 656 the release part is latched (stage holds although contact resumes).",
+ "evidence": {"sheets": ["frames/s17_overview.png", "frames/s17_stall.png"],
+  "packet_facts": ["dish1 touch 127-655, 657-668, ..., 688-1200; 10 holds with lift <= 0.053", "gripper width ~0.08 (open) from 312 except 792 (0.019)", "closes: 126 dish1 lifted, 767 dish1 not lifted", "dish0 never touched, min eef dist 0.185"]},
+ "confidence": "medium",
+ "uncertain_about": "Whether the cup is visible to the policy in this view (it starts 13 cm from the bowl on the counter, at the right edge of the agent view); the stall looks like the same post-placement freeze as s4."}

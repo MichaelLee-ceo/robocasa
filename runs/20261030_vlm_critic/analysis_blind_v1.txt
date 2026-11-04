@@ -1,0 +1,62 @@
+
+=== confirm: 32 points ===
+ceiling, split-half +24.4 pts   in-sample best-of-8  42.4   critic  -2.1
+feature                             gain max  gain min  rho(feat, rate)  rho(critic, feat)
+path length                             +2.5      -1.4       +0.08 (n 32)        +0.28 (n 32)
+end displacement                        +2.5      +0.2       +0.09 (n 32)        +0.28 (n 32)
+lift (dz)                               -5.2      +2.7       -0.07 (n 29)        +0.09 (n 29)
+rotation                                +1.8      +2.5       +0.02 (n 32)        +0.01 (n 32)
+steps commanded closed                  -2.0      +2.5       -0.18 (n  7)        -0.06 (n  7)
+closed at the end                       +1.1      +2.4       -0.27 (n  5)        -0.07 (n  5)
+base steps                              +1.0      -3.8       +0.28 (n  6)        +0.28 (n  6)
+typicality (-dist to median end)        -2.1      -0.6       -0.04 (n 32)        +0.10 (n 32)
+confidence low    n 31  gain  -3.3
+confidence medium n  1  gain +34.4
+
+=== control: 32 points ===
+ceiling, split-half  -1.2 pts   in-sample best-of-8  11.8   critic  -2.2
+feature                             gain max  gain min  rho(feat, rate)  rho(critic, feat)
+path length                             +2.4      -3.0       +0.25 (n 14)        -0.03 (n 32)
+end displacement                        +4.0      -3.8       +0.25 (n 14)        +0.01 (n 32)
+lift (dz)                               -2.2      +0.1       -0.03 (n 14)        +0.05 (n 32)
+rotation                                -2.2      -0.7       +0.06 (n 14)        -0.08 (n 32)
+steps commanded closed                  +0.0      +0.0        +nan (n  0)        +0.29 (n  3)
+closed at the end                       +0.0      +0.0        +nan (n  0)        +0.01 (n  2)
+base steps                              +0.8      -0.8       +0.28 (n  3)        -0.27 (n  5)
+typicality (-dist to median end)        -3.0      +0.1       -0.03 (n 14)        +0.18 (n 32)
+confidence low    n 30  gain  -1.7
+confidence medium n  2  gain -10.9
+
+=== confirm points ===
+p11 Kettl k0 s24  t  480  rates 0.00 0.00 0.00 1.00 0.00 0.00 1.00 0.00  pick #2 (0.00, low)  best [np.int64(3), np.int64(6)]
+p19 Kettl k0 s17  t  112  rates 0.25 1.00 0.25 1.00 1.00 1.00 0.00 0.25  pick #0 (0.25, low)  best [np.int64(1), np.int64(3), np.int64(4), np.int64(5)]
+p21 Kettl k0 s26  t   96  rates 0.75 1.00 0.75 1.00 0.50 0.00 0.75 0.00  pick #6 (0.75, low)  best [np.int64(1), np.int64(3)]
+p44 Kettl k0 s19  t   80  rates 0.25 0.00 1.00 1.00 0.00 1.00 0.00 0.25  pick #1 (0.00, low)  best [np.int64(2), np.int64(3), np.int64(5)]
+p49 Kettl k0 s2   t   80  rates 0.25 0.25 0.50 0.50 0.00 0.00 0.50 0.00  pick #3 (0.50, low)  best [np.int64(2), np.int64(3), np.int64(6)]
+p03 PackI k0 s21  t 1344  rates 0.00 0.00 0.00 0.75 0.75 0.00 0.00 0.25  pick #1 (0.00, low)  best [np.int64(3), np.int64(4)]
+p04 PackI k0 s0   t  464  rates 0.50 0.75 0.50 1.00 0.75 0.75 0.75 0.25  pick #6 (0.75, low)  best [np.int64(3)]
+p06 PackI k0 s5   t  352  rates 0.25 0.00 0.00 0.50 0.00 0.50 0.25 0.25  pick #4 (0.00, low)  best [np.int64(3), np.int64(5)]
+p13 PackI k0 s28  t   48  rates 1.00 0.75 0.75 0.75 1.00 1.00 0.50 0.50  pick #2 (0.75, low)  best [np.int64(0), np.int64(4), np.int64(5)]
+p16 PackI k0 s17  t  432  rates 0.50 0.25 0.75 0.50 0.25 0.50 1.00 0.50  pick #0 (0.50, low)  best [np.int64(6)]
+p26 PackI k0 s29  t  224  rates 0.00 0.00 1.00 0.00 0.00 0.25 0.00 0.75  pick #4 (0.00, low)  best [np.int64(2)]
+p45 PackI k0 s21  t   32  rates 0.75 0.25 0.50 0.00 0.25 1.00 0.75 0.50  pick #0 (0.75, low)  best [np.int64(5)]
+p46 PackI k0 s25  t   80  rates 1.00 1.00 0.50 0.75 1.00 0.00 1.00 1.00  pick #4 (1.00, low)  best [np.int64(0), np.int64(1), np.int64(4), np.int64(6), np.int64(7)]
+p47 PackI k0 s5   t   48  rates 0.75 0.75 1.00 0.75 0.75 0.75 0.75 1.00  pick #2 (1.00, low)  best [np.int64(2), np.int64(7)]
+p53 PackI k0 s15  t  160  rates 0.25 0.00 0.00 0.00 0.00 0.00 0.00 1.00  pick #3 (0.00, low)  best [np.int64(7)]
+p02 PackI k1 s20  t  320  rates 0.00 0.75 0.00 0.25 0.25 0.25 0.50 0.50  pick #5 (0.25, low)  best [np.int64(1)]
+p08 PackI k1 s19  t  720  rates 0.25 0.00 1.00 1.00 1.00 0.75 0.50 0.50  pick #3 (1.00, low)  best [np.int64(2), np.int64(3), np.int64(4)]
+p29 PackI k1 s7   t 1200  rates 1.00 1.00 1.00 0.75 1.00 1.00 1.00 0.50  pick #6 (1.00, low)  best [np.int64(0), np.int64(1), np.int64(2), np.int64(4), np.int64(5), np.int64(6)]
+p38 PackI k1 s21  t 1600  rates 0.50 1.00 0.25 0.50 0.25 0.75 0.75 1.00  pick #3 (0.50, low)  best [np.int64(1), np.int64(7)]
+p39 PackI k1 s13  t  368  rates 0.25 0.75 0.75 0.25 0.50 1.00 0.50 0.75  pick #2 (0.75, low)  best [np.int64(5)]
+p40 PackI k1 s11  t  448  rates 1.00 1.00 0.75 0.25 0.00 0.25 0.25 0.50  pick #6 (0.25, low)  best [np.int64(0), np.int64(1)]
+p50 PackI k1 s3   t  592  rates 0.00 0.00 0.00 0.00 0.25 0.50 0.00 0.00  pick #1 (0.00, low)  best [np.int64(5)]
+p10 PackI k2 s17  t 1376  rates 0.50 0.50 0.75 0.50 0.75 0.50 0.25 0.75  pick #3 (0.50, low)  best [np.int64(2), np.int64(4), np.int64(7)]
+p14 PackI k2 s3   t 1008  rates 0.00 0.50 0.50 1.00 0.25 1.00 0.50 0.50  pick #5 (1.00, low)  best [np.int64(3), np.int64(5)]
+p64 PackI k2 s13  t 1344  rates 1.00 0.25 0.75 1.00 0.25 0.50 0.00 0.25  pick #6 (0.00, low)  best [np.int64(0), np.int64(3)]
+p56 PackI k3 s18  t 1504  rates 0.00 0.00 0.00 0.00 0.00 0.00 0.00 1.00  pick #7 (1.00, low)  best [np.int64(7)]
+p54 Steam k0 s28  t   32  rates 0.25 0.50 0.75 0.75 0.75 0.00 0.50 0.75  pick #1 (0.50, low)  best [np.int64(2), np.int64(3), np.int64(4), np.int64(7)]
+p27 Steam k1 s23  t  688  rates 0.00 0.75 1.00 0.50 0.25 0.25 1.00 0.75  pick #0 (0.00, low)  best [np.int64(2), np.int64(6)]
+p57 Steam k1 s1   t  624  rates 0.00 0.25 0.00 0.00 0.00 0.75 0.00 0.00  pick #2 (0.00, low)  best [np.int64(5)]
+p12 Steam k2 s14  t  704  rates 0.75 1.00 0.75 1.00 0.50 1.00 1.00 1.00  pick #4 (0.50, low)  best [np.int64(1), np.int64(3), np.int64(5), np.int64(6), np.int64(7)]
+p22 Steam k2 s29  t  976  rates 0.25 0.00 0.00 1.00 1.00 1.00 1.00 1.00  pick #5 (1.00, medium)  best [np.int64(3), np.int64(4), np.int64(5), np.int64(6), np.int64(7)]
+p32 Steam k2 s7   t  960  rates 1.00 0.00 0.50 0.75 0.50 0.25 0.75 0.50  pick #7 (0.50, low)  best [np.int64(0)]

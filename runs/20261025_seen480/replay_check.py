@@ -8,8 +8,9 @@ usage: python -I replay_check.py <run dir> <tag> [<tag> ...]"""
 import glob, json, os, sys
 import numpy as np
 import gymnasium as gym
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 sys.path.insert(0, f"{R}/runs/scripts")
+from paths import local  # noqa: E402
 import robocasa.scripts.dataset_scripts.add_subtask_labels_to_lerobot as L  # noqa: E402
 from robocasa.utils.subtask_labeling import get_labeler  # noqa: E402
 from oracle import reset_to, set_state  # noqa: E402
@@ -25,7 +26,7 @@ for p in glob.glob(f"{run}/results_w*.jsonl"):
 for tag in tags:
     r = res[tag]
     task = r["task"]
-    z = np.load(r["scene"], allow_pickle=True)
+    z = np.load(local(r["scene"]), allow_pickle=True)
     xml, ep_meta = str(z["xml"]), json.loads(str(z["ep_meta"]))
     states = np.load(f"{run}/{task}/{tag}_steps.npz")["states"]
     end = np.load(f"{run}/{task}/{tag}_end.npz", allow_pickle=True)["state"]

@@ -1,0 +1,285 @@
+{
+ "tag": "ScrubCuttingBoard_s4_single",
+ "task": "ScrubCuttingBoard",
+ "instruction": "Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+ "success": true,
+ "steps": 688,
+ "horizon": 800,
+ "success_step": 681,
+ "online_stage_log": [
+  [
+   112,
+   0
+  ],
+  [
+   688,
+   1
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 112,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 688,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 8,
+  "style": 8,
+  "objects": {
+   "cutting_board": "objaverse/cutting_board/cutting_board_9/model.xml",
+   "sponge": "objaverse/sponge/sponge_6/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0613,
+   0.0596,
+   0.0591,
+   0.0587,
+   0.0583,
+   0.0579,
+   0.0578,
+   0.0577,
+   0.0577,
+   0.0579,
+   0.0573,
+   0.0577,
+   0.0576,
+   0.0582,
+   0.0577,
+   0.0573,
+   0.0572,
+   0.0578,
+   0.058,
+   0.058,
+   0.0577,
+   0.0581,
+   0.0582,
+   0.0583,
+   0.0583,
+   0.0581,
+   0.058,
+   0.0578,
+   0.0576,
+   0.0577,
+   0.0576,
+   0.0568,
+   0.0566,
+   0.0576,
+   0.0573,
+   0.0569,
+   0.0567,
+   0.0569,
+   0.057,
+   0.057,
+   0.0566,
+   0.0565,
+   0.0566,
+   0.0575,
+   0.0562,
+   0.0568,
+   0.0576,
+   0.0572,
+   0.0557,
+   0.0586,
+   0.058,
+   0.0572,
+   0.058,
+   0.0587,
+   0.0578,
+   0.0576,
+   0.0576,
+   0.0572,
+   0.0593,
+   0.0584,
+   0.0578,
+   0.0581,
+   0.0582,
+   0.0577,
+   0.0572,
+   0.0575,
+   0.0682,
+   0.0794,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0779,
+   0.0785,
+   0.0789
+  ],
+  "close_events": []
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickUpSponge",
+   "kind": "pick",
+   "first_complete_step": 98,
+   "complete_at_end": false,
+   "complete_intervals": [
+    [
+     98,
+     195
+    ],
+    [
+     306,
+     312
+    ],
+    [
+     323,
+     347
+    ],
+    [
+     353,
+     376
+    ],
+    [
+     385,
+     419
+    ],
+    [
+     433,
+     444
+    ],
+    [
+     460,
+     472
+    ],
+    [
+     483,
+     491
+    ],
+    [
+     497,
+     526
+    ],
+    [
+     529,
+     669
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 196,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 313,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 348,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 377,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 420,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 445,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 473,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 492,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 527,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 670,
+     "reason": "condition dropped"
+    }
+   ],
+   "steps_since_previous_stage": 98,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 111,
+    "p90": 132,
+    "n": 13
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "ScrubCuttingBoard",
+   "kind": "process",
+   "first_complete_step": 681,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     681,
+     688
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 583,
+   "window_start": 98,
+   "typical_in_successes": {
+    "median": 449,
+    "p90": 600,
+    "n": 13
+   }
+  }
+ ],
+ "objects": {},
+ "fixtures": {},
+ "process_progress_end": {
+  "stage1": {
+   "contacts": 22,
+   "sweep": 0.479
+  }
+ },
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickUpSponge",
+    "pick"
+   ],
+   [
+    95,
+    "ScrubCuttingBoard",
+    "execute"
+   ],
+   [
+    630,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/ScrubCuttingBoard/ScrubCuttingBoard_s4_single.mp4"
+}

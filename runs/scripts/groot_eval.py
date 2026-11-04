@@ -8,7 +8,9 @@ import argparse, gzip, json, os, sys, time, traceback
 import numpy as np
 import gymnasium as gym
 
-sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/third_party/Isaac-GR00T"))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from paths import ROOT  # noqa: E402
+sys.path.insert(0, f"{ROOT}/third_party/Isaac-GR00T")
 import robocasa  # noqa: F401  (registers robocasa/<Task> gym ids)
 from robocasa.utils.dataset_registry_utils import get_task_horizon
 from gr00t.eval.service import BaseInferenceClient

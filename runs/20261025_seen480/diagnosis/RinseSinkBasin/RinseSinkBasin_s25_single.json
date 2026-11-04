@@ -1,0 +1,25 @@
+{
+ "tag": "RinseSinkBasin_s25_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 6. Stage 0: lever 121-163 (close 127), water at 154. Spout taken 235 (close 248), swept RIGHT (right washed 351) then LEFT (left washed 441, success 441), contact 235-448. Stage 1: 287 steps.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s25_overview.png"
+  ],
+  "packet_facts": [
+   "online log [[160,0],[448,1]]",
+   "fixture touch 235-448",
+   "spout angle from saved states (column validated against packet washed_loc): R 351, L 441 (min -0.71)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

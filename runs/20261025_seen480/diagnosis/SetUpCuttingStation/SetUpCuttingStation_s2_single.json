@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s2_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 9 (same drawer as s3/s13/s20/s23/s27); green-handled knife (knife_9) at the back of the navy drawer, its handle near the counter edge at the start (like s27); board and a red plate with a shrimp on the counter 1.6 m away. Stage 0: unlike s13/s27, the gripper reached the handle and closed at 397 with the handle centred (lift 0.50 m from 409), moved the base and released the knife on the board at 611 (0.013 m from centre). Stage 1 normal: grasped the shrimp at 676 (it stood upright in the fingers), carried it and set it down on the board at 757 partly on the knife's handle; the fingers touched the knife while releasing (751-761), then backed off. Success at 779.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "Stage 0 drop at 751-761 is only the release clause (gripper touching the knife while placing the shrimp on its handle); the knife did not move. Meat hold 685-693 has height_drop -0.126 because the shrimp was re-lifted within 2 s.",
+ "evidence": {"sheets": ["frames/s2_overview.png", "frames/cmp_layout9_drawer.png"],
+   "packet_facts": ["close 397 lifted knife; hold 409-611 lift 0.497 dist 0.013", "meat hold 697-757 lift 0.153 dist 0.068", "stage0 undone 751 (release part only)"]},
+ "confidence": "high", "uncertain_about": ""}

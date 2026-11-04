@@ -1,0 +1,33 @@
+{
+ "tag": "KettleBoiling_s26_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  96,
+  140
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: grey kettle with an arched handle on the counter right of the gas hob (pot on the hob); same layout as s2/s3. Stage 0: the gripper came down 96-124 with the handle at roughly 45 deg across the wrist image. Contact 109-125, hold 115-126 with 3 mm lift. At 128-132 the fingers are closed in front of the handle, and at 140-152 the gripper rose without the kettle. From ~176 to 1000 it hovered 15-40 cm above the kettle, which stays in the wrist view the whole time (sometimes with the hob), and it never came down to touch it again (no contact after 125); it only drifted lower at ~900-1000. No knob was touched; the kettle moved 0.4 cm.",
+ "causal_chain": "single grasp attempt 109-126 slid off the diagonal handle (lift 3 mm) -> hovered above the kettle 176-1000 (~820 steps) without re-grasping -> stage 0 never complete",
+ "self_recovery": "none effective: only a slow descent near the end (900-1000).",
+ "official_criterion_notes": "Official labeler output is meaningless (it starts at TurnOnStove).",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_grasp.png",
+   "frames/all_first_touch_wrist.png"
+  ],
+  "packet_facts": [
+   "gripper_touch_intervals [[109,125]]",
+   "holds: grasp 115 release 126 lift 0.003",
+   "dist_to_target start 0.298 end 0.295",
+   "stove: no touch"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "A ~45 deg handle also appears at first touch in successes s25/s27, so orientation alone does not explain the miss. The hovering behaviour itself is clear."
+}

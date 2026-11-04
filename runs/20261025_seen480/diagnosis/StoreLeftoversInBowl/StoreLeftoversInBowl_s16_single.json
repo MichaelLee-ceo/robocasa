@@ -1,0 +1,24 @@
+{
+ "tag": "StoreLeftoversInBowl_s16_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 8 (French-door fridge), deep brown bowl_8, garlic, drumstick 012. Stage 0: garlic grasped 78, released in the bowl 158 (stage 0 at 162). Stage 1: drumstick grasped 316, carried ~1 m to the bowl with a base move (400-500) and released 526 (stage 1 at 528; 366 steps > p90 284, explained by the base move, not a stall). Stage 2: rim grasp at 577 (width 0.025), lift 0.379 m. The bowl was tilted > 45 deg 790-935, and the garlic was touched 894-902. It was set on a shelf at x 0.552, z 1.171 (rack contact from 914) and released at 942. Success at 952.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s16_drum_hold.png"
+  ],
+  "packet_facts": [
+   "drumstick hold 316-526 lift 0.289 (base move)",
+   "bowl hold 585-942 at target; end (0.552,-3.011,1.171)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s5_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 0, "root_cause_steps": [209, 943],
+ "category": "missed_grasp", "secondary": ["missed_grasp_continued_empty", "stall_approach_retreat", "ran_out_of_time"],
+ "what_happened": "Scene layout 7 (kitchen island with an orange tile floor, robot left of the dishwasher), cup_5 and wooden bowl_7 (scale 0.5). Stage 0, bowl first: the gripper came down over the bowl centre and closed at 209 on the rim (width 0.011, no lift; wrist 212-224 shows the fingers at the inner rim). It then went to the slid-out rack empty-handed 240-360 (wrist sees only the empty rack), came back and closed on the bowl again at 415 (width 0.029, no lift, the bowl was only tilted, 424-440), touched it briefly at 481, then hovered/approached and retreated at the counter edge 500-780 with the bowl at the edge of the wrist view and closes on air at 624 and 768. A second empty trip to the rack followed (780-860). At 943-957 it finally grasped the bowl (lift 0.026), carried it to the rack and let it drop at 1069 (height drop 0.213; the bowl landed tipped, 58-76 deg); stage 0 complete 1073 (median 298). Stage 1: the cup was grasped at 1178-1193 and was still on the counter, lifted 1.6 cm, at the timeout. The door was never addressed.",
+ "causal_chain": "bowl grasp missed at 209 and 415 -> two empty trips to the rack (240-360, 780-860) and 280 steps of approach/retreat at the counter -> bowl only lifted at 943, placed 1069 (stage 0 at 1073, +775 over the median) -> cup grasped at 1193 -> timeout",
+ "self_recovery": "Persistent: after two missed grasps and two empty trips it re-grasped the bowl at 943 and placed it (worked, too late).",
+ "official_criterion_notes": "The bowl counts as on the rack at the end although it lies tipped (58 deg).",
+ "evidence": {"sheets": ["frames/s5_overview.png", "frames/s5_grasp1.png", "frames/s5_mid.png"],
+  "packet_facts": ["closes: 209 dish1 no lift, 415 dish1 no lift, 624 air, 768 air, 943 dish1 lifted, 1178 dish0 lifted", "dish1 hold 957-1069 drop 0.213; stage0 1073", "dish0 hold 1193-end lift 0.016"]},
+ "confidence": "high",
+ "uncertain_about": "The finger-rim geometry at the two misses (the wrist shows the fingers at the inner rim; the large shallow wooden bowl may leave nothing to pinch)."}

@@ -1,0 +1,32 @@
+{
+ "tag": "PrepareCoffee_s26_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  260,
+  308
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 2, black espresso machine CoffeeMachine045 (portafilter, one cup-icon start button on the upper housing), wide printed tea mug_8 on the upper shelf. Stage 0: fingers closed at 131 on the rim, mug lifted out at 148 with a very narrow pinch (0.006). It was brought next to the machine; 260-300 the mug hung from the fingers to the left of and in front of the group head, still ~12 cm above the counter (wrist view: mug body to the left of the fingers). At ~303 it slid out of the pinch (the fingers closed to 0.001, they did not open) and fell onto the counter at the front-left of the machine, 0.178 m from the pour site (0.186 m 2 s later), upright. Stage 1: the empty gripper went to the machine front (400-564; wrist shows the start button centred between the fingers) and pressed the start button: machine on at 565. It then hovered over the counter looking at the mug (700-1196) without re-grasping it.",
+ "causal_chain": "narrow rim pinch (0.006 m) -> mug slips out next to the machine before reaching the tray (303) -> lands on the counter 0.18 m from the pour site -> policy presses the button anyway (565) with no mug under the spout -> never retrieves the mug -> timeout",
+ "self_recovery": "none for the mug. The button press itself worked (the only press on this machine model in the 3 L2 episodes).",
+ "official_criterion_notes": "The 'release' at 303 is a slip (fingers 0.006 -> 0.001). The machine on-latch accepted the press with the mug on the counter.",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/s26_slip.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 148 release 303 dist 0.1783 -> 0.1857, height drop 0.124",
+   "gripper width 0.006 during hold, 0.003/0.002 after",
+   "coffee_machine turned_on 565-1200; machine touch 565-574, 604-610, 796-837"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s4_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 8, the same drawer position as the failures s8/s17/s22 (and success s10); knife (knife_7, wooden handle) in the olive drawer; small board and a plate with a fish (fish_5) side by side on the counter. Stage 0 normal: close on air at 200, then a centred handle grasp at 342 (lift 0.35 m), released on the board at 474 (0.023 m from centre). Stage 1 normal: grasped the fish by the tail at 578 (lift 0.18 m), laid it on the board across the knife blade at 680 (0.053 m from centre); the knife stayed. Success at 703.",
+ "causal_chain": "",
+ "self_recovery": "One close on air at 200 before the knife grasp; otherwise none needed.",
+ "official_criterion_notes": "Stage 0 one-step drop at 553 ('an object left the target') while the knife lies still on the board: contact flicker.",
+ "evidence": {"sheets": ["frames/s4_overview.png"],
+   "packet_facts": ["close 200 air; 342 lifted knife; hold 345-474 lift 0.351 dist 0.023", "meat hold 587-680 lift 0.183 dist 0.053", "stage0 undone 553 for 1 step"]},
+ "confidence": "high", "uncertain_about": ""}

@@ -1,0 +1,31 @@
+{
+ "tag": "PrepareCoffee_s12_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  100,
+  1200
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 7, red mug_5 in a dark-brown wooden upper cabinet (mushroom-like sweet potato distractor beside it), machine CoffeeMachine039 below. Stage 0: the arm reached into the cabinet and by 100-108 the mug filled the wrist view, centred between the fingers. The fingers closed at 104-116 (width 0.014) just in front of the mug wall instead of straddling it, touching nothing. The arm pulled back (140), and from ~300 to 1200 it hovered 10-20 cm in front of the mug, repeatedly closing on air with the mug well beyond the fingertips (closes at 479, 575, 621, 717, 830, all on nothing; closest approach 0.063 m to the mug centre). It never touched the mug; the mug never left the cabinet and stage 1 was never reached.",
+ "causal_chain": "first close (104-116) lands just short of the mug wall -> arm backs off -> 900 steps of hovering in front of the mug with repeated closes on air at 10-20 cm -> mug never picked -> timeout",
+ "self_recovery": "five more closes (479-830), all well short of the mug; no successful re-approach.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s12_overview.png",
+   "frames/s12_grasp.png"
+  ],
+  "packet_facts": [
+   "mug gripper_touch_intervals [] (never touched), end_pos = start_pos",
+   "close_events 105, 479, 575, 621, 717, 830 all on_nothing",
+   "min_eef_dist_to_centre 0.063"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the first close was short (in front of the wall) or high (above the rim): depth is not visible in the wrist view; the packet shows no contact at all."
+}

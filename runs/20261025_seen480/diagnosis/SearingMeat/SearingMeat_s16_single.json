@@ -1,0 +1,33 @@
+{
+ "tag": "SearingMeat_s16_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  128,
+  2900
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 6 (brown wood cabinets, speckled granite), pan_4 (black non-stick pan, black handle) in an upper cabinet above a toaster oven; target rear_left burner 1.66 m away; chicken drumstick 2.1 m from the burner. Stage 0: 128-178 the gripper was at the handle near the pan body, with the handle running diagonally/horizontally across the bottom of the wrist image (along the finger-closing axis, not between the fingers). It closed at 169 touching the pan (width 0.006): nothing was enclosed and the fingers stayed closed. From ~190 to 2900 the arm hovered 20-60 cm in front of the pan with the fingers closed (wrist keeps the whole pan in view at 300-2896), with closes on air at 352 and 1024 and two brief nudges of the pan (1349-1361, 1580; no lift). It never reopened the gripper for a new grasp, never went to the stove or the drumstick, and no knob moved.",
+ "causal_chain": "handle presented along the finger-closing axis -> close at 169 enclosed nothing -> fingers stayed closed and the arm hovered in front of the pan for ~2700 steps -> pan never left the cabinet -> timeout",
+ "self_recovery": "none effective: re-approached a few times (1349, 1580) with closed fingers.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s16_grasp.png",
+   "frames/s16_overview.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan touch 128-178, 1349-1360, 1580",
+   "close 169 on pan width 0.006; closes 352, 1024 on air",
+   "gripper closed (<0.01) from 184 to end",
+   "hold 1349-1361 lift 0.004; pan end dist 1.66 (unchanged)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

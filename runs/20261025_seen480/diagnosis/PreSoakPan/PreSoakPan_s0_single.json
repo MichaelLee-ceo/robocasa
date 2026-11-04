@@ -1,0 +1,26 @@
+{
+ "tag": "PreSoakPan_s0_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L9/S9 (black double basin, pull-down gooseneck with a stub lever). The sponge went first: grasped at 124, dropped into the right basin at 238 (stage 0 at 259). The pan (pan_5, wooden handle) was grasped by the handle at 426, lifted 0.21 m and placed in the right basin at 598, tilting up to 49 deg on the way down and ending at 9 deg (stage 1 at 614; 355 steps, just above p90 348). Stage 2: the gripper came down on the stub lever from above, with the wrist pitched up at the wall (contact 761-832). Water was on and the task succeeded at 819 (205 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "The sink value shows 6.283 at times: wrap artefact of a tiny negative joint angle, not a turn. Contact 231-233 is the sponge-holding hand brushing the basin.",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/L9_lever_compare.png"
+  ],
+  "packet_facts": [
+   "sponge hold 124-238; pan hold 426-598 lift 0.208",
+   "stage times 259 / 614 / 819",
+   "sink touch [[231,233],[761,832]]"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

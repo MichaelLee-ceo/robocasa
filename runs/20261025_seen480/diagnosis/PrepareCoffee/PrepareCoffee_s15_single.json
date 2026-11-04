@@ -1,0 +1,33 @@
+{
+ "tag": "PrepareCoffee_s15_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  88,
+  1200
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp",
+  "stall_approach_retreat"
+ ],
+ "what_happened": "Scene: layout 10, wide printed tea mug_8 on a dark wooden open shelf (lime distractor), machine CoffeeMachine051 off to the right. Stage 0: the gripper approached the mug with open fingers and closed at 88-96 while the mug wall was still a few cm beyond the fingertips (wrist 88-112: mug in front of, not between, the fingers); no contact. The fingers then stayed closed (width 0.001) for the rest of the episode - they never reopened. From 128 to 1200 the arm drifted back and forth 10-30 cm in front of the mug (it grows and shrinks in the wrist view at 150-1196), sometimes swinging right towards the machine side (250-450) and coming back, but never got near enough to touch it with the closed fingers. The mug never moved; stage 1 was never reached.",
+ "causal_chain": "premature close a few cm short of the mug (88) -> gripper never reopens -> ~1100 steps of approach/retreat in front of the mug with closed fingers -> mug never picked -> timeout",
+ "self_recovery": "none effective: repeated approaches, but with the fingers still closed, so no new grasp was possible.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png",
+   "frames/s15_grasp.png",
+   "frames/s15_after.png"
+  ],
+  "packet_facts": [
+   "mug gripper_touch_intervals [] ; end_pos = start_pos",
+   "close_events: 88 on_nothing; gripper width 0.001-0.003 from 112 to 1200 (never reopened)",
+   "min_eef_dist_to_centre 0.063"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the close was triggered early (depth misjudgement on this large mug is a guess)."
+}

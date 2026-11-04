@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s13_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [200, 1600],
+ "category": "stall_pre_grasp",
+ "secondary": ["stall_approach_retreat", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 9 (white marble counter, navy drawers); knife (knife_7, wooden handle) lying diagonally near the back of the open drawer, partly under the countertop edge; board on the counter just above the drawer (0.30 m from the knife); the plate with the drumstick is 2.1 m away. Stage 0: the gripper reached the drawer by ~200 and came closest at 240-260 (handle filling the upper-left of the wrist view, but above/beside the finger gap rather than between the pads). From 280 the wrist view shows the countertop edge cutting across the top of the image with the blade disappearing under it; the gripper hovered and moved in and out above the drawer (300-500), then stayed higher with the knife at the edge of the view for the rest of the episode (500-1600, repeated small approach/retreat cycles). The fingers never closed once in 1600 steps (width 0.08 throughout), the knife was never touched (min distance 0.145 m) and the meat was never approached.",
+ "causal_chain": "knife lies at the back of the drawer under the counter overhang -> gripper reached above it at 240-260 but never got the handle between the pads -> hovered/approach-retreat 280-1600 without a single close -> stage 0 never started; timeout",
+ "self_recovery": "none: no grasp attempt at all.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s13_overview.png", "frames/s13_approach.png"],
+   "packet_facts": ["close_events: none; gripper width 0.04-0.08 (open) all episode", "knife touch: none, min_eef_dist 0.145 m", "knife moved 4.4 cm in x without any gripper touch (end x 0.590 vs 0.546) - probably pushed by the arm/hand body, which the touch measurement does not count"]},
+ "confidence": "medium", "uncertain_about": "Whether the counter overhang physically blocked the descent or the policy just did not commit; the wrist view suggests the blade is under the counter edge, but the handle looks reachable. The 4.4 cm knife displacement without a recorded touch suggests a non-finger contact (arm link) or the drawer moving."}

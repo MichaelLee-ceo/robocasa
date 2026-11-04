@@ -1,0 +1,28 @@
+{
+ "tag": "StackBowlsCabinet_s6_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 5/style 5 (dark kitchen, the same layout as failures s0 and s1); both bowls red wooden bowl_9 (x0.7, x0.95), ~0.24 m apart. Nest-then-carry, clean: small bowl grasped 108/117 (lift 0.10 m), lowered into the large bowl while pressing on its rim (bowl2 contacts 167-193), released 197; pair grasp at 228 (close touching both), lifted 0.57 m into the upper cabinet with the inner bowl tilted >45 deg (262-347), released 347/353. Stage 0 at 347 (median 318), stage 1 at 372 (25 steps later); success 372.",
+ "causal_chain": "",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png"
+  ],
+  "packet_facts": [
+   "closes 108 (bowl1), 228 (both lifted)",
+   "bowl1 hold 117-197 lift 0.096; 226-353 lift 0.574",
+   "bowl2 167-193 lift 0.003 (pushed while nesting); 235-347 lift 0.567",
+   "bowl1 tipped 262-347",
+   "stage0 347, stage1 372"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

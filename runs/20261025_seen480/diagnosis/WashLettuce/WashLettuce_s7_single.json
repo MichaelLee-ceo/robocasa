@@ -1,0 +1,26 @@
+{
+ "tag": "WashLettuce_s7_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 5 / style 5 (same sink as s1/s6/s9/s17); wire-mesh colander (Colander012) RIGHT of the sink. Stage 0: water on at 244 (median 253). Lever contacts 172-256, water at 244. Gripper took the colander's wire handle ~408 (partial close to ~0.07, no close_event), carried it left and held it under the stream ~480-522. Stage 1 took 278 steps (median 303); success at 522. No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "No close_event although the colander was grasped: the fingers only closed to ~0.06-0.07 around the colander handle/rim, below the 0.02-drop trigger.",
+ "evidence": {
+  "sheets": [
+   "frames/s7_brief.png"
+  ],
+  "packet_facts": [
+   "sink touch [[172, 172], [176, 217], [223, 256]]",
+   "stage0 first complete 244",
+   "close_events []",
+   "success 522, washed_time 31"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

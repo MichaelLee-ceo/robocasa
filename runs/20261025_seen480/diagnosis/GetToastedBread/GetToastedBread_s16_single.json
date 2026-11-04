@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s16_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  92,
+  500
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "other: pressed down on the bread/slot top instead of the lever handle on the toaster's end face",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 8, silver 2-slot single-pair toaster standing end-on to the robot (same model as s3): the black near end carries the lever slot and knob. The bread is in the left slot. The fingers closed into a fist at ~92. Stage 0: from 104 to 244 the fist pressed DOWN on the top of the toaster over the bread, not on the lever handle on the black end face, which stayed untouched. The pushed bread drove the carriage down to 0.60-0.63, and it was held there for ~130 steps (bread -2.5 cm, shifted 3.3 cm sideways, tilted up to 20 deg). A harder push at 256 reached 0.80 (bread -5.3 cm), still below the 0.9 switch-on, and the carriage sprang back 256-432. A last push at 442-450 reached 0.49. After ~500 the arm turned right to the wall cabinet: from 700 to 2000 it hovered at and in front of the cabinet door and handle, with the toaster out of view. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "pressed on the top/bread instead of the lever handle (104-450) -> carriage reached only 0.60-0.80 (0.9 needed) -> turned to the wall cabinet ~500-2000 -> toaster never on",
+ "self_recovery": "three pushes (128-240 held at 0.6, 256 to 0.80, 448 to 0.49), all on the bread top, none reaching 0.9.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s16_overview.png",
+   "frames/s16_press.png",
+   "frames/s16_zoom.png"
+  ],
+  "packet_facts": [
+   "lever 0.60-0.63 at 128-240, 0.80@256, 0.49@448; done []",
+   "obj holds 104-244 (lift 0), 335-339, 442-451 = fist pushing the bread; tilt max 20.4",
+   "bread dz -2.5 cm / dxy 3.3 cm at 112-240, -5.3 cm at 256",
+   "close_event 92 (touching obj); gripper closed 96-2000; toaster touch ends 502"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

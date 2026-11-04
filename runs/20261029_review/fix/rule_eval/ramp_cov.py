@@ -1,6 +1,7 @@
+import os
 import json, sys
 import numpy as np
-R_DIR = "/home/michaellee/mclee/robocasa/runs/20261029_review/restore"
+R_DIR = os.path.join(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../..")), "20261029_review/restore")
 sys.path.insert(0, R_DIR)
 import harness as H
 grid = lambda x: float(np.clip(np.round(x / 0.2) * 0.2, -1, 1))

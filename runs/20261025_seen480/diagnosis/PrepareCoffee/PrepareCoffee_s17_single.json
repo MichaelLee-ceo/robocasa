@@ -1,0 +1,33 @@
+{
+ "tag": "PrepareCoffee_s17_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  793,
+  1200
+ ],
+ "category": "other: no retreat after the button press - pressed the start button, then stayed at the button face until timeout",
+ "secondary": [
+  "stall_at_fixture",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 8, black/silver capsule machine with two round buttons on a round front face, grey mug_9 on the upper shelf. Stage 0: grasped 142/156 and carried down; 300-580 it held the mug just in front of/below the spout and slowly nudged it in (at target from 528), released 585 at 0.011 m (0.013 m 2 s later), upright. The hold is long (156-585; successes release at 266-395), but the placement is excellent. Stage 1: 600-790 the gripper moved round to the right of the machine and onto the round button face; the machine registered on at 793. It then stayed at the button face, touching the machine on and off until the end (867-881, 927-1122, 1170-1200), never more than 25 cm from the mug. Stage 0's condition therefore never held (gripper too close), and neither did success.",
+ "causal_chain": "slow but precise placement (release 585, 0.011 m) -> button pressed, machine on (793) -> gripper parks at the button face 800-1200 -> 'gripper > 0.15 m from button and > 0.25 m from mug' never met -> timeout",
+ "self_recovery": "none; no withdrawal after the press.",
+ "official_criterion_notes": "Packet says failed_stage 0 (stage 0 never complete) only because the gripper never got 25 cm from the mug; the mug was correctly placed from 528/585 to the end and the machine was on from 793. Physically both sub-goals were done.",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_place.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 156 release 585 dist 0.0111 -> 0.013; at target 528-1200",
+   "coffee_machine turned_on 793-1200",
+   "machine touch 793-801, 867-881, 927-1054, 1057-1122, 1170-1200",
+   "stage0 complete_intervals [] (gripper never 25 cm away)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the slow 156-585 hold reflects difficulty aligning under this machine's spout (the mug is just below the drip spout from ~320) - it did not cause the failure, there were 400 steps left after the press."
+}

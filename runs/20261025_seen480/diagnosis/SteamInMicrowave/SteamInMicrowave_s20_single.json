@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s20_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [92, 160],
+ "category": "missed_grasp_continued_empty", "secondary": ["missed_grasp"],
+ "what_happened": "Style/layout 9 (wall-stack microwave, same as s0, s2 and successes s13, s18, s26). Stage 0: a small mushroom lies on the sink drain. The gripper descended over it and closed fully at ~97 (width 0.014) with the mushroom just left of the finger gap; the fingers caught only its edge (contact 108-109, no lift). It rose empty at 112-140 and never tried again. It went straight to the bowl and ran the rest of the task with an empty bowl: bowl grasped at 259, carried to the microwave and released inside at ~703-722 (stage 1 at 779; tipped up to 84 deg 506-702). Door contacts from 826, closed at 1098 (stage 2). START pressed at ~1272 (turned_on 1 from 1280 to the end; stage 3 fixture flag done 1272-1400). The mushroom stayed on the sink drain the whole episode (end position = start position).",
+ "causal_chain": "single grasp at ~97 closes beside the mushroom (no lift) -> no retry -> stages 1-3 executed with an empty bowl (bowl in 779, door 1098, start 1272) -> vegetable never in the bowl -> fail",
+ "self_recovery": "none: it never returned to the sink.",
+ "official_criterion_notes": "Stages 1 and 2 hold and the microwave is on (stage 3 fixture flag done 1272-1400); only the vegetable-in-bowl part fails. The official labeler marks a 'place' at 0, which is meaningless here.",
+ "evidence": {"sheets": ["frames/s20_overview.png", "frames/s20_grasp.png"],
+   "packet_facts": ["vegetable touch 108-109 only, no holds; end pos = start pos (sink)", "close_event 97 width 0.014 touching vegetable, lifted none", "bowl hold 268-703 lift 0.62; tipped 506-702", "stage1 first 779, stage2 first 1098, turned_on from 1280"]},
+ "confidence": "high", "uncertain_about": "Exact finger-mushroom offset (a few cm, from the wrist view)."}

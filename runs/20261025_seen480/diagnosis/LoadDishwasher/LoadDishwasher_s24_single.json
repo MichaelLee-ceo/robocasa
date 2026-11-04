@@ -1,0 +1,25 @@
+{
+ "tag": "LoadDishwasher_s24_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 4 (same kitchen as s21; robot on the other side of the dishwasher), red/white cup_4 and black bowl_5. Stage 0: cup grasped 104-112 (lift 0.109), in rack contact from 210, released 294 upright; stage 0 complete 325 (the open fingers kept touching it to 324). Stage 1: bowl grasped 434-445, lowered beside the cup; while placing it the fingers caught the cup again (cup 'hold' 617-626, lift 0, it stayed in place) and the bowl was released 621 tilted on its side (66 deg); stage 1 complete 623 (298 steps, above p90 272). Stage 2: rack pushed in and the door lifted 788-848 (0.24@816, 0.64@832, 1.00@848); success 843 (220 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed; the brush against the placed cup at 617-626 did not move it.",
+ "official_criterion_notes": "The bowl counts while lying tilted (66 deg).",
+ "evidence": {
+  "sheets": [
+   "frames/succ_B_overview.png"
+  ],
+  "packet_facts": [
+   "dish0 hold 112-294, touch to 324; stage0 325",
+   "dish1 hold 445-621; dish0 touched 617-626; stage1 623",
+   "door 0.24@816 -> 1.00@848; success 843"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

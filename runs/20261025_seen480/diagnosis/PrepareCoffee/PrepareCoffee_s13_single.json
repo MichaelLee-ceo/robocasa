@@ -1,0 +1,33 @@
+{
+ "tag": "PrepareCoffee_s13_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  612,
+  1200
+ ],
+ "category": "other: missed button press - pushed the machine body just below the lower start button, then gave up",
+ "secondary": [
+  "wrong_object",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 9, brown machine CoffeeMachine036 (two round buttons SINGLE/DOUBLE stacked on the front), orange mug_4 on the upper shelf, pear distractor. Stage 0: grasp 91/105, mug under the spout by ~360, first release 396 at 0.0314 m; the gripper then re-closed on the mug (383/414) and nudged it further in, releasing again 557 at 0.012 m (0.013 m 2 s later), upright; stage 0 complete 692. Stage 1: 612-648 the gripper faced the machine head-on with both buttons in view and the fingertips just under the lower (DOUBLE) button; it touched the machine body 619-640 but no button contact registered. It backed off 648-680 (wrist shows the whole machine front), rose and moved away (740), then 960-1060 reached up into the open cabinet towards the pear distractor and closed on nothing at 1015. It ended hovering away from the machine (1196). The button was never pressed.",
+ "causal_chain": "mug placed (396, nudged to 0.012 m by 557) -> single press attempt 612-648 lands on the body just under the lower button -> machine never on -> backed off; reached for the pear in the cabinet (~960-1060) -> timeout",
+ "self_recovery": "Stage 0: re-grasped and centred the mug (0.031 -> 0.012 m), which worked. Stage 1: none - no second press attempt.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png",
+   "frames/s13_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 105 release 396 dist 0.0314; grasp 414 release 557 dist 0.012 -> 0.0131",
+   "machine touch 619-640 only; turned_on never",
+   "close 1015 on nothing (near the pear in the cabinet)",
+   "stage0 complete 692-1200"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "How far below the button the fingertips were (wrist view suggests a few cm); whether the 960-1060 reach was really aimed at the pear or at the cabinet in general (the pear is centred in the wrist view)."
+}

@@ -1,0 +1,26 @@
+{
+ "tag": "StoreLeftoversInBowl_s15_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 10 (French-door fridge Refrigerator066), deep brown bowl_8, corn, drumstick 013. Stage 0: drumstick grasped 141, released in the bowl 263 (stage 0 at 264, slightly above p90 255; includes a base move). Stage 1: corn grasped 333, released in the bowl 431 (stage 1 at 431). Stage 2: at 504-528 the gripper closed (0.080 -> 0.047) around the drumstick, which lay with its end over the rim, and the rim together. The bowl was carried by this grasp (drumstick hold 494-797, bowl hold 511-796), as in failure s12, but here the bowl did not slip. Tilted 726-773; set on the lower glass shelf at x 0.228 (rack contact from 788), released at 796-797. Success at 809.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "close_events has no entry for the 504-528 closing (0.080 -> 0.047) that carried the bowl for 290 steps; the bowl and drumstick holds show it.",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png",
+   "frames/L10_final_compare.png"
+  ],
+  "packet_facts": [
+   "drumstick hold 494-797 lift 0.319; bowl hold 511-796 lift 0.363",
+   "gripper 0.079 at 504 -> 0.047 at 528, held to 792",
+   "close_events only at 131 and 325"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

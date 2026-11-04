@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s12_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [130, 860],
+ "category": "missed_grasp", "secondary": ["dropped_in_transit", "missed_grasp_continued_empty"],
+ "what_happened": "Style/layout 7 (deep black sink; wall-stack microwave like s28). Stage 0: a small lime lies beside the sink drain. The gripper made four grasp attempts that closed on air: fingers fully shut at 147, 190, 342 and 425 (widths 0.003-0.014, on_nothing). In the wrist view at each close the lime sits ahead of / beside the finger gap, not between the fingertips. On the fifth try (610) it caught the lime at the front edge of the fingertips and lifted it 0.21 m, but the lime slipped out at ~637 and fell back into the sink (wrist 644). The policy then gave up on the lime (~650-860) and went to the bowl: bowl grasped by its rim at 896, empty, and carried to the microwave (1100+). It held the bowl tipped ~80 deg at the open microwave from ~1140 to the end without putting it in (bowl still held at 1400, 0.19 m from the interior). No microwave contact; door open.",
+ "causal_chain": "4 missed grasps on the lime 147-425 (~300 steps) -> 5th grasp at 610 holds it at the fingertips and it slips out at 637 -> policy abandons the lime and carries the empty bowl (896-1400) -> bowl held tilted at the microwave without insertion -> stages 0-3 all incomplete",
+ "self_recovery": "it re-tried the lime grasp four times and lifted it once (610-637), then abandoned it.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s12_overview.png", "frames/s12_grasps.png", "frames/s12_lift.png", "frames/s12_bowl.png"],
+   "packet_facts": ["close_events 147, 190, 342, 425 on_nothing; 626 touching vegetable, lifted none; 896 bowl", "vegetable hold 610-637 lift 0.206, drop 0.211, ends in the sink 2.8 m from the bowl", "bowl hold 905-end lift 0.594, tipped 1142-1400 (max 85 deg), dist end 0.19", "online_stage_log empty; no microwave contacts"]},
+ "confidence": "high", "uncertain_about": "Whether the misses were too high or too far forward (the wrist view shows the lime outside the gap; depth is hard to judge)."}

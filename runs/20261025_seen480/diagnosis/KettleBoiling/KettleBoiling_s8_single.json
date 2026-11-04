@@ -1,0 +1,33 @@
+{
+ "tag": "KettleBoiling_s8_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  96,
+  140
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: blue kettle with a black handle on the counter right of a 4-burner gas range, wedged next to a coffee machine (its side panel fills the left of the wrist view). Stage 0: the gripper came down over the kettle 96-132 with the handle roughly across the finger gap. There was a single-step touch at 127 (hold 127-128, lift 0), and at 140 the gripper rose without the kettle. The policy then carried on as if it held it: 152-192 it swung up past the microwave, and 216-500 it hovered low over the burner grates with an empty gripper (place-like motion). 580-660 it moved to the front knob panel and turned the rear-left knob on (0.37 at 688, 2.39 by 768; flame visible on the rear-left burner from ~740). Later it also turned front_left to 0.58 (touches 901-913, 957-1000). The kettle never left the counter (0.53 m from target at the end).",
+ "causal_chain": "grasp closed without catching the handle (127, lift 0) -> policy did not notice and ran the place motion empty-handed (216-500) -> skipped to stage 1 and lit two burners (688-1000) with no kettle on the stove -> stage 0 never complete",
+ "self_recovery": "none: never went back to the kettle after 140.",
+ "official_criterion_notes": "fixtures.stage1:stove.done_intervals = [[688,1000]] although stage 1 never held. The fixture value is 'any knob on', not the burner under the kettle. The official labeler marks 'done' at 753.",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png",
+   "frames/s8_grasp.png",
+   "frames/all_first_touch_wrist.png"
+  ],
+  "packet_facts": [
+   "gripper_touch_intervals [[127,127]]",
+   "holds: grasp 127 release 128 lift 0.0",
+   "stove done [[688,1000]]; end rear_left 2.391, front_left 0.583",
+   "dist_to_target start 0.532 end 0.532"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Why the grasp missed: the handle alignment looked like that in successful grasps. Possibly the fingers closed above the handle top, or the coffee machine next to the kettle limited the approach; 4-step frames cannot resolve it."
+}

@@ -26,41 +26,7 @@ import hidden_state  # noqa: E402
 FIXTURE_ON = {"stove": 0.35}  # official on-threshold of the fixture value used by progress() (default 1.0)
 
 
-def _plain(v):
-    if v is None or isinstance(v, (bool, int, float, str, np.bool_, np.integer, np.floating)):
-        return True
-    if isinstance(v, (list, tuple)):
-        return all(_plain(x) for x in v)
-    if isinstance(v, dict):
-        return all(isinstance(k, (str, int)) and _plain(x) for k, x in v.items())
-    return False
-
-
-def py_state(kenv):
-    """python-side fixture state that the sim state does not hold (e.g. microwave._turned_on, which update_state only
-    sets when a button is pressed): the plain-data attributes of every fixture that overrides update_state, copied.
-    Containers included (2026-10-29): the Toaster keeps _turned_on, _num_steps_on, _cooldown and _state in dicts, and
-    with scalars only a toaster turned on in one rollout forced its lever down at the start of the next."""
-    from robocasa.models.fixtures.fixture import Fixture
-    return {n: {k: copy.deepcopy(v) for k, v in vars(fx).items() if _plain(v)}
-            for n, fx in kenv.fixtures.items() if type(fx).update_state is not Fixture.update_state}
-
-
-def _like(old, new):
-    """a copy of new with the container types and dict-key types of old (a JSON round trip makes int keys strings)."""
-    if isinstance(old, dict) and isinstance(new, dict):
-        keys = {str(k): k for k in old}
-        return {keys.get(str(k), k): _like(old.get(keys.get(str(k), k)), v) for k, v in new.items()}
-    if isinstance(old, tuple) and isinstance(new, list):
-        return tuple(new)
-    return copy.deepcopy(new)
-
-
-def set_py_state(kenv, ps):
-    for n, d in ps.items():
-        fx = kenv.fixtures[n]
-        for k, v in d.items():
-            setattr(fx, k, _like(getattr(fx, k, None), v))
+from hidden_state import py_state, set_py_state, _plain, _like  # noqa: E402,F401  (moved there 2026-10-30)
 
 
 def restore(kenv, state, ps):
@@ -101,18 +67,24 @@ def progress_ref(task, k, e):
 def candidate(client, base, kenv, task, steps, nd, k, budget, instr, seed_fn, ref):
     """one imagined continuation from node nd (sim state, python fixture state, stage-check memory S, controller
     state). The node's controller state is the one its producing rollout ended with, so a committed path executes
-    exactly as imagined (runs before 2026-10-27 did not restore it; see ../scripts/hidden_state.py)."""
+    exactly as imagined (runs before 2026-10-27 did not restore it; see ../scripts/hidden_state.py). The node also keeps
+    its last observation (capture(obs=True), 2026-10-29), so the next stage's rollouts continue from it like a continuous
+    run instead of starting with a forced, fresher observation."""
     import copy
     S = copy.deepcopy(nd["S"])
     set_py_state(kenv, nd["ps"])  # rollout() then sets the sim state (and runs update_state)
     r, frames = rollout(client, base, kenv, S, steps, nd["state"], budget, "task", instr, k0=k, k_stop=k + 1, seed_fn=seed_fn,
                         hidden=nd["hidden"])
     done = bool(r["reached"] > k or r["success"])
+    # prev_ok (whether every earlier stage check still holds at the end) is logged only. Until 2026-10-30 a finisher also
+    # needed it, unlike the closed loop, the critic data and the stage history of plain runs. On SteamInMicrowave it
+    # rejected about 20 % of the stage-2 (close the door) finishers, even one with official success, mostly because an
+    # earlier check's release condition (gripper 25 cm from the bowl) fails while the gripper pushes the door.
     prev_ok = all(steps[j]["check"](kenv, copy.deepcopy(S)) for j in range(k)) if (done and k < len(steps) - 1) else True
-    return dict(done=done and prev_ok, raw_done=done, prev_ok=prev_ok, success=bool(r["success"]), steps=int(r["steps"]),
+    return dict(done=done, raw_done=done, prev_ok=prev_ok, success=bool(r["success"]), steps=int(r["steps"]),
                 reached=int(r["reached"]), progress=round(progress(task, k, kenv, ref), 3),
-                end_state=kenv.sim.get_state().flatten().copy(), ps=py_state(kenv), hidden=hidden_state.capture(kenv), S=S,
-                frames=frames)
+                end_state=kenv.sim.get_state().flatten().copy(), ps=py_state(kenv), hidden=hidden_state.capture(kenv, obs=True),
+                S=S, frames=frames)
 
 
 def imagine_episode(client, base, kenv, j, a):
@@ -176,8 +148,13 @@ def imagine_episode(client, base, kenv, j, a):
         path.append(list(n["via"])); n = nodes[n["parent"]]
     path.reverse()
     restore(kenv, nodes[best]["state"], nodes[best]["ps"])
-    final_ok = bool(kenv._check_success())
-    return dict(success=bool(goal is not None and final_ok), final_check=final_ok, steps=nodes[best]["t"],
+    final_ok = bool(kenv._check_success())  # diagnostic only: the official check at the end state of the last chunk
+    # success = the official check held at some step, as for the plain baseline (rollout's per-step reward). Until
+    # 2026-10-30 this also required final_ok, the official check after restoring the end state. That can fail when
+    # success held only mid-chunk, or because the restore's extra update_state() sees freshly recomputed contacts and
+    # flips the microwave's turned_on (seen in ../20261029_closedloop/preflight.py). 4 searches (SteamInMicrowave s5, s22;
+    # PackIdenticalLunches s7, s24) were counted as failures although a committed candidate had succeeded.
+    return dict(success=goal is not None, final_check=final_ok, steps=nodes[best]["t"],
                 stage=nodes[best]["k"], path=path, backtracked=not nodes[best]["first_choice"],
                 n_expansions=len(expansions), n_candidates=n_cands, expansions=expansions,
                 imagined_steps=imagined_steps, policy_calls=policy_calls)
@@ -201,7 +178,13 @@ def main():
     a = ap.parse_args()
     jobs = json.load(open(a.jobs))[a.worker::a.n_workers]
     key = lambda r: (r["tag"], r["condition"], r.get("policy_seed"))
-    done = {key(r) for p in glob.glob(f"{a.out}/results_w*.jsonl") for r in map(json.loads, open(p)) if "error" not in r}
+    def rows(p):  # a line cut off by a kill is skipped (its job runs again)
+        for l in open(p):
+            try:
+                yield json.loads(l)
+            except json.JSONDecodeError:
+                pass
+    done = {key(r) for p in glob.glob(f"{a.out}/results_w*.jsonl") for r in rows(p) if "error" not in r}
     client = Client(port=a.port, timeout_ms=600000)
     envs = {}
     os.makedirs(f"{a.out}/videos", exist_ok=True)

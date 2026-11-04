@@ -1,0 +1,37 @@
+{
+ "tag": "GetToastedBread_s27_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  994,
+  2000
+ ],
+ "category": "other: the bread's lever stayed jammed down (0.999 -> 0.994) after the toasting cycle ended (~994), so the bread never popped up and stage 0 could not complete",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "wrong_fixture_element",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 2, black 4-slot (two-pair) toaster next to a coffee machine and paper-towel holder, bread in the left slot pair (pair 0). Stage 0: 140-312 the gripper hovered over the bread at the slot top and closed on it at 279 (0.024) and 301 (0.002). It raised the untoasted bread 0.6-0.8 cm (hold 293-306), then the fingers slipped and the bread dropped back onto its seat by ~320. The arm moved to the front, and at 491-500 the closed fist pushed the LEFT (pair-0) lever fully down. The bread went down 5.8 cm, and pair 0 was on from ~496 to ~994 with the bread seated, so the toasting was correct. At 635-672 it also pushed the RIGHT (pair-1, empty) lever down (pair 1 on ~672-1150), and the bread shifted ~0.6 cm sideways in its slot meanwhile. From ~800 the arm went right, toward the paper-towel holder and coffee machine, and hovered there to the end, with no toaster contact after 738. When pair 0's 500-step cycle ended (~994), its lever did NOT spring back: it stayed at 0.999 and crept to 0.994 by 2000. The bread stayed 5 cm down inside the slot (saved states), so the 'popped up, lever <= 0.1' part of stage 0 never held. Pair 0 re-armed and switched on again at 1994 (cooldown expiry with the lever still >= 0.9).",
+ "causal_chain": "early failed pull of the untoasted bread (279-306, re-seated) -> correct left-lever press at 496, bread toasting 496-994 -> extra press of the empty right lever (672) -> arm wandered off toward the coffee machine (800-2000) -> pair-0 lever stayed jammed at ~0.999 after the cycle, bread never popped up -> stage 0 never complete; bread never reachable or taken",
+ "self_recovery": "After the failed pull (306) the policy did go and press the correct lever (496). Nothing afterwards: it never came back to the toaster.",
+ "official_criterion_notes": "The env's own success latch (bread touching the slot floor of the pair that is on) was very likely met during 496-994, so env-wise only the plate delivery was missing. The stage-0 checker additionally requires the pop-up (lever <= 0.1), which never happened because the lever stayed jammed. This looks like a simulation artefact; the bread's 0.6 cm sideways shift while the other lever was pressed may have jammed the carriage. done_intervals [[494,1141],[1994,2000]] merge both pairs' cycles.",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/s27_early.png",
+   "frames/s27_mid.png",
+   "frames/s27_toaster_zoom.png",
+   "frames/cmp_layout2_t100.png"
+  ],
+  "packet_facts": [
+   "close_events 279 (0.024, obj), 301 (0.002, obj); hold 293-306 lift 0.008",
+   "state: pair0 on 512-992 then off with lever 1.00/0.999...0.994 to 2000; pair1 0.66@640, on 672-1150; done [[494,1141],[1994,2000]]",
+   "bread dz -5.0 cm from ~690 to 2000 (saved states); dxy 0.5 -> 0.7 cm during 624-688",
+   "toaster touch last at 707-738; online_stage_log []"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The physical cause of the jam (bread wedged after shifting, or contact between the two carriages). Whether the policy would have taken the bread if it had popped: it had already left the toaster area, so probably not."
+}

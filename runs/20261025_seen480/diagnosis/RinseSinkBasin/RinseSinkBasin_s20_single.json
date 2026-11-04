@@ -1,0 +1,34 @@
+{
+ "tag": "RinseSinkBasin_s20_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  124,
+  900
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "stall_approach_retreat"
+ ],
+ "what_happened": "Scene layout/style 9 (pull-down faucet, side lever hub; same as s13, s18). Stage 0: at 108-116 the wrist sees the lever just right of the finger gap; 124-200 the gripper sat at the faucet base right of the neck (wrist sees only the tile wall, as in success s18 at its handle-on moment), touched 124-137 and nudged the handle to 0.02 rad; it partly closed three times (131: 0.041, 160: 0.041, 180: 0.051) without turning the lever. ~200 it opened and swung out right and up, then came back with the gripper pointing left at the faucet from the right side, low over the right basin. From ~300 to 900 it hovered 15-30 cm right of the handle with the lever in the wrist view (440-480, 640-840), drifting closer and away, and never touched the faucet again (no fixture contact after 137; one close on air at 471). Spout never moved; water never ran.",
+ "causal_chain": "at the handle 124-200 with three partial closes, handle only 0.02 rad -> backed off ~200 -> hovered within view of the lever for ~600 steps (300-900) without another contact -> stage 0 never complete",
+ "self_recovery": "none effective: the policy kept the lever in view and approached/retreated but made no second contact.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s20_overview.png",
+   "frames/s20_handle.png",
+   "frames/s20_handle_zoom.png",
+   "frames/s20_wander.png",
+   "frames/L9_handle_compare.png"
+  ],
+  "packet_facts": [
+   "fixture touch 124-126, 128-135, 137 only",
+   "closes 131 (0.041), 160 (0.041), 180 (0.051), 471 (0.031)",
+   "handle max 0.021, water_on false; spout 0 throughout"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Why the 124-200 contact did not turn the lever: the wrist camera sees only the wall then and the agent view is too coarse; s18 succeeded from a similar-looking pose."
+}

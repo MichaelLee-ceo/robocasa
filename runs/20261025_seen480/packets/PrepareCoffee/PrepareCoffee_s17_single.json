@@ -1,0 +1,537 @@
+{
+ "tag": "PrepareCoffee_s17_single",
+ "task": "PrepareCoffee",
+ "instruction": "Pick the mug from the cabinet, place it under the coffee machine dispenser, and press the start button.",
+ "success": false,
+ "steps": 1200,
+ "horizon": 1200,
+ "success_step": null,
+ "online_stage_log": [],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [],
+ "scene": {
+  "layout": 8,
+  "style": 8,
+  "objects": {
+   "obj": "objaverse/mug/mug_9/model.xml",
+   "distr_cab": "objaverse/yogurt/yogurt_3/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0532,
+   0.0106,
+   0.0106,
+   0.0105,
+   0.0105,
+   0.0105,
+   0.0104,
+   0.0104,
+   0.0103,
+   0.0102,
+   0.0102,
+   0.0101,
+   0.0099,
+   0.0098,
+   0.0098,
+   0.0097,
+   0.0097,
+   0.0097,
+   0.0097,
+   0.0098,
+   0.0098,
+   0.0098,
+   0.0098,
+   0.0098,
+   0.0098,
+   0.0098,
+   0.0098,
+   0.0099,
+   0.0099,
+   0.0099,
+   0.0099,
+   0.0099,
+   0.0098,
+   0.0099,
+   0.0099,
+   0.0098,
+   0.011,
+   0.0137,
+   0.0197,
+   0.0222,
+   0.0167,
+   0.0163,
+   0.0169,
+   0.0168,
+   0.0168,
+   0.0168,
+   0.0161,
+   0.0153,
+   0.0147,
+   0.0139,
+   0.0126,
+   0.0123,
+   0.0146,
+   0.0168,
+   0.051,
+   0.0776,
+   0.0784,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0804,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0805,
+   0.0803,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0802,
+   0.0798,
+   0.0802,
+   0.0802,
+   0.0801,
+   0.0805,
+   0.0802,
+   0.0799,
+   0.0802,
+   0.08,
+   0.0801,
+   0.0802,
+   0.0802,
+   0.0804,
+   0.0801,
+   0.0803,
+   0.0798,
+   0.08,
+   0.0803,
+   0.0801,
+   0.0803,
+   0.0804,
+   0.0803,
+   0.08,
+   0.0801,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.08,
+   0.08,
+   0.0803,
+   0.0804
+  ],
+  "close_events": [
+   {
+    "step": 142,
+    "width_after": 0.015,
+    "on_nothing": false,
+    "touching": [
+     "obj"
+    ],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "CoffeeSetupMug",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 506,
+    "p90": 865,
+    "n": 6
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "StartCoffeeMachine",
+   "kind": "fixture",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 31,
+    "p90": 249,
+    "n": 6
+   }
+  }
+ ],
+ "objects": {
+  "obj": {
+   "target_of_stage": 0,
+   "start_pos": [
+    0.2554,
+    -0.9321,
+    1.4649
+   ],
+   "end_pos": [
+    0.4726,
+    -0.8849,
+    1.0034
+   ],
+   "at_target_intervals": [
+    [
+     528,
+     1200
+    ]
+   ],
+   "dist_to_target_start_m": 0.212,
+   "dist_to_target_end_m": 0.013,
+   "min_eef_dist_to_centre_m": 0.045,
+   "gripper_touch_intervals": [
+    [
+     156,
+     584
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 156,
+     "release_step": 585,
+     "lift_m": 0.005,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0111,
+     "height_drop_after_release_m": 0.023,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.013
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.0,
+   "tilt_deg_end": 0.0,
+   "tilt_deg_max": 32.1,
+   "tipped_over_intervals": []
+  }
+ },
+ "fixtures": {
+  "stage1:coffee_machine": {
+   "value_every_16_steps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "done_intervals": [
+    [
+     793,
+     1200
+    ]
+   ],
+   "gripper_touch_intervals": [
+    [
+     793,
+     801
+    ],
+    [
+     867,
+     881
+    ],
+    [
+     927,
+     933
+    ],
+    [
+     936,
+     936
+    ],
+    [
+     939,
+     1054
+    ],
+    [
+     1057,
+     1122
+    ],
+    [
+     1170,
+     1200
+    ]
+   ],
+   "state_every_32_steps": [
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": false
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    },
+    {
+     "turned_on": true
+    }
+   ],
+   "state_end": {
+    "turned_on": true
+   }
+  }
+ },
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "CoffeeSetupMug",
+    "pick"
+   ],
+   [
+    173,
+    "CoffeeSetupMug",
+    "place"
+   ],
+   [
+    584,
+    "StartCoffeeMachine",
+    "execute"
+   ],
+   [
+    1200,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/PrepareCoffee/PrepareCoffee_s17_single.mp4"
+}

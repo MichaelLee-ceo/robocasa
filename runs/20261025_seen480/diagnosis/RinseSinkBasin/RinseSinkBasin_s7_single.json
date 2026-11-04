@@ -1,0 +1,34 @@
+{
+ "tag": "RinseSinkBasin_s7_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  112,
+  900
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene layout/style 10: single black basin, tall cylindrical faucet stem with a horizontal spout arm and a side lever handle (same faucet as s15, s29). Stage 0: the gripper reached the lever at ~86 (touch 86-171), closed fully at 116 (width 0.002) and pushed the lever up with the closed fingers: handle joint 0.06 (112), 0.22 (128), 0.35 (176). At ~176-184 it backed off (wrist view swings to the tile wall) leaving the handle at 0.346 rad, just under the 0.40 water-on threshold (every success pushes it to the 0.50 stop). No water stream is visible at any point. The policy then behaved as if the water were on: 250-272 it pushed the spout to +0.36 (still 'centre'), hovered under/around the faucet 300-550, came back to the lever area at ~600-700 (closes at 612 and 685, lever does not move) and 700-900 pushed the spout right to +0.64..+1.09 with the water still off. Handle stayed at 0.346 to the end.",
+ "causal_chain": "closed-finger push on the lever 112-176 stopped at 0.346 rad (< 0.40 water-on; successes go to 0.50) -> no water -> policy moved on to the spout (250-272, 700-900) as if stage 0 were done -> later visits to the lever (612, 685) did not move it -> stage 0 never complete, timeout 900",
+ "self_recovery": "Returned to the lever region at ~600-700 and ~860 (wrist sees the lever with the red dot; closes at 612, 685) but the handle never moved beyond 0.346. Not successful.",
+ "official_criterion_notes": "Criterion agrees with the video: no water stream is rendered at 0.346 rad. A 0.054 rad near-miss on the water-on threshold.",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/s7_handle.png",
+   "frames/s7_mid.png",
+   "frames/s7_faucet_zoom.png"
+  ],
+  "packet_facts": [
+   "stage0 never complete; state_end handle_joint 0.346, water_on false",
+   "gripper close 116 width 0.002; touch 86-171",
+   "saved-state trace: handle 0.06@112 0.22@128 0.35@176, flat after",
+   "spout (saved states) +0.36@272, +0.64@704, +1.09@864 with water off; washed_loc all false"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the fingers slipped off the lever or the policy simply stopped pushing at 176; the wrist view shows the lever partly rotated and the gripper withdrawing, without a visible slip."
+}

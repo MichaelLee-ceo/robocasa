@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s19_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 6 (over-the-range microwave above an electric range, same as s16 and s25). Stage 0: onion grasped at 152, released into the bowl at 280 (stage 0 at 281). Stage 1: bowl grasped at 365, released inside at 645, stage 1 at 666 (385 steps, fast). Stage 2 was abnormally slow (706 steps, median 201, p90 483). Right after the release the gripper pushed the open door from its inner side and swung it fully open (closedness 0.04 -> 0.0 at 720). It then worked against the fully open door for ~530 steps (contacts 803-899, 1042-1080, 1100-1183, 1227-1244; wrist views the door slab and the range), the same stall as failure s8. At ~1256 it got around to the outer face, and closed the door 1264-1372 (0.13 -> 1.0). The closing push ended with the gripper sliding along the keypad onto START (contact 1372-1375), so the door closed and the microwave turned on in the same chunk: stages 2 and 3 both first at 1372, success at 1372, 28 steps before the timeout.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from pushing the door the wrong way (open, 720-1248) by moving to its outer face at ~1256; the door closed at 1372. START was pressed as a by-product of the final closing sweep. Very lucky timing.",
+ "official_criterion_notes": "stage 3 took 0 steps after stage 2, because START was hit by the door-closing sweep itself.",
+ "evidence": {"sheets": ["frames/s19_overview.png", "frames/s19_door.png"],
+   "packet_facts": ["vegetable hold 158-280", "bowl hold 375-645 lift 0.57", "closedness 0.04 -> 0.0 at 720, 0.0 until 1248, 0.13@1264 0.49@1328 0.86@1360 1.0@1376", "microwave touches 803-1375 in many bouts; last 1372-1375", "stage 2 and 3 first 1372; success 1372"]},
+ "confidence": "medium", "uncertain_about": "Whether the gripper pushed the door open from its inner face or by its handle side; the turned_on latch at 1372 is read from the packet and the last wrist frame (START at the fingertip)."}

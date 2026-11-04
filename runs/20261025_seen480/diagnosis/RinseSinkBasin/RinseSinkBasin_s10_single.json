@@ -1,0 +1,30 @@
+{
+ "tag": "RinseSinkBasin_s10_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  273,
+  900
+ ],
+ "category": "wander_away",
+ "secondary": [],
+ "what_happened": "Scene layout/style 8 (same faucet as s4, s17, s22). Stage 0: paddle worked 160-207 (close at 166, 0.043), water on at 205 (fast); the spout was dragged to +0.15 meanwhile. Stage 1: 239-273 the gripper pushed the spout head right with the stream visible, to +0.49 (just 0.03 short of 'right'), then left at 273. 300-380 the arm rose and moved right; 380-760 the wrist pointed at the back corner of the counter above/behind the faucet (backsplash, utensil rail) for ~380 steps, with one incidental contact 513-528 that pushed the spout to +0.76 (right washed 485). 766-896 the gripper came back down onto the spout and pushed it slightly further right (+0.85). It never pushed the spout left.",
+ "causal_chain": "first push right stopped at +0.49 (273) -> left the faucet and hovered looking at the back corner 300-760 -> an incidental contact completed 'right' (485) -> late contact 766-896 pushed right again -> left never washed",
+ "self_recovery": "none in the needed direction.",
+ "official_criterion_notes": "Right was credited at 485 from a brief contact while the wrist camera was not looking at the spout.",
+ "evidence": {
+  "sheets": [
+   "frames/s10_overview.png",
+   "frames/s10_dense.png"
+  ],
+  "packet_facts": [
+   "stage0 205; washed_loc [F,T,T]",
+   "fixture touch 239-273, 513-528, 766-896 (merged)",
+   "closes 166 (0.043), 764 (0.056)",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: +0.49 from 276 to 484, +0.76@532, +0.85@852, never below 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "What part of the robot made the 513-528 contact (wrist camera pointed elsewhere)."
+}

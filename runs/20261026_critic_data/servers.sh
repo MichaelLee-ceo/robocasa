@@ -2,7 +2,7 @@
 # Start NS seeded policy servers on GPU G (ports PORT0..PORT0+NS-1) and keep them up; pools attach with PORTS="...".
 # usage: setsid nohup ./servers.sh <G> <PORT0> [NS=4] > <log> 2>&1 &
 G=$1; PORT0=$2; NS=${3:-4}
-export ROBOCASA_ROOT=/home/michaellee/mclee/robocasa
+export ROBOCASA_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 source $(conda info --base)/etc/profile.d/conda.sh && conda activate $ROBOCASA_ROOT/envs/groot
 export CUDA_DEVICE_ORDER=PCI_BUS_ID PIP_CONFIG_FILE=/dev/null NO_ALBUMENTATIONS_UPDATE=1 HF_HUB_CACHE=$ROBOCASA_ROOT/.hf_cache/hub
 CK=$ROBOCASA_ROOT/checkpoints/gr00t_n1-5/foundation_model_learning/target_posttraining/composite_seen/checkpoint-60000

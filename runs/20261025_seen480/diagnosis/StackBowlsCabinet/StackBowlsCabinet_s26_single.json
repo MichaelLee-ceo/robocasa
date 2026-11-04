@@ -1,0 +1,29 @@
+{
+ "tag": "StackBowlsCabinet_s26_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 9/style 9 (near-cabinet variant: navy cabinets, white tiles, toaster; same kitchen as s20 but the normal 0.47 m distance); small brown bowl_8 (x0.7) and larger tan bowl_7 (x0.95), 0.24 m apart. Nest-then-carry, clean: small bowl grasped 79/88 (lift 0.12 m), set into the tan bowl at 157 (wrist 168: seated); pair grasp at 190 (both lifted), lifted 0.52-0.53 m into the navy upper cabinet, released 272-275. Stage 0 first held 253-254 (inner bowl inside, briefly untouched while the pair was still held), dropped at 255 when the fingers touched the inner bowl again, and held again from 271; stage 1 at 289 (14 steps after the release); success 289.",
+ "causal_chain": "",
+ "self_recovery": "none",
+ "official_criterion_notes": "Packet tooling: undone_events at 255 says 'an object left the target', but both bowls stayed inside (bowl1 at_target 249-304 continuously; bowl2 entered at 255). The reason classifier in make_packets.py labels any change in the count of at-target objects as 'left', so an object ENTERING the target at the same step is mislabelled; the real cause was the gripper touching bowl1 (touch 255-270).",
+ "evidence": {
+  "sheets": [
+   "frames/s26_overview.png",
+   "frames/cmp_pair_grasp.png"
+  ],
+  "packet_facts": [
+   "closes 79 (bowl1), 190 (both lifted)",
+   "bowl1 hold 88-157 lift 0.121; 189-275 lift 0.529; at_target 249-304",
+   "bowl2 hold 192-272 lift 0.517; at_target 255-304",
+   "stage0 intervals 253-254, 271-273, 275-304; undone 255 'an object left the target' (mislabelled)",
+   "stage1 289"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "",
+ "strategy": "nest-then-carry"
+}

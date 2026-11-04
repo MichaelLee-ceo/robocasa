@@ -1,5 +1,5 @@
-"""The collected decision points (../20261026_critic_data/data), shared by every analysis here and by
-../20261026_critic_data/analyze_phase.py.
+"""The collected decision points (../20261026_critic_data/data), shared by every analysis here and by the
+later studies (closed loop, signals, VLM critic, DiVeR proxy).
 
 Layout: data/<task>/<dataset>/results.jsonl (one row per decision point; later collections add results_w<W>.jsonl), roll/ (rollouts: <tag>_t<t>_c<i>_m<m>.npz and
 .mp4) and snap/ (<tag>_t<t>.npz: cameras and the exact policy request at the point). Datasets:
@@ -11,12 +11,23 @@ Every row was collected with the settled-v5 restore or with an earlier restore t
 point. row["hidden"] and row["src_dir"] say which, and ../20261029_review/fix/README.md explains the history (the
 2026-10-29 reorganization dropped every superseded row). row["_dir"] is the dataset dir. A row's rollouts (roll()) and
 snapshot (snap()) are in the same dir.
+Labels refer to the chunks that were executed (recorded in roll/), so every row is valid. Re-sampling a candidate with
+today's servers (serve_seeded.py, same request and seed) is a different question (../20261031_diver_proxy):
+  - settled-v5 rows: identical, where the candidate's first request equals the snapshot's (candidate 0's);
+  - older rows (settled, -basefix, -v3, -v4): an earlier server setup; median difference 0.004, 0.7 % of candidates
+    differ in a discrete action;
+  - a candidate whose first request differs from the snapshot's (GPU render noise in the cameras; all hidden tags, most
+    in PackIdenticalLunches) can come out quite different, since the snapshot holds only candidate 0's request.
+Per candidate, ../20261031_diver_proxy/feats/log_w*.jsonl `exact` says whether the re-sampled chunk is the executed one.
 The analyses write to $CRIT_OUT (default: this folder).
 usage: python -I data.py   (prints the points per task and dataset, with their hidden tags)"""
 import collections, functools, glob, json, os, sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(os.path.dirname(HERE), "scripts"))
+from paths import local  # noqa: E402
+
 DATA = os.path.normpath(os.path.join(HERE, "..", "20261026_critic_data"))
 OUT = os.environ.get("CRIT_OUT", HERE)
 TASKS = ("KettleBoiling", "SteamInMicrowave", "PackIdenticalLunches")
@@ -84,7 +95,7 @@ def outcomes(r):
 @functools.lru_cache(maxsize=None)
 def scenes():
     """{tag: scene file}; the scene is the episode's, the same at every t"""
-    return {j["tag"]: j["scene"] for f in JOBS.values() for j in json.load(open(os.path.join(DATA, f)))}
+    return {j["tag"]: local(j["scene"]) for f in JOBS.values() for j in json.load(open(os.path.join(DATA, f)))}
 
 
 def main():

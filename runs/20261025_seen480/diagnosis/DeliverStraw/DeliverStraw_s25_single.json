@@ -1,0 +1,29 @@
+{
+ "tag": "DeliverStraw_s25_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  400,
+  822
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [],
+ "what_happened": "Layout 8, mint Straw011, GlassCup021. Stage 0 at 166. Straw grasped at 362-374 (width 0.016) and lifted 0.44 m; during the drive (labeler navigation 389-834) the finger width fell steadily 0.016 -> 0.009 (544) -> 0.004 (700) -> 0.001 (820), i.e. the straw slid through the fingers toward the tips. At 822-828 it slipped out (wrist view: straw gone by 840) and fell to the floor 1.36 m from the cup (end z 0.007). The policy did not react: no close events after 362; it stood with the arm raised and wandered until 1700.",
+ "causal_chain": "weak/thin pinch on the straw (374) -> straw slid out gradually during the ~450-step drive -> fell to the floor at 822, 1.36 m from the cup -> no re-grasp -> timeout",
+ "self_recovery": "none",
+ "official_criterion_notes": "Gripper width ~0.001 just before the drop: for this thin straw, width alone cannot tell 'holding' from 'closed on nothing'.",
+ "evidence": {
+  "sheets": [
+   "frames/s25_overview.png",
+   "frames/s25_slip.png"
+  ],
+  "packet_facts": [
+   "hold 374-822 lift 0.441 dist_at_release 1.36 height drop 1.139",
+   "width during hold 0.0159 -> 0.0093 -> 0.0051 -> 0.0011",
+   "no close events after 362"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

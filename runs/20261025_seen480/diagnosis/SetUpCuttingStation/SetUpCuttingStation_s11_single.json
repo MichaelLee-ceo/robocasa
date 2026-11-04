@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s11_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [320, 1600],
+ "category": "wander_away",
+ "secondary": ["skipped_or_wrong_stage"],
+ "what_happened": "Scene: layout/style 2, a long L-shaped white kitchen; the drawer with the knife is below the induction hob, the board is ~1.0 m to the right next to the toaster/coffee machine, and the plate with the fish (fish_9, lying on its side, tilt 47 deg from the start) is on the far left counter beside the oven column, 2.6 m from the board. Stage 0 was fast and clean: grasp 137 (lift from 146, 0.43 m), base moved right, knife released flat on the board at 315 (0.054 m from centre, stayed); stage 0 complete 315 (median 486). Stage 1: the robot turned back left (340-560), returned to the still-open knife drawer 680-1000 and hovered at/inside it, closing on air at 928 (as if picking the knife again). 1040-1200 it turned to the oven column; at ~1200 the plate with the fish was briefly visible at the edge of the wrist view, but the robot turned the other way into an empty corner by a counter end (1240-1600), closing on air again at 1410. It never came within 0.70 m of the fish.",
+ "causal_chain": "knife on board 315 -> meat 2.6 m away behind the oven column, out of view -> robot went back to the knife drawer 680-1000 (close on air 928) -> turned past the plate (~1200) into a corner -> wandered until timeout 1600; meat never touched",
+ "self_recovery": "none effective; the plate was in the wrist view for a moment around 1200 but the robot did not approach it.",
+ "official_criterion_notes": "meat tipped_over_intervals [[0,1600]] is the fish model resting on its side on the plate from the start, not a real tip-over.",
+ "evidence": {"sheets": ["frames/s11_overview.png", "frames/s11_nav.png", "frames/s11_drawer_return.png", "frames/s11_late.png"],
+   "packet_facts": ["knife hold 146-315 lift 0.426 dist 0.054", "meat dist_to_target_start 2.59 m, min_eef_dist 0.70 m, no touch", "close 928 on_nothing (at drawer), close 1410 on_nothing (counter corner)"]},
+ "confidence": "high", "uncertain_about": "Whether the trip back to the drawer was a re-attempt of stage 0 or just a navigation detour; the gripper hovered at the drawer front 800-960."}

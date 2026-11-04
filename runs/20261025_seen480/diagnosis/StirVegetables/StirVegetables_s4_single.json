@@ -1,0 +1,27 @@
+{
+ "tag": "StirVegetables_s4_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout 8 (same kitchen as s8, s10, s17, s22), red cast-iron pot (Pot065) on the rear-left grate of a gas range, two bell peppers and spatula_8 (black handle, slotted turner) on the counter LEFT of the range. Stage 0: pepper 2 grasped 143/151, dropped in 239 (complete 242). Stage 1: pepper 1 grasped 354, dropped in 435 (complete 443). Stage 2: spatula grasped 559 at the end of the handle, lifted (complete ~575-592). Stage 3 (329 steps, median 315): 680-760 the turner was held above and at the pot's right rim; at ~800 the hand drove into the pot and tipped it up on one side (pot lifted at its left, flame exposed), the pot dropped back slightly forward of its original spot (blue flame visible behind it 840-908); 840-904 the turner was inside the pot among the peppers and the env counted the 5 stir steps (online stage 3 at 912; success_step 904).",
+ "causal_chain": "",
+ "self_recovery": "Recovered from tipping the pot (~800): it fell back upright on/near the burner and the stir 840-904 counted.",
+ "official_criterion_notes": "Online stage 2 logged at 576 is a step where the replayed condition flickered off (575, 577 hold, 576 not), hence replay_matches_online_log false; not a real disagreement. The pot ended forward of the burner centre but evidently within the 0.15 m threshold.",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_stir.png"
+  ],
+  "packet_facts": [
+   "veg2 hold 151-239, veg1 hold 354-435",
+   "spatula close 559 width 0.02 lifted; stage2 592-912",
+   "stage0 undone 808, 855 (pot tipped)",
+   "success_step 904, success_time 5"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

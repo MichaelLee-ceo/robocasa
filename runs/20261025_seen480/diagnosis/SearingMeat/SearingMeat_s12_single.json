@@ -1,0 +1,34 @@
+{
+ "tag": "SearingMeat_s12_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  96,
+  2900
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "wander_away",
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 7 (dark-wood cabinets, orange tiles), pan_6 (dark pan, dark-wood handle with metal ferrule and end cap) in an upper cabinet; target rear_right burner 2.41 m away (the range is out of view, the base would have to move); shrimp 2.0 m from the burner. Stage 0: at 60-90 the gripper came to the ferrule, then slid out toward the handle END; 96-132 the wrist shows the handle lying horizontally across the bottom of the image, i.e. along the finger-closing axis, with the end cap at the right finger. It closed at 115 touching the pan (width 0.014 -> 0.002): the fingers closed beside/under the handle, nothing was enclosed (touch ends 123). From 136 to the end the fingers stayed closed; the arm backed off and wandered for ~2700 steps (wrist sees the counter, floor tiles, the pan from 30-60 cm, the toasters), occasionally re-approaching to look at the pan (800, 1000, 2400) but never touching it again. Pan, shrimp and knobs never moved.",
+ "causal_chain": "handle presented along the finger-closing axis -> single close at 115 enclosed nothing -> fingers stayed closed, no further attempt -> wandered/hovered 136-2900 -> pan never left the cabinet",
+ "self_recovery": "none: no second grasp attempt in 2700 steps.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s12_overview.png",
+   "frames/s12_grasp.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan touch 63-123 only; close 115 on pan width 0.014 -> 0.002",
+   "gripper closed (<0.01) 136-2900",
+   "no holds; pan end dist 2.39 m (unchanged)",
+   "meat min_eef 1.06 m (never approached)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

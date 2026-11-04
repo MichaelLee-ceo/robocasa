@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s21_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 4 (built-in microwave above a wall oven, as s22 and s24). Stage 0: avocado grasped at 151, released into the bowl at 321 (stage 0 at 322). Stage 1: bowl grasped at 387, tilted up to 69 deg while pushed in (tipped 587-718), released inside at 704, stage 1 at 723 (401 steps). Stage 2: the gripper went low and to the left below the door (800-880, as in s22/s24) but engaged the door edge from 829 and closed it 880-978 (stage 2 at 978, 255 steps). Stage 3 was slightly slow (354 steps, p90 345): the arm retracted low (1060-1220; the wrist looks at the oven and keypad from a distance), then approached the keypad (START/PAUSE at the bottom right) and pressed START at 1332.",
+ "causal_chain": "",
+ "self_recovery": "none needed; slow but steady stage 3.",
+ "official_criterion_notes": "Stage 3 complete_at_end is false in the packet although the episode succeeded at 1332; the condition dropped in the final chunk (1332-1344), as the brief warns.",
+ "evidence": {"sheets": ["frames/s21_overview.png"],
+   "packet_facts": ["vegetable hold 151-321", "bowl hold 395-704 lift 0.60; tipped 587-718", "door closed 978", "microwave touches ... 991-1040, then 1332-1344 (press)"]},
+ "confidence": "medium", "uncertain_about": "Light check only."}

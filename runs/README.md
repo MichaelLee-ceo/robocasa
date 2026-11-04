@@ -1,80 +1,78 @@
-# runs/
+# runs/: steering a frozen GR00T N1.5 by choosing its own action chunks (ECE 780, from 2026-10-25)
 
-## Research goal (agreed with the user, 2026-10-29)
-**The frozen GR00T N1.5 can already do these tasks: its own samples contain successful trajectories.**
-- **Evidence:** stage-level "imagine, then choose" (`20261026_imagine/`). The simulator is the oracle: it imagines 8 of
-  the policy's own rollouts per stage and keeps one that finishes.
+## Goal (agreed with the user, 2026-10-29)
+The frozen GR00T N1.5 (composite-seen checkpoint-60000) can already do these Composite-Seen tasks: its own samples
+contain successful trajectories. We want that performance by choosing among the policy's own candidate chunks, only at
+the chunks that decide the outcome, at a small fraction of the cost of searching with a simulator.
+- **Ladder:** plain policy -> DiVeR-style verifier (the closest prior work) -> our critic -> oracle closed loop ->
+  imagine (upper bound).
+- **Simulator boundary:** a critic may be trained on simulated rollouts, but at test time only the critic predicts. The
+  simulator is the oracle and the upper bound.
+- **Success** is always RoboCasa's official `_check_success()`, unchanged, loopholes included. For example a tipped
+  kettle on a lit burner counts.
 
-  | task | plain policy | imagine |
-  |---|---|---|
-  | KettleBoiling | 65.0 % | 96.7 % |
-  | SteamInMicrowave | 30.8 % | 90.0 % |
-  | PackIdenticalLunches | 11.7 % | 63.3 % |
+## Results so far
+| | KettleBoiling | SteamInMicrowave | PackIdenticalLunches | where |
+|---|---|---|---|---|
+| plain policy, all 30 scenes | 65.0 % | 30.8 % | 11.7 % | `20261025_seen480`, `20261026_imagine` |
+| imagine (stage-level search with the simulator), 30 scenes | 96.7 % | 100 % | 70.0 % | `20261026_imagine` |
+| plain on the 10 hard scenes of the closed loop | 32.5 % | 7.5 % | 0 % | `20261029_closedloop` |
+| oracle closed loop (chunk-level steering), 10 hard scenes | **10 / 10** | **10 / 10** | **6 / 10** | `20261029_closedloop` |
+| policy calls per closed-loop episode (plain about 87) | 2,523 | 7,436 | 19,124 | `20261029_closedloop` |
 
-  - The last two tasks still need a re-run with the restore fixes.
-  - More samples could go higher (most PackIdenticalLunches failures hit the candidate cap).
-- **Backtracking counts.** The committed path is still one forward trajectory, so these numbers prove that a solution
-  exists among the policy's samples.
-- **Goal.** A stage trajectory is a sequence of chunks, so the same solutions can be reached by choosing chunks. We
-  want this performance by choosing among the policy's own candidate chunks ("think then leap"). We choose only at the
-  chunks that decide the outcome, so we need far fewer evaluations than the stage-level search.
+- **Critical chunks** (`20261028_critical`):
+  - located: KettleBoiling 5, SteamInMicrowave 6, PackIdenticalLunches 21;
+  - choosing among 8 candidates there raises the stage-completion chance by +25 points (95 % CI [+15, +36]);
+  - at random chunks the gain is -2.
+- **No cheap signal for when to steer:**
+  - observable cues (`20261029_signals`): candidate disagreement, gripper, contact, motion, stage; AUROC about 0.5;
+  - DiVeR's feature-space dispersion on GR00T's action-head features (`20261031_diver_proxy`): AUROC 0.55-0.60, CIs
+    include 0.5.
+- **Blind VLM critic** (Claude subagents; `20261030_vlm_critic`): it sees the cameras and each candidate's commanded
+  path, computed from the actions alone.
+  - At the critical points it gains -2.1 points (95 % CI [-11.8, +8.7]); the split-half ceiling is +24.4.
+  - The commanded path barely separates the candidates, and the outcome shows a median 15 chunks later.
+  - A perfect world model judged by "stage finished yet" needs a 12-16 chunk lookahead to reach about 90 % of the
+    ceiling.
+- **PackIdenticalLunches dead ends** (`20261029_closedloop`):
+  - Stages 0-2 accept an item in either tupperware, and the final check wants one vegetable and one meat in each.
+  - 9-18 % of stage finishes are dead ends, and from a dead end the last stage succeeds 0 / 20.
+  - This explains 3 of the oracle's 4 failures there. The fourth, s14, spent most of its horizon in stage 1.
+- **Next:** a learned critic trained on the branching data (counterfactual labels per candidate), evaluated on
+  held-out scenes. Then a closed loop with it.
 
-Objectives:
-1. **Target:** the imagine success rates above (the existence proof / upper bound).
-2. **Find the critical chunks:** the chunk where a stage's outcome gets decided, i.e. where V = P(finish | state, plain
-   policy) jumps (`20261028_critical/`).
-3. **Choose well there:**
-   - first with an oracle (the simulated outcome);
-   - then with a VLM critic that judges the observation and the candidates' action trajectories.
-4. **Final comparison:** plain policy vs our method (oracle, then VLM) vs the imagine target, on task success and on the
-   number of evaluations.
+## Folders
+| folder | what | status |
+|---|---|---|
+| `scripts/` | shared code: policy servers, rollouts and exact restores, stage checks, `paths.py` | current |
+| `scenes_seen5_v2/`, `scenes_seen5_v2_s30/`, `scenes_seen11_v2/` | frozen scenes of the 16 Composite-Seen tasks | current |
+| `scenegen/` | how the frozen scenes were made: launchers and per-scene logs | reference |
+| `horizons_original_plus.json` | the tasks' original horizons | current |
+| `20261025_seen480/` | plain baseline: 16 tasks x 30 scenes, per-step states, stage diagnosis, the published report | current |
+| `20261026_critic_data/` | branching data: 8 candidate chunks per decision point, continuations, stage labels | current |
+| `20261026_imagine/` | stage-level imagine-then-choose with the simulator (upper bound) | current (`full_v2`, `sim_pil`; `full` / `multi` keep only their plain baselines) |
+| `20261028_critical/` | where the choice decides the stage (critical chunks); the data loader `data.py` | current |
+| `20261029_closedloop/` | chunk-by-chunk steering with the simulator as oracle; pre-flight tests | current |
+| `20261029_signals/` | can anything observable mark where steering helps? (no) | done |
+| `20261030_vlm_critic/` | commanded paths, blind panels, the blind VLM critic and its analysis | done |
+| `20261031_diver_proxy/` | DiVeR's criticality score on GR00T features | done |
+| `20261029_review/` | the restore review that led to settled-v5 (`restore/`, `fix/`, `gate_v5/`) | reference |
+| `20261025_determinism/`, `20261025_labeler_check/` | seeding and rendering determinism; stage checks vs the official labeler | reference |
+| `_handoff/` | how to rebuild the environment: code commits, conda / pip locks, checkpoints, datasets, asset checksums | reference |
 
-**Current step: which chunks decide success or failure, and can we find them?**
-- **Premise.** From the same scenes the stage-level search finds a path that finishes, so the plain run made bad
-  choices somewhere.
-- **Approach.** Policy steering, as imagine does: at some decision points, pick a better chunk among the policy's own
-  candidates to raise the chance of finishing the task.
-- **Questions this step answers:**
-  1. Which chunks decide success or failure (the critical chunks)?
-  2. Can we find them, i.e. tell when to steer?
+Every folder has a README with its method, results and history.
+Earlier work (the atomic-vs-composite study, the Composite-Unseen reproduction, the first overlay sketches, the noise
+probe and the review's exploratory scans) was deleted on 2026-11-04; its tracked files are in git history.
 
-Question 1, answered (2026-10-29; `20261028_critical/README.md`):
-- **Data.** The restore bugs are fixed (settled-v5). Every affected point was re-collected, checked row by row and gated
-  (`20261029_review/fix/README.md`). The data is in `20261026_critic_data/data/<task>/<dataset>`.
-- **Located critical chunks** (one chunk, |dV| >= 0.4, > 2 SE): KettleBoiling 5, SteamInMicrowave 6,
-  PackIdenticalLunches 21 (`20261028_critical/critical_chunks.json`).
-- **Choosing among 8 candidates at them raises the stage-completion chance by +25 points** (cross-validated, 95 % CI
-  [+15, +36]; per task +34 / +20 / +25). At random chunks the gain is -2 [-8, +2]. The outcome is decided at a few
-  chunks, and steering there works.
-
-Next (running since 2026-10-29 14:00):
-- **Closed loop with an oracle** (`20261029_closedloop/`): steer chunk by chunk in real KettleBoiling episodes, and
-  compare task success with the plain policy and imagine. The 10 scenes are the ones where the plain policy often
-  fails: plain 32.5 %, imagine 10 / 10.
-- **Question 2** (`20261029_signals/`): which observable signal, without simulation, tells the critical chunks apart?
-
-**Lesson from imagine's backtracking.** A choice must keep the later stages possible. For example, a kettle placed
-where its knob cannot be turned finishes S0 but fails S1. So the critic's label has to look at the whole task, not only
-the current stage.
-
----
-Current work (from 2026-10-25): stage-level root-cause diagnosis of GR00T N1.5 on the 16 Composite-Seen tasks.
-Everything earlier (experiments, results, launchers, the old README) is in `prev/`.
-
-- `scripts/atomic_eval.py`: eval client. Job condition `baseline_seed` + `scene` (frozen scene) runs the official composite
-  instruction and logs when every stage passes; a job field `policy_seed` makes the action noise reproducible (needs
-  `serve_seeded.py`) and records per-chunk fingerprints (`digest`: observation sent, action received, sim state).
-- `scripts/serve_seeded.py`: GR00T policy server = `third_party/Isaac-GR00T/scripts/run_eval.py`'s own policy +
-  per-request seeding and deterministic torch settings.
-- `scripts/atomic_steps.py`, `scripts/atomic_steps_seen11.py`: the stages of the 16 tasks. Stage sequence = official
-  per-frame subtask annotation of the target datasets; stage checks = the official `_check_success()` split per stage.
-- `scripts/validate_atomic_steps.py`: replays official demos and checks that every stage check fires.
-- `scripts/{oracle,groot_eval,demo_utils,robot_home}.py`: helpers imported by the above (scene reset, client, demos).
-- `scripts/make_scenes*.py` + `scenes_seen5_v2/`, `scenes_seen5_v2_s30/`, `scenes_seen11_v2/`: frozen scenes (s0-19 of the
-  original 5 tasks in `scenes_seen5_v2`, s20-29 in `_s30`, the other 11 tasks in `scenes_seen11_v2`).
-- `horizons_original_plus.json`: original task horizons (the 16 Composite-Seen values are the paper's).
-- `20261025_determinism/`: acceptance test of the seeding (`run_test.sh`, `compare.py`, `render_check.py`).
-- `_handoff/`: environment setup notes for moving the project to another machine.
+## Running the code
+- **Environment:** the GR00T python is `envs/groot/bin/python` under the repository (or `$GROOT_PY`). Run scripts with
+  `python -I`.
+- **Paths:** scripts find the repository from their own location (`scripts/paths.py`). Shell launchers export
+  `ROBOCASA_ROOT` for the python they start. Data written before 2026-11-04 stores absolute paths of the original
+  checkout, and `paths.local()` maps them into the current one.
+- **Not in git** (videos, per-step states, features, rendered panels; about 20 GB): only code, READMEs and results
+  (jsonl / json / txt) are committed. The rest stays on the machine that made it. `_handoff/README.md` describes the
+  environment, checkpoints and datasets.
 
 Reproducibility (checked 2026-10-25, details in `20261025_determinism/`):
 - Initial state: frozen scenes, fingerprint-checked on load. Physics: bitwise identical given the same state and actions.
@@ -90,4 +88,3 @@ Reproducibility (checked 2026-10-25, details in `20261025_determinism/`):
   syncs them from the simulator. None of the 16 tasks' success or stage checks read those poses (the coffee machine
   check uses a simulator site, the toaster checks use contacts and joints), so earlier results are unaffected.
 
-Envs: `conda activate $ROBOCASA_ROOT/envs/groot`; export `ROBOCASA_ROOT=/home/michaellee/mclee/robocasa`.

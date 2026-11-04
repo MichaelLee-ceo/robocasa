@@ -1,0 +1,26 @@
+{
+ "tag": "WashLettuce_s20_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 6 / style 6 (same sink as s16/s19/s25); perforated colander with loop handle (Colander008) RIGHT of the sink. Stage 0: water on at 297 (median 253). Many short lever contacts 273-348. Colander grasped at 472 (width 0.023; wrist shows the rim between the fingers next to the loop handle), carried left under the spout 560-594. Stage 1 took 298 steps (median 303); success at 595. No errors.",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s20_brief.png"
+  ],
+  "packet_facts": [
+   "sink touch [[273, 296], [301, 303], [306, 306], [318, 320]]...",
+   "stage0 first complete 297",
+   "close_events [(472, 0.023)]",
+   "success 595, washed_time 38"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

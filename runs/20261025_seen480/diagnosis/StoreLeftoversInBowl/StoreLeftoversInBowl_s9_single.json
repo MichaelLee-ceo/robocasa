@@ -1,0 +1,26 @@
+{
+ "tag": "StoreLeftoversInBowl_s9_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 7 (side-by-side fridge with dispenser), deep brown bowl_8, avocado, drumstick 013. Stage 0: avocado grasped 86, released in the bowl 135 (stage 0 at 137). Stage 1: drumstick grasped 247, released in the bowl 324 (stage 1 at 326). Stage 2: three brief rim contacts 384-438 only pushed the bowl (no lift). At 510 it closed on the rim together with the avocado and lifted (0.388 m), and the base reached the fridge by ~900. Then a very long placement: ~1000-1489 the arm held the tilted bowl (tipped 1069-1525) at the front of an upper-middle shelf, repositioning many times, the same 'hold at the shelf front' seen in the failures. It finally set it on the shelf (rack contact from 1489) and released at 1519 (x 5.845, z 1.19). Success at 1563, only 137 steps before the timeout. Stage 2 took 1237 steps (median 437).",
+ "causal_chain": "",
+ "self_recovery": "Recovered from the ~500-step hesitation at the shelf front (1000-1489) by finally pushing the bowl onto the shelf and levelling it. Also recovered from three non-lifting rim contacts (384-438) with a fourth grasp at 510.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s9_overview.png",
+   "frames/s9_slow_place.png"
+  ],
+  "packet_facts": [
+   "bowl holds 384-409, 416-421, 433-438 lift 0; 522-1519 lift 0.388",
+   "bowl tipped 1069-1525; at_target from 1489",
+   "stage2 since_prev 1237 (median 437, p90 524)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly what changed at ~1489 that let it place; the agent view shows small repeated wrist adjustments 1000-1480."
+}

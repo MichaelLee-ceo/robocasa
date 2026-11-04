@@ -1,0 +1,676 @@
+{
+ "tag": "StirVegetables_s17_single",
+ "task": "StirVegetables",
+ "instruction": "Put the lime and carrot in the pot. Retrieve the spatula and lightly stir the vegetables in the pot.",
+ "success": false,
+ "steps": 1600,
+ "horizon": 1600,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   256,
+   0
+  ],
+  [
+   416,
+   1
+  ],
+  [
+   944,
+   2
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 256,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 416,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 2,
+   "logged_step": 944,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 8,
+  "style": 8,
+  "objects": {
+   "spatula": "objaverse/spatula/spatula_6/model.xml",
+   "pot": "lightwheel/pot/Pot075/model.xml",
+   "veg1": "objaverse/lime/lime_2/model.xml",
+   "veg2": "objaverse/carrot/carrot_4/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0783,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0801,
+   0.0801,
+   0.0657,
+   0.0652,
+   0.0653,
+   0.0654,
+   0.0653,
+   0.0652,
+   0.065,
+   0.065,
+   0.065,
+   0.0651,
+   0.0746,
+   0.0781,
+   0.0787,
+   0.0791,
+   0.0793,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0709,
+   0.0376,
+   0.0208,
+   0.0208,
+   0.0208,
+   0.0209,
+   0.0208,
+   0.021,
+   0.021,
+   0.0208,
+   0.0208,
+   0.021,
+   0.0507,
+   0.0776,
+   0.0785,
+   0.0789,
+   0.0792,
+   0.0793,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0795,
+   0.0795,
+   0.0795,
+   0.0794,
+   0.0795,
+   0.0795,
+   0.0784,
+   0.0785,
+   0.0783,
+   0.0786,
+   0.079,
+   0.079,
+   0.079,
+   0.0791,
+   0.079,
+   0.079,
+   0.079,
+   0.079,
+   0.0731,
+   0.0353,
+   0.0169,
+   0.017,
+   0.0167,
+   0.0168,
+   0.0169,
+   0.0166,
+   0.0166,
+   0.0165,
+   0.0165,
+   0.0165,
+   0.0165,
+   0.0164,
+   0.0164,
+   0.0165,
+   0.0168,
+   0.0168,
+   0.0169,
+   0.0169,
+   0.0169,
+   0.0169,
+   0.0169,
+   0.0169,
+   0.0169,
+   0.0169,
+   0.0165,
+   0.0165,
+   0.0168,
+   0.0168,
+   0.0168,
+   0.0169,
+   0.0167,
+   0.0165,
+   0.0165,
+   0.0166,
+   0.0165,
+   0.0166,
+   0.0166,
+   0.0165,
+   0.0165,
+   0.0167,
+   0.0165,
+   0.0168,
+   0.0166,
+   0.0164,
+   0.0168,
+   0.0169,
+   0.0166,
+   0.0165,
+   0.0167,
+   0.0167,
+   0.0173,
+   0.0175,
+   0.0167,
+   0.0166,
+   0.0166,
+   0.0164,
+   0.0165,
+   0.0166,
+   0.0174,
+   0.0169,
+   0.0165,
+   0.0159,
+   0.0139,
+   0.0031,
+   0.0017,
+   0.0012,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001
+  ],
+  "close_events": [
+   {
+    "step": 306,
+    "width_after": 0.028,
+    "on_nothing": false,
+    "touching": [
+     "veg2"
+    ],
+    "lifted": [
+     "veg2"
+    ]
+   },
+   {
+    "step": 906,
+    "width_after": 0.029,
+    "on_nothing": false,
+    "touching": [
+     "spatula"
+    ],
+    "lifted": [
+     "spatula"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 2,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToStove",
+   "kind": "pnp",
+   "first_complete_step": 241,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     241,
+     247
+    ],
+    [
+     249,
+     1187
+    ],
+    [
+     1189,
+     1600
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 248,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1188,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 241,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 232,
+    "p90": 251,
+    "n": 9
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToStove",
+   "kind": "pnp",
+   "first_complete_step": 404,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     404,
+     405
+    ],
+    [
+     408,
+     1187
+    ],
+    [
+     1190,
+     1320
+    ],
+    [
+     1322,
+     1330
+    ],
+    [
+     1332,
+     1332
+    ],
+    [
+     1334,
+     1344
+    ],
+    [
+     1346,
+     1386
+    ],
+    [
+     1389,
+     1392
+    ],
+    [
+     1394,
+     1467
+    ],
+    [
+     1469,
+     1600
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 406,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1188,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1321,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1331,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1333,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1345,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1387,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1393,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1468,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 163,
+   "window_start": 241,
+   "typical_in_successes": {
+    "median": 282,
+    "p90": 551,
+    "n": 9
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "PickUpSpatula",
+   "kind": "pick",
+   "first_complete_step": 929,
+   "complete_at_end": false,
+   "complete_intervals": [
+    [
+     929,
+     1428
+    ],
+    [
+     1430,
+     1430
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 1429,
+     "reason": "condition dropped"
+    },
+    {
+     "step": 1431,
+     "reason": "condition dropped"
+    }
+   ],
+   "steps_since_previous_stage": 525,
+   "window_start": 404,
+   "typical_in_successes": {
+    "median": 152,
+    "p90": 217,
+    "n": 9
+   }
+  },
+  {
+   "stage": 3,
+   "skill": "StirVegetables",
+   "kind": "process",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 929,
+   "typical_in_successes": {
+    "median": 315,
+    "p90": 637,
+    "n": 8
+   }
+  }
+ ],
+ "objects": {
+  "veg1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    0.454,
+    -2.1892,
+    0.9495
+   ],
+   "end_pos": [
+    0.5526,
+    -1.7366,
+    0.9881
+   ],
+   "at_target_intervals": [
+    [
+     241,
+     247
+    ],
+    [
+     249,
+     1187
+    ],
+    [
+     1189,
+     1344
+    ],
+    [
+     1346,
+     1386
+    ],
+    [
+     1389,
+     1467
+    ],
+    [
+     1469,
+     1600
+    ]
+   ],
+   "dist_to_target_start_m": 0.3944,
+   "dist_to_target_end_m": 0.0552,
+   "min_eef_dist_to_centre_m": 0.008,
+   "gripper_touch_intervals": [
+    [
+     142,
+     238
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 158,
+     "release_step": 239,
+     "lift_m": 0.292,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0411,
+     "height_drop_after_release_m": 0.096,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0505
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 19.9,
+   "tilt_deg_end": 102.7,
+   "tilt_deg_max": 102.7,
+   "tipped_over_intervals": [
+    [
+     1167,
+     1180
+    ],
+    [
+     1186,
+     1193
+    ],
+    [
+     1321,
+     1409
+    ],
+    [
+     1432,
+     1600
+    ]
+   ]
+  },
+  "veg2": {
+   "target_of_stage": 0,
+   "start_pos": [
+    0.3808,
+    -2.1423,
+    0.9335
+   ],
+   "end_pos": [
+    0.581,
+    -1.7845,
+    1.0258
+   ],
+   "at_target_intervals": [
+    [
+     395,
+     399
+    ],
+    [
+     404,
+     405
+    ],
+    [
+     408,
+     1187
+    ],
+    [
+     1190,
+     1320
+    ],
+    [
+     1322,
+     1330
+    ],
+    [
+     1332,
+     1332
+    ],
+    [
+     1334,
+     1392
+    ],
+    [
+     1394,
+     1600
+    ]
+   ],
+   "dist_to_target_start_m": 0.3615,
+   "dist_to_target_end_m": 0.0386,
+   "min_eef_dist_to_centre_m": 0.0166,
+   "gripper_touch_intervals": [
+    [
+     317,
+     403
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 317,
+     "release_step": 404,
+     "lift_m": 0.284,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.0526,
+     "height_drop_after_release_m": 0.095,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0426
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 1.2,
+   "tilt_deg_end": 49.0,
+   "tilt_deg_max": 76.7,
+   "tipped_over_intervals": [
+    [
+     408,
+     1600
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {
+  "stage3": {
+   "success_time": 1
+  }
+ },
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToStove",
+    "pick"
+   ],
+   [
+    160,
+    "PickPlaceCounterToStove",
+    "place"
+   ],
+   [
+    245,
+    "PickPlaceCounterToStove",
+    "pick"
+   ],
+   [
+    322,
+    "PickPlaceCounterToStove",
+    "place"
+   ],
+   [
+    411,
+    "PickUpSpatula",
+    "pick"
+   ],
+   [
+    924,
+    "StirVegetables",
+    "execute"
+   ],
+   [
+    1600,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/StirVegetables/StirVegetables_s17_single.mp4"
+}

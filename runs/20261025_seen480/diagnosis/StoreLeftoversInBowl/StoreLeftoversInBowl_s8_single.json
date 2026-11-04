@@ -1,0 +1,11 @@
+{"tag": "StoreLeftoversInBowl_s8_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 2, "root_cause_steps": [609, 920],
+ "category": "undid_previous_stage",
+ "secondary": ["placed_off_target", "other: bowl carried tilted > 45 deg in the rim grasp (609-925)"],
+ "what_happened": "Layout 9 (side-by-side fridge, narrow open right compartment), wide black bowl_5, carrot, drumstick 013. Stage 0: carrot grasped 94, released in the bowl 160 (stage 0 at 160). Stage 1: drumstick grasped 284, released in the bowl 379 (stage 1 at 385, normal). Stage 2: rim grasp 428-448 (width 0.015), lift 0.574 m. The bowl tilted past 45 deg at 609 and was carried that way. At the fridge (700-850) the arm raised it to the top of the compartment opening, at the top shelf (yellow bottle distractor). The fingers loosened 744-808 (0.014 -> 0.030), and the drumstick slid out over the rim at ~800-810 and fell to the floor (drop 1.27 m). At 816-824 the gripper opened fully, but the bowl was not on a shelf: it stayed balanced on the open hand. As the arm swung down and out of the fridge (852-912), it carried the bowl along, and at ~917 the bowl, with the carrot, fell off the hand to the floor 0.59 m outside the fridge interior. The arm then stayed near the fridge until the timeout.",
+ "causal_chain": "bowl tilted > 45 deg in the rim grasp from 609 -> raised to the top of the narrow compartment at the fridge -> drumstick spilled at ~805 (stage 1 undone) -> gripper opened at ~820 with the bowl not on a shelf, the bowl resting on the open hand -> arm withdrew and the bowl fell to the floor at ~917 -> all stages lost",
+ "self_recovery": "none",
+ "official_criterion_notes": "The bowl's hold 436-917 includes ~95 steps after the fingers opened (816-917), with the bowl resting on the open hand; release_step 917 marks when it fell off the hand, not when the fingers opened.",
+ "evidence": {"sheets": ["frames/s8_carry.png", "frames/s8_release_zoom.png", "frames/L9_release_compare.png"],
+  "packet_facts": ["bowl tipped [[609,925]]; hold 436-917 lift 0.574, dist at release 0.587, drop 1.358", "gripper 0.014 at 736 -> 0.030 at 800 -> 0.077 at 824", "drumstick hold 752-802 drop 1.269", "veg at_target until 928, end z 0.016"]},
+ "confidence": "high", "uncertain_about": "Whether the fingers opened on purpose (an attempt to place it) or just went slack."}

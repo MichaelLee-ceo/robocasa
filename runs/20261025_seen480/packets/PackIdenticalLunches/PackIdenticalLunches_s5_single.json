@@ -1,0 +1,819 @@
+{
+ "tag": "PackIdenticalLunches_s5_single",
+ "task": "PackIdenticalLunches",
+ "instruction": "Place one squash and one chicken drumstick in each tupperware on the nearby counter, to pack two identical lunches.",
+ "success": false,
+ "steps": 2600,
+ "horizon": 2600,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   768,
+   0
+  ],
+  [
+   1152,
+   1
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 768,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 1152,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 7,
+  "style": 7,
+  "objects": {
+   "vegetable0": "objaverse/squash/squash_16/model.xml",
+   "vegetable1": "objaverse/squash/squash_7/model.xml",
+   "meat0": "lightwheel/chicken_drumstick/ChickenDrumstick014/model.xml",
+   "meat1": "lightwheel/chicken_drumstick/ChickenDrumstick011/model.xml",
+   "tupperware0": "lightwheel/tupperware/Tupperware037/model.xml",
+   "tupperware1": "lightwheel/tupperware/Tupperware036/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.0528,
+   0.0044,
+   0.0019,
+   0.0012,
+   0.001,
+   0.001,
+   0.0128,
+   0.0023,
+   0.0016,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0015,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0423,
+   0.0773,
+   0.0783,
+   0.0788,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0799,
+   0.0792,
+   0.0795,
+   0.0795,
+   0.0796,
+   0.0796,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0791,
+   0.0786,
+   0.0442,
+   0.0295,
+   0.0288,
+   0.0258,
+   0.0253,
+   0.025,
+   0.0245,
+   0.0243,
+   0.024,
+   0.0236,
+   0.0231,
+   0.0227,
+   0.0223,
+   0.0219,
+   0.0216,
+   0.0212,
+   0.0209,
+   0.0508,
+   0.0776,
+   0.0784,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0796,
+   0.0796,
+   0.079,
+   0.0792,
+   0.0787,
+   0.079,
+   0.079,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.0677,
+   0.0671,
+   0.0669,
+   0.0669,
+   0.0668,
+   0.0667,
+   0.0667,
+   0.0667,
+   0.0666,
+   0.0666,
+   0.0665,
+   0.0664,
+   0.0664,
+   0.0665,
+   0.0664,
+   0.0663,
+   0.0662,
+   0.0663,
+   0.0666,
+   0.0666,
+   0.0665,
+   0.0663,
+   0.072,
+   0.078,
+   0.0786,
+   0.079,
+   0.0793,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0796,
+   0.0788,
+   0.0793,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0776,
+   0.0604,
+   0.0058,
+   0.0019,
+   0.0015,
+   0.0013,
+   0.0012,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0027,
+   0.0033,
+   0.0581,
+   0.0778,
+   0.0785,
+   0.0787,
+   0.0789,
+   0.0791,
+   0.0792,
+   0.0794,
+   0.0795,
+   0.0794,
+   0.0791,
+   0.0788,
+   0.0789,
+   0.0792,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0662,
+   0.0253,
+   0.0248,
+   0.0247,
+   0.0247,
+   0.0247,
+   0.0247,
+   0.0246,
+   0.0246,
+   0.0245,
+   0.0245,
+   0.0245,
+   0.0245,
+   0.0245,
+   0.0244,
+   0.0244,
+   0.025,
+   0.0663,
+   0.0779
+  ],
+  "close_events": [
+   {
+    "step": 101,
+    "width_after": 0.026,
+    "on_nothing": false,
+    "touching": [
+     "vegetable0"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 581,
+    "width_after": 0.03,
+    "on_nothing": false,
+    "touching": [
+     "meat0"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 2039,
+    "width_after": 0.014,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 2448,
+    "width_after": 0.027,
+    "on_nothing": false,
+    "touching": [
+     "meat1"
+    ],
+    "lifted": [
+     "meat1"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 2,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": 759,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     759,
+     2600
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 759,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 286,
+    "p90": 339,
+    "n": 4
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": 1148,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     1148,
+     1797
+    ],
+    [
+     1799,
+     2019
+    ],
+    [
+     2021,
+     2218
+    ],
+    [
+     2220,
+     2220
+    ],
+    [
+     2222,
+     2600
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 1798,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2020,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2219,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2221,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 389,
+   "window_start": 759,
+   "typical_in_successes": {
+    "median": 401,
+    "p90": 474,
+    "n": 4
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 1148,
+   "typical_in_successes": {
+    "median": 419,
+    "p90": 505,
+    "n": 4
+   }
+  },
+  {
+   "stage": 3,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 1148,
+   "typical_in_successes": {
+    "median": 393,
+    "p90": 401,
+    "n": 4
+   }
+  }
+ ],
+ "objects": {
+  "vegetable0": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.872,
+    -3.3551,
+    1.0867
+   ],
+   "end_pos": [
+    6.0183,
+    -0.9773,
+    0.9679
+   ],
+   "at_target_intervals": [
+    [
+     1129,
+     2600
+    ]
+   ],
+   "dist_to_target_start_m": 1.1314,
+   "dist_to_target_end_m": 0.0288,
+   "min_eef_dist_to_centre_m": 0.0162,
+   "gripper_touch_intervals": [
+    [
+     103,
+     115
+    ],
+    [
+     949,
+     1126
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 110,
+     "release_step": 116,
+     "lift_m": 0.003,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.1447,
+     "height_drop_after_release_m": 0.002,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.1338
+    },
+    {
+     "grasp_step": 972,
+     "release_step": 1107,
+     "lift_m": 0.162,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.1666,
+     "height_drop_after_release_m": 0.135,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0288
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.6,
+   "tilt_deg_end": 3.1,
+   "tilt_deg_max": 31.5,
+   "tipped_over_intervals": []
+  },
+  "vegetable1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.9293,
+    -3.2511,
+    1.0826
+   ],
+   "end_pos": [
+    5.9293,
+    -3.2504,
+    1.0825
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 1.0242,
+   "dist_to_target_end_m": 1.0236,
+   "min_eef_dist_to_centre_m": 0.1164,
+   "gripper_touch_intervals": [],
+   "holds": [],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 10.8,
+   "tilt_deg_end": 12.1,
+   "tilt_deg_max": 12.4,
+   "tipped_over_intervals": []
+  },
+  "meat0": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.8937,
+    -3.3238,
+    1.3962
+   ],
+   "end_pos": [
+    5.8274,
+    -2.1929,
+    0.9793
+   ],
+   "at_target_intervals": [
+    [
+     726,
+     1797
+    ],
+    [
+     1799,
+     2019
+    ],
+    [
+     2021,
+     2218
+    ],
+    [
+     2220,
+     2220
+    ],
+    [
+     2222,
+     2600
+    ]
+   ],
+   "dist_to_target_start_m": 1.0986,
+   "dist_to_target_end_m": 0.1402,
+   "min_eef_dist_to_centre_m": 0.0072,
+   "gripper_touch_intervals": [
+    [
+     589,
+     591
+    ],
+    [
+     593,
+     724
+    ],
+    [
+     2219,
+     2219
+    ],
+    [
+     2223,
+     2224
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 589,
+     "release_step": 725,
+     "lift_m": 0.008,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.1333,
+     "height_drop_after_release_m": 0.051,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.1405
+    },
+    {
+     "grasp_step": 2219,
+     "release_step": 2225,
+     "lift_m": 0.0,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.1401,
+     "height_drop_after_release_m": 0.0,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.1401
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 9.9,
+   "tilt_deg_end": 66.6,
+   "tilt_deg_max": 67.4,
+   "tipped_over_intervals": [
+    [
+     728,
+     2600
+    ]
+   ]
+  },
+  "meat1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.9073,
+    -3.4289,
+    1.0805
+   ],
+   "end_pos": [
+    5.9815,
+    -2.2269,
+    0.9513
+   ],
+   "at_target_intervals": [
+    [
+     2587,
+     2600
+    ]
+   ],
+   "dist_to_target_start_m": 1.2028,
+   "dist_to_target_end_m": 0.0183,
+   "min_eef_dist_to_centre_m": 0.0332,
+   "gripper_touch_intervals": [
+    [
+     2458,
+     2460
+    ],
+    [
+     2463,
+     2585
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 2458,
+     "release_step": 2586,
+     "lift_m": 0.242,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0207,
+     "height_drop_after_release_m": 0.035,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0183
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 23.4,
+   "tilt_deg_end": 70.3,
+   "tilt_deg_max": 71.1,
+   "tipped_over_intervals": [
+    [
+     9,
+     2600
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    594,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    674,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    731,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    863,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    952,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    1087,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    1134,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    2357,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    2464,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    2541,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    2593,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/PackIdenticalLunches/PackIdenticalLunches_s5_single.mp4"
+}

@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s17_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 8 (over-the-range microwave, as s4, s10, s23). Stage 0 was slow (430 steps, p90 358): the mushroom was grasped at 139 but carried up and away from the bowl (lift 0.84 m; 200-330 the wrist sees the upper cabinets and the bowl far off to the side) before coming down to the bowl at ~400 and releasing at 430, 0.10 m from the bowl centre (~150 steps lost). Stage 1: bowl and mushroom grasped together at 478 (the mushroom is touched as well), carried to the microwave, released inside at 898, stage 1 at 917 (487 steps). Stage 2: reached far left to the door's outer face (~1028) and closed it 1040-1125 (208 steps). Stage 3: pressed START/ENTER at 1285-1296 (161 steps). Success at 1286.",
+ "causal_chain": "",
+ "self_recovery": "none needed; the slow stage 0 was a detour with the mushroom in hand.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s17_overview.png", "frames/cmp_L8_afterplace.png"],
+   "packet_facts": ["vegetable hold 139-430 lift 0.842 dist 0.10", "bowl hold 487-898 lift 0.63", "door closed 1125", "microwave touch 1285-1296; success 1286"]},
+ "confidence": "medium", "uncertain_about": "Light check only; why the mushroom was carried up first is not clear."}

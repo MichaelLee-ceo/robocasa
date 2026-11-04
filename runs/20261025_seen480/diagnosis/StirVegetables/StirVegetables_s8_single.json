@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s8_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  1100,
+  1600
+ ],
+ "category": "other: stir misdirected - blade kept beside or on the rim of the pot, pushing the pot instead of sweeping the vegetables",
+ "secondary": [
+  "disturbed_placed_object"
+ ],
+ "what_happened": "Scene: layout 8, light pot (Pot075) on the rear-left burner of a gas range, garlic and eggplant on the counter right of the range, spatula_6 (teal handle, yellow blade) by a utensil holder in the right corner. Stage 0: garlic grasped 118, dropped in 243 (complete 245). Stage 1: eggplant grasped 412, dropped in 542 (complete 542). Stage 2: spatula grasped 689 on the handle, lifted (complete 715) and held to the end. Stage 3: the base turned back toward the range (camera view changes 840-1040); from ~1100 the blade (pointing down-left) came over the pot's right rim. 1180-1280 the blade sat at/inside the right rim and the pot tilted (left rim raised at 1220-1280); from ~1320 the pot was shoved so the burner flame shows in front of it. From 1340 to the end the arm occluded the pot in the agent view; the wrist view shows the pot's outer wall (rivets, handle) with the spatula handle crossing the rim, i.e. the blade stayed at the near rim. Stage 1 breaks at 1280, 1455, 1509. success_time 0.",
+ "causal_chain": "spatula held from 715 -> reached the pot only ~1100 after the base re-positioned -> blade worked at the right rim, tilting and shoving the pot 1180-1600 instead of sweeping through the vegetables -> no stir step counted -> timeout",
+ "self_recovery": "Kept re-positioning the blade along the right rim for ~500 steps; never moved it to the middle of the pot.",
+ "official_criterion_notes": "No pot position in the packet; the flame visible from ~1320 suggests the pot was displaced but whether it left the 0.15 m burner radius cannot be checked.",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png",
+   "frames/s8_stir.png",
+   "frames/s8_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg2 hold 118-243, veg1 hold 412-542",
+   "spatula close 689 width 0.037 lifted; stage2 715-1600",
+   "online log has stages 0-2 only; replay_matches_online_log false",
+   "success_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "After 1340 the arm hides the pot; whether the blade was inside the rim touching a vegetable or pressing the outer wall is inferred from the wrist view."
+}

@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s13_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 9 (wall-stack microwave, as s0, s2, s18, s20, s26). Stage 0: garlic grasped at 140, released into the black bowl at 253 (stage 0 at 246). Stage 1 was slow (596 steps, p90 596): the first bowl close at 306 lifted nothing (width 0.014), and the gripper hovered over the bowl until a second grasp at 452 lifted it (~150 steps lost). The garlic rubs against the fingers during the carry (vegetable 'holds' 611-780) but stays in. Bowl released inside at 823, stage 1 at 842. Stage 2: door shut 955-1040 (198 steps). Stage 3: approached the keypad from below and pressed START/ENTER at 1204-1216 (166 steps). Success at 1206.",
+ "causal_chain": "",
+ "self_recovery": "Re-grasped the bowl after a failed first close (306 -> 452).",
+ "official_criterion_notes": "The vegetable 'holds' 611-780 are fingertip contacts during the bowl carry, not grasps.",
+ "evidence": {"sheets": ["frames/s13_overview.png"],
+   "packet_facts": ["close_events 306 bowl lifted none; 452 bowl lifted", "bowl hold 467-823 lift 0.70", "door closed 1040", "microwave touch 1204-1216; success 1206"]},
+ "confidence": "medium", "uncertain_about": "Light check only."}

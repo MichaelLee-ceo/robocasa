@@ -1,0 +1,33 @@
+{
+ "tag": "PreSoakPan_s12_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  920,
+  1600
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene L1/S1, same faucet type as s23/s27. Stage 0 was slow (599; median 301, p90 414). The pan (pan_6, handle with a silver collar) sat on the counter right of the sink, by the paper-towel holder. The arm took until ~240 to find it and grasped the handle at 308. It lifted the pan 0.32 m, brought it over the right basin (inside from 455) and lowered it slowly, still holding, until 581 (~125 steps of holding in the basin). Stage 1: the sponge was grasped at 744 and placed in the pan at 848 (stage 1 at 906). Stage 2 had 694 steps left. 920-1330: the gripper hovered beside the faucet's stick lever, with the lever next to the left finger in the wrist view. There were only brief touches at 1286-1295, and the handle stayed at 0.000. 1400-1600: the arm moved right toward the paper-towel holder and wandered.",
+ "causal_chain": "slow stage 0 (599) but both objects in at 906 with 694 steps left (p90 385) -> ~410 steps hovering next to the stick lever 920-1330 with only ~10 steps of light contact -> moves away 1400-1600 -> water off",
+ "self_recovery": "none",
+ "official_criterion_notes": "Objects stayed in the basin.",
+ "evidence": {
+  "sheets": [
+   "frames/s12_overview.png",
+   "frames/s12_pan.png",
+   "frames/s12_faucet.png"
+  ],
+  "packet_facts": [
+   "sink touch [[538,538],[541,576],[1286,1288],[1291,1292],[1294,1295]] (538-576 = pan against the basin while lowering)",
+   "sink value 0.000 all",
+   "pan hold 308-581 lift 0.324 (at target from 455); sponge hold 744-848",
+   "stage0 599, stage1 906"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why stage 0 approach took 300 steps. The pan was not unusually far (0.30 m from the basin)."
+}

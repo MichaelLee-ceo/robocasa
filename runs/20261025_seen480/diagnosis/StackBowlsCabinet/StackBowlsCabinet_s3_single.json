@@ -1,0 +1,24 @@
+{
+ "tag": "StackBowlsCabinet_s3_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [341, 1400],
+ "category": "stall_holding_at_target",
+ "secondary": ["wander_away", "other: far-counter layout - bowls on a kitchen island ~2.5 m from the open cabinet (all 21 successes start ~0.47 m away)"],
+ "what_happened": "Scene layout 9/style 9 (navy kitchen with an island and bar stools). The robot starts facing the open cabinet, but the bowls (small striped bowl1 = bowl_6 x0.7, large brown bowl2 = bowl_8 x0.95) sit on the island 2.48-2.68 m away. The base drove to the island in the first ~300 steps (agent view changes 80-320) and then stayed there for the rest of the episode. Strategy: nest-then-carry (attempted). The gripper grasped the striped bowl at 330/341 and lifted it (max lift 0.40 m). 360-540 it held it right against the rim of the brown bowl (wrist view: both bowls overlapping), pushing the brown bowl ~18 cm without the fingers touching it, but never released the striped bowl into it. From ~560 it raised the bowl and pointed the wrist camera toward the far cabinet wall (600-880), then moved the arm around the island, finally down below the island top (1240-1396), still holding the striped bowl at the end (hold 341-end, release null; bowl tilted >45 deg 547-784 and 1221-1400). The brown bowl was never grasped, the base never drove back to the cabinet, stages 0 and 1 never held.",
+ "causal_chain": "bowls on an island 2.5 m from the cabinet (unusual layout) -> navigated to them and picked the small bowl (341) -> held it at the large bowl's rim 360-540 without releasing it into the bowl -> lifted it and kept it in the gripper for ~850 more steps while the arm wandered and the base stayed put -> no bowl ever approached the cabinet -> timeout",
+ "self_recovery": "none: the grasp was never released or re-attempted; two late re-closes (1302, 1382) were on the bowl already in hand.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s3_overview.png", "frames/s3_hold.png", "frames/s3_nestz.png", "frames/s3_late.png", "frames/s3_latew.png"],
+  "packet_facts": [
+   "dist_to_target_start: bowl1 2.68 m, bowl2 2.48 m (successes 0.45-0.49 m)",
+   "bowl1 hold grasp 341 release null lift 0.403; touch 341-1400",
+   "bowl2 never touched (min_eef 0.164) but end_pos moved 0.18 m from start",
+   "close_events 330, 1302, 1382 only"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the base moved at all after ~320 (the agent view looks fixed) and what the policy was trying to do with the raised bowl 560-1400; the agent view is mostly occluded by the arm near the bowls."
+}

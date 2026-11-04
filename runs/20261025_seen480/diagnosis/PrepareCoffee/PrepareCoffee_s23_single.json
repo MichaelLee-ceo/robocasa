@@ -1,0 +1,36 @@
+{
+ "tag": "PrepareCoffee_s23_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  292,
+  556
+ ],
+ "category": "other: mug tipped in the grip during placement - pitched over at the tray (~304), held tipped, then released and fell 0.10-0.13 m off target",
+ "secondary": [
+  "stall_holding_at_target",
+  "placed_off_target",
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene: layout 10, grey espresso machine CoffeeMachine051 (portafilter, steam wand, central dial; start button small and high on the upper-left front). The machine is outside the agent camera (right edge), so only the wrist camera sees it. Wide printed tea mug_8 on the upper shelf. Stage 0: grasp 136/150 (rim), carried to the machine by ~264 and held upright over the drip tray under the group head (264-292). From ~304 the mug rotated in the fingers (tipped > 45 deg from 305): wrist 316-528 shows it pitched over, side up, still in the grip at the front of the tray. It was held like that for ~230 steps and released at 535, 0.0999 m from the pour site; it dropped 7 cm and ended on its side 0.126 m away (tilt 83 deg), out of the wrist view. Stage 1: 584-1036 the gripper worked on the machine front: the fingers closed on the large central dial and held it 608-744 (width 0.021, i.e. gripping the dial knob as if to turn it), reopened, stayed with the dial between the open fingers 750-940, and closed again at 960-1016, then rose over the top (1010-1060). The machine never turned on.",
+ "causal_chain": "rim grasp; mug pitches over in the grip while being set on the tray (~304) -> held tipped 316-535 -> released, falls on its side 0.10-0.13 m from the pour site -> policy goes to the controls as if placed, grips and works the central dial (608-1036) instead of the upper-left start button -> timeout",
+ "self_recovery": "none for the mug. At the machine it tried for ~450 steps, but on the dial/front panel, not the start button.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_tip.png",
+   "frames/s23_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 150 release 535 dist 0.0999 -> 0.1259, height drop 0.069",
+   "tipped_over_intervals [[305,1200]], tilt end 82.9",
+   "machine touch 584-1036 (many intervals); turned_on never",
+   "closes on nothing 597, 949, 998",
+   "gripper width 0.021 during 616-736 (closed on the dial), 0.08 during 752-952"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The landing of the mug is out of view (agent camera does not see the machine), so its final pose is from the packet. Which visual control is the start_button geom on CoffeeMachine051 (model: upper-left, z=+0.157)."
+}

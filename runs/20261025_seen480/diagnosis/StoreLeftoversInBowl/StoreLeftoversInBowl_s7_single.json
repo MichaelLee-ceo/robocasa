@@ -1,0 +1,25 @@
+{
+ "tag": "StoreLeftoversInBowl_s7_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 10 (French-door fridge Refrigerator066), light wooden bowl_7, avocado, drumstick 013. Stage 0: avocado grasped 76, released in the bowl 164 (stage 0 at 168). Stage 1: drumstick grasped 294, carried with a base move and released in the bowl 450 (stage 1 at 452, 284 steps = p90; slow because of the move). Stage 2: rim grasp at 492 (width 0.032), lift 0.418 m. The bowl was tilted > 45 deg 717-863, and the drumstick was touched again 801-805. At ~840-866 it was lowered onto the lower glass shelf at x 0.276, the shallowest successful L10 placement, and released at 866 (rack contact from 853). Success at 889 (stage 2 437 steps = median).",
+ "causal_chain": "",
+ "self_recovery": "none needed",
+ "official_criterion_notes": "Shallowest successful L10 placement (x 0.276); the failed near-misses s29/s25/s26 are at 0.305-0.344, so the depth threshold lies between.",
+ "evidence": {
+  "sheets": [
+   "frames/s7_overview.png",
+   "frames/L10_final_compare.png"
+  ],
+  "packet_facts": [
+   "bowl hold 505-866 lift 0.418 at target; end x 0.276 z 1.095",
+   "bowl tipped 717-863"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

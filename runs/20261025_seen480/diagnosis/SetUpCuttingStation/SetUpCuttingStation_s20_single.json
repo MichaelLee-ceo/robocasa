@@ -1,0 +1,11 @@
+{"tag": "SetUpCuttingStation_s20_single", "success": false,
+ "failed_stage": 0, "root_cause_stage": 0, "root_cause_steps": [163, 600],
+ "category": "missed_grasp",
+ "secondary": ["skipped_or_wrong_stage", "stall_pre_grasp"],
+ "what_happened": "Scene: layout/style 9 (marble counter, navy drawers; same kitchen as s2/s3/s13/s23/s27); knife (knife_7, wooden handle) in the drawer; board and a round wooden plate with a thin, flat steak (steak_8) on the counter 1.47 m away (base move needed). Stage 0: the gripper came down onto the handle with open fingers at 163-177 (touch, no close) and rolled the knife onto its edge (tipped from 177, tilt ~122 deg). It then tried to grasp the edge-on handle: close at 311 (touched, no lift), 331 (fingers shut to 0.002, slipped), 367 (air), 443 (touched, no lift), 495 (air); the knife never rose more than 3 mm. At ~600-720 it left the knife in the drawer and moved the base to the board/plate (labeler: navigate 412, pick meat 720). Stage-1 behaviour on the steak: 870-1535 it made ten closes at the near edge of the flat steak (882, 997, 1077, 1213, 1374, 1439, 1521 touching; 928, 1184, 1294 on air); the best lift was 9 mm. The episode ended with the knife on its edge in the drawer and the steak on the plate.",
+ "causal_chain": "open-finger push on the handle 163-177 tipped the knife onto its edge -> five closes on the edge-on knife 311-495, none lifted it -> policy moved on to the meat without the knife (stage 0 skipped) -> ten failed grasps on a thin flat steak 882-1535 -> timeout with nothing on the board",
+ "self_recovery": "Five grasp attempts on the knife (311-495), all failed; then abandoned it. Ten attempts on the steak, all failed.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s20_knife.png", "frames/s20_meat.png"],
+   "packet_facts": ["knife touch 163-177 (no close), tipped_over from 177; tilt_end 121.9", "closes 311 (touch), 331 (w=0.002), 367 (air), 443 (touch), 495 (air); knife holds lift 0.000-0.003", "meat: 10 closes 882-1521, max lift 0.009 m", "labeler: NavigateKitchen 412, meat pick 720"]},
+ "confidence": "medium", "uncertain_about": "The wrist view is very close at 160-180, so the exact way the knife was tipped (finger tip on the handle edge vs the drawer wall) is inferred from the packet's touch+tip timing."}

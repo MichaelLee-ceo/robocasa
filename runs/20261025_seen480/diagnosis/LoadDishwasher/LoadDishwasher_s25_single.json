@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s25_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [508, 1131],
+ "category": "missed_grasp", "secondary": ["missed_grasp_continued_empty", "stall_pre_grasp", "ran_out_of_time"],
+ "what_happened": "Scene layout 6 (same kitchen as s16/s19, robot right of the dishwasher), red cup_4 and black bowl_5. Stage 0: first close on the cup at 161 lifted it, a re-close at 188, carried it over the rack and opened at 204 well above the rack (drop 0.396 m); the cup landed on the rack on its side (tipped 226-1200); stage 0 complete 212 (fast). Stage 1: the gripper came down over the black bowl and closed on its rim at 508 (lift 0.019), but the bowl slipped out at ~536 and settled on the counter 2 cm from where it was. The arm turned toward the rack anyway (548-572 wrist shows the rack and cup), came back over the bowl 620-672 (pinch 670-674, no lift), hovered over the counter 690-880, then made an empty trip to the rack 920-1040 (wrist shows only the cup in the rack; close on air 935). At ~1080 it returned to the bowl, touched it from 1103 (close 1103 no lift), gripped it at 1131-1140 and was carrying it down toward the rack at the timeout (bowl end z 0.81, 0.30 m from the dishwasher box, still in the gripper). The door was never touched.",
+ "causal_chain": "bowl rim grasp slipped at 536 after a 1.9 cm lift -> second pinch 670 failed -> ~200 steps hovering + empty trip to the rack 920-1040 -> bowl finally gripped 1131 -> in transit at the timeout (1200), door not started",
+ "self_recovery": "Two more attempts after the slip; the third (1131) held and was being carried to the rack when time ran out.",
+ "official_criterion_notes": "The cup counts as placed while lying on its side (tilt 49 deg at the end).",
+ "evidence": {"sheets": ["frames/s25_overview.png", "frames/s25_bowl1.png", "frames/s25_bowl2.png"],
+  "packet_facts": ["dish0 hold 166-204 drop 0.396; stage0 212", "dish1 holds 518-536 (lift 0.019), 670-674, 1131-end", "closes: 508 dish1 lifted, 935 air, 1103 dish1, 1140 dish1", "dishwasher never touched"]},
+ "confidence": "medium",
+ "uncertain_about": "Whether the 920-1040 rack visit was an intended 'place' with an empty hand or a re-look at the rack; there is a close on air at 935 over the rack, which suggests an empty place."}

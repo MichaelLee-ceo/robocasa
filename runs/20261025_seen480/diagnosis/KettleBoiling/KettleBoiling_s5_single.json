@@ -1,0 +1,32 @@
+{
+ "tag": "KettleBoiling_s5_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  228,
+  392
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: large floral kettle with a black handle on the counter right of a gas hob (pan on the left burners). Stage 0 was quick and clean: grasp at 88 (handle across the finger gap), lift 0.225 m, released at 189 on a right-hand burner 0.08 m from its centre, where it stayed. Physically placed at 189; stage 0 only counts at 393 because the gripper stayed within 25 cm of the kettle. Stage 1: the gripper went down to the knob row directly in front of the kettle. In the wrist view 228-352 the knob is under the fingers and the kettle body fills the top half of the image. The gripper rubbed the kettle (contacts 282-331 and 346-368, listed as lift-0 'holds'; the kettle stayed on target) and touched a knob 336-357 that moved only to 0.05 rad (rear_right). 360-392 it backed up and away. From ~420 to 1000 the arm stayed parked low on the right, with the wrist looking at the hob from a distance (420-800) or at the wall and hood (900). It never went back to a knob in the last ~600 steps.",
+ "causal_chain": "kettle placed on the right burner with its body over the knob row (189) -> cramped knob approach against the kettle (contacts 282-368) -> knob nudged to 0.05 rad (<0.35) at 336-357 -> retreated ~360 -> parked or idle 420-1000 -> burner off at timeout",
+ "self_recovery": "none: after leaving the knob at ~360 the policy made no second attempt in 640 steps.",
+ "official_criterion_notes": "Stage 0 first_complete_step 393 comes from the gripper-away (>=25 cm) clause. The kettle was on the burner from 189, so steps_since_previous_stage 393 looks slow but is not.",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png",
+   "frames/s5_place.png",
+   "frames/s5_knob.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 88 release 189 lift 0.225 dist 0.081; holds 282-332 and 346-369 lift 0.0/0.003 (contacts while at the knob)",
+   "stove touch [[336,357]]; value 0.05-0.06 from 352 to end; end rear_right 0.05",
+   "stage0 first_complete 393, complete to end"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Why the policy gave up after ~21 steps on the knob: kettle obstruction is my hypothesis from the wrist view. The packet has no kettle-burner field, so I cannot confirm that rear_right is the burner under the kettle (the kettle is visibly on the right side, which fits)."
+}

@@ -1,0 +1,35 @@
+{
+ "tag": "PrepareCoffee_s6_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  426,
+  625
+ ],
+ "category": "release_timing",
+ "secondary": [
+  "stall_holding_at_target",
+  "placed_then_fell_or_slid",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: layout 1, black boxy machine CoffeeMachine067 (dispenser cylinder under the housing, wide grate tray, two round buttons stacked on the left front corner), grey mug_9 on the upper shelf. Stage 0: first close on air 165, grasp 181, mug carried to the tray by ~360 and under the dispenser by 426. From 426 to 558 (~130 steps) the mug was exactly under the dispenser (at target; wrist view shows the rim right below the cylinder) but the gripper kept holding and pushing. At ~558 it pushed the mug further in/past the spout, the mug rotated in the fingers and tipped (>45 deg from 571, wrist 584-616 shows it leaning), and it was released only at 625, 0.0814 m from the pour site; it dropped 9 cm and lay on its side at the left of the tray (0.0793 m 2 s later, tilt 82.6 deg to the end). Stage 1: the policy went on as if the mug were placed: 752-807 and 920-946 the fingers came to the lower round button on the left front corner (button visible right at the fingertips) and touched the machine, but no press registered; brief touches again 969 and 1101-1111. The machine never turned on and the mug was never touched again.",
+ "causal_chain": "mug under the dispenser 426-558 but not released -> kept pushing, mug drifted past the spout and tipped in the grip (558-571) -> released 625 at 0.081 m, mug falls on its side -> policy proceeds to the button (752-946), misses it -> timeout with mug lying off target",
+ "self_recovery": "none for the mug. Two or three press attempts at the button (752-807, 920-946, 1101-1111) all missed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png",
+   "frames/s6_drift.png",
+   "frames/s6_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 181 release 625 dist 0.0814 -> 0.0793, height drop 0.089",
+   "at_target_intervals [[426,558]] (while held)",
+   "tipped_over_intervals [[571,1200]]",
+   "machine touch 482-529 (arm while holding), 770-807, 922-946, 1101-1111; turned_on never"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the button misses (752-946) were finger-gap misses as in s10/s18 or simply too low; the button is right at the fingertips in the wrist view."
+}

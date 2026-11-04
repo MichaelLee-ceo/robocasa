@@ -1,0 +1,25 @@
+{
+ "tag": "RinseSinkBasin_s1_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 5 (single grey basin, gooseneck). Stage 0: lever contact from 160, partial close 198 (0.052), water at 207 (normal). The arm rose to the overview pose (wrist looking down at the stream, ~292), then took the spout neck at 345 and swept it LEFT 359-408 (left washed 382, down to -1.13), and in the same contact segment (345-528) swept it back through centre to the right (+0.38 at 520, right washed 524, success 524). Stage 1 took 317 steps (median 263, p90 362): the left push went much further than needed (-1.13) and the return took ~140 steps.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png"
+  ],
+  "packet_facts": [
+   "online log [[208,0],[528,1]]; replay matches",
+   "fixture touch 345-528 (merged, one segment)",
+   "spout angle from saved states (column validated against packet washed_loc): L 382 (min -1.13), R 524"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

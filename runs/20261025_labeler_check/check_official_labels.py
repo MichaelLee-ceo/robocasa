@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 import robocasa.scripts.dataset_scripts.add_subtask_labels_to_lerobot as L
 
-R = os.environ["ROBOCASA_ROOT"]
+R = os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))
 SEEN = ["DeliverStraw", "GetToastedBread", "KettleBoiling", "LoadDishwasher", "PackIdenticalLunches", "PreSoakPan",
         "PrepareCoffee", "RinseSinkBasin", "ScrubCuttingBoard", "SearingMeat", "SetUpCuttingStation", "StackBowlsCabinet",
         "SteamInMicrowave", "StirVegetables", "StoreLeftoversInBowl", "WashLettuce"]

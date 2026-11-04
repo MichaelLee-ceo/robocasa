@@ -1,0 +1,8 @@
+{"tag": "ScrubCuttingBoard_s0_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene L9: dark-green sponge_8 on marble, cutting_board_4 to its left by the sink. Stage 0: closed at 90 (width 0.060), lifted, stage 0 from 99 (online 112). Stage 1: onto the board at ~160-179 (counter 1 at 179). The grasp test was blind 181-239 (finger_joint1 at its open limit) while the sponge was on the board. 240-294 a few quick strokes on the board gave 6 more points (criterion met at 264, 7 contacts, sweep 0.309). At ~300-330 it lifted the sponge, carried it back right over the counter and opened at ~332 (sponge dropped onto the counter); the gripper was 15 cm away at 350, success 350. The fastest episode (scrub phase 153 steps).",
+ "causal_chain": "", "self_recovery": "none needed",
+ "official_criterion_notes": "Even in this success, the counter was blind for 58 of the 153 scrub steps (181-239); the 6 points came in the 55 steps after it.",
+ "evidence": {"sheets": ["frames/s0_overview.png"], "packet_facts": ["online_stage_log [[112,0],[352,1]]", "process_progress_end contacts 7 sweep 0.309", "trace grasp False 181-239; release ~332; eef >0.15 at 350"]},
+ "confidence": "high", "uncertain_about": ""}

@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s21_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 0,
+ "root_cause_steps": [89, 1519],
+ "category": "missed_grasp",
+ "secondary": ["stall_pre_grasp", "missed_grasp_continued_empty", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 7; tomato_8 (lower shelf), tomato_7 and two drumsticks (ChickenDrumstick011/014) on the upper glass shelf; tupperwares on the dark counter by the toaster. Stage 0: the gripper came down at the bone end of drumstick meat0 and closed at 89 on the narrow bone tip (width 0.025); it lifted nothing (holds 98-111 and 116-124, lift <= 0.006). The fingers then stayed closed for ~1030 steps (112-1144) while the arm hovered in front of the shelf, the wrist view showing the drumstick and tomato almost unchanged (200-1000). At ~1140-1160 it drove to the counter and made an empty 'place' over the tupperware, then returned. At 1347 it closed on the tomato veg1 (also touching meat1), lifted it, and released it at 1501 in the tupperware (dist 0.05); stage 0 complete 1519 (typical 286, p90 339). Stage 1: back at the fridge ~1600, it closed on air just above the other drumstick at 1762 (brief contact 1753) and then kept the fingers closed to the end (1784-2600) with the wrist inside the upper shelf looking at the shelf/door; nothing else was lifted. 1 of 4 items placed.",
+ "causal_chain": "closed on the drumstick's bone tip and slipped (89) -> 1030 steps hovering with closed fingers + an empty place (~1150) -> first item only at 1501 (stage 0 at 1519, 1233 steps over the median) -> 1081 steps left for 3 items -> close on air above the next drumstick (1762) and the same closed-finger stall to timeout",
+ "self_recovery": "After the empty place it did come back and succeed with the tomato (1347-1501), but the drumstick attempt at 1762 repeated the same close-and-freeze failure.",
+ "official_criterion_notes": "Stage 0 shows 4 'object left the target' undo events (1938, 1966, 2110, 2398), all 1 step long while the robot is at the fridge; the tomato stays in the tupperware - contact flicker, not real undos.",
+ "evidence": {
+  "sheets": ["frames/s21_overview.png", "frames/s21_grasps.png"],
+  "packet_facts": ["close 89 w0.025 meat0 not lifted; meat0 holds lift <= 0.006", "width closed 112-1144 and 1784-2600", "veg1 hold g1354 r1501 lift 0.037 dist 0.052; stage0 1519", "close 1762 air"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether stage 1 alone would have failed with more time; it froze the same way, so the stage-0 delay is not the only cause."
+}

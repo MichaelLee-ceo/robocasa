@@ -1,0 +1,34 @@
+{
+ "tag": "GetToastedBread_s22_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  300,
+  800
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster at the far left of the counter, bread in the left-most slot (pair 0). Stage 0: by 300 the gripper was at the toaster's front with the LEFT (correct) lever handle at the bottom centre of the wrist view. It closed into a fist at 338-368 and touched the lever area 349-363 and 387-524, but moved the lever only 0.008. It never pushed it down. 614-670 the fist went over the toaster top next to the bread (bread contact 638-641, no lift), and 744-800 it touched the top/front again with no effect (lever max 0.02). It then backed off to the right: 848-1600 it hovered at the toaster's right end with the bread in view, with brief touches at 1055-1060 and 1128-1131. By 1800-2000 it had turned to the toaster oven on the other counter. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "reached the correct (left) lever by ~340 but never pushed it down (340-524, value <= 0.008) -> poked at the toaster top and bread (614-800) -> hovered at the right end 848-1600 -> turned to the toaster oven -> toaster never on",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s22_overview.png",
+   "frames/s22_press.png",
+   "frames/s22_zoom.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "lever max 0.008 (352) and 0.02 (640); done []",
+   "toaster touch 349-363, 387-524, 614-666, 744-800, 1055-1060, 1128-1131",
+   "obj touch 638-641 (hold lift 0)",
+   "gripper closed 368-2000; min_eef 0.089 m"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the fist was on top of the lever handle (pressing too lightly) or just below it (pushing against the housing) during 349-524."
+}

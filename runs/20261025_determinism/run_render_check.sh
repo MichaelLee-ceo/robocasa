@@ -1,7 +1,7 @@
 #!/bin/bash
 # render_check.py on GPU0: two solo runs one after the other, then two runs at the same time (same seeded server).
 set -u
-export ROBOCASA_ROOT=/home/michaellee/mclee/robocasa
+export ROBOCASA_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 source $(conda info --base)/etc/profile.d/conda.sh && conda activate $ROBOCASA_ROOT/envs/groot
 export CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0 MUJOCO_GL=egl MUJOCO_EGL_DEVICE_ID=0 PIP_CONFIG_FILE=/dev/null
 export NO_ALBUMENTATIONS_UPDATE=1 HF_HUB_CACHE=$ROBOCASA_ROOT/.hf_cache/hub

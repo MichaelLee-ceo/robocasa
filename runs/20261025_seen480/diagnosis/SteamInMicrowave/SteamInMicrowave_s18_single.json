@@ -1,0 +1,10 @@
+{"tag": "SteamInMicrowave_s18_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Style/layout 9 (wall-stack microwave MW071, as s0, s2, s13, s20, s26). Stage 0: cucumber grasped at ~171, released into the bowl at 350 (stage 0 at 350, near p90 358). Stage 1: bowl grasped at 397, tilted up to 72 deg while lifted into the cavity (tipped 709-828), released at 856 (it rocks past 45 deg for a moment, 851-881, then settles), stage 1 at 894 (544 steps, above the median 477). Stage 2: door pushed shut 993-1066, closed at 1062 (168 steps). Stage 3: the gripper went to the keypad with the panel upright in the wrist view and pressed START/ENTER at 1238-1248 (186 steps). Success at 1248.",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s18_button.png", "frames/s18_release.png", "frames/cmp_press_success_wrist.png"],
+   "packet_facts": ["vegetable hold 171-350", "bowl hold 405-856 lift 0.64; tipped 709-828, 851-881", "door closed 1062", "microwave touch 1238-1248; success 1248"]},
+ "confidence": "high", "uncertain_about": ""}

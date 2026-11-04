@@ -1,0 +1,35 @@
+{
+ "tag": "SearingMeat_s17_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  600,
+  672
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "missed_grasp",
+  "actuation_insufficient"
+ ],
+ "what_happened": "Scene: layout 8 (green cabinets, wood counters; same kitchen as s4/s10), pan_5 (long tan handle with black neck) on a high shelf above a microwave; target front_left burner of a 4-burner gas range to the left; shrimp on a decorated plate left of the range. Stage 0: grasp at 197-204 at the black neck of the handle (width ~0.047, hold 204-669); the pan hung nearly vertically below the fingers while the base turned to the range (tipped 514-641). 600-631 the pan was lowered near the front_left burner (at_target only 629-631, while still held and tilted), but as it came down flat the arm kept pushing/dragging it toward the back-right (640-668), and at release (669) the pan was 0.32 m from front_left, ending on the REAR_RIGHT burner (0.07-0.10 m from its centre; 0.367 m from front_left). Stage 1: the policy then treated front_left as the pan's place: two missed shrimp pinches (832, 1340, no lift), a real grasp at 1760 (lift 0.23 m), and at ~1964 it put the shrimp down on the empty front_left grate next to the pan (0.20 m from the pan centre). Stage 2: 2060-2300 the gripper touched the knob row repeatedly but no knob moved (all 0.0 at the end); then it hovered to the end.",
+ "causal_chain": "pan held by the neck, hanging -> lowered near front_left but dragged toward the back-right while being set flat (640-668) -> released on rear_right (669, 0.32-0.37 m from front_left) -> shrimp later dropped on the empty front_left grate (1964) -> knobs touched but none turned -> fail",
+ "self_recovery": "none for the pan (never touched again except two brief contacts 1911-1962 while placing the shrimp). Stage 1 needed three shrimp attempts (832, 1340, 1760).",
+ "official_criterion_notes": "stage 0 at_target [[629,631]] is a transient while the tilted pan was still held; it is not a real placement.",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_place.png",
+   "frames/s17_stage12.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "pan hold 204-669, dist at release 0.3226, end 0.367; tipped 514-641",
+   "pan_nearest front_left 0.185@608 -> rear_right 0.098@672 -> 0.069 end",
+   "shrimp holds 1354-1357 (lift 0), 1760-1964 lift 0.228, release 0.202 m from pan",
+   "stove touches 2060-2295; all knobs 0.0 at end"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the pan was dragged by the arm after touching down or swung out on release; the wrist shows the handle moving across the grate 640-668 with the fingers still closed. Burner names come from the packet (front_left vs rear_right), not checked against flames since no burner was lit."
+}

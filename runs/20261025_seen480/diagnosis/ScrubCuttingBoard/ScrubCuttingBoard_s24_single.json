@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s24_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [327, 800],
+ "category": "stall_holding_at_target",
+ "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene L4 (same layout as success s21): green sponge_4 on a white counter next to an espresso machine, dark cutting_board_4 ~30 cm to the right. Stage 0 normal: grasp 112-120, lifted 7.7 cm, stage 0 from 120/122 (online 128). Stage 1: the sponge came down at the board's far edge (196-220; the wrist view shows counter beyond the sponge, so it rode along the board's edge) and was wiped along that edge 220-436, with counted contacts at 217, 231, 248, 295, 327 (criterion met: 5, sweep 0.117), 369, 399 and 423. 460-800 it moved onto the middle of the board (wrist view: board all around the sponge) and kept making small motions there, adding only 2 points (654, 693). Grasp True and width 0.058 the whole time: it never lifted for a return and never opened.",
+ "causal_chain": "criterion met at 327 -> policy kept scrubbing for ~470 more steps (scrub phase 217-800 = 583+ steps vs 153-601 in successes) -> no release before the 800 timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s24_overview.png", "frames/groupA_end.png"],
+   "packet_facts": ["process_progress_end contacts 10 sweep 0.341", "trace criterion met 327", "grasp True 120-800, never touch&~grasp", "stage0 [[120,120],[122,800]]", "eef-sponge distance <= 0.02 m to 800"]},
+ "confidence": "high", "uncertain_about": "Exactly how the sponge sat on the board's edge during 216-400; the wrist camera cannot see under the sponge. The counted contacts and stage 0 (sponge not on the counter) both say it was on the board."}

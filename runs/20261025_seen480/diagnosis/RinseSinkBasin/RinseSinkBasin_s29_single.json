@@ -1,0 +1,31 @@
+{
+ "tag": "RinseSinkBasin_s29_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  480,
+  900
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene layout/style 10 (stem faucet, side lever; as s7, s15). Stage 0 slow: first lever contact 116-141 moved the handle only 0.01, then ~230 steps hovering near the faucet (wrist on the backsplash, 141-368), second contact 368-395 turned it on at 387 (median 189, p90 230). Stage 1: 474-536 the gripper pushed the spout arm LEFT (-0.13 at 484, -0.46 at 536) and paused there to ~608 while the arm repositioned (548-600, wrist on the counter and sink). 609-620 a second push reached -0.520 at 617, 0.004 rad (0.2 deg) short of the 'left' threshold (-0.5236). It then pushed the spout the other way: -0.38 (644), +0.10 (684), +0.60 (708; right washed 703), and kept it at the right end +1.04..+1.12 from 772 to 900 in contact.",
+ "causal_chain": "slow stage 0 (387, ~200 steps over median) -> left push reached -0.520 (617), 0.004 rad short of the threshold -> reversed and swung right (703) -> held right to 900 -> left never credited",
+ "self_recovery": "none: after the near-miss it never pushed left again.",
+ "official_criterion_notes": "Near-miss: the spout was swung 29.8 deg left of centre (threshold 30 deg); visually the stream had moved well toward the left, but the official zone was not entered. A 0.2-degree difference decided the episode.",
+ "evidence": {
+  "sheets": [
+   "frames/s29_overview.png",
+   "frames/s29_left.png"
+  ],
+  "packet_facts": [
+   "stage0 387 (typical 189/230); washed_loc [F,T,T], spout_ori right",
+   "fixture touch 116-141, 368-395, 474-535, 609-723, 745-900 (merged)",
+   "spout angle from saved states (run/<tag>_steps.npz, column validated against packet washed_loc/spout_ori); 'left' needs <= -0.524 rad, 'right' >= +0.524: -0.46@536-608, min -0.5200@617, +0.60@708, +1.12@788"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether a faster stage 0 would have changed anything: after the near-miss the policy held the spout at right for ~200 steps without trying left again, so time was not the binding limit."
+}

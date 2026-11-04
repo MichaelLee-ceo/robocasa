@@ -1,0 +1,35 @@
+{
+ "tag": "PreSoakPan_s17_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  996,
+  1600
+ ],
+ "category": "wander_away",
+ "secondary": [
+  "stall_at_fixture",
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene L8/S8, same faucet as s4/s8/s22/s28. Stage 0: pan (pan_8) grasped by the handle at 268 and released at 356 just above the basin edge (0.006 m outside the region). It dropped 14 cm into the basin and lies in it, tilted ~21 deg (stage 0 at 374). Stage 1 was slow (622 steps; median 281, p90 348). 420-600: the arm stayed raised with the wrist turned so that its camera looked at the robot's own links, while the base view shifted. During this it bumped the sponge, which briefly tipped at 551 (brief contacts 540-579). It reached the sponge at the basin's left edge only at ~780, pushed it (820-887), grasped it at 903 and dropped it into the pan at 976 (stage 1 at 996). Stage 2, 604 steps left (p90 385): 1000-1270 the arm wandered right and up (wall, utensil rail). 1284-1328: contact with the round spout head, the lever below it untouched. 1340-1600: it retreated right and looked down at the sink. The handle stayed at 0.000.",
+ "causal_chain": "stage 1 detour 374-903 (sponge reached only at ~780) -> both in at 996, still 604 steps left (more than p90 385) -> ~270 steps of wandering -> only 45 steps of contact, with the spout head instead of the lever -> retreat; lever never moved",
+ "self_recovery": "The policy recovered from the stage-1 detour (bumped sponge re-grasped at 903). It never got to the lever in stage 2.",
+ "official_criterion_notes": "Pan released 0.006 m outside the inside-region and fell 14 cm into the basin; it ended fully inside, so no issue. Objects were not disturbed in stage 2.",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_sponge.png",
+   "frames/s17_detour_left.png",
+   "frames/s17_handle.png"
+  ],
+  "packet_facts": [
+   "pan hold 268-356 at_target_at_release false dist 0.006 drop 0.136",
+   "sponge touches [[540,551],[561,570],...,[820,874],[903,975]], tipped [[551,552]]; hold 909-976",
+   "stage1 first 996 (622 steps; median 281)",
+   "sink value 0.000 all; touch [[1284,1328]] at the spout head"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "What the policy was doing at 420-600 (wrist pointing at its own arm). The 1284-1328 contact is with the spout head according to the wrist view; the packet only says 'sink'."
+}

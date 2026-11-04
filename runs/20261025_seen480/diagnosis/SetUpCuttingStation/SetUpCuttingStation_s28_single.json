@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s28_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 7 (same kitchen as s0/s5/s12: dark wood cabinets, orange tiles, toaster); knife (knife_5, wooden handle) in the drawer; board and a bowl-plate with a fish (fish_8) on the counter. Stage 0: grasped the handle at 371 (lift 0.42 m), released on the board at 488 (0.075 m from centre). Stage 1 (337 steps, between median and p90): after the release the arm rose and looked toward the wall/drawer (~600) before going to the plate; grasped the fish by the head at 722 (lift 0.12 m), placed it on the board crossing the knife at 806 (0.074 m from centre). Success at 827.",
+ "causal_chain": "",
+ "self_recovery": "none needed; a ~150-step detour after the knife release (around 600) before approaching the fish.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s28_overview.png"],
+   "packet_facts": ["close 371 lifted knife; hold 380-488 lift 0.42 dist 0.075", "meat close 722; hold 731-806 lift 0.12 dist 0.074"]},
+ "confidence": "high", "uncertain_about": ""}

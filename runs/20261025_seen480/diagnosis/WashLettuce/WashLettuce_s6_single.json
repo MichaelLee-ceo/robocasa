@@ -1,0 +1,37 @@
+{
+ "tag": "WashLettuce_s6_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  404,
+  1100
+ ],
+ "category": "missed_grasp_continued_empty",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene layout 5 / style 5: single-basin dark sink, gooseneck faucet; romaine lettuce (Lettuce009) in a perforated colander (Colander008) on the counter right of the sink, next to a mesh utensil holder. Stage 0 fast: fingers on the lever 112-178 (close at 118), water on at 170. Stage 1: the arm reached the colander 260-400 (wrist: colander rim and handle with the lettuce), closed at 404-410 at the rim (close_event 406 touching the lettuce, width 0.003 = fully closed, nothing lifted). The colander stayed behind: from 420 the wrist view shows only the empty basin and the stream (colander handle leaving the bottom of the view at 420-428), yet the arm carried on to the stream and moved around it empty-handed 424-540 (another close on nothing at 464, opened at ~512). 556-1100 it returned to the colander, which had been dragged ~10 cm toward the sink's right rim, and hovered/pushed at it with open fingers (width 0.08 from 520 to the end) without closing again. washed_time 0.",
+ "causal_chain": "water on 170 (fast) -> fingers closed at the colander rim at ~406 but slipped off, colander not lifted -> empty 'carry' to the stream 424-540 -> back at the colander 556-1100 with open fingers, never re-grasped (~540 steps) -> timeout",
+ "self_recovery": "It went back to the colander after the empty carry (556) and nudged it toward the sink, but never closed the fingers again; failed.",
+ "official_criterion_notes": "close_event 406 lists 'touching lettuce' while the fingers were really at the colander rim; the lettuce is the only tracked object.",
+ "evidence": {
+  "sheets": [
+   "frames/s6_overview.png",
+   "frames/s6_grasp.png",
+   "frames/s6_drop.png",
+   "frames/s6_drag.png",
+   "frames/s6_late.png",
+   "frames/s6_colander_pos.png",
+   "frames/colander008_grasp_compare.png"
+  ],
+  "packet_facts": [
+   "handle 0.06@160 0.50 from 176; water on 170",
+   "close_events 118 (lever), 406 (0.003, touching lettuce, not lifted), 464 (0.002, nothing)",
+   "gripper 0.077-0.080 from 520 to end",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The agent view shows a greenish patch at the gripper 416-468 that could be a lettuce leaf edge caught between the fingers, but the wrist view at the stream shows nothing held and the colander stays on the counter, so I read it as an empty carry. When exactly the colander was dragged toward the sink rim (406-416 or 556-600) is unclear. Colander008 pattern: all three slipped colander grasps in this task are on this colander model (s6, s14, s19); no visible difference from successful Colander008 grasps at the moment of closing."
+}

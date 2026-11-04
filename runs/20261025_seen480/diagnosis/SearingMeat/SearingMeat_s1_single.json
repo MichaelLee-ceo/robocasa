@@ -1,0 +1,36 @@
+{
+ "tag": "SearingMeat_s1_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  100,
+  1550
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "missed_grasp_continued_empty",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: layout 5, black kitchen; pan_5 (dark pan, long tan wooden handle with black neck) in the upper cabinet above the toaster, target front_left burner 1.20 m away; fish on a plate on the counter right of the range. Stage 0: the gripper came to the black neck of the handle at 91-113 and closed at 116 touching the pan, but only partially (width 0.028, then ~0.04): the wrist shows the handle running away from the fingers (up-right) rather than across them, i.e. the fingers pinched the neck/rim, not the handle shaft. 128-200 the arm drew back and dragged the pan ~3 cm (hold 124-205, lift 0.019 m); at ~205 the pan slipped out and the fingers closed fully (0.004 at 208) and never reopened for the rest of the episode. The pan stayed in the cabinet (end 1.17 m from the burner). 230-650 the base/arm turned right toward the range; 650-1550 the arm hovered high above the range/toaster/fish plate, empty-handed and closed, without descending to place anything. 1700-2900 it hovered low over the fish on its plate and pushed it with the closed fingers four times (1788, 2031, 2365, 2671; lift <= 6 mm).",
+ "causal_chain": "pinched the pan at the handle neck with a partial close (116) -> pan dragged 3 cm and slipped out at ~205 -> fingers closed fully and never reopened -> turned to the range empty-handed and hovered 650-1550 -> went to the fish with closed fingers 1700-2900 -> pan never left the cabinet -> timeout",
+ "self_recovery": "none: after the slip it never re-approached the pan and never reopened the gripper.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s1_overview.png",
+   "frames/s1_grasp.png",
+   "frames/s1_after.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "close 116 on pan width 0.028",
+   "pan hold 124-205 lift 0.019, dist at release 1.17",
+   "gripper closed (0.004) from 208 to end",
+   "fish touches 1788-1792, 2031-2034, 2365-2369, 2671-2673, lift <= 0.006",
+   "knobs all 0 throughout"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the pinch was on the handle neck or the pan rim (dark on dark in the wrist view)."
+}

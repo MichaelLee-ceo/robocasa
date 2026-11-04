@@ -1,0 +1,33 @@
+{
+ "tag": "GetToastedBread_s5_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  111,
+  416
+ ],
+ "category": "actuation_insufficient",
+ "secondary": [
+  "stall_at_fixture"
+ ],
+ "what_happened": "Scene: layout 4, small black single-pair toaster with the lever on its front face, bread in the left slot. The fingers closed at ~140 and stayed closed except for a blip at 1584-1616. Stage 0: from 111 to 416 the fist worked at the toaster's right/front edge (almost continuous contact). It moved the lever only to 0.05 (240) for ~250 steps, then pushed it to 0.53-0.64 at 384-416 (the bread dropped 3.5 cm with the carriage). Its last contact was at 416, short of the 0.9 needed to switch on. The lever sprang back up by 560. At ~440 the arm lifted away, and from 548 to 2000 it hovered around in front of and to the right of the toaster with the bread in view. It never touched the toaster again. The toaster was never on and the bread stayed in the slot.",
+ "causal_chain": "~270 steps at the toaster edge moving the lever 0-0.05 (111-380) -> one push to 0.64 (416), then let go below the 0.9 switch-on -> no second push; hovered 440-2000 -> toaster never on",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png",
+   "frames/s5_press.png",
+   "frames/s5_zoom.png"
+  ],
+  "packet_facts": [
+   "lever 0.05@240, 0.53@400, 0.64@416, 0@560; done []",
+   "bread dz -3.5 cm at 416",
+   "toaster touch 111-416 (nearly continuous), none after",
+   "gripper closed 144-2000 (blip 1584-1616); obj touch []"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

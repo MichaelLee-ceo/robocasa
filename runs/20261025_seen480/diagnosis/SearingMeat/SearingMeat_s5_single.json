@@ -1,0 +1,31 @@
+{
+ "tag": "SearingMeat_s5_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene: layout 7 (dark-wood cabinets, orange tiles; same kitchen as s12/s28), small 5-burner gas hob with a large 'center' burner; pan_4 (black non-stick, silver rim) in an upper cabinet; target 'center'; drumstick on a plate right of the hob. Stage 0: grasp at 77-85 at the handle base (lift 0.05 m, hold 85-378). While the base turned to the hob, the pan swung around the handle and flipped over (tipped from 216, tilt ~180 deg to the end; wrist 240-340 shows it hanging, 392 shows the black underside without the silver rim). It was released at 378 UPSIDE DOWN, 0.13 m from the center burner (0.134 m from rear_right). Stage 0 complete 386 (fast; median 378). Stage 1: drumstick grasped at 493 (lift 0.12 m) and set on top of the upturned pan bottom at 550 (wrist 520-540: drumstick on a black disc with no rim, unlike an upright pan_4 in s19); the official check counted it 'in the pan' from 548. Stage 2: center knob turned at 659-686 to 0.47 rad; success at 686.",
+ "causal_chain": "",
+ "self_recovery": "none needed by the official check; the policy never noticed that the pan was upside down.",
+ "official_criterion_notes": "FALSE-POSITIVE SUCCESS: the pan is upside down (tilt 179 deg from 216 to the end) and the drumstick lies on its upturned bottom. Neither stage 0 (pan near burner) nor stage 1 (check_obj_in_receptacle: contact + xy distance < 0.07 m) nor _check_success has an upright test. Visually this is not 'meat in the pan'. Also the pan sits nearer rear_right (0.134) than center (0.140) but still counts for center because rear_right is off.",
+ "evidence": {
+  "sheets": [
+   "frames/s5_overview.png",
+   "frames/s5_wrist_place.png",
+   "frames/s5_pan_zoom.png",
+   "frames/s5_upsidedown_vs_upright.png"
+  ],
+  "packet_facts": [
+   "pan tilt_deg_end 179.4, tipped [[216,688]]",
+   "pan hold 85-378, dist at release 0.132; pan_nearest rear_right 0.134 at end, center 0.140",
+   "stage0 386, stage1 548, stage2 686 (online 400/560/688)",
+   "center knob 0.05@672 -> 0.47@704"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s10_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [232, 379],
+ "category": "actuation_insufficient",
+ "secondary": ["official_criterion_issue", "release_timing"],
+ "what_happened": "Scene L8 (same kitchen as s8/s17): green sponge_6 on a dark wood counter, light cutting_board_9 ~50 cm to the left by the sink. Stage 0 normal: grasp 107-112, lifted 15 cm and carried 50 cm (base and arm moving, 120-232); stage 0 from 112. Stage 1: the sponge came down on the left part of the board at ~232-248 (z at its resting height on this board), and stayed pressed there while sliding ~9 cm right during 256-304, but finger_joint1 was at its open limit 250-307, so grasp was False and nothing was counted. Counter 1 at 308; then one slow pass to the right edge of the board (316-344, counter 2 at 341), the sponge partly over the counter at 344-376, released at 379 on the board's right edge (eef > 15 cm at 398). Final 2 contacts, sweep 0.182. It was one slow left-to-right pass, not a back-and-forth scrub. 400-800: arm up, looking around, no further attempt.",
+ "causal_chain": "long carry to a distant board (stage 0 lift 112 -> board 232) -> a single ~145-step pass, the first 60 steps of it uncounted because the grasp test was False (250-307) -> released at 379 with 2/5 contacts -> wandered to timeout",
+ "self_recovery": "none.",
+ "official_criterion_notes": "Blind window 250-307: sponge held (touch, sum width 0.058) and pressed at its on-board height while moving ~9 cm, but q1 >= 0.035, so the counter ignored it. With a contact-based grasp test this pass would probably have given 4-6 points, with sweep >= 0.18 m.",
+ "evidence": {"sheets": ["frames/s10_overview.png", "frames/s10_scrub.png", "frames/groupB_late.png"],
+   "packet_facts": ["process_progress_end contacts 2 sweep 0.182", "trace grasp False 250-307 and 356-375 while touch True", "sponge z +13..17 mm during 240-304 (rests at +13.4 mm on this board after release)", "counter increments 308, 341", "last touch 379, eef >0.15 at 398"]},
+ "confidence": "medium", "uncertain_about": "Whether the blind-window contacts alone would have reached 5. Even if they had, the scrub was short (one pass) compared with the successes."}

@@ -1,0 +1,26 @@
+{
+ "tag": "WashLettuce_s15_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 10 / style 10: dark sink, faucet with a short cylindrical side lever; romaine (Lettuce010) in a perforated colander on the counter LEFT of the sink. Stage 0 slow: the gripper was on the lever continuously 138-499 (one touch interval); the handle sat at ~0 until ~400 (the 6.28 samples 176-400 are the packet's wrap-then-abs artifact for an angle a hair below 0, so effectively 0: pressed marginally toward the off side, not turned), then rose 0.03-0.21 (416-480) and 0.49 at 496. Water on at 493 (median 253, p90 449). Stage 1 normal: arm swung left, grasped the colander rim at 644 (width 0.037), carried it right, and held it under the stream from ~768 (wrist view: the stream lands on the lettuce 768-784); success at 784 (291 steps).",
+ "causal_chain": "",
+ "self_recovery": "Recovered on its own from a ~260-step lever stall (138-400); finished with 316 steps to spare.",
+ "official_criterion_notes": "fixture value 6.28 = packet tooling artifact (angle a hair below 0 wrapped mod 2pi then abs); effective angle min(v, 2pi-v) ~ 0; water_on false in state_every_32_steps, consistent with the video.",
+ "evidence": {
+  "sheets": [
+   "frames/s15_overview.png"
+  ],
+  "packet_facts": [
+   "sink touch [[138,499]]",
+   "handle 6.28/0.00 176-400, 0.03@416 0.21@480 0.49@496; stage0 first complete 493",
+   "close_events 644 (0.037, colander)",
+   "success 784, washed_time 25"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

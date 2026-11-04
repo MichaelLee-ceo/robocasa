@@ -5,7 +5,8 @@ the rendered observation with the original one."""
 import os, sys, json, hashlib, argparse
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/third_party/Isaac-GR00T"))
+from paths import ROOT  # noqa: E402
+sys.path.insert(0, f"{ROOT}/third_party/Isaac-GR00T")
 import gymnasium as gym
 import robocasa  # noqa
 import groot_eval  # noqa  (registers the robocasa/* gym envs)
@@ -14,7 +15,7 @@ from oracle import reset_to, set_state
 ap = argparse.ArgumentParser()
 ap.add_argument("--tasks", default="KettleBoiling,PreSoakPan,StackBowlsCabinet,SteamInMicrowave,PrepareCoffee")
 ap.add_argument("--seeds", type=int, default=20)
-ap.add_argument("--out", default=os.path.expanduser(os.environ.get("ROBOCASA_ROOT", "~/Desktop/robocasa") + "/runs/scenes_seen5_v2"))
+ap.add_argument("--out", default=f"{ROOT}/runs/scenes_seen5_v2")
 a = ap.parse_args()
 os.makedirs(a.out, exist_ok=True)
 

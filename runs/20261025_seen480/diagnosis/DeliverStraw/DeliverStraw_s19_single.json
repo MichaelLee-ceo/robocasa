@@ -1,0 +1,36 @@
+{
+ "tag": "DeliverStraw_s19_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  1380,
+  1640
+ ],
+ "category": "stall_holding_at_target",
+ "secondary": [
+  "missed_grasp",
+  "stall_pre_grasp",
+  "ran_out_of_time"
+ ],
+ "what_happened": "Layout 8, red-white bendy Straw008, GlassCup023. Stage 0 slow: 165-383 repeated handle contacts and closes (331, 376) before the drawer jumped to 1.14 at 384 (stage 0 at 380, median 192). Straw: closed on it at 586 without lifting (hold 581-596, lift 0), then hovered above it 600-970 (close on air 839; drawer bumped 576-603 and 834-858); grasped at 971-991 and lifted 0.58 m at ~984 (straw pick ~600 steps after the drawer opened; successes ~165). Navigation 995-~1400. 1380-1600 the straw was held vertically beside the cup (brief contacts 1573-1575, 1581); at ~1600-1640 the arm swung right toward a chair and released at 1640, 0.54 m from the cup; the straw fell to the floor. Timeout at 1700.",
+ "causal_chain": "slow drawer (+190 steps) and missed first straw grasp + 380-step hover (586-970) -> at the cup only at ~1380 -> 220 steps beside the cup without inserting -> released 54 cm away (1640) -> timeout",
+ "self_recovery": "Recovered the missed straw grasp (re-grasp at 971 worked) but too slowly; no recovery at the cup.",
+ "official_criterion_notes": "Official success = straw touches the cup AND straw centre < 0.5 m horizontally from the cup centre AND gripper far; there is no 'inside' or upright test, so a straw lying across the rim or leaning on the outside of the cup would count once the gripper leaves.",
+ "evidence": {
+  "sheets": [
+   "frames/s19_overview.png",
+   "frames/s19_grasp.png",
+   "frames/s19_cup.png",
+   "frames/s19_cupzoom.png"
+  ],
+  "packet_facts": [
+   "stage0 first 380",
+   "hold 581-596 lift 0; hold 984-1640 lift 0.579 dist_at_release 0.538 height drop 1.227",
+   "closes 586 (straw, no lift), 839 on_nothing, 971/991 straw lifted",
+   "at_target [[1573,1575],[1581,1581]]"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether more time would have helped: the at-cup behaviour (220 steps beside it) looks like the hovering seen in s12/s21/s29, which had plenty of time."
+}

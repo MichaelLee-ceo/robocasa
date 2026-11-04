@@ -13,7 +13,7 @@ import glob, json, os, sys
 from collections import Counter, defaultdict
 import numpy as np
 
-R = "/home/michaellee/mclee/robocasa/runs"
+R = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))  # runs/
 D = f"{R}/20261026_critic_data"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "out")
 FQ = (12, 13)  # flattened-state index of the two finger joints (qpos 11, 12): same in every scene of the 3 tasks

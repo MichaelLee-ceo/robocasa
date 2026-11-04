@@ -1,0 +1,33 @@
+{
+ "tag": "GetToastedBread_s17_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  824,
+  2000
+ ],
+ "category": "wander_away",
+ "secondary": [],
+ "what_happened": "Scene: layout 4, black single-pair toaster, bread in the left slot. Stage 0: the fingers closed to a fist at 144-184 and it pushed the lever down at ~172 (the bread dropped 5.6 cm with the carriage), toaster on 171-670. The fingers stayed closed for the rest of the episode. During toasting it hovered in front of and above the toaster (220-440, 620-812) without touching it again. The lever rose 670-864 and stage 0 completed at 842 (online 848). Stage 1: at 720-812 the gripper was right at the toaster while the bread rose. At ~824 the arm lifted up and back, and by ~1100-1140 the base had turned right toward the fridge. From 1140 to 2000 the closed gripper poked at the fridge doors and handles. It never touched the bread. The bread stayed popped up in the toaster.",
+ "causal_chain": "lever pressed correctly at 172 -> pop-up done at 842 -> instead of reaching into the slot, the arm lifted away (824) and the robot turned to the fridge (1100-1140) -> fiddled with the fridge doors with closed fingers until timeout -> bread never left the toaster",
+ "self_recovery": "none.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s17_overview.png",
+   "frames/s17_press_wait.png",
+   "frames/s17_pop_dense.png",
+   "frames/s17_after_pop.png",
+   "frames/s17_late.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[848,0]]; stage0 first_complete 842",
+   "toaster on 171-670; toaster touch only 147-179",
+   "gripper closed from 184 to 2000 (small blips <=0.027 at 1256, 1552, 1608, 1920-1984)",
+   "obj touch [] / holds []; bread end pos = start pos"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the base actually drove toward the fridge or only rotated; the agent view shifts once (~1100-1140) and then stays fixed."
+}

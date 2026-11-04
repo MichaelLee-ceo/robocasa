@@ -1,0 +1,19 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly (e.g. pip install mink==0.0.5), otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:40)
+[robosuite WARNING] No private macro file found! (macros.py:28)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:29)
+[robosuite WARNING] To setup, run: python /home/michaellee/mclee/robocasa/robocasa/scripts/setup_macros.py (macros.py:30)
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+WARNING: mimicgen environments not imported since mimicgen is not installed!
+Creating KettleBoiling with split=target
+KettleBoiling_s1_single: 1001 states for 1000 steps | online history [] | replayed [] | same: True | last state == end.npz: True
+   official labeler segments (start frame, subtask, stage): [(0, 'PickPlaceCounterToStove', 'pick'), (123, 'PickPlaceCounterToStove', 'place'), (263, 'TurnOnStove', 'execute'), (703, 'done', 'done')]
+   validate(): []
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+Creating PreSoakPan with split=target
+PreSoakPan_s16_single: 1601 states for 1600 steps | online history [[16, 0]] | replayed [[16, 0]] | same: True | last state == end.npz: True
+   official labeler segments (start frame, subtask, stage): [(0, 'PickPlaceCounterToSink', 'pick'), (365, 'PickPlaceCounterToSink', 'place'), (500, 'PickPlaceCounterToSink', 'pick'), (1209, 'PickPlaceCounterToSink', 'place'), (1245, 'TurnOnSinkFaucet', 'execute'), (1600, 'done', 'done')]
+   validate(): ['water never turned on (faucet not detected)']

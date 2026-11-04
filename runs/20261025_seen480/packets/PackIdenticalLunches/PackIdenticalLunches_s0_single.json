@@ -1,0 +1,2589 @@
+{
+ "tag": "PackIdenticalLunches_s0_single",
+ "task": "PackIdenticalLunches",
+ "instruction": "Place one onion and one chicken drumstick in each tupperware on the nearby counter, to pack two identical lunches.",
+ "success": false,
+ "steps": 2600,
+ "horizon": 2600,
+ "success_step": null,
+ "online_stage_log": [
+  [
+   864,
+   0
+  ],
+  [
+   1360,
+   1
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 864,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 1360,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 7,
+  "style": 7,
+  "objects": {
+   "vegetable0": "objaverse/onion/onion_9/model.xml",
+   "vegetable1": "objaverse/onion/onion_6/model.xml",
+   "meat0": "lightwheel/chicken_drumstick/ChickenDrumstick014/model.xml",
+   "meat1": "lightwheel/chicken_drumstick/ChickenDrumstick011/model.xml",
+   "tupperware0": "lightwheel/tupperware/Tupperware037/model.xml",
+   "tupperware1": "lightwheel/tupperware/Tupperware038/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0788,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0788,
+   0.0656,
+   0.0653,
+   0.0649,
+   0.0646,
+   0.064,
+   0.0628,
+   0.0422,
+   0.0031,
+   0.0014,
+   0.0014,
+   0.001,
+   0.0012,
+   0.0013,
+   0.0014,
+   0.0015,
+   0.0016,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0027,
+   0.0018,
+   0.0269,
+   0.0715,
+   0.078,
+   0.0786,
+   0.079,
+   0.0793,
+   0.0794,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0799,
+   0.079,
+   0.0794,
+   0.0791,
+   0.0793,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0795,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0787,
+   0.0636,
+   0.0632,
+   0.0629,
+   0.0626,
+   0.062,
+   0.0617,
+   0.0613,
+   0.0608,
+   0.0604,
+   0.06,
+   0.0597,
+   0.0592,
+   0.0588,
+   0.0582,
+   0.0577,
+   0.0572,
+   0.0567,
+   0.0562,
+   0.0557,
+   0.0552,
+   0.0547,
+   0.0543,
+   0.0538,
+   0.0533,
+   0.0525,
+   0.0605,
+   0.0778,
+   0.0785,
+   0.0789,
+   0.0792,
+   0.0793,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0796,
+   0.0796,
+   0.0794,
+   0.0794,
+   0.0791,
+   0.0793,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0797,
+   0.0732,
+   0.0643,
+   0.0636,
+   0.0634,
+   0.0633,
+   0.0632,
+   0.063,
+   0.0628,
+   0.0628,
+   0.0624,
+   0.0622,
+   0.0621,
+   0.0619,
+   0.0618,
+   0.0617,
+   0.0617,
+   0.0616,
+   0.0615,
+   0.0615,
+   0.0614,
+   0.0612,
+   0.0611,
+   0.061,
+   0.0609,
+   0.0608,
+   0.0608,
+   0.0619,
+   0.0773,
+   0.0783,
+   0.0788,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0794,
+   0.0795,
+   0.0789,
+   0.0794,
+   0.0791,
+   0.0793,
+   0.0793,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0797,
+   0.0797,
+   0.0771,
+   0.0627,
+   0.0315,
+   0.0307,
+   0.0301,
+   0.0295,
+   0.0288,
+   0.0282,
+   0.0275,
+   0.0264,
+   0.0255,
+   0.0238,
+   0.0218,
+   0.0196,
+   0.009,
+   0.0023,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0345,
+   0.0768,
+   0.0782,
+   0.0788,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0796,
+   0.0794,
+   0.0791,
+   0.0789,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0779,
+   0.0783,
+   0.0788,
+   0.0792,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.08,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08,
+   0.0799,
+   0.0798,
+   0.0797,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.08,
+   0.08
+  ],
+  "close_events": [
+   {
+    "step": 158,
+    "width_after": 0.009,
+    "on_nothing": false,
+    "touching": [
+     "vegetable0"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 1575,
+    "width_after": 0.033,
+    "on_nothing": false,
+    "touching": [
+     "meat0"
+    ],
+    "lifted": [
+     "meat0"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 2,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": 864,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     864,
+     891
+    ],
+    [
+     893,
+     914
+    ],
+    [
+     916,
+     999
+    ],
+    [
+     1001,
+     1019
+    ],
+    [
+     1021,
+     1041
+    ],
+    [
+     1043,
+     1140
+    ],
+    [
+     1142,
+     2173
+    ],
+    [
+     2175,
+     2315
+    ],
+    [
+     2317,
+     2600
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 892,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 915,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1000,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1020,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1042,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1141,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2174,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2316,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 864,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 286,
+    "p90": 339,
+    "n": 4
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": 1345,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     1345,
+     1353
+    ],
+    [
+     1355,
+     1356
+    ],
+    [
+     1358,
+     1366
+    ],
+    [
+     1368,
+     1371
+    ],
+    [
+     1375,
+     1376
+    ],
+    [
+     1379,
+     1379
+    ],
+    [
+     1381,
+     1393
+    ],
+    [
+     1396,
+     1402
+    ],
+    [
+     1404,
+     1420
+    ],
+    [
+     1422,
+     1424
+    ],
+    [
+     1426,
+     1432
+    ],
+    [
+     1434,
+     1444
+    ],
+    [
+     1446,
+     1449
+    ],
+    [
+     1451,
+     1456
+    ],
+    [
+     1458,
+     1473
+    ],
+    [
+     1475,
+     1489
+    ],
+    [
+     1491,
+     1511
+    ],
+    [
+     1514,
+     1517
+    ],
+    [
+     1519,
+     1530
+    ],
+    [
+     1532,
+     1545
+    ],
+    [
+     1547,
+     1554
+    ],
+    [
+     1556,
+     1587
+    ],
+    [
+     1589,
+     1593
+    ],
+    [
+     1595,
+     1600
+    ],
+    [
+     1602,
+     1604
+    ],
+    [
+     1606,
+     1613
+    ],
+    [
+     1615,
+     1629
+    ],
+    [
+     1631,
+     1633
+    ],
+    [
+     1635,
+     1636
+    ],
+    [
+     1639,
+     1639
+    ],
+    [
+     1641,
+     1650
+    ],
+    [
+     1653,
+     1662
+    ],
+    [
+     1664,
+     1680
+    ],
+    [
+     1682,
+     1682
+    ],
+    [
+     1685,
+     1696
+    ],
+    [
+     1698,
+     1700
+    ],
+    [
+     1703,
+     1708
+    ],
+    [
+     1710,
+     1721
+    ],
+    [
+     1723,
+     1733
+    ],
+    [
+     1735,
+     1740
+    ],
+    [
+     1742,
+     1763
+    ],
+    [
+     1765,
+     1765
+    ],
+    [
+     1767,
+     1772
+    ],
+    [
+     1774,
+     1777
+    ],
+    [
+     1779,
+     1793
+    ],
+    [
+     1795,
+     1796
+    ],
+    [
+     1799,
+     1825
+    ],
+    [
+     1827,
+     1827
+    ],
+    [
+     1829,
+     1837
+    ],
+    [
+     1839,
+     1847
+    ],
+    [
+     1849,
+     1849
+    ],
+    [
+     1851,
+     1854
+    ],
+    [
+     1857,
+     1859
+    ],
+    [
+     1861,
+     1866
+    ],
+    [
+     1868,
+     1895
+    ],
+    [
+     1898,
+     1906
+    ],
+    [
+     1908,
+     1911
+    ],
+    [
+     1913,
+     1913
+    ],
+    [
+     1915,
+     1916
+    ],
+    [
+     1918,
+     1920
+    ],
+    [
+     1922,
+     1934
+    ],
+    [
+     1937,
+     1937
+    ],
+    [
+     1939,
+     1945
+    ],
+    [
+     1947,
+     1956
+    ],
+    [
+     1958,
+     1960
+    ],
+    [
+     1962,
+     1963
+    ],
+    [
+     1965,
+     1968
+    ],
+    [
+     1970,
+     1970
+    ],
+    [
+     1972,
+     1975
+    ],
+    [
+     1978,
+     1984
+    ],
+    [
+     1986,
+     1995
+    ],
+    [
+     1997,
+     2033
+    ],
+    [
+     2035,
+     2039
+    ],
+    [
+     2041,
+     2044
+    ],
+    [
+     2046,
+     2049
+    ],
+    [
+     2051,
+     2057
+    ],
+    [
+     2060,
+     2066
+    ],
+    [
+     2068,
+     2071
+    ],
+    [
+     2073,
+     2077
+    ],
+    [
+     2079,
+     2079
+    ],
+    [
+     2081,
+     2083
+    ],
+    [
+     2086,
+     2095
+    ],
+    [
+     2097,
+     2097
+    ],
+    [
+     2100,
+     2117
+    ],
+    [
+     2119,
+     2126
+    ],
+    [
+     2128,
+     2132
+    ],
+    [
+     2134,
+     2143
+    ],
+    [
+     2145,
+     2146
+    ],
+    [
+     2149,
+     2158
+    ],
+    [
+     2160,
+     2162
+    ],
+    [
+     2164,
+     2167
+    ],
+    [
+     2169,
+     2173
+    ],
+    [
+     2176,
+     2178
+    ],
+    [
+     2180,
+     2183
+    ],
+    [
+     2185,
+     2185
+    ],
+    [
+     2187,
+     2192
+    ],
+    [
+     2194,
+     2201
+    ],
+    [
+     2203,
+     2203
+    ],
+    [
+     2206,
+     2207
+    ],
+    [
+     2209,
+     2210
+    ],
+    [
+     2213,
+     2214
+    ],
+    [
+     2216,
+     2220
+    ],
+    [
+     2222,
+     2226
+    ],
+    [
+     2228,
+     2228
+    ],
+    [
+     2230,
+     2231
+    ],
+    [
+     2233,
+     2235
+    ],
+    [
+     2237,
+     2254
+    ],
+    [
+     2256,
+     2264
+    ],
+    [
+     2266,
+     2272
+    ],
+    [
+     2274,
+     2279
+    ],
+    [
+     2281,
+     2285
+    ],
+    [
+     2287,
+     2289
+    ],
+    [
+     2293,
+     2295
+    ],
+    [
+     2297,
+     2305
+    ],
+    [
+     2307,
+     2314
+    ],
+    [
+     2317,
+     2323
+    ],
+    [
+     2325,
+     2326
+    ],
+    [
+     2328,
+     2363
+    ],
+    [
+     2365,
+     2365
+    ],
+    [
+     2367,
+     2374
+    ],
+    [
+     2376,
+     2382
+    ],
+    [
+     2385,
+     2385
+    ],
+    [
+     2387,
+     2394
+    ],
+    [
+     2397,
+     2398
+    ],
+    [
+     2400,
+     2407
+    ],
+    [
+     2409,
+     2410
+    ],
+    [
+     2412,
+     2415
+    ],
+    [
+     2417,
+     2429
+    ],
+    [
+     2432,
+     2470
+    ],
+    [
+     2473,
+     2493
+    ],
+    [
+     2496,
+     2539
+    ],
+    [
+     2541,
+     2571
+    ],
+    [
+     2573,
+     2574
+    ],
+    [
+     2576,
+     2579
+    ],
+    [
+     2581,
+     2582
+    ],
+    [
+     2584,
+     2595
+    ],
+    [
+     2597,
+     2598
+    ],
+    [
+     2600,
+     2600
+    ]
+   ],
+   "undone_events": [
+    {
+     "step": 1354,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1357,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1367,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1372,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1377,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1380,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1394,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1403,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1421,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1425,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1433,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1445,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1450,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1457,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1474,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1490,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1512,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1518,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1531,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1546,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1555,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1588,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1594,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1601,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1605,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1614,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1630,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1634,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1637,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1640,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1651,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1663,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1681,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1683,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1697,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1701,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1709,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1722,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1734,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1741,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1764,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1766,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1773,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1778,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1794,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1797,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1826,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1828,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1838,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1848,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1850,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1855,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1860,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1867,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1896,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1907,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1912,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1914,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1917,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1921,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1935,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1938,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1946,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1957,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1961,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1964,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1969,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1971,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1976,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1985,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 1996,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2034,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2040,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2045,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2050,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2058,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2067,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2072,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2078,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2080,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2084,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2096,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2098,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2118,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2127,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2133,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2144,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2147,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2159,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2163,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2168,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2174,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2179,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2184,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2186,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2193,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2202,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2204,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2208,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2211,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2215,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2221,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2227,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2229,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2232,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2236,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2255,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2265,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2273,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2280,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2286,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2290,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2296,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2306,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2315,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2324,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2327,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2364,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2366,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2375,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2383,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2386,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2395,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2399,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2408,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2411,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2416,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2430,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2471,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2494,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2540,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2572,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2575,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2580,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2583,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2596,
+     "reason": "an object left the target"
+    },
+    {
+     "step": 2599,
+     "reason": "an object left the target"
+    }
+   ],
+   "steps_since_previous_stage": 481,
+   "window_start": 864,
+   "typical_in_successes": {
+    "median": 401,
+    "p90": 474,
+    "n": 4
+   }
+  },
+  {
+   "stage": 2,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 1345,
+   "typical_in_successes": {
+    "median": 419,
+    "p90": 505,
+    "n": 4
+   }
+  },
+  {
+   "stage": 3,
+   "skill": "PickPlaceFridgeToCounter",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 1345,
+   "typical_in_successes": {
+    "median": 393,
+    "p90": 401,
+    "n": 4
+   }
+  }
+ ],
+ "objects": {
+  "vegetable0": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.9301,
+    -3.4046,
+    1.4165
+   ],
+   "end_pos": [
+    5.473,
+    -3.1631,
+    0.0407
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 1.5654,
+   "dist_to_target_end_m": 1.4163,
+   "min_eef_dist_to_centre_m": 0.021,
+   "gripper_touch_intervals": [
+    [
+     109,
+     172
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 116,
+     "release_step": 165,
+     "lift_m": 0.054,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.3394,
+     "height_drop_after_release_m": 1.283,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.2998
+    },
+    {
+     "grasp_step": 169,
+     "release_step": 173,
+     "lift_m": 0.0,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.3548,
+     "height_drop_after_release_m": 1.232,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.2998
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 11.2,
+   "tilt_deg_end": 116.1,
+   "tilt_deg_max": 150.1,
+   "tipped_over_intervals": [
+    [
+     12,
+     2600
+    ]
+   ]
+  },
+  "vegetable1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.876,
+    -3.4157,
+    1.0938
+   ],
+   "end_pos": [
+    5.9802,
+    -1.3296,
+    0.9646
+   ],
+   "at_target_intervals": [
+    [
+     838,
+     891
+    ],
+    [
+     893,
+     914
+    ],
+    [
+     916,
+     999
+    ],
+    [
+     1001,
+     1019
+    ],
+    [
+     1021,
+     1041
+    ],
+    [
+     1043,
+     1140
+    ],
+    [
+     1142,
+     1701
+    ],
+    [
+     1703,
+     1765
+    ],
+    [
+     1767,
+     1960
+    ],
+    [
+     1962,
+     1984
+    ],
+    [
+     1986,
+     2057
+    ],
+    [
+     2059,
+     2066
+    ],
+    [
+     2068,
+     2071
+    ],
+    [
+     2073,
+     2097
+    ],
+    [
+     2099,
+     2173
+    ],
+    [
+     2175,
+     2207
+    ],
+    [
+     2209,
+     2220
+    ],
+    [
+     2222,
+     2226
+    ],
+    [
+     2228,
+     2254
+    ],
+    [
+     2256,
+     2285
+    ],
+    [
+     2287,
+     2315
+    ],
+    [
+     2317,
+     2383
+    ],
+    [
+     2385,
+     2385
+    ],
+    [
+     2387,
+     2395
+    ],
+    [
+     2397,
+     2410
+    ],
+    [
+     2412,
+     2430
+    ],
+    [
+     2432,
+     2539
+    ],
+    [
+     2541,
+     2571
+    ],
+    [
+     2573,
+     2579
+    ],
+    [
+     2581,
+     2600
+    ]
+   ],
+   "dist_to_target_start_m": 1.5791,
+   "dist_to_target_end_m": 0.0942,
+   "min_eef_dist_to_centre_m": 0.0139,
+   "gripper_touch_intervals": [
+    [
+     628,
+     835
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 650,
+     "release_step": 836,
+     "lift_m": 0.153,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.1281,
+     "height_drop_after_release_m": 0.099,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.1181
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 1.9,
+   "tilt_deg_end": 48.6,
+   "tilt_deg_max": 61.6,
+   "tipped_over_intervals": [
+    [
+     839,
+     844
+    ],
+    [
+     2509,
+     2600
+    ]
+   ]
+  },
+  "meat0": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.9263,
+    -3.2792,
+    1.0697
+   ],
+   "end_pos": [
+    5.1597,
+    -3.3253,
+    1.1065
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 1.4402,
+   "dist_to_target_end_m": 1.6959,
+   "min_eef_dist_to_centre_m": 0.0106,
+   "gripper_touch_intervals": [
+    [
+     1105,
+     1114
+    ],
+    [
+     1585,
+     1585
+    ],
+    [
+     1588,
+     1686
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 1105,
+     "release_step": 1115,
+     "lift_m": 0.013,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 1.4397,
+     "height_drop_after_release_m": 0.007,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 1.439
+    },
+    {
+     "grasp_step": 1585,
+     "release_step": 1687,
+     "lift_m": 0.288,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.7372,
+     "height_drop_after_release_m": 0.236,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.7054
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 9.9,
+   "tilt_deg_end": 85.2,
+   "tilt_deg_max": 91.4,
+   "tipped_over_intervals": [
+    [
+     1627,
+     1690
+    ],
+    [
+     1697,
+     1701
+    ],
+    [
+     1732,
+     1739
+    ],
+    [
+     1764,
+     2600
+    ]
+   ]
+  },
+  "meat1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    5.9038,
+    -3.3288,
+    1.0813
+   ],
+   "end_pos": [
+    5.9341,
+    -1.375,
+    0.9724
+   ],
+   "at_target_intervals": [
+    [
+     1321,
+     1322
+    ],
+    [
+     1325,
+     1325
+    ],
+    [
+     1327,
+     1329
+    ],
+    [
+     1332,
+     1334
+    ],
+    [
+     1336,
+     1341
+    ],
+    [
+     1344,
+     1353
+    ],
+    [
+     1355,
+     1356
+    ],
+    [
+     1358,
+     1366
+    ],
+    [
+     1368,
+     1371
+    ],
+    [
+     1375,
+     1376
+    ],
+    [
+     1379,
+     1379
+    ],
+    [
+     1381,
+     1393
+    ],
+    [
+     1396,
+     1402
+    ],
+    [
+     1404,
+     1420
+    ],
+    [
+     1422,
+     1424
+    ],
+    [
+     1426,
+     1432
+    ],
+    [
+     1434,
+     1444
+    ],
+    [
+     1446,
+     1449
+    ],
+    [
+     1451,
+     1456
+    ],
+    [
+     1458,
+     1473
+    ],
+    [
+     1475,
+     1489
+    ],
+    [
+     1491,
+     1511
+    ],
+    [
+     1514,
+     1517
+    ],
+    [
+     1519,
+     1530
+    ],
+    [
+     1532,
+     1545
+    ],
+    [
+     1547,
+     1554
+    ],
+    [
+     1556,
+     1587
+    ],
+    [
+     1589,
+     1593
+    ],
+    [
+     1595,
+     1600
+    ],
+    [
+     1602,
+     1604
+    ],
+    [
+     1606,
+     1613
+    ],
+    [
+     1615,
+     1629
+    ],
+    [
+     1631,
+     1633
+    ],
+    [
+     1635,
+     1636
+    ],
+    [
+     1639,
+     1639
+    ],
+    [
+     1641,
+     1650
+    ],
+    [
+     1653,
+     1662
+    ],
+    [
+     1664,
+     1680
+    ],
+    [
+     1682,
+     1682
+    ],
+    [
+     1685,
+     1696
+    ],
+    [
+     1698,
+     1700
+    ],
+    [
+     1702,
+     1708
+    ],
+    [
+     1710,
+     1721
+    ],
+    [
+     1723,
+     1733
+    ],
+    [
+     1735,
+     1740
+    ],
+    [
+     1742,
+     1763
+    ],
+    [
+     1765,
+     1772
+    ],
+    [
+     1774,
+     1777
+    ],
+    [
+     1779,
+     1793
+    ],
+    [
+     1795,
+     1796
+    ],
+    [
+     1799,
+     1825
+    ],
+    [
+     1827,
+     1827
+    ],
+    [
+     1829,
+     1837
+    ],
+    [
+     1839,
+     1847
+    ],
+    [
+     1849,
+     1849
+    ],
+    [
+     1851,
+     1854
+    ],
+    [
+     1857,
+     1859
+    ],
+    [
+     1861,
+     1866
+    ],
+    [
+     1868,
+     1895
+    ],
+    [
+     1898,
+     1906
+    ],
+    [
+     1908,
+     1911
+    ],
+    [
+     1913,
+     1913
+    ],
+    [
+     1915,
+     1916
+    ],
+    [
+     1918,
+     1920
+    ],
+    [
+     1922,
+     1934
+    ],
+    [
+     1937,
+     1937
+    ],
+    [
+     1939,
+     1945
+    ],
+    [
+     1947,
+     1956
+    ],
+    [
+     1958,
+     1963
+    ],
+    [
+     1965,
+     1968
+    ],
+    [
+     1970,
+     1970
+    ],
+    [
+     1972,
+     1975
+    ],
+    [
+     1978,
+     1995
+    ],
+    [
+     1997,
+     2033
+    ],
+    [
+     2035,
+     2039
+    ],
+    [
+     2041,
+     2044
+    ],
+    [
+     2046,
+     2049
+    ],
+    [
+     2051,
+     2058
+    ],
+    [
+     2060,
+     2077
+    ],
+    [
+     2079,
+     2079
+    ],
+    [
+     2081,
+     2083
+    ],
+    [
+     2086,
+     2095
+    ],
+    [
+     2097,
+     2098
+    ],
+    [
+     2100,
+     2117
+    ],
+    [
+     2119,
+     2126
+    ],
+    [
+     2128,
+     2132
+    ],
+    [
+     2134,
+     2143
+    ],
+    [
+     2145,
+     2146
+    ],
+    [
+     2149,
+     2158
+    ],
+    [
+     2160,
+     2162
+    ],
+    [
+     2164,
+     2167
+    ],
+    [
+     2169,
+     2173
+    ],
+    [
+     2176,
+     2178
+    ],
+    [
+     2180,
+     2183
+    ],
+    [
+     2185,
+     2185
+    ],
+    [
+     2187,
+     2192
+    ],
+    [
+     2194,
+     2201
+    ],
+    [
+     2203,
+     2203
+    ],
+    [
+     2206,
+     2210
+    ],
+    [
+     2213,
+     2214
+    ],
+    [
+     2216,
+     2228
+    ],
+    [
+     2230,
+     2231
+    ],
+    [
+     2233,
+     2235
+    ],
+    [
+     2237,
+     2264
+    ],
+    [
+     2266,
+     2272
+    ],
+    [
+     2274,
+     2279
+    ],
+    [
+     2281,
+     2289
+    ],
+    [
+     2293,
+     2295
+    ],
+    [
+     2297,
+     2305
+    ],
+    [
+     2307,
+     2314
+    ],
+    [
+     2317,
+     2323
+    ],
+    [
+     2325,
+     2326
+    ],
+    [
+     2328,
+     2363
+    ],
+    [
+     2365,
+     2365
+    ],
+    [
+     2367,
+     2374
+    ],
+    [
+     2376,
+     2382
+    ],
+    [
+     2384,
+     2394
+    ],
+    [
+     2396,
+     2398
+    ],
+    [
+     2400,
+     2407
+    ],
+    [
+     2409,
+     2415
+    ],
+    [
+     2417,
+     2429
+    ],
+    [
+     2431,
+     2470
+    ],
+    [
+     2473,
+     2493
+    ],
+    [
+     2496,
+     2574
+    ],
+    [
+     2576,
+     2582
+    ],
+    [
+     2584,
+     2595
+    ],
+    [
+     2597,
+     2598
+    ],
+    [
+     2600,
+     2600
+    ]
+   ],
+   "dist_to_target_start_m": 1.4907,
+   "dist_to_target_end_m": 0.1316,
+   "min_eef_dist_to_centre_m": 0.0056,
+   "gripper_touch_intervals": [
+    [
+     1106,
+     1314
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 1106,
+     "release_step": 1315,
+     "lift_m": 0.256,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.1641,
+     "height_drop_after_release_m": 0.125,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.1421
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 13.5,
+   "tilt_deg_end": 140.5,
+   "tilt_deg_max": 149.8,
+   "tipped_over_intervals": [
+    [
+     1320,
+     1372
+    ],
+    [
+     1628,
+     2600
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    117,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    251,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    361,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    531,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    636,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    775,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    842,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    1026,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    1110,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    1255,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    1321,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    1490,
+    "PickPlaceFridgeToCounter",
+    "pick"
+   ],
+   [
+    1589,
+    "NavigateKitchen",
+    "navigate"
+   ],
+   [
+    1698,
+    "PickPlaceFridgeToCounter",
+    "place"
+   ],
+   [
+    1763,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/PackIdenticalLunches/PackIdenticalLunches_s0_single.mp4"
+}

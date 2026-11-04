@@ -1,0 +1,36 @@
+{
+ "tag": "StirVegetables_s13_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  1140,
+  1344
+ ],
+ "category": "other: spatula slipped out of the grasp while the blade was pushed into the pot",
+ "secondary": [
+  "disturbed_placed_object",
+  "undid_previous_stage",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 9, deep black pot (Pot071) on the left burner, sweet potato and squash on the counter right of the hob, spatula_8 (black handle, slotted metal turner). Stage 0 was slow: the first close on the squash at 100 slipped (width 0.007, no lift) and the arm made an empty-handed trip to the pot (~228); it re-grasped the squash 397 and dropped it in 505 (complete 508; median 232). Stage 1: sweet potato grasped 653, dropped in 750 (complete 769). Stage 2: spatula grasped 888 at the butt end of the handle, lifted (complete 906). Stage 3: the base re-positioned (camera change ~1000) and from ~1100 the gripper came over the pot's right rim with the turner pointing into the pot. 1200-1268 the hand and spatula pressed on the right rim: the pot tilted (rim raised) and shifted, exposing the lit burner; the handle rotated in the fingers (1236-1256) and slipped out at ~1259 (stage 2 ends 1262; width 0.002 at 1280), the spatula falling into/onto the pot. The gripper reopened ~1344 and the arm left the stove; 1400-1600 it wandered (wrist view: floor and cabinets) without trying to retrieve the spatula. success_time 0.",
+ "causal_chain": "spatula held at the end of its handle -> pressed the hand/blade on the pot's right rim 1200-1260, tilting the pot -> handle slipped out of the fingers 1259 (stage 2 undone) -> gripper opened 1344 and arm wandered away -> no stir counted by 1600",
+ "self_recovery": "Stage 0 miss at 100 recovered (re-grasp 397). After the spatula slipped, no re-grasp attempt.",
+ "official_criterion_notes": "Packet first_incomplete_stage is 2 only because PickUpSpatula is evaluated as 'held and lifted now' (not latched); the online log completed stages 0-2, so the failed stage is 3.",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png",
+   "frames/s13_stir.png",
+   "frames/s13_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "close 100 on veg2 width 0.007 not lifted; veg2 holds 355-358 (lift 0), 397-505",
+   "stage0 first 508 (median 232)",
+   "spatula close 888 width 0.025 lifted; stage2 906-1262",
+   "close 1259 width 0.002 on spatula; gripper reopens 0.074 at 1344",
+   "success_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly where the spatula ended after slipping (inside the pot vs on the rim); whether the hand or the blade tilted the pot."
+}

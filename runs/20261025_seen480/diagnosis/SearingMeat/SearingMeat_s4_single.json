@@ -1,0 +1,37 @@
+{
+ "tag": "SearingMeat_s4_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  168,
+  1800
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "dropped_in_transit",
+  "skipped_or_wrong_stage"
+ ],
+ "what_happened": "Scene: layout 8 (green cabinets, wood counters), pan_7 (rusty cast-iron pan with a flat integrated handle) on a high shelf above a toaster oven; target front_left burner of a 4-burner gas range about 1.8 m to the left; shrimp on a plate left of the range. Stage 0: from ~120 the gripper sat over the flat handle with the handle under the fingers (touch 119-186) and closed at 178 fully (0.003), i.e. above the flat handle, not around it. As the arm pulled back (180-192) it dragged the pan off the shelf; the pan tipped (from 188, tilt ~97 deg) and fell, ending up standing on its edge against the front of the toaster oven. 400-1620 the policy made many attempts at the upright pan (closes on pan at 798, 878, 1092, 1297, 1497, several closes on air; no lift), and around 1617 the pan was knocked flat onto the counter. At 1697 it grasped the pan at the handle/body junction and lifted it (hold 1704-1795, pan hanging vertically) while the base turned toward the range; at ~1796 the pan slipped out and fell 1.03 m to the floor (end z 0.016). The policy then continued without the pan: picked the shrimp (2320, lift 0.24 m), set it directly on the bare front-left grate (~2464), and turned the front_left (task) knob to 3.13 rad (2656-2752); flame under the shrimp. Stages 0-2 never held.",
+ "causal_chain": "closed above the flat cast-iron handle (178) -> pan dragged off the shelf, fell onto the counter on its edge (188) -> ~1500 steps of failed re-grasps on the upright pan -> grasped at 1697 and lifted -> slipped and fell to the floor at ~1796 -> unrecoverable; shrimp put on the bare burner and task knob turned on anyway -> fail",
+ "self_recovery": "Persistent: ~10 re-grasp attempts over 1500 steps, one of which (1697) lifted the pan, but it was dropped to the floor ~100 steps later. No attempt after that.",
+ "official_criterion_notes": "stage2:stove done_intervals [[2656,2900]] = task knob on (3.13 rad) with no pan on the stove; stage 2 correctly never holds.",
+ "evidence": {
+  "sheets": [
+   "frames/s4_overview.png",
+   "frames/s4_slip.png",
+   "frames/s4_drop.png",
+   "frames/s4_shrimp_knob.png",
+   "frames/all_failure_grasp_wrist.png"
+  ],
+  "packet_facts": [
+   "close 178 on pan -> 0.003; pan tipped [[188,1620]], tilt max 97",
+   "8 pan holds 786-1621 with lift <= 0.003",
+   "hold 1704-1795 lift 0.108, drop_after_release 1.027 m; pan end z 0.016 (floor)",
+   "shrimp hold 2320-2464 lift 0.237",
+   "front_left 0.36@2656 -> 3.13@2752"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Exact finger position at 178 (handle appears under the fingers in the wrist view)."
+}

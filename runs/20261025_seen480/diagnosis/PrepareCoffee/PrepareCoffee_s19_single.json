@@ -1,0 +1,32 @@
+{
+ "tag": "PrepareCoffee_s19_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  132,
+  1200
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene: layout 6 (black CoffeeMachine047 below), round blue mug_7 on a wooden upper shelf with its handle facing the robot, reamer distractor beside it. Stage 0: the gripper came in level with the mug's mid-body rather than at the rim and closed at 132-160 around the front of the body/handle (contact 146-159). The fingers closed fully to 0.002 without lifting it (lift 0.001), i.e. they slid off the bulging body. The gripper then stayed closed (0.001) for the rest of the episode. It pushed the mug once more with the closed fingers (332-348, mug moved ~2 cm), moved right towards the machine side (~500), came back (800) and hovered above the shelf to the end. The mug never left the shelf.",
+ "causal_chain": "grasp aimed at the mug's mid-body/handle instead of the rim (132-160) -> fingers slip off, no lift -> gripper never reopens -> nudges and hovering with closed fingers for ~1000 steps -> timeout",
+ "self_recovery": "none effective: one nudge with closed fingers (332-348).",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s19_overview.png",
+   "frames/s19_grasp.png"
+  ],
+  "packet_facts": [
+   "holds: 146-160 lift 0.001, 332-349 lift 0.0 (pushes, not grasps)",
+   "close_events: 132 touching obj, lifted []",
+   "gripper width 0.001-0.002 from 160 to 1200 (never reopened)",
+   "mug end 0.24 m from target, still on the shelf"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the fingers were on the handle or the body; in the successes with the same mug model (s1, s16, s27) the fingers closed on the rim from above."
+}

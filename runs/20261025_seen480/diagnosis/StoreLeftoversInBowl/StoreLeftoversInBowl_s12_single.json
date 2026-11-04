@@ -1,0 +1,34 @@
+{
+ "tag": "StoreLeftoversInBowl_s12_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  582,
+  888
+ ],
+ "category": "dropped_in_transit",
+ "secondary": [
+  "other: the grasp pinched the drumstick lying across the rim rather than the bowl wall; the bowl hung by friction and slipped out, leaving the drumstick in the fingers",
+  "undid_previous_stage"
+ ],
+ "what_happened": "Layout 8 (dining table, tall fridge with the door open to the left of the table), black bowl_5, avocado, drumstick 011. Stage 0: avocado grasped 73, released in the bowl 187 (stage 0 at 189). Stage 1: drumstick grasped 362, carried ~1.1 m to the bowl with a base move (its plate is far from the bowl in this layout) and released at 528; stage 1 at 530 (341 steps, p90 284; slow mostly because of the base move). The drumstick lay across the bowl with its bone end over the rim. Stage 2: at 582-600 the gripper closed on the rim where the drumstick lay, touching bowl, drumstick and avocado (width 0.040). It carried the bowl to the fridge, the base turning left 680-840, with the drumstick clamped in the fingers and the bowl hanging from that pinch. At ~876-888, as the hand reached the fridge opening, the bowl slipped out of the pinch (no gripper opening; width 0.030 -> 0.027) and fell to the floor 0.59 m from the fridge interior with the avocado. The drumstick stayed in the gripper until the end (release null, end z 1.28): the arm took it into the fridge and held it there 900-1700.",
+ "causal_chain": "rim grasp at 582 clamped the drumstick lying across the rim, with the bowl held only by friction -> during the approach to the fridge the bowl slipped out (876-888) and fell to the floor with the avocado -> the drumstick stayed in the hand -> no food in a bowl in the fridge; nothing recoverable",
+ "self_recovery": "none: it kept holding the drumstick inside the fridge for 800 steps.",
+ "official_criterion_notes": "Stage 0 stays 'complete' to the end via the avocado lying on the floor touching the bowl (contact + xy distance), although the bowl is on the floor.",
+ "evidence": {
+  "sheets": [
+   "frames/s12_overview.png",
+   "frames/s12_slip.png"
+  ],
+  "packet_facts": [
+   "close 582 touching bowl, chicken_drumstick, vegetable",
+   "drumstick hold 589-null lift 0.384, end z 1.282",
+   "bowl hold 596-878 dist at release 0.585, drop 1.214",
+   "gripper 0.040 at 600 -> 0.027 at 880 (no opening)",
+   "stage1 since prev 341 (p90 284)"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the fingers held the bowl wall at all or only the drumstick; the wrist view shows the drumstick filling the grasp."
+}

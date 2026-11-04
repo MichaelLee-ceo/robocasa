@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s10_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [1800, 2513],
+ "category": "other: froze in the tucked (carry/navigation) arm pose at the fridge while holding the last item, base never drove (~700 steps), then the item slipped to the floor",
+ "secondary": ["dropped_in_transit", "ran_out_of_time"],
+ "what_happened": "Scene: layout/style 2; two bell_pepper_3 (both in the lower drawer), fish_6 (trout, meat0, upper shelf, standing tilted) and fish_7 (meat1); tupperwares by the knife block: round grey A (left) and rectangular B (right). Stage 0: touched the trout 35-85, grasped it at 102 and released it at 374 into A; stage 0 complete 402 (typical 286, p90 339; ~100 steps slow). Stage 1: grasped pepper veg0 at 620-623, released it at 762 into A next to the trout (A = correct pair); stage 1 complete 787 (385). Stage 2: grasped fish meat1 at 1029-1037, released it at 1262 into B; stage 2 complete 1282 (495, slightly slow). Composition was correct: putting the last pepper into B would have succeeded. Stage 3: grasped the second pepper veg1 in the lower drawer at 1735 and lifted it ~4 cm; at ~1790-1830 the arm swung into the tucked pose (wrist camera looking back at the robot's own arm, pepper held below the camera), and stayed there practically motionless with the pepper for ~700 steps (1830-2510) while the base did not drive. At ~2513 the pepper slipped out (fingers closed to 0.003) and fell to the floor in front of the fridge (end z 0.02). The last ~90 steps it hovered.",
+ "causal_chain": "stages 0-2 placed with the correct composition by 1262 (stage 2 at 1282) -> last pepper grasped at 1735 -> arm tucked into the carry pose and the robot froze there holding it (1830-2510), never driving to the counter -> pepper slipped to the floor at 2513 -> timeout; 3 of 4 placed",
+ "self_recovery": "none",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s10_overview.png", "frames/s10_fold.png"],
+  "packet_facts": ["meat0 hold g102 r374; veg0 hold g623 r762; meat1 hold g1037 r1262; stages 402, 787, 1282", "veg1 hold g1735 r2513 lift 0.04 drop 0.977 (floor)", "close 2505 veg1 w0.003", "end: v0 (1.49,-0.42) + m0 (1.55,-0.45) together; m1 (2.02,-0.35) alone"]
+ },
+ "confidence": "high",
+ "uncertain_about": "Why the base never started driving in the tucked pose (the same tucked pose precedes the drive in other episodes)."
+}

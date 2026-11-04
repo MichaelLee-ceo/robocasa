@@ -15,7 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from metrics import flags, traj_stats, window, finger_events, unwrap_dyaw  # noqa: E402
 
-R = os.environ.get("ROBOCASA_ROOT", "/home/michaellee/mclee/robocasa")
+R = (os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../..")))
 SEEN = f"{R}/runs/20261025_seen480"
 ABS = ("F1b", "F1c", "F3a", "F3b", "F5")
 REL = ("F1a", "F1r", "F2", "F4", "F4e")

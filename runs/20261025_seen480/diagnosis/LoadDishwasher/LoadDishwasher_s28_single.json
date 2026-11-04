@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s28_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [548, 600],
+ "category": "placed_then_fell_or_slid", "secondary": ["placed_off_target"],
+ "what_happened": "Scene layout 7 (kitchen island, orange tile floor; robot right of the dishwasher, same kitchen as s5 and success s12), white/pink cup_5 and shallow dark-red bowl_9. Stage 0: bowl grasped 125-134 (lift 0.008), released flat on the slid-out rack at 315; stage 0 complete 316 (normal). Stage 1: a close on air at 454 next to the cup, then the cup was grasped 470 (lift 0.067) and lowered at the rack's FRONT edge: 548-596 the wrist shows the cup under the fingers on/just behind the rack's front rail with the bowl deeper in the rack (cup touching the rack 562-575, 585-588). Released 595, the cup dropped 0.36 m off the front edge and stood upright on the open door in front of the rack (wrist 600-624). The policy treated loading as done: it pushed the rack in, got under the door and closed it (0.10@688, 0.62@720, 1.00@752; door done 740-1105), trapping the cup on the door; the cup ended at z 0.21 near the hinge/tub bottom, lying on its side. The gripper then stayed at the door's top/control panel to the end, and the door drifted back to 0.88 (touch 693-1167).",
+ "causal_chain": "cup lowered to the rack's front rail instead of the rack interior -> released at the edge (595) -> fell 0.36 m onto the open door -> door closed over it (740) -> cup not on the rack -> stage 1 never completes",
+ "self_recovery": "none: no attempt to re-pick the cup; the policy went straight to the door.",
+ "official_criterion_notes": "The door fixture is 'done' 740-1105 and 1114-1136 although stage 1 never held. Door closedness later fell to 0.88 while the gripper kept touching the door top, so stage 2 would have dropped anyway.",
+ "evidence": {"sheets": ["frames/s28_overview.png", "frames/s28_cupdrop.png"],
+  "packet_facts": ["dish1 hold 134-315; stage0 316", "close 454 on air; dish0 hold 470-595 lift 0.067 drop 0.364 at_tgt_rel false; at_target 562-575, 585-588 only", "dish0 end z 0.215 tilt 86", "door 1.00@752, done 740-1105; final 0.877"]},
+ "confidence": "high",
+ "uncertain_about": ""}

@@ -1,0 +1,25 @@
+{
+ "tag": "StackBowlsCabinet_s0_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [164, 340],
+ "category": "other: knocked the large bowl upside down while bringing the small bowl over to nest it",
+ "secondary": ["placed_off_target", "missed_grasp", "stall_pre_grasp"],
+ "what_happened": "Scene layout 5/style 5 (dark kitchen, upper cabinet above the left end of the counter): small red wooden bowl1 (bowl_9, x0.7) and larger tan textured bowl2 (bowl_7, x0.95) side by side. Strategy attempted: nest-then-carry. The gripper took bowl1 by the rim (closes 125 and 145, lift up to 0.226 m) and swung it left toward bowl2 while the agent camera moved (base/torso turning). At 168-176 the gripper / hanging red bowl ran into the near (right) rim of the tan bowl: bowl2 tipped onto its edge (176-208) and flipped completely upside down by ~232 (packet: bowl2 tipped_over from 175, tilt 180 deg to the end; no gripper-finger contact with bowl2 before 288, so the push came from the held bowl or the arm links). The policy carried on with the nesting motion and released bowl1 at 275 on top of the inverted tan dome; bowl1 slid down its side and tipped (tipped 342-1400, tilt 57-86 deg). It re-closed on bowl1 twice (284-302, 315-337, lift <1 cm) and then let it go. From ~400 to 1400 it repeatedly reached for the upside-down bowl2 (holds at 352, 405, 595, 621, 703, 766, 834, 854, 898, 1050, 1328; max lift 5 mm) and closed on air six times (495, 654, 716, 750, 911, 1073). Neither bowl was ever lifted toward the cabinet; stage 0 never held.",
+ "causal_chain": "small bowl grasped and lifted (125-160) -> while moving it over to nest, the held bowl/gripper hit the large bowl's rim at ~168 -> large bowl flipped upside down (~176-232) -> small bowl released on the inverted dome (275) and slid off, lying tilted -> a dome-up bowl has no graspable rim from above; 10+ grasp attempts 352-1332 never lift it -> no bowl ever enters the cabinet -> timeout at 1400",
+ "self_recovery": "Two re-grasps of the small bowl (284-302, 315-337) lifted <1 cm and were abandoned. About ten close attempts on the inverted large bowl (352-1332, max lift 5 mm) and six closes on air. It never tried to right the inverted bowl or to take the small bowl to the cabinet alone. None worked.",
+ "official_criterion_notes": "Packet gripper_touch_intervals for bowl2 start at 288, after the flip (175); the knock-over was not by the fingers (likely the held bowl or an arm link), so the packet has no contact record of the event that caused the failure.",
+ "evidence": {
+  "sheets": ["frames/s0_overview.png", "frames/s0_flip.png", "frames/s0_flipzoom.png", "frames/s0_place.png", "frames/s0_late.png"],
+  "packet_facts": [
+   "bowl2 tipped_over_intervals [[175,1400]], tilt_deg_end 180.0",
+   "bowl1 hold grasp 133 release 275 lift 0.226 dist_to_target 0.375 (on the counter)",
+   "bowl1 tipped_over [[342,1400]], tilt_end 56.9",
+   "bowl2: 9 holds 288-1332, max lift 0.005 m; close_events on air at 495, 654, 716, 750, 911, 1073",
+   "stage 0 and 1 never complete; both bowls end ~0.44-0.46 m from the cabinet"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Which part (the hanging red bowl, the fingers' outside, or the wrist link) hit the tan bowl at ~168; the agent view shows the held bowl and the wrist right at the tan bowl's right rim as it starts to tip, and the wrist camera does not see the tan bowl at that moment."
+}

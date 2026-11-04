@@ -1,0 +1,19 @@
+{
+ "tag": "PackIdenticalLunches_s23_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [160, 2600],
+ "category": "other: wrong destination - carried the item to a corner counter with no tupperware (tupperwares ~2.3 m away) and hovered there",
+ "secondary": ["dropped_in_transit", "stall_holding_at_target", "wander_away"],
+ "what_happened": "Scene: layout/style 10; two tomatoes and two fish (fish_7, fish_8) on the glass fridge shelves. Trip 1: grasped the large tomato veg0 at 56-64 (lift 0.275 m) and turned right from the fridge to the marble corner counter next to the microwave/utensil holder (148-200). No tupperware is on that counter (none visible in any frame I checked; packet distance to the nearest tupperware 2.27 m at release). It held the tomato at counter-edge height in front of that counter for ~220 steps (200-420) without placing it; at ~427 the tomato slipped out of the fingers (close event 419, width 0.002) and fell to the floor (436, end z 0.03). With closed empty fingers (432-1864) it then hovered at that corner for ~1450 steps, the wrist camera mostly looking at the tomato on the floor (448-1950). At ~1950-2040 it went back to the fridge and grasped fish meat0 at 2083 (lift 0.026 relative to the shelf), carried it to the same tupperware-free corner (2200) and held it there until the end (still held at 2600, 2.47 m from the nearest tupperware).",
+ "causal_chain": "drove the first item to the wrong counter (no tupperware there, ~2.3 m from the tupperwares) -> hovered holding it 200-420 -> tomato slipped to the floor 427 -> ~1450 steps hovering with closed fingers over the dropped tomato -> second item (fish, 2083) carried to the same wrong place and held to timeout -> 0 items placed",
+ "self_recovery": "It eventually (after ~1500 steps) went back for a second item, but took it to the same wrong counter.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": ["frames/s23_overview.png", "frames/s23_drop.png", "frames/s23_search.png"],
+  "packet_facts": ["veg0 hold g64 r427 lift 0.275 dist_at_release 2.268, drop 1.307 (floor)", "meat0 hold g2083 r None (held at end) dist 2.47", "close 419 w0.002", "width closed 432-1864"]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Where the tupperwares actually are in this scene: I never saw them in the video; the packet only gives distances (veg1 in the fridge is 1.56 m from the nearest tupperware). Layout 10 has two tupperware sites in this set: near (0.7, -2.9) in s7 and s15, and near (1.5, -0.4) in s17 and s29. The drop point (1.06, -2.78) is 2.4 m from the second site, which matches the packet's 2.27-2.47 m, so in s23 the tupperwares were most likely at the (1.5, -0.4) site and the policy drove to the other site, where tupperwares stand in s7/s15 (inference from positions, not seen)."
+}

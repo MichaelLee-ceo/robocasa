@@ -1,0 +1,26 @@
+{
+ "tag": "RinseSinkBasin_s23_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 1 (double basin, L-shaped spout tube; same scene as failure s27). Stage 0 slightly slow (247; p90 230): late first contact (199), close 211, water at 247. Stage 1 (391 steps; median 263, p90 362): 378-417 pushed the spout LEFT to -0.56 (left washed 414, barely past the threshold), then let go. 417-560 the arm left the spout and swung over the left basin with the wrist looking back to the right (the same manoeuvre that failed in s27). 599-640 the gripper came down onto the nozzle (wrist view filled by it at 604-624) and swept it right in ~35 steps (-0.48 at 604 -> +0.47 at 636; right washed 638, success 638).",
+ "causal_chain": "",
+ "self_recovery": "Released the spout after the left side (417) and was away for ~180 steps, but came back and completed the right side. Compared with s27, the spout had only gone to -0.56 here (s27: -1.02), so the nozzle was where the return motion reached it.",
+ "official_criterion_notes": "Left credited at -0.56, 0.04 rad past the threshold.",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_vs_s27_return.png"
+  ],
+  "packet_facts": [
+   "online log [[256,0],[640,1]]",
+   "fixture touch 199-262, 378-417, 599-640",
+   "spout angle from saved states (column validated against packet washed_loc): L 414 (min -0.56), R 638"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "What the arm was doing 417-560 (it looked like a repositioning, not a search)."
+}

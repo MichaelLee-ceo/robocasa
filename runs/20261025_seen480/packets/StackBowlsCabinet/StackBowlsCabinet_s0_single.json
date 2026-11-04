@@ -1,0 +1,663 @@
+{
+ "tag": "StackBowlsCabinet_s0_single",
+ "task": "StackBowlsCabinet",
+ "instruction": "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl.",
+ "success": false,
+ "steps": 1400,
+ "horizon": 1400,
+ "success_step": null,
+ "online_stage_log": [],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [],
+ "scene": {
+  "layout": 5,
+  "style": 5,
+  "objects": {
+   "bowl1": "objaverse/bowl/bowl_9/model.xml",
+   "bowl2": "objaverse/bowl/bowl_7/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0502,
+   0.041,
+   0.0187,
+   0.0178,
+   0.0176,
+   0.0195,
+   0.0226,
+   0.0251,
+   0.0259,
+   0.0276,
+   0.0288,
+   0.0289,
+   0.03,
+   0.0309,
+   0.0317,
+   0.0277,
+   0.0299,
+   0.0149,
+   0.0021,
+   0.0012,
+   0.0015,
+   0.001,
+   0.001,
+   0.001,
+   0.0011,
+   0.0333,
+   0.0054,
+   0.0012,
+   0.0068,
+   0.0708,
+   0.078,
+   0.0786,
+   0.079,
+   0.0793,
+   0.0748,
+   0.0526,
+   0.0041,
+   0.0018,
+   0.0013,
+   0.0027,
+   0.0018,
+   0.0013,
+   0.001,
+   0.001,
+   0.001,
+   0.0345,
+   0.0055,
+   0.0019,
+   0.0013,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0377,
+   0.0767,
+   0.0782,
+   0.0789,
+   0.0456,
+   0.0032,
+   0.0072,
+   0.0661,
+   0.0297,
+   0.0024,
+   0.0016,
+   0.0011,
+   0.001,
+   0.0029,
+   0.0332,
+   0.0768,
+   0.0298,
+   0.0024,
+   0.0016,
+   0.0502,
+   0.0137,
+   0.0032,
+   0.0502,
+   0.0793,
+   0.0799,
+   0.069,
+   0.0776,
+   0.0784,
+   0.0783,
+   0.0722,
+   0.0709,
+   0.0139,
+   0.0015,
+   0.0015,
+   0.0013,
+   0.002,
+   0.0011,
+   0.001,
+   0.001,
+   0.0408,
+   0.0085,
+   0.002,
+   0.0014,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0015,
+   0.0012,
+   0.0223,
+   0.0037,
+   0.0018,
+   0.0013,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0121,
+   0.0022,
+   0.0015,
+   0.0011,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001
+  ],
+  "close_events": [
+   {
+    "step": 125,
+    "width_after": 0.045,
+    "on_nothing": false,
+    "touching": [
+     "bowl1"
+    ],
+    "lifted": [
+     "bowl1"
+    ]
+   },
+   {
+    "step": 145,
+    "width_after": 0.018,
+    "on_nothing": false,
+    "touching": [
+     "bowl1"
+    ],
+    "lifted": [
+     "bowl1"
+    ]
+   },
+   {
+    "step": 264,
+    "width_after": 0.002,
+    "on_nothing": false,
+    "touching": [
+     "bowl1"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 335,
+    "width_after": 0.002,
+    "on_nothing": false,
+    "touching": [
+     "bowl1"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 405,
+    "width_after": 0.022,
+    "on_nothing": false,
+    "touching": [
+     "bowl2"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 495,
+    "width_after": 0.002,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 621,
+    "width_after": 0.014,
+    "on_nothing": false,
+    "touching": [
+     "bowl2"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 654,
+    "width_after": 0.004,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 716,
+    "width_after": 0.009,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 750,
+    "width_after": 0.003,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 834,
+    "width_after": 0.009,
+    "on_nothing": false,
+    "touching": [
+     "bowl2"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 911,
+    "width_after": 0.002,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   },
+   {
+    "step": 1073,
+    "width_after": 0.002,
+    "on_nothing": true,
+    "touching": [],
+    "lifted": []
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": 0,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceCounterToCabinet",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 318,
+    "p90": 427,
+    "n": 21
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToCabinet",
+   "kind": "pnp",
+   "first_complete_step": null,
+   "complete_at_end": false,
+   "complete_intervals": [],
+   "undone_events": [],
+   "steps_since_previous_stage": null,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 28,
+    "p90": 54,
+    "n": 21
+   }
+  }
+ ],
+ "objects": {
+  "bowl1": {
+   "target_of_stage": 0,
+   "start_pos": [
+    3.0096,
+    -3.246,
+    0.9459
+   ],
+   "end_pos": [
+    3.0502,
+    -2.7724,
+    0.9869
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 0.4741,
+   "dist_to_target_end_m": 0.4384,
+   "min_eef_dist_to_centre_m": 0.054,
+   "gripper_touch_intervals": [
+    [
+     132,
+     270
+    ],
+    [
+     274,
+     274
+    ],
+    [
+     284,
+     284
+    ],
+    [
+     286,
+     287
+    ],
+    [
+     289,
+     297
+    ],
+    [
+     299,
+     299
+    ],
+    [
+     301,
+     301
+    ],
+    [
+     315,
+     316
+    ],
+    [
+     319,
+     319
+    ],
+    [
+     321,
+     336
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 133,
+     "release_step": 275,
+     "lift_m": 0.226,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.3747,
+     "height_drop_after_release_m": 0.008,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.3822
+    },
+    {
+     "grasp_step": 284,
+     "release_step": 302,
+     "lift_m": 0.008,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.3814,
+     "height_drop_after_release_m": 0.036,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.416
+    },
+    {
+     "grasp_step": 315,
+     "release_step": 337,
+     "lift_m": 0.007,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.3796,
+     "height_drop_after_release_m": 0.051,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4309
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 0.1,
+   "tilt_deg_end": 56.9,
+   "tilt_deg_max": 85.9,
+   "tipped_over_intervals": [
+    [
+     342,
+     1400
+    ]
+   ]
+  },
+  "bowl2": {
+   "target_of_stage": 0,
+   "start_pos": [
+    2.7749,
+    -3.0949,
+    0.9609
+   ],
+   "end_pos": [
+    2.9275,
+    -2.7115,
+    0.9802
+   ],
+   "at_target_intervals": [],
+   "dist_to_target_start_m": 0.4624,
+   "dist_to_target_end_m": 0.4583,
+   "min_eef_dist_to_centre_m": 0.0634,
+   "gripper_touch_intervals": [
+    [
+     288,
+     297
+    ],
+    [
+     323,
+     324
+    ],
+    [
+     352,
+     361
+    ],
+    [
+     405,
+     415
+    ],
+    [
+     595,
+     603
+    ],
+    [
+     620,
+     627
+    ],
+    [
+     703,
+     711
+    ],
+    [
+     766,
+     769
+    ],
+    [
+     784,
+     799
+    ],
+    [
+     821,
+     841
+    ],
+    [
+     854,
+     890
+    ],
+    [
+     898,
+     900
+    ],
+    [
+     902,
+     910
+    ],
+    [
+     1050,
+     1072
+    ],
+    [
+     1328,
+     1331
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 288,
+     "release_step": 298,
+     "lift_m": 0.0,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4564,
+     "height_drop_after_release_m": 0.001,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4571
+    },
+    {
+     "grasp_step": 352,
+     "release_step": 362,
+     "lift_m": 0.001,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4552,
+     "height_drop_after_release_m": -0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4548
+    },
+    {
+     "grasp_step": 595,
+     "release_step": 604,
+     "lift_m": 0.0,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4547,
+     "height_drop_after_release_m": -0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4544
+    },
+    {
+     "grasp_step": 703,
+     "release_step": 712,
+     "lift_m": 0.001,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4529,
+     "height_drop_after_release_m": -0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4527
+    },
+    {
+     "grasp_step": 766,
+     "release_step": 770,
+     "lift_m": 0.004,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4479,
+     "height_drop_after_release_m": 0.004,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4518
+    },
+    {
+     "grasp_step": 854,
+     "release_step": 891,
+     "lift_m": 0.003,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4488,
+     "height_drop_after_release_m": -0.001,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4489
+    },
+    {
+     "grasp_step": 898,
+     "release_step": 911,
+     "lift_m": 0.001,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4488,
+     "height_drop_after_release_m": 0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4489
+    },
+    {
+     "grasp_step": 1050,
+     "release_step": 1073,
+     "lift_m": 0.005,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4512,
+     "height_drop_after_release_m": 0.003,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4552
+    },
+    {
+     "grasp_step": 1328,
+     "release_step": 1332,
+     "lift_m": 0.004,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.4515,
+     "height_drop_after_release_m": 0.005,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.4583
+    }
+   ],
+   "brief_contacts_without_lift": 3,
+   "tilt_deg_start": 0.1,
+   "tilt_deg_end": 180.0,
+   "tilt_deg_max": 180.0,
+   "tipped_over_intervals": [
+    [
+     175,
+     1400
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceCounterToCabinet",
+    "pick"
+   ],
+   [
+    145,
+    "PickPlaceCounterToCabinet",
+    "place"
+   ],
+   [
+    177,
+    "PickPlaceCounterToCabinet",
+    "place"
+   ],
+   [
+    365,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": [
+   "zero-length segment(s): subtask_idx skips [2]",
+   "expected 2 pick stages, found 1"
+  ]
+ },
+ "video": "run/StackBowlsCabinet/StackBowlsCabinet_s0_single.mp4"
+}

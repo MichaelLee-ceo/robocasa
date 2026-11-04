@@ -1,0 +1,31 @@
+{
+ "tag": "PreSoakPan_s27_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  860,
+  1600
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [],
+ "what_happened": "Scene L1/S1, same kitchen as s12/s23: tall gooseneck faucet with a thin black stick lever beside the column base. Stage 0: the cast-iron pan (pan_7) was grasped by the handle at 188 and released flat in the right basin at 329 (stage 0 at 347). Stage 1: the sponge sat far left of the sink. It was grasped at 545, carried right (lift 0.25 m) and dropped into the pan at 711; the fingers brushed the pan 700-716 (stage 1 at 751; 404 steps, p90 348). Stage 2 had 849 steps left. 760-860: the gripper moved to the faucet. 860-1600: it hovered just right of the column with the stick lever in the wrist view, next to the finger, for ~740 steps. It drifted a few cm but never touched the lever: the packet records no sink contact after 330. The handle stayed at 0.000.",
+ "causal_chain": "both objects in at 751 (849 steps left) -> gripper parks next to the stick lever at ~860 -> ~740 steps of hovering with no contact -> water off at 1600",
+ "self_recovery": "none",
+ "official_criterion_notes": "Objects stayed in the basin.",
+ "evidence": {
+  "sheets": [
+   "frames/s27_overview.png",
+   "frames/s27_faucet.png",
+   "frames/s27_faucet_zoom.png"
+  ],
+  "packet_facts": [
+   "sink touch only [[329,330]] (pan placement); none in stage 2",
+   "sink value 0.000 all episode",
+   "pan hold 188-329; sponge hold 545-711 lift 0.25",
+   "stage1 751"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

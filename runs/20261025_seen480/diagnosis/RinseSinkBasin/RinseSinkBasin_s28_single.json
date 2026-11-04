@@ -1,0 +1,27 @@
+{
+ "tag": "RinseSinkBasin_s28_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Layout 7. Stage 0 slow (286; median 189, p90 230): from ~176 the gripper pressed against the faucet NECK beside the lever (wrist view of the neck, static 176-264); the handle moved to 0.13 and stuck there for ~80 steps (192-272) while the spout was dragged to -0.11. At ~264-286 the gripper shifted onto the lever and turned it on (0.25 at 280, water at 286). Stage 1: spout taken 376 (close 375), swept LEFT (left washed 415, -0.75), then back toward the right; contact ended at 475 with the spout near centre and it reached +0.50 at 496 with no gripper contact (arm link, as in s15/s22), then a short contact 502-512 took it to the right (right washed 503, success 503). Stage 1: 217 steps.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from a stuck partial handle turn (0.13 rad for 80 steps; compare failure s17, which left at 0.23) by shifting from the neck onto the lever.",
+ "official_criterion_notes": "Spout moved +0.01 -> +0.50 during 475-502 with no gripper_touch interval (arm-link contact not recorded).",
+ "evidence": {
+  "sheets": [
+   "frames/s28_overview.png",
+   "frames/s28_handle.png"
+  ],
+  "packet_facts": [
+   "online log [[288,0],[512,1]]",
+   "fixture touch 172-176, 193-246, 267-284, 376-475, 502-512",
+   "handle 0.13 from 192 to 272, 0.50 at 288",
+   "spout angle from saved states (column validated against packet washed_loc): L 415, R 503"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exact finger placement during 176-264 (neck vs lever root)."
+}

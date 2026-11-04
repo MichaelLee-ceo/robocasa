@@ -1,0 +1,26 @@
+{
+ "tag": "SetUpCuttingStation_s3_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene: layout/style 9 (same drawer as s2/s13/s20/s23/s27); knife (knife_8, black handle) at the back of the navy drawer near the counter edge; the board and a plate with a shrimp are on another counter 2.4 m away (left of the sink), so a long base move is needed. Stage 0 was slow (1052 vs median 486, p90 724): first close at 323 on the handle (touch 283-335, no lift); a second close starting at ~410 met the handle at 431 and lifted it (0.48 m). It then carried the knife for ~620 steps while the base turned and drove around the kitchen (600-1000; the knife hung vertically in the fingers, 'tipped' 726-1045) and released it on the board at 1050 (0.097 m from centre). Stage 1 normal: close on air at 1160, grasped the shrimp at 1185, placed it on the board at 1267 next to the knife; success at 1293.",
+ "causal_chain": "",
+ "self_recovery": "Knife: one non-lifting close (323) before the lifting grasp (close begun ~410, contact 431). Shrimp: one air close (1160) before the grasp at 1185.",
+ "official_criterion_notes": "Knife 'tipped' 726-1045 only while hanging in the gripper during transport; lies flat on the board at the end (tilt 0.1). close_events labels the 410 close on_nothing although it is the successful knife grasp (contact began 21 steps into the closing).",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/cmp_layout9_drawer.png"
+  ],
+  "packet_facts": [
+   "closes 323 (knife, no lift), 410 (air), 1160 (air), 1185 (meat, lift)",
+   "knife hold 431-1050 lift 0.484 dist 0.097; knife dist_to_target_start 2.41 m",
+   "meat hold 1188-1267 dist 0.083"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

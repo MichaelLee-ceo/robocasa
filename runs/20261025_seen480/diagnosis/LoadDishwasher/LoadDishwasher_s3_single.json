@@ -1,0 +1,11 @@
+{"tag": "LoadDishwasher_s3_single", "success": false,
+ "failed_stage": 2, "root_cause_stage": 0, "root_cause_steps": [212, 543],
+ "category": "stall_holding_at_target", "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene layout 9 (navy cabinets, double sink; robot LEFT of the dishwasher, same view as successes s0, s13, s18, s26), red cup_4 and wooden bowl_7. Stage 0: bowl grasped 121-130 and brought over the slid-out rack by ~212, then held just above the rack 212-543 (~330 steps, 16 s), slowly lowering it with little visible change; released 543 (drop 0.126); stage 0 complete 546 (median 298, p90 336). Stage 1: cup grasped 737-751 (lift 0.107), released 880 on the rack where it tipped onto its side (tilt 65 deg); stage 1 complete 874 (328 steps, p90 272). Stage 2 (326 steps left): 880-1060 the arm backed off and looked at the dishwasher from a distance (wrist 928-1048: counter, rack, cup lying on its side), touched the door from 1057, got under it ~1100 (wrist shows the grey door underside and the floor tiles, as in successes) and was lifting it at the timeout: closedness 0.08 at 1120, 0.15 at 1168, 0.165 at 1200.",
+ "causal_chain": "bowl held over the rack 212-543 (~330 steps; successes hold a dish 70-310 steps in total) -> stage 0 at 546 (+248 over the median) -> stage 1 slightly slow (874) -> 180 steps of looking around 880-1060 -> door lift started ~1100 and was at 0.165 when the episode ended at 1200",
+ "self_recovery": "The policy did eventually release the bowl and completed both placements; the door close was under way at the timeout.",
+ "official_criterion_notes": "The cup counts as placed while lying on its side (tilt 65 deg).",
+ "evidence": {"sheets": ["frames/s3_overview.png", "frames/s3_bowlhold.png", "frames/s3_door.png"],
+  "packet_facts": ["dish1 hold 130-543 lift 0.039 drop 0.126; stage0 546", "dish0 hold 751-880, tipped 886-1200; stage1 874", "dishwasher touch from 1057; door 0.08@1120 0.15@1168 0.165@1200"]},
+ "confidence": "medium",
+ "uncertain_about": "Time loss is spread over three places (bowl hold ~250 extra steps, stage 1 ~90 extra, stage 2 hesitation ~180). In successes the door goes from 0.1 to 1.0 in 30-50 steps; here it rose only 0.08 in 80 steps, so the lift itself may have been weak and might not have finished even with more time. I did not check whether the rack was fully pushed in."}

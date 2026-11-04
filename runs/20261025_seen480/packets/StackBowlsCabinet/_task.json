@@ -1,0 +1,35 @@
+{
+ "task": "StackBowlsCabinet",
+ "instruction": "Pick up the bowls on the counter and stack them on top of one another in the open cabinet. Place the smaller bowl on top of the larger bowl.",
+ "stages": [
+  "0: PickPlaceCounterToCabinet",
+  "1: PickPlaceCounterToCabinet"
+ ],
+ "stage_definitions": [
+  {
+   "stage": 0,
+   "counts_as_complete": "one of the two bowls is inside the open cabinet and the gripper is no longer touching it.",
+   "does_not_count": "neither bowl is inside the cabinet yet (still held, on the counter, or only partly inside)."
+  },
+  {
+   "stage": 1,
+   "counts_as_complete": "both bowls are inside the cabinet, one bowl is nested inside the other, and the gripper has moved away from both (about 25 cm or more).",
+   "does_not_count": "a bowl is still outside the cabinet or still held, the bowls sit side by side instead of stacked, or the gripper is still at a bowl."
+  }
+ ],
+ "horizon": 1400,
+ "episodes": 30,
+ "successes": 21,
+ "typical_stage_steps_in_successes": {
+  "0": {
+   "median": 318,
+   "p90": 427,
+   "n": 21
+  },
+  "1": {
+   "median": 28,
+   "p90": 54,
+   "n": 21
+  }
+ }
+}

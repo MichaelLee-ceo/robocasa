@@ -1,0 +1,33 @@
+{
+ "tag": "StirVegetables_s3_single",
+ "success": false,
+ "failed_stage": 3,
+ "root_cause_stage": 3,
+ "root_cause_steps": [
+  1060,
+  1600
+ ],
+ "category": "other: stir misdirected - blade kept beside or on the rim of the pot, pushing the pot instead of sweeping the vegetables",
+ "secondary": [
+  "disturbed_placed_object"
+ ],
+ "what_happened": "Scene: layout 9 seen from a different base pose, tall black stockpot (Pot074) on the left burner, two limes, spatula_6 (teal handle, yellow blade) next to a utensil holder on the right counter. Stage 0: lime grasped 97, dropped in 258 (complete 261). Stage 1: second lime grasped 410, dropped in 596 (complete 603; slowish 342 vs median 282). Stage 2: spatula grasped 777 on the handle, lifted (complete 804) and held to the end. Stage 3: 804-1060 the robot carried the spatula back to the pot (the base moved; camera view changes ~880-1000). 1060-1600 the gripper stayed at the pot's right rim with the yellow blade pointing down just inside the right edge of the tall pot; it kept pressing there, and the pot was shoved to the left/back: the lit burner's flame becomes visible from ~1260 and is largely exposed by 1460-1600. Stage 0/1 conditions break repeatedly (1093-1538), consistent with the pot being shoved. The blade never went down and across through the middle of the pot where the limes lay; success_time stayed 0.",
+ "causal_chain": "spatula held from 804 -> back at the pot only at 1060 -> blade kept at the right rim of the tall pot, pressing on the wall 1060-1600 -> pot shoved off the burner centre, vegetables not stirred (success_time 0) -> timeout",
+ "self_recovery": "Small re-positionings of the blade along the right rim (1100-1600), none reached the limes.",
+ "official_criterion_notes": "No pot position in the packet; whether the pot left the 0.15 m burner radius late in the episode cannot be checked (flame largely exposed from 1460).",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_stir.png",
+   "frames/s3_pot_zoom.png"
+  ],
+  "packet_facts": [
+   "veg1 hold 97-258, veg2 hold 410-596",
+   "spatula close 777 width 0.04 lifted; stage2 804-1600",
+   "stage1 breaks at 1093, 1151, 1245, 1333, 1458, 1508, 1537",
+   "success_time 0"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the blade ever touched a lime (the limes sit low in a tall pot and are hidden from both cameras); the wrist view shows only the handle."
+}

@@ -1,0 +1,33 @@
+{
+ "tag": "DeliverStraw_s24_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  640,
+  1700
+ ],
+ "category": "other: navigation stopped ~1.4 m short of the cup; straw put down and fiddled with there",
+ "secondary": [
+  "placed_off_target",
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Layout 7, red-white bendy Straw008, GlassCup021. Stage 0 at 193. Straw grasped 316-329, lifted 0.58 m. The base drove to the dining island and stopped at ~640 at its near corner; the agent view is unchanged from 640 to 1696, so the base never moved again. The cup was ~1.4 m away along the counter (visible in the wrist view at 1300-1400). The arm lowered the straw onto the counter and released it at 891 (1.39 m from the cup), re-grasped it 954-971 (lift 2 cm) and 1001-1555 (lift 0.39 m), released at 1555, touched it again 1566-1615 and left it on the counter 1.15 m from the cup.",
+ "causal_chain": "base stopped at the wrong end of the dining counter (~640, 1.4 m from the cup) -> arm tried to 'place' the straw on the bare counter (891) -> repeated re-grasps 954-1615 without moving the base -> timeout",
+ "self_recovery": "Re-grasped the straw three times (954, 1001, 1566) but never moved the base toward the cup.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s24_overview.png",
+   "frames/s24_mid.png",
+   "frames/s24_late.png"
+  ],
+  "packet_facts": [
+   "holds 329-891 (dist 1.394), 954-971, 1001-1555 (dist 1.079), 1566-1615 (dist 1.158)",
+   "dist_to_target_end 1.155",
+   "at_target_intervals []"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Why the base stopped there; the cup is small and transparent and may not have been salient in the agent view from the robot's approach direction."
+}

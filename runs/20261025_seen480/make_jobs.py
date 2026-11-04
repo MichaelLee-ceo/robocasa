@@ -3,7 +3,7 @@ checkpoint with the official task instruction (baseline_seed), seeded action noi
 step's sim state saved (save_steps). usage: python make_jobs.py <out jobs.json> [comma-separated tasks] [seeds e.g. 0-29]"""
 import json, os, sys
 
-R = os.environ.get("ROBOCASA_ROOT", "/home/michaellee/mclee/robocasa") + "/runs/"
+R = (os.environ.get("ROBOCASA_ROOT") or os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../.."))) + "/runs/"
 SEEN = ["DeliverStraw", "GetToastedBread", "KettleBoiling", "LoadDishwasher", "PackIdenticalLunches", "PreSoakPan",
         "PrepareCoffee", "RinseSinkBasin", "ScrubCuttingBoard", "SearingMeat", "SetUpCuttingStation", "StackBowlsCabinet",
         "SteamInMicrowave", "StirVegetables", "StoreLeftoversInBowl", "WashLettuce"]

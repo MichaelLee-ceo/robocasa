@@ -1,0 +1,11 @@
+{"tag": "ScrubCuttingBoard_s2_single", "success": false,
+ "failed_stage": 1, "root_cause_stage": 1, "root_cause_steps": [289, 800],
+ "category": "stall_holding_at_target",
+ "secondary": ["ran_out_of_time"],
+ "what_happened": "Scene L9 (same kitchen as s0/s3/s13/s18/s20/s26): green sponge_4 on white marble right next to a large holed cutting_board_5, sink behind. Stage 0 normal: touch 101, lifted ~7 cm, moved ~10 cm onto the board (stage 0 from 104, online 112). Stage 1: first counted contact 165. The counter was blind for 194-245 (finger_joint1 at its open limit), and the scrub criterion (>= 5 contacts, sweep >= 0.10) was met at 289. The policy kept scrubbing: 290-490 small motions (about +/-5 cm) on the board's right half, then 490-776 with the sponge tilted 25-38 deg in the grip, wiping with its edge over a wider area (to 18 contacts, sweep 0.282 by 784). It never opened the gripper (width 0.056-0.063 throughout). At ~776-800 it lifted the sponge ~5 cm and started carrying it right, off the board towards its start position, which is the return-and-release move the successes make. The episode ended at 800 with the sponge still in hand, so the 'release and move 15 cm away' part never happened.",
+ "causal_chain": "scrub criterion met at 289 -> policy kept scrubbing for ~490 more steps (scrub phase 165-776 = 611 steps; successes release after 153-601, median 361) -> started the return move only at ~776 -> timeout at 800 with the sponge held",
+ "self_recovery": "n/a: the policy appeared to begin the release move at ~776, too late.",
+ "official_criterion_notes": "",
+ "evidence": {"sheets": ["frames/s2_overview.png", "frames/s2_mid.png", "frames/s2_end.png", "frames/groupA_end.png"],
+   "packet_facts": ["online_stage_log [[112,0]] only", "process_progress_end contacts 18 sweep 0.282", "trace: counter >= 5 and sweep >= 0.10 from 289", "touch 101-800, width never > 0.064", "eef-sponge distance <= 0.033 m from 36 to 800", "sponge z +5 cm at 800 (being lifted)"]},
+ "confidence": "high", "uncertain_about": "Whether the 776-800 move was really the start of a release; it matches the successes' return motion, but the episode ended too early to tell."}

@@ -1,0 +1,36 @@
+{
+ "tag": "PreSoakPan_s8_single",
+ "success": false,
+ "failed_stage": 2,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  643,
+  860
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "wrong_fixture_element",
+  "wander_away"
+ ],
+ "what_happened": "Scene L8/S8: paddle lever at the right of the column base, under a horizontal spout with a large round spray head. Stage 0: pan (pan_5, wooden handle) grasped by the handle at 133, placed flat in the basin and released at 296 (stage 0 at 310). Stage 1: sponge grasped at 413 and dropped into the pan at 534 (stage 1 at 568). Stage 2: the gripper went to the faucet at ~620 but stopped at the spout's round head. The wrist view 644-840 is filled by the head, with the lever visible below it. The packet's sink contacts 643-710 and 797-838 are the gripper against the head. The lever was never touched (handle 0.000 throughout). The fingers closed on nothing at 799. At ~850 the arm pulled away to the right and spent 860-1600 above and right of the sink and looking at the wall and utensil rail. It never came back to the faucet.",
+ "causal_chain": "both objects in by 568 (1032 steps left) -> gripper engages the spout head (643-838), one level above the lever under the spout arm -> lever never touched (0.000 rad) -> retreat at ~850 and 750 steps of wandering -> water off at 1600",
+ "self_recovery": "none",
+ "official_criterion_notes": "fixtures.sink.gripper_touch_intervals (643-838) are contacts with the spout head, not the lever; the packet does not separate faucet parts. Objects stayed in the basin.",
+ "evidence": {
+  "sheets": [
+   "frames/s8_overview.png",
+   "frames/s8_handle.png",
+   "frames/s8_faucet_zoom.png",
+   "frames/s8_after.png",
+   "frames/L8_faucet_start_compare.png"
+  ],
+  "packet_facts": [
+   "sink value 0.000 all episode, water_on never",
+   "sink touch [[643,674],...,[690,710],[797,797],[802,831],[833,838]]",
+   "close 799 on nothing",
+   "pan hold 133-296; sponge hold 413-534; stage1 568"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "That the contacts are with the spout head rests on the wrist view (head filling the frame at finger level). The packet only says 'sink fixture'."
+}

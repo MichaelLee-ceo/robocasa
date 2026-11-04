@@ -1,0 +1,34 @@
+{
+ "tag": "PrepareCoffee_s18_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  395,
+  1200
+ ],
+ "category": "other: missed button press - open fingers centred on the lower start button, button in the finger gap, contact only with the machine body",
+ "secondary": [
+  "stall_at_fixture",
+  "wrong_object",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 9, brown machine CoffeeMachine036 (SINGLE/DOUBLE buttons stacked on the front), printed tea mug_8 on the upper shelf, jug distractor. Stage 0: first close on air 94, grasp 110, mug under the spout by ~285; released 345 at 0.012 m (0.0146 m 2 s later), upright - an excellent placement, fast. Stage 1: 395-560 (~165 steps) the gripper stood head-on in front of the machine with the fingers open (0.078-0.080); the wrist view shows the lower DOUBLE button centred between the two fingertips, just above them. It was in contact with the machine body 405-560 but never with a button geom. At ~600 it backed off (640: wrist sees the whole counter), rose to the upper cabinet (800), and at 976 closed on nothing next to the jug distractor in the cabinet. It hovered away from the machine to the end; stage 0 complete from 581.",
+ "causal_chain": "mug placed 0.012 m at 345 -> press attempt 395-560 with open fingers centred on the DOUBLE button (button in the finger gap) -> machine never on -> left the machine at ~600, reached for the jug in the cabinet (976) -> timeout",
+ "self_recovery": "none: no second press attempt after leaving the machine at ~600.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s18_overview.png",
+   "frames/cmp_layout9_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 110 release 345 dist 0.012 -> 0.0146",
+   "machine touch 395-560 (several intervals), turned_on never",
+   "gripper width 0.078-0.080 during 376-568",
+   "close 976 on nothing (cabinet, near jug)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "That the finger gap is the reason the button contact did not register (inferred from the wrist view: button centred between open fingertips; s0/s2 on the same machine registered when one fingertip was on the button)."
+}

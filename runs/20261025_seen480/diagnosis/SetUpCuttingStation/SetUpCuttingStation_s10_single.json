@@ -1,0 +1,10 @@
+{"tag": "SetUpCuttingStation_s10_single", "success": true,
+ "failed_stage": null, "root_cause_stage": null, "root_cause_steps": null,
+ "category": null, "secondary": [],
+ "what_happened": "Scene: layout/style 8 (same drawer as s4/s8/s17/s22); knife (knife_5, wooden handle) in the olive drawer, dark board and a plate with a fish (fish_6) on the counter. Stage 0 was slow (773 vs median 486, p90 724): 237-319 the open fingers pressed on the handle and rolled the knife onto its edge (tipped from 315, blade vertical in the wrist view). Three closes on the edge-on handle failed (389, 443, 525; lifts 2-9 mm). At 618 it closed across the edge-on handle and lifted it (0.37 m), carried it to the board and released at 772 (0.066 m from centre); the knife lies on the board on its edge (tilt 69 deg at the end). Stage 1 was normal: grasped the fish by its body/tail at 868, placed it across the board next to the knife at 950 (0.116 m from centre), success at 970.",
+ "causal_chain": "",
+ "self_recovery": "Recovered from rolling the knife onto its edge: after three failed closes (389-525) the 4th close at 618 lifted it. Cost ~380 steps; the episode still finished at 970 of 1600.",
+ "official_criterion_notes": "The knife is counted as on the board while lying on its edge (tipped_over 315-976, tilt_end 69 deg); the condition has no orientation test. Harmless here.",
+ "evidence": {"sheets": ["frames/s10_overview.png"],
+   "packet_facts": ["knife touch 237-319 without close, tipped_over from 315", "closes 389, 443, 525 touching knife, no lift; 618 lifted", "knife hold 630-772 lift 0.367 dist 0.066", "meat hold 878-950 lift 0.106 dist 0.116"]},
+ "confidence": "high", "uncertain_about": ""}

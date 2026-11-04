@@ -1,0 +1,34 @@
+{
+ "tag": "WashLettuce_s19_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  420,
+  1100
+ ],
+ "category": "missed_grasp",
+ "secondary": [
+  "stall_pre_grasp"
+ ],
+ "what_happened": "Scene layout 6 / style 6: black double-basin sink, angular faucet with a small lever; romaine lettuce (Lettuce009) in a perforated colander with a loop handle (Colander008) on the counter right of the sink, a toaster oven further right. Stage 0 somewhat slow but within p90: the gripper hovered at the faucet 160-250, touched the lever 252-361 and turned it gradually (0.04 at 288, 0.30 at 320, 0.39 at 336-352), water on at 357 (median 253, p90 449). Stage 1: it reached the colander at ~404 and descended over the bowl next to the lettuce (wrist 412-436); the fingers closed at ~420-444 on the near bowl wall, not on the loop handle, and went fully closed (0.009 -> 0.001): nothing held, close_event 422 on nothing. The arm rose 456-520 leaving the colander on the counter. From 520 to the end it hovered above and beside the colander with the fingers still fully closed (width 0.001 for the whole remaining ~680 steps), the wrist camera pointed toward the toaster oven with the colander only at the bottom edge of the view. It never re-opened the gripper or tried again. washed_time 0.",
+ "causal_chain": "water on 357 (slowish, normal range) -> single grasp at the colander bowl wall slips (~420-444) -> fingers stay closed and the arm hovers above the colander 520-1100 without re-opening -> timeout with the lettuce on the counter",
+ "self_recovery": "none: the gripper never re-opened after the miss.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s19_overview.png",
+   "frames/s19_grasp.png",
+   "frames/s19_late.png",
+   "frames/grasp_compare_wrist.png",
+   "frames/colander008_grasp_compare.png"
+  ],
+  "packet_facts": [
+   "sink touch [[252,260],...,[274,321],...,[353,361]]; handle 0.04@288 0.11@304 0.30@320 0.39@336 0.44@368; stage0 first complete 357",
+   "close_events 422 (0.009, on_nothing); gripper 0.001 from ~440 to 1100",
+   "washed_time 0"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the fingers touched the colander at all (packet cannot tell: colander untracked); the wrist view shows them closing at the bowl wall next to the lettuce. Colander008 pattern: all three slipped colander grasps in this task are on this colander model (s6, s14, s19); no visible difference from successful Colander008 grasps at the moment of closing."
+}

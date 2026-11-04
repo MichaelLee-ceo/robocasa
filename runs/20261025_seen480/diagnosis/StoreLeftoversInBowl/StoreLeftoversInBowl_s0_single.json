@@ -1,0 +1,41 @@
+{
+ "tag": "StoreLeftoversInBowl_s0_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 2,
+ "root_cause_steps": [
+  1096,
+  1276
+ ],
+ "category": "placed_off_target",
+ "secondary": [
+  "other: bowl rotated onto its side in the rim pinch grasp during the carry (tilt > 45 deg from 1096)",
+  "placed_then_fell_or_slid",
+  "undid_previous_stage",
+  "stall_holding_at_target"
+ ],
+ "what_happened": "Layout 10 (French-door fridge Refrigerator066, glass shelves), deep brown wooden bowl_8, cucumber, drumstick 013. Stage 0: cucumber grasped 82 and dropped into the bowl at 145 (stage 0 from 146). Stage 1: drumstick grasped 306, carried over the bowl by ~410 and then held just above the bowl rim, slowly lowering, until 633 (~220 steps; wrist view almost unchanged 450-620); stage 1 at 634 (488 steps after stage 0, median 216). Stage 2: 680-900 the gripper fumbled at the rim, re-grasping the drumstick end that stuck out over the rim (drumstick holds 687-820, 901-928) and tipping the bowl; at 902-936 it closed on the bowl rim together with the drumstick and lifted it (0.445 m). The base drove to the fridge 960-1150. The bowl rotated in the pinch grasp and was carried on its side, opening toward the robot (tipped_over 1096-1210). At 1180-1260 the arm held the tilted bowl high, against the front edge of an upper glass shelf (ice-tray distractor on it), not on the shelf. The gripper opened 1192-1248 (0.022 -> 0.072) and then closed fully (0.005 at 1264): the bowl slid off the shelf edge and fell ~1.26 m to the floor at ~1268-1276, landing upside down with the drumstick under it and the cucumber beside it. The arm stayed in the fridge for the remaining 430 steps without trying to pick anything up.",
+ "causal_chain": "rim pinch grasp (with the drumstick in the fingers) let the bowl rotate onto its side during the carry (1096) -> at the fridge the tilted bowl was pressed against the front edge of a high shelf instead of set onto it (1180-1260) -> gripper opened at ~1192-1248 with the bowl not supported -> bowl fell off the shelf edge to the floor (1268) -> cucumber out, bowl upside down on the floor; stage 2 impossible",
+ "self_recovery": "Before the carry, it re-grasped the drumstick end sticking over the rim twice (687-820, 901-928) and kept it in the bowl. At the fridge, after the bowl fell, nothing.",
+ "official_criterion_notes": "Stage 0 stays 'complete' until ~1632 although the bowl is upside down on the floor: check_obj_in_receptacle only needs contact plus xy distance, so the drumstick lying under the inverted bowl counts as 'in the bowl'. Hold 3 height_drop_after_release 1.263 m confirms the fall to the floor.",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/s0_drum_hold.png",
+   "frames/s0_bowlgrasp.png",
+   "frames/s0_fridge.png",
+   "frames/s0_drop_zoom.png",
+   "frames/L10_place_compare.png"
+  ],
+  "packet_facts": [
+   "veg hold 82-145; drumstick hold 306-633 (lift 0.262)",
+   "stage1 first 634 (since prev 488; median 216)",
+   "bowl holds 717-740, 812-815, 913-1268 lift 0.445 drop 1.263",
+   "bowl tipped_over [[1096,1210],[1228,1290],[1295,1700]]; tilt_end 178.9",
+   "gripper width 0.022 to 1184, opens to 0.072 at 1248, 0.005 at 1264",
+   "bowl end z 0.051 (floor); veg d_end 0.209"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the opening at 1192-1248 was a deliberate release or a grasp loss against the shelf edge; either way the bowl was not on the shelf when the fingers opened."
+}

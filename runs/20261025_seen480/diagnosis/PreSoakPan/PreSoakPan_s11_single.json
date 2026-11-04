@@ -1,0 +1,24 @@
+{
+ "tag": "PreSoakPan_s11_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene L2/S2 (single black basin with a wire rack, column faucet with a stick lever on top). Pan (pan_4, black handle) grasped at 118 and placed at 284 (stage 0 at 307). The sponge was grasped at 470 and placed into the pan at 572, where it ends standing on its edge (tilt 88 deg) (stage 1 at 598). Stage 2 took 357 steps: the gripper reached the stick lever at 811 and nudged it in many short contacts (811-960), raising it gradually: 0.003@816, 0.04@848, 0.27@928, 0.33@944, 0.47@960. Success at 955.",
+ "causal_chain": "",
+ "self_recovery": "none needed; the lever was moved in several small pushes rather than one sweep.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s11_overview.png"
+  ],
+  "packet_facts": [
+   "sink touch intervals 811-960 (11 short ones)",
+   "stage times 307 / 598 / 955"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

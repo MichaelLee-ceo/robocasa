@@ -6,7 +6,7 @@ usage: python -I affected.py <task> out.jsonl [shard/n_shards]"""
 import glob, json, os, sys
 import numpy as np
 
-R = "/home/michaellee/mclee/robocasa"
+R = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../../.."))  # the repository
 sys.path[:0] = [f"{R}/runs/scripts", f"{R}/runs/20261025_seen480", f"{R}/runs/20261026_imagine", f"{R}/runs/20261026_critic_data"]
 from analyze_stages import replay_env  # noqa: E402
 from atomic_eval import load_scene  # noqa: E402

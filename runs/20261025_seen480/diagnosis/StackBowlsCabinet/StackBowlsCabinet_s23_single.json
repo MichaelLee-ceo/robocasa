@@ -1,0 +1,25 @@
+{
+ "tag": "StackBowlsCabinet_s23_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [436, 490],
+ "category": "placed_then_fell_or_slid",
+ "secondary": ["official_criterion_issue", "missed_grasp"],
+ "what_happened": "Scene layout 1/style 1 (brick backsplash, dark grey upper cabinet above the counter, sink at left); both bowls are the tan model bowl_7 (bowl1 x0.7, bowl2 x0.95). Strategy: nest-then-carry. The small bowl was grasped at 183/191 (lift 0.26 m) and set into the large bowl (released 325; brief touch 312-320 on bowl2). The pair was grasped by the stacked rims at 348 (close touching both) and lifted 0.54 m (356-456); during the carry the small bowl tilted >45 deg inside the large one (bowl1 tipped from 380). The stack was brought to the cabinet lower and nearer its front lip than in the layout-1 successes s7/s27 (cmp_L1_release.png) and released at 456/457. Stage 0's condition held 436-463 (bowl1 counted inside; bowl2 inside 452-465 per at_target), but at ~460-480 the stack tipped forward over the lip and fell ~0.45 m onto the counter, landing upside down with the large bowl over the small one (464: 'an object left the target'; bowl2 tipped 461-780, tilt max 124 deg). Recovery: 633-775 the gripper worked the inverted large bowl and turned it upright (~720-780). From ~840 the two bowls sat upright side by side, the small one leaning on the large one; 880-1314 it made five grasps of the small bowl (holds 892-896, 1026-1052, 1065-1170 lift 5 cm, 1181-1314 lift 8 cm) but never re-nested or lifted anything to the cabinet. At the end both bowls are on the counter, ~0.41-0.43 m from the cabinet.",
+ "causal_chain": "nested pair carried with the small bowl tilted inside (380-) -> stack released at the cabinet's front lip (456) instead of further in -> official stage 0 holds 436-463 -> stack tips out and falls 0.45 m to the counter, inverted (464-484) -> robot rights the large bowl (~780) but cannot re-nest and re-carry in the remaining ~600 steps (five low grasps of the small bowl) -> timeout",
+ "self_recovery": "Partly effective: it turned the inverted large bowl upright (633-780), then repeatedly re-grasped the small bowl (5 holds, max lift 8 cm) without placing it back into the large bowl. Not enough to redo the nest and the carry.",
+ "official_criterion_notes": "The official 'inside cabinet' check (all bbox corners within the interior box +-5 cm) counted the stack as inside while it was perched on the front lip (bowl1 436-463, bowl2 452-465; bowl2 was 0.014 m outside the box at release). A gripper-away of 25 cm at that moment could have scored stage 1 for a stack that then fell out.",
+ "evidence": {
+  "sheets": ["frames/s23_overview.png", "frames/s23_fall.png", "frames/s23_fallz.png", "frames/s23_after.png", "frames/cmp_L1_release.png"],
+  "packet_facts": [
+   "stage 0 complete_intervals 436-446, 448-450, 452, 455, 457-463; undone at 464 'an object left the target'",
+   "bowl2 hold 356-456 lift 0.536, at_target_at_release true dist 0.014, height_drop_after_release 0.427",
+   "bowl1 hold 447-457 at target dist 0.010, height_drop 0.486; bowl1 tipped 380-836",
+   "bowl2 tipped 461-780 (tilt max 124.5), touch 633-775 (righting)",
+   "bowl1 holds 1065-1170 lift 0.051, 1181-1314 lift 0.083"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the retreating fingers (bowl2 re-touch 465-476) helped pull the stack off the lip, or it tipped on its own because it was released on the lip with the inner bowl tilted; the fall starts at ~460-464, a few steps after the release at 456."
+}

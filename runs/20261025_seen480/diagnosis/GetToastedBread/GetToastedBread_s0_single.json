@@ -1,0 +1,36 @@
+{
+ "tag": "GetToastedBread_s0_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  180,
+  1081
+ ],
+ "category": "stall_at_fixture",
+ "secondary": [
+  "skipped_or_wrong_stage",
+  "missed_grasp",
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster, bread in slot 2 (left pair, pair 0). Stage 0: 148-252 the open gripper came down over the bread, centred on it in the wrist view. It closed on the untoasted bread at 215 (0.03) and 238 (0.002), which is a pull attempt (hold 224-245). The bread rose only 3 mm and stayed in the slot, and the fingers ended fully closed. 280-560 the closed gripper moved round the toaster top and its right end (toaster contacts 372-567). 600-870 it sat at the toaster's front-right with the RIGHT (pair-1) lever handle and knob filling the wrist view, touching the housing (731-771, 799-947), but did not push the lever (pair-1 lever 0.0 throughout). Its last toaster contact was at 1081. It then hovered around the right of the toaster with the bread in view until 2000. The highest lever position all episode was 0.005, so the toaster was never on, and the bread stayed in the slot.",
+ "causal_chain": "tried to grasp and pull the untoasted bread first (215-245, 3 mm lift) -> fingers closed for good -> ~500 steps at the right-hand lever and knob (600-1081, the empty pair) with no push -> hovered to the end -> toaster never on",
+ "self_recovery": "none: neither lever was pushed after the failed pull.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s0_overview.png",
+   "frames/s0_early.png",
+   "frames/s0_mid.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "close_events 215 (0.03, obj), 238 (0.002, obj), 511 and 766 on nothing",
+   "hold 224-245 lift 0.003",
+   "toaster value max 0.0053 (pair0 at 224); pair1 lever 0 all episode; done []",
+   "toaster touch 180-218, 372-567, 731-947, last 1081"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether 600-870 was an attempt on the right lever (the gripper closed in front of it) or just hovering against the housing; either way no lever moved."
+}

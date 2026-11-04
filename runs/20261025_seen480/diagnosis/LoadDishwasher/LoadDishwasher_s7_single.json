@@ -1,0 +1,26 @@
+{
+ "tag": "LoadDishwasher_s7_single",
+ "success": true,
+ "failed_stage": null,
+ "root_cause_stage": null,
+ "root_cause_steps": null,
+ "category": null,
+ "secondary": [],
+ "what_happened": "Scene layout 10 (same kitchen and robot side as failure s15), white/pink cup_5 and brown bowl_8. Stage 0: cup grasped 115-123 (lift 0.10), carried to the slid-out rack and held near its side rail 200-292 (wrist: rack side rail next to the cup, the same approach as s15), but released at 294 over the rack interior; it dropped 0.16 m and landed upright inside the rack (cmp_L10_release.png: s7 308 vs s15 312). Stage 0 complete 297 (median 298). Stage 1: bowl grasped 396-405, released 495 inside the rack (drop 0.16), where it ended standing on edge (tilt 89 deg); stage 1 complete 492 (195 steps; brief 1-5-step flickers at 500 and 505 while it settled). Stage 2: rack pushed in and door lifted 575-624 (0.12@592, 0.63@608, 1.00@624); success 619 (127 steps).",
+ "causal_chain": "",
+ "self_recovery": "none needed.",
+ "official_criterion_notes": "The bowl counts as placed while standing on its edge (tilt 89.5 deg).",
+ "evidence": {
+  "sheets": [
+   "frames/succ_A_overview.png",
+   "frames/cmp_L10_release.png"
+  ],
+  "packet_facts": [
+   "dish0 hold 123-294 drop 0.16; stage0 297",
+   "dish1 hold 405-495 drop 0.158 tilt_end 89.5; stage1 492",
+   "door 0.12@592 -> 1.00@624; success 619"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

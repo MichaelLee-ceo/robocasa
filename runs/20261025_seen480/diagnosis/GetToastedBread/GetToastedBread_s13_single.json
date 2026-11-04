@@ -1,0 +1,35 @@
+{
+ "tag": "GetToastedBread_s13_single",
+ "success": false,
+ "failed_stage": 0,
+ "root_cause_stage": 0,
+ "root_cause_steps": [
+  232,
+  330
+ ],
+ "category": "skipped_or_wrong_stage",
+ "secondary": [
+  "wrong_fixture_element"
+ ],
+ "what_happened": "Scene: layout 10, grey 4-slot (two-pair) toaster, bread in slot 2 (left pair, pair 0). Stage 0 was skipped: 148-240 the open gripper came down over the bread. While closing around it (close 249, width 0.03), it pushed the bread and the pair-0 carriage down to 0.32 (bread -1.0 cm, far below the 0.9 switch-on). It lifted the untoasted bread out of the slot at 257-330 (lift 0.186 m). The toaster was never on. It then carried the bread across the kitchen (380-700), drove to the dining counter, and at 748-797 lowered it onto the plate. It ended lying flat on the plate (tilt 86 deg from its upright in-slot pose, 'tipped' from 643, already tilting in the gripper), which is a normal way to put toast on a plate. It released at 797, 0.05 m from the plate centre, and the bread stayed on the plate (at_target 773-2000). So it did the stage-1 motion correctly, but with untoasted bread. Afterwards it drove back to the kitchen and worked at the TOASTER OVEN's door and knobs (1048-1620), never at the 4-slot toaster, until timeout.",
+ "causal_chain": "went straight for the bread instead of the lever (232) -> pulled out the untoasted bread (257-330; lever only 0.32 as a side-effect) -> toaster never switched on with the bread in it, so the toaster_on latch can never be set -> delivered the bread to the plate (released 797, on the plate) -> stage 1 cannot count without toasting; then went to the toaster oven",
+ "self_recovery": "none: after delivering, it went to the toaster oven, not the toaster. Even pressing the toaster lever then would not have helped, since the bread was no longer in the slot.",
+ "official_criterion_notes": "The official conditions correctly refuse this episode: bread on the plate, gripper away, but never toasted. The packet's objects.obj.at_target_intervals [[773,2000]] could be misread as a delivered success; stage 1 never holds because toaster_on was never latched.",
+ "evidence": {
+  "sheets": [
+   "frames/s13_overview.png",
+   "frames/s13_grasp.png",
+   "frames/s13_place.png",
+   "frames/s13_oven.png",
+   "frames/cmp_layout10_t100.png"
+  ],
+  "packet_facts": [
+   "close_events 249 (0.03, obj, lifted)",
+   "hold grasp 257 release 797 lift 0.186 at_target_at_release true dist 0.051; dist_to_target_end 0.06",
+   "pair0 lever max 0.32 at 256-272 (bread dz -1.0 cm), never >= 0.9; toaster done_intervals []",
+   "tilt end 85.7 deg, tipped_over 643-2000; toaster touch only 188-256"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": "Whether the toaster-oven visit was meant as 'start the toaster' (the right task, the wrong appliance), or just wandering."
+}

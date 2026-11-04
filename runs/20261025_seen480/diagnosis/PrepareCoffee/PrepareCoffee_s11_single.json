@@ -1,0 +1,33 @@
+{
+ "tag": "PrepareCoffee_s11_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  383,
+  866
+ ],
+ "category": "wrong_fixture_element",
+ "secondary": [
+  "stall_at_fixture",
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 2, black espresso machine (CoffeeMachine045: one start button with a cup icon on the front of the upper housing, a portafilter with a long black handle below it), orange mug_4 on the upper shelf. Stage 0: grasp 116/130, mug carried down and set under the group head; released 340 at 0.0364 m (0.0379 m 2 s later), upright. That is inside the 4 cm tolerance but only by 2-3 mm. Stage 1: from 383 to 866 (~480 steps, 24 s) the open gripper sat at the portafilter handle, pushing on it, in nearly continuous contact with the machine (383-866), while the start button was in plain view ~8-10 cm higher in the wrist camera. The button was never touched. At ~880-920 the arm rose and turned to the shelf (wrist sees the flour bag); it hovered there to the end. Stage 0 only became complete at 902 when the gripper finally left the mug's 25 cm zone.",
+ "causal_chain": "mug placed 0.036 m at 340 -> gripper goes to the portafilter handle instead of the start button above it, pushes it 383-866 -> machine never on -> arm leaves to the shelf at ~900 -> timeout",
+ "self_recovery": "none: it never moved up to the button; after ~480 steps on the handle it left the machine.",
+ "official_criterion_notes": "Stage 0 first_complete 902 is 560 steps after the real release (340) because the gripper stayed within 25 cm of the mug while pushing the portafilter.",
+ "evidence": {
+  "sheets": [
+   "frames/s11_overview.png",
+   "frames/s11_handle.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 130 release 340 dist 0.0364 -> 0.0379",
+   "machine touch 383-866 (near-continuous), turned_on never",
+   "gripper width 0.08 throughout 368-500",
+   "stage0 complete 902-1200"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Whether the contact is with the portafilter handle itself or the housing just above it; in the wrist view the handle runs between the fingertips and the button is well above, so in either case the button was not pressed."
+}

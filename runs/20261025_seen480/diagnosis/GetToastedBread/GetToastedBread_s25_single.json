@@ -1,0 +1,33 @@
+{
+ "tag": "GetToastedBread_s25_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  912,
+  2000
+ ],
+ "category": "stall_pre_grasp",
+ "secondary": [
+  "undid_previous_stage"
+ ],
+ "what_happened": "Scene: layout 8, black/silver single-pair toaster with its lever and knob on the side facing the robot's right (same kitchen as s9/s12), bread in the left slot. Stage 0: the lever was pushed 144-192 (0.19, 0.28, then 1.0, the bread dropped 6.7 cm), toaster on 191-690. The fingers were closed 200-1064. The lever rose 704-928 and stage 0 completed at 899 (online 912). Stage 1: 912-1640 the gripper hovered at the toaster's lever end, looking at the lever face and knob, with the popped bread visible at the slot end beyond. The fingers opened 1072-1552 and 1568-1800, but the gripper never moved over the slot or touched the bread. It touched the toaster housing at 912-937, 1059-1088 and 1517-1600. From 1662 it worked the lever again: the lever went 0.04 -> 0.32 (1664-1744), then 1.0 at ~1789. The toaster switched on again (on 1789-2000) and the bread went back down 6.6 cm, so the stage-0 condition dropped at 1674. The arm then lifted away (1868-1990). At the end the bread was inside the toaster, toasting a second time.",
+ "causal_chain": "correct press (192) -> pop-up done 899 -> ~750 steps hovering at the lever end with the fingers open, no approach to the bread -> pushed the lever down again at 1664-1792, re-toasting the bread -> bread inside the toaster at 2000",
+ "self_recovery": "none for the bread; the re-press made things worse (stage 0 undone).",
+ "official_criterion_notes": "Stage 0 'undone' at 1674/1684 is real: the robot pushed the lever back down and the toaster switched on again at 1789.",
+ "evidence": {
+  "sheets": [
+   "frames/s25_overview.png",
+   "frames/s25_after_pop.png",
+   "frames/s25_repress.png"
+  ],
+  "packet_facts": [
+   "online_stage_log [[912,0]]; stage0 intervals [[899,1673],[1680,1683]]",
+   "toaster on 191-690 and 1789-2000; lever 0.32@1744, 1.0@1792",
+   "gripper open 1072-1552 and 1568-1800",
+   "obj touch [] / holds []; bread end z -6.6 cm (carriage down); min_eef 0.075 m"
+  ]
+ },
+ "confidence": "high",
+ "uncertain_about": ""
+}

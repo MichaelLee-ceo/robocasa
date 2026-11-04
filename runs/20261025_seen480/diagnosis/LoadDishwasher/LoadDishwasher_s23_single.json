@@ -1,0 +1,38 @@
+{
+ "tag": "LoadDishwasher_s23_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  679,
+  1169
+ ],
+ "category": "placed_then_fell_or_slid",
+ "secondary": [
+  "placed_off_target",
+  "disturbed_placed_object",
+  "ran_out_of_time",
+  "official_criterion_issue"
+ ],
+ "what_happened": "Scene layout 1 (dark grey cabinets, brick backsplash; robot right of the dishwasher), white/pink cup_5 and wooden bowl_7 (the same objects and kitchen as success s27). Stage 0: cup grasped 225-233 (lift 0.008), held over the slid-out rack 348-472 and released 473 upright in the rack; stage 0 complete 473 (p90 336). The open fingers kept brushing the cup until 536 (stage 0 flickered 504/535). Stage 1: bowl grasped by its rim 671-679 (lift 0.03); it hung tilted > 45 deg in the grip (tipped 724-823) while being carried down to the FRONT edge of the rack (wrist 700-900: bowl rim, door surface and rack front wires). Released 903 at 0.335 m from the dishwasher box (successful releases: 0.09-0.25 m): the bowl came to rest tilted on the open door just in front of the rack, leaning against the rack's front wires (agent-view zoom 940-1150: bowl below the rack level at its front edge; wrist 924-1020: bowl on the grey door surface below the rack). Because it touched the rack wires, stage 1 counted as complete 904-1168. Stage 2: from ~1040 the gripper pushed the rack into the tub (the bowl stayed on the door), went under the door (touch 1067-1200) and lifted it from ~1150 (0.15@1168, 0.39@1184, 0.75@1200). As the door rose, the bowl slid down its inner face off the rack (stage 1 undone at 1169) and ended near the hinge at z 0.14, tilted 77 deg. The door was still rising at the timeout. In success s27 (same kitchen and objects) the bowl went first and was put well inside the rack (succ_C_overview.png: s23 860/940 vs s27 268/476).",
+ "causal_chain": "slow stage 0 (473) and slow approach to the bowl (fingers lingering on the cup to 536, bowl grasp 679) -> bowl carried tilted and released at the rack's front edge, resting on the open door (903) -> counted as on the rack only through contact with the front wires -> rack pushed in without it -> rising door tipped it off (1169) -> door at 0.75 at the timeout; even a completed close would have failed with the bowl at the hinge",
+ "self_recovery": "none: the policy treated the bowl as loaded and went on to the rack and the door.",
+ "official_criterion_notes": "Stage 1 held 904-1168 with the bowl resting on the open door, only leaning against the rack's front wires; the rack-contact test counts any contact with the rack body. Note the task notes say a dish on the door should not count. dist_to_target at release (0.335) and at_target=true disagree because dist is measured to the tub interior while the rack is slid out.",
+ "evidence": {
+  "sheets": [
+   "frames/s23_overview.png",
+   "frames/s23_release.png",
+   "frames/s23_bowl_zoom.png",
+   "frames/succ_C_overview.png"
+  ],
+  "packet_facts": [
+   "dish0 hold 233-473; touch to 536; stage0 473",
+   "dish1 hold 679-903 lift 0.03 dist_at_release 0.335, tipped 724-823",
+   "stage1 904-1168, undone 1169 'object left the target'",
+   "dish1 end z 0.141 tilt 77",
+   "door 0.15@1168 0.39@1184 0.75@1200"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "The bowl's exact resting contact at 903-1168 (rack front wire vs rack frame); the arm partly hides it in the agent view. Where it ended (hinge gap vs floor) is inferred from z 0.14."
+}

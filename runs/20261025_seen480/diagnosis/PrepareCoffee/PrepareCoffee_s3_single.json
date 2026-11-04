@@ -1,0 +1,35 @@
+{
+ "tag": "PrepareCoffee_s3_single",
+ "success": false,
+ "failed_stage": 1,
+ "root_cause_stage": 1,
+ "root_cause_steps": [
+  604,
+  1200
+ ],
+ "category": "other: missed button press - fingers at the start button touched the machine face but never the button geom, then gave up",
+ "secondary": [
+  "wander_away"
+ ],
+ "what_happened": "Scene: layout 8, black/silver capsule machine (CoffeeMachine102: two round buttons SINGLE/DOUBLE on a round front face), red mug_5 on the upper shelf. Stage 0: first close on air at 98, grasp 114, mug carried to the machine and under the spout by ~260 (at target 260-298). It then kept holding and re-adjusting it on the tray 260-579 (re-close 392; at target again 499-534, 555-1200), released 579 at 0.0179 m (0.0184 m 2 s later), upright; stage 0 complete 670 (median 506, p90 865). Stage 1: 604-648 the closed gripper came at the round face from the front, fingertips right at the lower-left SINGLE button (wrist view), touching the machine 621-640, but no start-button contact registered. At ~656 it backed off and up (672-700 wrist sees the shelf), came over the machine top 860-900 (brief touch 886-889) and from ~950 to 1200 hovered above and to the right of the machine looking down at the mug. No second press attempt.",
+ "causal_chain": "mug placed well but slowly (579, 0.018 m) -> one press attempt 604-648 at the SINGLE button with closed fingers, contact on the machine face only -> machine never on -> backed off and hovered for the last ~500 steps -> timeout",
+ "self_recovery": "none effective: one brief return to the machine top at 886-889, no second press of the button.",
+ "official_criterion_notes": "",
+ "evidence": {
+  "sheets": [
+   "frames/s3_overview.png",
+   "frames/s3_place.png",
+   "frames/s3_button.png",
+   "frames/s3_button_zoom.png",
+   "frames/cmp_layout8_button.png"
+  ],
+  "packet_facts": [
+   "holds: grasp 114 release 579 dist 0.0179 -> 0.0184",
+   "stage0 complete 670-848, 952-1200 (848 = gripper back near mug)",
+   "machine touch 621-640, 886-889; turned_on never",
+   "gripper width 0.001-0.018 during 600-656 (closed)"
+  ]
+ },
+ "confidence": "medium",
+ "uncertain_about": "Exactly where the fingertips hit (face rim below the button vs. the button edge): the wrist view shows the button between/behind the closed fingertips, but the depth is not visible; the packet only says machine contact without a button contact."
+}

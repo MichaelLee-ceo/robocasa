@@ -1,0 +1,421 @@
+{
+ "tag": "SetUpCuttingStation_s1_single",
+ "task": "SetUpCuttingStation",
+ "instruction": "Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board.",
+ "success": true,
+ "steps": 976,
+ "horizon": 1600,
+ "success_step": 969,
+ "online_stage_log": [
+  [
+   480,
+   0
+  ],
+  [
+   976,
+   1
+  ]
+ ],
+ "replay_matches_online_log": true,
+ "online_vs_replay": [
+  {
+   "stage": 0,
+   "logged_step": 480,
+   "replay_holds_there": true
+  },
+  {
+   "stage": 1,
+   "logged_step": 976,
+   "replay_holds_there": true
+  }
+ ],
+ "scene": {
+  "layout": 5,
+  "style": 5,
+  "objects": {
+   "receptacle": "objaverse/cutting_board/cutting_board_7/model.xml",
+   "knife": "objaverse/knife/knife_6/model.xml",
+   "meat_container": "objaverse/plate/plate_5/model.xml",
+   "meat": "objaverse/fish/fish_9/model.xml"
+  }
+ },
+ "gripper": {
+  "width_every_8_steps": [
+   0.0411,
+   0.076,
+   0.0782,
+   0.0788,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.0798,
+   0.078,
+   0.0786,
+   0.0788,
+   0.0791,
+   0.0794,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0799,
+   0.0799,
+   0.0801,
+   0.0469,
+   0.0381,
+   0.037,
+   0.0363,
+   0.0356,
+   0.035,
+   0.0344,
+   0.0341,
+   0.0339,
+   0.0335,
+   0.0333,
+   0.0331,
+   0.033,
+   0.0326,
+   0.0325,
+   0.0325,
+   0.0354,
+   0.076,
+   0.0782,
+   0.0787,
+   0.0791,
+   0.0794,
+   0.0796,
+   0.0797,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0801,
+   0.0582,
+   0.0082,
+   0.002,
+   0.0014,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.001,
+   0.0069,
+   0.0661,
+   0.0779,
+   0.0785,
+   0.079,
+   0.0793,
+   0.0795,
+   0.0796,
+   0.0797,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0798,
+   0.0798,
+   0.0799,
+   0.0601,
+   0.059,
+   0.0577,
+   0.0567,
+   0.0557,
+   0.0547,
+   0.0538,
+   0.053,
+   0.0523,
+   0.0518,
+   0.0682,
+   0.0779,
+   0.0785,
+   0.079,
+   0.0793
+  ],
+  "close_events": [
+   {
+    "step": 333,
+    "width_after": 0.038,
+    "on_nothing": false,
+    "touching": [
+     "knife"
+    ],
+    "lifted": [
+     "knife"
+    ]
+   },
+   {
+    "step": 558,
+    "width_after": 0.022,
+    "on_nothing": false,
+    "touching": [
+     "meat"
+    ],
+    "lifted": []
+   },
+   {
+    "step": 856,
+    "width_after": 0.059,
+    "on_nothing": false,
+    "touching": [
+     "meat"
+    ],
+    "lifted": [
+     "meat"
+    ]
+   }
+  ]
+ },
+ "units": "1 step = 0.05 s (20 Hz); policy chunk = 16 steps; video has one frame every 4 steps",
+ "first_incomplete_stage": null,
+ "stages": [
+  {
+   "stage": 0,
+   "skill": "PickPlaceDrawerToCounter",
+   "kind": "pnp",
+   "first_complete_step": 473,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     473,
+     976
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 473,
+   "window_start": 0,
+   "typical_in_successes": {
+    "median": 486,
+    "p90": 724,
+    "n": 14
+   }
+  },
+  {
+   "stage": 1,
+   "skill": "PickPlaceCounterToCounter",
+   "kind": "pnp",
+   "first_complete_step": 969,
+   "complete_at_end": true,
+   "complete_intervals": [
+    [
+     969,
+     976
+    ]
+   ],
+   "undone_events": [],
+   "steps_since_previous_stage": 496,
+   "window_start": 473,
+   "typical_in_successes": {
+    "median": 220,
+    "p90": 478,
+    "n": 14
+   }
+  }
+ ],
+ "objects": {
+  "knife": {
+   "target_of_stage": 0,
+   "start_pos": [
+    2.6287,
+    -0.7119,
+    0.7539
+   ],
+   "end_pos": [
+    2.8228,
+    -0.9779,
+    0.9476
+   ],
+   "at_target_intervals": [
+    [
+     465,
+     465
+    ],
+    [
+     473,
+     976
+    ]
+   ],
+   "dist_to_target_start_m": 0.2733,
+   "dist_to_target_end_m": 0.0882,
+   "min_eef_dist_to_centre_m": 0.0882,
+   "gripper_touch_intervals": [
+    [
+     333,
+     472
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 342,
+     "release_step": 473,
+     "lift_m": 0.38,
+     "at_target_at_release": true,
+     "dist_to_target_at_release_m": 0.093,
+     "height_drop_after_release_m": -0.001,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.089
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 20.5,
+   "tilt_deg_end": 20.8,
+   "tilt_deg_max": 21.7,
+   "tipped_over_intervals": []
+  },
+  "meat": {
+   "target_of_stage": 1,
+   "start_pos": [
+    2.6901,
+    -0.6336,
+    0.9476
+   ],
+   "end_pos": [
+    2.7663,
+    -0.9194,
+    0.9859
+   ],
+   "at_target_intervals": [
+    [
+     944,
+     958
+    ],
+    [
+     961,
+     967
+    ],
+    [
+     969,
+     976
+    ]
+   ],
+   "dist_to_target_start_m": 0.2952,
+   "dist_to_target_end_m": 0.0749,
+   "min_eef_dist_to_centre_m": 0.004,
+   "gripper_touch_intervals": [
+    [
+     558,
+     577
+    ],
+    [
+     835,
+     837
+    ],
+    [
+     843,
+     843
+    ],
+    [
+     845,
+     845
+    ],
+    [
+     859,
+     941
+    ]
+   ],
+   "holds": [
+    {
+     "grasp_step": 566,
+     "release_step": 578,
+     "lift_m": 0.001,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.295,
+     "height_drop_after_release_m": 0.0,
+     "at_target_2s_after": false,
+     "dist_2s_after_m": 0.2953
+    },
+    {
+     "grasp_step": 862,
+     "release_step": 942,
+     "lift_m": 0.122,
+     "at_target_at_release": false,
+     "dist_to_target_at_release_m": 0.0829,
+     "height_drop_after_release_m": 0.015,
+     "at_target_2s_after": true,
+     "dist_2s_after_m": 0.0749
+    }
+   ],
+   "brief_contacts_without_lift": 0,
+   "tilt_deg_start": 51.8,
+   "tilt_deg_end": 75.4,
+   "tilt_deg_max": 78.2,
+   "tipped_over_intervals": [
+    [
+     0,
+     572
+    ],
+    [
+     577,
+     976
+    ]
+   ]
+  }
+ },
+ "fixtures": {},
+ "process_progress_end": {},
+ "official_labeler": {
+  "note": "official subtask labeler, built for successful demos; on failures its boundaries can be wrong",
+  "segments": [
+   [
+    0,
+    "PickPlaceDrawerToCounter",
+    "pick"
+   ],
+   [
+    345,
+    "PickPlaceDrawerToCounter",
+    "place"
+   ],
+   [
+    479,
+    "PickPlaceCounterToCounter",
+    "pick"
+   ],
+   [
+    862,
+    "PickPlaceCounterToCounter",
+    "place"
+   ],
+   [
+    949,
+    "done",
+    "done"
+   ]
+  ],
+  "issues": []
+ },
+ "video": "run/SetUpCuttingStation/SetUpCuttingStation_s1_single.mp4"
+}
