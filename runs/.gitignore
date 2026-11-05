@@ -1,15 +1,13 @@
-# Large or regenerable outputs stay on the machine that made them (see runs/_handoff/README.md for moving them)
+# Large or regenerable outputs stay on the machine that made them (see runs/_handoff/README.md)
 *.mp4
 *.jpg
 *.png
 *.log
 *.npz
 __pycache__/
-# frozen scenes are inputs, and small
-!scenes_seen5_v2/*.npz
-!scenes_seen5_v2_s30/*.npz
-!scenes_seen11_v2/*.npz
-# the scene-generation logs are the record behind the frozen scenes
-!scenegen/logs/*.log
-# the report's page build (build_pub.py)
-report_pub/
+
+# envkit's frozen scenes: large binary state dumps, rebuilt by envkit/tests/campaign.sh (their .ref.json stay in git)
+envkit/scenes/*.pkl.gz
+
+# envkit policy-test records (actions and tracker per chunk; binary, rebuilt by envkit/tests/policy_tests.sh)
+envkit/tests/results/policy/

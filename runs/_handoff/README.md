@@ -1,30 +1,31 @@
-# ECE 780 — RoboCasa365 atomic-vs-composite study: moving to a new server
+# ECE 780: moving the project to a new server
 
 Inventoried on the original machine (RTX 5090, driver 570.169, Ubuntu, user `michaellee`, project root
-`~/Desktop/robocasa`). Our scripts, frozen scenes and results are committed on branch `ece780` of
+`~/Desktop/robocasa`). Our code, scene references and results are committed on `main` of
 https://github.com/MichaelLee-ceo/robocasa under `runs/` (same paths as on the original machine).
 
 ## 1. Code: what to clone, at which commit
 
 | repo | remote | commit | local changes |
 |---|---|---|---|
-| robocasa (fork, project root) | https://github.com/MichaelLee-ceo/robocasa | `456174f` (= origin/main) | none |
+| robocasa (fork, project root) | https://github.com/MichaelLee-ceo/robocasa | `main` (upstream robocasa through `2ce1aec`, plus our `runs/`, `docs/ece780`, README) | none in the `robocasa` package |
 | third_party/Isaac-GR00T | https://github.com/robocasa-benchmark/Isaac-GR00T | `9d7d7a9` | none |
 | third_party/robosuite | https://github.com/ARISE-Initiative/robosuite | `5ce6643f` | none |
 | third_party/lerobot | https://github.com/huggingface/lerobot | `b9cb121c` | none (not installed in the env) |
 
 ```bash
 mkdir -p ~/Desktop && cd ~/Desktop
-git clone https://github.com/MichaelLee-ceo/robocasa.git && cd robocasa && git checkout ece780   # main = 456174f + runs/
+git clone https://github.com/MichaelLee-ceo/robocasa.git && cd robocasa
 mkdir -p third_party && cd third_party
 git clone https://github.com/robocasa-benchmark/Isaac-GR00T.git && (cd Isaac-GR00T && git checkout 9d7d7a9)
 git clone https://github.com/ARISE-Initiative/robosuite.git && (cd robosuite && git checkout 5ce6643f)
 git clone https://github.com/huggingface/lerobot.git && (cd lerobot && git checkout b9cb121c)   # optional
 cd .. && printf '\n# local project layout\nthird_party/\ndatasets/\n.hf_cache/\nenvs/\ncheckpoints/\n' >> .git/info/exclude
-# runs/ is tracked on ece780; runs/.gitignore keeps videos, npz states and page builds out of git
+# runs/ is tracked in git; runs/.gitignore keeps scene dumps, videos and other large outputs out of it
 ```
 
-Our own work (scripts, frozen scenes, hand-off states, results) is already in `runs/` after the checkout.
+Our own work is already in `runs/` after the checkout: the environment layer `runs/envkit` with its tests and scene
+references, and the experiment records. envkit's frozen scenes are not in git (see §5.1).
 
 ## 2. Python environment
 
@@ -78,7 +79,7 @@ SRC=michaellee@<old-host>:Desktop/robocasa
 rsync -aP $SRC/checkpoints/ ~/Desktop/robocasa/checkpoints/
 rsync -aP $SRC/datasets/    ~/Desktop/robocasa/datasets/
 rsync -aP $SRC/robocasa/models/assets/ ~/Desktop/robocasa/robocasa/models/assets/
-rsync -aP $SRC/runs/        ~/Desktop/robocasa/runs/          # optional: videos, end states, page builds (1.9 GB)
+rsync -aP $SRC/runs/envkit/scenes/ ~/Desktop/robocasa/runs/envkit/scenes/   # envkit's frozen scenes (0.7 GB), or rebuild them (§5.1)
 rsync -aP michaellee@<old-host>:robocasa_handoff/ ~/robocasa_handoff/   # flash-attn wheel
 ```
 
@@ -104,23 +105,22 @@ python robocasa/scripts/download_datasets.py --split target --source human   # a
 Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
 
 ## 4. Paths
-* Scripts find the repository from their own location (`runs/scripts/paths.py`), so a clone works anywhere. Two
-  optional overrides: `ROBOCASA_ROOT` (the repository; the shell launchers set it from their own location) and
-  `GROOT_PY` (the python; default `$ROBOCASA_ROOT/envs/groot/bin/python`).
-* Data written before 2026-11-04 (jobs files, results rows) stores scene paths of the original checkout;
-  `paths.local()` maps them into the current one.
-* Frozen scene files store robosuite's pre-compile MJCF with absolute asset paths of the original machine;
-  `reset_to()` -> `edit_model_xml()` rewrites them to the local robocasa assets (the dataset demo xmls are loaded the
-  same way). Check with step 5.1 on the new server.
+* envkit finds the repository from its own location (`runs/envkit/*.py`), so a clone works anywhere. Two optional
+  overrides: `ROBOCASA_ROOT` (the repository) and `GROOT_PY` (the python; default
+  `$ROBOCASA_ROOT/envs/groot/bin/python`).
+* A frozen scene is loaded into a model that the official reset builds from the local assets. envkit compares that
+  model's hash with the frozen one and refuses a mismatch, so copied scenes either load exactly or fail loudly.
 
 ## 5. Verification after the move
 
-1. Scenes must load identically. For every frozen scene (`runs/scenes_seen5_v2`: 5 tasks x s0-19,
-   `runs/scenes_seen5_v2_s30`: the same tasks x s20-29, `runs/scenes_seen11_v2`: 11 tasks x s0-29),
-   `atomic_eval.load_scene()` must not raise: it compares layout, style, nq, the object list and `phys_sha1`
-   (hash of body_mass, body_inertia, body_ipos, geom_friction rounded to 1e-6) with the values stored in the file.
-   If only `phys_sha1` differs, do not conclude the scene is wrong yet: dump those arrays on both machines and compare
-   the numbers (a different CPU / library build can change the last digits). Layout, style and objects must match exactly.
+1. envkit's frozen scenes (`runs/envkit/scenes/*.pkl.gz`, 16 tasks x seeds 0-29):
+   - **Copied (Option A):** run `runs/envkit/tests/run_tests.py check <task> <seed>` on every scene
+     (`campaign.sh` minus the freeze step, or `recheck.sh` with a list of all 480). Each must load, reproduce its
+     reference trajectory and pass the restore tests.
+   - **Rebuilt:** `runs/envkit/tests/campaign.sh <gpu> <jobs>` freezes and checks every scene (a few hours). Then
+     `git diff runs/envkit/scenes`: the proprio hashes in the rewritten `.ref.json` must be unchanged. If they differ,
+     this machine's physics differs, so keep its results separate. State hashes change anyway (a temporary xml path),
+     and image hashes can change by render noise.
 2. Large files arrived intact (run from the project root; takes a while, reads ~91 GB):
    ```bash
    # format of each line: "<sha256>  <size>  <path>" (two spaces; 145 asset paths contain spaces)
@@ -130,11 +130,12 @@ Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
    python3 -c "import gzip,os; bad=[p for h,s,p in (l.rstrip('\n').split('  ',2) for l in gzip.open('runs/_handoff/bigfiles_sha256.txt.gz','rt') if not l.startswith('#')) if not os.path.exists(p) or os.path.getsize(p)!=int(s)]; print(len(bad),'mismatches', bad[:10])"
    ```
    A re-download (Option B) may legitimately differ in `checkpoints/.cache/` metadata; the weights must match.
-3. Policy runs are stochastic: physics and the seeded policy noise are bitwise reproducible, rendering is not
-   (`runs/20261025_determinism`). Compare statistically: rerun the plain baseline of a task
-   (`runs/20261025_seen480/run.sh`, its 30 frozen scenes, `policy_seed` 0) and compare the success rate with
-   `runs/20261025_seen480/run/results_w*.jsonl` (Fisher exact p > 0.05), not episode by episode.
+3. The policy in the loop: start the servers (`runs/envkit/servers.sh`) and run `runs/envkit/tests/policy_tests.sh`.
+   - Every replay and restore check must pass.
+   - Successes can differ from `runs/envkit/tests/results/policy*.jsonl`, because rendering adds noise
+     (`runs/envkit/README.md`). Compare success rates over many scenes, not episode by episode.
 
 ## 6. What goes into the project repo
-Everything under `runs/` on branch `ece780`, except what `runs/.gitignore` keeps out (videos, per-step states, images,
-page builds). Copy those with rsync if needed.
+Everything under `runs/` on `main`, except what `runs/.gitignore` keeps out (envkit's frozen scene dumps and
+policy-test records, videos, images). The earlier pipeline's large outputs (17 GB) are in `~/mclee/robocasa_old_data/`
+on the machine that made them; new work does not need them.

@@ -1,156 +1,98 @@
-<h1 align="center">RoboCasa</h1>
-<!-- ![alt text](https://github.com/UT-Austin-RPL/maple/blob/web/src/overview.png) -->
-<img src="docs/images/readme.webp" width="100%" />
+# ECE 780: steering a frozen GR00T N1.5 on RoboCasa365
 
-**RoboCasa** is a large-scale simulation framework for training generally capable robots to perform everyday tasks. It was [originally released](https://robocasa.ai/assets/robocasa_rss24.pdf) in 2024 by UT Austin researchers. The latest iteration, **RoboCasa365**, builds upon the original release with significant new functionalities to support large-scale training and benchmarking in sim. Four pillars underlie RoboCasa365:
-- **Diverse tasks**: 365 tasks created with the guidance of large language models
-- **Diverse assets**: including 2,500+ kitchen scenes and 3,200+ 3D objects
-- **High-quality demonstrations**: including 600+ hours of human demonstrations in addition to 1,600+ hours of robot datasets created with automated trajectory tools
-- **Benchmarking support**: popular policy learning methods including Diffusion Policy, pi, and GR00T, plus user-submitted models on the [leaderboard](https://robocasa.ai/leaderboard.html)
+This is a fork of [RoboCasa](https://github.com/robocasa/robocasa); the upstream README is in
+[README_robocasa.md](README_robocasa.md). Our work is in [`runs/`](runs/README.md).
 
+## Goal
+The frozen GR00T N1.5 policy can already solve many RoboCasa365 kitchen tasks. Some of its own samples succeed, but a
+plain rollout often fails partway. We keep the policy frozen and add a closed loop around it:
+- a **VLM supervisor** understands the state: which stage is done, whether progress is being made, and what happened
+  before;
+- an **intervention controller** decides when and how to act: continue, resample, back off, or retry.
 
-This guide contains information about installation and setup. Please refer to the following resources for additional information:
+<img src="docs/ece780/loop.png" alt="The closed loop: the frozen GR00T N1.5 executes 16-action chunks in the RoboCasa kitchen; our VLM supervisor tracks stage, progress and memory from the frames; our intervention controller decides to continue, resample, back off or retry.">
 
-[**[Home page]**](https://robocasa.ai) &ensp; [**[Documentation]**](https://robocasa.ai/docs/introduction/overview.html) &ensp; [**[RoboCasa365 Paper]**](https://robocasa.ai/assets/robocasa365_iclr26.pdf) &ensp; [**[Original RoboCasa Paper]**](https://robocasa.ai/assets/robocasa_rss24.pdf) &ensp; [**[Leaderboard]**](https://robocasa.ai/leaderboard.html)
+Preliminary evidence, from the earlier pipeline ([runs/README.md](runs/README.md)):
+- choosing among GR00T's own samples with a simulator oracle raises KettleBoiling from 65 % to 97 %;
+- choosing at the few chunks that decide a stage gains +25 points, while choosing at random chunks gains nothing.
 
--------
-## Updates
-* [10/14/2026] Released the [**subtask annotation pipeline**](https://robocasa.ai/docs/build/html/use_cases/subtask_annotations.html), with labelers covering all 300 composite tasks. It generates per-frame subtask labels directly from each demo's simulation state.
-* [7/7/2026] Our target composite task datasets have been updated to include per-frame **subtask annotations**. Every timestep is labeled with a subtask index, atomic-skill name, stage (i.e. pick / place / navigate), and a natural-language instruction, to support hierarchical policy learning.
-* [5/12/2026] **v1.0.1**: Updated horizon lengths (1.5x increase) across all tasks for consistency. Please update to the latest version for running evals.
-* [4/6/2026] [**RoboCasa365 Leaderboard**](https://robocasa.ai/leaderboard.html) published, comparing generalist robot policies on the multi-task learning benchmark and open to community model submissions.
-* [2/18/2026] **v1.0**: RoboCasa365 release, with 365 tasks, 2500+ kitchen scenes, 2200+ hours of robot demonstration data, and benchmarking support.
-* [10/31/2024] **v0.2**: using RoboSuite `v1.5` as the backend, with improved support for custom robot composition, composite controllers, more teleoperation devices, photo-realistic rendering.
+## Tasks
+RoboCasa365 evaluates on 50 target tasks in three splits. Each split has its own post-trained checkpoint.
 
-## Table of Contents
-- [Updates](#updates)
-- [Installation](#installation)
-- [Basic Usage](#basic-usage)
-- [Tasks, datasets, policy learning, and additional use cases](#tasks-datasets-policy-learning-and-additional-use-cases)
-- [Questions](#questions)
-- [License](#license)
-- [Citation](#citation)
+| split | tasks | what they are | in pretraining? | GR00T N1.5 success (paper) |
+|---|---|---|---|---|
+| Atomic-Seen | 18 | one skill: `OpenDrawer`, `TurnOnStove`, `PickPlaceCounterToCabinet`, ... | yes | 68.5 % |
+| **Composite-Seen** | **16** | several skills in sequence: `KettleBoiling`, `SteamInMicrowave`, ... | yes | 40.6 % |
+| Composite-Unseen | 16 | other composite tasks: `ArrangeTea`, `PanTransfer`, ... | no | 42.1 % |
 
--------
-## Installation
-RoboCasa works across all major computing platforms. The easiest way to set up is through the [Anaconda](https://www.anaconda.com/) package management system. Follow the instructions below to install:
-1. Set up conda environment:
+We work on the 16 **Composite-Seen** tasks:
 
-   ```sh
-   conda create -c conda-forge -n robocasa python=3.11
-   ```
-2. Activate conda environment:
-   ```sh
-   conda activate robocasa
-   ```
-3. Clone and setup robosuite dependency (**important: use the master branch!**):
+| task | stages | horizon (chunks) | task | stages | horizon (chunks) |
+|---|---|---|---|---|---|
+| KettleBoiling | 2 | 94 | SetUpCuttingStation | 2 | 150 |
+| PreSoakPan | 3 | 150 | StirVegetables | 4 | 150 |
+| StackBowlsCabinet | 2 | 132 | SearingMeat | 3 | 272 |
+| SteamInMicrowave | 4 | 132 | PackIdenticalLunches | 4 | 244 |
+| PrepareCoffee | 2 | 113 | DeliverStraw | 2 | 160 |
+| ScrubCuttingBoard | 2 | 75 | GetToastedBread | 2 | 188 |
+| WashLettuce | 2 | 104 | LoadDishwasher | 3 | 113 |
+| RinseSinkBasin | 2 | 85 | StoreLeftoversInBowl | 3 | 160 |
 
-   ```sh
-   git clone https://github.com/ARISE-Initiative/robosuite
-   cd robosuite
-   pip install -e .
-   ```
-4. Clone and setup this repo:
+## Task, stage, chunk, step
+<img src="docs/ece780/hierarchy.png" alt="One SteamInMicrowave episode on one chunk axis: the task spans 132 chunks; stages S1-S4 span chunks 0-15, 15-45, 45-63 and 63-73, where the official success is counted; chunk 30 zooms into its 16 steps.">
 
-   ```sh
-   cd ..
-   git clone https://github.com/robocasa/robocasa
-   cd robocasa
-   pip install -e .
-   pip install pre-commit; pre-commit install           # Optional: set up code formatter.
+- **Success** is RoboCasa's own `_check_success()`, unchanged, read after the last step of every chunk. An episode
+  succeeds if any chunk end succeeds, as in GR00T's official eval. It runs to the horizon.
+- **Stages** (`runs/envkit/stages.py`) are read from the current state, so a later chunk can undo one. The last stage
+  is the official success.
 
-   (optional: if running into issues with numba/numpy, run: conda install -c numba numba=0.56.4 -y)
-   ```
-5. Install the package and download assets:
-   ```sh
-   python -m robocasa.scripts.setup_macros              # Set up system variables.
-   python -m robocasa.scripts.download_kitchen_assets   # Caution: Assets to be downloaded are around 10GB.
-   ```
+## Checkpoints
+GR00T N1.5 from `robocasa/robocasa365_checkpoints` on Hugging Face, under `checkpoints/gr00t_n1-5/foundation_model_learning/`:
 
--------
-## Basic Usage
+| checkpoint | trained on | used here |
+|---|---|---|
+| `target_posttraining/composite_seen/checkpoint-60000` | pretraining + Composite-Seen post-training | **yes, all experiments** |
+| `target_posttraining/composite_unseen/checkpoint-60000` | pretraining + Composite-Unseen post-training | |
+| `target_posttraining/atomic_seen/checkpoint-60000` | pretraining + Atomic-Seen post-training | |
+| `pretraining/checkpoint-80000` | pretraining only (300 tasks) | |
 
-### Gym wrapper
-You can create environments using gym wrappers and run rollouts:
-```py
-import gymnasium as gym
-import robocasa
-from robocasa.utils.env_utils import run_random_rollouts
-
-env = gym.make(
-    "robocasa/PickPlaceCounterToCabinet",
-    split="pretrain", # use 'pretrain' or 'target' kitchen scenes and objects
-    seed=0 # seed environment as needed. set seed=None to run unseeded
-)
-
-# run rollouts with random actions and save video
-run_random_rollouts(
-    env, num_rollouts=3, num_steps=100, video_path="/tmp/test.mp4"
-)
+## Using this repo
 ```
-
-### Play back sample demonstrations of tasks
-**(Mac users: for these scripts, prepend the "python" command with "mj": `mjpython ...`)**
-
-Select a task and play back a sample demonstration for the selected task:
+runs/envkit/          the environment for every experiment: episodes, frozen scenes, snapshots, replays, stages, GR00T client
+runs/envkit/tests/    the tests that must pass before experiments
+runs/2026xxxx_*/      experiment records (README + results)
+runs/_handoff/        rebuilding the setup on a new machine (code commits, python env, checkpoints, datasets)
 ```
-python -m robocasa.demos.demo_tasks
+To install, follow [runs/_handoff/README.md](runs/_handoff/README.md). Then, from the repository root:
+```bash
+export CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=1 MUJOCO_EGL_DEVICE_ID=1   # a free GPU
+setsid nohup runs/envkit/servers.sh 1 5581 2 > /dev/null 2>&1 < /dev/null &         # 2 GR00T servers, ports 5581-5582
+envs/groot/bin/python -I                                                            # the GR00T python
 ```
-
-### Explore kitchen scenes
-Explore 2500+ kitchen scenes:
+```python
+import sys; sys.path.insert(0, "runs/envkit")
+import envkit, policy, stages
+ep = envkit.Episode("SteamInMicrowave", 2)                 # frozen scene (task, seed 0-29)
+policy.rollout(ep, policy.Client(5581), tag="demo",        # GR00T until the horizon, seeded chunks
+               on_chunk=lambda e: print(e.t, stages.track(e)["stage"]))
+print(ep.success, ep.success_step)
+ep.close()
 ```
-python -m robocasa.demos.demo_kitchen_scenes
-```
+Snapshots, branching (resample / back-off), replays and the rules are in **[runs/envkit/README.md](runs/envkit/README.md)**.
 
-### Explore library of 2500+ objects
-View and interact with both human-designed and AI-generated objects:
-```
-python -m robocasa.demos.demo_objects
-```
-Note: By default, this demo shows objaverse objects. To view AI-generated objects, add the flag `--obj_types aigen`.
+## Testing
+Run the tests from `runs/envkit/tests`, with the GPU variables above and the servers up:
+`../../../envs/groot/bin/python -I run_tests.py <test> <task> <seed>`. Each run prints one json line.
 
-### Teleoperate the robot
-Control the robot directly, either through a keyboard controller or spacemouse. This script renders the robot semi-translucent in order to minimize occlusions and enable better visibility.
-```
-python -m robocasa.demos.demo_teleop
-```
-Note: If using SpaceMouse, you may need to modify the product ID to your appropriate model, setting `SPACEMOUSE_PRODUCT_ID` in `robocasa/macros_private.py`.
+| what | test | what must hold | result (2026-11-05) |
+|---|---|---|---|
+| Scenes and reset | `check` | the frozen scene loads exactly; RoboCasa's reset reproduces it | 480 / 480 |
+| Restore | `check`, `policy` | snapshot -> run -> restore gives the same state; re-running gives the same trajectory, also after another branch; with random actions and at every stage change of a GR00T run | 480 / 480, 133 points in 48 runs |
+| Replay | `check`, `policy` | recorded actions give the same states, success and stages, chunk by chunk, in a new process | 6,966 chunks |
+| Policy sampling | `sampling` | same observation + seed gives the same chunk (also on another server and after a restore); another seed gives another chunk | 16 / 16 |
+| Success and stages | `stages`, `policy` | the stage tracker only reads the env; official success implies every stage | 48 / 48 |
 
--------
-## Tasks, datasets, policy learning, and additional use cases
-Please refer to the [documentation page](https://robocasa.ai/docs/introduction/overview.html) for information about tasks, datasets, benchmarking, and more.
-
--------
-## Questions
-If you have any questions about RoboCasa, reach out at [robocasa@googlegroups.com](mailto:robocasa@googlegroups.com).
-
--------
-## License
-Code: [MIT License](https://opensource.org/license/mit)
-
-Assets and Datasets: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en)
-
--------
-## Citation
-
-**RoboCasa365:**
-
-```bibtex
-@inproceedings{robocasa365,
-  title={RoboCasa365: A Large-Scale Simulation Framework for Training and Benchmarking Generalist Robots},
-  author={Soroush Nasiriany and Sepehr Nasiriany and Abhiram Maddukuri and Yuke Zhu},
-  booktitle={International Conference on Learning Representations (ICLR)},
-  year={2026}
-}
-```
-
-**RoboCasa (Original Release):**
-
-```bibtex
-@inproceedings{robocasa2024,
-  title={RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots},
-  author={Soroush Nasiriany and Abhiram Maddukuri and Lance Zhang and Adeet Parikh and Aaron Lo and Abhishek Joshi and Ajay Mandlekar and Yuke Zhu},
-  booktitle={Robotics: Science and Systems (RSS)},
-  year={2024}
-}
+To run everything: `./campaign.sh <gpu> 16` (freeze and check 480 scenes), `./policy_tests.sh <gpu> 8 0 2 "5581 5582"`
+(48 GR00T runs), then `python3 summary.py`. Camera images are the one thing that is not exact. The official rendering
+(MSAA 4) changes a few edge pixels at random, so live GR00T runs can diverge, and a specific episode is reproduced by
+replaying its actions. See [runs/envkit/tests/README.md](runs/envkit/tests/README.md).
