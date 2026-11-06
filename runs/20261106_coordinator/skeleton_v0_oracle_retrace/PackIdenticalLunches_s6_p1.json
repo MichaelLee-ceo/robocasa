@@ -1,0 +1,212 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 3904,
+ "horizon": 3900,
+ "chunks": 353,
+ "free_steps": 1744,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "memory": {
+  "instruction": "Place one lime and one fish in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 3,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "starts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin"
+     }
+    ],
+    "done_at": {
+     "chunk": 16,
+     "t": 256
+    },
+    "interventions": 0
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "starts": [
+     {
+      "chunk": 16,
+      "t": 256,
+      "trace_index": 256,
+      "why": "replay"
+     }
+    ],
+    "done_at": {
+     "chunk": 56,
+     "t": 896
+    },
+    "interventions": 0
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "starts": [
+     {
+      "chunk": 56,
+      "t": 896,
+      "trace_index": 896,
+      "why": "replay"
+     }
+    ],
+    "done_at": {
+     "chunk": 76,
+     "t": 1216
+    },
+    "interventions": 0
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "starts": [
+     {
+      "chunk": 76,
+      "t": 1216,
+      "trace_index": 1216,
+      "why": "replay"
+     },
+     {
+      "chunk": 156,
+      "t": 1936,
+      "trace_index": 2496,
+      "why": "retraced"
+     },
+     {
+      "chunk": 239,
+      "t": 2656,
+      "trace_index": 3824,
+      "why": "retraced"
+     },
+     {
+      "chunk": 320,
+      "t": 3376,
+      "trace_index": 5120,
+      "why": "retraced"
+     }
+    ],
+    "done_at": null,
+    "interventions": 3
+   }
+  ],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 3,
+    "chunk": 121,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 3,
+    "chunk": 201,
+    "detail": {
+     "window_chunks": 45
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 3,
+    "chunk": 284,
+    "detail": {
+     "window_chunks": 45
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 35,
+     "steps": 560,
+     "entries": 420,
+     "path_steps": 720,
+     "grip_changes": 0,
+     "arrived": true,
+     "joint_rad": 0.026,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 38,
+     "steps": 608,
+     "entries": 424,
+     "path_steps": 720,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.002,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 36,
+     "steps": 576,
+     "entries": 375,
+     "path_steps": 720,
+     "grip_changes": 0,
+     "arrived": true,
+     "joint_rad": 0.006,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_done",
+   "s0_start",
+   "s1_done",
+   "s1_start",
+   "s2_done",
+   "s2_start",
+   "s3_start",
+   "trigger_121",
+   "trigger_201",
+   "trigger_284"
+  ],
+  "free_steps": 1744,
+  "vlm_calls": 0,
+  "status_checks": 123
+ },
+ "id": "PackIdenticalLunches_s6",
+ "task": "PackIdenticalLunches",
+ "seed": 6,
+ "stage": 3,
+ "start_t": 1936,
+ "fixed": false,
+ "fixed_after": null,
+ "run": "PackIdenticalLunches_s6",
+ "config": "oracle_retrace",
+ "pseed": 1,
+ "seconds": 1255.6
+}

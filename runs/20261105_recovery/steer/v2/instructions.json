@@ -1,0 +1,362 @@
+{
+ "GTB1_short": [
+  {
+   "family": "orig",
+   "text": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter."
+  },
+  {
+   "family": "L0",
+   "text": "Push down the lever of the toaster to turn it on.",
+   "based_on": "A4",
+   "why": "The exact skill sentence for the current sub-task; the lever is still not fully down."
+  },
+  {
+   "family": "L0",
+   "text": "Start the toaster.",
+   "based_on": "C10",
+   "why": "The task clause for starting the toaster, which requires the lever to go fully down."
+  },
+  {
+   "family": "L0",
+   "text": "Push down the lever of the toaster to turn it on. Start the toaster.",
+   "based_on": "A4+C10",
+   "why": "Combines the skill and task clauses so the press continues until the toaster starts."
+  },
+  {
+   "family": "L1",
+   "text": "Push down the lever of the toaster.",
+   "based_on": "A4",
+   "why": "A trimmed version that focuses only on pressing the lever, which is the step that failed."
+  },
+  {
+   "family": "L1",
+   "text": "Push down the toaster lever to start the toaster.",
+   "based_on": "A4+C10",
+   "why": "Links pushing the lever to starting the toaster, using only bank words."
+  },
+  {
+   "family": "L1",
+   "text": "Push the lever of the toaster down to turn on the toaster.",
+   "based_on": "A4",
+   "why": "Reorders A4 so the downward push is emphasized."
+  },
+  {
+   "family": "L2",
+   "text": "Push the lever of the toaster all the way down to turn it on.",
+   "based_on": "A4",
+   "why": "Adds 'all the way' because the lever only went a quarter of the way down."
+  },
+  {
+   "family": "L2",
+   "text": "Firmly push down the lever of the toaster fully to start the toaster.",
+   "based_on": "A4+C10",
+   "why": "Adds 'firmly' and 'fully' to correct the weak, partial press."
+  },
+  {
+   "family": "L2",
+   "text": "Push down the lever of the toaster until it stays down.",
+   "based_on": "A4",
+   "why": "Adds 'until it stays down' so the press continues until the lever locks and the toaster starts."
+  }
+ ],
+ "GTB2_short": [
+  {
+   "family": "orig",
+   "text": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter."
+  },
+  {
+   "family": "L0",
+   "text": "Push down the lever of the toaster to turn it on.",
+   "based_on": "A4",
+   "why": "Exact trained skill for the current sub-task: press the toaster lever to start it."
+  },
+  {
+   "family": "L0",
+   "text": "Start the toaster.",
+   "based_on": "C10",
+   "why": "Trained clause that triggers the toaster-starting behavior."
+  },
+  {
+   "family": "L0",
+   "text": "Start the toaster. Push down the lever of the toaster to turn it on.",
+   "based_on": "C10+A4",
+   "why": "Joins the goal with the concrete lever action to reinforce the push."
+  },
+  {
+   "family": "L1",
+   "text": "Push down the lever of the toaster to start the toaster.",
+   "based_on": "A4, C10",
+   "why": "Uses only bank words to tie the lever push to actually starting the toaster."
+  },
+  {
+   "family": "L1",
+   "text": "Push down the toaster lever to turn on the toaster.",
+   "based_on": "A4",
+   "why": "Restates the lever push with the toaster named as the thing to turn on."
+  },
+  {
+   "family": "L1",
+   "text": "Start the toaster: push the lever down.",
+   "based_on": "C10, A4",
+   "why": "Short recombination focused only on pressing the lever."
+  },
+  {
+   "family": "L2",
+   "text": "Push the lever of the toaster all the way down until it stays down to turn it on.",
+   "based_on": "A4",
+   "why": "Adds 'all the way' and 'until it stays down'. These fix the half push that let the lever spring back."
+  },
+  {
+   "family": "L2",
+   "text": "Firmly push down the lever of the toaster fully to turn it on.",
+   "based_on": "A4",
+   "why": "'Firmly' and 'fully' ask for the complete press that the toaster needs before it starts."
+  },
+  {
+   "family": "L2",
+   "text": "Push down the lever of the toaster again, all the way to the bottom.",
+   "based_on": "A4",
+   "why": "Asks for another try and makes the lever go fully down instead of halfway."
+  }
+ ],
+ "KB2_air": [
+  {
+   "family": "orig",
+   "text": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+  },
+  {
+   "family": "L0",
+   "text": "Pick the kettle from the counter and place it on the stove.",
+   "based_on": "A5",
+   "why": "Exact atomic skill matching the current sub-task; retry the grasp on the kettle still on the counter."
+  },
+  {
+   "family": "L0",
+   "text": "Pick the kettle from the counter and place it on a stove burner.",
+   "based_on": "C12",
+   "why": "Verbatim task clause for this sub-task; restarts the pick since the kettle is not grasped."
+  },
+  {
+   "family": "L0",
+   "text": "Pick the kettle from the counter and place it on the stove. Then turn the burner on.",
+   "based_on": "A5+C13",
+   "why": "Joined sentences keep the pick-and-place first, with the burner step left to the task instruction afterwards."
+  },
+  {
+   "family": "L1",
+   "text": "Pick up the kettle from the counter and place it on the stove burner.",
+   "based_on": "C12, A5, C1",
+   "why": "Recombined wording that focuses on actually picking up the kettle, which was missed."
+  },
+  {
+   "family": "L1",
+   "text": "Pick the kettle from the counter.",
+   "based_on": "C12",
+   "why": "Drops the place part so the policy concentrates on the failed grasp step."
+  },
+  {
+   "family": "L1",
+   "text": "Pick up the kettle from the counter and place it on a burner of the stove.",
+   "based_on": "C12, A9, C1",
+   "why": "Alternative phrasing that keeps grasp-then-place on the stove burner."
+  },
+  {
+   "family": "L2",
+   "text": "Pick the kettle from the counter by the handle and place it on the stove.",
+   "based_on": "A5",
+   "why": "Added 'handle' and 'by'... replaced: targets the handle so the gripper closes on the kettle, not on air."
+  },
+  {
+   "family": "L2",
+   "text": "Pick the kettle handle firmly from the counter and place it on the stove.",
+   "based_on": "A5",
+   "why": "Adds 'handle' and 'firmly' to correct the empty grasp beside the kettle."
+  },
+  {
+   "family": "L2",
+   "text": "Pick the kettle from the counter again and place it on the right burner of the stove.",
+   "based_on": "A5, A9",
+   "why": "Adds 'again' to retry the missed grasp; right burner is free and near the kettle."
+  }
+ ],
+ "SUCS0_drop": [
+  {
+   "family": "orig",
+   "text": "Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board."
+  },
+  {
+   "family": "L0",
+   "text": "Then place the meat from the plate to the cutting board.",
+   "based_on": "C15",
+   "why": "The knife is already on the board, so only the meat step is left. The dropped meat now lies on the plate."
+  },
+  {
+   "family": "L0",
+   "text": "Pick the steak from the plate and place it in the cutting board.",
+   "based_on": "A7",
+   "why": "Atomic pick-and-place skill with the slots filled by steak and cutting board, to retry the dropped grasp."
+  },
+  {
+   "family": "L0",
+   "text": "Pick the meat from the plate and place it in the cutting board.",
+   "based_on": "A7",
+   "why": "Same atomic skill, using the word meat that the task sentence uses."
+  },
+  {
+   "family": "L1",
+   "text": "Pick up the steak from the plate and place it on the cutting board.",
+   "based_on": "A7, C14",
+   "why": "Uses the pick-up wording and 'on the cutting board' from C14 for the steak retry."
+  },
+  {
+   "family": "L1",
+   "text": "Pick the meat from the plate and place it on the cutting board.",
+   "based_on": "A7, C14",
+   "why": "Swaps 'in' for 'on the cutting board' to match the target surface."
+  },
+  {
+   "family": "L1",
+   "text": "Pick up the meat from the plate, then place the meat on the cutting board.",
+   "based_on": "C14, C15",
+   "why": "States the grasp and the placement as explicit steps, since the earlier grasp failed."
+  },
+  {
+   "family": "L2",
+   "text": "Pick up the steak from the plate firmly and place it on the cutting board.",
+   "based_on": "A7, C14",
+   "why": "Adds 'firmly' to discourage another drop."
+  },
+  {
+   "family": "L2",
+   "text": "Pick the meat from the plate again and place it on the cutting board.",
+   "based_on": "A7, C14",
+   "why": "Adds 'again' to signal a retry of the failed transfer."
+  },
+  {
+   "family": "L2",
+   "text": "Pick up the meat firmly from the plate and place it on the cutting board next to the knife.",
+   "based_on": "C14, C15, A7",
+   "why": "Adds a firm grasp and places the meat next to the knife so it does not hit the knife already on the board."
+  }
+ ],
+ "DS1_short": [
+  {
+   "family": "orig",
+   "text": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter."
+  },
+  {
+   "family": "L0",
+   "text": "Open the front drawer.",
+   "based_on": "A1",
+   "why": "Verbatim open-drawer skill, filled with the scene word 'front' to pick the straw drawer in front of the robot."
+  },
+  {
+   "family": "L0",
+   "text": "Open the drawer drawer.",
+   "based_on": "A1",
+   "why": "Bank sentence with {} filled by a scene word; plain open-drawer cue to resume the partly opened drawer."
+  },
+  {
+   "family": "L0",
+   "text": "Open the front drawer. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "based_on": "A1+C16",
+   "why": "Two bank sentences joined: open the drawer first, with the task context naming the drawer in front."
+  },
+  {
+   "family": "L1",
+   "text": "Open the drawer in front.",
+   "based_on": "A1+C16",
+   "why": "Recombines the open-drawer skill with 'in front' from the task to point at the straw drawer."
+  },
+  {
+   "family": "L1",
+   "text": "Fully open the front drawer.",
+   "based_on": "A12+A1",
+   "why": "Takes 'fully open' from the fridge-drawer skill to stress opening the whole way, not a fifth."
+  },
+  {
+   "family": "L1",
+   "text": "Open the drawer in front to take a straw.",
+   "based_on": "A1+C16",
+   "why": "Uses only bank and scene words; ties the opening to the goal so the policy opens wide enough to reach the straw."
+  },
+  {
+   "family": "L2",
+   "text": "Fully open the front drawer all the way.",
+   "based_on": "A12+A1",
+   "why": "Adds 'all the way' because the failure was a drawer opened only part of its travel."
+  },
+  {
+   "family": "L2",
+   "text": "Open the front drawer fully, all the way, to take a straw.",
+   "based_on": "A1+A12+C16",
+   "why": "Adds 'all the way' and 'to' so the policy opens the drawer wide enough for the straw."
+  },
+  {
+   "family": "L2",
+   "text": "Firmly open the front drawer fully by the handle.",
+   "based_on": "A1",
+   "why": "Partially opened drawer must be opened all the way so the straw can be taken; uses only bank, scene and allowed modifier words."
+  }
+ ],
+ "DS2_wrong": [
+  {
+   "family": "orig",
+   "text": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter."
+  },
+  {
+   "family": "L0",
+   "text": "Open the front drawer.",
+   "based_on": "A1",
+   "why": "Fills A1 with 'front' to name the straw drawer that was in front at the start, not the left one already opened."
+  },
+  {
+   "family": "L0",
+   "text": "Open the front drawer. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "based_on": "A1+C16",
+   "why": "Points to the front drawer, and the task clause marks it as the drawer that holds the straw."
+  },
+  {
+   "family": "L0",
+   "text": "Open the straw drawer.",
+   "based_on": "A1",
+   "why": "Fills A1 with 'straw' so the policy looks for the drawer holding the straw instead of the wrong drawer."
+  },
+  {
+   "family": "L1",
+   "text": "Open the drawer in front.",
+   "based_on": "A1+C16",
+   "why": "Uses the C16 wording 'drawer in front' with the A1 open skill to pick out the target drawer."
+  },
+  {
+   "family": "L1",
+   "text": "Open the front straw drawer.",
+   "based_on": "A1+C16",
+   "why": "Two cues together, front and straw, make it clear which drawer is the target."
+  },
+  {
+   "family": "L1",
+   "text": "Fully open the front drawer.",
+   "based_on": "A12+A1",
+   "why": "Uses the A12 'fully open' wording on the front drawer so the policy opens it wide enough for the straw pick."
+  },
+  {
+   "family": "L2",
+   "text": "Open the drawer to your right.",
+   "based_on": "A1",
+   "why": "Adds 'to your right' because the target drawer is now about 0.57 m to the robot's right."
+  },
+  {
+   "family": "L2",
+   "text": "Open the straw drawer to your right.",
+   "based_on": "A1+C16",
+   "why": "Gives the direction (right) and the content (straw) so the policy moves away from the wrong left drawer."
+  },
+  {
+   "family": "L2",
+   "text": "Fully open the front drawer on the right.",
+   "based_on": "A12+A1",
+   "why": "Adds 'right' to send the robot toward the closed target drawer and open it fully."
+  }
+ ]
+}

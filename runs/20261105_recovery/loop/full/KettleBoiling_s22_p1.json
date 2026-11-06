@@ -1,0 +1,64 @@
+{
+ "id": "KettleBoiling_s22",
+ "task": "KettleBoiling",
+ "seed": 22,
+ "arm": "full",
+ "pseed": 1,
+ "stage": 1,
+ "kind": "stalled",
+ "start_chunk": 40,
+ "chunks_left": 54,
+ "fixed": true,
+ "fixed_after": 42,
+ "success": true,
+ "success_step": 1312,
+ "chunks": 82,
+ "final_stage": 2,
+ "stages_done": {
+  "0": 41,
+  "1": 82
+ },
+ "interventions": 3,
+ "log": [
+  {
+   "chunk": 40,
+   "event": "intervene",
+   "stage": 1,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 51,
+   "event": "undone",
+   "stage": 0,
+   "was": 1
+  },
+  {
+   "chunk": 51,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 52,
+   "event": "stage_done",
+   "stage": 0,
+   "attempts": 1
+  },
+  {
+   "chunk": 75,
+   "event": "intervene",
+   "stage": 1,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  }
+ ],
+ "seconds": 332.7
+}

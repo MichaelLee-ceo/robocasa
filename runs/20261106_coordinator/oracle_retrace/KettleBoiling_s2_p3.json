@@ -1,0 +1,199 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 1504,
+ "horizon": 1500,
+ "chunks": 144,
+ "free_steps": 800,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 0,
+ "vlm_cost_usd": 0,
+ "memory": {
+  "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+  "current": 1,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the kettle from the counter and place it on the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 40,
+       "t": 640,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 78,
+      "t": 640,
+      "trace_index": 1248,
+      "why": "retrace",
+      "end": {
+       "chunk": 95,
+       "t": 912,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 95,
+      "t": 912
+     }
+    ],
+    "undone_times": [],
+    "interventions": 1,
+    "last_status": {
+     "chunk": 143,
+     "t": 1488,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Turn on the front right burner of the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 95,
+      "t": 912,
+      "trace_index": 1520,
+      "why": "begin",
+      "end": {
+       "chunk": 118,
+       "t": 1280,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 130,
+      "t": 1280,
+      "trace_index": 2080,
+      "why": "retrace",
+      "end": {
+       "chunk": 144,
+       "t": 1504,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 1,
+    "last_status": {
+     "chunk": 143,
+     "t": 1488,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 40,
+   "1": 23
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 0,
+    "chunk": 40,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 118,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 40,
+    "t": 640,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 38,
+     "steps": 608,
+     "entries": 454,
+     "path_steps": 640,
+     "grip_changes": 3,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "chunk": 118,
+    "t": 1280,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 12,
+     "steps": 192,
+     "entries": 129,
+     "path_steps": 368,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_start",
+   "trigger_118",
+   "trigger_40"
+  ],
+  "free_steps": 800,
+  "vlm_calls": [],
+  "vlm_cost_usd": 0,
+  "status_checks": 54
+ },
+ "id": "KettleBoiling_s2",
+ "task": "KettleBoiling",
+ "seed": 2,
+ "stage": 0,
+ "kind": "stalled",
+ "start_t": 640,
+ "fixed": true,
+ "fixed_after": 17,
+ "run": "KettleBoiling_s2",
+ "config": "oracle_retrace",
+ "pseed": 3,
+ "vlm": null,
+ "seconds": 647.7
+}

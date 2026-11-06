@@ -1,0 +1,97 @@
+[system]
+You monitor a robot doing a kitchen task in simulation, from its camera frames. Judge only what the frames show. When the evidence is ambiguous (an object hidden, a lever or drawer that may be only part-way), say so in the evidence and lower the confidence instead of assuming success.
+
+[user]
+A robot is doing a kitchen task in simulation. Task instruction: "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+The task has these stages, in order:
+  1. Pick the lemon from the sink and place it on the bowl located on the counter.
+  2. Pick the bowl from the counter and place it in the microwave.
+  3. Close the microwave door.
+  4. Press the start button on the microwave.
+You see 5 moments from 0.0 s to 33.6 s after the start, each from 3 cameras.
+Progress so far (the coordinator's memory):
+  1. CURRENT: attempt 1, 33.6 s into it (usually done within 16 s)
+  2. not started
+  3. not started
+  4. not started
+
+Alarm at 33.6 s on sub-goal 1: this attempt has taken 34 s; the sub-goal is usually done within 16 s.
+
+Attempts at sub-goal 1:
+  1. began at 0.0 s (first time); in progress
+
+Robot sensors now: gripper closed, fingers 22 mm apart, holding something: probably (the fingers stopped apart). Over the last 3.2 s the hand moved 5 cm (relative to the base) and the base 28 cm. Since this attempt began: hand 28 cm, base 154 cm from where they were; gripper closed, then opened, then closed.
+--- when sub-goal 1 first began; when this attempt began ---
+t = 0.0 s (chunk 0), left shoulder view:
+[image]
+t = 0.0 s (chunk 0), right shoulder view:
+[image]
+t = 0.0 s (chunk 0), wrist camera:
+[image]
+--- during this attempt ---
+t = 19.2 s (chunk 24), left shoulder view:
+[image]
+t = 19.2 s (chunk 24), right shoulder view:
+[image]
+t = 19.2 s (chunk 24), wrist camera:
+[image]
+--- during this attempt ---
+t = 32.0 s (chunk 40), left shoulder view:
+[image]
+t = 32.0 s (chunk 40), right shoulder view:
+[image]
+t = 32.0 s (chunk 40), wrist camera:
+[image]
+--- recent ---
+t = 32.8 s (chunk 41), left shoulder view:
+[image]
+t = 32.8 s (chunk 41), right shoulder view:
+[image]
+t = 32.8 s (chunk 41), wrist camera:
+[image]
+--- now ---
+t = 33.6 s (chunk 42), left shoulder view:
+[image]
+t = 33.6 s (chunk 42), right shoulder view:
+[image]
+t = 33.6 s (chunk 42), wrist camera:
+[image]
+Question: what should be done now? The policy itself cannot be changed; these are the options:
+- retrace: drive the robot back along the path it took, to where it was when this attempt began (what it holds is carried back and put down where it was picked up; dropped or pushed objects stay where they are), then let the policy try the sub-goal again with fresh random samples
+- resample: keep the robot where it is and let the policy try again with fresh random samples
+- reinstruct: like resample, but give the policy another sentence (write it in "instruction"). The policy was trained on whole-task sentences like the task instruction and follows step-level sentences poorly
+- continue: do nothing: the alarm is wrong or the robot will manage
+Use what the attempts so far show: an action that already failed several times on this sub-goal is less likely to
+work again, and a retrace cannot bring back objects that fell or were pushed away.
+Answer with one JSON object and nothing else:
+{"action": one of ['retrace', 'resample', 'reinstruct', 'continue'],
+ "instruction": "the sentence for reinstruct, else empty",
+ "reason": "why, from the images and the attempts so far"}
+
+[schema]
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "action",
+  "instruction",
+  "reason"
+ ],
+ "properties": {
+  "action": {
+   "type": "string",
+   "enum": [
+    "retrace",
+    "resample",
+    "reinstruct",
+    "continue"
+   ]
+  },
+  "instruction": {
+   "type": "string"
+  },
+  "reason": {
+   "type": "string"
+  }
+ }
+}

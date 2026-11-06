@@ -1,0 +1,68 @@
+{
+ "id": "PackIdenticalLunches_s14",
+ "task": "PackIdenticalLunches",
+ "seed": 14,
+ "arm": "retrace",
+ "pseed": 3,
+ "stage": 0,
+ "kind": "stalled",
+ "start_chunk": 47,
+ "chunks_left": 197,
+ "fixed": true,
+ "fixed_after": 28,
+ "success": false,
+ "success_step": null,
+ "success_in_retrace": false,
+ "free_steps": 1776,
+ "chunks": 355,
+ "final_stage": 1,
+ "stages_done": {
+  "0": 91
+ },
+ "interventions": 2,
+ "log": [
+  {
+   "chunk": 47,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 1,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 16,
+   "steps": 256,
+   "entries": 210,
+   "path_steps": 752,
+   "grip_changes": 1,
+   "arrived": true,
+   "joint_rad": 0.001,
+   "base_cm": 0.0,
+   "base_rad": 0.0
+  },
+  {
+   "chunk": 91,
+   "event": "stage_done",
+   "stage": 0,
+   "attempts": 1
+  },
+  {
+   "chunk": 225,
+   "event": "intervene",
+   "stage": 1,
+   "attempt": 1,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 95,
+   "steps": 1520,
+   "entries": 1054,
+   "path_steps": 2144,
+   "grip_changes": 15,
+   "arrived": true,
+   "joint_rad": 0.001,
+   "base_cm": 0.0,
+   "base_rad": 0.0
+  }
+ ],
+ "seconds": 1614.9
+}

@@ -1,0 +1,212 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 3904,
+ "horizon": 3900,
+ "chunks": 335,
+ "free_steps": 1456,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "memory": {
+  "instruction": "Place one garlic and one fish in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 3,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "starts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin"
+     },
+     {
+      "chunk": 70,
+      "t": 752,
+      "trace_index": 1120,
+      "why": "retraced"
+     }
+    ],
+    "done_at": {
+     "chunk": 85,
+     "t": 992
+    },
+    "interventions": 1
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "starts": [
+     {
+      "chunk": 85,
+      "t": 992,
+      "trace_index": 1360,
+      "why": "begin"
+     }
+    ],
+    "done_at": {
+     "chunk": 113,
+     "t": 1440
+    },
+    "interventions": 0
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "starts": [
+     {
+      "chunk": 113,
+      "t": 1440,
+      "trace_index": 1808,
+      "why": "begin"
+     }
+    ],
+    "done_at": {
+     "chunk": 137,
+     "t": 1824
+    },
+    "interventions": 0
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "starts": [
+     {
+      "chunk": 137,
+      "t": 1824,
+      "trace_index": 2192,
+      "why": "begin"
+     },
+     {
+      "chunk": 214,
+      "t": 2544,
+      "trace_index": 3424,
+      "why": "retraced"
+     },
+     {
+      "chunk": 295,
+      "t": 3264,
+      "trace_index": 4720,
+      "why": "retraced"
+     }
+    ],
+    "done_at": null,
+    "interventions": 2
+   }
+  ],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 0,
+    "chunk": 47,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 3,
+    "chunk": 182,
+    "detail": {
+     "window_chunks": 45
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 3,
+    "chunk": 259,
+    "detail": {
+     "window_chunks": 45
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 23,
+     "steps": 368,
+     "entries": 289,
+     "path_steps": 752,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.006,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 32,
+     "steps": 512,
+     "entries": 386,
+     "path_steps": 720,
+     "grip_changes": 3,
+     "arrived": true,
+     "joint_rad": 0.029,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 36,
+     "steps": 576,
+     "entries": 489,
+     "path_steps": 720,
+     "grip_changes": 2,
+     "arrived": true,
+     "joint_rad": 0.023,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_done",
+   "s0_start",
+   "s1_done",
+   "s1_start",
+   "s2_done",
+   "s2_start",
+   "s3_start",
+   "trigger_182",
+   "trigger_259",
+   "trigger_47"
+  ],
+  "free_steps": 1456,
+  "vlm_calls": 0,
+  "status_checks": 197
+ },
+ "id": "PackIdenticalLunches_s20",
+ "task": "PackIdenticalLunches",
+ "seed": 20,
+ "stage": 0,
+ "start_t": 752,
+ "fixed": true,
+ "fixed_after": 15,
+ "run": "PackIdenticalLunches_s20",
+ "config": "oracle_retrace",
+ "pseed": 0,
+ "seconds": 1622.8
+}

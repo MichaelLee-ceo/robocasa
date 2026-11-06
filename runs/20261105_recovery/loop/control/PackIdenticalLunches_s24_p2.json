@@ -1,0 +1,41 @@
+{
+ "id": "PackIdenticalLunches_s24",
+ "task": "PackIdenticalLunches",
+ "seed": 24,
+ "arm": "control",
+ "pseed": 2,
+ "stage": 3,
+ "kind": "stalled",
+ "start_chunk": 114,
+ "chunks_left": 130,
+ "fixed": true,
+ "fixed_after": 121,
+ "success": true,
+ "success_step": 3760,
+ "chunks": 235,
+ "final_stage": 4,
+ "stages_done": {
+  "0": 115,
+  "1": 115,
+  "2": 115,
+  "3": 235
+ },
+ "interventions": 1,
+ "log": [
+  {
+   "chunk": 114,
+   "event": "intervene",
+   "stage": 3,
+   "attempt": 1,
+   "kind": "resample",
+   "back": 0,
+   "instruction": "task"
+  },
+  {
+   "chunk": 126,
+   "event": "ladder_done",
+   "stage": 3
+  }
+ ],
+ "seconds": 1198.9
+}

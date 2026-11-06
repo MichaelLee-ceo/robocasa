@@ -1,0 +1,96 @@
+{
+ "id": "KettleBoiling_s26",
+ "task": "KettleBoiling",
+ "seed": 26,
+ "arm": "hold",
+ "pseed": 1,
+ "stage": 1,
+ "kind": "stalled",
+ "start_chunk": 39,
+ "chunks_left": 55,
+ "fixed": false,
+ "fixed_after": null,
+ "success": false,
+ "success_step": null,
+ "chunks": 94,
+ "final_stage": 1,
+ "stages_done": {
+  "0": 40
+ },
+ "interventions": 4,
+ "log": [
+  {
+   "chunk": 39,
+   "event": "intervene",
+   "stage": 1,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 50,
+   "event": "undone",
+   "stage": 0,
+   "was": 1
+  },
+  {
+   "chunk": 50,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 55,
+   "event": "stage_done",
+   "stage": 0,
+   "attempts": 1
+  },
+  {
+   "chunk": 58,
+   "event": "undone",
+   "stage": 0,
+   "was": 1
+  },
+  {
+   "chunk": 58,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 63,
+   "event": "stage_done",
+   "stage": 0,
+   "attempts": 1
+  },
+  {
+   "chunk": 66,
+   "event": "undone",
+   "stage": 0,
+   "was": 1
+  },
+  {
+   "chunk": 66,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 71,
+   "event": "stage_done",
+   "stage": 0,
+   "attempts": 1
+  }
+ ],
+ "seconds": 378.2
+}

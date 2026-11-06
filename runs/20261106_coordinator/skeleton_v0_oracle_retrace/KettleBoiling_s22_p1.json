@@ -1,0 +1,110 @@
+{
+ "success": true,
+ "success_t": 768,
+ "success_in_retrace": false,
+ "gr00t_time": 768,
+ "horizon": 1500,
+ "chunks": 57,
+ "free_steps": 144,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "memory": {
+  "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+  "current": 1,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the kettle from the counter and place it on the stove.",
+    "starts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin"
+     }
+    ],
+    "done_at": {
+     "chunk": 17,
+     "t": 272
+    },
+    "interventions": 0
+   },
+   {
+    "index": 1,
+    "text": "Turn on the front left burner of the stove.",
+    "starts": [
+     {
+      "chunk": 17,
+      "t": 272,
+      "trace_index": 272,
+      "why": "replay"
+     },
+     {
+      "chunk": 49,
+      "t": 640,
+      "trace_index": 784,
+      "why": "retraced"
+     }
+    ],
+    "done_at": {
+     "chunk": 57,
+     "t": 768
+    },
+    "interventions": 1
+   }
+  ],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 1,
+    "chunk": 40,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 9,
+     "steps": 144,
+     "entries": 103,
+     "path_steps": 368,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.012,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_done",
+   "s0_start",
+   "s1_done",
+   "s1_start",
+   "trigger_40"
+  ],
+  "free_steps": 144,
+  "vlm_calls": 0,
+  "status_checks": 8
+ },
+ "id": "KettleBoiling_s22",
+ "task": "KettleBoiling",
+ "seed": 22,
+ "stage": 1,
+ "start_t": 640,
+ "fixed": true,
+ "fixed_after": 8,
+ "run": "KettleBoiling_s22",
+ "config": "oracle_retrace",
+ "pseed": 1,
+ "seconds": 192.4
+}

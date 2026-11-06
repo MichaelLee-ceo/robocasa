@@ -1,0 +1,120 @@
+[system]
+You monitor a robot doing a kitchen task in simulation, from its camera frames. Judge only what the frames show. When the evidence is ambiguous (an object hidden, a lever or drawer that may be only part-way), say so in the evidence and lower the confidence instead of assuming success.
+
+[user]
+A robot is doing a kitchen task in simulation. Task instruction: "Pick the lemon from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button."
+The task has these stages, in order:
+  1. Pick the lemon from the sink and place it on the bowl located on the counter.
+  2. Pick the bowl from the counter and place it in the microwave.
+  3. Close the microwave door.
+  4. Press the start button on the microwave.
+You see 6 moments from 0.0 s to 33.6 s after the start, each from 3 cameras.
+Progress so far (the coordinator's memory):
+  1. CURRENT: attempt 1, 33.6 s into it (usually done within 16 s)
+  2. not started
+  3. not started
+  4. not started
+
+Alarm at 33.6 s on sub-goal 1: this attempt has taken 34 s; the sub-goal is usually done within 16 s.
+
+Attempts at sub-goal 1:
+  1. began at 0.0 s (first time); in progress
+
+Robot sensors now: gripper closed, fingers 22 mm apart, holding something: probably (the fingers stopped apart). Over the last 3.2 s the hand moved 5 cm (relative to the base) and the base 28 cm. Since this attempt began: hand 28 cm, base 154 cm from where they were; gripper closed, then opened, then closed.
+--- when this attempt began ---
+t = 0.0 s (chunk 0), left shoulder view:
+[image]
+t = 0.0 s (chunk 0), right shoulder view:
+[image]
+t = 0.0 s (chunk 0), wrist camera:
+[image]
+--- during this attempt ---
+t = 12.8 s (chunk 16), left shoulder view:
+[image]
+t = 12.8 s (chunk 16), right shoulder view:
+[image]
+t = 12.8 s (chunk 16), wrist camera:
+[image]
+--- during this attempt ---
+t = 25.6 s (chunk 32), left shoulder view:
+[image]
+t = 25.6 s (chunk 32), right shoulder view:
+[image]
+t = 25.6 s (chunk 32), wrist camera:
+[image]
+--- during this attempt ---
+t = 32.0 s (chunk 40), left shoulder view:
+[image]
+t = 32.0 s (chunk 40), right shoulder view:
+[image]
+t = 32.0 s (chunk 40), wrist camera:
+[image]
+--- recent ---
+t = 32.8 s (chunk 41), left shoulder view:
+[image]
+t = 32.8 s (chunk 41), right shoulder view:
+[image]
+t = 32.8 s (chunk 41), wrist camera:
+[image]
+--- now ---
+t = 33.6 s (chunk 42), left shoulder view:
+[image]
+t = 33.6 s (chunk 42), right shoulder view:
+[image]
+t = 33.6 s (chunk 42), wrist camera:
+[image]
+Question: is the robot failing at the current sub-goal, so that it should be stopped and helped? Or is it
+still making progress, or already done? Compare the course of this attempt (the moments in order) with what the
+sub-goal needs.
+Event definitions (pick the one that best describes the clip; "none" if the robot is making normal progress or is done):
+- missed_grasp: the gripper closed on nothing at or near the target object, and the robot moves on without it.
+- dropped: an object the robot was holding fell or slipped out of the gripper.
+- fixture_short: a drawer, door, lever, knob or handle was moved only part of the way, then released or left.
+- wrong_element: the robot opens, pushes or turns a fixture part that is not the one the current stage needs.
+- no_progress: the robot is not advancing the current stage (wandering, hovering, repeating the same motion).
+- other: a failure that fits none of the above (describe it).
+Answer with one JSON object and nothing else:
+{"failure": true or false,
+ "kind": one of ['none', 'missed_grasp', 'dropped', 'fixture_short', 'wrong_element', 'no_progress', 'other'],
+ "reason": "what in the images shows it",
+ "confidence": a number from 0 to 1,
+ "note": "one short fact worth remembering, or empty"}
+
+[schema]
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "failure",
+  "kind",
+  "reason",
+  "confidence",
+  "note"
+ ],
+ "properties": {
+  "failure": {
+   "type": "boolean"
+  },
+  "kind": {
+   "type": "string",
+   "enum": [
+    "none",
+    "missed_grasp",
+    "dropped",
+    "fixture_short",
+    "wrong_element",
+    "no_progress",
+    "other"
+   ]
+  },
+  "reason": {
+   "type": "string"
+  },
+  "confidence": {
+   "type": "number"
+  },
+  "note": {
+   "type": "string"
+  }
+ }
+}

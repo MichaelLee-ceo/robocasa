@@ -1,0 +1,70 @@
+{
+ "id": "SteamInMicrowave_s26",
+ "task": "SteamInMicrowave",
+ "seed": 26,
+ "arm": "retrace",
+ "pseed": 2,
+ "stage": 2,
+ "kind": "undone",
+ "start_chunk": 104,
+ "chunks_left": 28,
+ "fixed": true,
+ "fixed_after": 1,
+ "success": false,
+ "success_step": null,
+ "success_in_retrace": false,
+ "free_steps": 528,
+ "chunks": 165,
+ "final_stage": 3,
+ "stages_done": {
+  "0": 132,
+  "1": 132,
+  "2": 132
+ },
+ "interventions": 2,
+ "log": [
+  {
+   "chunk": 104,
+   "event": "intervene",
+   "stage": 2,
+   "attempt": 1,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 27,
+   "steps": 432,
+   "entries": 344,
+   "path_steps": 960,
+   "grip_changes": 2,
+   "arrived": true,
+   "joint_rad": 0.028,
+   "base_cm": 0.0,
+   "base_rad": 0.0
+  },
+  {
+   "chunk": 132,
+   "event": "stage_done",
+   "stage": 2,
+   "attempts": 1
+  },
+  {
+   "chunk": 156,
+   "event": "intervene",
+   "stage": 3,
+   "attempt": 1,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 6,
+   "steps": 96,
+   "entries": 65,
+   "path_steps": 384,
+   "grip_changes": 1,
+   "arrived": true,
+   "joint_rad": 0.005,
+   "base_cm": 0.1,
+   "base_rad": 0.0
+  }
+ ],
+ "seconds": 599.8
+}

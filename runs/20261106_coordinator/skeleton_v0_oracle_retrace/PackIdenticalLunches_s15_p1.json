@@ -1,0 +1,166 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 3904,
+ "horizon": 3900,
+ "chunks": 388,
+ "free_steps": 2304,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "memory": {
+  "instruction": "Place one corn and one steak in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 2,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "starts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin"
+     },
+     {
+      "chunk": 84,
+      "t": 752,
+      "trace_index": 1344,
+      "why": "retraced"
+     }
+    ],
+    "done_at": {
+     "chunk": 105,
+     "t": 1088
+    },
+    "interventions": 1
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "starts": [
+     {
+      "chunk": 105,
+      "t": 1088,
+      "trace_index": 1680,
+      "why": "begin"
+     },
+     {
+      "chunk": 346,
+      "t": 3232,
+      "trace_index": 5536,
+      "why": "retraced"
+     }
+    ],
+    "done_at": {
+     "chunk": 379,
+     "t": 3760
+    },
+    "interventions": 1
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "starts": [
+     {
+      "chunk": 379,
+      "t": 3760,
+      "trace_index": 6064,
+      "why": "begin"
+     }
+    ],
+    "done_at": null,
+    "interventions": 0
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "starts": [],
+    "done_at": null,
+    "interventions": 0
+   }
+  ],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 0,
+    "chunk": 47,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 239,
+    "detail": {
+     "window_chunks": 134
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 37,
+     "steps": 592,
+     "entries": 507,
+     "path_steps": 752,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.015,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 107,
+     "steps": 1712,
+     "entries": 1360,
+     "path_steps": 2144,
+     "grip_changes": 7,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_done",
+   "s0_start",
+   "s1_done",
+   "s1_start",
+   "s2_start",
+   "trigger_239",
+   "trigger_47"
+  ],
+  "free_steps": 2304,
+  "vlm_calls": 0,
+  "status_checks": 197
+ },
+ "id": "PackIdenticalLunches_s15",
+ "task": "PackIdenticalLunches",
+ "seed": 15,
+ "stage": 0,
+ "start_t": 752,
+ "fixed": true,
+ "fixed_after": 21,
+ "run": "PackIdenticalLunches_s15",
+ "config": "oracle_retrace",
+ "pseed": 1,
+ "seconds": 1439.7
+}

@@ -1,0 +1,71 @@
+{
+ "id": "PackIdenticalLunches_s18",
+ "task": "PackIdenticalLunches",
+ "seed": 18,
+ "arm": "back",
+ "pseed": 0,
+ "stage": 3,
+ "kind": "stalled",
+ "start_chunk": 106,
+ "chunks_left": 138,
+ "fixed": false,
+ "fixed_after": null,
+ "success": false,
+ "success_step": null,
+ "chunks": 244,
+ "final_stage": 3,
+ "stages_done": {
+  "0": 111,
+  "1": 111,
+  "2": 111
+ },
+ "interventions": 4,
+ "log": [
+  {
+   "chunk": 106,
+   "event": "intervene",
+   "stage": 3,
+   "attempt": 1,
+   "kind": "back",
+   "back": 4,
+   "instruction": "task",
+   "reversed": 4
+  },
+  {
+   "chunk": 122,
+   "event": "intervene",
+   "stage": 3,
+   "attempt": 2,
+   "kind": "back",
+   "back": 4,
+   "instruction": "task",
+   "reversed": 4
+  },
+  {
+   "chunk": 138,
+   "event": "intervene",
+   "stage": 3,
+   "attempt": 3,
+   "kind": "back",
+   "back": 8,
+   "instruction": "task",
+   "reversed": 8
+  },
+  {
+   "chunk": 158,
+   "event": "intervene",
+   "stage": 3,
+   "attempt": 4,
+   "kind": "back",
+   "back": 8,
+   "instruction": "task",
+   "reversed": 8
+  },
+  {
+   "chunk": 178,
+   "event": "ladder_done",
+   "stage": 3
+  }
+ ],
+ "seconds": 931.2
+}

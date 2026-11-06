@@ -1,0 +1,60 @@
+{
+ "id": "SteamInMicrowave_s8",
+ "task": "SteamInMicrowave",
+ "seed": 8,
+ "arm": "hold",
+ "pseed": 1,
+ "stage": 3,
+ "kind": "stalled",
+ "start_chunk": 74,
+ "chunks_left": 58,
+ "fixed": false,
+ "fixed_after": null,
+ "success": false,
+ "success_step": null,
+ "chunks": 132,
+ "final_stage": 2,
+ "stages_done": {
+  "0": 75,
+  "1": 75,
+  "2": 75
+ },
+ "interventions": 2,
+ "log": [
+  {
+   "chunk": 74,
+   "event": "intervene",
+   "stage": 3,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 86,
+   "event": "ladder_done",
+   "stage": 3
+  },
+  {
+   "chunk": 111,
+   "event": "undone",
+   "stage": 2,
+   "was": 3
+  },
+  {
+   "chunk": 111,
+   "event": "intervene",
+   "stage": 2,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 123,
+   "event": "ladder_done",
+   "stage": 2
+  }
+ ],
+ "seconds": 486.8
+}

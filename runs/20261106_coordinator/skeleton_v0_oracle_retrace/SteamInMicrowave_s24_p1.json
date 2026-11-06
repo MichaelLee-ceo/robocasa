@@ -1,0 +1,278 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 2112,
+ "horizon": 2100,
+ "chunks": 217,
+ "free_steps": 1360,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "memory": {
+  "instruction": "Pick the broccoli from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button.",
+  "current": 0,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the broccoli from the sink and place it on the bowl located on the counter.",
+    "starts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin"
+     },
+     {
+      "chunk": 39,
+      "t": 320,
+      "trace_index": 624,
+      "why": "retraced"
+     },
+     {
+      "chunk": 79,
+      "t": 640,
+      "trace_index": 1264,
+      "why": "retraced"
+     },
+     {
+      "chunk": 115,
+      "t": 960,
+      "trace_index": 1840,
+      "why": "retraced"
+     },
+     {
+      "chunk": 151,
+      "t": 1280,
+      "trace_index": 2416,
+      "why": "retraced"
+     },
+     {
+      "chunk": 176,
+      "t": 1600,
+      "trace_index": 2816,
+      "why": "retraced"
+     },
+     {
+      "chunk": 205,
+      "t": 1920,
+      "trace_index": 3280,
+      "why": "retraced"
+     }
+    ],
+    "done_at": null,
+    "interventions": 6
+   },
+   {
+    "index": 1,
+    "text": "Pick the bowl from the counter and place it in the microwave.",
+    "starts": [],
+    "done_at": null,
+    "interventions": 0
+   },
+   {
+    "index": 2,
+    "text": "Close the microwave door.",
+    "starts": [],
+    "done_at": null,
+    "interventions": 0
+   },
+   {
+    "index": 3,
+    "text": "Press the start button on the microwave.",
+    "starts": [],
+    "done_at": null,
+    "interventions": 0
+   }
+  ],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 0,
+    "chunk": 20,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 59,
+    "detail": {
+     "window_chunks": 20
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 99,
+    "detail": {
+     "window_chunks": 20
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 135,
+    "detail": {
+     "window_chunks": 20
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 171,
+    "detail": {
+     "window_chunks": 20
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 196,
+    "detail": {
+     "window_chunks": 20
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 19,
+     "steps": 304,
+     "entries": 195,
+     "path_steps": 320,
+     "grip_changes": 4,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 20,
+     "steps": 320,
+     "entries": 216,
+     "path_steps": 320,
+     "grip_changes": 3,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 16,
+     "steps": 256,
+     "entries": 181,
+     "path_steps": 320,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.009,
+     "base_cm": 0.6,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 16,
+     "steps": 256,
+     "entries": 187,
+     "path_steps": 320,
+     "grip_changes": 2,
+     "arrived": true,
+     "joint_rad": 0.002,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 5,
+     "steps": 80,
+     "entries": 58,
+     "path_steps": 320,
+     "grip_changes": 0,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 9,
+     "steps": 144,
+     "entries": 103,
+     "path_steps": 320,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.003,
+     "base_cm": 0.4,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_start",
+   "trigger_135",
+   "trigger_171",
+   "trigger_196",
+   "trigger_20",
+   "trigger_59",
+   "trigger_99"
+  ],
+  "free_steps": 1360,
+  "vlm_calls": 0,
+  "status_checks": 112
+ },
+ "id": "SteamInMicrowave_s24",
+ "task": "SteamInMicrowave",
+ "seed": 24,
+ "stage": 0,
+ "start_t": 320,
+ "fixed": false,
+ "fixed_after": null,
+ "run": "SteamInMicrowave_s24",
+ "config": "oracle_retrace",
+ "pseed": 1,
+ "seconds": 564.9
+}

@@ -6,8 +6,17 @@
 *.npz
 __pycache__/
 
-# envkit's frozen scenes: large binary state dumps, rebuilt by envkit/tests/campaign.sh (their .ref.json stay in git)
-envkit/scenes/*.pkl.gz
 
-# envkit policy-test records (actions and tracker per chunk; binary, rebuilt by envkit/tests/policy_tests.sh)
-envkit/tests/results/policy/
+
+# recovery trial records (actions per trial; binary)
+20261105_recovery/recover/records/
+20261105_recovery/phase0/records/
+20261105_recovery/loop/*/*.pkl.gz
+20261105_recovery/loop/*/*.claim
+20261105_recovery/stage_start/*.pkl.gz
+20261105_recovery/loop/retrace_check/
+20261105_recovery/loop_archive/*/*.pkl.gz
+20261105_recovery/loop_archive/*/*.claim
+20261106_coordinator/vlm_check/*/*.jpg
+20261106_coordinator/*.log
+20261106_coordinator/*/*.pkl.gz

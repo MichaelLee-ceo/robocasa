@@ -1,6 +1,6 @@
 # Stage-level "imagine, then choose" (oracle upper bound), KettleBoiling, 2026-10-26
 
-> **Record only (2026-11-05).** This experiment ran on the earlier pipeline, which had known problems (`../20261104_env_audit`). Its code was removed from the working tree; it is in git at commit `84e894a`. Its large outputs (git-ignored) were moved to `~/mclee/robocasa_old_data/runs/<this folder>/`. This folder keeps the README and the results. New work uses `../envkit`.
+> **Record only (2026-11-05).** This experiment ran on the earlier pipeline, which had known problems (`../20261104_env_audit`). Its code was removed from the working tree; it is in git at commit `84e894a`. Its large outputs (git-ignored) were moved to `~/mclee/robocasa_old_data/runs/<this folder>/`. This folder keeps the README and the results. New work uses `../../envkit`.
 
 > **Caveat (2026-10-27).** All runs below restored node states with `set_state()` only. That does not restore the robot
 > controllers' internal state: the gripper command ramp, the base-mode arm goal, cached kinematics, and the warm start.

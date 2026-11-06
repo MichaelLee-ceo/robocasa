@@ -1,0 +1,76 @@
+{
+ "id": "SteamInMicrowave_s28",
+ "task": "SteamInMicrowave",
+ "seed": 28,
+ "arm": "full",
+ "pseed": 0,
+ "stage": 0,
+ "kind": "stalled",
+ "start_chunk": 20,
+ "chunks_left": 112,
+ "fixed": false,
+ "fixed_after": null,
+ "success": false,
+ "success_step": null,
+ "chunks": 132,
+ "final_stage": 0,
+ "stages_done": {},
+ "interventions": 5,
+ "log": [
+  {
+   "chunk": 20,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 1,
+   "kind": "hold",
+   "back": 0,
+   "instruction": "stage"
+  },
+  {
+   "chunk": 32,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 2,
+   "kind": "back",
+   "back": 4,
+   "instruction": "stage",
+   "reversed": 4
+  },
+  {
+   "chunk": 48,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 3,
+   "kind": "back",
+   "back": 4,
+   "instruction": "task",
+   "reversed": 4
+  },
+  {
+   "chunk": 64,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 4,
+   "kind": "back",
+   "back": 8,
+   "instruction": "stage",
+   "reversed": 8
+  },
+  {
+   "chunk": 84,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 5,
+   "kind": "back",
+   "back": 8,
+   "instruction": "task",
+   "reversed": 8
+  },
+  {
+   "chunk": 104,
+   "event": "ladder_done",
+   "stage": 0
+  }
+ ],
+ "seconds": 665.0
+}

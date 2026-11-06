@@ -1,0 +1,113 @@
+{
+ "id": "SteamInMicrowave_s24",
+ "task": "SteamInMicrowave",
+ "seed": 24,
+ "arm": "retrace",
+ "pseed": 3,
+ "stage": 0,
+ "kind": "stalled",
+ "start_chunk": 20,
+ "chunks_left": 112,
+ "fixed": true,
+ "fixed_after": 34,
+ "success": true,
+ "success_step": 2080,
+ "success_in_retrace": false,
+ "free_steps": 928,
+ "chunks": 188,
+ "final_stage": 4,
+ "stages_done": {
+  "0": 86,
+  "1": 114,
+  "2": 126,
+  "3": 188
+ },
+ "interventions": 3,
+ "log": [
+  {
+   "chunk": 20,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 1,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 19,
+   "steps": 304,
+   "entries": 195,
+   "path_steps": 320,
+   "grip_changes": 4,
+   "arrived": true,
+   "joint_rad": 0.001,
+   "base_cm": 0.0,
+   "base_rad": 0.0
+  },
+  {
+   "chunk": 59,
+   "event": "intervene",
+   "stage": 0,
+   "attempt": 2,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 13,
+   "steps": 208,
+   "entries": 143,
+   "path_steps": 320,
+   "grip_changes": 2,
+   "arrived": true,
+   "joint_rad": 0.002,
+   "base_cm": 0.4,
+   "base_rad": 0.0
+  },
+  {
+   "chunk": 86,
+   "event": "stage_done",
+   "stage": 0,
+   "attempts": 2
+  },
+  {
+   "chunk": 114,
+   "event": "stage_done",
+   "stage": 1,
+   "attempts": 0
+  },
+  {
+   "chunk": 126,
+   "event": "stage_done",
+   "stage": 2,
+   "attempts": 0
+  },
+  {
+   "chunk": 150,
+   "event": "undone",
+   "stage": 2,
+   "was": 3
+  },
+  {
+   "chunk": 150,
+   "event": "intervene",
+   "stage": 2,
+   "attempt": 1,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 26,
+   "steps": 416,
+   "entries": 268,
+   "path_steps": 576,
+   "grip_changes": 6,
+   "arrived": true,
+   "joint_rad": 0.003,
+   "base_cm": 0.0,
+   "base_rad": 0.0
+  },
+  {
+   "chunk": 177,
+   "event": "stage_done",
+   "stage": 2,
+   "attempts": 1
+  }
+ ],
+ "seconds": 675.2
+}

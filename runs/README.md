@@ -1,7 +1,7 @@
 # runs/: steering a frozen GR00T N1.5 by choosing its own action chunks (ECE 780, from 2026-10-25)
 
 ## Start here
-- **Running an experiment:** read `envkit/README.md`. It covers setup, the API, recipes, and the rules that broke
+- **Running an experiment:** read `../envkit/README.md`. It covers setup, the API, recipes, and the rules that broke
   earlier experiments.
 - **What has been found so far:** see "Results so far" below, then the README of each dated folder.
 - **Rebuilding on another machine:** see `_handoff/README.md`.
@@ -46,20 +46,27 @@ the chunks that decide the outcome, at a small fraction of the cost of searching
   - This explains 3 of the oracle's 4 failures there. The fourth, s14, spent most of its horizon in stage 1.
 - **Environment audit (2026-11-04/05, `20261104_env_audit`):**
   - the earlier pipeline's restores, replays and stage checks had gaps (findings A-H);
-  - new work builds on `envkit/`: official v1.0.1 eval semantics, exact snapshots of the whole state, a fresh env per
+  - new work builds on `../envkit/`: official v1.0.1 eval semantics, exact snapshots of the whole state, a fresh env per
     episode;
-  - it is verified on all 480 scenes and 48 full GR00T runs (`envkit/tests`).
-- **Next:** the proposal's state understanding (a VLM supervisor that tracks stages and progress), measured against
-  `envkit/stages.py` on envkit episodes; then adaptive intervention.
+  - it is verified on all 480 scenes and 48 full GR00T runs (`../envkit/tests`).
+- **Recovery (2026-11-06, `20261105_recovery`):** from known failure points, retracing the robot's own path to the
+  stage start and retrying beats same-scene reruns (success 4 % -> 22 %); language and reversed commands do not.
+- **Next:** `../coordinator/` (top level): the VLM modules (tracker, cheap triggers, confirmer, recovery) in place of the oracle
+  ones, then end-to-end evaluation on full episodes.
 
 ## Folders
-**Use for new work**
+`runs/` holds experiment records and results only. The code lives at the repository's top level:
+- `../envkit/`: the environment layer: episodes as the official eval runs them, frozen scenes, exact snapshots,
+  restores and replays, the stage tracker, the GR00T client and server. Its tests (`../envkit/tests/`) gate it, and
+  `../envkit/README.md` is the usage guide.
+- `../coordinator/`: the method, the VLM coordinator. Guide: `../coordinator/README.md`.
+
+**Current records**
 | folder | what |
 |---|---|
-| `envkit/` | the environment layer: episodes as the official eval runs them, frozen scenes, exact snapshots / restores / replays, the stage tracker, the GR00T client and server. **Usage guide: `envkit/README.md`** |
-| `envkit/tests/` | the tests that gate envkit, with their results |
-| `envkit/scenes/` | the frozen scenes: 16 tasks x seeds 0-29 (the `.pkl.gz` stay on the machine; the `.ref.json` are in git) |
 | `20261104_env_audit/` | why envkit exists: the audit of the earlier pipeline (findings A-H) and what was fixed |
+| `20261106_coordinator/` | outputs of `../coordinator` (the method, at the repository's top level): runs per configuration, VLM request checks |
+| `20261105_recovery/` | the recovery experiments (2026-11-05/06): phase 0 failure points, the loop's arms, steerability of GR00T to language, retrace to the stage start (fixed 12 % -> 37 %, success 4 % -> 22 % against same-scene reruns) |
 
 **Experiment record** (2026-10-25 to 2026-10-31; each folder keeps its README and results; the code ran on the earlier
 pipeline, was removed on 2026-11-05 and is in git at commit `84e894a`; large outputs are in `~/mclee/robocasa_old_data/`)
@@ -73,7 +80,7 @@ pipeline, was removed on 2026-11-05 and is in git at commit `84e894a`; large out
 | `20261031_diver_proxy/` | DiVeR's criticality score on GR00T features | the closest prior work's signal fails here (AUROC 0.55-0.60) |
 | `20261030_vlm_critic/` | a blind VLM critic judging candidates from their commanded paths | judging candidates from actions fails; motivates state understanding |
 | `20261026_critic_data/` | branching data for a learned critic | (direction paused) |
-| `20261025_determinism/`, `20261025_labeler_check/`, `20261029_review/` | reliability checks of the earlier pipeline | superseded by `20261104_env_audit` and `envkit/tests` |
+| `20261025_determinism/`, `20261025_labeler_check/`, `20261029_review/` | reliability checks of the earlier pipeline | superseded by `20261104_env_audit` and `../envkit/tests` |
 
 The numbers above came from the earlier pipeline (v1.0.0 horizons, success at any step). Use them as preliminary
 evidence; re-measure on envkit before reporting any of them as a result.
@@ -94,11 +101,11 @@ probe and the review's exploratory scans) was deleted on 2026-11-04; its tracked
 - **Not in git:** frozen scene dumps, policy-test records, videos, states and features. Only code, READMEs and results
   (jsonl / json / txt) are committed. `_handoff/README.md` describes the environment, checkpoints and datasets.
 
-Reproducibility of envkit (2026-11-05, `envkit/tests`):
+Reproducibility of envkit (2026-11-05, `../envkit/tests`):
 - The official reset reproduces the frozen scene.
 - Replays of recorded actions and restores reproduce the state bit for bit.
 - GR00T's action noise is seeded per chunk, so the same observation and seed give the same chunk.
 - Camera images can differ by MSAA noise: MSAA 4 renders the same state with +-1 on a few edge pixels at random, on
   any render, even in one process. The earlier study saw the same on semi-transparent fixture glass, enough for a
   rollout to diverge. So live policy runs are not bit-reproducible, and the official rendering is kept on purpose;
-  see `envkit/README.md`.
+  see `../envkit/README.md`.

@@ -1,0 +1,43 @@
+{
+ "id": "KettleBoiling_s9",
+ "task": "KettleBoiling",
+ "seed": 9,
+ "arm": "retrace",
+ "pseed": 3,
+ "stage": 1,
+ "kind": "stalled",
+ "start_chunk": 52,
+ "chunks_left": 42,
+ "fixed": true,
+ "fixed_after": 25,
+ "success": true,
+ "success_step": 1232,
+ "chunks": 77,
+ "final_stage": 2,
+ "stages_done": {
+  "0": 68,
+  "1": 77
+ },
+ "interventions": 1,
+ "log": [
+  {
+   "chunk": 52,
+   "event": "intervene",
+   "stage": 1,
+   "attempt": 1,
+   "kind": "retrace",
+   "back": 0,
+   "instruction": "task",
+   "chunks": 15,
+   "waypoints": 23,
+   "path_steps": 368,
+   "grip_changes": 7,
+   "arrived": true,
+   "hand_cm": 1.8,
+   "hand_rad": 0.058,
+   "base_cm": 0.9,
+   "base_rad": 0.005
+  }
+ ],
+ "seconds": 250.4
+}

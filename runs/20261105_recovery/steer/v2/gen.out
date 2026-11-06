@@ -1,0 +1,86 @@
+[robosuite WARNING] No private macro file found! (macros.py:57)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:58)
+[robosuite WARNING] To setup, run: python /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/scripts/setup_macros.py (macros.py:59)
+[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)
+[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly (e.g. pip install mink==0.0.5), otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:40)
+[robosuite WARNING] No private macro file found! (macros.py:28)
+[robosuite WARNING] It is recommended to use a private macro file (macros.py:29)
+[robosuite WARNING] To setup, run: python /home/michaellee/mclee/robocasa/robocasa/scripts/setup_macros.py (macros.py:30)
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+/home/michaellee/mclee/robocasa/envs/groot/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `reset()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+/home/michaellee/mclee/robocasa/envs/groot/lib/python3.10/site-packages/gymnasium/utils/passive_env_checker.py:158: UserWarning: [33mWARN: The obs returned by the `step()` method is not within the observation space.[0m
+  logger.warn(f"{pre} is not within the observation space.")
+WARNING: mimicgen environments not imported since mimicgen is not installed!
+Creating GetToastedBread with split=target
+GTB1_short {'L0': 3, 'L1': 3, 'L2': 3} rejected 0
+   L0 Push down the lever of the toaster to turn it on.
+   L0 Start the toaster.
+   L0 Push down the lever of the toaster to turn it on. Start the toaster.
+   L1 Push down the lever of the toaster.
+   L1 Push down the toaster lever to start the toaster.
+   L1 Push the lever of the toaster down to turn on the toaster.
+   L2 Push the lever of the toaster all the way down to turn it on.
+   L2 Firmly push down the lever of the toaster fully to start the toaster.
+   L2 Push down the lever of the toaster until it stays down.
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+Creating GetToastedBread with split=target
+GTB2_short {'L0': 3, 'L1': 3, 'L2': 3} rejected 0
+   L0 Push down the lever of the toaster to turn it on.
+   L0 Start the toaster.
+   L0 Start the toaster. Push down the lever of the toaster to turn it on.
+   L1 Push down the lever of the toaster to start the toaster.
+   L1 Push down the toaster lever to turn on the toaster.
+   L1 Start the toaster: push the lever down.
+   L2 Push the lever of the toaster all the way down until it stays down to turn it on.
+   L2 Firmly push down the lever of the toaster fully to turn it on.
+   L2 Push down the lever of the toaster again, all the way to the bottom.
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+Creating KettleBoiling with split=target
+KB2_air {'L0': 3, 'L1': 3, 'L2': 3} rejected 0
+   L0 Pick the kettle from the counter and place it on the stove.
+   L0 Pick the kettle from the counter and place it on a stove burner.
+   L0 Pick the kettle from the counter and place it on the stove. Then turn the burner on.
+   L1 Pick up the kettle from the counter and place it on the stove burner.
+   L1 Pick the kettle from the counter.
+   L1 Pick up the kettle from the counter and place it on a burner of the stove.
+   L2 Pick the kettle from the counter by the handle and place it on the stove.
+   L2 Pick the kettle handle firmly from the counter and place it on the stove.
+   L2 Pick the kettle from the counter again and place it on the right burner of the stove.
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+Creating SetUpCuttingStation with split=target
+SUCS0_drop {'L0': 3, 'L1': 3, 'L2': 3} rejected 0
+   L0 Then place the meat from the plate to the cutting board.
+   L0 Pick the steak from the plate and place it in the cutting board.
+   L0 Pick the meat from the plate and place it in the cutting board.
+   L1 Pick up the steak from the plate and place it on the cutting board.
+   L1 Pick the meat from the plate and place it on the cutting board.
+   L1 Pick up the meat from the plate, then place the meat on the cutting board.
+   L2 Pick up the steak from the plate firmly and place it on the cutting board.
+   L2 Pick the meat from the plate again and place it on the cutting board.
+   L2 Pick up the meat firmly from the plate and place it on the cutting board next to the knife.
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+Creating DeliverStraw with split=target
+DS1_short {'L0': 3, 'L1': 3, 'L2': 3} rejected 0
+   L0 Open the front drawer.
+   L0 Open the drawer drawer.
+   L0 Open the front drawer. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.
+   L1 Open the drawer in front.
+   L1 Fully open the front drawer.
+   L1 Open the drawer in front to take a straw.
+   L2 Fully open the front drawer all the way.
+   L2 Open the front drawer fully, all the way, to take a straw.
+   L2 Firmly open the front drawer fully by the handle.
+[robosuite INFO] Loading controller configuration from: /home/michaellee/mclee/robocasa/third_party/robosuite/robosuite/controllers/config/robots/default_pandaomron.json (composite_controller_factory.py:121)
+Creating DeliverStraw with split=target
+DS2_wrong {'L0': 3, 'L1': 3, 'L2': 3} rejected 0
+   L0 Open the front drawer.
+   L0 Open the front drawer. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.
+   L0 Open the straw drawer.
+   L1 Open the drawer in front.
+   L1 Open the front straw drawer.
+   L1 Fully open the front drawer.
+   L2 Open the drawer to your right.
+   L2 Open the straw drawer to your right.
+   L2 Fully open the front drawer on the right.
+tokens in 18150 out 4701, about $0.17

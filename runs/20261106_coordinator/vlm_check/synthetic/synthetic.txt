@@ -1,0 +1,37 @@
+[system]
+
+
+[user]
+An image:
+[image]
+List the shapes in the image and their colors. Answer with one JSON object and nothing else: {"shapes": [{"shape": "...", "color": "..."}]}
+
+[schema]
+{
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "shapes"
+ ],
+ "properties": {
+  "shapes": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "shape",
+     "color"
+    ],
+    "properties": {
+     "shape": {
+      "type": "string"
+     },
+     "color": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}

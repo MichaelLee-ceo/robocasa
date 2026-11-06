@@ -1,7 +1,8 @@
 # ECE 780: steering a frozen GR00T N1.5 on RoboCasa365
 
 This is a fork of [RoboCasa](https://github.com/robocasa/robocasa); the upstream README is in
-[README_robocasa.md](README_robocasa.md). Our work is in [`runs/`](runs/README.md).
+[README_robocasa.md](README_robocasa.md). Our method is in [`coordinator/`](coordinator/README.md); experiments and
+the environment layer are in [`runs/`](runs/README.md).
 
 ## Goal
 The frozen GR00T N1.5 policy can already solve many RoboCasa365 kitchen tasks. Some of its own samples succeed, but a
@@ -15,6 +16,11 @@ plain rollout often fails partway. We keep the policy frozen and add a closed lo
 Preliminary evidence, from the earlier pipeline ([runs/README.md](runs/README.md)):
 - choosing among GR00T's own samples with a simulator oracle raises KettleBoiling from 65 % to 97 %;
 - choosing at the few chunks that decide a stage gains +25 points, while choosing at random chunks gains nothing.
+
+Current result (2026-11-06, [runs/20261105_recovery](runs/20261105_recovery/README.md)). From 43 known failure points,
+the robot retraces its own recorded path back to where the failed stage began, then GR00T retries. Compared with
+same-scene reruns, this fixes the failed stage 37 % of the time instead of 12 %, and the task succeeds 22 % of the time
+instead of 4 %. Detection there is still an oracle; the VLM modules that replace it are in `coordinator/`.
 
 ## Tasks
 RoboCasa365 evaluates on 50 target tasks in three splits. Each split has its own post-trained checkpoint.
@@ -43,7 +49,7 @@ We work on the 16 **Composite-Seen** tasks:
 
 - **Success** is RoboCasa's own `_check_success()`, unchanged, read after the last step of every chunk. An episode
   succeeds if any chunk end succeeds, as in GR00T's official eval. It runs to the horizon.
-- **Stages** (`runs/envkit/stages.py`) are read from the current state, so a later chunk can undo one. The last stage
+- **Stages** (`envkit/stages.py`) are read from the current state, so a later chunk can undo one. The last stage
   is the official success.
 
 ## Checkpoints
@@ -58,19 +64,20 @@ GR00T N1.5 from `robocasa/robocasa365_checkpoints` on Hugging Face, under `check
 
 ## Using this repo
 ```
-runs/envkit/          the environment for every experiment: episodes, frozen scenes, snapshots, replays, stages, GR00T client
-runs/envkit/tests/    the tests that must pass before experiments
+coordinator/          the method: VLM coordinator (memory, tracking, detection, recovery, retrace, VLM backends)
+envkit/          the environment for every experiment: episodes, frozen scenes, snapshots, replays, stages, GR00T client
+envkit/tests/    the tests that must pass before experiments
 runs/2026xxxx_*/      experiment records (README + results)
 runs/_handoff/        rebuilding the setup on a new machine (code commits, python env, checkpoints, datasets)
 ```
 To install, follow [runs/_handoff/README.md](runs/_handoff/README.md). Then, from the repository root:
 ```bash
 export CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=1 MUJOCO_EGL_DEVICE_ID=1   # a free GPU
-setsid nohup runs/envkit/servers.sh 1 5581 2 > /dev/null 2>&1 < /dev/null &         # 2 GR00T servers, ports 5581-5582
+setsid nohup envkit/servers.sh 1 5581 2 > /dev/null 2>&1 < /dev/null &         # 2 GR00T servers, ports 5581-5582
 envs/groot/bin/python -I                                                            # the GR00T python
 ```
 ```python
-import sys; sys.path.insert(0, "runs/envkit")
+import sys; sys.path.insert(0, "envkit")
 import envkit, policy, stages
 ep = envkit.Episode("SteamInMicrowave", 2)                 # frozen scene (task, seed 0-29)
 policy.rollout(ep, policy.Client(5581), tag="demo",        # GR00T until the horizon, seeded chunks
@@ -78,10 +85,10 @@ policy.rollout(ep, policy.Client(5581), tag="demo",        # GR00T until the hor
 print(ep.success, ep.success_step)
 ep.close()
 ```
-Snapshots, branching (resample / back-off), replays and the rules are in **[runs/envkit/README.md](runs/envkit/README.md)**.
+Snapshots, branching (resample / back-off), replays and the rules are in **[envkit/README.md](envkit/README.md)**.
 
 ## Testing
-Run the tests from `runs/envkit/tests`, with the GPU variables above and the servers up:
+Run the tests from `envkit/tests`, with the GPU variables above and the servers up:
 `../../../envs/groot/bin/python -I run_tests.py <test> <task> <seed>`. Each run prints one json line.
 
 | what | test | what must hold | result (2026-11-05) |
@@ -95,4 +102,4 @@ Run the tests from `runs/envkit/tests`, with the GPU variables above and the ser
 To run everything: `./campaign.sh <gpu> 16` (freeze and check 480 scenes), `./policy_tests.sh <gpu> 8 0 2 "5581 5582"`
 (48 GR00T runs), then `python3 summary.py`. Camera images are the one thing that is not exact. The official rendering
 (MSAA 4) changes a few edge pixels at random, so live GR00T runs can diverge, and a specific episode is reproduced by
-replaying its actions. See [runs/envkit/tests/README.md](runs/envkit/tests/README.md).
+replaying its actions. See [envkit/tests/README.md](envkit/tests/README.md).

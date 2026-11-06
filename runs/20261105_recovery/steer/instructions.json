@@ -1,0 +1,594 @@
+{
+ "DS1_short": [
+  {
+   "family": "orig",
+   "text": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter."
+  },
+  {
+   "family": "clause",
+   "text": "Take a straw from the drawer in front."
+  },
+  {
+   "family": "stage",
+   "text": "Open the drawer."
+  },
+  {
+   "family": "novel",
+   "text": "Grab a straw from the front drawer and put it into the glass cup on the dining counter."
+  },
+  {
+   "family": "novel",
+   "text": "Get a straw from the drawer and place it in the drinking glass on the countertop."
+  },
+  {
+   "family": "novel",
+   "text": "Retrieve a straw from the front drawer and insert it into the glass on the counter."
+  },
+  {
+   "family": "vlm",
+   "text": "Pull the drawer in front fully open so the straw can be taken from it.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Reuses 'the drawer in front' and states the corrective need: open it all the way, not partially."
+  },
+  {
+   "family": "vlm",
+   "text": "Open the drawer in front all the way. Then take a straw from the drawer.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Keeps the training phrasing while putting full opening first, so the policy pulls further before reaching for the straw."
+  },
+  {
+   "family": "vlm",
+   "text": "Grab the handle of the partly open drawer in front and pull it out until it is fully open, then release the handle.",
+   "source": "1. Pick up the sponge from the counter and clean the cutting board... Once finished, release the sponge.",
+   "why": "Borrows the grasp-act-release structure and says which drawer and how far, fixing the early let-go."
+  },
+  {
+   "family": "vlm",
+   "text": "Take the drawer in front by its handle and pull it open far enough to take a straw out.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Gives the opening distance in task terms the policy knows (enough to reach the straw)."
+  },
+  {
+   "family": "vlm",
+   "text": "Pull the drawer in front open wide, the same way you would open the dishwasher door, so the straw inside is reachable.",
+   "source": "10. Pick up the {dish0} and {dish1} from the counter, place them in the dishwasher, and close the dishwasher door.",
+   "why": "Links to a trained door/drawer manipulation, reversed to opening, with the target drawer named."
+  },
+  {
+   "family": "vlm",
+   "text": "Take a straw from the drawer in front. Open the drawer in front fully first.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Almost verbatim training clause plus a short corrective sentence, keeping the input close to the training distribution."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ],
+ "DS2_wrong": [
+  {
+   "family": "orig",
+   "text": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter."
+  },
+  {
+   "family": "clause",
+   "text": "Take a straw from the drawer in front."
+  },
+  {
+   "family": "stage",
+   "text": "Open the drawer."
+  },
+  {
+   "family": "novel",
+   "text": "Grab a straw from the front drawer and put it into the glass cup on the dining counter."
+  },
+  {
+   "family": "novel",
+   "text": "Get a straw from the drawer and place it in the drinking glass on the countertop."
+  },
+  {
+   "family": "novel",
+   "text": "Retrieve a straw from the front drawer and insert it into the glass on the counter."
+  },
+  {
+   "family": "vlm",
+   "text": "Open the drawer to your right, the one that was in front of you at the start. Then take a straw from it.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Redirects to the correct drawer by direction and reference to the start, reusing 'take a straw from the drawer'."
+  },
+  {
+   "family": "vlm",
+   "text": "Move to the right and open the drawer in front.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Short corrective move plus the training phrase 'the drawer in front' so the policy recognizes the target once repositioned."
+  },
+  {
+   "family": "vlm",
+   "text": "Leave the open drawer on the left. Move about half a meter to the right and pull open the closed drawer that holds the straw.",
+   "source": "8. Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board.",
+   "why": "Adds the distance and tells the policy which drawer to ignore and which to open."
+  },
+  {
+   "family": "vlm",
+   "text": "Take a straw from the drawer in front.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Near-verbatim clause of the trained instruction, starting the drawer-opening behavior it learned."
+  },
+  {
+   "family": "vlm",
+   "text": "Open the closed drawer on your right that holds the straw, not the drawer on your left.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Explicitly contrasts the wrong opened drawer with the target to prevent repeating the error."
+  },
+  {
+   "family": "vlm",
+   "text": "Go back to the drawer that was in front of you at the start, about 0.6 m to the right, and open it to take a straw.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Gives the policy where the target drawer is and how far away, then ties back to the trained straw-from-drawer phrasing."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ],
+ "DS0_wander": [
+  {
+   "family": "orig",
+   "text": "Take a straw from the drawer in front and place it inside the glass cup on the dining counter."
+  },
+  {
+   "family": "clause",
+   "text": "Take a straw from the drawer in front."
+  },
+  {
+   "family": "stage",
+   "text": "Open the drawer."
+  },
+  {
+   "family": "novel",
+   "text": "Grab a straw from the front drawer and put it into the glass cup on the dining counter."
+  },
+  {
+   "family": "novel",
+   "text": "Get a straw from the drawer and place it in the drinking glass on the countertop."
+  },
+  {
+   "family": "novel",
+   "text": "Retrieve a straw from the front drawer and insert it into the glass on the counter."
+  },
+  {
+   "family": "vlm",
+   "text": "Open the drawer in front.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Reuses the 'drawer in front' phrase verbatim and states only the current sub-task."
+  },
+  {
+   "family": "vlm",
+   "text": "Move slightly to the right and open the drawer in front.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Adds the corrective direction, since the detector says the drawer is about 0.15 m to the robot's right."
+  },
+  {
+   "family": "vlm",
+   "text": "Grab the handle of the drawer in front, slightly to the right, and pull the drawer open.",
+   "source": "13. Grab the pan from the cabinet and place it on the {knob} burner on the stove.",
+   "why": "Uses the trained verb 'Grab' to get the robot to make contact with the handle instead of wandering."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick up the knife from the drawer: first open the drawer in front by pulling its handle.",
+   "source": "8. Pick up the knife from the drawer and place it on the cutting board.",
+   "why": "Reuses a familiar drawer clause and makes the opening step explicit."
+  },
+  {
+   "family": "vlm",
+   "text": "Reach the closed drawer just to the right in front of you and pull it open.",
+   "source": "9. Take a straw from the drawer in front and place it inside the glass cup on the dining counter.",
+   "why": "Says the drawer is still closed and gives its position, so the robot approaches it and pulls."
+  },
+  {
+   "family": "vlm",
+   "text": "Take the handle of the drawer in front and pull it open. Once finished, release the handle.",
+   "source": "1. Pick up the sponge from the counter and clean the cutting board... Once finished, release the sponge.",
+   "why": "Copies the trained grasp-act-release structure and makes clear the sub-task ends once the drawer is open."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ],
+ "GTB0_short": [
+  {
+   "family": "orig",
+   "text": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter."
+  },
+  {
+   "family": "clause",
+   "text": "Start the toaster."
+  },
+  {
+   "family": "stage",
+   "text": "Push down the lever of the toaster to turn it on."
+  },
+  {
+   "family": "novel",
+   "text": "Turn on the toaster. After the lever pops up, move the bread to the plate on the counter."
+  },
+  {
+   "family": "novel",
+   "text": "Start toasting. When the lever comes up, put the bread on the plate on the dining surface."
+  },
+  {
+   "family": "novel",
+   "text": "Turn the toaster on, and after the lever comes up, move the bread over to the plate on the dining counter."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster by pushing the lever all the way down.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Reuses the training clause 'Start the toaster' and adds the missing detail that the lever must go fully down."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Uses the training wording nearly verbatim but keeps only the current step, so the policy does not move on to the bread yet."
+  },
+  {
+   "family": "vlm",
+   "text": "Press down on the toaster lever all the way to the bottom. Once finished, release the lever.",
+   "source": "1. Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+   "why": "Borrows 'pressing down' and 'Once finished, release' and makes sure the lever is let go only after it reaches the bottom."
+  },
+  {
+   "family": "vlm",
+   "text": "Push the lever on the toaster fully down until it stays down, then release it.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Corrects the three-quarter push by saying the lever must stay down before the gripper lets go."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster. Push the lever down past where it stopped before, all the way to the bottom.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Reuses the training clause and points out that the earlier push was too short, so the stroke needs to go deeper."
+  },
+  {
+   "family": "vlm",
+   "text": "Press the toaster lever all the way down to start the toaster.",
+   "source": "11. Pick the {obj} from the cabinet, place it under the coffee machine dispenser, and press the start button.",
+   "why": "Uses the 'press ... start' wording from the coffee task and applies it to pushing the lever fully down."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ],
+ "GTB1_short": [
+  {
+   "family": "orig",
+   "text": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter."
+  },
+  {
+   "family": "clause",
+   "text": "Start the toaster."
+  },
+  {
+   "family": "stage",
+   "text": "Push down the lever of the toaster to turn it on."
+  },
+  {
+   "family": "novel",
+   "text": "Turn on the toaster. After the lever pops up, move the bread to the plate on the counter."
+  },
+  {
+   "family": "novel",
+   "text": "Start toasting. When the lever comes up, put the bread on the plate on the dining surface."
+  },
+  {
+   "family": "novel",
+   "text": "Turn the toaster on, and after the lever comes up, move the bread over to the plate on the dining counter."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Reuses the exact first clause of the training instruction so the policy focuses only on starting the toaster."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster by pressing down on the lever all the way.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Adds the corrective detail that the lever must go fully down, since it was only pushed a quarter of the way."
+  },
+  {
+   "family": "vlm",
+   "text": "Press down the toaster lever all the way to the bottom to start the toaster.",
+   "source": "1. Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+   "why": "Borrows the 'pressing down' phrasing and says how far to go, to fix the partial push."
+  },
+  {
+   "family": "vlm",
+   "text": "Push the lever on the side of the toaster all the way down to start the toaster.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Says where the lever is and that it must be fully depressed, moving the robot off its hover above the toaster."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster. Press the lever down firmly until it stays down.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Keeps the training opening and adds a clear completion cue: the lever stays down."
+  },
+  {
+   "family": "vlm",
+   "text": "Move down to the toaster lever and press it down fully, like pressing the start button.",
+   "source": "11. Pick the {obj} from the cabinet, place it under the coffee machine dispenser, and press the start button.",
+   "why": "Ties the action to the familiar 'press the start button' and tells the robot to come down from hovering and push fully."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ],
+ "GTB2_short": [
+  {
+   "family": "orig",
+   "text": "Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter."
+  },
+  {
+   "family": "clause",
+   "text": "Start the toaster."
+  },
+  {
+   "family": "stage",
+   "text": "Push down the lever of the toaster to turn it on."
+  },
+  {
+   "family": "novel",
+   "text": "Turn on the toaster. After the lever pops up, move the bread to the plate on the counter."
+  },
+  {
+   "family": "novel",
+   "text": "Start toasting. When the lever comes up, put the bread on the plate on the dining surface."
+  },
+  {
+   "family": "novel",
+   "text": "Turn the toaster on, and after the lever comes up, move the bread over to the plate on the dining counter."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster by pushing the lever all the way down.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Reuses the training verb 'Start the toaster' and adds the missing detail that the lever must go fully down."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Near-verbatim first clause of the trained instruction, so the policy recognizes the sub-task and stops at it."
+  },
+  {
+   "family": "vlm",
+   "text": "Push the toaster lever all the way down until it stays down. Then release the lever.",
+   "source": "1. Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+   "why": "Borrows the 'press down ... then release' pattern and stresses holding the push until the lever latches, which fixes the half-way push."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster by pressing the lever on the toaster down to the bottom. Do not let go until the lever stays down.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Says how far to push and when to let go, because releasing early made the lever spring back."
+  },
+  {
+   "family": "vlm",
+   "text": "Press down on the lever of the toaster on the counter all the way to start the toaster.",
+   "source": "11. Pick the {obj} from the cabinet, place it under the coffee machine dispenser, and press the start button.",
+   "why": "Uses the trained 'press ... start' appliance phrasing and names where the lever is and how far to push it."
+  },
+  {
+   "family": "vlm",
+   "text": "Start the toaster. Push the lever down fully, past half way, so the toaster turns on.",
+   "source": "6. Start the toaster. Once the lever pops up, take the bread to the plate on the dining counter.",
+   "why": "Keeps the trained opening and directly corrects the failure: the last push stopped half way."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ],
+ "KB2_air": [
+  {
+   "family": "orig",
+   "text": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on."
+  },
+  {
+   "family": "clause",
+   "text": "Pick the kettle from the counter and place it on a stove burner."
+  },
+  {
+   "family": "stage",
+   "text": "Pick the kettle from the counter and place it on the stove."
+  },
+  {
+   "family": "novel",
+   "text": "Grab the kettle off the counter, set it onto a stove burner, and switch the burner on."
+  },
+  {
+   "family": "novel",
+   "text": "Take the kettle from the counter, move it to a stove burner, and turn the burner to on."
+  },
+  {
+   "family": "novel",
+   "text": "Pick up the kettle, set it down on a burner, and switch that burner on."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick the kettle from the counter and place it on a stove burner.",
+   "source": "7. Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+   "why": "Reuses the first clause verbatim so the policy retries the grasp and placement it knows, without moving on to the knob yet."
+  },
+  {
+   "family": "vlm",
+   "text": "Open the gripper, move to the kettle handle on the counter to the right of the stove, and pick the kettle up. Then place it on a stove burner.",
+   "source": "7. Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+   "why": "The gripper closed on air, so it has to reopen and line up with the handle, which the wrist camera shows on the counter to the right."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick the kettle from the counter by its handle and place it on the empty burner on the right side of the stove.",
+   "source": "7. Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+   "why": "Gives a grasp point and a clear placement target, the free right burner next to the pan."
+  },
+  {
+   "family": "vlm",
+   "text": "Grab the kettle from the counter beside the stove and place it on a burner on the stove.",
+   "source": "13. Grab the pan from the cabinet and place it on the {knob} burner on the stove.",
+   "why": "Uses the training grab-and-place structure with the kettle in place of the pan, stressing where the kettle is now."
+  },
+  {
+   "family": "vlm",
+   "text": "Move closer to the kettle, close the gripper around its handle, and lift it off the counter. Then place it on a stove burner.",
+   "source": "7. Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+   "why": "Corrects the miss: the last grasp landed beside the kettle, so it must get closer and make sure the handle is inside the gripper before lifting."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick up the kettle from the counter and place it on the stove burner. Once placed, release the kettle.",
+   "source": "1. Pick up the sponge from the counter ... Once finished, release the sponge.",
+   "why": "Uses the pick-up and release phrasing to frame the whole sub-task through to letting go on the burner."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ],
+ "SUCS0_drop": [
+  {
+   "family": "orig",
+   "text": "Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board."
+  },
+  {
+   "family": "clause",
+   "text": "Place the meat from the plate to the cutting board."
+  },
+  {
+   "family": "stage",
+   "text": "Pick the steak from the plate and place it on the cutting board."
+  },
+  {
+   "family": "novel",
+   "text": "Take the knife out of the drawer and put it on the cutting board. After that, transfer the meat from the plate to the board."
+  },
+  {
+   "family": "novel",
+   "text": "Grab the knife from the drawer, set it on the cutting board, then move the meat from the plate onto the board."
+  },
+  {
+   "family": "novel",
+   "text": "Retrieve the knife from the drawer, put it on the cutting board, and then place the meat from the plate on the board."
+  },
+  {
+   "family": "vlm",
+   "text": "Place the meat from the plate to the cutting board.",
+   "source": "8. Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board.",
+   "why": "Knife is already done; reuse the second clause verbatim so the policy goes straight to the meat."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick up the meat from the plate and place it on the cutting board.",
+   "source": "8. Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board.",
+   "why": "Same structure as the first clause, with the meat swapped in for the knife, to restart the grasp after the drop."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick up the meat from the plate again and place it on the cutting board next to the knife.",
+   "source": "8. Pick up the knife from the drawer and place it on the cutting board. Then place the meat from the plate to the cutting board.",
+   "why": "Says this is a retry and names the destination, since the knife already sits on the board."
+  },
+  {
+   "family": "vlm",
+   "text": "Grasp the meat firmly from the plate, carry it to the cutting board, and then release it.",
+   "source": "1. Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+   "why": "Stresses a secure grasp so the meat is not dropped again, and a release only once it is over the board."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick the meat from the plate and place it on the cutting board to the left.",
+   "source": "16. Pick the chicken drumstick and {vegetable} from their plates and place them in the bowl. Then put the bowl in the fridge.",
+   "why": "Uses the trained 'pick X from the plate' wording and adds where the board is, since it lies to the left of the plate."
+  },
+  {
+   "family": "vlm",
+   "text": "Pick up the steak from the plate and place it on the cutting board. Once it is on the cutting board, release the steak.",
+   "source": "1. Pick up the sponge from the counter and clean the cutting board by briefly scrubbing or pressing down on the cutting board. Once finished, release the sponge.",
+   "why": "Names the meat as a steak and makes the release conditional on being over the board, to prevent another early drop."
+  },
+  {
+   "family": "control",
+   "text": ""
+  },
+  {
+   "family": "control",
+   "text": "Wash the lettuce in the sink by running water over it."
+  },
+  {
+   "family": "control",
+   "text": "Blue seven umbrella quietly under the moon."
+  }
+ ]
+}

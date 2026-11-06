@@ -1,0 +1,212 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 3904,
+ "horizon": 3900,
+ "chunks": 310,
+ "free_steps": 1056,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "memory": {
+  "instruction": "Place one lemon and one chicken drumstick in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 3,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "starts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin"
+     }
+    ],
+    "done_at": {
+     "chunk": 17,
+     "t": 272
+    },
+    "interventions": 0
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "starts": [
+     {
+      "chunk": 17,
+      "t": 272,
+      "trace_index": 272,
+      "why": "replay"
+     }
+    ],
+    "done_at": {
+     "chunk": 43,
+     "t": 688
+    },
+    "interventions": 0
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "starts": [
+     {
+      "chunk": 43,
+      "t": 688,
+      "trace_index": 688,
+      "why": "replay"
+     }
+    ],
+    "done_at": {
+     "chunk": 69,
+     "t": 1104
+    },
+    "interventions": 0
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "starts": [
+     {
+      "chunk": 69,
+      "t": 1104,
+      "trace_index": 1104,
+      "why": "replay"
+     },
+     {
+      "chunk": 141,
+      "t": 1824,
+      "trace_index": 2256,
+      "why": "retraced"
+     },
+     {
+      "chunk": 202,
+      "t": 2544,
+      "trace_index": 3232,
+      "why": "retraced"
+     },
+     {
+      "chunk": 270,
+      "t": 3264,
+      "trace_index": 4320,
+      "why": "retraced"
+     }
+    ],
+    "done_at": null,
+    "interventions": 3
+   }
+  ],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 3,
+    "chunk": 114,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 3,
+    "chunk": 186,
+    "detail": {
+     "window_chunks": 45
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 3,
+    "chunk": 247,
+    "detail": {
+     "window_chunks": 45
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 27,
+     "steps": 432,
+     "entries": 311,
+     "path_steps": 720,
+     "grip_changes": 0,
+     "arrived": true,
+     "joint_rad": 0.003,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 16,
+     "steps": 256,
+     "entries": 183,
+     "path_steps": 720,
+     "grip_changes": 0,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 3,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 23,
+     "steps": 368,
+     "entries": 280,
+     "path_steps": 720,
+     "grip_changes": 0,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_done",
+   "s0_start",
+   "s1_done",
+   "s1_start",
+   "s2_done",
+   "s2_start",
+   "s3_start",
+   "trigger_114",
+   "trigger_186",
+   "trigger_247"
+  ],
+  "free_steps": 1056,
+  "vlm_calls": 0,
+  "status_checks": 130
+ },
+ "id": "PackIdenticalLunches_s24",
+ "task": "PackIdenticalLunches",
+ "seed": 24,
+ "stage": 3,
+ "start_t": 1824,
+ "fixed": false,
+ "fixed_after": null,
+ "run": "PackIdenticalLunches_s24",
+ "config": "oracle_retrace",
+ "pseed": 0,
+ "seconds": 1371.6
+}

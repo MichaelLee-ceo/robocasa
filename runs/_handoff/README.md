@@ -24,7 +24,7 @@ cd .. && printf '\n# local project layout\nthird_party/\ndatasets/\n.hf_cache/\n
 # runs/ is tracked in git; runs/.gitignore keeps scene dumps, videos and other large outputs out of it
 ```
 
-Our own work is already in `runs/` after the checkout: the environment layer `runs/envkit` with its tests and scene
+Our own work is already in `runs/` after the checkout: the environment layer `envkit` with its tests and scene
 references, and the experiment records. envkit's frozen scenes are not in git (see §5.1).
 
 ## 2. Python environment
@@ -54,6 +54,11 @@ pip install ~/robocasa_handoff/wheels/flash_attn-2.8.3+cu12torch2.7cxx11abiTRUE-
 grep -v -e '^-e ' -e ' @ file://' runs/_handoff/pip_freeze.txt > /tmp/req.txt && pip install -r /tmp/req.txt
 ```
 
+Added on 2026-11-05 for the VLM backend (`coordinator/vlm/pilot.py`, `ClaudeVLM`): `pip install anthropic` (2.5.0, with
+httpx2, jiter, anyio). It raises typing_extensions from 4.12.2 to 4.16.0, against gr00t's exact pin; GR00T's
+sampling stayed bit-identical (`envkit/tests` `sampling`, old vs new server) and the envkit checks pass. The API
+key is read from the repository's git-ignored `.env` (`CLAUDE_API_KEY` or `ANTHROPIC_API_KEY`).
+
 New server needs an NVIDIA driver that supports CUDA 12.8 (>= 570). GPU memory used here: one GR00T policy server
 ~6.5 GB + ~1.5–2 GB per rollout worker (6 workers).
 
@@ -79,7 +84,7 @@ SRC=michaellee@<old-host>:Desktop/robocasa
 rsync -aP $SRC/checkpoints/ ~/Desktop/robocasa/checkpoints/
 rsync -aP $SRC/datasets/    ~/Desktop/robocasa/datasets/
 rsync -aP $SRC/robocasa/models/assets/ ~/Desktop/robocasa/robocasa/models/assets/
-rsync -aP $SRC/runs/envkit/scenes/ ~/Desktop/robocasa/runs/envkit/scenes/   # envkit's frozen scenes (0.7 GB), or rebuild them (§5.1)
+rsync -aP $SRC/envkit/scenes/ ~/Desktop/robocasa/envkit/scenes/   # envkit's frozen scenes (0.7 GB), or rebuild them (§5.1)
 rsync -aP michaellee@<old-host>:robocasa_handoff/ ~/robocasa_handoff/   # flash-attn wheel
 ```
 
@@ -105,7 +110,7 @@ python robocasa/scripts/download_datasets.py --split target --source human   # a
 Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
 
 ## 4. Paths
-* envkit finds the repository from its own location (`runs/envkit/*.py`), so a clone works anywhere. Two optional
+* envkit finds the repository from its own location (`envkit/*.py`), so a clone works anywhere. Two optional
   overrides: `ROBOCASA_ROOT` (the repository) and `GROOT_PY` (the python; default
   `$ROBOCASA_ROOT/envs/groot/bin/python`).
 * A frozen scene is loaded into a model that the official reset builds from the local assets. envkit compares that
@@ -113,12 +118,12 @@ Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
 
 ## 5. Verification after the move
 
-1. envkit's frozen scenes (`runs/envkit/scenes/*.pkl.gz`, 16 tasks x seeds 0-29):
-   - **Copied (Option A):** run `runs/envkit/tests/run_tests.py check <task> <seed>` on every scene
+1. envkit's frozen scenes (`envkit/scenes/*.pkl.gz`, 16 tasks x seeds 0-29):
+   - **Copied (Option A):** run `envkit/tests/run_tests.py check <task> <seed>` on every scene
      (`campaign.sh` minus the freeze step, or `recheck.sh` with a list of all 480). Each must load, reproduce its
      reference trajectory and pass the restore tests.
-   - **Rebuilt:** `runs/envkit/tests/campaign.sh <gpu> <jobs>` freezes and checks every scene (a few hours). Then
-     `git diff runs/envkit/scenes`: the proprio hashes in the rewritten `.ref.json` must be unchanged. If they differ,
+   - **Rebuilt:** `envkit/tests/campaign.sh <gpu> <jobs>` freezes and checks every scene (a few hours). Then
+     `git diff envkit/scenes`: the proprio hashes in the rewritten `.ref.json` must be unchanged. If they differ,
      this machine's physics differs, so keep its results separate. State hashes change anyway (a temporary xml path),
      and image hashes can change by render noise.
 2. Large files arrived intact (run from the project root; takes a while, reads ~91 GB):
@@ -130,10 +135,10 @@ Do NOT download the full checkpoint repo (327 GB) or the pretrain datasets.
    python3 -c "import gzip,os; bad=[p for h,s,p in (l.rstrip('\n').split('  ',2) for l in gzip.open('runs/_handoff/bigfiles_sha256.txt.gz','rt') if not l.startswith('#')) if not os.path.exists(p) or os.path.getsize(p)!=int(s)]; print(len(bad),'mismatches', bad[:10])"
    ```
    A re-download (Option B) may legitimately differ in `checkpoints/.cache/` metadata; the weights must match.
-3. The policy in the loop: start the servers (`runs/envkit/servers.sh`) and run `runs/envkit/tests/policy_tests.sh`.
+3. The policy in the loop: start the servers (`envkit/servers.sh`) and run `envkit/tests/policy_tests.sh`.
    - Every replay and restore check must pass.
-   - Successes can differ from `runs/envkit/tests/results/policy*.jsonl`, because rendering adds noise
-     (`runs/envkit/README.md`). Compare success rates over many scenes, not episode by episode.
+   - Successes can differ from `envkit/tests/results/policy*.jsonl`, because rendering adds noise
+     (`envkit/README.md`). Compare success rates over many scenes, not episode by episode.
 
 ## 6. What goes into the project repo
 Everything under `runs/` on `main`, except what `runs/.gitignore` keeps out (envkit's frozen scene dumps and

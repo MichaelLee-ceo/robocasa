@@ -1,0 +1,144 @@
+{
+ "success": true,
+ "success_t": 1344,
+ "success_in_retrace": false,
+ "gr00t_time": 1344,
+ "horizon": 1500,
+ "chunks": 137,
+ "free_steps": 848,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "memory": {
+  "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+  "current": 1,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the kettle from the counter and place it on the stove.",
+    "starts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin"
+     }
+    ],
+    "done_at": {
+     "chunk": 29,
+     "t": 464
+    },
+    "interventions": 0
+   },
+   {
+    "index": 1,
+    "text": "Turn on the front right burner of the stove.",
+    "starts": [
+     {
+      "chunk": 29,
+      "t": 464,
+      "trace_index": 464,
+      "why": "replay"
+     },
+     {
+      "chunk": 75,
+      "t": 832,
+      "trace_index": 1200,
+      "why": "retraced"
+     },
+     {
+      "chunk": 128,
+      "t": 1200,
+      "trace_index": 2048,
+      "why": "retraced"
+     }
+    ],
+    "done_at": {
+     "chunk": 137,
+     "t": 1344
+    },
+    "interventions": 2
+   }
+  ],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 1,
+    "chunk": 52,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 98,
+    "detail": {
+     "window_chunks": 23
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 23,
+     "steps": 368,
+     "entries": 173,
+     "path_steps": 368,
+     "grip_changes": 7,
+     "arrived": true,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   },
+   {
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "detail": {},
+    "result": {
+     "chunks": 30,
+     "steps": 480,
+     "entries": 150,
+     "path_steps": 368,
+     "grip_changes": 1,
+     "arrived": true,
+     "joint_rad": 0.002,
+     "base_cm": 0.1,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_done",
+   "s0_start",
+   "s1_done",
+   "s1_start",
+   "trigger_52",
+   "trigger_98"
+  ],
+  "free_steps": 848,
+  "vlm_calls": 0,
+  "status_checks": 32
+ },
+ "id": "KettleBoiling_s9",
+ "task": "KettleBoiling",
+ "seed": 9,
+ "stage": 1,
+ "start_t": 832,
+ "fixed": true,
+ "fixed_after": 32,
+ "run": "KettleBoiling_s9",
+ "config": "oracle_retrace",
+ "pseed": 1,
+ "seconds": 474.7
+}

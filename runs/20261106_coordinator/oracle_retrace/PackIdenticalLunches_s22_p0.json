@@ -1,0 +1,210 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 3904,
+ "horizon": 3900,
+ "chunks": 303,
+ "free_steps": 944,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 0,
+ "vlm_cost_usd": 0,
+ "memory": {
+  "instruction": "Place one broccoli and one steak in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 2,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 18,
+       "t": 288,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 18,
+      "t": 288
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 302,
+     "t": 3888,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 18,
+      "t": 288,
+      "trace_index": 288,
+      "why": "replay",
+      "end": {
+       "chunk": 118,
+       "t": 1888,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 118,
+      "t": 1888
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 302,
+     "t": 3888,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 118,
+      "t": 1888,
+      "trace_index": 1888,
+      "why": "replay",
+      "end": {
+       "chunk": 193,
+       "t": 3088,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 252,
+      "t": 3088,
+      "trace_index": 4032,
+      "why": "retrace",
+      "end": {
+       "chunk": 303,
+       "t": 3904,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 1,
+    "last_status": {
+     "chunk": 302,
+     "t": 3888,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "check": "",
+    "attempts": [],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 302,
+     "t": 3888,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 47,
+   "1": 134,
+   "2": 75,
+   "3": 45
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 2,
+    "chunk": 193,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 193,
+    "t": 3088,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 59,
+     "steps": 944,
+     "entries": 669,
+     "path_steps": 1200,
+     "grip_changes": 7,
+     "arrived": true,
+     "joint_rad": 0.004,
+     "base_cm": 0.0,
+     "base_rad": 0.0
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "s2_attempt",
+   "s2_start",
+   "trigger_193"
+  ],
+  "free_steps": 944,
+  "vlm_calls": [],
+  "vlm_cost_usd": 0,
+  "status_checks": 51
+ },
+ "id": "PackIdenticalLunches_s22",
+ "task": "PackIdenticalLunches",
+ "seed": 22,
+ "stage": 2,
+ "kind": "stalled",
+ "start_t": 3088,
+ "fixed": false,
+ "fixed_after": null,
+ "run": "PackIdenticalLunches_s22",
+ "config": "oracle_retrace",
+ "pseed": 0,
+ "vlm": null,
+ "seconds": 1299.5
+}

@@ -70,10 +70,10 @@ Files:
 
 The decisions (user, 2026-11-04): RoboCasa v1.0.1 horizons (`get_task_horizon`, as GR00T's `run_eval.py`); success
 read at chunk ends, as the official eval; the paper's baseline numbers are used, not re-run; a fresh env per episode;
-the official rendering (MSAA 4). The new layer is `../envkit/` (`envkit.py`, `stages.py`, `policy.py`;
-its usage guide is `../envkit/README.md`); its tests are in `../envkit/tests`.
+the official rendering (MSAA 4). The new layer is `../../envkit/` (`envkit.py`, `stages.py`, `policy.py`;
+its usage guide is `../../envkit/README.md`); its tests are in `../../envkit/tests`.
 
-| # | what was done | how it is checked (`../envkit/tests`) |
+| # | what was done | how it is checked (`../../envkit/tests`) |
 |---|---|---|
 | A | A snapshot holds the whole MjData and the whole Python object graph reachable from the wrapper stack (task attributes, fixtures, controllers, observables, wrapper buffers, RNG states). A restore writes it back in place, with no `set_state`, `forward` or `update_state`. | `check`: restore round trip, continuation, after a branch, idempotence (random actions, every scene). `policy`: the same at every stage change of a GR00T run, including the official counters. |
 | B | One step function for live runs and replays: a replay re-executes the recorded actions through the same `MultiStepWrapper.step`, so every check sees what the live run saw. | `policy`: a replay reproduces success, tracker output and proprio observations at every chunk, and the final state. |

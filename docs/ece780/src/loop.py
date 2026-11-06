@@ -33,7 +33,7 @@ def chips(x, y, words, var):
 card(24, 96, 310, 356, "ENVIRONMENT", "RoboCasa kitchen")
 a('<image href="f0.jpg" x="44" y="176" width="270" height="176" clip-path="url(#envimg)" preserveAspectRatio="xMidYMid slice"/>')
 
-a('<text x="44" y="166" class="sm">simulated episode (runs/envkit)</text>')
+a('<text x="44" y="166" class="sm">simulated episode (envkit)</text>')
 a('<text x="44" y="380" class="body">3 cameras · proprio · instruction</text>')
 a('<text x="44" y="402" class="body">official success check after every chunk</text>')
 a('<text x="44" y="424" class="body">exact snapshots, restores and replays</text>')

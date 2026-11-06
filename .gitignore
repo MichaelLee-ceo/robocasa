@@ -168,3 +168,8 @@ robocasa/scripts/taskgen/task_prompting/outputs/
 
 # Always ignore macOS junk
 **/.DS_Store
+
+# envkit's frozen scenes (large binary state dumps, rebuilt by envkit/tests/campaign.sh; their .ref.json stay in git)
+/envkit/scenes/*.pkl.gz
+# envkit policy-test records (binary, rebuilt by envkit/tests/policy_tests.sh)
+/envkit/tests/results/policy/
