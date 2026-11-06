@@ -37,6 +37,7 @@ class ContextConfig:
     cameras: tuple = tuple(CAMERAS)          # which views; fewer = cheaper
     n_recent: int = 3                        # recent chunk-end moments (the last is "now")
     recent_stride: int = 1                   # chunks between them
+    progress_state: bool = True              # the state block in the progress request (False: the pilot's query)
     keyframes: bool = True
     history: int = 3                         # moments spread over the current attempt (confirm, recovery)
     robot_state: bool = True
@@ -194,9 +195,9 @@ def progress_request(m, obs, cfg=ContextConfig()):
     keys = [(f"s{k}_start", f"when sub-goal {k + 1} first began"), (f"s{k - 1}_done", f"when sub-goal {k} was done")] \
         if cfg.keyframes else []
     intro, frames = pilot_parts(m, _moments(m, obs, cfg, keys), cfg.cameras, f"progress_{obs.chunk}")
-    head = _join(state_block(m, obs), last_check_block(m) if cfg.last_check else "",
+    head = _join(state_block(m, obs) if cfg.progress_state else "", last_check_block(m) if cfg.last_check else "",
                  robot_block(m, obs) if cfg.robot_state else "", notes_block(m) if cfg.notes else "")
-    parts = [intro, ("text", head)] + frames + [("text", P.PROGRESS_Q)]
+    parts = [intro] + ([("text", head)] if head else []) + frames + [("text", P.PROGRESS_Q)]
     return VLMRequest(parts=parts, system=P.SYSTEM, schema=P.PROGRESS_SCHEMA, max_tokens=cfg.max_tokens, tag="progress")
 
 

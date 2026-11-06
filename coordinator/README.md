@@ -53,22 +53,23 @@ Both differences are significant in paired tests (p < 0.0001).
 | `points.py` | runs from the phase 0 failure points exactly as loop.py ran them (replay, start trigger, loop.py's rule for "fixed") | done |
 | `vlm/` | backends behind one interface (below): subclasses of the pilot's `ClaudeVLM`, `VLLMVLM`, `LocalVLM` (`coordinator/vlm/pilot.py`, loaded by `vlm/pilot.py`) that take any request; `MockVLM`; `make_vlm(spec)` | done, tested |
 | `tracking/` | `OracleTracker` (done); `VLMTracker` (reference v0) | |
-| `detection/` | `StageTimeout`, `Undone`, `OracleEvents`, `AcceptAll` (done); `VLMConfirmer` (reference v0); `EmptyGrasp`, `Stationary` (**TODO**) | |
-| `recovery/` | `RetraceRetry`, `Ladder` (done); `VLMRecovery` (reference v0) | |
-| `motion/` | `retrace.py`: `RobotTrace`, `retrace()` (done); `backoff.py` (**TODO**) | |
+| `detection/` | `StageTimeout`, `Undone`, `OracleEvents`, `AcceptAll` (done); `VLMConfirmer`, `VLMEvent` (reference v0); `EmptyGrasp`, `Stationary` (**TODO**) | |
+| `recovery/` | `RetraceRetry`, `Ladder` (done); `unstick.py`: `VLMUnstick`, `FixedUnstick` (done; a blocked retrace); `VLMRecovery` (reference v0) | |
+| `motion/` | `retrace.py`: `RobotTrace`, `retrace()`, final version (done, checked on 47 failure points); `backoff.py` (**TODO**) | |
+| `gr00t_wording.py` | the sentences GR00T was trained on, as a phrase bank, and the rules for instructions written from it | done |
 | `scripts/` | `run.py` (one run), `batch.sh` (failure points x seeds), `vlm_check.py` (test a backend; see what the VLM is sent) | done |
-| `tests/` | `test_offline.py` (retrace planning, memory, timeout, undone, policies, robot state), `test_vlm.py` (backends against stub servers, registry, answer checks, request building, VLM modules with a mock), `check_equivalence.py` (the coordinator against `loop.py` on its recorded GR00T chunks) | pass; equivalence: below |
+| `tests/` | `test_offline.py` (retrace planning, memory, timeout, undone, policies, robot state), `test_vlm.py` (backends against stub servers, registry, answer checks, request building, VLM modules with a mock), `check_retrace_state.py` (does the retrace follow the path and restore the robot's state), `check_retrace_fallback.py` (fallbacks for a blocked retrace) | pass |
 
 The environment layer is `../envkit`, at the top level too (verified on 480 scenes; usage guide `../envkit/README.md`).
 The recorded failure points are in `../runs/20261105_recovery/phase0`. Outputs go to `../runs/20261106_coordinator`.
 
 ## Relation to the original code
 The coordinator is the code of `runs/20261105_recovery` (`loop.py`, `retrace.py`) and the pilot's VLM module,
-reorganized into modules and then extended. The loop's logic is loop.py's, restructured but not changed.
+reorganized into modules and then extended.
 
 | original | here | how |
 |---|---|---|
-| `20261105_recovery/retrace.py` (v2) | `motion/retrace.py` | copied unchanged (only the import of the chunk length) |
+| `20261105_recovery/retrace.py` (v2) | `motion/retrace.py` | first copied; replaced by the final version on 2026-11-07 (below) |
 | `loop.py` `stall_limits`, `hand_clear` | `detection/timeout.py` `phase0_windows`, `tracking/oracle.py` `hand_clear` | copied unchanged |
 | `loop.py` `run()`, arm `retrace` | `loop.py`, `memory.py`, `points.py`, `detection/undone.py`, `detection/timeout.py`, `recovery/policies.py` | restructured into modules. Kept from loop.py: `starts` (each stage's entry: replay and moving on, every passed stage) and `back_to` (that entry, or the arrival point of the last retrace); undone handled before stuck; the free retrace time and the success rule; the rule for "fixed" (moved on from the failed stage, else done or success at the end) |
 | `loop.py` noise streams (`loop/<point>/p<seed>`, `start`, `s<k>`, `a<k>.<n>`) | `executor.py`, `memory.stream` | the same names, so the same seed gives the same GR00T noise |
@@ -77,25 +78,20 @@ reorganized into modules and then extended. The loop's logic is loop.py's, restr
 | `envkit/vlm_server.py` | `vlm/vlm_server.py` | moved unchanged |
 | `runs/envkit` | `../envkit` (top level) | moved; only the paths that found the repository root changed |
 
-`tests/check_equivalence.py` checks the restructured loop against loop.py:
-- it feeds the coordinator the exact GR00T chunks that loop.py recorded for a failure point and seed;
-- at every GR00T request it also checks the noise stream and the instruction against loop.py's;
-- the physics and the retrace are deterministic, so the same logic must ask for GR00T at the same env chunks, retrace
-  at the same chunks for the same length, and end with the same success (and time), "fixed" and "fixed_after";
-- it reports the first difference otherwise.
+**The restructured loop was proven equal to loop.py first** (2026-11-06; `tests/check_equivalence.py` at commit
+97a6269 on branch `ece780-coordinator`; records in `../runs/20261106_coordinator/equivalence*.jsonl`):
+- the check fed the coordinator loop.py's recorded GR00T chunks and compared every GR00T request (env chunk, noise
+  stream, instruction), every retrace (chunk, length) and the outcome (success and its time, "fixed", "fixed_after");
+- two independent reviews found four rare paths that differed (the retrace target after an undone stage; the order of
+  undone and stuck; the entries of skipped stages; the end-of-run check for "fixed"); all four were changed back;
+  then 18 of 18 runs checked were equal (before the fixes, 94 of 95);
+- live, with matched seeds, GPUs and servers (seeds 4-7, 23 pairs): GR00T's inputs and outputs bit-identical until a
+  camera image differed by MSAA noise; "fixed" agreed in 23 of 23 pairs, success in 21 of 23.
 
-How this was found (2026-11-06):
-- The first restructured version differed from loop.py in four rare paths, found by two independent reviews:
-  - the retrace target after an undone stage;
-  - the order of undone and stuck;
-  - the entries of skipped stages;
-  - the end-of-run check for "fixed".
-- All four were changed back to loop.py's logic. The tricky cases now match: PackIdenticalLunches s19 seed 3, and
-  SteamInMicrowave s26 seed 1 (an undone stage).
-- Over all 172 recorded runs: pending.
-
-A live comparison with matched seeds, GPUs and servers is running: loop.py and the coordinator both on seeds 4-7.
-Results: pending.
+**Then the retrace was replaced by the final version (2026-11-07, the user's decision; one version kept):** it also
+restores the torso, the OSC goal and rest, follows the path more tightly, and stops when the arm is blocked, which
+starts the unstick fallback (loop below). From here on the coordinator's runs differ from loop.py's by design; the v2
+results stay in `../runs/20261105_recovery`, the comparison of the versions in `../runs/20261106_coordinator/README.md`.
 
 ## The loop (loop.py)
 At every chunk end:
@@ -120,6 +116,19 @@ The run ends in three ways:
 
 Retrace steps are not GR00T's time: a retrace stands for a restart (decided 2026-11-06). The env runs with a free
 horizon. A success reached while retracing counts, and is flagged.
+
+**Retrace and unstick** (`execute`, kind `retrace`): `motion/retrace.py` rewinds the robot's trace to where the
+sub-goal's attempt began: the trace is a stack of the states of every part GR00T moves (arm joints and speeds, base,
+torso, gripper command, OSC goal), popped one entry per step at the forward speed; on arrival the arm is held until
+at rest and the OSC goal is restored, so GR00T starts again from the state it had (47 failure points: 45 back, hand
+within 0.53 mm median; `../runs/20261106_coordinator/README.md`). If the robot is blocked (it lags its entry far and
+the lag does not shrink while the playback waits, e.g. an arm wedged in a fridge GR00T had pushed it into), the unstick
+fallback runs (`_unstick`, at most `unstick_tries` = 2 times): `recovery/unstick.py` chooses one sentence in GR00T's
+wording (the VLM, when the run has one: it sees the views now and at the sub-goal's start; else the task sentence),
+GR00T runs `unstick_chunks` = 8 chunks with it (their time not counted, as part of going back), and the retrace
+resumes along the path recorded before it began, from the last entry at which the hand was 0.25 m or more from where
+it got stuck. At PackIdenticalLunches s4 the 27B wrote "Close the fridge door.", which freed the arm 4 of 4 times with
+the earlier retrace; with the final one the block is nearer the start and resuming runs into the fridge again (open).
 
 ## Contracts
 | slot | method | returns |

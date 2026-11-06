@@ -19,15 +19,16 @@ def entry(q0, grip=0.0):
 
 
 def test_plan():
-    # out 0.0 -> 0.3 rad, back to 0.0 (a loop), then a grasp at 0.2: the loop is cut, the grasp is kept
+    # the trace is a stack: every entry is played back, last first, down to the start (the loop out to 0.30 rad and back
+    # is replayed too: back exactly the way it came), and the gripper change at the end is kept
     path = [entry(0.0)] + [entry(0.02 * i) for i in range(1, 16)] + [entry(0.30 - 0.02 * i) for i in range(1, 16)]
     path += [entry(0.02 * i) for i in range(1, 11)] + [entry(0.20, grip=1.0) for _ in range(3)]
     seq = retrace.plan(path, 0)
+    assert seq == list(range(len(path) - 1, -1, -1)), seq
+    assert retrace.plan(path, 5) == list(range(len(path) - 1, 4, -1))
     qs = [round(float(path[i]["q"][0]), 2) for i in seq]
-    assert seq[0] == len(path) - 1 and seq[-1] == 0, seq
-    assert max(qs) <= 0.2 + 1e-9, f"the loop out to 0.30 rad was not cut: {qs}"
-    assert any(path[i]["grip"] == 0.0 for i in seq[1:]) and path[seq[0]]["grip"] == 1.0, "the gripper change is lost"
-    print("retrace plan: ok", qs)
+    assert max(qs) == 0.3 and path[seq[0]]["grip"] == 1.0 and any(path[i]["grip"] == 0.0 for i in seq[1:])
+    print("retrace plan: ok (every entry, last first)")
 
 
 def mem(n=2):

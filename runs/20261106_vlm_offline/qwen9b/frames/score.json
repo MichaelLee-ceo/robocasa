@@ -1,0 +1,431 @@
+{
+ "dir": "qwen9b/frames",
+ "runs": 90,
+ "checks": 2843,
+ "errors": 5,
+ "replay_bad": 0,
+ "flag_acc": 0.654,
+ "false_done": 0.526,
+ "ahead": 0.77,
+ "runs_ahead": 87,
+ "lag_median": -16,
+ "lag_p90": -4,
+ "lag_negative": 156,
+ "never": 0,
+ "detected": "40/48",
+ "lead_median": 40.0,
+ "fa_progressing": 0.506,
+ "fa_success_runs": 0.542,
+ "trigger": {
+  "1": {
+   "caught": 40,
+   "lead_median": 37.0,
+   "false_per_run": 3.49
+  },
+  "2": {
+   "caught": 35,
+   "lead_median": 33,
+   "false_per_run": 1.28
+  },
+  "3": {
+   "caught": 31,
+   "lead_median": 28,
+   "false_per_run": 0.64
+  }
+ },
+ "events": {
+  "none": 1054,
+  "no_progress": 1488,
+  "fixture_short": 225,
+  "dropped": 58,
+  "wrong_element": 11,
+  "missed_grasp": 2
+ },
+ "latency_median": 4.33,
+ "detections": [
+  {
+   "run": "KettleBoiling_s12",
+   "stage": 1,
+   "point": 79,
+   "first_flag": 64,
+   "lead": 15,
+   "event": "fixture_short"
+  },
+  {
+   "run": "KettleBoiling_s17",
+   "stage": 1,
+   "point": 65,
+   "first_flag": 44,
+   "lead": 21,
+   "event": "fixture_short"
+  },
+  {
+   "run": "KettleBoiling_s2",
+   "stage": 0,
+   "point": 39,
+   "first_flag": 0,
+   "lead": 39,
+   "event": "no_progress"
+  },
+  {
+   "run": "KettleBoiling_s22",
+   "stage": 1,
+   "point": 39,
+   "first_flag": 20,
+   "lead": 19,
+   "event": "fixture_short"
+  },
+  {
+   "run": "KettleBoiling_s23",
+   "stage": 0,
+   "point": 93,
+   "first_flag": 8,
+   "lead": 85,
+   "event": "no_progress"
+  },
+  {
+   "run": "KettleBoiling_s26",
+   "stage": 1,
+   "point": 38,
+   "first_flag": 44,
+   "lead": -6,
+   "event": "fixture_short"
+  },
+  {
+   "run": "KettleBoiling_s3",
+   "stage": 0,
+   "point": 88,
+   "first_flag": 4,
+   "lead": 84,
+   "event": "fixture_short"
+  },
+  {
+   "run": "KettleBoiling_s5",
+   "stage": 1,
+   "point": 45,
+   "first_flag": 28,
+   "lead": 17,
+   "event": "no_progress"
+  },
+  {
+   "run": "KettleBoiling_s8",
+   "stage": 0,
+   "point": 39,
+   "first_flag": 8,
+   "lead": 31,
+   "event": "no_progress"
+  },
+  {
+   "run": "KettleBoiling_s9",
+   "stage": 1,
+   "point": 51,
+   "first_flag": 32,
+   "lead": 19,
+   "event": "fixture_short"
+  },
+  {
+   "run": "PackIdenticalLunches_s11",
+   "stage": 2,
+   "point": 134,
+   "first_flag": 84,
+   "lead": 50,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s12",
+   "stage": 2,
+   "point": 144,
+   "first_flag": 76,
+   "lead": 68,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s13",
+   "stage": 3,
+   "point": 193,
+   "first_flag": 156,
+   "lead": 37,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s14",
+   "stage": 0,
+   "point": 46,
+   "first_flag": 0,
+   "lead": 46,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s15",
+   "stage": 0,
+   "point": 46,
+   "first_flag": 4,
+   "lead": 42,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s17",
+   "stage": 3,
+   "point": 192,
+   "first_flag": 156,
+   "lead": 36,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s18",
+   "stage": 3,
+   "point": 105,
+   "first_flag": 64,
+   "lead": 41,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s19",
+   "stage": 2,
+   "point": 135,
+   "first_flag": 72,
+   "lead": 63,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s2",
+   "stage": 2,
+   "point": 126,
+   "first_flag": 60,
+   "lead": 66,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s20",
+   "stage": 0,
+   "point": 46,
+   "first_flag": 0,
+   "lead": 46,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s21",
+   "stage": 2,
+   "point": 204,
+   "first_flag": 140,
+   "lead": 64,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s22",
+   "stage": 2,
+   "point": 192,
+   "first_flag": 124,
+   "lead": 68,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s23",
+   "stage": 0,
+   "point": 46,
+   "first_flag": 4,
+   "lead": 42,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s24",
+   "stage": 3,
+   "point": 113,
+   "first_flag": 76,
+   "lead": 37,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s25",
+   "stage": 2,
+   "point": 116,
+   "first_flag": 52,
+   "lead": 64,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s27",
+   "stage": 1,
+   "point": 150,
+   "first_flag": 28,
+   "lead": 122,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s28",
+   "stage": 2,
+   "point": 238,
+   "first_flag": 176,
+   "lead": 62,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s4",
+   "stage": 1,
+   "point": 150,
+   "first_flag": 32,
+   "lead": 118,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s5",
+   "stage": 2,
+   "point": 176,
+   "first_flag": 116,
+   "lead": 60,
+   "event": "no_progress"
+  },
+  {
+   "run": "PackIdenticalLunches_s6",
+   "stage": 3,
+   "point": 120,
+   "first_flag": 84,
+   "lead": 36,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s1",
+   "stage": 3,
+   "point": 80,
+   "first_flag": 64,
+   "lead": 16,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s11",
+   "stage": 2,
+   "point": 92,
+   "first_flag": null,
+   "lead": null,
+   "event": null
+  },
+  {
+   "run": "SteamInMicrowave_s12",
+   "stage": 0,
+   "point": 19,
+   "first_flag": 0,
+   "lead": 19,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s14",
+   "stage": 0,
+   "point": 41,
+   "first_flag": 0,
+   "lead": 41,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s17",
+   "stage": 0,
+   "point": 52,
+   "first_flag": 0,
+   "lead": 52,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s18",
+   "stage": 3,
+   "point": 96,
+   "first_flag": null,
+   "lead": null,
+   "event": null
+  },
+  {
+   "run": "SteamInMicrowave_s20",
+   "stage": 3,
+   "point": 126,
+   "first_flag": null,
+   "lead": null,
+   "event": null
+  },
+  {
+   "run": "SteamInMicrowave_s22",
+   "stage": 1,
+   "point": 50,
+   "first_flag": 20,
+   "lead": 30,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s24",
+   "stage": 0,
+   "point": 19,
+   "first_flag": 4,
+   "lead": 15,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s26",
+   "stage": 2,
+   "point": 103,
+   "first_flag": null,
+   "lead": null,
+   "event": null
+  },
+  {
+   "run": "SteamInMicrowave_s28",
+   "stage": 0,
+   "point": 19,
+   "first_flag": 0,
+   "lead": 19,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s29",
+   "stage": 3,
+   "point": 105,
+   "first_flag": null,
+   "lead": null,
+   "event": null
+  },
+  {
+   "run": "SteamInMicrowave_s3",
+   "stage": 2,
+   "point": 75,
+   "first_flag": 56,
+   "lead": 19,
+   "event": "fixture_short"
+  },
+  {
+   "run": "SteamInMicrowave_s4",
+   "stage": 0,
+   "point": 29,
+   "first_flag": 0,
+   "lead": 29,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s6",
+   "stage": 3,
+   "point": 73,
+   "first_flag": 72,
+   "lead": 1,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s7",
+   "stage": 3,
+   "point": 81,
+   "first_flag": null,
+   "lead": null,
+   "event": null
+  },
+  {
+   "run": "SteamInMicrowave_s8",
+   "stage": 3,
+   "point": 73,
+   "first_flag": 104,
+   "lead": -31,
+   "event": "no_progress"
+  },
+  {
+   "run": "SteamInMicrowave_s9",
+   "stage": 3,
+   "point": 89,
+   "first_flag": 88,
+   "lead": 1,
+   "event": "no_progress"
+  }
+ ]
+}

@@ -25,11 +25,14 @@ from .schema import Obs
 
 class Coordinator:
     def __init__(self, ep, executor, tracker, detectors, confirmer, recovery, horizon, free_retrace=True,
-                 track_every=1, retrace_max=400, expected=None):
+                 track_every=1, retrace_max=400, expected=None, unstick=None, unstick_chunks=8, unstick_tries=2):
         self.ep, self.executor, self.tracker = ep, executor, tracker
         self.detectors, self.confirmer, self.recovery = list(detectors), confirmer, recovery
         self.H, self.free, self.track_every, self.retrace_max = horizon, free_retrace, track_every, retrace_max
         self.expected = expected or {}
+        # when a retrace is blocked: GR00T gets the unstick sentence for a few chunks, then the retrace resumes
+        self.unstick = unstick
+        self.unstick_chunks, self.unstick_tries = unstick_chunks, unstick_tries
         self.trace = rtrace.RobotTrace(ep)  # attached before any step: the whole path is recorded
         self.memory = None
         self.success_t, self.success_in_retrace, self.intervening, self.n_track = None, False, True, 0
@@ -92,9 +95,13 @@ class Coordinator:
             pass
         elif iv.kind == "retrace":
             target = m.back_to if m.back_to is not None else m.latest_start(iv.stage)["trace_index"]
-            n0 = len(self.ep.chunks)
+            n0, n_path = len(self.ep.chunks), len(self.trace.path)
             out = rtrace.retrace(self.ep, self.trace, target, self.retrace_max)
             m.free_steps += out["steps"]
+            out["unstick"] = []
+            while out["blocked"] and self.unstick is not None and len(out["unstick"]) < self.unstick_tries \
+                    and not self.ep.done:
+                out = self._unstick(iv, out, target, n_path)
             if any(c["step_success"][-1] for c in self.ep.chunks[n0:]):
                 self.success_t, self.success_in_retrace = self.ptime(), True
             if out["arrived"]:                               # loop.py: back_to = len(rec_path.path) - 1
@@ -113,6 +120,34 @@ class Coordinator:
             m.stream = f"a{iv.stage}.{m.stage_interventions}"
             m.gr00t_instruction = iv.instruction
         m.log_intervention(iv, obs, out)
+
+    def _unstick(self, iv, out, target, n_path):
+        """a blocked retrace (motion/retrace.py): GR00T gets the unstick sentence (recovery/unstick.py) for a few chunks,
+        their time not counted (part of going back, as the retrace), then the retrace resumes along the path recorded
+        before it began, from the last entry at which the hand was clear of where it got stuck"""
+        m, o = self.memory, self.obs()
+        self._observe(o)
+        stuck_hand = self.trace.path[-1]["hand_w"]
+        instr, why = self.unstick.choose(m, o, iv.stage)
+        stream, sentence = m.stream, m.gr00t_instruction
+        m.stream, m.gr00t_instruction = f"u{iv.stage}.{m.stage_interventions}.{len(out['unstick'])}", instr
+        t0, c0 = self.ep.t, len(self.ep.chunks)
+        for _ in range(self.unstick_chunks):
+            if self.ep.done:
+                break
+            self.ep.step(self.executor.act(self.ep.obs, m, len(self.ep.chunks)))
+        m.stream, m.gr00t_instruction = stream, sentence
+        m.free_steps += self.ep.t - t0
+        if any(c["step_success"][-1] for c in self.ep.chunks[c0:]):
+            self.success_t, self.success_in_retrace = self.ptime(), True
+        resume = rtrace.resume_entry(self.trace.path[:n_path], target, out["entry"], stuck_hand)
+        tries = out["unstick"] + [dict(instruction=instr, reason=why, chunks=len(self.ep.chunks) - c0, resume_entry=resume,
+                                       blocked_at=out["entry"])]
+        nxt = rtrace.retrace(self.ep, self.trace, target, self.retrace_max, end=resume)
+        m.free_steps += nxt["steps"]
+        nxt["steps"] += out["steps"] + (self.ep.t - t0)
+        nxt["unstick"] = tries
+        return nxt
 
     # ------------------------------------------------------------------ the loop
     def run(self, start_trigger=None):
