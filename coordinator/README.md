@@ -57,7 +57,7 @@ Both differences are significant in paired tests (p < 0.0001).
 | `recovery/` | `RetraceRetry`, `Ladder` (done); `unstick.py`: `VLMUnstick`, `FixedUnstick` (done; a blocked retrace); `VLMRecovery` (reference v0) | |
 | `motion/` | `retrace.py`: `RobotTrace`, `retrace()`, final version (done, checked on 47 failure points); `backoff.py` (**TODO**) | |
 | `gr00t_wording.py` | the sentences GR00T was trained on, as a phrase bank, and the rules for instructions written from it | done |
-| `scripts/` | `run.py` (one run), `batch.sh` (failure points x seeds), `vlm_check.py` (test a backend; see what the VLM is sent) | done |
+| `scripts/` | `run.py` (one run), `batch.sh` (failure points x seeds), `watch_batch.py` (watchdog for a batch: deletes error results and re-runs them, stops runs over a time limit, status file, valid-only results and a summary against loop.py at the end; start it with setsid), `eval_tracker.py` / `score_tracker.py` (the VLM tracker on recorded runs), `vlm_check.py` (test a backend; see what the VLM is sent) | done |
 | `tests/` | `test_offline.py` (retrace planning, memory, timeout, undone, policies, robot state), `test_vlm.py` (backends against stub servers, registry, answer checks, request building, VLM modules with a mock), `check_retrace_state.py` (does the retrace follow the path and restore the robot's state), `check_retrace_fallback.py` (fallbacks for a blocked retrace) | pass |
 
 The environment layer is `../envkit`, at the top level too (verified on 480 scenes; usage guide `../envkit/README.md`).

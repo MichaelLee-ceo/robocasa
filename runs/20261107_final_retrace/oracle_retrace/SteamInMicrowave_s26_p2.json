@@ -1,0 +1,229 @@
+{
+ "success": true,
+ "success_t": 1664,
+ "success_in_retrace": true,
+ "gr00t_time": 1664,
+ "horizon": 2100,
+ "chunks": 167,
+ "free_steps": 1008,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 0,
+ "vlm_cost_usd": 0,
+ "memory": {
+  "instruction": "Pick the squash from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button.",
+  "current": 2,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the squash from the sink and place it on the bowl located on the counter.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 16,
+       "t": 256,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 16,
+      "t": 256
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 104,
+     "t": 1664,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick the bowl from the counter and place it in the microwave.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 16,
+      "t": 256,
+      "trace_index": 256,
+      "why": "replay",
+      "end": {
+       "chunk": 44,
+       "t": 704,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 44,
+      "t": 704
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 104,
+     "t": 1664,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Close the microwave door.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 44,
+      "t": 704,
+      "trace_index": 704,
+      "why": "replay",
+      "end": {
+       "chunk": 104,
+       "t": 1664,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 167,
+      "t": 1664,
+      "trace_index": 2672,
+      "why": "retrace",
+      "end": {
+       "chunk": 167,
+       "t": 1664,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 167,
+      "t": 1664
+     }
+    ],
+    "undone_times": [],
+    "interventions": 1,
+    "last_status": {
+     "chunk": 104,
+     "t": 1664,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Press the start button on the microwave.",
+    "check": "",
+    "attempts": [],
+    "done_times": [
+     {
+      "chunk": 167,
+      "t": 1664
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 104,
+     "t": 1664,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 20,
+   "1": 36,
+   "2": 26,
+   "3": 24
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 2,
+    "chunk": 104,
+    "detail": {
+     "kind": "undone"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 104,
+    "t": 1664,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 63,
+     "steps": 1008,
+     "entries": 961,
+     "path_steps": 960,
+     "grip_changes": 2,
+     "arrived": true,
+     "blocked": false,
+     "entry": 704,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "s2_attempt",
+   "s2_done",
+   "s2_start",
+   "s3_done",
+   "trigger_104"
+  ],
+  "free_steps": 1008,
+  "vlm_calls": [],
+  "vlm_cost_usd": 0,
+  "status_checks": 1
+ },
+ "fixed": true,
+ "fixed_after": 0,
+ "id": "SteamInMicrowave_s26",
+ "task": "SteamInMicrowave",
+ "seed": 26,
+ "stage": 2,
+ "kind": "undone",
+ "start_t": 1664,
+ "start_chunk": 104,
+ "chunks_left": 28,
+ "run": "SteamInMicrowave_s26",
+ "config": "oracle_retrace",
+ "pseed": 2,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 541.7
+}
