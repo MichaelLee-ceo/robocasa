@@ -56,6 +56,7 @@ class SubGoal:
     index: int
     text: str                       # instruction-like sentence (the atomic task it corresponds to)
     check: str = ""                 # checkable completion condition in words, e.g. "the kettle is on a burner"
+    any_order: bool = False         # with the neighbouring any_order sub-goals, may be done in any order
 
 
 @dataclass
@@ -69,6 +70,8 @@ class StageStatus:
     hand_clear: Optional[bool] = None  # the hand touches nothing and is away from all objects (None: unknown)
     note: str = ""                  # something the tracker wants remembered (goes to memory.notes)
     error: str = ""
+    extra_done: list = field(default_factory=list)  # sub-goals after the current one ticked now, out of order
+                                                    # (an any-order run: memory.tick_out_of_order)
 
 
 @dataclass

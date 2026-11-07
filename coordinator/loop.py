@@ -4,7 +4,9 @@ when to intervene.
 At every chunk end:
   1. observe   memory.observe(Obs): the three views, the proprio, GR00T's own time, the trace entry
   2. track     every `track_every` chunks: tracker.update -> StageStatus; sub-goals that became done are closed in the
-               memory and the next one begins (its attempt records the trace entry a retrace goes back to)
+               memory and the next one begins (its attempt records the trace entry a retrace goes back to); a later
+               sub-goal of an any-order run ticked first (StageStatus.extra_done) is recorded done and the current
+               sub-goal begins a new attempt from there
   3. detect    every detector's triggers (status = this chunk's StageStatus, or None)
   4. confirm   the confirmer accepts or rejects each trigger (all logged); an accepted "undone" makes that sub-goal
                current again
@@ -172,9 +174,14 @@ class Coordinator:
             if self.n_track % self.track_every == 0:
                 status = self.tracker.update(m, o)
                 m.log_status(o, status)
-                if status.done is not None and status.current > m.current and not pending:   # moved on
-                    m.move_on(status.current, o)
-                    self.last_progress = self.ptime()
+                if status.done is not None and not pending:
+                    for j in status.extra_done:              # an item of an any-order run, done before the current
+                        if j > m.current and not m.is_done(j):
+                            m.tick_out_of_order(j, o)
+                            self.last_progress = self.ptime()
+                    if status.current > m.current:           # moved on
+                        m.move_on(status.current, o)
+                        self.last_progress = self.ptime()
             self.n_track += 1
             trigs, pending = list(pending), []
             for d in self.detectors:

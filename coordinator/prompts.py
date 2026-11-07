@@ -64,15 +64,62 @@ def recover_schema(options):
                            "reason": {"type": "string"}}}
 
 
-PLAN_Q = """Question: split the task instruction into the sub-goals the robot must complete, in order. For each, give a
-short instruction-like sentence and the condition that shows in the camera images when it is complete.
+PLAN_Q = """Question: write the robot's to-do list for this task, the way you would plan your own work.
+Rules:
+- Split the task instruction into items, using its own words. One item is one skill the robot does in one go: a
+  pick-and-place ("pick the X from A and place it in B" is ONE item; picking up without placing is not an item),
+  opening or closing one door or drawer, pressing one button, turning one knob, lever or faucet. A sentence with two
+  such skills ("close the door and press the start button") gives two items.
+  Example: "Pick the mug from the cabinet and place it under the coffee machine. Then press the start button." gives
+  2 items: "Pick the mug from the cabinet and place it under the coffee machine." and "Press the start button."
+- Keep the order the instruction gives. When it asks for several placements without fixing their order (e.g. one
+  object of each kind in each container), write one item per placement (one object into one container: "one X and
+  one Y in each of two containers" is four placements) and mark these items "any_order": true: the
+  robot may do them in any order, and you will tick whichever gets done. Write each one's done condition so that it
+  holds whatever order they were done in ("one tupperware holds a steak", not "the first tupperware holds a steak").
+  Items in a fixed order ("Then ...") are "any_order": false.
+- For each item write "done": what the camera images show when it is complete (where the object is and that the
+  gripper has let go of it, the door shut, the light on).
 Answer with one JSON object and nothing else:
-{"subgoals": [{"text": "...", "check": "..."}, ...]}"""
+{"items": [{"text": "...", "done": "...", "any_order": true or false}, ...]}"""
 PLAN_SCHEMA = {
-    "type": "object", "additionalProperties": False, "required": ["subgoals"],
-    "properties": {"subgoals": {"type": "array", "items": {
-        "type": "object", "additionalProperties": False, "required": ["text", "check"],
-        "properties": {"text": {"type": "string"}, "check": {"type": "string"}}}}}}
+    "type": "object", "additionalProperties": False, "required": ["items"],
+    "properties": {"items": {"type": "array", "items": {
+        "type": "object", "additionalProperties": False, "required": ["text", "done"],
+        "properties": {"text": {"type": "string"}, "done": {"type": "string"}, "any_order": {"type": "boolean"}}}}}}
+
+# The item check (tracking/vlm.py): only the current to-do item (with the not-yet-done items of its any-order run),
+# every chunk; its progress level is a progress dot.
+PROGRESS_LEVELS = ("not_started", "reaching", "handling", "finishing", "done")
+ITEM_Q = """Question: judge the CURRENT item(s), marked [>] in the to-do list, at the LAST moment ("now"). When several
+items are marked [>], they may be done in any order.
+- "done": for each item marked [>], does its done condition hold now? For a placement: the object rests at its goal
+  and the gripper no longer holds it (the hand may still be next to it). For a door, drawer, knob, button or faucet:
+  it is in its goal state. Judge from the frames only.
+- "progress": how far the [>] item the robot is working on now has got:
+  "not_started": the robot has not begun it (idle, or still busy with the previous item);
+  "reaching": the hand is moving toward the object or fixture part this item needs;
+  "handling": the gripper holds, pushes or turns it, or carries the object toward the goal;
+  "finishing": the object is at or just above its goal but still held, or the fixture is nearly in its goal state;
+  "done": it is done.
+- "advancing": true if, over the last few moments, the robot got closer to finishing a [>] item, or one is done;
+  false if it is hovering, repeating the same motion, moving away from the goal, or not moving.
+- "previous_ok": true if what the items marked [x] achieved still holds (false if, e.g., a placed object fell out or
+  a closed door opened again); true when there are none.
+Answer with one JSON object and nothing else:
+{"done": {"<number of each item marked [>]>": true or false},
+ "progress": one of %s,
+ "advancing": true or false,
+ "previous_ok": true or false,
+ "evidence": "what you see in the frames that supports the answer",
+ "confidence": a number from 0 to 1}""" % (list(PROGRESS_LEVELS),)
+ITEM_SCHEMA = {
+    "type": "object", "additionalProperties": False,
+    "required": ["done", "progress", "advancing", "previous_ok", "evidence", "confidence"],
+    "properties": {"done": {"type": ["object", "boolean"]}, "progress": {"type": "string", "enum": list(PROGRESS_LEVELS)},
+                   "advancing": {"type": "boolean"}, "previous_ok": {"type": "boolean"}, "evidence": {"type": "string"},
+                   "confidence": {"type": "number"}}}
+
 
 TRIGGER_TEXT = {
     "failure_point": "the run starts from a moment at which this sub-goal is known to be failing",
@@ -84,4 +131,5 @@ TRIGGER_TEXT = {
     "dropped": "the held {target} seems to have been dropped",
     "fixture_short": "a fixture was moved only part of the way",
     "wrong_element": "the robot moved a fixture part other than the target",
+    "no_progress": "the robot has not got closer to finishing this item at the last {n} checks",
 }

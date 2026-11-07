@@ -58,7 +58,7 @@ if __name__ == "__main__":
     ap.add_argument("--out", default=paths.OUT)
     ap.add_argument("--track-every", type=int, default=None)
     ap.add_argument("--budget", type=int, default=None)
-    ap.add_argument("--plan", default="given", choices=["given", "vlm"])
+    ap.add_argument("--plan", default=None, choices=["given", "vlm"])
     ap.add_argument("--horizon-scale", type=float, default=1, help="GR00T-time budget / the official horizon")
     ap.add_argument("--stuck-windows", type=float, default=None, help="end when no sub-goal is done for this many p90 windows")
     a = ap.parse_args()

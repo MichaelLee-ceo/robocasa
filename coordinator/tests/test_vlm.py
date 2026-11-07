@@ -17,7 +17,7 @@ from coordinator.vlm.mock import MockVLM  # noqa: E402
 from coordinator.vlm.openai_compat import OpenAICompatVLM  # noqa: E402
 
 
-def stub_server(reply, status=200):
+def stub_server(reply, status=200, port=0):
     """a local HTTP server answering every POST with `reply(body)`; returns (port, received bodies, server)"""
     got = []
 
@@ -35,7 +35,8 @@ def stub_server(reply, status=200):
         def log_message(self, *a):
             pass
 
-    srv = ThreadingHTTPServer(("127.0.0.1", 0), H)
+    ThreadingHTTPServer.allow_reuse_address = True
+    srv = ThreadingHTTPServer(("127.0.0.1", port), H)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv.server_address[1], got, srv
 
@@ -96,9 +97,18 @@ def test_openai_compat():
     v2.ask(req)
     assert "response_format" not in got[1]["body"] and "chat_template_kwargs" not in got[1]["body"]
     srv.shutdown(); srv.server_close()
-    r = make_vlm(f"vllm:m@{port}").ask(req)   # server gone
+    r = make_vlm(f"vllm:m@{port}", retry_s=0).ask(req)   # server gone
     assert not r.ok and "cannot reach" in r.error
-    print("OpenAI-compatible backend: ok")
+    # a server restart: the call waits and gets its answer when the server is back
+    import time
+    later = []
+    threading.Timer(3, lambda: later.append(stub_server(lambda b: {"choices": [{"message": {"content": '{"a": true, "k": "y"}'},
+                                                                                "finish_reason": "stop"}]}, port=port))).start()
+    t0 = time.time()
+    r = make_vlm(f"vllm:m@{port}", retry_s=60).ask(req)
+    assert r.ok and r.data["k"] == "y" and 3 <= time.time() - t0 < 30, (r.error, time.time() - t0)
+    later[0][2].shutdown(); later[0][2].server_close()
+    print("OpenAI-compatible backend: ok (retries while the server is down)")
 
 
 def test_hf_server():
@@ -162,16 +172,6 @@ def test_context():
 
 def test_vlm_modules():
     m, now = memory_mid_task(), obs(41)
-    ans = {"stages_done": [True, True, False], "event": "fixture_short", "event_detail": "knob only part-way",
-           "evidence": "knob turned", "confidence": 0.9}
-    tr = VLMTracker(MockVLM(ans), done_streak=2)
-    s = tr.update(m, now)
-    assert s.done == [True, False, False] and s.current == 1, "a first 'done' must wait for the streak"
-    s = tr.update(m, obs(42))
-    assert s.done == [True, True, False] and s.current == 2 and s.note == "fixture_short: knob only part-way"
-    assert len(m.vlm_calls) == 2 and tr.vlm.requests[0].schema is P.PROGRESS_SCHEMA
-    s = VLMTracker(MockVLM({"stages_done": [True], "event": "none", "event_detail": "", "evidence": "", "confidence": 1})).update(m, now)
-    assert s.done is None and "1 flags for 3" in s.error
     s = VLMTracker(MockVLM("garbage")).update(m, now)
     assert s.done is None and s.error
     trig = Trigger("timeout", 1, 41)
@@ -192,6 +192,116 @@ def test_vlm_modules():
     print("VLM modules with a mock VLM: ok")
 
 
+def item(progress, advancing=True, previous_ok=True, conf=0.9):
+    return {"done": progress == "done", "progress": progress, "advancing": advancing, "previous_ok": previous_ok,
+            "evidence": "seen", "confidence": conf}
+
+
+def test_todo_tracker():
+    """the to-do list tracker: plan, item check, progress dots, done streak, the stall detector"""
+    from coordinator.detection.progress import ProgressStall
+    m, now = memory_mid_task(), obs(41)
+    # the to-do list text and the item window (uniform over this attempt)
+    r = C.item_request(m, now)
+    t = r.text()
+    assert "  [x] 1. Put the kettle on the stove. (done at 9.6 s)" in t and "  [>] 2. Turn on the burner." in t, t[:900]
+    assert "attempt 1: 9.6-27.2 s, ended: timeout -> retrace (the robot was then driven back" in t, t[:1200]
+    assert "now: attempt 2, 4.0 s into it (this item usually takes under 16 s)" in t and "  [ ] 3. Wait." in t
+    labels = [p[1] for p in r.parts if p[0] == "text" and p[1].startswith("---")]
+    # uniform over this attempt (the retry began at chunk 36, after the rewind), both ends included
+    assert labels[0].startswith("--- this attempt began (the robot was driven back here): t = 28.8 s (chunk 36)"), labels
+    assert len(labels) == 6 and labels[-1].startswith("--- now: t = 32.8 s"), labels
+    assert r.n_images() == 3 * len(labels) and r.schema is P.ITEM_SCHEMA and r.parts[-1][1] == P.ITEM_Q
+    m3 = Memory("Boil.", [SubGoal(0, "a"), SubGoal(1, "b")])
+    m3.begin_stage(0, obs(0))
+    for c in range(1, 61):
+        m3.observe(obs(c))
+    m3.complete_stage(0, obs(20)); m3.begin_stage(1, obs(20))
+    for c in range(21, 61):
+        m3.observe(obs(c))
+    l3 = [p[1] for p in C.item_request(m3, obs(60)).parts if p[0] == "text" and p[1].startswith("---")]
+    assert len(l3) == 10 and "item 1 was done, item 2 began" in l3[0] and "(chunk 20)" in l3[0] and "(chunk 60)" in l3[-1], l3
+    assert C.item_request(m3, obs(60)).n_images() == 30
+    rr = C.item_request(m, now, C.ContextConfig(window="recent"))
+    lr = [p[1] for p in rr.parts if p[0] == "text" and p[1].startswith("---")]
+    assert len(lr) == 10 and "(chunk 23)" in lr[0] and lr[-1].startswith("--- now"), lr     # 10 chunk ends, 2 apart
+    assert rr.n_images() == 30
+    # the plan: the VLM's items become sub-goals with done conditions and the any-order flag
+    plan = {"items": [{"text": "Pick the kettle and place it on a burner.", "done": "kettle on a burner, let go",
+                       "any_order": False}, {"text": "Turn the burner on.", "done": "flame on"}]}
+    g = VLMTracker(MockVLM(plan)).make_plan("Boil.", now)
+    assert [x.text for x in g] == ["Pick the kettle and place it on a burner.", "Turn the burner on."]
+    assert g[0].check == "kettle on a burner, let go" and g[1].any_order is False
+    # done twice in a row -> ticked (no other check)
+    tr = VLMTracker(MockVLM([item("handling"), item("done"), item("done")]), done_streak=2)
+    s = tr.update(m, obs(41)); assert s.current == 1 and m.dots[-1]["progress"] == "handling"
+    s = tr.update(m, obs(42)); assert s.current == 1, "one 'done' is not enough"
+    s = tr.update(m, obs(43)); assert s.current == 2 and s.done == [True, True, False]
+    assert [x["module"] for x in m.vlm_calls[-3:]] == ["tracker"] * 3
+    m.move_on(2, obs(43))                        # as the loop does
+    s = VLMTracker(MockVLM(item("handling", previous_ok=False))).update(m, obs(48))
+    assert s.done == [True, False, False] and s.current == 2, "previous_ok false reads the previous item undone"
+    assert "  [x] 2. Turn on the burner. (done at 34.4 s)" in C.todo_block(m, obs(48)), C.todo_block(m, obs(48))
+    # the stall detector: n non-advancing dots in a row (fires once per n)
+    m2 = memory_mid_task()
+    st = ProgressStall(n=3, min_chunks=4)
+    tr2 = VLMTracker(MockVLM(item("reaching", advancing=False)))
+    fired = []
+    for c in range(41, 48):
+        stt = tr2.update(m2, obs(c))
+        fired += [(c, x.kind) for x in st.check(m2, obs(c), stt)]
+    assert fired == [(43, "no_progress"), (46, "no_progress")], fired
+    print("to-do list tracker with a mock VLM: ok", f"(item request: {r.n_images()} images, {len(t)} chars of text)")
+
+
+def test_any_order():
+    """an any-order run: the open items are judged together, a later one ticked first (out of order) is recorded and
+    the current item restarts its attempt there; ticks then skip the items already done"""
+    plan = [SubGoal(i, f"Place item {i + 1}.", f"{i + 1} placed", any_order=True) for i in range(3)] + \
+        [SubGoal(3, "Close the lid.", "lid shut")]
+    m = Memory("Pack.", plan)
+    m.begin_stage(0, obs(0))
+    for c in range(1, 6):
+        m.observe(obs(c))
+    assert m.open_items() == [0, 1, 2] and m.open_items(3) == [3]
+    t = C.todo_block(m, obs(5))
+    assert "the items marked [>] may be done in any order" in t and "  [>] 2. Place item 2." in t and "  [ ] 4." in t, t
+
+    def ans(done):
+        return {"done": done, "progress": "handling", "advancing": True, "previous_ok": True, "evidence": "e",
+                "confidence": 0.9}
+    tr = VLMTracker(MockVLM([ans({"1": False, "2": False, "3": True}), ans({"1": False, "item 3": "true"}),
+                             ans({"1": True, "2": False}), ans({"1": True}), ans({"2": True}), ans({"2": True})]))
+    s = tr.update(m, obs(6)); assert s.extra_done == [] and s.current == 0
+    s = tr.update(m, obs(7)); assert s.extra_done == [2] and s.current == 0 and s.done[2], s
+    m.tick_out_of_order(2, obs(7))                       # as the loop does
+    assert m.is_done(2) and m.current == 0 and m.open_items() == [0, 1] and m.back_to == m.entry[0]
+    assert m.stages[0].attempts[-1]["why"] == "item 3 done first" and m.stages[0].attempts[-2]["end"]["how"] == "item 3 done first"
+    assert "  [x] 3. Place item 3. (done at 5.6 s)" in C.todo_block(m, obs(8))
+    s = tr.update(m, obs(8)); assert s.current == 0
+    s = tr.update(m, obs(9)); assert s.current == 1 and not s.extra_done
+    m.move_on(1, obs(9))
+    s = tr.update(m, obs(10)); s = tr.update(m, obs(11))
+    assert s.current == 3, "item 3 is done already: the next item is 4"
+    m.move_on(3, obs(11))
+    assert m.open_items() == [3] and len(m.moved_on) == 3 and m.moved_on[0]["out_of_order"]
+    from coordinator.tracking.vlm import done_flags
+    assert done_flags({"done": True}, [1, 2]) == {1: True, 2: False} and done_flags({"done": {"2": "false"}}, [1]) == {1: False}
+    # the grasp-and-release guard: a placement is ticked only after the gripper closed and opened in this attempt
+
+    class Trace:
+        path = [dict(grip=0.0)]
+    m4 = Memory("Pack.", [SubGoal(i, f"Place item {i + 1}.", any_order=True) for i in range(2)], trace=Trace())
+    m4.begin_stage(0, obs(0))
+    tr4 = VLMTracker(MockVLM(ans({"1": True, "2": False})))
+    Trace.path += [dict(grip=0.0)] * 3
+    assert tr4.update(m4, obs(1)).current == 0 and tr4.update(m4, obs(2)).current == 0, "no grasp yet: no tick"
+    assert "gripper has not grasped and released" in m4.notes[-1]["text"]
+    Trace.path += [dict(grip=1.0)] * 3 + [dict(grip=0.0)]
+    assert tr4.update(m4, obs(3)).current == 1 and len(m4.notes) == 1, "grasped and released: ticked"
+    print("any-order items (out-of-order ticks, grasp-and-release guard): ok")
+
+
 if __name__ == "__main__":
-    test_parse_and_check(); test_registry(); test_openai_compat(); test_hf_server(); test_context(); test_vlm_modules()
+    test_parse_and_check(); test_registry(); test_openai_compat(); test_hf_server(); test_context(); test_vlm_modules(); test_todo_tracker(); test_any_order()
     print("all VLM checks passed")

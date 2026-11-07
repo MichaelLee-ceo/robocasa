@@ -16,13 +16,15 @@ R = recovery "what now?", X = the retrace mechanism):
 | expected[k]               | how long the sub-goal usually takes (chunks; the timeout window)              | C R     |
 | keyframes                 | the scene when each sub-goal first began (s<k>_start), when its latest        | T C     |
 |                           | attempt began (s<k>_attempt), when it was done (s<k>_done), at triggers       |         |
-| stages[k].history         | a few moments spread over the current sub-goal's attempts (every 4 chunks,    | C R     |
-|                           | thinned to 8): the course of the attempt, not only its end                    |         |
+| stages[k].history         | every chunk end of the current attempt (reset when an attempt begins): the    | T C R   |
+|                           | course of the attempt, not only its end (the tracker samples it uniformly)    |         |
 | frames                    | the last 24 chunk-end observations (3 views + proprio)                        | T C R   |
 | trace                     | the robot's own state after every env step (7 arm joints, base pose, hand     | X; C R  |
 |                           | pose, gripper command): the retrace's path; gripper events and motion         | (robot) |
 | notes                     | short observations the VLM asked to keep ("the vegetable fell behind the      | T C R   |
 |                           | sink"), with time and sub-goal                                                |         |
+| dots                      | the progress dots: the tracker's view of the current sub-goal at each check   | T C R   |
+|                           | (not_started / reaching / handling / finishing / done, advancing or not)      |         |
 | triggers, interventions   | what fired, what the confirmer said and why, what was done and its result     | C R     |
 | status_log, vlm_calls     | every tracker answer; every VLM call (module, latency, tokens, cost)          | analysis|
 | free_steps                | env steps spent retracing (not GR00T's time)                                  | clock   |
@@ -36,7 +38,6 @@ import numpy as np
 from .schema import CONTROL_HZ, STEPS_PER_CHUNK, Obs, to_json
 
 KEEP_FRAMES = 24
-HISTORY_EVERY, HISTORY_CAP = 4, 8
 EMPTY_GAP = 0.004          # m: closed with the fingers nearer than this = closed on nothing (the proposal's trigger)
 
 
@@ -47,7 +48,7 @@ class StageRecord:
         self.done_times = []        # dict(chunk, t)
         self.undone_times = []      # dict(chunk, t)
         self.interventions = 0
-        self.history = []           # sparse Obs over the current attempts (reset when the sub-goal is done)
+        self.history = []           # every chunk-end Obs of the current attempt (reset when an attempt begins or the sub-goal is done)
         self.last_status = None     # dict(chunk, t, done, evidence, source)
 
     @property
@@ -81,16 +82,15 @@ class Memory:
         self.back_to = None            # where the next retrace of the current sub-goal goes back to (loop.py `back_to`):
                                        # its entry; after a retrace that arrived, the arrival point
         self.moved_on = []             # dict(frm, to, chunk, t): every "moved on" (loop.py's fixed rule reads it)
+        self.dots = []                 # dict(chunk, t, stage, attempt, progress, advancing, previous_ok, confidence)
 
     # ------------------------------------------------------------------ written by the coordinator loop
     def observe(self, obs: Obs):
         self.frames.append(obs)
         if self.current < len(self.stages):
             h = self.stages[self.current].history
-            if not h or obs.chunk - h[-1].chunk >= HISTORY_EVERY:
+            if not h or obs.chunk > h[-1].chunk:
                 h.append(obs)
-                if len(h) > HISTORY_CAP:          # keep an even spread: drop every other one, keep the newest
-                    h[:] = h[::2] if (len(h) - 1) % 2 == 0 else h[1::2]
 
     def trace_index(self):
         return len(self.trace.path) - 1 if self.trace is not None else None
@@ -104,6 +104,7 @@ class Memory:
         if why in ("begin", "replay"):                 # entered: loop.py remember(k); back_to = starts[k]
             self.entry[k] = self.back_to = ti
         self.stages[k].attempts.append(dict(chunk=obs.chunk, t=obs.t, trace_index=ti, why=why, end=None))
+        self.stages[k].history = [obs]                 # the course of this attempt only
         self.keyframes.setdefault(f"s{k}_start", obs)
         self.keyframes[f"s{k}_attempt"] = obs
 
@@ -124,6 +125,16 @@ class Memory:
             self.begin_stage(k, obs)
         else:
             self.current = len(self.stages)
+
+    def tick_out_of_order(self, j, obs: Obs):
+        """sub-goal j of the current any-order run, done before the current one: recorded done; the current sub-goal
+        begins a new attempt here, so that a retry comes back to this moment and does not undo sub-goal j"""
+        self.moved_on.append(dict(frm=j, to=self.current, chunk=obs.chunk, t=obs.t, out_of_order=True))
+        self.complete_stage(j, obs)
+        k = self.current
+        self.stage_interventions = 0
+        self.begin_stage(k, obs, why=f"item {j + 1} done first")
+        self.entry[k] = self.back_to = self.trace_index()
 
     def complete_stage(self, k, obs: Obs):
         s = self.stages[k]
@@ -153,6 +164,36 @@ class Memory:
     def add_note(self, obs, text, source, stage=None):
         self.notes.append(dict(chunk=obs.chunk, t=obs.t, stage=self.current if stage is None else stage,
                                source=source, text=str(text)[:300]))
+
+    def add_dot(self, obs, k, progress, advancing, previous_ok=True, confidence=1.0):
+        """a progress dot: the tracker's view of sub-goal k at this check"""
+        self.dots.append(dict(chunk=obs.chunk, t=obs.t, stage=k, attempt=len(self.stages[k].attempts),
+                              progress=progress, advancing=bool(advancing), previous_ok=bool(previous_ok),
+                              confidence=float(confidence)))
+
+    def attempt_dots(self, k=None):
+        """the progress dots of sub-goal k's latest attempt (default: the current sub-goal)"""
+        k = self.current if k is None else k
+        n = len(self.stages[k].attempts) if k < len(self.stages) else 0
+        return [d for d in self.dots if d["stage"] == k and d["attempt"] == n]
+
+    def is_done(self, k):
+        """sub-goal k recorded done (and not undone since)"""
+        st = self.stages[k]
+        return bool(st.done_times) and not (st.undone_times and st.undone_times[-1]["t"] > st.done_times[-1]["t"])
+
+    def open_items(self, k=None):
+        """the items judged now: sub-goal k (default: the current one) and, if it is any-order, the not-yet-done
+        sub-goals of its any-order run after it"""
+        k = self.current if k is None else k
+        if k >= len(self.plan):
+            return []
+        out, j = [k], k + 1
+        while self.plan[k].any_order and j < len(self.plan) and self.plan[j].any_order:
+            if not self.is_done(j):
+                out.append(j)
+            j += 1
+        return out
 
     def log_trigger(self, trig, obs):
         self.triggers.append(trig)
@@ -237,4 +278,6 @@ class Memory:
         return dict(instruction=self.instruction, current=self.current, stages=[s.json() for s in self.stages],
                     expected=self.expected, notes=self.notes, triggers=[to_json(t) for t in self.triggers],
                     interventions=self.interventions, keyframes=sorted(self.keyframes), free_steps=self.free_steps,
-                    vlm_calls=self.vlm_calls, vlm_cost_usd=self.cost(), status_checks=len(self.status_log))
+                    vlm_calls=self.vlm_calls, vlm_cost_usd=self.cost(), status_checks=len(self.status_log),
+                    plan=[dict(text=g.text, check=g.check, any_order=g.any_order) for g in self.plan],
+                    dots=self.dots, moved_on=self.moved_on)

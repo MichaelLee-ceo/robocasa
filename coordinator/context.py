@@ -23,7 +23,20 @@ line naming each moment ("--- now ---", "--- when this attempt began ---") goes 
 |                         |                                                                        |          | + recent| + recent |
 Each moment is a text line (label, time, chunk) followed by one image per camera, each after its camera name.
 
-ContextConfig sets how much goes in (cameras, number of recent moments, history, which blocks)."""
+ContextConfig sets how much goes in (cameras, number of recent moments, history, which blocks).
+
+The item tracker (tracking/vlm.py) has its own requests, built around the to-do list (todo_block: the plan with
+[x] done / [>] current / [ ] not yet, the open items' done conditions, the current item's attempts and how they
+ended, the progress dots of this attempt):
+  item_request     is the current item done (and each not-yet-done item of its any-order run); its progress level;
+                   advancing; earlier results intact
+  plan_request     the VLM splits the task instruction into the to-do list (one action per item, its own words)
+Their images (item_moments; cfg.window):
+  "uniform"  the user's design (2026-11-08): cfg.item_moments chunk ends sampled uniformly from the moment this
+             attempt began (the item's start, when the previous item was ticked; after a retry, the end of the
+             rewind) to now, both included
+  "recent"   a fixed window: the last cfg.item_moments chunk ends, cfg.item_stride apart, ending now (an ablation)
+Both use cfg.item_cameras (the three views GR00T sees; 10 moments = 30 images, within the local server's 32)."""
 from dataclasses import dataclass, field
 
 from . import prompts as P
@@ -44,6 +57,11 @@ class ContextConfig:
     notes: bool = True
     last_check: bool = True
     max_tokens: int = None                   # None: the backend's default
+    # the item tracker's requests
+    window: str = "uniform"                  # "uniform" (over this attempt) | "recent" (a fixed recent window)
+    item_cameras: tuple = tuple(CAMERAS)
+    item_moments: int = 10                   # moments per request (both windows)
+    item_stride: int = 2                     # recent window: chunks between them
 
 
 def _s(t):
@@ -225,8 +243,117 @@ def recovery_request(m, obs, trig, options, cfg=ContextConfig()):
 
 
 def plan_request(instruction, obs, cfg=ContextConfig()):
+    """the VLM writes the to-do list: the task instruction split into one action per item, each with its done
+    condition and any-order flag (prompts.PLAN_Q)"""
     frames = [(obs.t / CONTROL_HZ, obs.chunk, c, obs.images[c]) for c in cfg.cameras if c in obs.images]
     body = pilot.Query("plan", instruction, [], frames).parts()[1:-1]
-    parts = [("text", f"Task instruction: \"{instruction}\"\nThe robot's camera views at the start:")] + body + \
-        [("text", P.PLAN_Q)]
+    parts = [("text", f"A robot is about to do a kitchen task in simulation. Task instruction: \"{instruction}\"\n"
+                      f"The robot's camera views at the start:")] + body + [("text", P.PLAN_Q)]
     return VLMRequest(parts=parts, system=P.SYSTEM, schema=P.PLAN_SCHEMA, max_tokens=cfg.max_tokens, tag="plan")
+
+
+# ---------------------------------------------------------------------------------------------------- the item tracker
+def _runs(xs):
+    """run-length text: ["a", "a", "b"] -> "a x2, b" """
+    out = []
+    for x in xs:
+        if out and out[-1][0] == x:
+            out[-1][1] += 1
+        else:
+            out.append([x, 1])
+    return ", ".join(f"{x} x{n}" if n > 1 else x for x, n in out)
+
+
+def todo_block(m, obs):
+    """the to-do list as the coordinator keeps it (the global status map)"""
+    lines = ["Your to-do list for this task ([x] done, [>] current, [ ] not yet):"]
+    opened = m.open_items()
+    if len(opened) > 1:
+        lines[0] = ("Your to-do list for this task ([x] done, [>] current, [ ] not yet; the items marked [>] may be "
+                    "done in any order):")
+    for k, st in enumerate(m.stages):
+        g = st.subgoal
+        if k in opened and k != m.current:
+            lines.append(f"  [>] {k + 1}. {g.text}")
+            if g.check:
+                lines.append(f"        done when: {g.check}")
+        elif k == m.current:
+            lines.append(f"  [>] {k + 1}. {g.text}")
+            if g.check:
+                lines.append(f"        done when: {g.check}")
+            for a in m.attempt_summary(k)[:-1]:
+                how = a["how"] or "?"
+                back = " (the robot was then driven back to where this item began)" if "retrace" in how else ""
+                lines.append(f"        attempt {a['n']}: {a['began_s']:.1f}-{a['ended_s']:.1f} s, ended: {how}{back}")
+            a = st.open_attempt()
+            if a is not None:
+                line = f"        now: attempt {len(st.attempts)}, {_s(obs.t - a['t'])} into it"
+                if k in m.expected:
+                    line += f" (this item usually takes under {m.expected[k] * STEPS_PER_CHUNK / CONTROL_HZ:.0f} s)"
+                lines.append(line)
+            dots = m.attempt_dots(k)
+            if dots:
+                lines.append(f"        progress at your checks in this attempt: {_runs([d['progress'] for d in dots[-12:]])}")
+                stall = 0
+                for d in reversed(dots):
+                    if d["advancing"]:
+                        break
+                    stall += 1
+                if stall:
+                    lines.append(f"        not advancing at the last {stall} check{'s' if stall > 1 else ''}")
+        elif st.done_times and not (st.undone_times and st.undone_times[-1]["t"] > st.done_times[-1]["t"]):
+            lines.append(f"  [x] {k + 1}. {g.text} (done at {_s(st.done_times[-1]['t'])})")
+        else:
+            lines.append(f"  [ ] {k + 1}. {g.text}")
+    if m.current >= len(m.stages):
+        lines.append("Every item is done.")
+    return "\n".join(lines)
+
+
+def item_moments(m, obs, cfg=ContextConfig()):
+    """[(label, Obs)], oldest first, the last (now, obs); cfg.window picks the window (module doc)"""
+    k = min(m.current, len(m.stages) - 1)
+    if cfg.window == "recent":
+        f = [o for o in m.frames if o.chunk < obs.chunk] + [obs]
+        sel = f[::-1][::cfg.item_stride][:cfg.item_moments][::-1]
+        return [("now" if o is obs else "recent", o) for o in sel]
+    a = m.stages[k].attempts[-1] if m.stages[k].attempts else None
+    h = [o for o in m.stages[k].history if o.chunk < obs.chunk and (a is None or o.chunk >= a["chunk"])] + [obs]
+    n = min(cfg.item_moments, len(h))
+    idx = sorted({round(i * (len(h) - 1) / max(1, n - 1)) for i in range(n)})
+    if a is None or a["why"] in ("begin", "replay"):
+        first = "the task began" if k == 0 else f"item {k} was done, item {k + 1} began"
+    elif a["why"] == "retrace":
+        first = "this attempt began (the robot was driven back here)"
+    else:
+        first = f"this attempt began ({a['why']})"
+    out = []
+    for n_, i in enumerate(idx):
+        label = "now" if i == len(h) - 1 else (first if n_ == 0 else "during this attempt")
+        out.append((label if i < len(h) - 1 or n_ else f"now; {first}", h[i]))
+    return out
+
+
+def _item_frames(moments, cameras):
+    out = []
+    for label, o in moments:
+        out.append(("text", f"--- {label}: t = {o.t / CONTROL_HZ:.1f} s (chunk {o.chunk}) ---"))
+        for c in cameras:
+            if c in o.images:
+                out += [("text", f"{CAMERAS[c]}:"), ("image", o.images[c])]
+    return out
+
+
+def _item_head(m, obs, cfg, moments):
+    intro = (f"A robot is doing a kitchen task in simulation. Task instruction: \"{m.instruction}\"\n"
+             f"You supervise it and keep its to-do list. You see {len(moments)} moments, oldest first, each from "
+             f"{len(cfg.item_cameras)} cameras.")
+    return _join(intro, todo_block(m, obs), robot_block(m, obs) if cfg.robot_state else "",
+                 notes_block(m) if cfg.notes else "")
+
+
+def item_request(m, obs, cfg=ContextConfig()):
+    """is the current to-do item done; its progress level (a progress dot); advancing; earlier results intact"""
+    mo = item_moments(m, obs, cfg)
+    parts = [("text", _item_head(m, obs, cfg, mo))] + _item_frames(mo, cfg.item_cameras) + [("text", P.ITEM_Q)]
+    return VLMRequest(parts=parts, system=P.SYSTEM, schema=P.ITEM_SCHEMA, max_tokens=cfg.max_tokens, tag="item")

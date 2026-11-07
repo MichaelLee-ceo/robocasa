@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rewind and Retry</title>
+<style>
+:root {
+  --bg: #f7f7f5; --surface: #ffffff; --text: #1d1d1f; --muted: #5f6368; --line: #e2e2de;
+  --accent: #2f6fd1; --ok: #1e7d43; --ok-bg: #e3f3e8; --mid: #8a5a00; --mid-bg: #fbefd6; --bad: #a3271f; --bad-bg: #fbe4e2;
+  --c-recorded: #6e6e6e; --c-groot: #4682dc; --c-rewind: #e68c1e; --c-unstick: #be3cbe; --c-success: #28a050;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141416; --surface: #1d1d20; --text: #ececef; --muted: #a0a0a8; --line: #303036;
+    --accent: #7aa7f0; --ok: #7fd49c; --ok-bg: #1d3526; --mid: #f0c060; --mid-bg: #3a2f17; --bad: #f08a80; --bad-bg: #3d1d1b;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141416; --surface: #1d1d20; --text: #ececef; --muted: #a0a0a8; --line: #303036;
+  --accent: #7aa7f0; --ok: #7fd49c; --ok-bg: #1d3526; --mid: #f0c060; --mid-bg: #3a2f17; --bad: #f08a80; --bad-bg: #3d1d1b;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 1000px; margin: 0 auto; padding: 32px 16px 64px; }
+h1 { font-size: 30px; margin: 0 0 6px; letter-spacing: -0.01em; }
+h2 { font-size: 21px; margin: 44px 0 10px; }
+h3 { font-size: 17px; margin: 0; }
+p { margin: 8px 0; }
+.lede { color: var(--muted); font-size: 17px; margin-bottom: 20px; }
+.muted { color: var(--muted); font-weight: 400; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); font-size: 13px; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+tr.ours td { font-weight: 600; }
+.note { font-size: 14px; color: var(--muted); }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin: 14px 0; }
+.steps { margin: 6px 0 0; padding-left: 20px; }
+.steps li { margin: 3px 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 10px 0 4px; padding: 0; list-style: none; font-size: 14px; }
+.legend li { display: flex; align-items: baseline; gap: 8px; max-width: 460px; }
+.chip { display: inline-block; flex: none; color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .04em;
+  padding: 1px 7px; border-radius: 3px; }
+.toolbar { position: sticky; top: 0; z-index: 2; background: var(--bg); padding: 8px 0; margin: 12px 0 0;
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 14px; border-bottom: 1px solid var(--line); }
+.toolbar button { font: inherit; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--line);
+  background: var(--surface); color: var(--text); cursor: pointer; }
+.toolbar button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin: 18px 0; }
+.card header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.why { margin: 6px 0 4px; }
+details { font-size: 14px; color: var(--muted); margin: 2px 0 8px; }
+details ol { margin: 4px 0; padding-left: 22px; }
+.pill { font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 99px; white-space: nowrap; }
+.pill.ok { color: var(--ok); background: var(--ok-bg); }
+.pill.mid { color: var(--mid); background: var(--mid-bg); }
+.pill.bad { color: var(--bad); background: var(--bad-bg); }
+.pair { display: grid; gap: 12px; }
+figure { margin: 0; }
+figcaption { font-size: 14px; color: var(--muted); margin-bottom: 4px; }
+figcaption b { color: var(--text); }
+video { width: 100%; height: auto; display: block; border-radius: 6px; background: #000; aspect-ratio: 768 / 286; }
+.facts { font-size: 14px; margin: 10px 0 0; }
+.says { margin: 4px 0 0; padding-left: 20px; font-size: 14px; }
+.say { font-style: italic; }
+code { font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+<h1>Rewind and Retry</h1>
+<p class="lede">GR00T N1.5 on its own versus GR00T supervised by our coordinator, on three long-horizon RoboCasa tasks
+(Kettle Boiling, Steam In Microwave, Pack Identical Lunches). GR00T is frozen; the coordinator only decides when to
+step in and what to do.</p>
+
+<div class="box">
+<b>What the coordinator does</b>
+<ol class="steps">
+  <li>The task sentence is split into steps (one per sub-task). After every chunk (16 actions), a tracker checks
+    which steps are done.</li>
+  <li>A step is <b>stuck</b> when it is not done after the time GR00T usually needs for it (the 90th percentile of its
+    completions), or when a done step comes undone (e.g. an item falls out).</li>
+  <li><b>Rewind</b>: the robot plays its own recorded motion backwards, entry by entry at the forward speed (arm joints,
+    gripper, base, torso), back to where the stuck step began. Then GR00T retries the step with fresh samples.</li>
+  <li><b>Unstick</b>: if the rewind is blocked by contact (e.g. the arm pressed against the inside of the fridge), a
+    VLM (Qwen3.8-27B) looks at the cameras and writes one sentence in GR00T's own wording; GR00T follows it for 8 chunks,
+    then the rewind resumes.</li>
+  <li>The run ends at RoboCasa's own success check, or when no step has been finished for 4 of the current step's
+    usual durations.</li>
+</ol>
+</div>
+
+<h2>Results</h2>
+<p>Every run starts from a point where GR00T's original run got stuck (43 such points in 90 plain episodes, 30 per
+task), replayed exactly up to that point, with 4 policy seeds each: 172 runs per row.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>172 runs from 43 stuck points</th><th class="num">stuck step fixed</th><th class="num">task success</th></tr></thead>
+  <tbody>
+    <tr><td>GR00T alone (fresh samples, official time limit)</td><td class="num">20 (12 %)</td><td class="num">7 (4 %)</td></tr>
+    <tr><td>Ours, within the official time limit</td><td class="num">66 (38 %)</td><td class="num">37 (22 %)</td></tr>
+    <tr class="ours"><td>Ours, no time limit</td><td class="num">80 (47 %)</td><td class="num">48 (28 %)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="table-wrap">
+<table style="margin-top:18px">
+  <thead><tr><th>task success by task</th><th class="num">runs</th><th class="num">GR00T alone</th>
+    <th class="num">ours, time limit</th><th class="num">ours, no limit</th></tr></thead>
+  <tbody>
+    <tr><td>Kettle Boiling</td><td class="num">28</td><td class="num">4</td><td class="num">10</td><td class="num">17</td></tr>
+    <tr><td>Steam In Microwave</td><td class="num">68</td><td class="num">2</td><td class="num">26</td><td class="num">29</td></tr>
+    <tr><td>Pack Identical Lunches</td><td class="num">76</td><td class="num">1</td><td class="num">1</td><td class="num">2</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="table-wrap">
+<table style="margin-top:18px">
+  <thead><tr><th>whole episodes (30 per task)</th><th class="num">GR00T alone</th><th class="num">with ours (expected)</th></tr></thead>
+  <tbody>
+    <tr><td>Kettle Boiling</td><td class="num">20 / 30 (67 %)</td><td class="num">24.3 / 30 (81 %)</td></tr>
+    <tr><td>Steam In Microwave</td><td class="num">12 / 30 (40 %)</td><td class="num">19.3 / 30 (64 %)</td></tr>
+    <tr><td>Pack Identical Lunches</td><td class="num">7 / 30 (23 %)</td><td class="num">7.5 / 30 (25 %)</td></tr>
+    <tr class="ours"><td>all</td><td class="num">39 / 90 (43 %)</td><td class="num">51 / 90 (57 %)</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note">Whole episodes: GR00T's own successes plus, for each failed episode, the share of the 4 seeds our
+coordinator brought to success (no time limit). The 8 failed episodes that got stuck too late to step in count as
+failures. It assumes the coordinator leaves GR00T's own successes alone (in those, a slow step could also trigger a
+rewind; not measured yet).</p>
+<p class="note"><b>Caveats.</b> Step tracking and stuck detection here use the simulator's stage checks (an oracle);
+the VLM is used only for the unstick sentence. A VLM tracker is the next step. Without a time limit, all the extra
+successes came within 2&times; the official time (the median run used 1.4&times;); the time spent rewinding is not
+counted, and GR00T alone is kept at the official limit (when it fails, it is stuck, not out of time). Pack Identical
+Lunches has four pick-and-place steps; its stuck step often gets fixed, but the later steps rarely all get done.</p>
+
+<h2>Videos</h2>
+<p>Each pair starts at the same moment: 8 chunks before GR00T got stuck. Top: what GR00T did on its own. Bottom: our
+coordinator from the same moment. The three views are the cameras GR00T sees (left, right, wrist). One frame per
+chunk (0.8 s of robot time), played at 8 frames per second, so about 6&times; real time.</p>
+<ul class="legend">
+  <li><span class="chip" style="background:var(--c-recorded)">RECORDED</span> GR00T's original run, replayed exactly up to the stuck point</li>
+  <li><span class="chip" style="background:var(--c-groot)">GR00T</span> GR00T acting, the coordinator watching (top: GR00T alone)</li>
+  <li><span class="chip" style="background:var(--c-rewind)">REWIND</span> the recorded motion played backwards to where the stuck step began</li>
+  <li><span class="chip" style="background:var(--c-unstick)">UNSTICK</span> the rewind was blocked; GR00T follows the VLM's sentence</li>
+  <li><span class="chip" style="background:var(--c-success)">SUCCESS</span> RoboCasa's success check passed</li>
+</ul>
+<p class="note">The label bar also shows GR00T's time (rewinds are not timed) and the current step. These videos are
+fresh runs, so an outcome can differ from the batch run of the same point and seed (the official renderer adds
+random &plusmn;1-pixel edge noise, and GR00T reacts to it).</p>
+
+<div class="toolbar" role="group" aria-label="Playback speed">
+  <span>Speed</span>
+  <button data-rate="0.5">0.5&times;</button>
+  <button data-rate="1" aria-pressed="true">1&times;</button>
+  <button data-rate="2">2&times;</button>
+  <button data-rate="4">4&times;</button>
+  <span class="muted" style="margin-left:auto">Pause or play a pair together:</span>
+  <button id="sync">Play both</button>
+</div>
+
+<h2>Stuck step fixed by rewind and retry</h2>
+<!--FIXED-->
+
+<h2>When the rewind is blocked: the VLM unsticks the arm</h2>
+<p>A rewind meets contacts the other way round: an arm that slid into an open fridge may not slide back out. Then the
+VLM is shown the cameras and asked for one step, in the wording GR00T was trained on, that frees the arm.</p>
+<!--UNSTICK-->
+
+<p class="note" style="margin-top:40px">GR00T N1.5 (frozen), RoboCasa composite tasks, official rendering and
+official success checks. Videos: <code>coordinator/scripts/video.py</code>; batch results:
+<code>runs/20261107_extended</code>, <code>runs/20261107_final_retrace</code>.</p>
+</main>
+<script>
+(function () {
+  var rate = 1;
+  function vids() { return Array.prototype.slice.call(document.querySelectorAll("video")); }
+  function apply() { vids().forEach(function (v) { v.playbackRate = rate; v.defaultPlaybackRate = rate; }); }
+  document.querySelectorAll("[data-rate]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      rate = parseFloat(b.dataset.rate);
+      document.querySelectorAll("[data-rate]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      apply();
+    });
+  });
+  vids().forEach(function (v) { v.addEventListener("loadedmetadata", function () { v.playbackRate = rate; }); });
+  // "Play both": plays the pair of the card nearest the top of the screen, from the start.
+  document.getElementById("sync").addEventListener("click", function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+    var best = null, bestTop = Infinity;
+    cards.forEach(function (c) {
+      var r = c.getBoundingClientRect();
+      if (r.bottom > 60 && r.top < bestTop) { best = c; bestTop = r.top; }
+    });
+    if (!best) return;
+    var pair = best.querySelectorAll("video");
+    var playing = Array.prototype.some.call(pair, function (v) { return !v.paused; });
+    pair.forEach(function (v) {
+      if (playing) { v.pause(); } else { v.currentTime = 0; v.playbackRate = rate; v.play(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>

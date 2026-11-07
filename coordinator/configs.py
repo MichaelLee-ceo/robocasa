@@ -14,10 +14,12 @@
 | oracle_ladder     | oracle  | timeout, undone                | accept    | ladder   | after motion/backoff.py            |
 | oracle_retrace_vlmdet | oracle | undone, VLM event, timeout   | accept    | retrace  | yes: VLM failure reports as early  |
 |                   |         |                                |           |          |   triggers (detection/vlm_event.py)|
+| vlm_todo          | VLM, its own plan | undone, progress stall, | accept  | retrace  | yes: the to-do list tracker        |
+|                   |         |   timeout                      |           |          |   (tracking/vlm.py), every chunk   |
 Detector order matters: the first accepted trigger is acted on, and loop.py handles an undone stage before a stuck
 one, so "undone" comes first. VLM configs need `vlm` (a spec such as "claude:claude-opus-5-5", see vlm/__init__.py) and use the task's stage
-sentences as the checklist (tracking.oracle.task_plan; plan="vlm" lets the VLM write it). The VLM tracker runs every
-VLM_TRACK_EVERY chunks (cost: one call per check).
+sentences as the checklist (tracking.oracle.task_plan), except where the config says plan "vlm" (the VLM writes it;
+build(plan=...) overrides). The VLM tracker runs every VLM_TRACK_EVERY chunks (cost: one call per check).
 Every retrace config uses the final retrace (motion/retrace.py); a blocked retrace gets the unstick fallback
 (recovery/unstick.py): the VLM picks GR00T's sentence when a `vlm` is given (any config), else the task sentence.
 Without the official time limit: horizon_scale (the GR00T-time budget as a multiple of the official horizon, a safety
@@ -27,6 +29,7 @@ build(name, ep, port, tag, vlm=None, ...) -> loop.Coordinator (None for plain)."
 from . import context as C
 from .detection.confirm import AcceptAll, VLMConfirmer
 from .detection.oracle_events import OracleEvents
+from .detection.progress import ProgressStall
 from .detection.proprio import EmptyGrasp, Stationary
 from .detection.timeout import StageTimeout
 from .detection.undone import Undone
@@ -44,7 +47,7 @@ from .vlm import make_vlm
 use_envkit()
 import envkit  # noqa: E402
 
-VLM_TRACK_EVERY = 4
+VLM_TRACK_EVERY = 1
 CONFIGS = {
     "plain": None,
     "oracle_retrace": dict(tracker="oracle", detectors=["undone", "timeout"], confirmer="accept", recovery="retrace"),
@@ -59,6 +62,8 @@ CONFIGS = {
     "oracle_ladder": dict(tracker="oracle", detectors=["undone", "timeout"], confirmer="accept", recovery="ladder"),
     "oracle_retrace_vlmdet": dict(tracker="oracle", detectors=["undone", "vlm_event", "timeout"], confirmer="accept",
                                   recovery="retrace"),
+    "vlm_todo": dict(tracker="vlm", plan="vlm", detectors=["undone", "progress_stall", "timeout"],
+                     confirmer="accept", recovery="retrace"),
 }
 
 
@@ -67,7 +72,7 @@ def needs_vlm(name):
     return c is not None and ("vlm" in (c["tracker"], c["confirmer"], c["recovery"]) or "vlm_event" in c["detectors"])
 
 
-def build(name, ep, port, tag, vlm=None, context=None, budget=None, track_every=None, plan="given", free_retrace=True,
+def build(name, ep, port, tag, vlm=None, context=None, budget=None, track_every=None, plan=None, free_retrace=True,
           event_n=2, event_every=4, horizon_scale=1, stuck_windows=None):
     cfg = CONFIGS[name]
     if cfg is None:
@@ -81,9 +86,11 @@ def build(name, ep, port, tag, vlm=None, context=None, budget=None, track_every=
     if cfg["tracker"] == "oracle":
         tracker = OracleTracker(ep)
     else:
+        plan = plan or cfg.get("plan", "given")
         tracker = VLMTracker(vlm, ctx, plan=task_plan(ep) if plan == "given" else None)
     make = {"timeout": lambda: timeout, "undone": Undone, "empty_grasp": EmptyGrasp, "stationary": Stationary,
-            "oracle_events": lambda: OracleEvents(ep), "vlm_event": lambda: VLMEvent(vlm, ctx, every=event_every, n=event_n)}
+            "oracle_events": lambda: OracleEvents(ep), "vlm_event": lambda: VLMEvent(vlm, ctx, every=event_every, n=event_n),
+            "progress_stall": ProgressStall}
     dets = [make[d]() for d in cfg["detectors"]]
     confirmer = AcceptAll() if cfg["confirmer"] == "accept" else VLMConfirmer(vlm, ctx)
     recovery = {"retrace": lambda: RetraceRetry(budget), "ladder": lambda: Ladder(),
