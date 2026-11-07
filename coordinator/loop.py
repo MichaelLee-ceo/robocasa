@@ -20,18 +20,23 @@ Starting points: run() from the episode start, or replay(recorded chunks) first 
 failure points: detection assumed solved there)."""
 from .memory import Memory
 from .motion import retrace as rtrace
-from .schema import Obs
+from .schema import STEPS_PER_CHUNK, Obs
 
 
 class Coordinator:
     def __init__(self, ep, executor, tracker, detectors, confirmer, recovery, horizon, free_retrace=True,
-                 track_every=1, retrace_max=400, expected=None, unstick=None, unstick_chunks=8, unstick_tries=2):
+                 track_every=1, retrace_max=400, expected=None, unstick=None, unstick_chunks=8, unstick_tries=2,
+                 stuck_windows=None, official_horizon=None):
         self.ep, self.executor, self.tracker = ep, executor, tracker
         self.detectors, self.confirmer, self.recovery = list(detectors), confirmer, recovery
         self.H, self.free, self.track_every, self.retrace_max = horizon, free_retrace, track_every, retrace_max
         self.expected = expected or {}
         # when a retrace is blocked: GR00T gets the unstick sentence for a few chunks, then the retrace resumes
         self.unstick = unstick
+        # without the official time limit (horizon scaled up as a safety cap): the run also ends when no sub-goal has
+        # been completed for stuck_windows of the current sub-goal's usual time (GR00T's time; retraces not counted)
+        self.stuck_windows, self.last_progress = stuck_windows, 0
+        self.official_H = official_horizon or horizon
         self.unstick_chunks, self.unstick_tries = unstick_chunks, unstick_tries
         self.trace = rtrace.RobotTrace(ep)  # attached before any step: the whole path is recorded
         self.memory = None
@@ -47,9 +52,15 @@ class Coordinator:
         g = float(self.ep.chunks[-1]["actions"]["action.gripper_close"][-1, 0]) if self.ep.chunks else 0.0
         return Obs.from_env(self.ep.obs, len(self.ep.chunks), self.ptime(), g, trace_index=len(self.trace.path) - 1)
 
+    def stuck(self):
+        m = self.memory
+        if self.stuck_windows is None or m is None or m.current >= len(m.plan):
+            return False
+        return self.ptime() - self.last_progress >= self.stuck_windows * self.expected.get(m.current, 40) * STEPS_PER_CHUNK
+
     def done(self):
         if self.free:
-            return self.success_t is not None or self.ptime() >= self.H or self.ep.done
+            return self.success_t is not None or self.ptime() >= self.H or self.ep.done or self.stuck()
         return self.ep.success or self.ep.done
 
     def _chunk_success(self, c):
@@ -152,6 +163,7 @@ class Coordinator:
     # ------------------------------------------------------------------ the loop
     def run(self, start_trigger=None):
         m = self.memory
+        self.last_progress = self.ptime()
         pending = [start_trigger] if start_trigger else []
         while not self.done():
             o = self.obs()
@@ -162,6 +174,7 @@ class Coordinator:
                 m.log_status(o, status)
                 if status.done is not None and status.current > m.current and not pending:   # moved on
                     m.move_on(status.current, o)
+                    self.last_progress = self.ptime()
             self.n_track += 1
             trigs, pending = list(pending), []
             for d in self.detectors:
@@ -187,6 +200,13 @@ class Coordinator:
                 self.success_t = min(self.ptime(), self.H)
         return self.result()
 
+    def _ended(self):
+        if self.success_t is not None:
+            return "success"
+        if self.stuck():
+            return "stuck"
+        return "time" if self.ptime() >= self.H else "env"
+
     def result(self):
         m = self.memory
         success = (self.success_t is not None) if self.free else bool(self.ep.success)
@@ -199,5 +219,6 @@ class Coordinator:
             m.end_attempt(m.current, o, "episode end")
         return dict(success=success, success_t=self.success_t if self.free else self.ep.success_step,
                     success_in_retrace=self.success_in_retrace, gr00t_time=self.ptime(), horizon=self.H,
+                    official_horizon=self.official_H, ended=self._ended(),
                     chunks=len(self.ep.chunks), free_steps=m.free_steps, uses_sim=self.uses_sim,
                     vlm_calls=len(m.vlm_calls), vlm_cost_usd=m.cost(), memory=m.summary())

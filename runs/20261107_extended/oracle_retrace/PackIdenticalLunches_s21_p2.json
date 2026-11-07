@@ -1,0 +1,435 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 8464,
+ "horizon": 19500,
+ "official_horizon": 3900,
+ "ended": "stuck",
+ "chunks": 1072,
+ "free_steps": 8688,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 0,
+ "vlm_cost_usd": 0,
+ "memory": {
+  "instruction": "Place one tomato and one chicken drumstick in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 2,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 28,
+       "t": 448,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 28,
+      "t": 448
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 1071,
+     "t": 8448,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 28,
+      "t": 448,
+      "trace_index": 448,
+      "why": "replay",
+      "end": {
+       "chunk": 130,
+       "t": 2080,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 130,
+      "t": 2080
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 1071,
+     "t": 8448,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 130,
+      "t": 2080,
+      "trace_index": 2080,
+      "why": "replay",
+      "end": {
+       "chunk": 205,
+       "t": 3280,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 289,
+      "t": 3280,
+      "trace_index": 4624,
+      "why": "retrace",
+      "end": {
+       "chunk": 313,
+       "t": 3664,
+       "how": "done"
+      }
+     },
+     {
+      "chunk": 537,
+      "t": 3840,
+      "trace_index": 8592,
+      "why": "retrace",
+      "end": {
+       "chunk": 612,
+       "t": 5040,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 692,
+      "t": 5040,
+      "trace_index": 11072,
+      "why": "retrace",
+      "end": {
+       "chunk": 767,
+       "t": 6240,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 849,
+      "t": 6240,
+      "trace_index": 13584,
+      "why": "retrace",
+      "end": {
+       "chunk": 924,
+       "t": 7440,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 1008,
+      "t": 7440,
+      "trace_index": 16128,
+      "why": "retrace",
+      "end": {
+       "chunk": 1072,
+       "t": 8464,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 313,
+      "t": 3664
+     }
+    ],
+    "undone_times": [
+     {
+      "chunk": 324,
+      "t": 3840
+     }
+    ],
+    "interventions": 5,
+    "last_status": {
+     "chunk": 1071,
+     "t": 8448,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 313,
+      "t": 3664,
+      "trace_index": 5008,
+      "why": "begin",
+      "end": {
+       "chunk": 324,
+       "t": 3840,
+       "how": "interrupted: sub-goal 3 undone"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 1071,
+     "t": 8448,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 47,
+   "1": 134,
+   "2": 75,
+   "3": 45
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 2,
+    "chunk": 205,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "undone",
+    "stage": 2,
+    "chunk": 324,
+    "detail": {
+     "was": 3
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 612,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 767,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 924,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 205,
+    "t": 3280,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 84,
+     "steps": 1344,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 8,
+     "arrived": true,
+     "blocked": false,
+     "entry": 2080,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 324,
+    "t": 3840,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 213,
+     "steps": 3408,
+     "entries": 3105,
+     "path_steps": 3104,
+     "grip_changes": 18,
+     "arrived": true,
+     "blocked": false,
+     "entry": 2080,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 612,
+    "t": 5040,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 80,
+     "steps": 1280,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 4,
+     "arrived": true,
+     "blocked": false,
+     "entry": 8592,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 767,
+    "t": 6240,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 82,
+     "steps": 1312,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 6,
+     "arrived": true,
+     "blocked": false,
+     "entry": 11072,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 924,
+    "t": 7440,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 84,
+     "steps": 1344,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 8,
+     "arrived": true,
+     "blocked": false,
+     "entry": 13584,
+     "waited": 2,
+     "final_chunks": 0,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "s2_attempt",
+   "s2_done",
+   "s2_start",
+   "s3_attempt",
+   "s3_start",
+   "trigger_205",
+   "trigger_324",
+   "trigger_612",
+   "trigger_767",
+   "trigger_924"
+  ],
+  "free_steps": 8688,
+  "vlm_calls": [],
+  "vlm_cost_usd": 0,
+  "status_checks": 324
+ },
+ "fixed": true,
+ "fixed_after": 24,
+ "id": "PackIdenticalLunches_s21",
+ "task": "PackIdenticalLunches",
+ "seed": 21,
+ "stage": 2,
+ "kind": "stalled",
+ "start_t": 3280,
+ "start_chunk": 205,
+ "chunks_left": 39,
+ "run": "PackIdenticalLunches_s21",
+ "config": "oracle_retrace",
+ "pseed": 2,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 3535.3
+}

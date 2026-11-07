@@ -1,0 +1,517 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 7904,
+ "horizon": 19500,
+ "official_horizon": 3900,
+ "ended": "stuck",
+ "chunks": 998,
+ "free_steps": 8064,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 6,
+ "vlm_cost_usd": 0.0,
+ "memory": {
+  "instruction": "Place one sweet potato and one steak in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 2,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 17,
+       "t": 272,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 17,
+      "t": 272
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 997,
+     "t": 7888,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 17,
+      "t": 272,
+      "trace_index": 272,
+      "why": "replay",
+      "end": {
+       "chunk": 151,
+       "t": 2416,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 299,
+      "t": 2416,
+      "trace_index": 272,
+      "why": "retrace",
+      "end": {
+       "chunk": 342,
+       "t": 3104,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 342,
+      "t": 3104
+     }
+    ],
+    "undone_times": [],
+    "interventions": 1,
+    "last_status": {
+     "chunk": 997,
+     "t": 7888,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 342,
+      "t": 3104,
+      "trace_index": 5472,
+      "why": "begin",
+      "end": {
+       "chunk": 417,
+       "t": 4304,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 499,
+      "t": 4304,
+      "trace_index": 7984,
+      "why": "retrace",
+      "end": {
+       "chunk": 574,
+       "t": 5504,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 665,
+      "t": 5504,
+      "trace_index": 7984,
+      "why": "retrace",
+      "end": {
+       "chunk": 740,
+       "t": 6704,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 923,
+      "t": 6704,
+      "trace_index": 7984,
+      "why": "retrace",
+      "end": {
+       "chunk": 998,
+       "t": 7904,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 3,
+    "last_status": {
+     "chunk": 997,
+     "t": 7888,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "check": "",
+    "attempts": [],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 997,
+     "t": 7888,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 47,
+   "1": 134,
+   "2": 75,
+   "3": 45
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 1,
+    "chunk": 151,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 417,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 574,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 740,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 151,
+    "t": 2416,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 8,
+     "steps": 2624,
+     "entries": 334,
+     "path_steps": 333,
+     "grip_changes": 0,
+     "arrived": false,
+     "blocked": true,
+     "entry": 605,
+     "waited": 128,
+     "final_chunks": 0,
+     "joint_rad": 2.369,
+     "base_cm": 151.3,
+     "base_rad": 0.036,
+     "unstick": [
+      {
+       "instruction": "Close the fridge door.",
+       "reason": "The arm is stuck inside the open fridge, blocked by the door frame and shelves. Closing the door requires the arm to move backward and outward, which frees it from the current position so it can return to the counter.",
+       "chunks": 8,
+       "resume_entry": 605,
+       "blocked_at": 657
+      },
+      {
+       "instruction": "Close the fridge door.",
+       "reason": "The arm is stuck inside the open fridge, blocked by the door and shelves. Closing the door requires the arm to move out of the fridge interior, which frees it from the current position.",
+       "chunks": 8,
+       "resume_entry": 605,
+       "blocked_at": 605
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 417,
+    "t": 4304,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 82,
+     "steps": 1312,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 6,
+     "arrived": true,
+     "blocked": false,
+     "entry": 5472,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 574,
+    "t": 5504,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 7,
+     "steps": 1696,
+     "entries": 374,
+     "path_steps": 373,
+     "grip_changes": 0,
+     "arrived": false,
+     "blocked": true,
+     "entry": 8334,
+     "waited": 89,
+     "final_chunks": 0,
+     "joint_rad": 0.842,
+     "base_cm": 163.1,
+     "base_rad": 0.141,
+     "unstick": [
+      {
+       "instruction": "Pick the steak from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the sink and counter edge. This command forces the arm to move up and forward to grasp the steak and then move to the tupperware, which is a different location, thereby clearing the current blockage.",
+       "chunks": 8,
+       "resume_entry": 8396,
+       "blocked_at": 8399
+      },
+      {
+       "instruction": "Close the fridge door.",
+       "reason": "The arm is stuck in front of the open fridge door. Closing the door will move the door out of the way and free the arm.",
+       "chunks": 8,
+       "resume_entry": 8357,
+       "blocked_at": 8360
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 740,
+    "t": 6704,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 8,
+     "steps": 3184,
+     "entries": 1593,
+     "path_steps": 1592,
+     "grip_changes": 0,
+     "arrived": false,
+     "blocked": true,
+     "entry": 9576,
+     "waited": 128,
+     "final_chunks": 0,
+     "joint_rad": 1.437,
+     "base_cm": 172.7,
+     "base_rad": 0.492,
+     "unstick": [
+      {
+       "instruction": "Pick the steak from the fridge and place it in the tupperware.",
+       "reason": "The arm is stuck against the closed fridge door. This command instructs the robot to pick an item from the fridge, which requires it to move away from the door and into the open space of the kitchen to retrieve the object, thereby freeing the arm.",
+       "chunks": 8,
+       "resume_entry": 9576,
+       "blocked_at": 9598
+      },
+      {
+       "instruction": "Pick the steak from the fridge and place it in the tupperware.",
+       "reason": "The arm is stuck against the closed fridge door. This sentence commands the robot to open the fridge and reach inside, which requires moving the arm away from the door and into the open space, thereby freeing it from the blockage.",
+       "chunks": 8,
+       "resume_entry": 9576,
+       "blocked_at": 9576
+      }
+     ]
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "s2_attempt",
+   "s2_start",
+   "trigger_151",
+   "trigger_417",
+   "trigger_574",
+   "trigger_740"
+  ],
+  "free_steps": 8064,
+  "vlm_calls": [
+   {
+    "module": "unstick",
+    "chunk": 267,
+    "t": 2416,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 3.49,
+    "input_tokens": 1424,
+    "output_tokens": 65,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Close the fridge door.",
+     "reason": "The arm is stuck inside the open fridge, blocked by the door frame and shelves. Closing the door requires the arm to move backward and outward, which frees it from the current position so it can return to the counter."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 283,
+    "t": 2416,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 3.11,
+    "input_tokens": 1424,
+    "output_tokens": 59,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Close the fridge door.",
+     "reason": "The arm is stuck inside the open fridge, blocked by the door and shelves. Closing the door requires the arm to move out of the fridge interior, which frees it from the current position."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 634,
+    "t": 5504,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.04,
+    "input_tokens": 1425,
+    "output_tokens": 82,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the steak from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the sink and counter edge. This command forces the arm to move up and forward to grasp the steak and then move to the tupperware, which is a different location, thereby clearing the current blockage."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 650,
+    "t": 5504,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 2.62,
+    "input_tokens": 1425,
+    "output_tokens": 49,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Close the fridge door.",
+     "reason": "The arm is stuck in front of the open fridge door. Closing the door will move the door out of the way and free the arm."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 891,
+    "t": 6704,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.18,
+    "input_tokens": 1425,
+    "output_tokens": 82,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the steak from the fridge and place it in the tupperware.",
+     "reason": "The arm is stuck against the closed fridge door. This command instructs the robot to pick an item from the fridge, which requires it to move away from the door and into the open space of the kitchen to retrieve the object, thereby freeing the arm."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 907,
+    "t": 6704,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 3.89,
+    "input_tokens": 1425,
+    "output_tokens": 77,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the steak from the fridge and place it in the tupperware.",
+     "reason": "The arm is stuck against the closed fridge door. This sentence commands the robot to open the fridge and reach inside, which requires moving the arm away from the door and into the open space, thereby freeing it from the blockage."
+    }
+   }
+  ],
+  "vlm_cost_usd": 0.0,
+  "status_checks": 343
+ },
+ "fixed": true,
+ "fixed_after": 43,
+ "id": "PackIdenticalLunches_s4",
+ "task": "PackIdenticalLunches",
+ "seed": 4,
+ "stage": 1,
+ "kind": "stalled",
+ "start_t": 2416,
+ "start_chunk": 151,
+ "chunks_left": 93,
+ "run": "PackIdenticalLunches_s4",
+ "config": "oracle_retrace",
+ "pseed": 0,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 3560.8
+}

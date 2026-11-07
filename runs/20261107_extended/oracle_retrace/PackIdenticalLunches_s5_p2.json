@@ -1,0 +1,363 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 7632,
+ "horizon": 19500,
+ "official_horizon": 3900,
+ "ended": "stuck",
+ "chunks": 797,
+ "free_steps": 5120,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 0,
+ "vlm_cost_usd": 0,
+ "memory": {
+  "instruction": "Place one squash and one chicken drumstick in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 2,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 17,
+       "t": 272,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 17,
+      "t": 272
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 796,
+     "t": 7616,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 17,
+      "t": 272,
+      "trace_index": 272,
+      "why": "replay",
+      "end": {
+       "chunk": 102,
+       "t": 1632,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 102,
+      "t": 1632
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 796,
+     "t": 7616,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 102,
+      "t": 1632,
+      "trace_index": 1632,
+      "why": "replay",
+      "end": {
+       "chunk": 177,
+       "t": 2832,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 258,
+      "t": 2832,
+      "trace_index": 4128,
+      "why": "retrace",
+      "end": {
+       "chunk": 333,
+       "t": 4032,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 410,
+      "t": 4032,
+      "trace_index": 6560,
+      "why": "retrace",
+      "end": {
+       "chunk": 485,
+       "t": 5232,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 564,
+      "t": 5232,
+      "trace_index": 9024,
+      "why": "retrace",
+      "end": {
+       "chunk": 639,
+       "t": 6432,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 722,
+      "t": 6432,
+      "trace_index": 11552,
+      "why": "retrace",
+      "end": {
+       "chunk": 797,
+       "t": 7632,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 4,
+    "last_status": {
+     "chunk": 796,
+     "t": 7616,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "check": "",
+    "attempts": [],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 796,
+     "t": 7616,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 47,
+   "1": 134,
+   "2": 75,
+   "3": 45
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 2,
+    "chunk": 177,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 333,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 485,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 639,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 177,
+    "t": 2832,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 81,
+     "steps": 1296,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 5,
+     "arrived": true,
+     "blocked": false,
+     "entry": 1632,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.003,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 333,
+    "t": 4032,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 77,
+     "steps": 1232,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 1,
+     "arrived": true,
+     "blocked": false,
+     "entry": 4128,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 485,
+    "t": 5232,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 79,
+     "steps": 1264,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 3,
+     "arrived": true,
+     "blocked": false,
+     "entry": 6560,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 639,
+    "t": 6432,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 83,
+     "steps": 1328,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 7,
+     "arrived": true,
+     "blocked": false,
+     "entry": 9024,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "s2_attempt",
+   "s2_start",
+   "trigger_177",
+   "trigger_333",
+   "trigger_485",
+   "trigger_639"
+  ],
+  "free_steps": 5120,
+  "vlm_calls": [],
+  "vlm_cost_usd": 0,
+  "status_checks": 300
+ },
+ "fixed": false,
+ "fixed_after": null,
+ "id": "PackIdenticalLunches_s5",
+ "task": "PackIdenticalLunches",
+ "seed": 5,
+ "stage": 2,
+ "kind": "stalled",
+ "start_t": 2832,
+ "start_chunk": 177,
+ "chunks_left": 67,
+ "run": "PackIdenticalLunches_s5",
+ "config": "oracle_retrace",
+ "pseed": 2,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 2860.7
+}

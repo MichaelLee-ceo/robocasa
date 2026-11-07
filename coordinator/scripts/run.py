@@ -22,7 +22,8 @@ FREE_HORIZON = 10 ** 6
 
 
 def build(config, ep, port, tag, a):
-    return configs.build(config, ep, port, tag, vlm=a.vlm, budget=a.budget, track_every=a.track_every, plan=a.plan)
+    return configs.build(config, ep, port, tag, vlm=a.vlm, budget=a.budget, track_every=a.track_every, plan=a.plan,
+                         horizon_scale=a.horizon_scale, stuck_windows=a.stuck_windows)
 
 
 def run_point(pid, config, pseed, port, a):
@@ -58,6 +59,8 @@ if __name__ == "__main__":
     ap.add_argument("--track-every", type=int, default=None)
     ap.add_argument("--budget", type=int, default=None)
     ap.add_argument("--plan", default="given", choices=["given", "vlm"])
+    ap.add_argument("--horizon-scale", type=float, default=1, help="GR00T-time budget / the official horizon")
+    ap.add_argument("--stuck-windows", type=float, default=None, help="end when no sub-goal is done for this many p90 windows")
     a = ap.parse_args()
     t0, port = time.time(), int(os.environ.get("POLICY_PORT", 5581))
     if a.mode == "point":

@@ -1,0 +1,390 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 7264,
+ "horizon": 19500,
+ "official_horizon": 3900,
+ "ended": "stuck",
+ "chunks": 755,
+ "free_steps": 4816,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 1,
+ "vlm_cost_usd": 0.0,
+ "memory": {
+  "instruction": "Place one garlic and one fish in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 2,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 47,
+       "t": 752,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 97,
+      "t": 752,
+      "trace_index": 1552,
+      "why": "retrace",
+      "end": {
+       "chunk": 116,
+       "t": 1056,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 116,
+      "t": 1056
+     }
+    ],
+    "undone_times": [],
+    "interventions": 1,
+    "last_status": {
+     "chunk": 754,
+     "t": 7248,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 116,
+      "t": 1056,
+      "trace_index": 1856,
+      "why": "begin",
+      "end": {
+       "chunk": 204,
+       "t": 2464,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 204,
+      "t": 2464
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 754,
+     "t": 7248,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 204,
+      "t": 2464,
+      "trace_index": 3264,
+      "why": "begin",
+      "end": {
+       "chunk": 279,
+       "t": 3664,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 360,
+      "t": 3664,
+      "trace_index": 5760,
+      "why": "retrace",
+      "end": {
+       "chunk": 435,
+       "t": 4864,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 523,
+      "t": 4864,
+      "trace_index": 8368,
+      "why": "retrace",
+      "end": {
+       "chunk": 598,
+       "t": 6064,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 680,
+      "t": 6064,
+      "trace_index": 10880,
+      "why": "retrace",
+      "end": {
+       "chunk": 755,
+       "t": 7264,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 3,
+    "last_status": {
+     "chunk": 754,
+     "t": 7248,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "check": "",
+    "attempts": [],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 754,
+     "t": 7248,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 47,
+   "1": 134,
+   "2": 75,
+   "3": 45
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 0,
+    "chunk": 47,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 279,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 435,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 598,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 47,
+    "t": 752,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 50,
+     "steps": 800,
+     "entries": 753,
+     "path_steps": 752,
+     "grip_changes": 1,
+     "arrived": true,
+     "blocked": false,
+     "entry": 0,
+     "waited": 22,
+     "final_chunks": 0,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 279,
+    "t": 3664,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 81,
+     "steps": 1296,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 5,
+     "arrived": true,
+     "blocked": false,
+     "entry": 3264,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 435,
+    "t": 4864,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 18,
+     "steps": 1696,
+     "entries": 267,
+     "path_steps": 266,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 5760,
+     "waited": 13,
+     "final_chunks": 0,
+     "joint_rad": 0.002,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": [
+      {
+       "instruction": "Pick the fish from the fridge and place it in the tupperware.",
+       "reason": "The arm is stuck against the open fridge door. This command instructs the robot to interact with the contents of the fridge, which requires the arm to move away from the door and into the fridge's interior, thereby freeing it from the blockage.",
+       "chunks": 8,
+       "resume_entry": 6026,
+       "blocked_at": 6109
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 598,
+    "t": 6064,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 82,
+     "steps": 1312,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 6,
+     "arrived": true,
+     "blocked": false,
+     "entry": 8368,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "s2_attempt",
+   "s2_start",
+   "trigger_279",
+   "trigger_435",
+   "trigger_47",
+   "trigger_598"
+  ],
+  "free_steps": 4816,
+  "vlm_calls": [
+   {
+    "module": "unstick",
+    "chunk": 497,
+    "t": 4864,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.3,
+    "input_tokens": 1422,
+    "output_tokens": 81,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the fish from the fridge and place it in the tupperware.",
+     "reason": "The arm is stuck against the open fridge door. This command instructs the robot to interact with the contents of the fridge, which requires the arm to move away from the door and into the fridge's interior, thereby freeing it from the blockage."
+    }
+   }
+  ],
+  "vlm_cost_usd": 0.0,
+  "status_checks": 407
+ },
+ "fixed": true,
+ "fixed_after": 19,
+ "id": "PackIdenticalLunches_s20",
+ "task": "PackIdenticalLunches",
+ "seed": 20,
+ "stage": 0,
+ "kind": "stalled",
+ "start_t": 752,
+ "start_chunk": 47,
+ "chunks_left": 197,
+ "run": "PackIdenticalLunches_s20",
+ "config": "oracle_retrace",
+ "pseed": 0,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 2532.2
+}

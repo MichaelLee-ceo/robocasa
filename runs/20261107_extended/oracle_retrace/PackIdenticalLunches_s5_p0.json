@@ -1,0 +1,734 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 13424,
+ "horizon": 19500,
+ "official_horizon": 3900,
+ "ended": "stuck",
+ "chunks": 2375,
+ "free_steps": 24576,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 8,
+ "vlm_cost_usd": 0.0,
+ "memory": {
+  "instruction": "Place one squash and one chicken drumstick in each tupperware on the nearby counter, to pack two identical lunches.",
+  "current": 1,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick an item from the fridge and place it in a tupperware (1 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 17,
+       "t": 272,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 17,
+      "t": 272
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 2374,
+     "t": 13408,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick an item from the fridge and place it in a tupperware (2 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 17,
+      "t": 272,
+      "trace_index": 272,
+      "why": "replay",
+      "end": {
+       "chunk": 102,
+       "t": 1632,
+       "how": "done"
+      }
+     },
+     {
+      "chunk": 622,
+      "t": 3632,
+      "trace_index": 9952,
+      "why": "retrace",
+      "end": {
+       "chunk": 698,
+       "t": 4848,
+       "how": "done"
+      }
+     },
+     {
+      "chunk": 1498,
+      "t": 7632,
+      "trace_index": 272,
+      "why": "retrace",
+      "end": {
+       "chunk": 1632,
+       "t": 9776,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 2032,
+      "t": 9776,
+      "trace_index": 272,
+      "why": "retrace",
+      "end": {
+       "chunk": 2166,
+       "t": 11920,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 2281,
+      "t": 11920,
+      "trace_index": 272,
+      "why": "retrace",
+      "end": {
+       "chunk": 2375,
+       "t": 13424,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 102,
+      "t": 1632
+     },
+     {
+      "chunk": 698,
+      "t": 4848
+     }
+    ],
+    "undone_times": [
+     {
+      "chunk": 308,
+      "t": 3632
+     },
+     {
+      "chunk": 1153,
+      "t": 7632
+     }
+    ],
+    "interventions": 4,
+    "last_status": {
+     "chunk": 2374,
+     "t": 13408,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Pick an item from the fridge and place it in a tupperware (3 of 4).",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 102,
+      "t": 1632,
+      "trace_index": 1632,
+      "why": "replay",
+      "end": {
+       "chunk": 177,
+       "t": 2832,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 258,
+      "t": 2832,
+      "trace_index": 4128,
+      "why": "retrace",
+      "end": {
+       "chunk": 308,
+       "t": 3632,
+       "how": "interrupted: sub-goal 2 undone"
+      }
+     },
+     {
+      "chunk": 698,
+      "t": 4848,
+      "trace_index": 11168,
+      "why": "begin",
+      "end": {
+       "chunk": 773,
+       "t": 6048,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 840,
+      "t": 6048,
+      "trace_index": 11168,
+      "why": "retrace",
+      "end": {
+       "chunk": 915,
+       "t": 7248,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 1129,
+      "t": 7248,
+      "trace_index": 11168,
+      "why": "retrace",
+      "end": {
+       "chunk": 1153,
+       "t": 7632,
+       "how": "interrupted: sub-goal 2 undone"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 3,
+    "last_status": {
+     "chunk": 2374,
+     "t": 13408,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Pick the last item from the fridge and place it in the tupperware that is still missing it.",
+    "check": "",
+    "attempts": [],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 2374,
+     "t": 13408,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 47,
+   "1": 134,
+   "2": 75,
+   "3": 45
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 2,
+    "chunk": 177,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "undone",
+    "stage": 1,
+    "chunk": 308,
+    "detail": {
+     "was": 2
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 773,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 2,
+    "chunk": 915,
+    "detail": {
+     "window_chunks": 75,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "undone",
+    "stage": 1,
+    "chunk": 1153,
+    "detail": {
+     "was": 2
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 1632,
+    "detail": {
+     "window_chunks": 134,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 2166,
+    "detail": {
+     "window_chunks": 134,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 177,
+    "t": 2832,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 81,
+     "steps": 1296,
+     "entries": 1201,
+     "path_steps": 1200,
+     "grip_changes": 5,
+     "arrived": true,
+     "blocked": false,
+     "entry": 1632,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.003,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 308,
+    "t": 3632,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 314,
+     "steps": 5024,
+     "entries": 4657,
+     "path_steps": 4656,
+     "grip_changes": 22,
+     "arrived": true,
+     "blocked": false,
+     "entry": 272,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.1,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 773,
+    "t": 6048,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 8,
+     "steps": 1312,
+     "entries": 726,
+     "path_steps": 725,
+     "grip_changes": 0,
+     "arrived": false,
+     "blocked": true,
+     "entry": 11893,
+     "waited": 128,
+     "final_chunks": 0,
+     "joint_rad": 0.388,
+     "base_cm": 91.0,
+     "base_rad": 0.114,
+     "unstick": [
+      {
+       "instruction": "Pick the squash from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the sink or dishwasher area. This sentence commands the arm to move to the counter (where the squash is visible in the left view) and then to the tupperware, which requires lifting and moving the arm away from the current blocked position.",
+       "chunks": 8,
+       "resume_entry": 11898,
+       "blocked_at": 11901
+      },
+      {
+       "instruction": "Pick the chicken drumstick from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the floor, likely blocked by the base of the fridge or the counter edge. This instruction commands the arm to move up and forward to the counter to pick up an item, which should clear the current obstruction.",
+       "chunks": 8,
+       "resume_entry": 11893,
+       "blocked_at": 11897
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 915,
+    "t": 7248,
+    "kind": "retrace",
+    "stage": 2,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 8,
+     "steps": 5280,
+     "entries": 731,
+     "path_steps": 730,
+     "grip_changes": 0,
+     "arrived": false,
+     "blocked": true,
+     "entry": 11898,
+     "waited": 128,
+     "final_chunks": 0,
+     "joint_rad": 0.389,
+     "base_cm": 87.5,
+     "base_rad": 0.154,
+     "unstick": [
+      {
+       "instruction": "Pick the squash from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the counter edge. This command forces the arm to move laterally and upwards to grasp the squash on the counter, which should clear the current blockage and allow the robot to resume the task.",
+       "chunks": 8,
+       "resume_entry": 13441,
+       "blocked_at": 13445
+      },
+      {
+       "instruction": "Pick the squash from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the sink or dishwasher area. This sentence commands the arm to move to the counter (where the squash is visible in the left view) and then to the tupperware, which requires lifting and moving the arm away from the current blocked position.",
+       "chunks": 8,
+       "resume_entry": 11898,
+       "blocked_at": 11901
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 1153,
+    "t": 7632,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 212,
+     "steps": 10064,
+     "entries": 16344,
+     "path_steps": 16343,
+     "grip_changes": 8,
+     "arrived": false,
+     "blocked": true,
+     "entry": 13445,
+     "waited": 94,
+     "final_chunks": 0,
+     "joint_rad": 1.559,
+     "base_cm": 121.9,
+     "base_rad": 0.239,
+     "unstick": [
+      {
+       "instruction": "Pick the squash from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the floor, likely blocked by the lower cabinets or the floor itself. The squash is visible on the counter to the left. Instructing the robot to pick the squash requires it to move the arm up and to the left, which will clear the current obstruction and free the arm.",
+       "chunks": 8,
+       "resume_entry": 17721,
+       "blocked_at": 17818
+      },
+      {
+       "instruction": "Pick the chicken drumstick from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the floor, likely blocked by the lower cabinets or the base of the counter. The instruction to pick an item from the counter requires the arm to lift up and move towards the counter surface, which should clear the current obstruction.",
+       "chunks": 8,
+       "resume_entry": 16615,
+       "blocked_at": 16723
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 1632,
+    "t": 9776,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 400,
+     "steps": 6400,
+     "entries": 25841,
+     "path_steps": 25840,
+     "grip_changes": 11,
+     "arrived": false,
+     "blocked": false,
+     "entry": 19891,
+     "waited": 3,
+     "final_chunks": 0,
+     "joint_rad": 1.145,
+     "base_cm": 225.1,
+     "base_rad": 0.101,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 2166,
+    "t": 11920,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 8,
+     "steps": 2096,
+     "entries": 33174,
+     "path_steps": 33173,
+     "grip_changes": 0,
+     "arrived": false,
+     "blocked": true,
+     "entry": 33445,
+     "waited": 128,
+     "final_chunks": 0,
+     "joint_rad": 1.567,
+     "base_cm": 118.8,
+     "base_rad": 0.192,
+     "unstick": [
+      {
+       "instruction": "Pick the squash from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck near the fridge door. This sentence commands the arm to move away from the fridge to the counter to pick up the squash, which should free it from the blockage.",
+       "chunks": 8,
+       "resume_entry": 33445,
+       "blocked_at": 33448
+      },
+      {
+       "instruction": "Pick the squash from the counter and place it in the tupperware.",
+       "reason": "The arm is stuck in a low position near the floor, likely blocked by the lower cabinets or the floor itself. The tupperware with the squash is visible on the counter to the left. Instructing the robot to pick the squash from the counter requires it to lift its arm and move laterally to the left, which will move it out of the current blocked position and allow it to proceed.",
+       "chunks": 8,
+       "resume_entry": 33445,
+       "blocked_at": 33445
+      }
+     ]
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "s2_attempt",
+   "s2_start",
+   "trigger_1153",
+   "trigger_1632",
+   "trigger_177",
+   "trigger_2166",
+   "trigger_308",
+   "trigger_773",
+   "trigger_915"
+  ],
+  "free_steps": 24576,
+  "vlm_calls": [
+   {
+    "module": "unstick",
+    "chunk": 809,
+    "t": 6048,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.11,
+    "input_tokens": 1426,
+    "output_tokens": 89,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the squash from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the sink or dishwasher area. This sentence commands the arm to move to the counter (where the squash is visible in the left view) and then to the tupperware, which requires lifting and moving the arm away from the current blocked position."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 824,
+    "t": 6048,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.0,
+    "input_tokens": 1426,
+    "output_tokens": 84,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the chicken drumstick from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the floor, likely blocked by the base of the fridge or the counter edge. This instruction commands the arm to move up and forward to the counter to pick up an item, which should clear the current obstruction."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 997,
+    "t": 7248,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.4,
+    "input_tokens": 1426,
+    "output_tokens": 79,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the squash from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the counter edge. This command forces the arm to move laterally and upwards to grasp the squash on the counter, which should clear the current blockage and allow the robot to resume the task."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 1113,
+    "t": 7248,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.32,
+    "input_tokens": 1426,
+    "output_tokens": 89,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the squash from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the sink or dishwasher area. This sentence commands the arm to move to the counter (where the squash is visible in the left view) and then to the tupperware, which requires lifting and moving the arm away from the current blocked position."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 1198,
+    "t": 7632,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.72,
+    "input_tokens": 1426,
+    "output_tokens": 97,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the squash from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the floor, likely blocked by the lower cabinets or the floor itself. The squash is visible on the counter to the left. Instructing the robot to pick the squash requires it to move the arm up and to the left, which will clear the current obstruction and free the arm."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 1278,
+    "t": 7632,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.44,
+    "input_tokens": 1426,
+    "output_tokens": 87,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the chicken drumstick from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the floor, likely blocked by the lower cabinets or the base of the counter. The instruction to pick an item from the counter requires the arm to lift up and move towards the counter surface, which should clear the current obstruction."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 2249,
+    "t": 11920,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 3.4,
+    "input_tokens": 1426,
+    "output_tokens": 69,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the squash from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck near the fridge door. This sentence commands the arm to move away from the fridge to the counter to pick up the squash, which should free it from the blockage."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 2265,
+    "t": 11920,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 5.16,
+    "input_tokens": 1426,
+    "output_tokens": 112,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the squash from the counter and place it in the tupperware.",
+     "reason": "The arm is stuck in a low position near the floor, likely blocked by the lower cabinets or the floor itself. The tupperware with the squash is visible on the counter to the left. Instructing the robot to pick the squash from the counter requires it to lift its arm and move laterally to the left, which will move it out of the current blocked position and allow it to proceed."
+    }
+   }
+  ],
+  "vlm_cost_usd": 0.0,
+  "status_checks": 662
+ },
+ "fixed": false,
+ "fixed_after": null,
+ "id": "PackIdenticalLunches_s5",
+ "task": "PackIdenticalLunches",
+ "seed": 5,
+ "stage": 2,
+ "kind": "stalled",
+ "start_t": 2832,
+ "start_chunk": 177,
+ "chunks_left": 67,
+ "run": "PackIdenticalLunches_s5",
+ "config": "oracle_retrace",
+ "pseed": 0,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 7464.4
+}

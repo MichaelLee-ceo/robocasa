@@ -1,0 +1,219 @@
+{
+ "success": true,
+ "success_t": 1696,
+ "success_in_retrace": false,
+ "gr00t_time": 1696,
+ "horizon": 7500,
+ "official_horizon": 1500,
+ "ended": "success",
+ "chunks": 158,
+ "free_steps": 832,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 0,
+ "vlm_cost_usd": 0,
+ "memory": {
+  "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+  "current": 1,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the kettle from the counter and place it on the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 43,
+       "t": 688,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 43,
+      "t": 688
+     }
+    ],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 157,
+     "t": 1680,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Turn on the front left burner of the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 43,
+      "t": 688,
+      "trace_index": 688,
+      "why": "replay",
+      "end": {
+       "chunk": 66,
+       "t": 1056,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 91,
+      "t": 1056,
+      "trace_index": 1456,
+      "why": "retrace",
+      "end": {
+       "chunk": 114,
+       "t": 1424,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 141,
+      "t": 1424,
+      "trace_index": 2256,
+      "why": "retrace",
+      "end": {
+       "chunk": 158,
+       "t": 1696,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 158,
+      "t": 1696
+     }
+    ],
+    "undone_times": [],
+    "interventions": 2,
+    "last_status": {
+     "chunk": 157,
+     "t": 1680,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 40,
+   "1": 23
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 1,
+    "chunk": 66,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 114,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 66,
+    "t": 1056,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 25,
+     "steps": 400,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 1,
+     "arrived": true,
+     "blocked": false,
+     "entry": 688,
+     "waited": 0,
+     "final_chunks": 0,
+     "joint_rad": 0.002,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 114,
+    "t": 1424,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 27,
+     "steps": 432,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 3,
+     "arrived": true,
+     "blocked": false,
+     "entry": 1456,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "trigger_114",
+   "trigger_66"
+  ],
+  "free_steps": 832,
+  "vlm_calls": [],
+  "vlm_cost_usd": 0,
+  "status_checks": 40
+ },
+ "fixed": true,
+ "fixed_after": 40,
+ "id": "KettleBoiling_s17",
+ "task": "KettleBoiling",
+ "seed": 17,
+ "stage": 1,
+ "kind": "stalled",
+ "start_t": 1056,
+ "start_chunk": 66,
+ "chunks_left": 28,
+ "run": "KettleBoiling_s17",
+ "config": "oracle_retrace",
+ "pseed": 3,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 398.0
+}

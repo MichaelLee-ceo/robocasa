@@ -20,6 +20,9 @@ sentences as the checklist (tracking.oracle.task_plan; plan="vlm" lets the VLM w
 VLM_TRACK_EVERY chunks (cost: one call per check).
 Every retrace config uses the final retrace (motion/retrace.py); a blocked retrace gets the unstick fallback
 (recovery/unstick.py): the VLM picks GR00T's sentence when a `vlm` is given (any config), else the task sentence.
+Without the official time limit: horizon_scale (the GR00T-time budget as a multiple of the official horizon, a safety
+cap) and stuck_windows (the run ends when no sub-goal has been completed for that many of the current sub-goal's p90
+windows); success is still RoboCasa's own check, and its time is recorded so that the official-horizon result follows.
 build(name, ep, port, tag, vlm=None, ...) -> loop.Coordinator (None for plain)."""
 from . import context as C
 from .detection.confirm import AcceptAll, VLMConfirmer
@@ -65,7 +68,7 @@ def needs_vlm(name):
 
 
 def build(name, ep, port, tag, vlm=None, context=None, budget=None, track_every=None, plan="given", free_retrace=True,
-          event_n=2, event_every=4):
+          event_n=2, event_every=4, horizon_scale=1, stuck_windows=None):
     cfg = CONFIGS[name]
     if cfg is None:
         return None
@@ -88,6 +91,8 @@ def build(name, ep, port, tag, vlm=None, context=None, budget=None, track_every=
     every = track_every or (VLM_TRACK_EVERY if cfg["tracker"] == "vlm" else 1)
     n_stages = len(task_plan(ep))
     expected = {k: timeout.window(k) for k in range(n_stages)}
-    return Coordinator(ep, Executor(port, tag), tracker, dets, confirmer, recovery, envkit.get_task_horizon(ep.task),
+    return Coordinator(ep, Executor(port, tag), tracker, dets, confirmer, recovery,
+                       int(horizon_scale * envkit.get_task_horizon(ep.task)), stuck_windows=stuck_windows,
+                       official_horizon=envkit.get_task_horizon(ep.task),
                        free_retrace=free_retrace, track_every=every, expected=expected,
                        unstick=VLMUnstick(vlm) if vlm is not None else FixedUnstick(None))

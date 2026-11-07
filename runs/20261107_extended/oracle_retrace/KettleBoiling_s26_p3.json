@@ -1,0 +1,430 @@
+{
+ "success": true,
+ "success_t": 2304,
+ "success_in_retrace": false,
+ "gr00t_time": 2304,
+ "horizon": 7500,
+ "official_horizon": 1500,
+ "ended": "success",
+ "chunks": 490,
+ "free_steps": 5536,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 0,
+ "vlm_cost_usd": 0,
+ "memory": {
+  "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+  "current": 1,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the kettle from the counter and place it on the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 16,
+       "t": 256,
+       "how": "done"
+      }
+     },
+     {
+      "chunk": 420,
+      "t": 1776,
+      "trace_index": 6720,
+      "why": "retrace",
+      "end": {
+       "chunk": 421,
+       "t": 1792,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 16,
+      "t": 256
+     },
+     {
+      "chunk": 421,
+      "t": 1792
+     }
+    ],
+    "undone_times": [
+     {
+      "chunk": 207,
+      "t": 1776
+     }
+    ],
+    "interventions": 1,
+    "last_status": {
+     "chunk": 489,
+     "t": 2288,
+     "done": true,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Turn on the front right burner of the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 16,
+      "t": 256,
+      "trace_index": 256,
+      "why": "replay",
+      "end": {
+       "chunk": 39,
+       "t": 624,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 63,
+      "t": 624,
+      "trace_index": 1008,
+      "why": "retrace",
+      "end": {
+       "chunk": 86,
+       "t": 992,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 110,
+      "t": 992,
+      "trace_index": 1760,
+      "why": "retrace",
+      "end": {
+       "chunk": 133,
+       "t": 1360,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 157,
+      "t": 1360,
+      "trace_index": 2512,
+      "why": "retrace",
+      "end": {
+       "chunk": 180,
+       "t": 1728,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 204,
+      "t": 1728,
+      "trace_index": 3264,
+      "why": "retrace",
+      "end": {
+       "chunk": 207,
+       "t": 1776,
+       "how": "interrupted: sub-goal 1 undone"
+      }
+     },
+     {
+      "chunk": 421,
+      "t": 1792,
+      "trace_index": 6736,
+      "why": "begin",
+      "end": {
+       "chunk": 444,
+       "t": 2160,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 481,
+      "t": 2160,
+      "trace_index": 7696,
+      "why": "retrace",
+      "end": {
+       "chunk": 490,
+       "t": 2304,
+       "how": "done"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 490,
+      "t": 2304
+     }
+    ],
+    "undone_times": [],
+    "interventions": 5,
+    "last_status": {
+     "chunk": 489,
+     "t": 2288,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 40,
+   "1": 23
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 1,
+    "chunk": 39,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 86,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 133,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 180,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "undone",
+    "stage": 0,
+    "chunk": 207,
+    "detail": {
+     "was": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 444,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 39,
+    "t": 624,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 24,
+     "steps": 384,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 256,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 86,
+    "t": 992,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 24,
+     "steps": 384,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 1008,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 133,
+    "t": 1360,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 24,
+     "steps": 384,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 1760,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 180,
+    "t": 1728,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 24,
+     "steps": 384,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 2512,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 207,
+    "t": 1776,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 213,
+     "steps": 3408,
+     "entries": 3313,
+     "path_steps": 3312,
+     "grip_changes": 6,
+     "arrived": true,
+     "blocked": false,
+     "entry": 0,
+     "waited": 0,
+     "final_chunks": 0,
+     "joint_rad": 0.004,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 444,
+    "t": 2160,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 37,
+     "steps": 592,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 10,
+     "arrived": true,
+     "blocked": false,
+     "entry": 6736,
+     "waited": 55,
+     "final_chunks": 0,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_done",
+   "s1_start",
+   "trigger_133",
+   "trigger_180",
+   "trigger_207",
+   "trigger_39",
+   "trigger_444",
+   "trigger_86"
+  ],
+  "free_steps": 5536,
+  "vlm_calls": [],
+  "vlm_cost_usd": 0,
+  "status_checks": 105
+ },
+ "fixed": true,
+ "fixed_after": 105,
+ "id": "KettleBoiling_s26",
+ "task": "KettleBoiling",
+ "seed": 26,
+ "stage": 1,
+ "kind": "stalled",
+ "start_t": 624,
+ "start_chunk": 39,
+ "chunks_left": 55,
+ "run": "KettleBoiling_s26",
+ "config": "oracle_retrace",
+ "pseed": 3,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 1378.9
+}

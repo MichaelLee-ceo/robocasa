@@ -10,7 +10,8 @@ When every run is valid (or out of tries), <out>/<config>.jsonl is rewritten fro
 and <out>/<config>_SUMMARY.md compares the runs with loop.py's retrace arm and control arm on the same points and seeds.
 
 usage: setsid nohup python3 coordinator/scripts/watch_batch.py --out DIR --config oracle_retrace --runs LIST
-         [--gpus 1:19,2:13] [--vlm SPEC] [--tries 3] [--timeout 2700] [--interval 60] > DIR/watch.log 2>&1 < /dev/null &
+         [--gpus 1:19,2:13] [--vlm SPEC] [--tries 3] [--timeout 2700] [--run-args "..."] [--interval 60] \
+         > DIR/watch.log 2>&1 < /dev/null &
        LIST: one run per line, "<point id> <policy seed> <GR00T port>" """
 import argparse, collections, glob, json, os, signal, subprocess, time
 
@@ -60,10 +61,11 @@ def results(out, config):
     return ok
 
 
-def start(run_id, seed, port, gpu, out, config, vlm):
+def start(run_id, seed, port, gpu, out, config, vlm, extra=""):
     env = dict(os.environ, CUDA_DEVICE_ORDER="PCI_BUS_ID", CUDA_VISIBLE_DEVICES=gpu, MUJOCO_EGL_DEVICE_ID=gpu,
                OMP_NUM_THREADS="1", MKL_NUM_THREADS="1", POLICY_PORT=str(port))
     cmd = f"{PY} -I coordinator/scripts/run.py point {run_id} {config} {seed} --out {out}" + (f" --vlm {vlm}" if vlm else "")
+    cmd += f" {extra}" if extra else ""
     cmd += f" 2>/dev/null | grep '^{{' >> {out}/{config}.jsonl"
     subprocess.Popen(["bash", "-c", cmd], cwd=ROOT, env=env, start_new_session=True,
                      stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -119,6 +121,7 @@ def main():
     ap.add_argument("--tries", type=int, default=3)
     ap.add_argument("--interval", type=int, default=60)
     ap.add_argument("--timeout", type=int, default=2700)
+    ap.add_argument("--run-args", default="", help="more arguments for run.py, e.g. '--horizon-scale 5 --stuck-windows 4'")
     a = ap.parse_args()
     os.chdir(ROOT)
     todo = [ln.split() for ln in open(a.runs) if ln.strip()]
@@ -144,7 +147,7 @@ def main():
             gpu = next((g for g in cap if load[g] < cap[g]), None)
             if gpu is None:
                 break
-            start(r, s, p, gpu, a.out, a.config, a.vlm)
+            start(r, s, p, gpu, a.out, a.config, a.vlm, a.run_args)
             tries[f"{r}:{s}"] = tries.get(f"{r}:{s}", 0) + 1
             load[gpu] += 1
         json.dump(tries, open(tries_file, "w"))

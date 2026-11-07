@@ -1,0 +1,422 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 2224,
+ "horizon": 10500,
+ "official_horizon": 2100,
+ "ended": "stuck",
+ "chunks": 385,
+ "free_steps": 3936,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 1,
+ "vlm_cost_usd": 0.0,
+ "memory": {
+  "instruction": "Pick the tomato from the sink and place it in the bowl. Then pick the bowl and place it in the microwave. Then close the microwave door and press the start button.",
+  "current": 0,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the tomato from the sink and place it on the bowl located on the counter.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 20,
+       "t": 320,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 43,
+      "t": 320,
+      "trace_index": 688,
+      "why": "retrace",
+      "end": {
+       "chunk": 63,
+       "t": 640,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 87,
+      "t": 640,
+      "trace_index": 1392,
+      "why": "retrace",
+      "end": {
+       "chunk": 106,
+       "t": 944,
+       "how": "done"
+      }
+     },
+     {
+      "chunk": 286,
+      "t": 1296,
+      "trace_index": 4576,
+      "why": "retrace",
+      "end": {
+       "chunk": 306,
+       "t": 1616,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 326,
+      "t": 1616,
+      "trace_index": 5216,
+      "why": "retrace",
+      "end": {
+       "chunk": 346,
+       "t": 1936,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 367,
+      "t": 1936,
+      "trace_index": 5872,
+      "why": "retrace",
+      "end": {
+       "chunk": 385,
+       "t": 2224,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 106,
+      "t": 944
+     }
+    ],
+    "undone_times": [
+     {
+      "chunk": 128,
+      "t": 1296
+     }
+    ],
+    "interventions": 5,
+    "last_status": {
+     "chunk": 384,
+     "t": 2208,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Pick the bowl from the counter and place it in the microwave.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 106,
+      "t": 944,
+      "trace_index": 1696,
+      "why": "begin",
+      "end": {
+       "chunk": 128,
+       "t": 1296,
+       "how": "interrupted: sub-goal 1 undone"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 384,
+     "t": 2208,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 2,
+    "text": "Close the microwave door.",
+    "check": "",
+    "attempts": [],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 384,
+     "t": 2208,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 3,
+    "text": "Press the start button on the microwave.",
+    "check": "",
+    "attempts": [],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 0,
+    "last_status": {
+     "chunk": 384,
+     "t": 2208,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 20,
+   "1": 36,
+   "2": 26,
+   "3": 24
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 0,
+    "chunk": 20,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 63,
+    "detail": {
+     "window_chunks": 20,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "undone",
+    "stage": 0,
+    "chunk": 128,
+    "detail": {
+     "was": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 306,
+    "detail": {
+     "window_chunks": 20,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 346,
+    "detail": {
+     "window_chunks": 20,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 20,
+    "t": 320,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 23,
+     "steps": 368,
+     "entries": 321,
+     "path_steps": 320,
+     "grip_changes": 2,
+     "arrived": true,
+     "blocked": false,
+     "entry": 0,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 63,
+    "t": 640,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 24,
+     "steps": 384,
+     "entries": 321,
+     "path_steps": 320,
+     "grip_changes": 4,
+     "arrived": true,
+     "blocked": false,
+     "entry": 688,
+     "waited": 0,
+     "final_chunks": 0,
+     "joint_rad": 0.0,
+     "base_cm": 0.1,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 128,
+    "t": 1296,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 94,
+     "steps": 4032,
+     "entries": 1302,
+     "path_steps": 1301,
+     "grip_changes": 12,
+     "arrived": true,
+     "blocked": false,
+     "entry": 0,
+     "waited": 3,
+     "final_chunks": 0,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": [
+      {
+       "instruction": "Pick the tomato from the sink and place it in the bowl.",
+       "reason": "The arm is stuck in a low position near the sink drain, likely entangled with the faucet or resting on the sink edge. Re-issuing the command to pick the tomato from the sink forces the policy to execute a new grasping motion, which requires lifting the arm vertically and retracting it, thereby clearing the current blockage.",
+       "chunks": 8,
+       "resume_entry": 1301,
+       "blocked_at": 1332
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 306,
+    "t": 1616,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 20,
+     "steps": 320,
+     "entries": 321,
+     "path_steps": 320,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 4576,
+     "waited": 0,
+     "final_chunks": 0,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.001,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 346,
+    "t": 1936,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 21,
+     "steps": 336,
+     "entries": 321,
+     "path_steps": 320,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 5216,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_start",
+   "trigger_128",
+   "trigger_20",
+   "trigger_306",
+   "trigger_346",
+   "trigger_63"
+  ],
+  "free_steps": 3936,
+  "vlm_calls": [
+   {
+    "module": "unstick",
+    "chunk": 184,
+    "t": 1296,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 5.16,
+    "input_tokens": 1407,
+    "output_tokens": 97,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the tomato from the sink and place it in the bowl.",
+     "reason": "The arm is stuck in a low position near the sink drain, likely entangled with the faucet or resting on the sink edge. Re-issuing the command to pick the tomato from the sink forces the policy to execute a new grasping motion, which requires lifting the arm vertically and retracting it, thereby clearing the current blockage."
+    }
+   }
+  ],
+  "vlm_cost_usd": 0.0,
+  "status_checks": 119
+ },
+ "fixed": true,
+ "fixed_after": 39,
+ "id": "SteamInMicrowave_s28",
+ "task": "SteamInMicrowave",
+ "seed": 28,
+ "stage": 0,
+ "kind": "stalled",
+ "start_t": 320,
+ "start_chunk": 20,
+ "chunks_left": 112,
+ "run": "SteamInMicrowave_s28",
+ "config": "oracle_retrace",
+ "pseed": 1,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 1202.4
+}

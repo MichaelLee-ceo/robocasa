@@ -1,0 +1,462 @@
+{
+ "success": false,
+ "success_t": null,
+ "success_in_retrace": false,
+ "gr00t_time": 3184,
+ "horizon": 7500,
+ "official_horizon": 1500,
+ "ended": "stuck",
+ "chunks": 548,
+ "free_steps": 5584,
+ "uses_sim": [
+  "OracleTracker"
+ ],
+ "vlm_calls": 2,
+ "vlm_cost_usd": 0.0,
+ "memory": {
+  "instruction": "Pick the kettle from the counter and place it on a stove burner. Then turn the burner on.",
+  "current": 0,
+  "stages": [
+   {
+    "index": 0,
+    "text": "Pick the kettle from the counter and place it on the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 0,
+      "t": 0,
+      "trace_index": 0,
+      "why": "begin",
+      "end": {
+       "chunk": 16,
+       "t": 256,
+       "how": "done"
+      }
+     },
+     {
+      "chunk": 354,
+      "t": 1648,
+      "trace_index": 5664,
+      "why": "retrace",
+      "end": {
+       "chunk": 394,
+       "t": 2288,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 449,
+      "t": 2288,
+      "trace_index": 7184,
+      "why": "retrace",
+      "end": {
+       "chunk": 489,
+       "t": 2928,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 532,
+      "t": 2928,
+      "trace_index": 8512,
+      "why": "retrace",
+      "end": {
+       "chunk": 548,
+       "t": 3184,
+       "how": "episode end"
+      }
+     }
+    ],
+    "done_times": [
+     {
+      "chunk": 16,
+      "t": 256
+     }
+    ],
+    "undone_times": [
+     {
+      "chunk": 190,
+      "t": 1648
+     }
+    ],
+    "interventions": 3,
+    "last_status": {
+     "chunk": 547,
+     "t": 3168,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   },
+   {
+    "index": 1,
+    "text": "Turn on the front right burner of the stove.",
+    "check": "",
+    "attempts": [
+     {
+      "chunk": 16,
+      "t": 256,
+      "trace_index": 256,
+      "why": "replay",
+      "end": {
+       "chunk": 39,
+       "t": 624,
+       "how": "failure_point -> retrace"
+      }
+     },
+     {
+      "chunk": 63,
+      "t": 624,
+      "trace_index": 1008,
+      "why": "retrace",
+      "end": {
+       "chunk": 86,
+       "t": 992,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 121,
+      "t": 992,
+      "trace_index": 1936,
+      "why": "retrace",
+      "end": {
+       "chunk": 144,
+       "t": 1360,
+       "how": "timeout -> retrace"
+      }
+     },
+     {
+      "chunk": 172,
+      "t": 1360,
+      "trace_index": 2752,
+      "why": "retrace",
+      "end": {
+       "chunk": 190,
+       "t": 1648,
+       "how": "interrupted: sub-goal 1 undone"
+      }
+     }
+    ],
+    "done_times": [],
+    "undone_times": [],
+    "interventions": 3,
+    "last_status": {
+     "chunk": 547,
+     "t": 3168,
+     "done": false,
+     "source": "oracle",
+     "evidence": ""
+    }
+   }
+  ],
+  "expected": {
+   "0": 40,
+   "1": 23
+  },
+  "notes": [],
+  "triggers": [
+   {
+    "kind": "failure_point",
+    "stage": 1,
+    "chunk": 39,
+    "detail": {
+     "kind": "stalled"
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 86,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 1,
+    "chunk": 144,
+    "detail": {
+     "window_chunks": 23,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "undone",
+    "stage": 0,
+    "chunk": 190,
+    "detail": {
+     "was": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 394,
+    "detail": {
+     "window_chunks": 40,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   },
+   {
+    "kind": "timeout",
+    "stage": 0,
+    "chunk": 489,
+    "detail": {
+     "window_chunks": 40,
+     "windows": 1
+    },
+    "confirmed": true,
+    "reason": "accepted (no confirmer)"
+   }
+  ],
+  "interventions": [
+   {
+    "chunk": 39,
+    "t": 624,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 24,
+     "steps": 384,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 256,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 86,
+    "t": 992,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 2,
+     "steps": 592,
+     "entries": 1,
+     "path_steps": 0,
+     "grip_changes": 0,
+     "arrived": true,
+     "blocked": false,
+     "entry": 1008,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": [
+      {
+       "instruction": "Pick the kettle from the counter and place it on a stove burner.",
+       "reason": "The arm is stuck in a low, retracted position near the front of the stove, likely blocked by the stove's edge or its own previous path. The instruction to pick the kettle (which is on the counter to the left) and place it on the stove requires the arm to move laterally and upwards, which should clear the current blockage and allow the robot to proceed.",
+       "chunks": 8,
+       "resume_entry": 1008,
+       "blocked_at": 1057
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 144,
+    "t": 1360,
+    "kind": "retrace",
+    "stage": 1,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 28,
+     "steps": 448,
+     "entries": 369,
+     "path_steps": 368,
+     "grip_changes": 4,
+     "arrived": true,
+     "blocked": false,
+     "entry": 1936,
+     "waited": 0,
+     "final_chunks": 1,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 190,
+    "t": 1648,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 14,
+     "steps": 2848,
+     "entries": 191,
+     "path_steps": 190,
+     "grip_changes": 1,
+     "arrived": true,
+     "blocked": false,
+     "entry": 0,
+     "waited": 16,
+     "final_chunks": 0,
+     "joint_rad": 0.003,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": [
+      {
+       "instruction": "Turn on the right burner of the stove.",
+       "reason": "The arm is stuck in a low position near the front of the stove, likely entangled with the pot or the burner knobs. The command to turn on the right burner requires the arm to move to the right side of the stove and interact with the control knob, which forces the arm to lift and translate laterally, clearing the current blockage.",
+       "chunks": 8,
+       "resume_entry": 190,
+       "blocked_at": 1059
+      }
+     ]
+    }
+   },
+   {
+    "chunk": 394,
+    "t": 2288,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 55,
+     "steps": 880,
+     "entries": 641,
+     "path_steps": 640,
+     "grip_changes": 15,
+     "arrived": true,
+     "blocked": false,
+     "entry": 5664,
+     "waited": 0,
+     "final_chunks": 0,
+     "joint_rad": 0.002,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   },
+   {
+    "chunk": 489,
+    "t": 2928,
+    "kind": "retrace",
+    "stage": 0,
+    "instruction": null,
+    "reason": "",
+    "detail": {},
+    "result": {
+     "chunks": 43,
+     "steps": 688,
+     "entries": 641,
+     "path_steps": 640,
+     "grip_changes": 2,
+     "arrived": true,
+     "blocked": false,
+     "entry": 7184,
+     "waited": 0,
+     "final_chunks": 0,
+     "joint_rad": 0.001,
+     "base_cm": 0.0,
+     "base_rad": 0.0,
+     "unstick": []
+    }
+   }
+  ],
+  "keyframes": [
+   "s0_attempt",
+   "s0_done",
+   "s0_start",
+   "s1_attempt",
+   "s1_start",
+   "trigger_144",
+   "trigger_190",
+   "trigger_39",
+   "trigger_394",
+   "trigger_489",
+   "trigger_86"
+  ],
+  "free_steps": 5584,
+  "vlm_calls": [
+   {
+    "module": "unstick",
+    "chunk": 111,
+    "t": 992,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.81,
+    "input_tokens": 1380,
+    "output_tokens": 101,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Pick the kettle from the counter and place it on a stove burner.",
+     "reason": "The arm is stuck in a low, retracted position near the front of the stove, likely blocked by the stove's edge or its own previous path. The instruction to pick the kettle (which is on the counter to the left) and place it on the stove requires the arm to move laterally and upwards, which should clear the current blockage and allow the robot to proceed."
+    }
+   },
+   {
+    "module": "unstick",
+    "chunk": 332,
+    "t": 1648,
+    "model": "Qwen/Qwen3.8-27B",
+    "seconds": 4.72,
+    "input_tokens": 1382,
+    "output_tokens": 95,
+    "cost_usd": 0.0,
+    "error": "",
+    "stop_reason": "stop",
+    "n_images": 6,
+    "tag": "unstick",
+    "answer": {
+     "instruction": "Turn on the right burner of the stove.",
+     "reason": "The arm is stuck in a low position near the front of the stove, likely entangled with the pot or the burner knobs. The command to turn on the right burner requires the arm to move to the right side of the stove and interact with the control knob, which forces the arm to lift and translate laterally, clearing the current blockage."
+    }
+   }
+  ],
+  "vlm_cost_usd": 0.0,
+  "status_checks": 160
+ },
+ "fixed": false,
+ "fixed_after": null,
+ "id": "KettleBoiling_s26",
+ "task": "KettleBoiling",
+ "seed": 26,
+ "stage": 1,
+ "kind": "stalled",
+ "start_t": 624,
+ "start_chunk": 39,
+ "chunks_left": 55,
+ "run": "KettleBoiling_s26",
+ "config": "oracle_retrace",
+ "pseed": 1,
+ "vlm": "vllm:Qwen/Qwen3.8-27B@8104",
+ "seconds": 1579.6
+}
